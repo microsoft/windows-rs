@@ -603,12 +603,12 @@ windows_core::imp::interface_hierarchy!(Print3DManager, windows_core::IUnknown, 
 impl Print3DManager {
     pub fn TaskRequested<P0>(&self, eventhandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<Print3DManager, Print3DTaskRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Print3DManager, Print3DTaskRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TaskRequested)(windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TaskRequested)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveTaskRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -659,12 +659,12 @@ impl Print3DTask {
     }
     pub fn Submitting<P0>(&self, eventhandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<Print3DTask, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Print3DTask, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Submitting)(windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Submitting)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSubmitting(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -673,12 +673,12 @@ impl Print3DTask {
     }
     pub fn Completed<P0>(&self, eventhandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<Print3DTask, Print3DTaskCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Print3DTask, Print3DTaskCompletedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCompleted(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -687,12 +687,12 @@ impl Print3DTask {
     }
     pub fn SourceChanged<P0>(&self, eventhandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<Print3DTask, Print3DTaskSourceChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Print3DTask, Print3DTaskSourceChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SourceChanged)(windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SourceChanged)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSourceChanged(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -751,12 +751,12 @@ windows_core::imp::interface_hierarchy!(Print3DTaskRequest, windows_core::IUnkno
 impl Print3DTaskRequest {
     pub fn CreateTask<P0>(&self, title: &windows_core::HSTRING, printerid: &windows_core::HSTRING, handler: P0) -> windows_core::Result<Print3DTask>
     where
-        P0: windows_core::IntoParam<Print3DTaskSourceRequestedHandler>,
+        P0: windows_core::Param<Print3DTaskSourceRequestedHandler>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateTask)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), core::mem::transmute_copy(printerid), handler.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateTask)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), core::mem::transmute_copy(printerid), handler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -829,10 +829,10 @@ windows_core::imp::interface_hierarchy!(Print3DTaskSourceRequestedArgs, windows_
 impl Print3DTaskSourceRequestedArgs {
     pub fn SetSource<P0>(&self, source: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<Printing3D3MFPackage>,
+        P0: windows_core::Param<Printing3D3MFPackage>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSource)(windows_core::Interface::as_raw(this), source.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSource)(windows_core::Interface::as_raw(this), source.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for Print3DTaskSourceRequestedArgs {
@@ -878,10 +878,10 @@ impl Printing3D3MFPackage {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetPrintTicket<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStream>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPrintTicket)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPrintTicket)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn ModelPart(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStream> {
@@ -894,10 +894,10 @@ impl Printing3D3MFPackage {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetModelPart<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStream>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetModelPart)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetModelPart)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Thumbnail(&self) -> windows_core::Result<Printing3DTextureResource> {
         let this = self;
@@ -908,10 +908,10 @@ impl Printing3D3MFPackage {
     }
     pub fn SetThumbnail<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<Printing3DTextureResource>,
+        P0: windows_core::Param<Printing3DTextureResource>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetThumbnail)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetThumbnail)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Textures(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DTextureResource>> {
@@ -924,22 +924,22 @@ impl Printing3D3MFPackage {
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadModelFromPackageAsync<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Printing3DModel>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStream>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadModelFromPackageAsync)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadModelFromPackageAsync)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SaveModelToPackageAsync<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<Printing3DModel>,
+        P0: windows_core::Param<Printing3DModel>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SaveModelToPackageAsync)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SaveModelToPackageAsync)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Compression(&self) -> windows_core::Result<Printing3DPackageCompression> {
@@ -956,11 +956,11 @@ impl Printing3D3MFPackage {
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadAsync<P0>(value: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Printing3D3MFPackage>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStream>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
         Self::IPrinting3D3MFPackageStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadAsync)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadAsync)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1013,10 +1013,10 @@ impl Printing3DBaseMaterial {
     }
     pub fn SetColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<Printing3DColorMaterial>,
+        P0: windows_core::Param<Printing3DColorMaterial>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetColor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Abs() -> windows_core::Result<windows_core::HSTRING> {
         Self::IPrinting3DBaseMaterialStatics(|this| unsafe {
@@ -1206,10 +1206,10 @@ impl Printing3DComponent {
     }
     pub fn SetMesh<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<Printing3DMesh>,
+        P0: windows_core::Param<Printing3DMesh>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMesh)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMesh)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Components(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DComponentWithMatrix>> {
@@ -1228,10 +1228,10 @@ impl Printing3DComponent {
     }
     pub fn SetThumbnail<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<Printing3DTextureResource>,
+        P0: windows_core::Param<Printing3DTextureResource>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetThumbnail)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetThumbnail)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Type(&self) -> windows_core::Result<Printing3DObjectType> {
         let this = self;
@@ -1300,10 +1300,10 @@ impl Printing3DComponentWithMatrix {
     }
     pub fn SetComponent<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<Printing3DComponent>,
+        P0: windows_core::Param<Printing3DComponent>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetComponent)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetComponent)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Matrix(&self) -> windows_core::Result<super::super::Foundation::Numerics::Matrix4x4> {
@@ -1401,10 +1401,10 @@ impl Printing3DCompositeMaterialGroup {
     }
     pub fn SetBaseMaterialGroup<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<Printing3DBaseMaterialGroup>,
+        P0: windows_core::Param<Printing3DBaseMaterialGroup>,
     {
         let this = &windows_core::Interface::cast::<IPrinting3DCompositeMaterialGroup2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetBaseMaterialGroup)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBaseMaterialGroup)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Create(materialgroupid: u32) -> windows_core::Result<Printing3DCompositeMaterialGroup> {
         Self::IPrinting3DCompositeMaterialGroupFactory(|this| unsafe {
@@ -1812,10 +1812,10 @@ impl Printing3DModel {
     }
     pub fn SetMaterial<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<Printing3DMaterial>,
+        P0: windows_core::Param<Printing3DMaterial>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaterial)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaterial)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Build(&self) -> windows_core::Result<Printing3DComponent> {
         let this = self;
@@ -1826,10 +1826,10 @@ impl Printing3DModel {
     }
     pub fn SetBuild<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<Printing3DComponent>,
+        P0: windows_core::Param<Printing3DComponent>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBuild)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBuild)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Version(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -1895,22 +1895,22 @@ impl Printing3DModel {
     }
     pub fn TryReduceFacesWithOptionsAsync<P0>(&self, printing3dfacereductionoptions: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>>
     where
-        P0: windows_core::IntoParam<Printing3DFaceReductionOptions>,
+        P0: windows_core::Param<Printing3DFaceReductionOptions>,
     {
         let this = &windows_core::Interface::cast::<IPrinting3DModel2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryReduceFacesWithOptionsAsync)(windows_core::Interface::as_raw(this), printing3dfacereductionoptions.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryReduceFacesWithOptionsAsync)(windows_core::Interface::as_raw(this), printing3dfacereductionoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryReduceFacesWithOptionsAndTimeAsync<P0>(&self, printing3dfacereductionoptions: P0, maxwait: super::super::Foundation::TimeSpan) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>>
     where
-        P0: windows_core::IntoParam<Printing3DFaceReductionOptions>,
+        P0: windows_core::Param<Printing3DFaceReductionOptions>,
     {
         let this = &windows_core::Interface::cast::<IPrinting3DModel2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryReduceFacesWithOptionsAndTimeAsync)(windows_core::Interface::as_raw(this), printing3dfacereductionoptions.into_param().abi(), maxwait, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryReduceFacesWithOptionsAndTimeAsync)(windows_core::Interface::as_raw(this), printing3dfacereductionoptions.param().abi(), maxwait, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RepairWithProgressAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>> {
@@ -1954,10 +1954,10 @@ impl Printing3DModelTexture {
     }
     pub fn SetTextureResource<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<Printing3DTextureResource>,
+        P0: windows_core::Param<Printing3DTextureResource>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTextureResource)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetTextureResource)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn TileStyleU(&self) -> windows_core::Result<Printing3DTextureEdgeBehavior> {
         let this = self;
@@ -2100,10 +2100,10 @@ impl Printing3DTexture2CoordMaterial {
     }
     pub fn SetTexture<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<Printing3DModelTexture>,
+        P0: windows_core::Param<Printing3DModelTexture>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTexture)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetTexture)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn U(&self) -> windows_core::Result<f64> {
         let this = self;
@@ -2169,10 +2169,10 @@ impl Printing3DTexture2CoordMaterialGroup {
     }
     pub fn SetTexture<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<Printing3DModelTexture>,
+        P0: windows_core::Param<Printing3DModelTexture>,
     {
         let this = &windows_core::Interface::cast::<IPrinting3DTexture2CoordMaterialGroup2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetTexture)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetTexture)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Create(materialgroupid: u32) -> windows_core::Result<Printing3DTexture2CoordMaterialGroup> {
         Self::IPrinting3DTexture2CoordMaterialGroupFactory(|this| unsafe {
@@ -2221,10 +2221,10 @@ impl Printing3DTextureResource {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetTextureData<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStreamWithContentType>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamWithContentType>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTextureData)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetTextureData)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -2456,10 +2456,10 @@ impl Print3DTaskSourceRequestedHandler {
     }
     pub fn Invoke<P0>(&self, args: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<Print3DTaskSourceRequestedArgs>,
+        P0: windows_core::Param<Print3DTaskSourceRequestedArgs>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), args.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), args.param().abi()).ok() }
     }
 }
 #[repr(C)]

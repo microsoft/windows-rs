@@ -618,12 +618,12 @@ windows_core::imp::interface_hierarchy!(SpatialGestureRecognizer, windows_core::
 impl SpatialGestureRecognizer {
     pub fn RecognitionStarted<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialRecognitionStartedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialRecognitionStartedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RecognitionStarted)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RecognitionStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRecognitionStarted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -632,12 +632,12 @@ impl SpatialGestureRecognizer {
     }
     pub fn RecognitionEnded<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialRecognitionEndedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialRecognitionEndedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RecognitionEnded)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RecognitionEnded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRecognitionEnded(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -646,12 +646,12 @@ impl SpatialGestureRecognizer {
     }
     pub fn Tapped<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialTappedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialTappedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Tapped)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Tapped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveTapped(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -660,12 +660,12 @@ impl SpatialGestureRecognizer {
     }
     pub fn HoldStarted<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldStartedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldStartedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).HoldStarted)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).HoldStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveHoldStarted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -674,12 +674,12 @@ impl SpatialGestureRecognizer {
     }
     pub fn HoldCompleted<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldCompletedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).HoldCompleted)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).HoldCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveHoldCompleted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -688,12 +688,12 @@ impl SpatialGestureRecognizer {
     }
     pub fn HoldCanceled<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldCanceledEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldCanceledEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).HoldCanceled)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).HoldCanceled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveHoldCanceled(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -702,12 +702,12 @@ impl SpatialGestureRecognizer {
     }
     pub fn ManipulationStarted<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationStartedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationStartedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ManipulationStarted)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ManipulationStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveManipulationStarted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -716,12 +716,12 @@ impl SpatialGestureRecognizer {
     }
     pub fn ManipulationUpdated<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationUpdatedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationUpdatedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ManipulationUpdated)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ManipulationUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveManipulationUpdated(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -730,12 +730,12 @@ impl SpatialGestureRecognizer {
     }
     pub fn ManipulationCompleted<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationCompletedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ManipulationCompleted)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ManipulationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveManipulationCompleted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -744,12 +744,12 @@ impl SpatialGestureRecognizer {
     }
     pub fn ManipulationCanceled<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationCanceledEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationCanceledEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ManipulationCanceled)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ManipulationCanceled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveManipulationCanceled(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -758,12 +758,12 @@ impl SpatialGestureRecognizer {
     }
     pub fn NavigationStarted<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationStartedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationStartedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).NavigationStarted)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).NavigationStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveNavigationStarted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -772,12 +772,12 @@ impl SpatialGestureRecognizer {
     }
     pub fn NavigationUpdated<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationUpdatedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationUpdatedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).NavigationUpdated)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).NavigationUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveNavigationUpdated(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -786,12 +786,12 @@ impl SpatialGestureRecognizer {
     }
     pub fn NavigationCompleted<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationCompletedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).NavigationCompleted)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).NavigationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveNavigationCompleted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -800,12 +800,12 @@ impl SpatialGestureRecognizer {
     }
     pub fn NavigationCanceled<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationCanceledEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationCanceledEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).NavigationCanceled)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).NavigationCanceled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveNavigationCanceled(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -814,10 +814,10 @@ impl SpatialGestureRecognizer {
     }
     pub fn CaptureInteraction<P0>(&self, interaction: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<SpatialInteraction>,
+        P0: windows_core::Param<SpatialInteraction>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).CaptureInteraction)(windows_core::Interface::as_raw(this), interaction.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).CaptureInteraction)(windows_core::Interface::as_raw(this), interaction.param().abi()).ok() }
     }
     pub fn CancelPendingGestures(&self) -> windows_core::Result<()> {
         let this = self;
@@ -926,12 +926,12 @@ impl SpatialHoldStartedEventArgs {
     #[cfg(feature = "Perception_Spatial")]
     pub fn TryGetPointerPose<P0>(&self, coordinatesystem: P0) -> windows_core::Result<SpatialPointerPose>
     where
-        P0: windows_core::IntoParam<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetPointerPose)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetPointerPose)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1131,12 +1131,12 @@ impl SpatialInteractionDetectedEventArgs {
     #[cfg(feature = "Perception_Spatial")]
     pub fn TryGetPointerPose<P0>(&self, coordinatesystem: P0) -> windows_core::Result<SpatialPointerPose>
     where
-        P0: windows_core::IntoParam<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetPointerPose)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetPointerPose)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Interaction(&self) -> windows_core::Result<SpatialInteraction> {
@@ -1173,12 +1173,12 @@ windows_core::imp::interface_hierarchy!(SpatialInteractionManager, windows_core:
 impl SpatialInteractionManager {
     pub fn SourceDetected<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SourceDetected)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SourceDetected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSourceDetected(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1187,12 +1187,12 @@ impl SpatialInteractionManager {
     }
     pub fn SourceLost<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SourceLost)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SourceLost)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSourceLost(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1201,12 +1201,12 @@ impl SpatialInteractionManager {
     }
     pub fn SourceUpdated<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SourceUpdated)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SourceUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSourceUpdated(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1215,12 +1215,12 @@ impl SpatialInteractionManager {
     }
     pub fn SourcePressed<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SourcePressed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SourcePressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSourcePressed(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1229,12 +1229,12 @@ impl SpatialInteractionManager {
     }
     pub fn SourceReleased<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SourceReleased)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SourceReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSourceReleased(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1243,12 +1243,12 @@ impl SpatialInteractionManager {
     }
     pub fn InteractionDetected<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionDetectedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionDetectedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).InteractionDetected)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).InteractionDetected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveInteractionDetected(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1258,12 +1258,12 @@ impl SpatialInteractionManager {
     #[cfg(all(feature = "Foundation_Collections", feature = "Perception"))]
     pub fn GetDetectedSourcesAtTimestamp<P0>(&self, timestamp: P0) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<SpatialInteractionSourceState>>
     where
-        P0: windows_core::IntoParam<super::super::super::Perception::PerceptionTimestamp>,
+        P0: windows_core::Param<super::super::super::Perception::PerceptionTimestamp>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDetectedSourcesAtTimestamp)(windows_core::Interface::as_raw(this), timestamp.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDetectedSourcesAtTimestamp)(windows_core::Interface::as_raw(this), timestamp.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetForCurrentView() -> windows_core::Result<SpatialInteractionManager> {
@@ -1351,12 +1351,12 @@ impl SpatialInteractionSource {
     #[cfg(feature = "Perception")]
     pub fn TryGetStateAtTimestamp<P0>(&self, timestamp: P0) -> windows_core::Result<SpatialInteractionSourceState>
     where
-        P0: windows_core::IntoParam<super::super::super::Perception::PerceptionTimestamp>,
+        P0: windows_core::Param<super::super::super::Perception::PerceptionTimestamp>,
     {
         let this = &windows_core::Interface::cast::<ISpatialInteractionSource2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetStateAtTimestamp)(windows_core::Interface::as_raw(this), timestamp.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetStateAtTimestamp)(windows_core::Interface::as_raw(this), timestamp.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Handedness(&self) -> windows_core::Result<SpatialInteractionSourceHandedness> {
@@ -1499,12 +1499,12 @@ impl SpatialInteractionSourceProperties {
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn TryGetSourceLossMitigationDirection<P0>(&self, coordinatesystem: P0) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>
     where
-        P0: windows_core::IntoParam<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetSourceLossMitigationDirection)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetSourceLossMitigationDirection)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SourceLossRisk(&self) -> windows_core::Result<f64> {
@@ -1517,12 +1517,12 @@ impl SpatialInteractionSourceProperties {
     #[cfg(feature = "Perception_Spatial")]
     pub fn TryGetLocation<P0>(&self, coordinatesystem: P0) -> windows_core::Result<SpatialInteractionSourceLocation>
     where
-        P0: windows_core::IntoParam<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetLocation)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetLocation)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1575,12 +1575,12 @@ impl SpatialInteractionSourceState {
     #[cfg(feature = "Perception_Spatial")]
     pub fn TryGetPointerPose<P0>(&self, coordinatesystem: P0) -> windows_core::Result<SpatialPointerPose>
     where
-        P0: windows_core::IntoParam<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetPointerPose)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetPointerPose)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsSelectPressed(&self) -> windows_core::Result<bool> {
@@ -1679,12 +1679,12 @@ impl SpatialManipulationCompletedEventArgs {
     #[cfg(feature = "Perception_Spatial")]
     pub fn TryGetCumulativeDelta<P0>(&self, coordinatesystem: P0) -> windows_core::Result<SpatialManipulationDelta>
     where
-        P0: windows_core::IntoParam<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetCumulativeDelta)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetCumulativeDelta)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1741,12 +1741,12 @@ impl SpatialManipulationStartedEventArgs {
     #[cfg(feature = "Perception_Spatial")]
     pub fn TryGetPointerPose<P0>(&self, coordinatesystem: P0) -> windows_core::Result<SpatialPointerPose>
     where
-        P0: windows_core::IntoParam<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetPointerPose)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetPointerPose)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1777,12 +1777,12 @@ impl SpatialManipulationUpdatedEventArgs {
     #[cfg(feature = "Perception_Spatial")]
     pub fn TryGetCumulativeDelta<P0>(&self, coordinatesystem: P0) -> windows_core::Result<SpatialManipulationDelta>
     where
-        P0: windows_core::IntoParam<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetCumulativeDelta)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetCumulativeDelta)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1871,12 +1871,12 @@ impl SpatialNavigationStartedEventArgs {
     #[cfg(feature = "Perception_Spatial")]
     pub fn TryGetPointerPose<P0>(&self, coordinatesystem: P0) -> windows_core::Result<SpatialPointerPose>
     where
-        P0: windows_core::IntoParam<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetPointerPose)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetPointerPose)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsNavigatingX(&self) -> windows_core::Result<bool> {
@@ -2026,12 +2026,12 @@ impl SpatialPointerPose {
     }
     pub fn TryGetInteractionSourcePose<P0>(&self, source: P0) -> windows_core::Result<SpatialPointerInteractionSourcePose>
     where
-        P0: windows_core::IntoParam<SpatialInteractionSource>,
+        P0: windows_core::Param<SpatialInteractionSource>,
     {
         let this = &windows_core::Interface::cast::<ISpatialPointerPose2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetInteractionSourcePose)(windows_core::Interface::as_raw(this), source.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetInteractionSourcePose)(windows_core::Interface::as_raw(this), source.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Perception_People")]
@@ -2052,12 +2052,12 @@ impl SpatialPointerPose {
     #[cfg(feature = "Perception_Spatial")]
     pub fn TryGetAtTimestamp<P0, P1>(coordinatesystem: P0, timestamp: P1) -> windows_core::Result<SpatialPointerPose>
     where
-        P0: windows_core::IntoParam<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
-        P1: windows_core::IntoParam<super::super::super::Perception::PerceptionTimestamp>,
+        P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P1: windows_core::Param<super::super::super::Perception::PerceptionTimestamp>,
     {
         Self::ISpatialPointerPoseStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetAtTimestamp)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), timestamp.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetAtTimestamp)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), timestamp.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -2118,12 +2118,12 @@ impl SpatialRecognitionStartedEventArgs {
     #[cfg(feature = "Perception_Spatial")]
     pub fn TryGetPointerPose<P0>(&self, coordinatesystem: P0) -> windows_core::Result<SpatialPointerPose>
     where
-        P0: windows_core::IntoParam<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetPointerPose)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetPointerPose)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsGesturePossible(&self, gesture: SpatialGestureSettings) -> windows_core::Result<bool> {
@@ -2161,12 +2161,12 @@ impl SpatialTappedEventArgs {
     #[cfg(feature = "Perception_Spatial")]
     pub fn TryGetPointerPose<P0>(&self, coordinatesystem: P0) -> windows_core::Result<SpatialPointerPose>
     where
-        P0: windows_core::IntoParam<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetPointerPose)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetPointerPose)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TapCount(&self) -> windows_core::Result<u32> {

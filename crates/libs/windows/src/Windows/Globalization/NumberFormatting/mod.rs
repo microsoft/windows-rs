@@ -347,10 +347,10 @@ impl INumberRounderOption {
     }
     pub fn SetNumberRounder<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<INumberRounder>,
+        P0: windows_core::Param<INumberRounder>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetNumberRounder)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNumberRounder)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for INumberRounderOption {
@@ -516,11 +516,11 @@ impl CurrencyFormatter {
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateCurrencyFormatterCodeContext<P0>(currencycode: &windows_core::HSTRING, languages: P0, geographicregion: &windows_core::HSTRING) -> windows_core::Result<CurrencyFormatter>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::ICurrencyFormatterFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCurrencyFormatterCodeContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(currencycode), languages.into_param().abi(), core::mem::transmute_copy(geographicregion), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateCurrencyFormatterCodeContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(currencycode), languages.param().abi(), core::mem::transmute_copy(geographicregion), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn FormatInt(&self, value: i64) -> windows_core::Result<windows_core::HSTRING> {
@@ -679,10 +679,10 @@ impl CurrencyFormatter {
     }
     pub fn SetNumberRounder<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<INumberRounder>,
+        P0: windows_core::Param<INumberRounder>,
     {
         let this = &windows_core::Interface::cast::<INumberRounderOption>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetNumberRounder)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNumberRounder)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn IsZeroSigned(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ISignedZeroOption>(self)?;
@@ -740,11 +740,11 @@ impl DecimalFormatter {
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateDecimalFormatter<P0>(languages: P0, geographicregion: &windows_core::HSTRING) -> windows_core::Result<DecimalFormatter>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IDecimalFormatterFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateDecimalFormatter)(windows_core::Interface::as_raw(this), languages.into_param().abi(), core::mem::transmute_copy(geographicregion), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateDecimalFormatter)(windows_core::Interface::as_raw(this), languages.param().abi(), core::mem::transmute_copy(geographicregion), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn FormatInt(&self, value: i64) -> windows_core::Result<windows_core::HSTRING> {
@@ -903,10 +903,10 @@ impl DecimalFormatter {
     }
     pub fn SetNumberRounder<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<INumberRounder>,
+        P0: windows_core::Param<INumberRounder>,
     {
         let this = &windows_core::Interface::cast::<INumberRounderOption>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetNumberRounder)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNumberRounder)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn IsZeroSigned(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ISignedZeroOption>(self)?;
@@ -1086,11 +1086,11 @@ impl NumeralSystemTranslator {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create<P0>(languages: P0) -> windows_core::Result<NumeralSystemTranslator>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::INumeralSystemTranslatorFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), languages.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), languages.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1280,19 +1280,19 @@ impl PercentFormatter {
     }
     pub fn SetNumberRounder<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<INumberRounder>,
+        P0: windows_core::Param<INumberRounder>,
     {
         let this = &windows_core::Interface::cast::<INumberRounderOption>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetNumberRounder)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNumberRounder)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreatePercentFormatter<P0>(languages: P0, geographicregion: &windows_core::HSTRING) -> windows_core::Result<PercentFormatter>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IPercentFormatterFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreatePercentFormatter)(windows_core::Interface::as_raw(this), languages.into_param().abi(), core::mem::transmute_copy(geographicregion), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreatePercentFormatter)(windows_core::Interface::as_raw(this), languages.param().abi(), core::mem::transmute_copy(geographicregion), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn IsZeroSigned(&self) -> windows_core::Result<bool> {
@@ -1504,19 +1504,19 @@ impl PermilleFormatter {
     }
     pub fn SetNumberRounder<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<INumberRounder>,
+        P0: windows_core::Param<INumberRounder>,
     {
         let this = &windows_core::Interface::cast::<INumberRounderOption>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetNumberRounder)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNumberRounder)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreatePermilleFormatter<P0>(languages: P0, geographicregion: &windows_core::HSTRING) -> windows_core::Result<PermilleFormatter>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IPermilleFormatterFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreatePermilleFormatter)(windows_core::Interface::as_raw(this), languages.into_param().abi(), core::mem::transmute_copy(geographicregion), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreatePermilleFormatter)(windows_core::Interface::as_raw(this), languages.param().abi(), core::mem::transmute_copy(geographicregion), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn IsZeroSigned(&self) -> windows_core::Result<bool> {

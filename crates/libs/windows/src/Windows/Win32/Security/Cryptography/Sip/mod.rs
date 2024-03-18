@@ -53,20 +53,20 @@ pub unsafe fn CryptSIPRemoveSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dw
 #[inline]
 pub unsafe fn CryptSIPRetrieveSubjectGuid<P0, P1>(filename: P0, hfilein: P1, pgsubject: *mut windows_core::GUID) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptSIPRetrieveSubjectGuid(filename : windows_core::PCWSTR, hfilein : super::super::super::Foundation:: HANDLE, pgsubject : *mut windows_core::GUID) -> super::super::super::Foundation:: BOOL);
-    CryptSIPRetrieveSubjectGuid(filename.into_param().abi(), hfilein.into_param().abi(), pgsubject).ok()
+    CryptSIPRetrieveSubjectGuid(filename.param().abi(), hfilein.param().abi(), pgsubject).ok()
 }
 #[inline]
 pub unsafe fn CryptSIPRetrieveSubjectGuidForCatalogFile<P0, P1>(filename: P0, hfilein: P1, pgsubject: *mut windows_core::GUID) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptSIPRetrieveSubjectGuidForCatalogFile(filename : windows_core::PCWSTR, hfilein : super::super::super::Foundation:: HANDLE, pgsubject : *mut windows_core::GUID) -> super::super::super::Foundation:: BOOL);
-    CryptSIPRetrieveSubjectGuidForCatalogFile(filename.into_param().abi(), hfilein.into_param().abi(), pgsubject).ok()
+    CryptSIPRetrieveSubjectGuidForCatalogFile(filename.param().abi(), hfilein.param().abi(), pgsubject).ok()
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 #[inline]

@@ -1,10 +1,10 @@
 #[inline]
 pub unsafe fn MagGetColorEffect<P0>(hwnd: P0, peffect: *mut MAGCOLOREFFECT) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("magnification.dll" "system" fn MagGetColorEffect(hwnd : super::super::Foundation:: HWND, peffect : *mut MAGCOLOREFFECT) -> super::super::Foundation:: BOOL);
-    MagGetColorEffect(hwnd.into_param().abi(), peffect)
+    MagGetColorEffect(hwnd.param().abi(), peffect)
 }
 #[inline]
 pub unsafe fn MagGetFullscreenColorEffect(peffect: *mut MAGCOLOREFFECT) -> super::super::Foundation::BOOL {
@@ -20,10 +20,10 @@ pub unsafe fn MagGetFullscreenTransform(pmaglevel: *mut f32, pxoffset: *mut i32,
 #[inline]
 pub unsafe fn MagGetImageScalingCallback<P0>(hwnd: P0) -> MagImageScalingCallback
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("magnification.dll" "system" fn MagGetImageScalingCallback(hwnd : super::super::Foundation:: HWND) -> MagImageScalingCallback);
-    MagGetImageScalingCallback(hwnd.into_param().abi())
+    MagGetImageScalingCallback(hwnd.param().abi())
 }
 #[inline]
 pub unsafe fn MagGetInputTransform(pfenabled: *mut super::super::Foundation::BOOL, prectsource: *mut super::super::Foundation::RECT, prectdest: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
@@ -33,26 +33,26 @@ pub unsafe fn MagGetInputTransform(pfenabled: *mut super::super::Foundation::BOO
 #[inline]
 pub unsafe fn MagGetWindowFilterList<P0>(hwnd: P0, pdwfiltermode: *mut MW_FILTERMODE, count: i32, phwnd: *mut super::super::Foundation::HWND) -> i32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("magnification.dll" "system" fn MagGetWindowFilterList(hwnd : super::super::Foundation:: HWND, pdwfiltermode : *mut MW_FILTERMODE, count : i32, phwnd : *mut super::super::Foundation:: HWND) -> i32);
-    MagGetWindowFilterList(hwnd.into_param().abi(), pdwfiltermode, count, phwnd)
+    MagGetWindowFilterList(hwnd.param().abi(), pdwfiltermode, count, phwnd)
 }
 #[inline]
 pub unsafe fn MagGetWindowSource<P0>(hwnd: P0, prect: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("magnification.dll" "system" fn MagGetWindowSource(hwnd : super::super::Foundation:: HWND, prect : *mut super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
-    MagGetWindowSource(hwnd.into_param().abi(), prect)
+    MagGetWindowSource(hwnd.param().abi(), prect)
 }
 #[inline]
 pub unsafe fn MagGetWindowTransform<P0>(hwnd: P0, ptransform: *mut MAGTRANSFORM) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("magnification.dll" "system" fn MagGetWindowTransform(hwnd : super::super::Foundation:: HWND, ptransform : *mut MAGTRANSFORM) -> super::super::Foundation:: BOOL);
-    MagGetWindowTransform(hwnd.into_param().abi(), ptransform)
+    MagGetWindowTransform(hwnd.param().abi(), ptransform)
 }
 #[inline]
 pub unsafe fn MagInitialize() -> super::super::Foundation::BOOL {
@@ -62,10 +62,10 @@ pub unsafe fn MagInitialize() -> super::super::Foundation::BOOL {
 #[inline]
 pub unsafe fn MagSetColorEffect<P0>(hwnd: P0, peffect: *mut MAGCOLOREFFECT) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("magnification.dll" "system" fn MagSetColorEffect(hwnd : super::super::Foundation:: HWND, peffect : *mut MAGCOLOREFFECT) -> super::super::Foundation:: BOOL);
-    MagSetColorEffect(hwnd.into_param().abi(), peffect)
+    MagSetColorEffect(hwnd.param().abi(), peffect)
 }
 #[inline]
 pub unsafe fn MagSetFullscreenColorEffect(peffect: *const MAGCOLOREFFECT) -> super::super::Foundation::BOOL {
@@ -81,50 +81,50 @@ pub unsafe fn MagSetFullscreenTransform(maglevel: f32, xoffset: i32, yoffset: i3
 #[inline]
 pub unsafe fn MagSetImageScalingCallback<P0>(hwnd: P0, callback: MagImageScalingCallback) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("magnification.dll" "system" fn MagSetImageScalingCallback(hwnd : super::super::Foundation:: HWND, callback : MagImageScalingCallback) -> super::super::Foundation:: BOOL);
-    MagSetImageScalingCallback(hwnd.into_param().abi(), callback)
+    MagSetImageScalingCallback(hwnd.param().abi(), callback)
 }
 #[inline]
 pub unsafe fn MagSetInputTransform<P0>(fenabled: P0, prectsource: *const super::super::Foundation::RECT, prectdest: *const super::super::Foundation::RECT) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("magnification.dll" "system" fn MagSetInputTransform(fenabled : super::super::Foundation:: BOOL, prectsource : *const super::super::Foundation:: RECT, prectdest : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
-    MagSetInputTransform(fenabled.into_param().abi(), prectsource, prectdest).ok()
+    MagSetInputTransform(fenabled.param().abi(), prectsource, prectdest).ok()
 }
 #[inline]
 pub unsafe fn MagSetWindowFilterList<P0>(hwnd: P0, dwfiltermode: MW_FILTERMODE, count: i32, phwnd: *mut super::super::Foundation::HWND) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("magnification.dll" "system" fn MagSetWindowFilterList(hwnd : super::super::Foundation:: HWND, dwfiltermode : MW_FILTERMODE, count : i32, phwnd : *mut super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
-    MagSetWindowFilterList(hwnd.into_param().abi(), dwfiltermode, count, phwnd)
+    MagSetWindowFilterList(hwnd.param().abi(), dwfiltermode, count, phwnd)
 }
 #[inline]
 pub unsafe fn MagSetWindowSource<P0>(hwnd: P0, rect: super::super::Foundation::RECT) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("magnification.dll" "system" fn MagSetWindowSource(hwnd : super::super::Foundation:: HWND, rect : super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
-    MagSetWindowSource(hwnd.into_param().abi(), core::mem::transmute(rect))
+    MagSetWindowSource(hwnd.param().abi(), core::mem::transmute(rect))
 }
 #[inline]
 pub unsafe fn MagSetWindowTransform<P0>(hwnd: P0, ptransform: *mut MAGTRANSFORM) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("magnification.dll" "system" fn MagSetWindowTransform(hwnd : super::super::Foundation:: HWND, ptransform : *mut MAGTRANSFORM) -> super::super::Foundation:: BOOL);
-    MagSetWindowTransform(hwnd.into_param().abi(), ptransform)
+    MagSetWindowTransform(hwnd.param().abi(), ptransform)
 }
 #[inline]
 pub unsafe fn MagShowSystemCursor<P0>(fshowcursor: P0) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("magnification.dll" "system" fn MagShowSystemCursor(fshowcursor : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    MagShowSystemCursor(fshowcursor.into_param().abi())
+    MagShowSystemCursor(fshowcursor.param().abi())
 }
 #[inline]
 pub unsafe fn MagUninitialize() -> super::super::Foundation::BOOL {

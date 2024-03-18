@@ -361,21 +361,21 @@ impl CurrentApp {
     #[cfg(feature = "Foundation_Collections")]
     pub fn LoadListingInformationByProductIdsAsync<P0>(productids: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::ICurrentAppStaticsWithFiltering(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadListingInformationByProductIdsAsync)(windows_core::Interface::as_raw(this), productids.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadListingInformationByProductIdsAsync)(windows_core::Interface::as_raw(this), productids.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn LoadListingInformationByKeywordsAsync<P0>(keywords: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::ICurrentAppStaticsWithFiltering(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadListingInformationByKeywordsAsync)(windows_core::Interface::as_raw(this), keywords.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadListingInformationByKeywordsAsync)(windows_core::Interface::as_raw(this), keywords.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn ReportProductFulfillment(productid: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -401,11 +401,11 @@ impl CurrentApp {
     }
     pub fn RequestProductPurchaseWithDisplayPropertiesAsync<P0>(productid: &windows_core::HSTRING, offerid: &windows_core::HSTRING, displayproperties: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>>
     where
-        P0: windows_core::IntoParam<ProductPurchaseDisplayProperties>,
+        P0: windows_core::Param<ProductPurchaseDisplayProperties>,
     {
         Self::ICurrentAppWithConsumables(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestProductPurchaseWithDisplayPropertiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(productid), core::mem::transmute_copy(offerid), displayproperties.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestProductPurchaseWithDisplayPropertiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(productid), core::mem::transmute_copy(offerid), displayproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -498,31 +498,31 @@ impl CurrentAppSimulator {
     #[cfg(feature = "Storage")]
     pub fn ReloadSimulatorAsync<P0>(simulatorsettingsfile: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::Storage::StorageFile>,
+        P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
         Self::ICurrentAppSimulator(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReloadSimulatorAsync)(windows_core::Interface::as_raw(this), simulatorsettingsfile.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReloadSimulatorAsync)(windows_core::Interface::as_raw(this), simulatorsettingsfile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn LoadListingInformationByProductIdsAsync<P0>(productids: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::ICurrentAppSimulatorStaticsWithFiltering(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadListingInformationByProductIdsAsync)(windows_core::Interface::as_raw(this), productids.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadListingInformationByProductIdsAsync)(windows_core::Interface::as_raw(this), productids.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn LoadListingInformationByKeywordsAsync<P0>(keywords: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::ICurrentAppSimulatorStaticsWithFiltering(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadListingInformationByKeywordsAsync)(windows_core::Interface::as_raw(this), keywords.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadListingInformationByKeywordsAsync)(windows_core::Interface::as_raw(this), keywords.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetAppPurchaseCampaignIdAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
@@ -545,11 +545,11 @@ impl CurrentAppSimulator {
     }
     pub fn RequestProductPurchaseWithDisplayPropertiesAsync<P0>(productid: &windows_core::HSTRING, offerid: &windows_core::HSTRING, displayproperties: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>>
     where
-        P0: windows_core::IntoParam<ProductPurchaseDisplayProperties>,
+        P0: windows_core::Param<ProductPurchaseDisplayProperties>,
     {
         Self::ICurrentAppSimulatorWithConsumables(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestProductPurchaseWithDisplayPropertiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(productid), core::mem::transmute_copy(offerid), displayproperties.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestProductPurchaseWithDisplayPropertiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(productid), core::mem::transmute_copy(offerid), displayproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -619,12 +619,12 @@ impl LicenseInformation {
     }
     pub fn LicenseChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<LicenseChangedEventHandler>,
+        P0: windows_core::Param<LicenseChangedEventHandler>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LicenseChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).LicenseChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveLicenseChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -925,10 +925,10 @@ impl ProductPurchaseDisplayProperties {
     }
     pub fn SetImage<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetImage)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetImage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn CreateProductPurchaseDisplayProperties(name: &windows_core::HSTRING) -> windows_core::Result<ProductPurchaseDisplayProperties> {
         Self::IProductPurchaseDisplayPropertiesFactory(|this| unsafe {

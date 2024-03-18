@@ -202,11 +202,11 @@ pub struct ComponentRenewal;
 impl ComponentRenewal {
     pub fn RenewSystemComponentsAsync<P0>(information: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<RenewalStatus, u32>>
     where
-        P0: windows_core::IntoParam<RevocationAndRenewalInformation>,
+        P0: windows_core::Param<RevocationAndRenewalInformation>,
     {
         Self::IComponentRenewalStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RenewSystemComponentsAsync)(windows_core::Interface::as_raw(this), information.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RenewSystemComponentsAsync)(windows_core::Interface::as_raw(this), information.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -258,12 +258,12 @@ impl HdcpSession {
     }
     pub fn ProtectionChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<HdcpSession, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<HdcpSession, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProtectionChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ProtectionChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveProtectionChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -297,12 +297,12 @@ impl MediaProtectionManager {
     }
     pub fn ServiceRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<ServiceRequestedEventHandler>,
+        P0: windows_core::Param<ServiceRequestedEventHandler>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ServiceRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ServiceRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveServiceRequested(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -311,12 +311,12 @@ impl MediaProtectionManager {
     }
     pub fn RebootNeeded<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<RebootNeededEventHandler>,
+        P0: windows_core::Param<RebootNeededEventHandler>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RebootNeeded)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RebootNeeded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRebootNeeded(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -325,12 +325,12 @@ impl MediaProtectionManager {
     }
     pub fn ComponentLoadFailed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<ComponentLoadFailedEventHandler>,
+        P0: windows_core::Param<ComponentLoadFailedEventHandler>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ComponentLoadFailed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ComponentLoadFailed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveComponentLoadFailed(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -374,11 +374,11 @@ impl MediaProtectionPMPServer {
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreatePMPServer<P0>(pproperties: P0) -> windows_core::Result<MediaProtectionPMPServer>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IPropertySet>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
         Self::IMediaProtectionPMPServerFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreatePMPServer)(windows_core::Interface::as_raw(this), pproperties.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreatePMPServer)(windows_core::Interface::as_raw(this), pproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -745,11 +745,11 @@ impl ComponentLoadFailedEventHandler {
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<MediaProtectionManager>,
-        P1: windows_core::IntoParam<ComponentLoadFailedEventArgs>,
+        P0: windows_core::Param<MediaProtectionManager>,
+        P1: windows_core::Param<ComponentLoadFailedEventArgs>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), e.param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -806,10 +806,10 @@ impl RebootNeededEventHandler {
     }
     pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<MediaProtectionManager>,
+        P0: windows_core::Param<MediaProtectionManager>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -866,11 +866,11 @@ impl ServiceRequestedEventHandler {
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<MediaProtectionManager>,
-        P1: windows_core::IntoParam<ServiceRequestedEventArgs>,
+        P0: windows_core::Param<MediaProtectionManager>,
+        P1: windows_core::Param<ServiceRequestedEventArgs>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), e.param().abi()).ok() }
     }
 }
 #[repr(C)]

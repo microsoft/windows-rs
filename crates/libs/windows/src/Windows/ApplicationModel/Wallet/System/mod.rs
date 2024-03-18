@@ -82,56 +82,56 @@ impl WalletItemSystemStore {
     #[cfg(feature = "deprecated")]
     pub fn DeleteAsync<P0>(&self, item: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::WalletItem>,
+        P0: windows_core::Param<super::WalletItem>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeleteAsync)(windows_core::Interface::as_raw(this), item.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DeleteAsync)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub fn ImportItemAsync<P0>(&self, stream: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::WalletItem>>
     where
-        P0: windows_core::IntoParam<super::super::super::Storage::Streams::IRandomAccessStreamReference>,
+        P0: windows_core::Param<super::super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImportItemAsync)(windows_core::Interface::as_raw(this), stream.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ImportItemAsync)(windows_core::Interface::as_raw(this), stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "deprecated")]
     pub fn GetAppStatusForItem<P0>(&self, item: P0) -> windows_core::Result<WalletItemAppAssociation>
     where
-        P0: windows_core::IntoParam<super::WalletItem>,
+        P0: windows_core::Param<super::WalletItem>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetAppStatusForItem)(windows_core::Interface::as_raw(this), item.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GetAppStatusForItem)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "deprecated")]
     pub fn LaunchAppForItemAsync<P0>(&self, item: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::WalletItem>,
+        P0: windows_core::Param<super::WalletItem>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchAppForItemAsync)(windows_core::Interface::as_raw(this), item.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchAppForItemAsync)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "deprecated")]
     pub fn ItemsChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<WalletItemSystemStore, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<WalletItemSystemStore, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IWalletItemSystemStore2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ItemsChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ItemsChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "deprecated")]

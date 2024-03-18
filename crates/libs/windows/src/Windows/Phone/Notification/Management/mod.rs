@@ -473,9 +473,9 @@ impl AccessoryManager {
     }
     pub fn ProcessTriggerDetails<P0>(pdetails: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAccessoryNotificationTriggerDetails>,
+        P0: windows_core::Param<IAccessoryNotificationTriggerDetails>,
     {
-        Self::IAccessoryManager(|this| unsafe { (windows_core::Interface::vtable(this).ProcessTriggerDetails)(windows_core::Interface::as_raw(this), pdetails.into_param().abi()).ok() })
+        Self::IAccessoryManager(|this| unsafe { (windows_core::Interface::vtable(this).ProcessTriggerDetails)(windows_core::Interface::as_raw(this), pdetails.param().abi()).ok() })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn PhoneLineDetails() -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<PhoneLineDetails>> {
@@ -708,15 +708,15 @@ impl AccessoryManager {
     #[cfg(feature = "Foundation_Collections")]
     pub fn EnableEmailNotificationFolderFilter<P0>(emailaccount: &windows_core::HSTRING, folders: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>,
     {
-        Self::IAccessoryManager2(|this| unsafe { (windows_core::Interface::vtable(this).EnableEmailNotificationFolderFilter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(emailaccount), folders.into_param().abi()).ok() })
+        Self::IAccessoryManager2(|this| unsafe { (windows_core::Interface::vtable(this).EnableEmailNotificationFolderFilter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(emailaccount), folders.param().abi()).ok() })
     }
     pub fn UpdateEmailReadStatus<P0>(messageentryid: P0, isread: bool) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<BinaryId>,
+        P0: windows_core::Param<BinaryId>,
     {
-        Self::IAccessoryManager2(|this| unsafe { (windows_core::Interface::vtable(this).UpdateEmailReadStatus)(windows_core::Interface::as_raw(this), messageentryid.into_param().abi(), isread).ok() })
+        Self::IAccessoryManager2(|this| unsafe { (windows_core::Interface::vtable(this).UpdateEmailReadStatus)(windows_core::Interface::as_raw(this), messageentryid.param().abi(), isread).ok() })
     }
     pub fn SnoozeAlarmByInstanceId(instanceid: &windows_core::HSTRING) -> windows_core::Result<()> {
         Self::IAccessoryManager3(|this| unsafe { (windows_core::Interface::vtable(this).SnoozeAlarmByInstanceId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(instanceid)).ok() })

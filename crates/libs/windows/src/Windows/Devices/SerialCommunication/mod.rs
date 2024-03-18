@@ -312,12 +312,12 @@ impl SerialDevice {
     }
     pub fn ErrorReceived<P0>(&self, reporthandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SerialDevice, ErrorReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SerialDevice, ErrorReceivedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ErrorReceived)(windows_core::Interface::as_raw(this), reporthandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ErrorReceived)(windows_core::Interface::as_raw(this), reporthandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveErrorReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -326,12 +326,12 @@ impl SerialDevice {
     }
     pub fn PinChanged<P0>(&self, reporthandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SerialDevice, PinChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SerialDevice, PinChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PinChanged)(windows_core::Interface::as_raw(this), reporthandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PinChanged)(windows_core::Interface::as_raw(this), reporthandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePinChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {

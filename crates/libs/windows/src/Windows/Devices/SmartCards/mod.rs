@@ -1004,10 +1004,10 @@ impl SmartCardAppletIdGroup {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetLogo<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStreamReference>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         let this = &windows_core::Interface::cast::<ISmartCardAppletIdGroup2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetLogo)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLogo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<ISmartCardAppletIdGroup2>(self)?;
@@ -1042,11 +1042,11 @@ impl SmartCardAppletIdGroup {
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn Create<P0>(displayname: &windows_core::HSTRING, appletids: P0, emulationcategory: SmartCardEmulationCategory, emulationtype: SmartCardEmulationType) -> windows_core::Result<SmartCardAppletIdGroup>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IVector<super::super::Storage::Streams::IBuffer>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IVector<super::super::Storage::Streams::IBuffer>>,
     {
         Self::ISmartCardAppletIdGroupFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displayname), appletids.into_param().abi(), emulationcategory, emulationtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displayname), appletids.param().abi(), emulationcategory, emulationtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn MaxAppletIds() -> windows_core::Result<u16> {
@@ -1114,12 +1114,12 @@ impl SmartCardAppletIdGroupRegistration {
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAutomaticResponseApdusAsync<P0>(&self, apdus: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<SmartCardAutomaticResponseApdu>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<SmartCardAutomaticResponseApdu>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetAutomaticResponseApdusAsync)(windows_core::Interface::as_raw(this), apdus.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetAutomaticResponseApdusAsync)(windows_core::Interface::as_raw(this), apdus.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SmartCardReaderId(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1132,12 +1132,12 @@ impl SmartCardAppletIdGroupRegistration {
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetPropertiesAsync<P0>(&self, props: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::ValueSet>,
+        P0: windows_core::Param<super::super::Foundation::Collections::ValueSet>,
     {
         let this = &windows_core::Interface::cast::<ISmartCardAppletIdGroupRegistration2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetPropertiesAsync)(windows_core::Interface::as_raw(this), props.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetPropertiesAsync)(windows_core::Interface::as_raw(this), props.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1169,10 +1169,10 @@ impl SmartCardAutomaticResponseApdu {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetCommandApdu<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetCommandApdu)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetCommandApdu)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn CommandApduBitMask(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
@@ -1185,10 +1185,10 @@ impl SmartCardAutomaticResponseApdu {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetCommandApduBitMask<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetCommandApduBitMask)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetCommandApduBitMask)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ShouldMatchLength(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -1212,10 +1212,10 @@ impl SmartCardAutomaticResponseApdu {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetAppletId<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAppletId)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAppletId)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn ResponseApdu(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
@@ -1228,10 +1228,10 @@ impl SmartCardAutomaticResponseApdu {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetResponseApdu<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetResponseApdu)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetResponseApdu)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn InputState(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = &windows_core::Interface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
@@ -1242,10 +1242,10 @@ impl SmartCardAutomaticResponseApdu {
     }
     pub fn SetInputState<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<u32>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<u32>>,
     {
         let this = &windows_core::Interface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetInputState)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetInputState)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn OutputState(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = &windows_core::Interface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
@@ -1256,10 +1256,10 @@ impl SmartCardAutomaticResponseApdu {
     }
     pub fn SetOutputState<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<u32>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<u32>>,
     {
         let this = &windows_core::Interface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetOutputState)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetOutputState)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn AllowWhenCryptogramGeneratorNotPrepared(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ISmartCardAutomaticResponseApdu3>(self)?;
@@ -1275,12 +1275,12 @@ impl SmartCardAutomaticResponseApdu {
     #[cfg(feature = "Storage_Streams")]
     pub fn Create<P0, P1>(commandapdu: P0, responseapdu: P1) -> windows_core::Result<SmartCardAutomaticResponseApdu>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
-        P1: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::ISmartCardAutomaticResponseApduFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), commandapdu.into_param().abi(), responseapdu.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), commandapdu.param().abi(), responseapdu.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1322,46 +1322,46 @@ impl SmartCardChallengeContext {
     #[cfg(feature = "Storage_Streams")]
     pub fn VerifyResponseAsync<P0>(&self, response: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).VerifyResponseAsync)(windows_core::Interface::as_raw(this), response.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).VerifyResponseAsync)(windows_core::Interface::as_raw(this), response.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn ProvisionAsync<P0>(&self, response: P0, formatcard: bool) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProvisionAsync)(windows_core::Interface::as_raw(this), response.into_param().abi(), formatcard, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ProvisionAsync)(windows_core::Interface::as_raw(this), response.param().abi(), formatcard, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn ProvisionAsyncWithNewCardId<P0>(&self, response: P0, formatcard: bool, newcardid: windows_core::GUID) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProvisionAsyncWithNewCardId)(windows_core::Interface::as_raw(this), response.into_param().abi(), formatcard, newcardid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ProvisionAsyncWithNewCardId)(windows_core::Interface::as_raw(this), response.param().abi(), formatcard, newcardid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn ChangeAdministrativeKeyAsync<P0, P1>(&self, response: P0, newadministrativekey: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
-        P1: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ChangeAdministrativeKeyAsync)(windows_core::Interface::as_raw(this), response.into_param().abi(), newadministrativekey.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ChangeAdministrativeKeyAsync)(windows_core::Interface::as_raw(this), response.param().abi(), newadministrativekey.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1390,12 +1390,12 @@ impl SmartCardConnection {
     #[cfg(feature = "Storage_Streams")]
     pub fn TransmitAsync<P0>(&self, command: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TransmitAsync)(windows_core::Interface::as_raw(this), command.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TransmitAsync)(windows_core::Interface::as_raw(this), command.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1481,23 +1481,23 @@ impl SmartCardCryptogramGenerator {
     #[cfg(feature = "Storage_Streams")]
     pub fn ImportCryptogramMaterialPackageAsync<P0>(&self, format: SmartCardCryptogramMaterialPackageFormat, storagekeyname: &windows_core::HSTRING, materialpackagename: &windows_core::HSTRING, cryptogrammaterialpackage: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImportCryptogramMaterialPackageAsync)(windows_core::Interface::as_raw(this), format, core::mem::transmute_copy(storagekeyname), core::mem::transmute_copy(materialpackagename), cryptogrammaterialpackage.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ImportCryptogramMaterialPackageAsync)(windows_core::Interface::as_raw(this), format, core::mem::transmute_copy(storagekeyname), core::mem::transmute_copy(materialpackagename), cryptogrammaterialpackage.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn TryProvePossessionOfCryptogramMaterialPackageAsync<P0>(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, responseformat: SmartCardCryptogramMaterialPackageConfirmationResponseFormat, materialpackagename: &windows_core::HSTRING, materialname: &windows_core::HSTRING, challenge: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramMaterialPossessionProof>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryProvePossessionOfCryptogramMaterialPackageAsync)(windows_core::Interface::as_raw(this), promptingbehavior, responseformat, core::mem::transmute_copy(materialpackagename), core::mem::transmute_copy(materialname), challenge.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryProvePossessionOfCryptogramMaterialPackageAsync)(windows_core::Interface::as_raw(this), promptingbehavior, responseformat, core::mem::transmute_copy(materialpackagename), core::mem::transmute_copy(materialname), challenge.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RequestUnlockCryptogramMaterialForUseAsync(&self, promptingbehavior: SmartCardUnlockPromptingBehavior) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
@@ -1517,13 +1517,13 @@ impl SmartCardCryptogramGenerator {
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn ValidateRequestApduAsync<P0, P1>(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, apdutovalidate: P0, cryptogramplacementsteps: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
-        P1: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>,
     {
         let this = &windows_core::Interface::cast::<ISmartCardCryptogramGenerator2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ValidateRequestApduAsync)(windows_core::Interface::as_raw(this), promptingbehavior, apdutovalidate.into_param().abi(), cryptogramplacementsteps.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ValidateRequestApduAsync)(windows_core::Interface::as_raw(this), promptingbehavior, apdutovalidate.param().abi(), cryptogramplacementsteps.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetAllCryptogramStorageKeyCharacteristicsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult>> {
@@ -1913,10 +1913,10 @@ impl SmartCardCryptogramPlacementStep {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetSourceData<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSourceData)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSourceData)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn CryptogramMaterialPackageName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -1993,10 +1993,10 @@ impl SmartCardCryptogramPlacementStep {
     }
     pub fn SetChainedOutputStep<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<SmartCardCryptogramPlacementStep>,
+        P0: windows_core::Param<SmartCardCryptogramPlacementStep>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetChainedOutputStep)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetChainedOutputStep)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for SmartCardCryptogramPlacementStep {
@@ -2156,12 +2156,12 @@ impl SmartCardEmulator {
     }
     pub fn ApduReceived<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorApduReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorApduReceivedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ISmartCardEmulator2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ApduReceived)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ApduReceived)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveApduReceived(&self, value: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2170,12 +2170,12 @@ impl SmartCardEmulator {
     }
     pub fn ConnectionDeactivated<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorConnectionDeactivatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorConnectionDeactivatedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ISmartCardEmulator2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConnectionDeactivated)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ConnectionDeactivated)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveConnectionDeactivated(&self, value: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2208,20 +2208,20 @@ impl SmartCardEmulator {
     }
     pub fn RegisterAppletIdGroupAsync<P0>(appletidgroup: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardAppletIdGroupRegistration>>
     where
-        P0: windows_core::IntoParam<SmartCardAppletIdGroup>,
+        P0: windows_core::Param<SmartCardAppletIdGroup>,
     {
         Self::ISmartCardEmulatorStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RegisterAppletIdGroupAsync)(windows_core::Interface::as_raw(this), appletidgroup.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RegisterAppletIdGroupAsync)(windows_core::Interface::as_raw(this), appletidgroup.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn UnregisterAppletIdGroupAsync<P0>(registration: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<SmartCardAppletIdGroupRegistration>,
+        P0: windows_core::Param<SmartCardAppletIdGroupRegistration>,
     {
         Self::ISmartCardEmulatorStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).UnregisterAppletIdGroupAsync)(windows_core::Interface::as_raw(this), registration.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UnregisterAppletIdGroupAsync)(windows_core::Interface::as_raw(this), registration.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn MaxAppletIdGroupRegistrations() -> windows_core::Result<u16> {
@@ -2287,12 +2287,12 @@ impl SmartCardEmulatorApduReceivedEventArgs {
     #[cfg(feature = "Storage_Streams")]
     pub fn TryRespondAsync<P0>(&self, responseapdu: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryRespondAsync)(windows_core::Interface::as_raw(this), responseapdu.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryRespondAsync)(windows_core::Interface::as_raw(this), responseapdu.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AutomaticResponseStatus(&self) -> windows_core::Result<SmartCardAutomaticResponseStatus> {
@@ -2312,38 +2312,38 @@ impl SmartCardEmulatorApduReceivedEventArgs {
     #[cfg(feature = "Storage_Streams")]
     pub fn TryRespondWithStateAsync<P0, P1>(&self, responseapdu: P0, nextstate: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
-        P1: windows_core::IntoParam<super::super::Foundation::IReference<u32>>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<super::super::Foundation::IReference<u32>>,
     {
         let this = &windows_core::Interface::cast::<ISmartCardEmulatorApduReceivedEventArgs2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryRespondWithStateAsync)(windows_core::Interface::as_raw(this), responseapdu.into_param().abi(), nextstate.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryRespondWithStateAsync)(windows_core::Interface::as_raw(this), responseapdu.param().abi(), nextstate.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn TryRespondWithCryptogramsAsync<P0, P1>(&self, responsetemplate: P0, cryptogramplacementsteps: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
-        P1: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>,
     {
         let this = &windows_core::Interface::cast::<ISmartCardEmulatorApduReceivedEventArgsWithCryptograms>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryRespondWithCryptogramsAsync)(windows_core::Interface::as_raw(this), responsetemplate.into_param().abi(), cryptogramplacementsteps.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryRespondWithCryptogramsAsync)(windows_core::Interface::as_raw(this), responsetemplate.param().abi(), cryptogramplacementsteps.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn TryRespondWithCryptogramsAndStateAsync<P0, P1, P2>(&self, responsetemplate: P0, cryptogramplacementsteps: P1, nextstate: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
-        P1: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>,
-        P2: windows_core::IntoParam<super::super::Foundation::IReference<u32>>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>,
+        P2: windows_core::Param<super::super::Foundation::IReference<u32>>,
     {
         let this = &windows_core::Interface::cast::<ISmartCardEmulatorApduReceivedEventArgsWithCryptograms>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryRespondWithCryptogramsAndStateAsync)(windows_core::Interface::as_raw(this), responsetemplate.into_param().abi(), cryptogramplacementsteps.into_param().abi(), nextstate.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryRespondWithCryptogramsAndStateAsync)(windows_core::Interface::as_raw(this), responsetemplate.param().abi(), cryptogramplacementsteps.param().abi(), nextstate.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -2566,10 +2566,10 @@ impl SmartCardPinResetRequest {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetResponse<P0>(&self, response: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetResponse)(windows_core::Interface::as_raw(this), response.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetResponse)(windows_core::Interface::as_raw(this), response.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for SmartCardPinResetRequest {
@@ -2626,12 +2626,12 @@ impl SmartCardProvisioning {
     }
     pub fn RequestPinResetAsync<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<SmartCardPinResetHandler>,
+        P0: windows_core::Param<SmartCardPinResetHandler>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestPinResetAsync)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestPinResetAsync)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetAuthorityKeyContainerNameAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
@@ -2643,64 +2643,64 @@ impl SmartCardProvisioning {
     }
     pub fn FromSmartCardAsync<P0>(card: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
     where
-        P0: windows_core::IntoParam<SmartCard>,
+        P0: windows_core::Param<SmartCard>,
     {
         Self::ISmartCardProvisioningStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromSmartCardAsync)(windows_core::Interface::as_raw(this), card.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromSmartCardAsync)(windows_core::Interface::as_raw(this), card.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn RequestVirtualSmartCardCreationAsync<P0, P1>(friendlyname: &windows_core::HSTRING, administrativekey: P0, pinpolicy: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
-        P1: windows_core::IntoParam<SmartCardPinPolicy>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<SmartCardPinPolicy>,
     {
         Self::ISmartCardProvisioningStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestVirtualSmartCardCreationAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(friendlyname), administrativekey.into_param().abi(), pinpolicy.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestVirtualSmartCardCreationAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(friendlyname), administrativekey.param().abi(), pinpolicy.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn RequestVirtualSmartCardCreationAsyncWithCardId<P0, P1>(friendlyname: &windows_core::HSTRING, administrativekey: P0, pinpolicy: P1, cardid: windows_core::GUID) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
-        P1: windows_core::IntoParam<SmartCardPinPolicy>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<SmartCardPinPolicy>,
     {
         Self::ISmartCardProvisioningStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestVirtualSmartCardCreationAsyncWithCardId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(friendlyname), administrativekey.into_param().abi(), pinpolicy.into_param().abi(), cardid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestVirtualSmartCardCreationAsyncWithCardId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(friendlyname), administrativekey.param().abi(), pinpolicy.param().abi(), cardid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn RequestVirtualSmartCardDeletionAsync<P0>(card: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<SmartCard>,
+        P0: windows_core::Param<SmartCard>,
     {
         Self::ISmartCardProvisioningStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestVirtualSmartCardDeletionAsync)(windows_core::Interface::as_raw(this), card.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestVirtualSmartCardDeletionAsync)(windows_core::Interface::as_raw(this), card.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn RequestAttestedVirtualSmartCardCreationAsync<P0, P1>(friendlyname: &windows_core::HSTRING, administrativekey: P0, pinpolicy: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
-        P1: windows_core::IntoParam<SmartCardPinPolicy>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<SmartCardPinPolicy>,
     {
         Self::ISmartCardProvisioningStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestAttestedVirtualSmartCardCreationAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(friendlyname), administrativekey.into_param().abi(), pinpolicy.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestAttestedVirtualSmartCardCreationAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(friendlyname), administrativekey.param().abi(), pinpolicy.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn RequestAttestedVirtualSmartCardCreationAsyncWithCardId<P0, P1>(friendlyname: &windows_core::HSTRING, administrativekey: P0, pinpolicy: P1, cardid: windows_core::GUID) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
-        P1: windows_core::IntoParam<SmartCardPinPolicy>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<SmartCardPinPolicy>,
     {
         Self::ISmartCardProvisioningStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestAttestedVirtualSmartCardCreationAsyncWithCardId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(friendlyname), administrativekey.into_param().abi(), pinpolicy.into_param().abi(), cardid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestAttestedVirtualSmartCardCreationAsyncWithCardId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(friendlyname), administrativekey.param().abi(), pinpolicy.param().abi(), cardid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -2769,12 +2769,12 @@ impl SmartCardReader {
     }
     pub fn CardAdded<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SmartCardReader, CardAddedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SmartCardReader, CardAddedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CardAdded)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CardAdded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCardAdded(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2783,12 +2783,12 @@ impl SmartCardReader {
     }
     pub fn CardRemoved<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SmartCardReader, CardRemovedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SmartCardReader, CardRemovedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CardRemoved)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CardRemoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCardRemoved(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3473,11 +3473,11 @@ impl SmartCardPinResetHandler {
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, request: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<SmartCardProvisioning>,
-        P1: windows_core::IntoParam<SmartCardPinResetRequest>,
+        P0: windows_core::Param<SmartCardProvisioning>,
+        P1: windows_core::Param<SmartCardPinResetRequest>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.into_param().abi(), request.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), request.param().abi()).ok() }
     }
 }
 #[repr(C)]

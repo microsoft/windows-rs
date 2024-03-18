@@ -666,23 +666,23 @@ windows_core::imp::interface_hierarchy!(DisplayDevice, windows_core::IUnknown, w
 impl DisplayDevice {
     pub fn CreateScanoutSource<P0>(&self, target: P0) -> windows_core::Result<DisplaySource>
     where
-        P0: windows_core::IntoParam<DisplayTarget>,
+        P0: windows_core::Param<DisplayTarget>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateScanoutSource)(windows_core::Interface::as_raw(this), target.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateScanoutSource)(windows_core::Interface::as_raw(this), target.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreatePrimary<P0, P1>(&self, target: P0, desc: P1) -> windows_core::Result<DisplaySurface>
     where
-        P0: windows_core::IntoParam<DisplayTarget>,
-        P1: windows_core::IntoParam<DisplayPrimaryDescription>,
+        P0: windows_core::Param<DisplayTarget>,
+        P1: windows_core::Param<DisplayPrimaryDescription>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreatePrimary)(windows_core::Interface::as_raw(this), target.into_param().abi(), desc.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreatePrimary)(windows_core::Interface::as_raw(this), target.param().abi(), desc.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateTaskPool(&self) -> windows_core::Result<DisplayTaskPool> {
@@ -694,30 +694,30 @@ impl DisplayDevice {
     }
     pub fn CreatePeriodicFence<P0>(&self, target: P0, offsetfromvblank: super::super::super::Foundation::TimeSpan) -> windows_core::Result<DisplayFence>
     where
-        P0: windows_core::IntoParam<DisplayTarget>,
+        P0: windows_core::Param<DisplayTarget>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreatePeriodicFence)(windows_core::Interface::as_raw(this), target.into_param().abi(), offsetfromvblank, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreatePeriodicFence)(windows_core::Interface::as_raw(this), target.param().abi(), offsetfromvblank, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn WaitForVBlank<P0>(&self, source: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<DisplaySource>,
+        P0: windows_core::Param<DisplaySource>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).WaitForVBlank)(windows_core::Interface::as_raw(this), source.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).WaitForVBlank)(windows_core::Interface::as_raw(this), source.param().abi()).ok() }
     }
     pub fn CreateSimpleScanout<P0, P1>(&self, psource: P0, psurface: P1, subresourceindex: u32, syncinterval: u32) -> windows_core::Result<DisplayScanout>
     where
-        P0: windows_core::IntoParam<DisplaySource>,
-        P1: windows_core::IntoParam<DisplaySurface>,
+        P0: windows_core::Param<DisplaySource>,
+        P1: windows_core::Param<DisplaySurface>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateSimpleScanout)(windows_core::Interface::as_raw(this), psource.into_param().abi(), psurface.into_param().abi(), subresourceindex, syncinterval, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateSimpleScanout)(windows_core::Interface::as_raw(this), psource.param().abi(), psurface.param().abi(), subresourceindex, syncinterval, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsCapabilitySupported(&self, capability: DisplayDeviceCapability) -> windows_core::Result<bool> {
@@ -730,14 +730,14 @@ impl DisplayDevice {
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics"))]
     pub fn CreateSimpleScanoutWithDirtyRectsAndOptions<P0, P1, P2>(&self, source: P0, surface: P1, subresourceindex: u32, syncinterval: u32, dirtyrects: P2, options: DisplayScanoutOptions) -> windows_core::Result<DisplayScanout>
     where
-        P0: windows_core::IntoParam<DisplaySource>,
-        P1: windows_core::IntoParam<DisplaySurface>,
-        P2: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Graphics::RectInt32>>,
+        P0: windows_core::Param<DisplaySource>,
+        P1: windows_core::Param<DisplaySurface>,
+        P2: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::super::super::Graphics::RectInt32>>,
     {
         let this = &windows_core::Interface::cast::<IDisplayDevice2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateSimpleScanoutWithDirtyRectsAndOptions)(windows_core::Interface::as_raw(this), source.into_param().abi(), surface.into_param().abi(), subresourceindex, syncinterval, dirtyrects.into_param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateSimpleScanoutWithDirtyRectsAndOptions)(windows_core::Interface::as_raw(this), source.param().abi(), surface.param().abi(), subresourceindex, syncinterval, dirtyrects.param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -798,20 +798,20 @@ impl DisplayManager {
     }
     pub fn TryAcquireTarget<P0>(&self, target: P0) -> windows_core::Result<DisplayManagerResult>
     where
-        P0: windows_core::IntoParam<DisplayTarget>,
+        P0: windows_core::Param<DisplayTarget>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryAcquireTarget)(windows_core::Interface::as_raw(this), target.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TryAcquireTarget)(windows_core::Interface::as_raw(this), target.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn ReleaseTarget<P0>(&self, target: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<DisplayTarget>,
+        P0: windows_core::Param<DisplayTarget>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ReleaseTarget)(windows_core::Interface::as_raw(this), target.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ReleaseTarget)(windows_core::Interface::as_raw(this), target.param().abi()).ok() }
     }
     pub fn TryReadCurrentStateForAllTargets(&self) -> windows_core::Result<DisplayManagerResultWithState> {
         let this = self;
@@ -823,55 +823,55 @@ impl DisplayManager {
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryAcquireTargetsAndReadCurrentState<P0>(&self, targets: P0) -> windows_core::Result<DisplayManagerResultWithState>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<DisplayTarget>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<DisplayTarget>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryAcquireTargetsAndReadCurrentState)(windows_core::Interface::as_raw(this), targets.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryAcquireTargetsAndReadCurrentState)(windows_core::Interface::as_raw(this), targets.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryAcquireTargetsAndCreateEmptyState<P0>(&self, targets: P0) -> windows_core::Result<DisplayManagerResultWithState>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<DisplayTarget>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<DisplayTarget>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryAcquireTargetsAndCreateEmptyState)(windows_core::Interface::as_raw(this), targets.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryAcquireTargetsAndCreateEmptyState)(windows_core::Interface::as_raw(this), targets.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryAcquireTargetsAndCreateSubstate<P0, P1>(&self, existingstate: P0, targets: P1) -> windows_core::Result<DisplayManagerResultWithState>
     where
-        P0: windows_core::IntoParam<DisplayState>,
-        P1: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<DisplayTarget>>,
+        P0: windows_core::Param<DisplayState>,
+        P1: windows_core::Param<super::super::super::Foundation::Collections::IIterable<DisplayTarget>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryAcquireTargetsAndCreateSubstate)(windows_core::Interface::as_raw(this), existingstate.into_param().abi(), targets.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryAcquireTargetsAndCreateSubstate)(windows_core::Interface::as_raw(this), existingstate.param().abi(), targets.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateDisplayDevice<P0>(&self, adapter: P0) -> windows_core::Result<DisplayDevice>
     where
-        P0: windows_core::IntoParam<DisplayAdapter>,
+        P0: windows_core::Param<DisplayAdapter>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateDisplayDevice)(windows_core::Interface::as_raw(this), adapter.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateDisplayDevice)(windows_core::Interface::as_raw(this), adapter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Enabled<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerEnabledEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerEnabledEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Enabled)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Enabled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveEnabled(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -880,12 +880,12 @@ impl DisplayManager {
     }
     pub fn Disabled<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerDisabledEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerDisabledEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Disabled)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Disabled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDisabled(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -894,12 +894,12 @@ impl DisplayManager {
     }
     pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerChangedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -908,12 +908,12 @@ impl DisplayManager {
     }
     pub fn PathsFailedOrInvalidated<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerPathsFailedOrInvalidatedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerPathsFailedOrInvalidatedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PathsFailedOrInvalidated)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PathsFailedOrInvalidated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePathsFailedOrInvalidated(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1195,12 +1195,12 @@ impl DisplayModeInfo {
     }
     pub fn IsWireFormatSupported<P0>(&self, wireformat: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<DisplayWireFormat>,
+        P0: windows_core::Param<DisplayWireFormat>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsWireFormatSupported)(windows_core::Interface::as_raw(this), wireformat.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsWireFormatSupported)(windows_core::Interface::as_raw(this), wireformat.param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1269,10 +1269,10 @@ impl DisplayPath {
     #[cfg(feature = "Graphics")]
     pub fn SetSourceResolution<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>,
+        P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSourceResolution)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSourceResolution)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Graphics_DirectX")]
     pub fn SourcePixelFormat(&self) -> windows_core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat> {
@@ -1309,10 +1309,10 @@ impl DisplayPath {
     #[cfg(feature = "Graphics")]
     pub fn SetTargetResolution<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>,
+        P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTargetResolution)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetTargetResolution)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub fn PresentationRate(&self) -> windows_core::Result<super::super::super::Foundation::IReference<DisplayPresentationRate>> {
@@ -1325,10 +1325,10 @@ impl DisplayPath {
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetPresentationRate<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::IReference<DisplayPresentationRate>>,
+        P0: windows_core::Param<super::super::super::Foundation::IReference<DisplayPresentationRate>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPresentationRate)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPresentationRate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn IsInterlaced(&self) -> windows_core::Result<super::super::super::Foundation::IReference<bool>> {
         let this = self;
@@ -1339,10 +1339,10 @@ impl DisplayPath {
     }
     pub fn SetIsInterlaced<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::IReference<bool>>,
+        P0: windows_core::Param<super::super::super::Foundation::IReference<bool>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIsInterlaced)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetIsInterlaced)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn WireFormat(&self) -> windows_core::Result<DisplayWireFormat> {
         let this = self;
@@ -1353,10 +1353,10 @@ impl DisplayPath {
     }
     pub fn SetWireFormat<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<DisplayWireFormat>,
+        P0: windows_core::Param<DisplayWireFormat>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetWireFormat)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetWireFormat)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Rotation(&self) -> windows_core::Result<DisplayRotation> {
         let this = self;
@@ -1390,10 +1390,10 @@ impl DisplayPath {
     }
     pub fn ApplyPropertiesFromMode<P0>(&self, moderesult: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<DisplayModeInfo>,
+        P0: windows_core::Param<DisplayModeInfo>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ApplyPropertiesFromMode)(windows_core::Interface::as_raw(this), moderesult.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ApplyPropertiesFromMode)(windows_core::Interface::as_raw(this), moderesult.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IMap<windows_core::GUID, windows_core::IInspectable>> {
@@ -1414,10 +1414,10 @@ impl DisplayPath {
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetPhysicalPresentationRate<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::IReference<DisplayPresentationRate>>,
+        P0: windows_core::Param<super::super::super::Foundation::IReference<DisplayPresentationRate>>,
     {
         let this = &windows_core::Interface::cast::<IDisplayPath2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPhysicalPresentationRate)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPhysicalPresentationRate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for DisplayPath {
@@ -1500,11 +1500,11 @@ impl DisplayPrimaryDescription {
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11"))]
     pub fn CreateWithProperties<P0>(extraproperties: P0, width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) -> windows_core::Result<DisplayPrimaryDescription>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>>>,
     {
         Self::IDisplayPrimaryDescriptionStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithProperties)(windows_core::Interface::as_raw(this), extraproperties.into_param().abi(), width, height, pixelformat, colorspace, isstereo, multisampledescription, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithProperties)(windows_core::Interface::as_raw(this), extraproperties.param().abi(), width, height, pixelformat, colorspace, isstereo, multisampledescription, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1584,12 +1584,12 @@ impl DisplaySource {
     }
     pub fn StatusChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<DisplaySource, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<DisplaySource, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IDisplaySource2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStatusChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1654,62 +1654,62 @@ impl DisplayState {
     }
     pub fn ConnectTarget<P0>(&self, target: P0) -> windows_core::Result<DisplayPath>
     where
-        P0: windows_core::IntoParam<DisplayTarget>,
+        P0: windows_core::Param<DisplayTarget>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConnectTarget)(windows_core::Interface::as_raw(this), target.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ConnectTarget)(windows_core::Interface::as_raw(this), target.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ConnectTargetToView<P0, P1>(&self, target: P0, view: P1) -> windows_core::Result<DisplayPath>
     where
-        P0: windows_core::IntoParam<DisplayTarget>,
-        P1: windows_core::IntoParam<DisplayView>,
+        P0: windows_core::Param<DisplayTarget>,
+        P1: windows_core::Param<DisplayView>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConnectTargetToView)(windows_core::Interface::as_raw(this), target.into_param().abi(), view.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ConnectTargetToView)(windows_core::Interface::as_raw(this), target.param().abi(), view.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CanConnectTargetToView<P0, P1>(&self, target: P0, view: P1) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<DisplayTarget>,
-        P1: windows_core::IntoParam<DisplayView>,
+        P0: windows_core::Param<DisplayTarget>,
+        P1: windows_core::Param<DisplayView>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CanConnectTargetToView)(windows_core::Interface::as_raw(this), target.into_param().abi(), view.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CanConnectTargetToView)(windows_core::Interface::as_raw(this), target.param().abi(), view.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn GetViewForTarget<P0>(&self, target: P0) -> windows_core::Result<DisplayView>
     where
-        P0: windows_core::IntoParam<DisplayTarget>,
+        P0: windows_core::Param<DisplayTarget>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetViewForTarget)(windows_core::Interface::as_raw(this), target.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetViewForTarget)(windows_core::Interface::as_raw(this), target.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetPathForTarget<P0>(&self, target: P0) -> windows_core::Result<DisplayPath>
     where
-        P0: windows_core::IntoParam<DisplayTarget>,
+        P0: windows_core::Param<DisplayTarget>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPathForTarget)(windows_core::Interface::as_raw(this), target.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetPathForTarget)(windows_core::Interface::as_raw(this), target.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DisconnectTarget<P0>(&self, target: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<DisplayTarget>,
+        P0: windows_core::Param<DisplayTarget>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).DisconnectTarget)(windows_core::Interface::as_raw(this), target.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).DisconnectTarget)(windows_core::Interface::as_raw(this), target.param().abi()).ok() }
     }
     pub fn TryFunctionalize(&self, options: DisplayStateFunctionalizeOptions) -> windows_core::Result<DisplayStateOperationResult> {
         let this = self;
@@ -1886,22 +1886,22 @@ impl DisplayTarget {
     }
     pub fn IsSame<P0>(&self, othertarget: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<DisplayTarget>,
+        P0: windows_core::Param<DisplayTarget>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsSame)(windows_core::Interface::as_raw(this), othertarget.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsSame)(windows_core::Interface::as_raw(this), othertarget.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn IsEqual<P0>(&self, othertarget: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<DisplayTarget>,
+        P0: windows_core::Param<DisplayTarget>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsEqual)(windows_core::Interface::as_raw(this), othertarget.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsEqual)(windows_core::Interface::as_raw(this), othertarget.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
@@ -1924,24 +1924,24 @@ windows_core::imp::interface_hierarchy!(DisplayTask, windows_core::IUnknown, win
 impl DisplayTask {
     pub fn SetScanout<P0>(&self, scanout: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<DisplayScanout>,
+        P0: windows_core::Param<DisplayScanout>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetScanout)(windows_core::Interface::as_raw(this), scanout.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetScanout)(windows_core::Interface::as_raw(this), scanout.param().abi()).ok() }
     }
     pub fn SetWait<P0>(&self, readyfence: P0, readyfencevalue: u64) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<DisplayFence>,
+        P0: windows_core::Param<DisplayFence>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetWait)(windows_core::Interface::as_raw(this), readyfence.into_param().abi(), readyfencevalue).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetWait)(windows_core::Interface::as_raw(this), readyfence.param().abi(), readyfencevalue).ok() }
     }
     pub fn SetSignal<P0>(&self, signalkind: DisplayTaskSignalKind, fence: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<DisplayFence>,
+        P0: windows_core::Param<DisplayFence>,
     {
         let this = &windows_core::Interface::cast::<IDisplayTask2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetSignal)(windows_core::Interface::as_raw(this), signalkind, fence.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSignal)(windows_core::Interface::as_raw(this), signalkind, fence.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for DisplayTask {
@@ -1971,19 +1971,19 @@ impl DisplayTaskPool {
     #[cfg(feature = "deprecated")]
     pub fn ExecuteTask<P0>(&self, task: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<DisplayTask>,
+        P0: windows_core::Param<DisplayTask>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ExecuteTask)(windows_core::Interface::as_raw(this), task.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ExecuteTask)(windows_core::Interface::as_raw(this), task.param().abi()).ok() }
     }
     pub fn TryExecuteTask<P0>(&self, task: P0) -> windows_core::Result<DisplayTaskResult>
     where
-        P0: windows_core::IntoParam<DisplayTask>,
+        P0: windows_core::Param<DisplayTask>,
     {
         let this = &windows_core::Interface::cast::<IDisplayTaskPool2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryExecuteTask)(windows_core::Interface::as_raw(this), task.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryExecuteTask)(windows_core::Interface::as_raw(this), task.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -2062,17 +2062,17 @@ impl DisplayView {
     #[cfg(feature = "Graphics")]
     pub fn SetContentResolution<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>,
+        P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContentResolution)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetContentResolution)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn SetPrimaryPath<P0>(&self, path: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<DisplayPath>,
+        P0: windows_core::Param<DisplayPath>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPrimaryPath)(windows_core::Interface::as_raw(this), path.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPrimaryPath)(windows_core::Interface::as_raw(this), path.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IMap<windows_core::GUID, windows_core::IInspectable>> {
@@ -2152,11 +2152,11 @@ impl DisplayWireFormat {
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithProperties<P0>(extraproperties: P0, pixelencoding: DisplayWireFormatPixelEncoding, bitsperchannel: i32, colorspace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrmetadata: DisplayWireFormatHdrMetadata) -> windows_core::Result<DisplayWireFormat>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>>>,
     {
         Self::IDisplayWireFormatStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithProperties)(windows_core::Interface::as_raw(this), extraproperties.into_param().abi(), pixelencoding, bitsperchannel, colorspace, eotf, hdrmetadata, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithProperties)(windows_core::Interface::as_raw(this), extraproperties.param().abi(), pixelencoding, bitsperchannel, colorspace, eotf, hdrmetadata, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

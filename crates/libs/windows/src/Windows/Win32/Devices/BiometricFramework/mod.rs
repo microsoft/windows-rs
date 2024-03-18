@@ -26,17 +26,17 @@ pub unsafe fn WinBioAsyncMonitorFrameworkChanges(frameworkhandle: u32, changetyp
 #[inline]
 pub unsafe fn WinBioAsyncOpenFramework<P0, P1>(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: P0, messagecode: u32, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: Option<*const core::ffi::c_void>, asynchronousopen: P1, frameworkhandle: Option<*mut u32>) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("winbio.dll" "system" fn WinBioAsyncOpenFramework(notificationmethod : WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow : super::super::Foundation:: HWND, messagecode : u32, callbackroutine : PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata : *const core::ffi::c_void, asynchronousopen : super::super::Foundation:: BOOL, frameworkhandle : *mut u32) -> windows_core::HRESULT);
-    WinBioAsyncOpenFramework(notificationmethod, targetwindow.into_param().abi(), messagecode, callbackroutine, core::mem::transmute(userdata.unwrap_or(std::ptr::null())), asynchronousopen.into_param().abi(), core::mem::transmute(frameworkhandle.unwrap_or(std::ptr::null_mut()))).ok()
+    WinBioAsyncOpenFramework(notificationmethod, targetwindow.param().abi(), messagecode, callbackroutine, core::mem::transmute(userdata.unwrap_or(std::ptr::null())), asynchronousopen.param().abi(), core::mem::transmute(frameworkhandle.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioAsyncOpenSession<P0, P1>(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: Option<&[u32]>, databaseid: Option<*const windows_core::GUID>, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: P0, messagecode: u32, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: Option<*const core::ffi::c_void>, asynchronousopen: P1, sessionhandle: Option<*mut u32>) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("winbio.dll" "system" fn WinBioAsyncOpenSession(factor : u32, pooltype : WINBIO_POOL, flags : u32, unitarray : *const u32, unitcount : usize, databaseid : *const windows_core::GUID, notificationmethod : WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow : super::super::Foundation:: HWND, messagecode : u32, callbackroutine : PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata : *const core::ffi::c_void, asynchronousopen : super::super::Foundation:: BOOL, sessionhandle : *mut u32) -> windows_core::HRESULT);
     WinBioAsyncOpenSession(
@@ -47,11 +47,11 @@ where
         unitarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(databaseid.unwrap_or(std::ptr::null())),
         notificationmethod,
-        targetwindow.into_param().abi(),
+        targetwindow.param().abi(),
         messagecode,
         callbackroutine,
         core::mem::transmute(userdata.unwrap_or(std::ptr::null())),
-        asynchronousopen.into_param().abi(),
+        asynchronousopen.param().abi(),
         core::mem::transmute(sessionhandle.unwrap_or(std::ptr::null_mut())),
     )
     .ok()

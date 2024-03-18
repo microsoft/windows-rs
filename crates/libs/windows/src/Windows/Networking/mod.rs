@@ -90,10 +90,10 @@ impl EndpointPair {
     }
     pub fn SetLocalHostName<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<HostName>,
+        P0: windows_core::Param<HostName>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLocalHostName)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLocalHostName)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn LocalServiceName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -115,10 +115,10 @@ impl EndpointPair {
     }
     pub fn SetRemoteHostName<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<HostName>,
+        P0: windows_core::Param<HostName>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetRemoteHostName)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetRemoteHostName)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn RemoteServiceName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -133,12 +133,12 @@ impl EndpointPair {
     }
     pub fn CreateEndpointPair<P0, P1>(localhostname: P0, localservicename: &windows_core::HSTRING, remotehostname: P1, remoteservicename: &windows_core::HSTRING) -> windows_core::Result<EndpointPair>
     where
-        P0: windows_core::IntoParam<HostName>,
-        P1: windows_core::IntoParam<HostName>,
+        P0: windows_core::Param<HostName>,
+        P1: windows_core::Param<HostName>,
     {
         Self::IEndpointPairFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateEndpointPair)(windows_core::Interface::as_raw(this), localhostname.into_param().abi(), core::mem::transmute_copy(localservicename), remotehostname.into_param().abi(), core::mem::transmute_copy(remoteservicename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateEndpointPair)(windows_core::Interface::as_raw(this), localhostname.param().abi(), core::mem::transmute_copy(localservicename), remotehostname.param().abi(), core::mem::transmute_copy(remoteservicename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -203,12 +203,12 @@ impl HostName {
     }
     pub fn IsEqual<P0>(&self, hostname: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<HostName>,
+        P0: windows_core::Param<HostName>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsEqual)(windows_core::Interface::as_raw(this), hostname.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsEqual)(windows_core::Interface::as_raw(this), hostname.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn CreateHostName(hostname: &windows_core::HSTRING) -> windows_core::Result<HostName> {

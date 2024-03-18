@@ -513,12 +513,12 @@ windows_core::imp::interface_hierarchy!(DeviceAccessInformation, windows_core::I
 impl DeviceAccessInformation {
     pub fn AccessChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<DeviceAccessInformation, DeviceAccessChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DeviceAccessInformation, DeviceAccessChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AccessChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AccessChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAccessChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -668,10 +668,10 @@ impl DeviceInformation {
     }
     pub fn Update<P0>(&self, updateinfo: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<DeviceInformationUpdate>,
+        P0: windows_core::Param<DeviceInformationUpdate>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Update)(windows_core::Interface::as_raw(this), updateinfo.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Update)(windows_core::Interface::as_raw(this), updateinfo.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn GetThumbnailAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceThumbnail>> {
@@ -712,11 +712,11 @@ impl DeviceInformation {
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIdAsyncAdditionalProperties<P0>(deviceid: &windows_core::HSTRING, additionalproperties: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IDeviceInformationStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromIdAsyncAdditionalProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), additionalproperties.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromIdAsyncAdditionalProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), additionalproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -743,11 +743,11 @@ impl DeviceInformation {
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllAsyncAqsFilterAndAdditionalProperties<P0>(aqsfilter: &windows_core::HSTRING, additionalproperties: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IDeviceInformationStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindAllAsyncAqsFilterAndAdditionalProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(aqsfilter), additionalproperties.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FindAllAsyncAqsFilterAndAdditionalProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(aqsfilter), additionalproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWatcher() -> windows_core::Result<DeviceWatcher> {
@@ -771,11 +771,11 @@ impl DeviceInformation {
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWatcherAqsFilterAndAdditionalProperties<P0>(aqsfilter: &windows_core::HSTRING, additionalproperties: P0) -> windows_core::Result<DeviceWatcher>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IDeviceInformationStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWatcherAqsFilterAndAdditionalProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(aqsfilter), additionalproperties.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWatcherAqsFilterAndAdditionalProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(aqsfilter), additionalproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetAqsFilterFromDeviceClass(deviceclass: DeviceClass) -> windows_core::Result<windows_core::HSTRING> {
@@ -787,31 +787,31 @@ impl DeviceInformation {
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIdAsyncWithKindAndAdditionalProperties<P0>(deviceid: &windows_core::HSTRING, additionalproperties: P0, kind: DeviceInformationKind) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IDeviceInformationStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromIdAsyncWithKindAndAdditionalProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), additionalproperties.into_param().abi(), kind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromIdAsyncWithKindAndAdditionalProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), additionalproperties.param().abi(), kind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllAsyncWithKindAqsFilterAndAdditionalProperties<P0>(aqsfilter: &windows_core::HSTRING, additionalproperties: P0, kind: DeviceInformationKind) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IDeviceInformationStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindAllAsyncWithKindAqsFilterAndAdditionalProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(aqsfilter), additionalproperties.into_param().abi(), kind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FindAllAsyncWithKindAqsFilterAndAdditionalProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(aqsfilter), additionalproperties.param().abi(), kind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWatcherWithKindAqsFilterAndAdditionalProperties<P0>(aqsfilter: &windows_core::HSTRING, additionalproperties: P0, kind: DeviceInformationKind) -> windows_core::Result<DeviceWatcher>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IDeviceInformationStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWatcherWithKindAqsFilterAndAdditionalProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(aqsfilter), additionalproperties.into_param().abi(), kind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWatcherWithKindAqsFilterAndAdditionalProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(aqsfilter), additionalproperties.param().abi(), kind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -874,12 +874,12 @@ impl DeviceInformationCollection {
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<DeviceInformation>,
+        P0: windows_core::Param<DeviceInformation>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.into_param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -945,22 +945,22 @@ impl DeviceInformationCustomPairing {
     }
     pub fn PairWithProtectionLevelAndSettingsAsync<P0>(&self, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel, devicepairingsettings: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>
     where
-        P0: windows_core::IntoParam<IDevicePairingSettings>,
+        P0: windows_core::Param<IDevicePairingSettings>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PairWithProtectionLevelAndSettingsAsync)(windows_core::Interface::as_raw(this), pairingkindssupported, minprotectionlevel, devicepairingsettings.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PairWithProtectionLevelAndSettingsAsync)(windows_core::Interface::as_raw(this), pairingkindssupported, minprotectionlevel, devicepairingsettings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn PairingRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<DeviceInformationCustomPairing, DevicePairingRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DeviceInformationCustomPairing, DevicePairingRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PairingRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PairingRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePairingRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1029,12 +1029,12 @@ impl DeviceInformationPairing {
     }
     pub fn PairWithProtectionLevelAndSettingsAsync<P0>(&self, minprotectionlevel: DevicePairingProtectionLevel, devicepairingsettings: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>
     where
-        P0: windows_core::IntoParam<IDevicePairingSettings>,
+        P0: windows_core::Param<IDevicePairingSettings>,
     {
         let this = &windows_core::Interface::cast::<IDeviceInformationPairing2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PairWithProtectionLevelAndSettingsAsync)(windows_core::Interface::as_raw(this), minprotectionlevel, devicepairingsettings.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PairWithProtectionLevelAndSettingsAsync)(windows_core::Interface::as_raw(this), minprotectionlevel, devicepairingsettings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn UnpairAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceUnpairingResult>> {
@@ -1163,10 +1163,10 @@ impl DevicePairingRequestedEventArgs {
     #[cfg(feature = "Security_Credentials")]
     pub fn AcceptWithPasswordCredential<P0>(&self, passwordcredential: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Security::Credentials::PasswordCredential>,
+        P0: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
     {
         let this = &windows_core::Interface::cast::<IDevicePairingRequestedEventArgs2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).AcceptWithPasswordCredential)(windows_core::Interface::as_raw(this), passwordcredential.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AcceptWithPasswordCredential)(windows_core::Interface::as_raw(this), passwordcredential.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for DevicePairingRequestedEventArgs {
@@ -1249,12 +1249,12 @@ impl DevicePicker {
     }
     pub fn DeviceSelected<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<DevicePicker, DeviceSelectedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DevicePicker, DeviceSelectedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeviceSelected)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DeviceSelected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDeviceSelected(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1263,12 +1263,12 @@ impl DevicePicker {
     }
     pub fn DisconnectButtonClicked<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<DevicePicker, DeviceDisconnectButtonClickedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DevicePicker, DeviceDisconnectButtonClickedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisconnectButtonClicked)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DisconnectButtonClicked)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDisconnectButtonClicked(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1277,12 +1277,12 @@ impl DevicePicker {
     }
     pub fn DevicePickerDismissed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<DevicePicker, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DevicePicker, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).DevicePickerDismissed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DevicePickerDismissed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDevicePickerDismissed(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1319,10 +1319,10 @@ impl DevicePicker {
     }
     pub fn SetDisplayStatus<P0>(&self, device: P0, status: &windows_core::HSTRING, options: DevicePickerDisplayStatusOptions) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<DeviceInformation>,
+        P0: windows_core::Param<DeviceInformation>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDisplayStatus)(windows_core::Interface::as_raw(this), device.into_param().abi(), core::mem::transmute_copy(status), options).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDisplayStatus)(windows_core::Interface::as_raw(this), device.param().abi(), core::mem::transmute_copy(status), options).ok() }
     }
 }
 impl windows_core::RuntimeType for DevicePicker {
@@ -1528,23 +1528,23 @@ impl DeviceThumbnail {
     #[cfg(feature = "Storage_Streams")]
     pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: super::super::Storage::Streams::InputStreamOptions) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = &windows_core::Interface::cast::<super::super::Storage::Streams::IInputStream>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), buffer.into_param().abi(), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn WriteAsync<P0>(&self, buffer: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = &windows_core::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), buffer.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1671,12 +1671,12 @@ windows_core::imp::interface_hierarchy!(DeviceWatcher, windows_core::IUnknown, w
 impl DeviceWatcher {
     pub fn Added<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<DeviceWatcher, DeviceInformation>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DeviceWatcher, DeviceInformation>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Added)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Added)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAdded(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1685,12 +1685,12 @@ impl DeviceWatcher {
     }
     pub fn Updated<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<DeviceWatcher, DeviceInformationUpdate>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DeviceWatcher, DeviceInformationUpdate>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Updated)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Updated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1699,12 +1699,12 @@ impl DeviceWatcher {
     }
     pub fn Removed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<DeviceWatcher, DeviceInformationUpdate>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DeviceWatcher, DeviceInformationUpdate>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Removed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Removed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRemoved(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1713,12 +1713,12 @@ impl DeviceWatcher {
     }
     pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<DeviceWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DeviceWatcher, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveEnumerationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1727,12 +1727,12 @@ impl DeviceWatcher {
     }
     pub fn Stopped<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<DeviceWatcher, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DeviceWatcher, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStopped(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1757,12 +1757,12 @@ impl DeviceWatcher {
     #[cfg(all(feature = "ApplicationModel_Background", feature = "Foundation_Collections"))]
     pub fn GetBackgroundTrigger<P0>(&self, requestedeventkinds: P0) -> windows_core::Result<super::super::ApplicationModel::Background::DeviceWatcherTrigger>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<DeviceWatcherEventKind>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<DeviceWatcherEventKind>>,
     {
         let this = &windows_core::Interface::cast::<IDeviceWatcher2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetBackgroundTrigger)(windows_core::Interface::as_raw(this), requestedeventkinds.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetBackgroundTrigger)(windows_core::Interface::as_raw(this), requestedeventkinds.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }

@@ -640,12 +640,12 @@ impl AccessibilitySettings {
     }
     pub fn HighContrastChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AccessibilitySettings, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AccessibilitySettings, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).HighContrastChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).HighContrastChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveHighContrastChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -776,12 +776,12 @@ impl ApplicationView {
     }
     pub fn Consolidated<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ApplicationView, ApplicationViewConsolidatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ApplicationView, ApplicationViewConsolidatedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Consolidated)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Consolidated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveConsolidated(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -810,12 +810,12 @@ impl ApplicationView {
     }
     pub fn VisibleBoundsChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ApplicationView, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ApplicationView, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IApplicationView2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).VisibleBoundsChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).VisibleBoundsChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveVisibleBoundsChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -910,12 +910,12 @@ impl ApplicationView {
     }
     pub fn TryEnterViewModeWithPreferencesAsync<P0>(&self, viewmode: ApplicationViewMode, viewmodepreferences: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<ViewModePreferences>,
+        P0: windows_core::Param<ViewModePreferences>,
     {
         let this = &windows_core::Interface::cast::<IApplicationView4>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryEnterViewModeWithPreferencesAsync)(windows_core::Interface::as_raw(this), viewmode, viewmodepreferences.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryEnterViewModeWithPreferencesAsync)(windows_core::Interface::as_raw(this), viewmode, viewmodepreferences.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryConsolidateAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
@@ -962,11 +962,11 @@ impl ApplicationView {
     #[cfg(feature = "UI_Core")]
     pub fn GetApplicationViewIdForWindow<P0>(window: P0) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<super::Core::ICoreWindow>,
+        P0: windows_core::Param<super::Core::ICoreWindow>,
     {
         Self::IApplicationViewInteropStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetApplicationViewIdForWindow)(windows_core::Interface::as_raw(this), window.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GetApplicationViewIdForWindow)(windows_core::Interface::as_raw(this), window.param().abi(), &mut result__).map(|| result__)
         })
     }
     #[cfg(feature = "deprecated")]
@@ -1197,11 +1197,11 @@ impl ApplicationViewSwitcher {
     }
     pub fn TryShowAsViewModeWithPreferencesAsync<P0>(viewid: i32, viewmode: ApplicationViewMode, viewmodepreferences: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<ViewModePreferences>,
+        P0: windows_core::Param<ViewModePreferences>,
     {
         Self::IApplicationViewSwitcherStatics3(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryShowAsViewModeWithPreferencesAsync)(windows_core::Interface::as_raw(this), viewid, viewmode, viewmodepreferences.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryShowAsViewModeWithPreferencesAsync)(windows_core::Interface::as_raw(this), viewid, viewmode, viewmodepreferences.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1230,10 +1230,10 @@ windows_core::imp::interface_hierarchy!(ApplicationViewTitleBar, windows_core::I
 impl ApplicationViewTitleBar {
     pub fn SetForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetForegroundColor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetForegroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1244,10 +1244,10 @@ impl ApplicationViewTitleBar {
     }
     pub fn SetBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBackgroundColor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBackgroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn BackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1258,10 +1258,10 @@ impl ApplicationViewTitleBar {
     }
     pub fn SetButtonForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetButtonForegroundColor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetButtonForegroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ButtonForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1272,10 +1272,10 @@ impl ApplicationViewTitleBar {
     }
     pub fn SetButtonBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetButtonBackgroundColor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetButtonBackgroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ButtonBackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1286,10 +1286,10 @@ impl ApplicationViewTitleBar {
     }
     pub fn SetButtonHoverForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetButtonHoverForegroundColor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetButtonHoverForegroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ButtonHoverForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1300,10 +1300,10 @@ impl ApplicationViewTitleBar {
     }
     pub fn SetButtonHoverBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetButtonHoverBackgroundColor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetButtonHoverBackgroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ButtonHoverBackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1314,10 +1314,10 @@ impl ApplicationViewTitleBar {
     }
     pub fn SetButtonPressedForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetButtonPressedForegroundColor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetButtonPressedForegroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ButtonPressedForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1328,10 +1328,10 @@ impl ApplicationViewTitleBar {
     }
     pub fn SetButtonPressedBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetButtonPressedBackgroundColor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetButtonPressedBackgroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ButtonPressedBackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1342,10 +1342,10 @@ impl ApplicationViewTitleBar {
     }
     pub fn SetInactiveForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetInactiveForegroundColor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetInactiveForegroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn InactiveForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1356,10 +1356,10 @@ impl ApplicationViewTitleBar {
     }
     pub fn SetInactiveBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetInactiveBackgroundColor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetInactiveBackgroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn InactiveBackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1370,10 +1370,10 @@ impl ApplicationViewTitleBar {
     }
     pub fn SetButtonInactiveForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetButtonInactiveForegroundColor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetButtonInactiveForegroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ButtonInactiveForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1384,10 +1384,10 @@ impl ApplicationViewTitleBar {
     }
     pub fn SetButtonInactiveBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetButtonInactiveBackgroundColor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetButtonInactiveBackgroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ButtonInactiveBackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1461,12 +1461,12 @@ windows_core::imp::interface_hierarchy!(InputPane, windows_core::IUnknown, windo
 impl InputPane {
     pub fn Showing<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<InputPane, InputPaneVisibilityEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<InputPane, InputPaneVisibilityEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Showing)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Showing)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveShowing(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1475,12 +1475,12 @@ impl InputPane {
     }
     pub fn Hiding<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<InputPane, InputPaneVisibilityEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<InputPane, InputPaneVisibilityEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Hiding)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Hiding)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveHiding(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1527,11 +1527,11 @@ impl InputPane {
     }
     pub fn GetForUIContext<P0>(context: P0) -> windows_core::Result<InputPane>
     where
-        P0: windows_core::IntoParam<super::UIContext>,
+        P0: windows_core::Param<super::UIContext>,
     {
         Self::IInputPaneStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUIContext)(windows_core::Interface::as_raw(this), context.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUIContext)(windows_core::Interface::as_raw(this), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1617,11 +1617,11 @@ impl ProjectionManager {
     }
     pub fn ProjectionDisplayAvailableChanged<P0>(handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
         Self::IProjectionManagerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProjectionDisplayAvailableChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ProjectionDisplayAvailableChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveProjectionDisplayAvailableChanged(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1630,11 +1630,11 @@ impl ProjectionManager {
     #[cfg(feature = "Devices_Enumeration")]
     pub fn StartProjectingWithDeviceInfoAsync<P0>(projectionviewid: i32, anchorviewid: i32, displaydeviceinfo: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::Devices::Enumeration::DeviceInformation>,
+        P0: windows_core::Param<super::super::Devices::Enumeration::DeviceInformation>,
     {
         Self::IProjectionManagerStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartProjectingWithDeviceInfoAsync)(windows_core::Interface::as_raw(this), projectionviewid, anchorviewid, displaydeviceinfo.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StartProjectingWithDeviceInfoAsync)(windows_core::Interface::as_raw(this), projectionviewid, anchorviewid, displaydeviceinfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn RequestStartProjectingAsync(projectionviewid: i32, anchorviewid: i32, selection: super::super::Foundation::Rect) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
@@ -1709,10 +1709,10 @@ impl StatusBar {
     }
     pub fn SetForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetForegroundColor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetForegroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn BackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1723,10 +1723,10 @@ impl StatusBar {
     }
     pub fn SetBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBackgroundColor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBackgroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ProgressIndicator(&self) -> windows_core::Result<StatusBarProgressIndicator> {
         let this = self;
@@ -1744,12 +1744,12 @@ impl StatusBar {
     }
     pub fn Showing<P0>(&self, eventhandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<StatusBar, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<StatusBar, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Showing)(windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Showing)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveShowing(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1758,12 +1758,12 @@ impl StatusBar {
     }
     pub fn Hiding<P0>(&self, eventhandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<StatusBar, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<StatusBar, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Hiding)(windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Hiding)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveHiding(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1833,10 +1833,10 @@ impl StatusBarProgressIndicator {
     }
     pub fn SetProgressValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<f64>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<f64>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetProgressValue)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetProgressValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for StatusBarProgressIndicator {
@@ -1963,12 +1963,12 @@ impl UISettings {
     }
     pub fn TextScaleFactorChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<UISettings, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<UISettings, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IUISettings2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TextScaleFactorChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TextScaleFactorChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveTextScaleFactorChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1984,12 +1984,12 @@ impl UISettings {
     }
     pub fn ColorValuesChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<UISettings, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<UISettings, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IUISettings3>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ColorValuesChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ColorValuesChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveColorValuesChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2005,12 +2005,12 @@ impl UISettings {
     }
     pub fn AdvancedEffectsEnabledChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<UISettings, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<UISettings, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IUISettings4>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AdvancedEffectsEnabledChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AdvancedEffectsEnabledChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAdvancedEffectsEnabledChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2026,12 +2026,12 @@ impl UISettings {
     }
     pub fn AutoHideScrollBarsChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<UISettings, UISettingsAutoHideScrollBarsChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<UISettings, UISettingsAutoHideScrollBarsChangedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IUISettings5>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AutoHideScrollBarsChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AutoHideScrollBarsChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAutoHideScrollBarsChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2040,12 +2040,12 @@ impl UISettings {
     }
     pub fn AnimationsEnabledChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<UISettings, UISettingsAnimationsEnabledChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<UISettings, UISettingsAnimationsEnabledChangedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IUISettings6>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AnimationsEnabledChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AnimationsEnabledChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAnimationsEnabledChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2054,12 +2054,12 @@ impl UISettings {
     }
     pub fn MessageDurationChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<UISettings, UISettingsMessageDurationChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<UISettings, UISettingsMessageDurationChangedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IUISettings6>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).MessageDurationChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MessageDurationChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMessageDurationChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {

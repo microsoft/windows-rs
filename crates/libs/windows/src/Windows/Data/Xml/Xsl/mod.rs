@@ -42,33 +42,33 @@ impl XsltProcessor {
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn TransformToString<P0>(&self, inputnode: P0) -> windows_core::Result<windows_core::HSTRING>
     where
-        P0: windows_core::IntoParam<super::Dom::IXmlNode>,
+        P0: windows_core::Param<super::Dom::IXmlNode>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TransformToString)(windows_core::Interface::as_raw(this), inputnode.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TransformToString)(windows_core::Interface::as_raw(this), inputnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn TransformToDocument<P0>(&self, inputnode: P0) -> windows_core::Result<super::Dom::XmlDocument>
     where
-        P0: windows_core::IntoParam<super::Dom::IXmlNode>,
+        P0: windows_core::Param<super::Dom::IXmlNode>,
     {
         let this = &windows_core::Interface::cast::<IXsltProcessor2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TransformToDocument)(windows_core::Interface::as_raw(this), inputnode.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TransformToDocument)(windows_core::Interface::as_raw(this), inputnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn CreateInstance<P0>(document: P0) -> windows_core::Result<XsltProcessor>
     where
-        P0: windows_core::IntoParam<super::Dom::XmlDocument>,
+        P0: windows_core::Param<super::Dom::XmlDocument>,
     {
         Self::IXsltProcessorFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), document.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), document.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

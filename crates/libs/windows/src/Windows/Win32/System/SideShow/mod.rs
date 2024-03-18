@@ -7,9 +7,9 @@ impl ISideShowBulkCapabilities {
     }
     pub unsafe fn GetCapabilities<P0>(&self, in_keycollection: P0, inout_pvalues: *mut Option<ISideShowPropVariantCollection>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ISideShowKeyCollection>,
+        P0: windows_core::Param<ISideShowKeyCollection>,
     {
-        (windows_core::Interface::vtable(self).GetCapabilities)(windows_core::Interface::as_raw(self), in_keycollection.into_param().abi(), core::mem::transmute(inout_pvalues)).ok()
+        (windows_core::Interface::vtable(self).GetCapabilities)(windows_core::Interface::as_raw(self), in_keycollection.param().abi(), core::mem::transmute(inout_pvalues)).ok()
     }
 }
 #[repr(C)]
@@ -56,9 +56,9 @@ windows_core::imp::interface_hierarchy!(ISideShowContent, windows_core::IUnknown
 impl ISideShowContent {
     pub unsafe fn GetContent<P0>(&self, in_picapabilities: P0, out_pdwsize: *mut u32, out_ppbdata: *mut *mut u8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ISideShowCapabilities>,
+        P0: windows_core::Param<ISideShowCapabilities>,
     {
-        (windows_core::Interface::vtable(self).GetContent)(windows_core::Interface::as_raw(self), in_picapabilities.into_param().abi(), out_pdwsize, out_ppbdata).ok()
+        (windows_core::Interface::vtable(self).GetContent)(windows_core::Interface::as_raw(self), in_picapabilities.param().abi(), out_pdwsize, out_ppbdata).ok()
     }
     pub unsafe fn ContentId(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -81,9 +81,9 @@ windows_core::imp::interface_hierarchy!(ISideShowContentManager, windows_core::I
 impl ISideShowContentManager {
     pub unsafe fn Add<P0>(&self, in_picontent: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ISideShowContent>,
+        P0: windows_core::Param<ISideShowContent>,
     {
-        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), in_picontent.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), in_picontent.param().abi()).ok()
     }
     pub unsafe fn Remove(&self, in_contentid: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), in_contentid).ok()
@@ -93,9 +93,9 @@ impl ISideShowContentManager {
     }
     pub unsafe fn SetEventSink<P0>(&self, in_pievents: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ISideShowEvents>,
+        P0: windows_core::Param<ISideShowEvents>,
     {
-        (windows_core::Interface::vtable(self).SetEventSink)(windows_core::Interface::as_raw(self), in_pievents.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventSink)(windows_core::Interface::as_raw(self), in_pievents.param().abi()).ok()
     }
     pub unsafe fn GetDeviceCapabilities(&self) -> windows_core::Result<ISideShowCapabilitiesCollection> {
         let mut result__ = std::mem::zeroed();
@@ -120,21 +120,21 @@ impl ISideShowEvents {
     }
     pub unsafe fn ApplicationEvent<P0>(&self, in_picapabilities: P0, in_dweventid: u32, in_pbeventdata: Option<&[u8]>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ISideShowCapabilities>,
+        P0: windows_core::Param<ISideShowCapabilities>,
     {
-        (windows_core::Interface::vtable(self).ApplicationEvent)(windows_core::Interface::as_raw(self), in_picapabilities.into_param().abi(), in_dweventid, in_pbeventdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(in_pbeventdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok()
+        (windows_core::Interface::vtable(self).ApplicationEvent)(windows_core::Interface::as_raw(self), in_picapabilities.param().abi(), in_dweventid, in_pbeventdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(in_pbeventdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
     pub unsafe fn DeviceAdded<P0>(&self, in_pidevice: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ISideShowCapabilities>,
+        P0: windows_core::Param<ISideShowCapabilities>,
     {
-        (windows_core::Interface::vtable(self).DeviceAdded)(windows_core::Interface::as_raw(self), in_pidevice.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeviceAdded)(windows_core::Interface::as_raw(self), in_pidevice.param().abi()).ok()
     }
     pub unsafe fn DeviceRemoved<P0>(&self, in_pidevice: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ISideShowCapabilities>,
+        P0: windows_core::Param<ISideShowCapabilities>,
     {
-        (windows_core::Interface::vtable(self).DeviceRemoved)(windows_core::Interface::as_raw(self), in_pidevice.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeviceRemoved)(windows_core::Interface::as_raw(self), in_pidevice.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -197,9 +197,9 @@ impl ISideShowNotification {
     }
     pub unsafe fn SetTitle<P0>(&self, in_pwsztitle: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTitle)(windows_core::Interface::as_raw(self), in_pwsztitle.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTitle)(windows_core::Interface::as_raw(self), in_pwsztitle.param().abi()).ok()
     }
     pub unsafe fn Message(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -207,9 +207,9 @@ impl ISideShowNotification {
     }
     pub unsafe fn SetMessage<P0>(&self, in_pwszmessage: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetMessage)(windows_core::Interface::as_raw(self), in_pwszmessage.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetMessage)(windows_core::Interface::as_raw(self), in_pwszmessage.param().abi()).ok()
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn Image(&self) -> windows_core::Result<super::super::UI::WindowsAndMessaging::HICON> {
@@ -219,9 +219,9 @@ impl ISideShowNotification {
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn SetImage<P0>(&self, in_hicon: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::UI::WindowsAndMessaging::HICON>,
+        P0: windows_core::Param<super::super::UI::WindowsAndMessaging::HICON>,
     {
-        (windows_core::Interface::vtable(self).SetImage)(windows_core::Interface::as_raw(self), in_hicon.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetImage)(windows_core::Interface::as_raw(self), in_hicon.param().abi()).ok()
     }
     pub unsafe fn ExpirationTime(&self) -> windows_core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__ = std::mem::zeroed();
@@ -256,9 +256,9 @@ windows_core::imp::interface_hierarchy!(ISideShowNotificationManager, windows_co
 impl ISideShowNotificationManager {
     pub unsafe fn Show<P0>(&self, in_pinotification: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ISideShowNotification>,
+        P0: windows_core::Param<ISideShowNotification>,
     {
-        (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self), in_pinotification.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self), in_pinotification.param().abi()).ok()
     }
     pub unsafe fn Revoke(&self, in_notificationid: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Revoke)(windows_core::Interface::as_raw(self), in_notificationid).ok()

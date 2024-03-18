@@ -186,11 +186,11 @@ impl GameList {
     }
     pub fn GameAdded<P0>(handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<GameListChangedEventHandler>,
+        P0: windows_core::Param<GameListChangedEventHandler>,
     {
         Self::IGameListStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GameAdded)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GameAdded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveGameAdded(token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -198,11 +198,11 @@ impl GameList {
     }
     pub fn GameRemoved<P0>(handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<GameListRemovedEventHandler>,
+        P0: windows_core::Param<GameListRemovedEventHandler>,
     {
         Self::IGameListStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GameRemoved)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GameRemoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveGameRemoved(token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -210,11 +210,11 @@ impl GameList {
     }
     pub fn GameUpdated<P0>(handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<GameListChangedEventHandler>,
+        P0: windows_core::Param<GameListChangedEventHandler>,
     {
         Self::IGameListStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GameUpdated)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GameUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveGameUpdated(token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -222,22 +222,22 @@ impl GameList {
     }
     pub fn MergeEntriesAsync<P0, P1>(left: P0, right: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GameListEntry>>
     where
-        P0: windows_core::IntoParam<GameListEntry>,
-        P1: windows_core::IntoParam<GameListEntry>,
+        P0: windows_core::Param<GameListEntry>,
+        P1: windows_core::Param<GameListEntry>,
     {
         Self::IGameListStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).MergeEntriesAsync)(windows_core::Interface::as_raw(this), left.into_param().abi(), right.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).MergeEntriesAsync)(windows_core::Interface::as_raw(this), left.param().abi(), right.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn UnmergeEntryAsync<P0>(mergedentry: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>>
     where
-        P0: windows_core::IntoParam<GameListEntry>,
+        P0: windows_core::Param<GameListEntry>,
     {
         Self::IGameListStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).UnmergeEntryAsync)(windows_core::Interface::as_raw(this), mergedentry.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UnmergeEntryAsync)(windows_core::Interface::as_raw(this), mergedentry.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -322,23 +322,23 @@ impl GameListEntry {
     #[cfg(feature = "Storage")]
     pub fn SetLauncherExecutableFileAsync<P0>(&self, executablefile: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::super::Storage::IStorageFile>,
+        P0: windows_core::Param<super::super::super::Storage::IStorageFile>,
     {
         let this = &windows_core::Interface::cast::<IGameListEntry2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetLauncherExecutableFileAsync)(windows_core::Interface::as_raw(this), executablefile.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetLauncherExecutableFileAsync)(windows_core::Interface::as_raw(this), executablefile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage")]
     pub fn SetLauncherExecutableFileWithParamsAsync<P0>(&self, executablefile: P0, launchparams: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::super::Storage::IStorageFile>,
+        P0: windows_core::Param<super::super::super::Storage::IStorageFile>,
     {
         let this = &windows_core::Interface::cast::<IGameListEntry2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetLauncherExecutableFileWithParamsAsync)(windows_core::Interface::as_raw(this), executablefile.into_param().abi(), core::mem::transmute_copy(launchparams), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetLauncherExecutableFileWithParamsAsync)(windows_core::Interface::as_raw(this), executablefile.param().abi(), core::mem::transmute_copy(launchparams), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TitleId(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -408,10 +408,10 @@ impl GameModeConfiguration {
     }
     pub fn SetPercentGpuTimeAllocatedToGame<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<super::super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPercentGpuTimeAllocatedToGame)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPercentGpuTimeAllocatedToGame)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn PercentGpuMemoryAllocatedToGame(&self) -> windows_core::Result<super::super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -422,10 +422,10 @@ impl GameModeConfiguration {
     }
     pub fn SetPercentGpuMemoryAllocatedToGame<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<super::super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPercentGpuMemoryAllocatedToGame)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPercentGpuMemoryAllocatedToGame)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn PercentGpuMemoryAllocatedToSystemCompositor(&self) -> windows_core::Result<super::super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -436,10 +436,10 @@ impl GameModeConfiguration {
     }
     pub fn SetPercentGpuMemoryAllocatedToSystemCompositor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<super::super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPercentGpuMemoryAllocatedToSystemCompositor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPercentGpuMemoryAllocatedToSystemCompositor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn MaxCpuCount(&self) -> windows_core::Result<super::super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -450,10 +450,10 @@ impl GameModeConfiguration {
     }
     pub fn SetMaxCpuCount<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<super::super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxCpuCount)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxCpuCount)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn CpuExclusivityMaskLow(&self) -> windows_core::Result<super::super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -464,10 +464,10 @@ impl GameModeConfiguration {
     }
     pub fn SetCpuExclusivityMaskLow<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<super::super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetCpuExclusivityMaskLow)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetCpuExclusivityMaskLow)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn CpuExclusivityMaskHigh(&self) -> windows_core::Result<super::super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -478,10 +478,10 @@ impl GameModeConfiguration {
     }
     pub fn SetCpuExclusivityMaskHigh<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<super::super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetCpuExclusivityMaskHigh)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetCpuExclusivityMaskHigh)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn AffinitizeToExclusiveCpus(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -605,10 +605,10 @@ impl GameListChangedEventHandler {
     }
     pub fn Invoke<P0>(&self, game: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<GameListEntry>,
+        P0: windows_core::Param<GameListEntry>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), game.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), game.param().abi()).ok() }
     }
 }
 #[repr(C)]

@@ -162,12 +162,12 @@ impl IPrintCustomOptionDetails {
     }
     pub fn TrySetValue<P0>(&self, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
@@ -295,12 +295,12 @@ impl IPrintItemListOptionDetails {
     }
     pub fn TrySetValue<P0>(&self, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
@@ -402,12 +402,12 @@ impl IPrintNumberOptionDetails {
     }
     pub fn TrySetValue<P0>(&self, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
@@ -468,12 +468,12 @@ impl IPrintOptionDetails {
     }
     pub fn TrySetValue<P0>(&self, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
@@ -641,12 +641,12 @@ impl IPrintTextOptionDetails {
     }
     pub fn TrySetValue<P0>(&self, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
@@ -739,12 +739,12 @@ impl PrintBindingOptionDetails {
     }
     pub fn TrySetValue<P0>(&self, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
@@ -841,12 +841,12 @@ impl PrintBorderingOptionDetails {
     }
     pub fn TrySetValue<P0>(&self, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
@@ -943,12 +943,12 @@ impl PrintCollationOptionDetails {
     }
     pub fn TrySetValue<P0>(&self, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
@@ -1045,12 +1045,12 @@ impl PrintColorModeOptionDetails {
     }
     pub fn TrySetValue<P0>(&self, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
@@ -1153,12 +1153,12 @@ impl PrintCopiesOptionDetails {
     }
     pub fn TrySetValue<P0>(&self, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
@@ -1223,10 +1223,10 @@ impl PrintCustomItemListOptionDetails {
     #[cfg(feature = "Storage_Streams")]
     pub fn AddItem2<P0>(&self, itemid: &windows_core::HSTRING, displayname: &windows_core::HSTRING, description: &windows_core::HSTRING, icon: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Storage::Streams::IRandomAccessStreamWithContentType>,
+        P0: windows_core::Param<super::super::super::Storage::Streams::IRandomAccessStreamWithContentType>,
     {
         let this = &windows_core::Interface::cast::<IPrintCustomItemListOptionDetails2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).AddItem)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(itemid), core::mem::transmute_copy(displayname), core::mem::transmute_copy(description), icon.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddItem)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(itemid), core::mem::transmute_copy(displayname), core::mem::transmute_copy(description), icon.param().abi()).ok() }
     }
     pub fn SetWarningText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintCustomItemListOptionDetails3>(self)?;
@@ -1314,12 +1314,12 @@ impl PrintCustomItemListOptionDetails {
     }
     pub fn TrySetValue<P0>(&self, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
@@ -1430,12 +1430,12 @@ impl PrintCustomTextOptionDetails {
     }
     pub fn TrySetValue<P0>(&self, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
@@ -1535,12 +1535,12 @@ impl PrintCustomToggleOptionDetails {
     }
     pub fn TrySetValue<P0>(&self, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
@@ -1637,12 +1637,12 @@ impl PrintDuplexOptionDetails {
     }
     pub fn TrySetValue<P0>(&self, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
@@ -1739,12 +1739,12 @@ impl PrintHolePunchOptionDetails {
     }
     pub fn TrySetValue<P0>(&self, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
@@ -1841,12 +1841,12 @@ impl PrintMediaSizeOptionDetails {
     }
     pub fn TrySetValue<P0>(&self, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
@@ -1943,12 +1943,12 @@ impl PrintMediaTypeOptionDetails {
     }
     pub fn TrySetValue<P0>(&self, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
@@ -2023,12 +2023,12 @@ impl PrintOrientationOptionDetails {
     }
     pub fn TrySetValue<P0>(&self, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn SetWarningText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -2117,12 +2117,12 @@ impl PrintPageRangeOptionDetails {
     }
     pub fn TrySetValue<P0>(&self, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn SetWarningText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -2219,12 +2219,12 @@ impl PrintQualityOptionDetails {
     }
     pub fn TrySetValue<P0>(&self, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn SetWarningText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -2321,12 +2321,12 @@ impl PrintStapleOptionDetails {
     }
     pub fn TrySetValue<P0>(&self, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn SetWarningText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -2419,12 +2419,12 @@ impl PrintTaskOptionDetails {
     }
     pub fn OptionChanged<P0>(&self, eventhandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, PrintTaskOptionChangedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, PrintTaskOptionChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).OptionChanged)(windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).OptionChanged)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveOptionChanged(&self, eventcookie: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2433,12 +2433,12 @@ impl PrintTaskOptionDetails {
     }
     pub fn BeginValidation<P0>(&self, eventhandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).BeginValidation)(windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).BeginValidation)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveBeginValidation(&self, eventcookie: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2454,11 +2454,11 @@ impl PrintTaskOptionDetails {
     }
     pub fn GetFromPrintTaskOptions<P0>(printtaskoptions: P0) -> windows_core::Result<PrintTaskOptionDetails>
     where
-        P0: windows_core::IntoParam<super::PrintTaskOptions>,
+        P0: windows_core::Param<super::PrintTaskOptions>,
     {
         Self::IPrintTaskOptionDetailsStatic(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFromPrintTaskOptions)(windows_core::Interface::as_raw(this), printtaskoptions.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetFromPrintTaskOptions)(windows_core::Interface::as_raw(this), printtaskoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetPageDescription(&self, jobpagenumber: u32) -> windows_core::Result<super::PrintPageDescription> {

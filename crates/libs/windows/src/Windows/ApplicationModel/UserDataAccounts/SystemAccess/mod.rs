@@ -337,10 +337,10 @@ impl DeviceAccountConfiguration {
     #[cfg(feature = "Security_Credentials")]
     pub fn SetIncomingServerCredential<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Security::Credentials::PasswordCredential>,
+        P0: windows_core::Param<super::super::super::Security::Credentials::PasswordCredential>,
     {
         let this = &windows_core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetIncomingServerCredential)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetIncomingServerCredential)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Security_Credentials")]
     pub fn OutgoingServerCredential(&self) -> windows_core::Result<super::super::super::Security::Credentials::PasswordCredential> {
@@ -353,10 +353,10 @@ impl DeviceAccountConfiguration {
     #[cfg(feature = "Security_Credentials")]
     pub fn SetOutgoingServerCredential<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Security::Credentials::PasswordCredential>,
+        P0: windows_core::Param<super::super::super::Security::Credentials::PasswordCredential>,
     {
         let this = &windows_core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetOutgoingServerCredential)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetOutgoingServerCredential)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn OAuthRefreshToken(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
@@ -524,10 +524,10 @@ impl DeviceAccountConfiguration {
     }
     pub fn SetCardDavServerUrl<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetCardDavServerUrl)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetCardDavServerUrl)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn CardDavRequiresSsl(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
@@ -549,10 +549,10 @@ impl DeviceAccountConfiguration {
     }
     pub fn SetCalDavServerUrl<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetCalDavServerUrl)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetCalDavServerUrl)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn CalDavRequiresSsl(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
@@ -671,11 +671,11 @@ impl UserDataAccountSystemAccessManager {
     #[cfg(feature = "Foundation_Collections")]
     pub fn AddAndShowDeviceAccountsAsync<P0>(accounts: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<DeviceAccountConfiguration>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<DeviceAccountConfiguration>>,
     {
         Self::IUserDataAccountSystemAccessManagerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AddAndShowDeviceAccountsAsync)(windows_core::Interface::as_raw(this), accounts.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AddAndShowDeviceAccountsAsync)(windows_core::Interface::as_raw(this), accounts.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn SuppressLocalAccountWithAccountAsync(userdataaccountid: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
@@ -686,11 +686,11 @@ impl UserDataAccountSystemAccessManager {
     }
     pub fn CreateDeviceAccountAsync<P0>(account: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>
     where
-        P0: windows_core::IntoParam<DeviceAccountConfiguration>,
+        P0: windows_core::Param<DeviceAccountConfiguration>,
     {
         Self::IUserDataAccountSystemAccessManagerStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateDeviceAccountAsync)(windows_core::Interface::as_raw(this), account.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateDeviceAccountAsync)(windows_core::Interface::as_raw(this), account.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn DeleteDeviceAccountAsync(accountid: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {

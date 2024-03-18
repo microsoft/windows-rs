@@ -152,18 +152,18 @@ windows_core::imp::required_hierarchy!(IMidiOutPort, super::super::Foundation::I
 impl IMidiOutPort {
     pub fn SendMessage<P0>(&self, midimessage: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMidiMessage>,
+        P0: windows_core::Param<IMidiMessage>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SendMessage)(windows_core::Interface::as_raw(this), midimessage.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SendMessage)(windows_core::Interface::as_raw(this), midimessage.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn SendBuffer<P0>(&self, mididata: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SendBuffer)(windows_core::Interface::as_raw(this), mididata.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SendBuffer)(windows_core::Interface::as_raw(this), mididata.param().abi()).ok() }
     }
     pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -603,12 +603,12 @@ impl MidiInPort {
     }
     pub fn MessageReceived<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<MidiInPort, MidiMessageReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MidiInPort, MidiMessageReceivedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).MessageReceived)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MessageReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMessageReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -835,18 +835,18 @@ impl MidiOutPort {
     }
     pub fn SendMessage<P0>(&self, midimessage: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMidiMessage>,
+        P0: windows_core::Param<IMidiMessage>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SendMessage)(windows_core::Interface::as_raw(this), midimessage.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SendMessage)(windows_core::Interface::as_raw(this), midimessage.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn SendBuffer<P0>(&self, mididata: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SendBuffer)(windows_core::Interface::as_raw(this), mididata.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SendBuffer)(windows_core::Interface::as_raw(this), mididata.param().abi()).ok() }
     }
     pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -1316,18 +1316,18 @@ impl MidiSynthesizer {
     }
     pub fn SendMessage<P0>(&self, midimessage: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMidiMessage>,
+        P0: windows_core::Param<IMidiMessage>,
     {
         let this = &windows_core::Interface::cast::<IMidiOutPort>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SendMessage)(windows_core::Interface::as_raw(this), midimessage.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SendMessage)(windows_core::Interface::as_raw(this), midimessage.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn SendBuffer<P0>(&self, mididata: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = &windows_core::Interface::cast::<IMidiOutPort>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SendBuffer)(windows_core::Interface::as_raw(this), mididata.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SendBuffer)(windows_core::Interface::as_raw(this), mididata.param().abi()).ok() }
     }
     pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IMidiOutPort>(self)?;
@@ -1364,21 +1364,21 @@ impl MidiSynthesizer {
     #[cfg(feature = "Devices_Enumeration")]
     pub fn CreateFromAudioDeviceAsync<P0>(audiodevice: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MidiSynthesizer>>
     where
-        P0: windows_core::IntoParam<super::Enumeration::DeviceInformation>,
+        P0: windows_core::Param<super::Enumeration::DeviceInformation>,
     {
         Self::IMidiSynthesizerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromAudioDeviceAsync)(windows_core::Interface::as_raw(this), audiodevice.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromAudioDeviceAsync)(windows_core::Interface::as_raw(this), audiodevice.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Enumeration")]
     pub fn IsSynthesizer<P0>(mididevice: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<super::Enumeration::DeviceInformation>,
+        P0: windows_core::Param<super::Enumeration::DeviceInformation>,
     {
         Self::IMidiSynthesizerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsSynthesizer)(windows_core::Interface::as_raw(this), mididevice.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsSynthesizer)(windows_core::Interface::as_raw(this), mididevice.param().abi(), &mut result__).map(|| result__)
         })
     }
     #[doc(hidden)]
@@ -1430,11 +1430,11 @@ impl MidiSystemExclusiveMessage {
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateMidiSystemExclusiveMessage<P0>(rawdata: P0) -> windows_core::Result<MidiSystemExclusiveMessage>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::IMidiSystemExclusiveMessageFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateMidiSystemExclusiveMessage)(windows_core::Interface::as_raw(this), rawdata.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateMidiSystemExclusiveMessage)(windows_core::Interface::as_raw(this), rawdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

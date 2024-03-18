@@ -1,18 +1,18 @@
 #[inline]
 pub unsafe fn IsDestinationReachableA<P0>(lpszdestination: P0, lpqocinfo: *mut QOCINFO) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("sensapi.dll" "system" fn IsDestinationReachableA(lpszdestination : windows_core::PCSTR, lpqocinfo : *mut QOCINFO) -> super::super::Foundation:: BOOL);
-    IsDestinationReachableA(lpszdestination.into_param().abi(), lpqocinfo).ok()
+    IsDestinationReachableA(lpszdestination.param().abi(), lpqocinfo).ok()
 }
 #[inline]
 pub unsafe fn IsDestinationReachableW<P0>(lpszdestination: P0, lpqocinfo: *mut QOCINFO) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("sensapi.dll" "system" fn IsDestinationReachableW(lpszdestination : windows_core::PCWSTR, lpqocinfo : *mut QOCINFO) -> super::super::Foundation:: BOOL);
-    IsDestinationReachableW(lpszdestination.into_param().abi(), lpqocinfo).ok()
+    IsDestinationReachableW(lpszdestination.param().abi(), lpqocinfo).ok()
 }
 #[inline]
 pub unsafe fn IsNetworkAlive(lpdwflags: *mut u32) -> windows_core::Result<()> {
@@ -27,45 +27,45 @@ windows_core::imp::interface_hierarchy!(ISensLogon, windows_core::IUnknown, supe
 impl ISensLogon {
     pub unsafe fn Logon<P0>(&self, bstrusername: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).Logon)(windows_core::Interface::as_raw(self), bstrusername.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Logon)(windows_core::Interface::as_raw(self), bstrusername.param().abi()).ok()
     }
     pub unsafe fn Logoff<P0>(&self, bstrusername: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).Logoff)(windows_core::Interface::as_raw(self), bstrusername.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Logoff)(windows_core::Interface::as_raw(self), bstrusername.param().abi()).ok()
     }
     pub unsafe fn StartShell<P0>(&self, bstrusername: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).StartShell)(windows_core::Interface::as_raw(self), bstrusername.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).StartShell)(windows_core::Interface::as_raw(self), bstrusername.param().abi()).ok()
     }
     pub unsafe fn DisplayLock<P0>(&self, bstrusername: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).DisplayLock)(windows_core::Interface::as_raw(self), bstrusername.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DisplayLock)(windows_core::Interface::as_raw(self), bstrusername.param().abi()).ok()
     }
     pub unsafe fn DisplayUnlock<P0>(&self, bstrusername: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).DisplayUnlock)(windows_core::Interface::as_raw(self), bstrusername.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DisplayUnlock)(windows_core::Interface::as_raw(self), bstrusername.param().abi()).ok()
     }
     pub unsafe fn StartScreenSaver<P0>(&self, bstrusername: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).StartScreenSaver)(windows_core::Interface::as_raw(self), bstrusername.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).StartScreenSaver)(windows_core::Interface::as_raw(self), bstrusername.param().abi()).ok()
     }
     pub unsafe fn StopScreenSaver<P0>(&self, bstrusername: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).StopScreenSaver)(windows_core::Interface::as_raw(self), bstrusername.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).StopScreenSaver)(windows_core::Interface::as_raw(self), bstrusername.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -88,33 +88,33 @@ windows_core::imp::interface_hierarchy!(ISensLogon2, windows_core::IUnknown, sup
 impl ISensLogon2 {
     pub unsafe fn Logon<P0>(&self, bstrusername: P0, dwsessionid: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).Logon)(windows_core::Interface::as_raw(self), bstrusername.into_param().abi(), dwsessionid).ok()
+        (windows_core::Interface::vtable(self).Logon)(windows_core::Interface::as_raw(self), bstrusername.param().abi(), dwsessionid).ok()
     }
     pub unsafe fn Logoff<P0>(&self, bstrusername: P0, dwsessionid: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).Logoff)(windows_core::Interface::as_raw(self), bstrusername.into_param().abi(), dwsessionid).ok()
+        (windows_core::Interface::vtable(self).Logoff)(windows_core::Interface::as_raw(self), bstrusername.param().abi(), dwsessionid).ok()
     }
     pub unsafe fn SessionDisconnect<P0>(&self, bstrusername: P0, dwsessionid: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SessionDisconnect)(windows_core::Interface::as_raw(self), bstrusername.into_param().abi(), dwsessionid).ok()
+        (windows_core::Interface::vtable(self).SessionDisconnect)(windows_core::Interface::as_raw(self), bstrusername.param().abi(), dwsessionid).ok()
     }
     pub unsafe fn SessionReconnect<P0>(&self, bstrusername: P0, dwsessionid: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SessionReconnect)(windows_core::Interface::as_raw(self), bstrusername.into_param().abi(), dwsessionid).ok()
+        (windows_core::Interface::vtable(self).SessionReconnect)(windows_core::Interface::as_raw(self), bstrusername.param().abi(), dwsessionid).ok()
     }
     pub unsafe fn PostShell<P0>(&self, bstrusername: P0, dwsessionid: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).PostShell)(windows_core::Interface::as_raw(self), bstrusername.into_param().abi(), dwsessionid).ok()
+        (windows_core::Interface::vtable(self).PostShell)(windows_core::Interface::as_raw(self), bstrusername.param().abi(), dwsessionid).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -135,35 +135,35 @@ windows_core::imp::interface_hierarchy!(ISensNetwork, windows_core::IUnknown, su
 impl ISensNetwork {
     pub unsafe fn ConnectionMade<P0>(&self, bstrconnection: P0, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).ConnectionMade)(windows_core::Interface::as_raw(self), bstrconnection.into_param().abi(), ultype, lpqocinfo).ok()
+        (windows_core::Interface::vtable(self).ConnectionMade)(windows_core::Interface::as_raw(self), bstrconnection.param().abi(), ultype, lpqocinfo).ok()
     }
     pub unsafe fn ConnectionMadeNoQOCInfo<P0>(&self, bstrconnection: P0, ultype: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).ConnectionMadeNoQOCInfo)(windows_core::Interface::as_raw(self), bstrconnection.into_param().abi(), ultype).ok()
+        (windows_core::Interface::vtable(self).ConnectionMadeNoQOCInfo)(windows_core::Interface::as_raw(self), bstrconnection.param().abi(), ultype).ok()
     }
     pub unsafe fn ConnectionLost<P0>(&self, bstrconnection: P0, ultype: SENS_CONNECTION_TYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).ConnectionLost)(windows_core::Interface::as_raw(self), bstrconnection.into_param().abi(), ultype).ok()
+        (windows_core::Interface::vtable(self).ConnectionLost)(windows_core::Interface::as_raw(self), bstrconnection.param().abi(), ultype).ok()
     }
     pub unsafe fn DestinationReachable<P0, P1>(&self, bstrdestination: P0, bstrconnection: P1, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).DestinationReachable)(windows_core::Interface::as_raw(self), bstrdestination.into_param().abi(), bstrconnection.into_param().abi(), ultype, lpqocinfo).ok()
+        (windows_core::Interface::vtable(self).DestinationReachable)(windows_core::Interface::as_raw(self), bstrdestination.param().abi(), bstrconnection.param().abi(), ultype, lpqocinfo).ok()
     }
     pub unsafe fn DestinationReachableNoQOCInfo<P0, P1>(&self, bstrdestination: P0, bstrconnection: P1, ultype: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).DestinationReachableNoQOCInfo)(windows_core::Interface::as_raw(self), bstrdestination.into_param().abi(), bstrconnection.into_param().abi(), ultype).ok()
+        (windows_core::Interface::vtable(self).DestinationReachableNoQOCInfo)(windows_core::Interface::as_raw(self), bstrdestination.param().abi(), bstrconnection.param().abi(), ultype).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

@@ -1,10 +1,10 @@
 #[inline]
 pub unsafe fn D3DPERF_BeginEvent<P0>(col: u32, wszname: P0) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("d3d9.dll" "system" fn D3DPERF_BeginEvent(col : u32, wszname : windows_core::PCWSTR) -> i32);
-    D3DPERF_BeginEvent(col, wszname.into_param().abi())
+    D3DPERF_BeginEvent(col, wszname.param().abi())
 }
 #[inline]
 pub unsafe fn D3DPERF_EndEvent() -> i32 {
@@ -24,10 +24,10 @@ pub unsafe fn D3DPERF_QueryRepeatFrame() -> super::super::Foundation::BOOL {
 #[inline]
 pub unsafe fn D3DPERF_SetMarker<P0>(col: u32, wszname: P0)
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("d3d9.dll" "system" fn D3DPERF_SetMarker(col : u32, wszname : windows_core::PCWSTR));
-    D3DPERF_SetMarker(col, wszname.into_param().abi())
+    D3DPERF_SetMarker(col, wszname.param().abi())
 }
 #[inline]
 pub unsafe fn D3DPERF_SetOptions(dwoptions: u32) {
@@ -37,10 +37,10 @@ pub unsafe fn D3DPERF_SetOptions(dwoptions: u32) {
 #[inline]
 pub unsafe fn D3DPERF_SetRegion<P0>(col: u32, wszname: P0)
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("d3d9.dll" "system" fn D3DPERF_SetRegion(col : u32, wszname : windows_core::PCWSTR));
-    D3DPERF_SetRegion(col, wszname.into_param().abi())
+    D3DPERF_SetRegion(col, wszname.param().abi())
 }
 #[inline]
 pub unsafe fn Direct3DCreate9(sdkversion: u32) -> Option<IDirect3D9> {
@@ -76,18 +76,18 @@ impl IDirect3D9 {
     }
     pub unsafe fn CheckDeviceType<P0>(&self, adapter: u32, devtype: D3DDEVTYPE, adapterformat: D3DFORMAT, backbufferformat: D3DFORMAT, bwindowed: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).CheckDeviceType)(windows_core::Interface::as_raw(self), adapter, devtype, adapterformat, backbufferformat, bwindowed.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CheckDeviceType)(windows_core::Interface::as_raw(self), adapter, devtype, adapterformat, backbufferformat, bwindowed.param().abi()).ok()
     }
     pub unsafe fn CheckDeviceFormat(&self, adapter: u32, devicetype: D3DDEVTYPE, adapterformat: D3DFORMAT, usage: u32, rtype: D3DRESOURCETYPE, checkformat: D3DFORMAT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CheckDeviceFormat)(windows_core::Interface::as_raw(self), adapter, devicetype, adapterformat, usage, rtype, checkformat).ok()
     }
     pub unsafe fn CheckDeviceMultiSampleType<P0>(&self, adapter: u32, devicetype: D3DDEVTYPE, surfaceformat: D3DFORMAT, windowed: P0, multisampletype: D3DMULTISAMPLE_TYPE, pqualitylevels: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).CheckDeviceMultiSampleType)(windows_core::Interface::as_raw(self), adapter, devicetype, surfaceformat, windowed.into_param().abi(), multisampletype, pqualitylevels).ok()
+        (windows_core::Interface::vtable(self).CheckDeviceMultiSampleType)(windows_core::Interface::as_raw(self), adapter, devicetype, surfaceformat, windowed.param().abi(), multisampletype, pqualitylevels).ok()
     }
     pub unsafe fn CheckDepthStencilMatch(&self, adapter: u32, devicetype: D3DDEVTYPE, adapterformat: D3DFORMAT, rendertargetformat: D3DFORMAT, depthstencilformat: D3DFORMAT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CheckDepthStencilMatch)(windows_core::Interface::as_raw(self), adapter, devicetype, adapterformat, rendertargetformat, depthstencilformat).ok()
@@ -104,9 +104,9 @@ impl IDirect3D9 {
     }
     pub unsafe fn CreateDevice<P0>(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: P0, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: *mut Option<IDirect3DDevice9>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), adapter, devicetype, hfocuswindow.into_param().abi(), behaviorflags, ppresentationparameters, core::mem::transmute(ppreturneddeviceinterface)).ok()
+        (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), adapter, devicetype, hfocuswindow.param().abi(), behaviorflags, ppresentationparameters, core::mem::transmute(ppreturneddeviceinterface)).ok()
     }
 }
 #[repr(C)]
@@ -153,18 +153,18 @@ impl IDirect3D9Ex {
     }
     pub unsafe fn CheckDeviceType<P0>(&self, adapter: u32, devtype: D3DDEVTYPE, adapterformat: D3DFORMAT, backbufferformat: D3DFORMAT, bwindowed: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.CheckDeviceType)(windows_core::Interface::as_raw(self), adapter, devtype, adapterformat, backbufferformat, bwindowed.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.CheckDeviceType)(windows_core::Interface::as_raw(self), adapter, devtype, adapterformat, backbufferformat, bwindowed.param().abi()).ok()
     }
     pub unsafe fn CheckDeviceFormat(&self, adapter: u32, devicetype: D3DDEVTYPE, adapterformat: D3DFORMAT, usage: u32, rtype: D3DRESOURCETYPE, checkformat: D3DFORMAT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.CheckDeviceFormat)(windows_core::Interface::as_raw(self), adapter, devicetype, adapterformat, usage, rtype, checkformat).ok()
     }
     pub unsafe fn CheckDeviceMultiSampleType<P0>(&self, adapter: u32, devicetype: D3DDEVTYPE, surfaceformat: D3DFORMAT, windowed: P0, multisampletype: D3DMULTISAMPLE_TYPE, pqualitylevels: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.CheckDeviceMultiSampleType)(windows_core::Interface::as_raw(self), adapter, devicetype, surfaceformat, windowed.into_param().abi(), multisampletype, pqualitylevels).ok()
+        (windows_core::Interface::vtable(self).base__.CheckDeviceMultiSampleType)(windows_core::Interface::as_raw(self), adapter, devicetype, surfaceformat, windowed.param().abi(), multisampletype, pqualitylevels).ok()
     }
     pub unsafe fn CheckDepthStencilMatch(&self, adapter: u32, devicetype: D3DDEVTYPE, adapterformat: D3DFORMAT, rendertargetformat: D3DFORMAT, depthstencilformat: D3DFORMAT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.CheckDepthStencilMatch)(windows_core::Interface::as_raw(self), adapter, devicetype, adapterformat, rendertargetformat, depthstencilformat).ok()
@@ -181,9 +181,9 @@ impl IDirect3D9Ex {
     }
     pub unsafe fn CreateDevice<P0>(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: P0, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: *mut Option<IDirect3DDevice9>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).base__.CreateDevice)(windows_core::Interface::as_raw(self), adapter, devicetype, hfocuswindow.into_param().abi(), behaviorflags, ppresentationparameters, core::mem::transmute(ppreturneddeviceinterface)).ok()
+        (windows_core::Interface::vtable(self).base__.CreateDevice)(windows_core::Interface::as_raw(self), adapter, devicetype, hfocuswindow.param().abi(), behaviorflags, ppresentationparameters, core::mem::transmute(ppreturneddeviceinterface)).ok()
     }
     pub unsafe fn GetAdapterModeCountEx(&self, adapter: u32, pfilter: *const D3DDISPLAYMODEFILTER) -> u32 {
         (windows_core::Interface::vtable(self).GetAdapterModeCountEx)(windows_core::Interface::as_raw(self), adapter, pfilter)
@@ -196,9 +196,9 @@ impl IDirect3D9Ex {
     }
     pub unsafe fn CreateDeviceEx<P0>(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: P0, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX, ppreturneddeviceinterface: *mut Option<IDirect3DDevice9Ex>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).CreateDeviceEx)(windows_core::Interface::as_raw(self), adapter, devicetype, hfocuswindow.into_param().abi(), behaviorflags, ppresentationparameters, pfullscreendisplaymode, core::mem::transmute(ppreturneddeviceinterface)).ok()
+        (windows_core::Interface::vtable(self).CreateDeviceEx)(windows_core::Interface::as_raw(self), adapter, devicetype, hfocuswindow.param().abi(), behaviorflags, ppresentationparameters, pfullscreendisplaymode, core::mem::transmute(ppreturneddeviceinterface)).ok()
     }
     pub unsafe fn GetAdapterLUID(&self, adapter: u32, pluid: *mut super::super::Foundation::LUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetAdapterLUID)(windows_core::Interface::as_raw(self), adapter, pluid).ok()
@@ -369,18 +369,18 @@ impl IDirect3DDevice9 {
     }
     pub unsafe fn SetCursorProperties<P0>(&self, xhotspot: u32, yhotspot: u32, pcursorbitmap: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DSurface9>,
+        P0: windows_core::Param<IDirect3DSurface9>,
     {
-        (windows_core::Interface::vtable(self).SetCursorProperties)(windows_core::Interface::as_raw(self), xhotspot, yhotspot, pcursorbitmap.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetCursorProperties)(windows_core::Interface::as_raw(self), xhotspot, yhotspot, pcursorbitmap.param().abi()).ok()
     }
     pub unsafe fn SetCursorPosition(&self, x: i32, y: i32, flags: u32) {
         (windows_core::Interface::vtable(self).SetCursorPosition)(windows_core::Interface::as_raw(self), x, y, flags)
     }
     pub unsafe fn ShowCursor<P0>(&self, bshow: P0) -> super::super::Foundation::BOOL
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).ShowCursor)(windows_core::Interface::as_raw(self), bshow.into_param().abi())
+        (windows_core::Interface::vtable(self).ShowCursor)(windows_core::Interface::as_raw(self), bshow.param().abi())
     }
     pub unsafe fn CreateAdditionalSwapChain(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pswapchain: *mut Option<IDirect3DSwapChain9>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CreateAdditionalSwapChain)(windows_core::Interface::as_raw(self), ppresentationparameters, core::mem::transmute(pswapchain)).ok()
@@ -398,9 +398,9 @@ impl IDirect3DDevice9 {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn Present<P0>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: P0, pdirtyregion: *const super::Gdi::RGNDATA) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).Present)(windows_core::Interface::as_raw(self), psourcerect, pdestrect, hdestwindowoverride.into_param().abi(), pdirtyregion).ok()
+        (windows_core::Interface::vtable(self).Present)(windows_core::Interface::as_raw(self), psourcerect, pdestrect, hdestwindowoverride.param().abi(), pdirtyregion).ok()
     }
     pub unsafe fn GetBackBuffer(&self, iswapchain: u32, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE) -> windows_core::Result<IDirect3DSurface9> {
         let mut result__ = std::mem::zeroed();
@@ -411,9 +411,9 @@ impl IDirect3DDevice9 {
     }
     pub unsafe fn SetDialogBoxMode<P0>(&self, benabledialogs: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetDialogBoxMode)(windows_core::Interface::as_raw(self), benabledialogs.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDialogBoxMode)(windows_core::Interface::as_raw(self), benabledialogs.param().abi()).ok()
     }
     pub unsafe fn SetGammaRamp(&self, iswapchain: u32, flags: u32, pramp: *const D3DGAMMARAMP) {
         (windows_core::Interface::vtable(self).SetGammaRamp)(windows_core::Interface::as_raw(self), iswapchain, flags, pramp)
@@ -438,64 +438,64 @@ impl IDirect3DDevice9 {
     }
     pub unsafe fn CreateRenderTarget<P0>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: P0, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).CreateRenderTarget)(windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, lockable.into_param().abi(), core::mem::transmute(ppsurface), psharedhandle).ok()
+        (windows_core::Interface::vtable(self).CreateRenderTarget)(windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, lockable.param().abi(), core::mem::transmute(ppsurface), psharedhandle).ok()
     }
     pub unsafe fn CreateDepthStencilSurface<P0>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: P0, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).CreateDepthStencilSurface)(windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, discard.into_param().abi(), core::mem::transmute(ppsurface), psharedhandle).ok()
+        (windows_core::Interface::vtable(self).CreateDepthStencilSurface)(windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, discard.param().abi(), core::mem::transmute(ppsurface), psharedhandle).ok()
     }
     pub unsafe fn UpdateSurface<P0, P1>(&self, psourcesurface: P0, psourcerect: *const super::super::Foundation::RECT, pdestinationsurface: P1, pdestpoint: *const super::super::Foundation::POINT) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DSurface9>,
-        P1: windows_core::IntoParam<IDirect3DSurface9>,
+        P0: windows_core::Param<IDirect3DSurface9>,
+        P1: windows_core::Param<IDirect3DSurface9>,
     {
-        (windows_core::Interface::vtable(self).UpdateSurface)(windows_core::Interface::as_raw(self), psourcesurface.into_param().abi(), psourcerect, pdestinationsurface.into_param().abi(), pdestpoint).ok()
+        (windows_core::Interface::vtable(self).UpdateSurface)(windows_core::Interface::as_raw(self), psourcesurface.param().abi(), psourcerect, pdestinationsurface.param().abi(), pdestpoint).ok()
     }
     pub unsafe fn UpdateTexture<P0, P1>(&self, psourcetexture: P0, pdestinationtexture: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DBaseTexture9>,
-        P1: windows_core::IntoParam<IDirect3DBaseTexture9>,
+        P0: windows_core::Param<IDirect3DBaseTexture9>,
+        P1: windows_core::Param<IDirect3DBaseTexture9>,
     {
-        (windows_core::Interface::vtable(self).UpdateTexture)(windows_core::Interface::as_raw(self), psourcetexture.into_param().abi(), pdestinationtexture.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).UpdateTexture)(windows_core::Interface::as_raw(self), psourcetexture.param().abi(), pdestinationtexture.param().abi()).ok()
     }
     pub unsafe fn GetRenderTargetData<P0, P1>(&self, prendertarget: P0, pdestsurface: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DSurface9>,
-        P1: windows_core::IntoParam<IDirect3DSurface9>,
+        P0: windows_core::Param<IDirect3DSurface9>,
+        P1: windows_core::Param<IDirect3DSurface9>,
     {
-        (windows_core::Interface::vtable(self).GetRenderTargetData)(windows_core::Interface::as_raw(self), prendertarget.into_param().abi(), pdestsurface.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).GetRenderTargetData)(windows_core::Interface::as_raw(self), prendertarget.param().abi(), pdestsurface.param().abi()).ok()
     }
     pub unsafe fn GetFrontBufferData<P0>(&self, iswapchain: u32, pdestsurface: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DSurface9>,
+        P0: windows_core::Param<IDirect3DSurface9>,
     {
-        (windows_core::Interface::vtable(self).GetFrontBufferData)(windows_core::Interface::as_raw(self), iswapchain, pdestsurface.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).GetFrontBufferData)(windows_core::Interface::as_raw(self), iswapchain, pdestsurface.param().abi()).ok()
     }
     pub unsafe fn StretchRect<P0, P1>(&self, psourcesurface: P0, psourcerect: *const super::super::Foundation::RECT, pdestsurface: P1, pdestrect: *const super::super::Foundation::RECT, filter: D3DTEXTUREFILTERTYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DSurface9>,
-        P1: windows_core::IntoParam<IDirect3DSurface9>,
+        P0: windows_core::Param<IDirect3DSurface9>,
+        P1: windows_core::Param<IDirect3DSurface9>,
     {
-        (windows_core::Interface::vtable(self).StretchRect)(windows_core::Interface::as_raw(self), psourcesurface.into_param().abi(), psourcerect, pdestsurface.into_param().abi(), pdestrect, filter).ok()
+        (windows_core::Interface::vtable(self).StretchRect)(windows_core::Interface::as_raw(self), psourcesurface.param().abi(), psourcerect, pdestsurface.param().abi(), pdestrect, filter).ok()
     }
     pub unsafe fn ColorFill<P0>(&self, psurface: P0, prect: *const super::super::Foundation::RECT, color: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DSurface9>,
+        P0: windows_core::Param<IDirect3DSurface9>,
     {
-        (windows_core::Interface::vtable(self).ColorFill)(windows_core::Interface::as_raw(self), psurface.into_param().abi(), prect, color).ok()
+        (windows_core::Interface::vtable(self).ColorFill)(windows_core::Interface::as_raw(self), psurface.param().abi(), prect, color).ok()
     }
     pub unsafe fn CreateOffscreenPlainSurface(&self, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CreateOffscreenPlainSurface)(windows_core::Interface::as_raw(self), width, height, format, pool, core::mem::transmute(ppsurface), psharedhandle).ok()
     }
     pub unsafe fn SetRenderTarget<P0>(&self, rendertargetindex: u32, prendertarget: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DSurface9>,
+        P0: windows_core::Param<IDirect3DSurface9>,
     {
-        (windows_core::Interface::vtable(self).SetRenderTarget)(windows_core::Interface::as_raw(self), rendertargetindex, prendertarget.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetRenderTarget)(windows_core::Interface::as_raw(self), rendertargetindex, prendertarget.param().abi()).ok()
     }
     pub unsafe fn GetRenderTarget(&self, rendertargetindex: u32) -> windows_core::Result<IDirect3DSurface9> {
         let mut result__ = std::mem::zeroed();
@@ -503,9 +503,9 @@ impl IDirect3DDevice9 {
     }
     pub unsafe fn SetDepthStencilSurface<P0>(&self, pnewzstencil: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DSurface9>,
+        P0: windows_core::Param<IDirect3DSurface9>,
     {
-        (windows_core::Interface::vtable(self).SetDepthStencilSurface)(windows_core::Interface::as_raw(self), pnewzstencil.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDepthStencilSurface)(windows_core::Interface::as_raw(self), pnewzstencil.param().abi()).ok()
     }
     pub unsafe fn GetDepthStencilSurface(&self) -> windows_core::Result<IDirect3DSurface9> {
         let mut result__ = std::mem::zeroed();
@@ -554,9 +554,9 @@ impl IDirect3DDevice9 {
     }
     pub unsafe fn LightEnable<P0>(&self, index: u32, enable: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).LightEnable)(windows_core::Interface::as_raw(self), index, enable.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).LightEnable)(windows_core::Interface::as_raw(self), index, enable.param().abi()).ok()
     }
     pub unsafe fn GetLightEnable(&self, index: u32, penable: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLightEnable)(windows_core::Interface::as_raw(self), index, penable).ok()
@@ -596,9 +596,9 @@ impl IDirect3DDevice9 {
     }
     pub unsafe fn SetTexture<P0>(&self, stage: u32, ptexture: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DBaseTexture9>,
+        P0: windows_core::Param<IDirect3DBaseTexture9>,
     {
-        (windows_core::Interface::vtable(self).SetTexture)(windows_core::Interface::as_raw(self), stage, ptexture.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTexture)(windows_core::Interface::as_raw(self), stage, ptexture.param().abi()).ok()
     }
     pub unsafe fn GetTextureStageState(&self, stage: u32, r#type: D3DTEXTURESTAGESTATETYPE, pvalue: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetTextureStageState)(windows_core::Interface::as_raw(self), stage, r#type, pvalue).ok()
@@ -637,9 +637,9 @@ impl IDirect3DDevice9 {
     }
     pub unsafe fn SetSoftwareVertexProcessing<P0>(&self, bsoftware: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetSoftwareVertexProcessing)(windows_core::Interface::as_raw(self), bsoftware.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSoftwareVertexProcessing)(windows_core::Interface::as_raw(self), bsoftware.param().abi()).ok()
     }
     pub unsafe fn GetSoftwareVertexProcessing(&self) -> super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).GetSoftwareVertexProcessing)(windows_core::Interface::as_raw(self))
@@ -664,10 +664,10 @@ impl IDirect3DDevice9 {
     }
     pub unsafe fn ProcessVertices<P0, P1>(&self, srcstartindex: u32, destindex: u32, vertexcount: u32, pdestbuffer: P0, pvertexdecl: P1, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DVertexBuffer9>,
-        P1: windows_core::IntoParam<IDirect3DVertexDeclaration9>,
+        P0: windows_core::Param<IDirect3DVertexBuffer9>,
+        P1: windows_core::Param<IDirect3DVertexDeclaration9>,
     {
-        (windows_core::Interface::vtable(self).ProcessVertices)(windows_core::Interface::as_raw(self), srcstartindex, destindex, vertexcount, pdestbuffer.into_param().abi(), pvertexdecl.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).ProcessVertices)(windows_core::Interface::as_raw(self), srcstartindex, destindex, vertexcount, pdestbuffer.param().abi(), pvertexdecl.param().abi(), flags).ok()
     }
     pub unsafe fn CreateVertexDeclaration(&self, pvertexelements: *const D3DVERTEXELEMENT9) -> windows_core::Result<IDirect3DVertexDeclaration9> {
         let mut result__ = std::mem::zeroed();
@@ -675,9 +675,9 @@ impl IDirect3DDevice9 {
     }
     pub unsafe fn SetVertexDeclaration<P0>(&self, pdecl: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DVertexDeclaration9>,
+        P0: windows_core::Param<IDirect3DVertexDeclaration9>,
     {
-        (windows_core::Interface::vtable(self).SetVertexDeclaration)(windows_core::Interface::as_raw(self), pdecl.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetVertexDeclaration)(windows_core::Interface::as_raw(self), pdecl.param().abi()).ok()
     }
     pub unsafe fn GetVertexDeclaration(&self) -> windows_core::Result<IDirect3DVertexDeclaration9> {
         let mut result__ = std::mem::zeroed();
@@ -695,9 +695,9 @@ impl IDirect3DDevice9 {
     }
     pub unsafe fn SetVertexShader<P0>(&self, pshader: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DVertexShader9>,
+        P0: windows_core::Param<IDirect3DVertexShader9>,
     {
-        (windows_core::Interface::vtable(self).SetVertexShader)(windows_core::Interface::as_raw(self), pshader.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetVertexShader)(windows_core::Interface::as_raw(self), pshader.param().abi()).ok()
     }
     pub unsafe fn GetVertexShader(&self) -> windows_core::Result<IDirect3DVertexShader9> {
         let mut result__ = std::mem::zeroed();
@@ -723,9 +723,9 @@ impl IDirect3DDevice9 {
     }
     pub unsafe fn SetStreamSource<P0>(&self, streamnumber: u32, pstreamdata: P0, offsetinbytes: u32, stride: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DVertexBuffer9>,
+        P0: windows_core::Param<IDirect3DVertexBuffer9>,
     {
-        (windows_core::Interface::vtable(self).SetStreamSource)(windows_core::Interface::as_raw(self), streamnumber, pstreamdata.into_param().abi(), offsetinbytes, stride).ok()
+        (windows_core::Interface::vtable(self).SetStreamSource)(windows_core::Interface::as_raw(self), streamnumber, pstreamdata.param().abi(), offsetinbytes, stride).ok()
     }
     pub unsafe fn GetStreamSource(&self, streamnumber: u32, ppstreamdata: *mut Option<IDirect3DVertexBuffer9>, poffsetinbytes: *mut u32, pstride: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetStreamSource)(windows_core::Interface::as_raw(self), streamnumber, core::mem::transmute(ppstreamdata), poffsetinbytes, pstride).ok()
@@ -738,9 +738,9 @@ impl IDirect3DDevice9 {
     }
     pub unsafe fn SetIndices<P0>(&self, pindexdata: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DIndexBuffer9>,
+        P0: windows_core::Param<IDirect3DIndexBuffer9>,
     {
-        (windows_core::Interface::vtable(self).SetIndices)(windows_core::Interface::as_raw(self), pindexdata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetIndices)(windows_core::Interface::as_raw(self), pindexdata.param().abi()).ok()
     }
     pub unsafe fn GetIndices(&self) -> windows_core::Result<IDirect3DIndexBuffer9> {
         let mut result__ = std::mem::zeroed();
@@ -752,9 +752,9 @@ impl IDirect3DDevice9 {
     }
     pub unsafe fn SetPixelShader<P0>(&self, pshader: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DPixelShader9>,
+        P0: windows_core::Param<IDirect3DPixelShader9>,
     {
-        (windows_core::Interface::vtable(self).SetPixelShader)(windows_core::Interface::as_raw(self), pshader.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetPixelShader)(windows_core::Interface::as_raw(self), pshader.param().abi()).ok()
     }
     pub unsafe fn GetPixelShader(&self) -> windows_core::Result<IDirect3DPixelShader9> {
         let mut result__ = std::mem::zeroed();
@@ -963,18 +963,18 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn SetCursorProperties<P0>(&self, xhotspot: u32, yhotspot: u32, pcursorbitmap: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DSurface9>,
+        P0: windows_core::Param<IDirect3DSurface9>,
     {
-        (windows_core::Interface::vtable(self).base__.SetCursorProperties)(windows_core::Interface::as_raw(self), xhotspot, yhotspot, pcursorbitmap.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetCursorProperties)(windows_core::Interface::as_raw(self), xhotspot, yhotspot, pcursorbitmap.param().abi()).ok()
     }
     pub unsafe fn SetCursorPosition(&self, x: i32, y: i32, flags: u32) {
         (windows_core::Interface::vtable(self).base__.SetCursorPosition)(windows_core::Interface::as_raw(self), x, y, flags)
     }
     pub unsafe fn ShowCursor<P0>(&self, bshow: P0) -> super::super::Foundation::BOOL
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.ShowCursor)(windows_core::Interface::as_raw(self), bshow.into_param().abi())
+        (windows_core::Interface::vtable(self).base__.ShowCursor)(windows_core::Interface::as_raw(self), bshow.param().abi())
     }
     pub unsafe fn CreateAdditionalSwapChain(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pswapchain: *mut Option<IDirect3DSwapChain9>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.CreateAdditionalSwapChain)(windows_core::Interface::as_raw(self), ppresentationparameters, core::mem::transmute(pswapchain)).ok()
@@ -992,9 +992,9 @@ impl IDirect3DDevice9Ex {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn Present<P0>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: P0, pdirtyregion: *const super::Gdi::RGNDATA) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).base__.Present)(windows_core::Interface::as_raw(self), psourcerect, pdestrect, hdestwindowoverride.into_param().abi(), pdirtyregion).ok()
+        (windows_core::Interface::vtable(self).base__.Present)(windows_core::Interface::as_raw(self), psourcerect, pdestrect, hdestwindowoverride.param().abi(), pdirtyregion).ok()
     }
     pub unsafe fn GetBackBuffer(&self, iswapchain: u32, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE) -> windows_core::Result<IDirect3DSurface9> {
         let mut result__ = std::mem::zeroed();
@@ -1005,9 +1005,9 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn SetDialogBoxMode<P0>(&self, benabledialogs: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.SetDialogBoxMode)(windows_core::Interface::as_raw(self), benabledialogs.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetDialogBoxMode)(windows_core::Interface::as_raw(self), benabledialogs.param().abi()).ok()
     }
     pub unsafe fn SetGammaRamp(&self, iswapchain: u32, flags: u32, pramp: *const D3DGAMMARAMP) {
         (windows_core::Interface::vtable(self).base__.SetGammaRamp)(windows_core::Interface::as_raw(self), iswapchain, flags, pramp)
@@ -1032,64 +1032,64 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn CreateRenderTarget<P0>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: P0, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.CreateRenderTarget)(windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, lockable.into_param().abi(), core::mem::transmute(ppsurface), psharedhandle).ok()
+        (windows_core::Interface::vtable(self).base__.CreateRenderTarget)(windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, lockable.param().abi(), core::mem::transmute(ppsurface), psharedhandle).ok()
     }
     pub unsafe fn CreateDepthStencilSurface<P0>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: P0, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.CreateDepthStencilSurface)(windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, discard.into_param().abi(), core::mem::transmute(ppsurface), psharedhandle).ok()
+        (windows_core::Interface::vtable(self).base__.CreateDepthStencilSurface)(windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, discard.param().abi(), core::mem::transmute(ppsurface), psharedhandle).ok()
     }
     pub unsafe fn UpdateSurface<P0, P1>(&self, psourcesurface: P0, psourcerect: *const super::super::Foundation::RECT, pdestinationsurface: P1, pdestpoint: *const super::super::Foundation::POINT) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DSurface9>,
-        P1: windows_core::IntoParam<IDirect3DSurface9>,
+        P0: windows_core::Param<IDirect3DSurface9>,
+        P1: windows_core::Param<IDirect3DSurface9>,
     {
-        (windows_core::Interface::vtable(self).base__.UpdateSurface)(windows_core::Interface::as_raw(self), psourcesurface.into_param().abi(), psourcerect, pdestinationsurface.into_param().abi(), pdestpoint).ok()
+        (windows_core::Interface::vtable(self).base__.UpdateSurface)(windows_core::Interface::as_raw(self), psourcesurface.param().abi(), psourcerect, pdestinationsurface.param().abi(), pdestpoint).ok()
     }
     pub unsafe fn UpdateTexture<P0, P1>(&self, psourcetexture: P0, pdestinationtexture: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DBaseTexture9>,
-        P1: windows_core::IntoParam<IDirect3DBaseTexture9>,
+        P0: windows_core::Param<IDirect3DBaseTexture9>,
+        P1: windows_core::Param<IDirect3DBaseTexture9>,
     {
-        (windows_core::Interface::vtable(self).base__.UpdateTexture)(windows_core::Interface::as_raw(self), psourcetexture.into_param().abi(), pdestinationtexture.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.UpdateTexture)(windows_core::Interface::as_raw(self), psourcetexture.param().abi(), pdestinationtexture.param().abi()).ok()
     }
     pub unsafe fn GetRenderTargetData<P0, P1>(&self, prendertarget: P0, pdestsurface: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DSurface9>,
-        P1: windows_core::IntoParam<IDirect3DSurface9>,
+        P0: windows_core::Param<IDirect3DSurface9>,
+        P1: windows_core::Param<IDirect3DSurface9>,
     {
-        (windows_core::Interface::vtable(self).base__.GetRenderTargetData)(windows_core::Interface::as_raw(self), prendertarget.into_param().abi(), pdestsurface.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.GetRenderTargetData)(windows_core::Interface::as_raw(self), prendertarget.param().abi(), pdestsurface.param().abi()).ok()
     }
     pub unsafe fn GetFrontBufferData<P0>(&self, iswapchain: u32, pdestsurface: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DSurface9>,
+        P0: windows_core::Param<IDirect3DSurface9>,
     {
-        (windows_core::Interface::vtable(self).base__.GetFrontBufferData)(windows_core::Interface::as_raw(self), iswapchain, pdestsurface.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.GetFrontBufferData)(windows_core::Interface::as_raw(self), iswapchain, pdestsurface.param().abi()).ok()
     }
     pub unsafe fn StretchRect<P0, P1>(&self, psourcesurface: P0, psourcerect: *const super::super::Foundation::RECT, pdestsurface: P1, pdestrect: *const super::super::Foundation::RECT, filter: D3DTEXTUREFILTERTYPE) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DSurface9>,
-        P1: windows_core::IntoParam<IDirect3DSurface9>,
+        P0: windows_core::Param<IDirect3DSurface9>,
+        P1: windows_core::Param<IDirect3DSurface9>,
     {
-        (windows_core::Interface::vtable(self).base__.StretchRect)(windows_core::Interface::as_raw(self), psourcesurface.into_param().abi(), psourcerect, pdestsurface.into_param().abi(), pdestrect, filter).ok()
+        (windows_core::Interface::vtable(self).base__.StretchRect)(windows_core::Interface::as_raw(self), psourcesurface.param().abi(), psourcerect, pdestsurface.param().abi(), pdestrect, filter).ok()
     }
     pub unsafe fn ColorFill<P0>(&self, psurface: P0, prect: *const super::super::Foundation::RECT, color: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DSurface9>,
+        P0: windows_core::Param<IDirect3DSurface9>,
     {
-        (windows_core::Interface::vtable(self).base__.ColorFill)(windows_core::Interface::as_raw(self), psurface.into_param().abi(), prect, color).ok()
+        (windows_core::Interface::vtable(self).base__.ColorFill)(windows_core::Interface::as_raw(self), psurface.param().abi(), prect, color).ok()
     }
     pub unsafe fn CreateOffscreenPlainSurface(&self, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.CreateOffscreenPlainSurface)(windows_core::Interface::as_raw(self), width, height, format, pool, core::mem::transmute(ppsurface), psharedhandle).ok()
     }
     pub unsafe fn SetRenderTarget<P0>(&self, rendertargetindex: u32, prendertarget: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DSurface9>,
+        P0: windows_core::Param<IDirect3DSurface9>,
     {
-        (windows_core::Interface::vtable(self).base__.SetRenderTarget)(windows_core::Interface::as_raw(self), rendertargetindex, prendertarget.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetRenderTarget)(windows_core::Interface::as_raw(self), rendertargetindex, prendertarget.param().abi()).ok()
     }
     pub unsafe fn GetRenderTarget(&self, rendertargetindex: u32) -> windows_core::Result<IDirect3DSurface9> {
         let mut result__ = std::mem::zeroed();
@@ -1097,9 +1097,9 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn SetDepthStencilSurface<P0>(&self, pnewzstencil: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DSurface9>,
+        P0: windows_core::Param<IDirect3DSurface9>,
     {
-        (windows_core::Interface::vtable(self).base__.SetDepthStencilSurface)(windows_core::Interface::as_raw(self), pnewzstencil.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetDepthStencilSurface)(windows_core::Interface::as_raw(self), pnewzstencil.param().abi()).ok()
     }
     pub unsafe fn GetDepthStencilSurface(&self) -> windows_core::Result<IDirect3DSurface9> {
         let mut result__ = std::mem::zeroed();
@@ -1148,9 +1148,9 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn LightEnable<P0>(&self, index: u32, enable: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.LightEnable)(windows_core::Interface::as_raw(self), index, enable.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.LightEnable)(windows_core::Interface::as_raw(self), index, enable.param().abi()).ok()
     }
     pub unsafe fn GetLightEnable(&self, index: u32, penable: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.GetLightEnable)(windows_core::Interface::as_raw(self), index, penable).ok()
@@ -1190,9 +1190,9 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn SetTexture<P0>(&self, stage: u32, ptexture: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DBaseTexture9>,
+        P0: windows_core::Param<IDirect3DBaseTexture9>,
     {
-        (windows_core::Interface::vtable(self).base__.SetTexture)(windows_core::Interface::as_raw(self), stage, ptexture.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetTexture)(windows_core::Interface::as_raw(self), stage, ptexture.param().abi()).ok()
     }
     pub unsafe fn GetTextureStageState(&self, stage: u32, r#type: D3DTEXTURESTAGESTATETYPE, pvalue: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.GetTextureStageState)(windows_core::Interface::as_raw(self), stage, r#type, pvalue).ok()
@@ -1231,9 +1231,9 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn SetSoftwareVertexProcessing<P0>(&self, bsoftware: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.SetSoftwareVertexProcessing)(windows_core::Interface::as_raw(self), bsoftware.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetSoftwareVertexProcessing)(windows_core::Interface::as_raw(self), bsoftware.param().abi()).ok()
     }
     pub unsafe fn GetSoftwareVertexProcessing(&self) -> super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).base__.GetSoftwareVertexProcessing)(windows_core::Interface::as_raw(self))
@@ -1258,10 +1258,10 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn ProcessVertices<P0, P1>(&self, srcstartindex: u32, destindex: u32, vertexcount: u32, pdestbuffer: P0, pvertexdecl: P1, flags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DVertexBuffer9>,
-        P1: windows_core::IntoParam<IDirect3DVertexDeclaration9>,
+        P0: windows_core::Param<IDirect3DVertexBuffer9>,
+        P1: windows_core::Param<IDirect3DVertexDeclaration9>,
     {
-        (windows_core::Interface::vtable(self).base__.ProcessVertices)(windows_core::Interface::as_raw(self), srcstartindex, destindex, vertexcount, pdestbuffer.into_param().abi(), pvertexdecl.into_param().abi(), flags).ok()
+        (windows_core::Interface::vtable(self).base__.ProcessVertices)(windows_core::Interface::as_raw(self), srcstartindex, destindex, vertexcount, pdestbuffer.param().abi(), pvertexdecl.param().abi(), flags).ok()
     }
     pub unsafe fn CreateVertexDeclaration(&self, pvertexelements: *const D3DVERTEXELEMENT9) -> windows_core::Result<IDirect3DVertexDeclaration9> {
         let mut result__ = std::mem::zeroed();
@@ -1269,9 +1269,9 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn SetVertexDeclaration<P0>(&self, pdecl: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DVertexDeclaration9>,
+        P0: windows_core::Param<IDirect3DVertexDeclaration9>,
     {
-        (windows_core::Interface::vtable(self).base__.SetVertexDeclaration)(windows_core::Interface::as_raw(self), pdecl.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetVertexDeclaration)(windows_core::Interface::as_raw(self), pdecl.param().abi()).ok()
     }
     pub unsafe fn GetVertexDeclaration(&self) -> windows_core::Result<IDirect3DVertexDeclaration9> {
         let mut result__ = std::mem::zeroed();
@@ -1289,9 +1289,9 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn SetVertexShader<P0>(&self, pshader: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DVertexShader9>,
+        P0: windows_core::Param<IDirect3DVertexShader9>,
     {
-        (windows_core::Interface::vtable(self).base__.SetVertexShader)(windows_core::Interface::as_raw(self), pshader.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetVertexShader)(windows_core::Interface::as_raw(self), pshader.param().abi()).ok()
     }
     pub unsafe fn GetVertexShader(&self) -> windows_core::Result<IDirect3DVertexShader9> {
         let mut result__ = std::mem::zeroed();
@@ -1317,9 +1317,9 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn SetStreamSource<P0>(&self, streamnumber: u32, pstreamdata: P0, offsetinbytes: u32, stride: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DVertexBuffer9>,
+        P0: windows_core::Param<IDirect3DVertexBuffer9>,
     {
-        (windows_core::Interface::vtable(self).base__.SetStreamSource)(windows_core::Interface::as_raw(self), streamnumber, pstreamdata.into_param().abi(), offsetinbytes, stride).ok()
+        (windows_core::Interface::vtable(self).base__.SetStreamSource)(windows_core::Interface::as_raw(self), streamnumber, pstreamdata.param().abi(), offsetinbytes, stride).ok()
     }
     pub unsafe fn GetStreamSource(&self, streamnumber: u32, ppstreamdata: *mut Option<IDirect3DVertexBuffer9>, poffsetinbytes: *mut u32, pstride: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.GetStreamSource)(windows_core::Interface::as_raw(self), streamnumber, core::mem::transmute(ppstreamdata), poffsetinbytes, pstride).ok()
@@ -1332,9 +1332,9 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn SetIndices<P0>(&self, pindexdata: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DIndexBuffer9>,
+        P0: windows_core::Param<IDirect3DIndexBuffer9>,
     {
-        (windows_core::Interface::vtable(self).base__.SetIndices)(windows_core::Interface::as_raw(self), pindexdata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetIndices)(windows_core::Interface::as_raw(self), pindexdata.param().abi()).ok()
     }
     pub unsafe fn GetIndices(&self) -> windows_core::Result<IDirect3DIndexBuffer9> {
         let mut result__ = std::mem::zeroed();
@@ -1346,9 +1346,9 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn SetPixelShader<P0>(&self, pshader: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DPixelShader9>,
+        P0: windows_core::Param<IDirect3DPixelShader9>,
     {
-        (windows_core::Interface::vtable(self).base__.SetPixelShader)(windows_core::Interface::as_raw(self), pshader.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetPixelShader)(windows_core::Interface::as_raw(self), pshader.param().abi()).ok()
     }
     pub unsafe fn GetPixelShader(&self) -> windows_core::Result<IDirect3DPixelShader9> {
         let mut result__ = std::mem::zeroed();
@@ -1390,19 +1390,19 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn ComposeRects<P0, P1, P2, P3>(&self, psrc: P0, pdst: P1, psrcrectdescs: P2, numrects: u32, pdstrectdescs: P3, operation: D3DCOMPOSERECTSOP, xoffset: i32, yoffset: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DSurface9>,
-        P1: windows_core::IntoParam<IDirect3DSurface9>,
-        P2: windows_core::IntoParam<IDirect3DVertexBuffer9>,
-        P3: windows_core::IntoParam<IDirect3DVertexBuffer9>,
+        P0: windows_core::Param<IDirect3DSurface9>,
+        P1: windows_core::Param<IDirect3DSurface9>,
+        P2: windows_core::Param<IDirect3DVertexBuffer9>,
+        P3: windows_core::Param<IDirect3DVertexBuffer9>,
     {
-        (windows_core::Interface::vtable(self).ComposeRects)(windows_core::Interface::as_raw(self), psrc.into_param().abi(), pdst.into_param().abi(), psrcrectdescs.into_param().abi(), numrects, pdstrectdescs.into_param().abi(), operation, xoffset, yoffset).ok()
+        (windows_core::Interface::vtable(self).ComposeRects)(windows_core::Interface::as_raw(self), psrc.param().abi(), pdst.param().abi(), psrcrectdescs.param().abi(), numrects, pdstrectdescs.param().abi(), operation, xoffset, yoffset).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn PresentEx<P0>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: P0, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).PresentEx)(windows_core::Interface::as_raw(self), psourcerect, pdestrect, hdestwindowoverride.into_param().abi(), pdirtyregion, dwflags).ok()
+        (windows_core::Interface::vtable(self).PresentEx)(windows_core::Interface::as_raw(self), psourcerect, pdestrect, hdestwindowoverride.param().abi(), pdirtyregion, dwflags).ok()
     }
     pub unsafe fn GetGPUThreadPriority(&self, ppriority: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetGPUThreadPriority)(windows_core::Interface::as_raw(self), ppriority).ok()
@@ -1424,24 +1424,24 @@ impl IDirect3DDevice9Ex {
     }
     pub unsafe fn CheckDeviceState<P0>(&self, hdestinationwindow: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).CheckDeviceState)(windows_core::Interface::as_raw(self), hdestinationwindow.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CheckDeviceState)(windows_core::Interface::as_raw(self), hdestinationwindow.param().abi()).ok()
     }
     pub unsafe fn CreateRenderTargetEx<P0>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: P0, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).CreateRenderTargetEx)(windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, lockable.into_param().abi(), core::mem::transmute(ppsurface), psharedhandle, usage).ok()
+        (windows_core::Interface::vtable(self).CreateRenderTargetEx)(windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, lockable.param().abi(), core::mem::transmute(ppsurface), psharedhandle, usage).ok()
     }
     pub unsafe fn CreateOffscreenPlainSurfaceEx(&self, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CreateOffscreenPlainSurfaceEx)(windows_core::Interface::as_raw(self), width, height, format, pool, core::mem::transmute(ppsurface), psharedhandle, usage).ok()
     }
     pub unsafe fn CreateDepthStencilSurfaceEx<P0>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: P0, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).CreateDepthStencilSurfaceEx)(windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, discard.into_param().abi(), core::mem::transmute(ppsurface), psharedhandle, usage).ok()
+        (windows_core::Interface::vtable(self).CreateDepthStencilSurfaceEx)(windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, discard.param().abi(), core::mem::transmute(ppsurface), psharedhandle, usage).ok()
     }
     pub unsafe fn ResetEx(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ResetEx)(windows_core::Interface::as_raw(self), ppresentationparameters, pfullscreendisplaymode).ok()
@@ -1672,9 +1672,9 @@ impl IDirect3DSurface9 {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn ReleaseDC<P0>(&self, hdc: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::Gdi::HDC>,
+        P0: windows_core::Param<super::Gdi::HDC>,
     {
-        (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), hdc.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), hdc.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -1699,15 +1699,15 @@ impl IDirect3DSwapChain9 {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn Present<P0>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: P0, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).Present)(windows_core::Interface::as_raw(self), psourcerect, pdestrect, hdestwindowoverride.into_param().abi(), pdirtyregion, dwflags).ok()
+        (windows_core::Interface::vtable(self).Present)(windows_core::Interface::as_raw(self), psourcerect, pdestrect, hdestwindowoverride.param().abi(), pdirtyregion, dwflags).ok()
     }
     pub unsafe fn GetFrontBufferData<P0>(&self, pdestsurface: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DSurface9>,
+        P0: windows_core::Param<IDirect3DSurface9>,
     {
-        (windows_core::Interface::vtable(self).GetFrontBufferData)(windows_core::Interface::as_raw(self), pdestsurface.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).GetFrontBufferData)(windows_core::Interface::as_raw(self), pdestsurface.param().abi()).ok()
     }
     pub unsafe fn GetBackBuffer(&self, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE) -> windows_core::Result<IDirect3DSurface9> {
         let mut result__ = std::mem::zeroed();
@@ -1747,15 +1747,15 @@ impl IDirect3DSwapChain9Ex {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn Present<P0>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: P0, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).base__.Present)(windows_core::Interface::as_raw(self), psourcerect, pdestrect, hdestwindowoverride.into_param().abi(), pdirtyregion, dwflags).ok()
+        (windows_core::Interface::vtable(self).base__.Present)(windows_core::Interface::as_raw(self), psourcerect, pdestrect, hdestwindowoverride.param().abi(), pdirtyregion, dwflags).ok()
     }
     pub unsafe fn GetFrontBufferData<P0>(&self, pdestsurface: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirect3DSurface9>,
+        P0: windows_core::Param<IDirect3DSurface9>,
     {
-        (windows_core::Interface::vtable(self).base__.GetFrontBufferData)(windows_core::Interface::as_raw(self), pdestsurface.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.GetFrontBufferData)(windows_core::Interface::as_raw(self), pdestsurface.param().abi()).ok()
     }
     pub unsafe fn GetBackBuffer(&self, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE) -> windows_core::Result<IDirect3DSurface9> {
         let mut result__ = std::mem::zeroed();

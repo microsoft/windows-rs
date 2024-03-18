@@ -75,11 +75,11 @@ pub struct CredentialPicker;
 impl CredentialPicker {
     pub fn PickWithOptionsAsync<P0>(options: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>
     where
-        P0: windows_core::IntoParam<CredentialPickerOptions>,
+        P0: windows_core::Param<CredentialPickerOptions>,
     {
         Self::ICredentialPickerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PickWithOptionsAsync)(windows_core::Interface::as_raw(this), options.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PickWithOptionsAsync)(windows_core::Interface::as_raw(this), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn PickWithMessageAsync(targetname: &windows_core::HSTRING, message: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>> {
@@ -184,10 +184,10 @@ impl CredentialPickerOptions {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetPreviousCredential<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPreviousCredential)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPreviousCredential)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn PreviousCredential(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {

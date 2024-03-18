@@ -1950,34 +1950,34 @@ impl IReceiptOrSlipJob {
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmap<P0>(&self, bitmapnumber: u32, bitmap: P0, alignment: PosPrinterAlignment) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+        P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBitmap)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignment).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBitmap)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.param().abi(), alignment).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmapCustomWidthStandardAlign<P0>(&self, bitmapnumber: u32, bitmap: P0, alignment: PosPrinterAlignment, width: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+        P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignment, width).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.param().abi(), alignment, width).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetCustomAlignedBitmap<P0>(&self, bitmapnumber: u32, bitmap: P0, alignmentdistance: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+        P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetCustomAlignedBitmap)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignmentdistance).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetCustomAlignedBitmap)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.param().abi(), alignmentdistance).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmapCustomWidthCustomAlign<P0>(&self, bitmapnumber: u32, bitmap: P0, alignmentdistance: u32, width: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+        P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBitmapCustomWidthCustomAlign)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignmentdistance, width).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBitmapCustomWidthCustomAlign)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.param().abi(), alignmentdistance, width).ok() }
     }
     pub fn PrintSavedBitmap(&self, bitmapnumber: u32) -> windows_core::Result<()> {
         let this = self;
@@ -1998,34 +1998,34 @@ impl IReceiptOrSlipJob {
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmap<P0>(&self, bitmap: P0, alignment: PosPrinterAlignment) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+        P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).PrintBitmap)(windows_core::Interface::as_raw(this), bitmap.into_param().abi(), alignment).ok() }
+        unsafe { (windows_core::Interface::vtable(this).PrintBitmap)(windows_core::Interface::as_raw(this), bitmap.param().abi(), alignment).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmapCustomWidthStandardAlign<P0>(&self, bitmap: P0, alignment: PosPrinterAlignment, width: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+        P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(windows_core::Interface::as_raw(this), bitmap.into_param().abi(), alignment, width).ok() }
+        unsafe { (windows_core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(windows_core::Interface::as_raw(this), bitmap.param().abi(), alignment, width).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintCustomAlignedBitmap<P0>(&self, bitmap: P0, alignmentdistance: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+        P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).PrintCustomAlignedBitmap)(windows_core::Interface::as_raw(this), bitmap.into_param().abi(), alignmentdistance).ok() }
+        unsafe { (windows_core::Interface::vtable(this).PrintCustomAlignedBitmap)(windows_core::Interface::as_raw(this), bitmap.param().abi(), alignmentdistance).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmapCustomWidthCustomAlign<P0>(&self, bitmap: P0, alignmentdistance: u32, width: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+        P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(windows_core::Interface::as_raw(this), bitmap.into_param().abi(), alignmentdistance, width).ok() }
+        unsafe { (windows_core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(windows_core::Interface::as_raw(this), bitmap.param().abi(), alignmentdistance, width).ok() }
     }
     pub fn Print(&self, data: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPosPrinterJob>(self)?;
@@ -2249,12 +2249,12 @@ impl BarcodeScanner {
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn RetrieveStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RetrieveStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RetrieveStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -2274,12 +2274,12 @@ impl BarcodeScanner {
     }
     pub fn StatusUpdated<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<BarcodeScanner, BarcodeScannerStatusUpdatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<BarcodeScanner, BarcodeScannerStatusUpdatedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StatusUpdated)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StatusUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStatusUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2525,12 +2525,12 @@ impl BarcodeScannerReport {
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateInstance<P0, P1>(scandatatype: u32, scandata: P0, scandatalabel: P1) -> windows_core::Result<BarcodeScannerReport>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
-        P1: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::IBarcodeScannerReportFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), scandatatype, scandata.into_param().abi(), scandatalabel.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), scandatatype, scandata.param().abi(), scandatalabel.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -3321,22 +3321,22 @@ impl CashDrawer {
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn StatusUpdated<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CashDrawer, CashDrawerStatusUpdatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CashDrawer, CashDrawerStatusUpdatedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StatusUpdated)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StatusUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStatusUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3505,12 +3505,12 @@ impl CashDrawerCloseAlarm {
     }
     pub fn AlarmTimeoutExpired<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CashDrawerCloseAlarm, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CashDrawerCloseAlarm, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AlarmTimeoutExpired)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AlarmTimeoutExpired)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAlarmTimeoutExpired(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3570,12 +3570,12 @@ windows_core::imp::interface_hierarchy!(CashDrawerEventSource, windows_core::IUn
 impl CashDrawerEventSource {
     pub fn DrawerClosed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerClosedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerClosedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).DrawerClosed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DrawerClosed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDrawerClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3584,12 +3584,12 @@ impl CashDrawerEventSource {
     }
     pub fn DrawerOpened<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerOpenedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerOpenedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).DrawerOpened)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DrawerOpened)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDrawerOpened(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3755,34 +3755,34 @@ impl ClaimedBarcodeScanner {
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetActiveSymbologiesAsync<P0>(&self, symbologies: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<u32>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<u32>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetActiveSymbologiesAsync)(windows_core::Interface::as_raw(this), symbologies.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetActiveSymbologiesAsync)(windows_core::Interface::as_raw(this), symbologies.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn ResetStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResetStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ResetStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn UpdateStatisticsAsync<P0>(&self, statistics: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdateStatisticsAsync)(windows_core::Interface::as_raw(this), statistics.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UpdateStatisticsAsync)(windows_core::Interface::as_raw(this), statistics.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetActiveProfileAsync(&self, profile: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
@@ -3794,12 +3794,12 @@ impl ClaimedBarcodeScanner {
     }
     pub fn DataReceived<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerDataReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerDataReceivedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).DataReceived)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DataReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDataReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3808,12 +3808,12 @@ impl ClaimedBarcodeScanner {
     }
     pub fn TriggerPressed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::EventHandler<ClaimedBarcodeScanner>>,
+        P0: windows_core::Param<super::super::Foundation::EventHandler<ClaimedBarcodeScanner>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TriggerPressed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TriggerPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveTriggerPressed(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3822,12 +3822,12 @@ impl ClaimedBarcodeScanner {
     }
     pub fn TriggerReleased<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::EventHandler<ClaimedBarcodeScanner>>,
+        P0: windows_core::Param<super::super::Foundation::EventHandler<ClaimedBarcodeScanner>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TriggerReleased)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TriggerReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveTriggerReleased(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3836,12 +3836,12 @@ impl ClaimedBarcodeScanner {
     }
     pub fn ReleaseDeviceRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::EventHandler<ClaimedBarcodeScanner>>,
+        P0: windows_core::Param<super::super::Foundation::EventHandler<ClaimedBarcodeScanner>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReleaseDeviceRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReleaseDeviceRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveReleaseDeviceRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3850,12 +3850,12 @@ impl ClaimedBarcodeScanner {
     }
     pub fn ImagePreviewReceived<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerImagePreviewReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerImagePreviewReceivedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImagePreviewReceived)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ImagePreviewReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveImagePreviewReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3864,12 +3864,12 @@ impl ClaimedBarcodeScanner {
     }
     pub fn ErrorOccurred<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerErrorOccurredEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerErrorOccurredEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ErrorOccurred)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ErrorOccurred)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveErrorOccurred(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3899,12 +3899,12 @@ impl ClaimedBarcodeScanner {
     }
     pub fn SetSymbologyAttributesAsync<P0>(&self, barcodesymbology: u32, attributes: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<BarcodeSymbologyAttributes>,
+        P0: windows_core::Param<BarcodeSymbologyAttributes>,
     {
         let this = &windows_core::Interface::cast::<IClaimedBarcodeScanner2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetSymbologyAttributesAsync)(windows_core::Interface::as_raw(this), barcodesymbology, attributes.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetSymbologyAttributesAsync)(windows_core::Interface::as_raw(this), barcodesymbology, attributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ShowVideoPreviewAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
@@ -3931,12 +3931,12 @@ impl ClaimedBarcodeScanner {
     }
     pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, ClaimedBarcodeScannerClosedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, ClaimedBarcodeScannerClosedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IClaimedBarcodeScanner4>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -4042,33 +4042,33 @@ impl ClaimedCashDrawer {
     #[cfg(feature = "Foundation_Collections")]
     pub fn ResetStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResetStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ResetStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn UpdateStatisticsAsync<P0>(&self, statistics: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdateStatisticsAsync)(windows_core::Interface::as_raw(this), statistics.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UpdateStatisticsAsync)(windows_core::Interface::as_raw(this), statistics.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReleaseDeviceRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReleaseDeviceRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReleaseDeviceRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveReleaseDeviceRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -4077,12 +4077,12 @@ impl ClaimedCashDrawer {
     }
     pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, ClaimedCashDrawerClosedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, ClaimedCashDrawerClosedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IClaimedCashDrawer2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -4335,12 +4335,12 @@ impl ClaimedLineDisplay {
     }
     pub fn ReleaseDeviceRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReleaseDeviceRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReleaseDeviceRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveReleaseDeviceRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -4350,12 +4350,12 @@ impl ClaimedLineDisplay {
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
@@ -4374,12 +4374,12 @@ impl ClaimedLineDisplay {
     }
     pub fn StatusUpdated<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, LineDisplayStatusUpdatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, LineDisplayStatusUpdatedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StatusUpdated)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StatusUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStatusUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -4425,12 +4425,12 @@ impl ClaimedLineDisplay {
     }
     pub fn TryUpdateAttributesAsync<P0>(&self, attributes: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<LineDisplayAttributes>,
+        P0: windows_core::Param<LineDisplayAttributes>,
     {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryUpdateAttributesAsync)(windows_core::Interface::as_raw(this), attributes.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryUpdateAttributesAsync)(windows_core::Interface::as_raw(this), attributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TrySetDescriptorAsync(&self, descriptor: u32, descriptorstate: LineDisplayDescriptorState) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
@@ -4457,44 +4457,44 @@ impl ClaimedLineDisplay {
     #[cfg(feature = "Storage")]
     pub fn TryStoreStorageFileBitmapAsync<P0>(&self, bitmap: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::StorageFile>,
+        P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryStoreStorageFileBitmapAsync)(windows_core::Interface::as_raw(this), bitmap.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryStoreStorageFileBitmapAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage")]
     pub fn TryStoreStorageFileBitmapWithAlignmentAsync<P0>(&self, bitmap: P0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::StorageFile>,
+        P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryStoreStorageFileBitmapWithAlignmentAsync)(windows_core::Interface::as_raw(this), bitmap.into_param().abi(), horizontalalignment, verticalalignment, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryStoreStorageFileBitmapWithAlignmentAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), horizontalalignment, verticalalignment, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage")]
     pub fn TryStoreStorageFileBitmapWithAlignmentAndWidthAsync<P0>(&self, bitmap: P0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment, widthinpixels: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::StorageFile>,
+        P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryStoreStorageFileBitmapWithAlignmentAndWidthAsync)(windows_core::Interface::as_raw(this), bitmap.into_param().abi(), horizontalalignment, verticalalignment, widthinpixels, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryStoreStorageFileBitmapWithAlignmentAndWidthAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), horizontalalignment, verticalalignment, widthinpixels, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, ClaimedLineDisplayClosedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, ClaimedLineDisplayClosedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay3>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -4694,33 +4694,33 @@ impl ClaimedMagneticStripeReader {
     #[cfg(feature = "Foundation_Collections")]
     pub fn ResetStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResetStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ResetStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn UpdateStatisticsAsync<P0>(&self, statistics: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdateStatisticsAsync)(windows_core::Interface::as_raw(this), statistics.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UpdateStatisticsAsync)(windows_core::Interface::as_raw(this), statistics.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn BankCardDataReceived<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderBankCardDataReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderBankCardDataReceivedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).BankCardDataReceived)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).BankCardDataReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveBankCardDataReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -4729,12 +4729,12 @@ impl ClaimedMagneticStripeReader {
     }
     pub fn AamvaCardDataReceived<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderAamvaCardDataReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderAamvaCardDataReceivedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AamvaCardDataReceived)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AamvaCardDataReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAamvaCardDataReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -4743,12 +4743,12 @@ impl ClaimedMagneticStripeReader {
     }
     pub fn VendorSpecificDataReceived<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).VendorSpecificDataReceived)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).VendorSpecificDataReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveVendorSpecificDataReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -4757,12 +4757,12 @@ impl ClaimedMagneticStripeReader {
     }
     pub fn ReleaseDeviceRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::EventHandler<ClaimedMagneticStripeReader>>,
+        P0: windows_core::Param<super::super::Foundation::EventHandler<ClaimedMagneticStripeReader>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReleaseDeviceRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReleaseDeviceRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveReleaseDeviceRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -4771,12 +4771,12 @@ impl ClaimedMagneticStripeReader {
     }
     pub fn ErrorOccurred<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderErrorOccurredEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderErrorOccurredEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ErrorOccurred)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ErrorOccurred)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveErrorOccurred(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -4785,12 +4785,12 @@ impl ClaimedMagneticStripeReader {
     }
     pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, ClaimedMagneticStripeReaderClosedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, ClaimedMagneticStripeReaderClosedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IClaimedMagneticStripeReader2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -4936,33 +4936,33 @@ impl ClaimedPosPrinter {
     #[cfg(feature = "Foundation_Collections")]
     pub fn ResetStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResetStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ResetStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn UpdateStatisticsAsync<P0>(&self, statistics: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdateStatisticsAsync)(windows_core::Interface::as_raw(this), statistics.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UpdateStatisticsAsync)(windows_core::Interface::as_raw(this), statistics.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReleaseDeviceRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, PosPrinterReleaseDeviceRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, PosPrinterReleaseDeviceRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReleaseDeviceRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReleaseDeviceRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveReleaseDeviceRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -4971,12 +4971,12 @@ impl ClaimedPosPrinter {
     }
     pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, ClaimedPosPrinterClosedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, ClaimedPosPrinterClosedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IClaimedPosPrinter2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -5423,10 +5423,10 @@ windows_core::imp::required_hierarchy!(JournalPrintJob, IPosPrinterJob);
 impl JournalPrintJob {
     pub fn Print<P0>(&self, data: &windows_core::HSTRING, printoptions: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<PosPrinterPrintOptions>,
+        P0: windows_core::Param<PosPrinterPrintOptions>,
     {
         let this = &windows_core::Interface::cast::<IJournalPrintJob>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Print)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(data), printoptions.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Print)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(data), printoptions.param().abi()).ok() }
     }
     pub fn FeedPaperByLine(&self, linecount: i32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IJournalPrintJob>(self)?;
@@ -5827,10 +5827,10 @@ impl LineDisplayAttributes {
     }
     pub fn SetCurrentWindow<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<LineDisplayWindow>,
+        P0: windows_core::Param<LineDisplayWindow>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetCurrentWindow)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetCurrentWindow)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for LineDisplayAttributes {
@@ -6052,12 +6052,12 @@ impl LineDisplayCursor {
     }
     pub fn TryUpdateAttributesAsync<P0>(&self, attributes: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<LineDisplayCursorAttributes>,
+        P0: windows_core::Param<LineDisplayCursorAttributes>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryUpdateAttributesAsync)(windows_core::Interface::as_raw(this), attributes.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryUpdateAttributesAsync)(windows_core::Interface::as_raw(this), attributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -6158,12 +6158,12 @@ impl LineDisplayCustomGlyphs {
     #[cfg(feature = "Storage_Streams")]
     pub fn TryRedefineAsync<P0>(&self, glyphcode: u32, glyphdata: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryRedefineAsync)(windows_core::Interface::as_raw(this), glyphcode, glyphdata.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryRedefineAsync)(windows_core::Interface::as_raw(this), glyphcode, glyphdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -6433,67 +6433,67 @@ impl LineDisplayWindow {
     }
     pub fn TryDisplayStoredBitmapAtCursorAsync<P0>(&self, bitmap: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<LineDisplayStoredBitmap>,
+        P0: windows_core::Param<LineDisplayStoredBitmap>,
     {
         let this = &windows_core::Interface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryDisplayStoredBitmapAtCursorAsync)(windows_core::Interface::as_raw(this), bitmap.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryDisplayStoredBitmapAtCursorAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage")]
     pub fn TryDisplayStorageFileBitmapAtCursorAsync<P0>(&self, bitmap: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::StorageFile>,
+        P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
         let this = &windows_core::Interface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtCursorAsync)(windows_core::Interface::as_raw(this), bitmap.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtCursorAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage")]
     pub fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync<P0>(&self, bitmap: P0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::StorageFile>,
+        P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
         let this = &windows_core::Interface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync)(windows_core::Interface::as_raw(this), bitmap.into_param().abi(), horizontalalignment, verticalalignment, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), horizontalalignment, verticalalignment, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage")]
     pub fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync<P0>(&self, bitmap: P0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment, widthinpixels: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::StorageFile>,
+        P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
         let this = &windows_core::Interface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync)(windows_core::Interface::as_raw(this), bitmap.into_param().abi(), horizontalalignment, verticalalignment, widthinpixels, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), horizontalalignment, verticalalignment, widthinpixels, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage")]
     pub fn TryDisplayStorageFileBitmapAtPointAsync<P0>(&self, bitmap: P0, offsetinpixels: super::super::Foundation::Point) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::StorageFile>,
+        P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
         let this = &windows_core::Interface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtPointAsync)(windows_core::Interface::as_raw(this), bitmap.into_param().abi(), offsetinpixels, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtPointAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), offsetinpixels, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage")]
     pub fn TryDisplayStorageFileBitmapAtPointWithWidthAsync<P0>(&self, bitmap: P0, offsetinpixels: super::super::Foundation::Point, widthinpixels: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::StorageFile>,
+        P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
         let this = &windows_core::Interface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtPointWithWidthAsync)(windows_core::Interface::as_raw(this), bitmap.into_param().abi(), offsetinpixels, widthinpixels, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtPointWithWidthAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), offsetinpixels, widthinpixels, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -6564,12 +6564,12 @@ impl MagneticStripeReader {
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn RetrieveStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RetrieveStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RetrieveStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetErrorReportingType(&self) -> windows_core::Result<MagneticStripeReaderErrorReportingType> {
@@ -6581,12 +6581,12 @@ impl MagneticStripeReader {
     }
     pub fn StatusUpdated<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<MagneticStripeReader, MagneticStripeReaderStatusUpdatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MagneticStripeReader, MagneticStripeReaderStatusUpdatedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StatusUpdated)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StatusUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStatusUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -7338,22 +7338,22 @@ impl PosPrinter {
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn StatusUpdated<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<PosPrinter, PosPrinterStatusUpdatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PosPrinter, PosPrinterStatusUpdatedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StatusUpdated)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StatusUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStatusUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -7861,34 +7861,34 @@ impl ReceiptPrintJob {
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmap<P0>(&self, bitmapnumber: u32, bitmap: P0, alignment: PosPrinterAlignment) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+        P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = &windows_core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetBitmap)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignment).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBitmap)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.param().abi(), alignment).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmapCustomWidthStandardAlign<P0>(&self, bitmapnumber: u32, bitmap: P0, alignment: PosPrinterAlignment, width: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+        P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = &windows_core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignment, width).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.param().abi(), alignment, width).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetCustomAlignedBitmap<P0>(&self, bitmapnumber: u32, bitmap: P0, alignmentdistance: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+        P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = &windows_core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetCustomAlignedBitmap)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignmentdistance).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetCustomAlignedBitmap)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.param().abi(), alignmentdistance).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmapCustomWidthCustomAlign<P0>(&self, bitmapnumber: u32, bitmap: P0, alignmentdistance: u32, width: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+        P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = &windows_core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetBitmapCustomWidthCustomAlign)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignmentdistance, width).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBitmapCustomWidthCustomAlign)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.param().abi(), alignmentdistance, width).ok() }
     }
     pub fn PrintSavedBitmap(&self, bitmapnumber: u32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IReceiptOrSlipJob>(self)?;
@@ -7909,34 +7909,34 @@ impl ReceiptPrintJob {
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmap<P0>(&self, bitmap: P0, alignment: PosPrinterAlignment) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+        P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = &windows_core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).PrintBitmap)(windows_core::Interface::as_raw(this), bitmap.into_param().abi(), alignment).ok() }
+        unsafe { (windows_core::Interface::vtable(this).PrintBitmap)(windows_core::Interface::as_raw(this), bitmap.param().abi(), alignment).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmapCustomWidthStandardAlign<P0>(&self, bitmap: P0, alignment: PosPrinterAlignment, width: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+        P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = &windows_core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(windows_core::Interface::as_raw(this), bitmap.into_param().abi(), alignment, width).ok() }
+        unsafe { (windows_core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(windows_core::Interface::as_raw(this), bitmap.param().abi(), alignment, width).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintCustomAlignedBitmap<P0>(&self, bitmap: P0, alignmentdistance: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+        P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = &windows_core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).PrintCustomAlignedBitmap)(windows_core::Interface::as_raw(this), bitmap.into_param().abi(), alignmentdistance).ok() }
+        unsafe { (windows_core::Interface::vtable(this).PrintCustomAlignedBitmap)(windows_core::Interface::as_raw(this), bitmap.param().abi(), alignmentdistance).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmapCustomWidthCustomAlign<P0>(&self, bitmap: P0, alignmentdistance: u32, width: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+        P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = &windows_core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(windows_core::Interface::as_raw(this), bitmap.into_param().abi(), alignmentdistance, width).ok() }
+        unsafe { (windows_core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(windows_core::Interface::as_raw(this), bitmap.param().abi(), alignmentdistance, width).ok() }
     }
     pub fn MarkFeed(&self, kind: PosPrinterMarkFeedKind) -> windows_core::Result<()> {
         let this = self;
@@ -7956,10 +7956,10 @@ impl ReceiptPrintJob {
     }
     pub fn Print2<P0>(&self, data: &windows_core::HSTRING, printoptions: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<PosPrinterPrintOptions>,
+        P0: windows_core::Param<PosPrinterPrintOptions>,
     {
         let this = &windows_core::Interface::cast::<IReceiptPrintJob2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Print)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(data), printoptions.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Print)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(data), printoptions.param().abi()).ok() }
     }
     pub fn FeedPaperByLine(&self, linecount: i32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IReceiptPrintJob2>(self)?;
@@ -8261,34 +8261,34 @@ impl SlipPrintJob {
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmap<P0>(&self, bitmapnumber: u32, bitmap: P0, alignment: PosPrinterAlignment) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+        P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBitmap)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignment).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBitmap)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.param().abi(), alignment).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmapCustomWidthStandardAlign<P0>(&self, bitmapnumber: u32, bitmap: P0, alignment: PosPrinterAlignment, width: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+        P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignment, width).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.param().abi(), alignment, width).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetCustomAlignedBitmap<P0>(&self, bitmapnumber: u32, bitmap: P0, alignmentdistance: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+        P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetCustomAlignedBitmap)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignmentdistance).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetCustomAlignedBitmap)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.param().abi(), alignmentdistance).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmapCustomWidthCustomAlign<P0>(&self, bitmapnumber: u32, bitmap: P0, alignmentdistance: u32, width: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+        P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBitmapCustomWidthCustomAlign)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignmentdistance, width).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBitmapCustomWidthCustomAlign)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.param().abi(), alignmentdistance, width).ok() }
     }
     pub fn PrintSavedBitmap(&self, bitmapnumber: u32) -> windows_core::Result<()> {
         let this = self;
@@ -8309,41 +8309,41 @@ impl SlipPrintJob {
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmap<P0>(&self, bitmap: P0, alignment: PosPrinterAlignment) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+        P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).PrintBitmap)(windows_core::Interface::as_raw(this), bitmap.into_param().abi(), alignment).ok() }
+        unsafe { (windows_core::Interface::vtable(this).PrintBitmap)(windows_core::Interface::as_raw(this), bitmap.param().abi(), alignment).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmapCustomWidthStandardAlign<P0>(&self, bitmap: P0, alignment: PosPrinterAlignment, width: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+        P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(windows_core::Interface::as_raw(this), bitmap.into_param().abi(), alignment, width).ok() }
+        unsafe { (windows_core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(windows_core::Interface::as_raw(this), bitmap.param().abi(), alignment, width).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintCustomAlignedBitmap<P0>(&self, bitmap: P0, alignmentdistance: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+        P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).PrintCustomAlignedBitmap)(windows_core::Interface::as_raw(this), bitmap.into_param().abi(), alignmentdistance).ok() }
+        unsafe { (windows_core::Interface::vtable(this).PrintCustomAlignedBitmap)(windows_core::Interface::as_raw(this), bitmap.param().abi(), alignmentdistance).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmapCustomWidthCustomAlign<P0>(&self, bitmap: P0, alignmentdistance: u32, width: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+        P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(windows_core::Interface::as_raw(this), bitmap.into_param().abi(), alignmentdistance, width).ok() }
+        unsafe { (windows_core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(windows_core::Interface::as_raw(this), bitmap.param().abi(), alignmentdistance, width).ok() }
     }
     pub fn Print2<P0>(&self, data: &windows_core::HSTRING, printoptions: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<PosPrinterPrintOptions>,
+        P0: windows_core::Param<PosPrinterPrintOptions>,
     {
         let this = &windows_core::Interface::cast::<ISlipPrintJob>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Print)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(data), printoptions.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Print)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(data), printoptions.param().abi()).ok() }
     }
     pub fn FeedPaperByLine(&self, linecount: i32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ISlipPrintJob>(self)?;

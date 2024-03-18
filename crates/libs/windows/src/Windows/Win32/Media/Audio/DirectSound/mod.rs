@@ -1,18 +1,18 @@
 #[inline]
 pub unsafe fn DirectSoundCaptureCreate<P0>(pcguiddevice: Option<*const windows_core::GUID>, ppdsc: *mut Option<IDirectSoundCapture>, punkouter: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::IUnknown>,
+    P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("dsound.dll" "system" fn DirectSoundCaptureCreate(pcguiddevice : *const windows_core::GUID, ppdsc : *mut * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    DirectSoundCaptureCreate(core::mem::transmute(pcguiddevice.unwrap_or(std::ptr::null())), core::mem::transmute(ppdsc), punkouter.into_param().abi()).ok()
+    DirectSoundCaptureCreate(core::mem::transmute(pcguiddevice.unwrap_or(std::ptr::null())), core::mem::transmute(ppdsc), punkouter.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn DirectSoundCaptureCreate8<P0>(pcguiddevice: Option<*const windows_core::GUID>, ppdsc8: *mut Option<IDirectSoundCapture>, punkouter: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::IUnknown>,
+    P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("dsound.dll" "system" fn DirectSoundCaptureCreate8(pcguiddevice : *const windows_core::GUID, ppdsc8 : *mut * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    DirectSoundCaptureCreate8(core::mem::transmute(pcguiddevice.unwrap_or(std::ptr::null())), core::mem::transmute(ppdsc8), punkouter.into_param().abi()).ok()
+    DirectSoundCaptureCreate8(core::mem::transmute(pcguiddevice.unwrap_or(std::ptr::null())), core::mem::transmute(ppdsc8), punkouter.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn DirectSoundCaptureEnumerateA(pdsenumcallback: LPDSENUMCALLBACKA, pcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
@@ -27,18 +27,18 @@ pub unsafe fn DirectSoundCaptureEnumerateW(pdsenumcallback: LPDSENUMCALLBACKW, p
 #[inline]
 pub unsafe fn DirectSoundCreate<P0>(pcguiddevice: Option<*const windows_core::GUID>, ppds: *mut Option<IDirectSound>, punkouter: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::IUnknown>,
+    P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("dsound.dll" "system" fn DirectSoundCreate(pcguiddevice : *const windows_core::GUID, ppds : *mut * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    DirectSoundCreate(core::mem::transmute(pcguiddevice.unwrap_or(std::ptr::null())), core::mem::transmute(ppds), punkouter.into_param().abi()).ok()
+    DirectSoundCreate(core::mem::transmute(pcguiddevice.unwrap_or(std::ptr::null())), core::mem::transmute(ppds), punkouter.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn DirectSoundCreate8<P0>(pcguiddevice: Option<*const windows_core::GUID>, ppds8: *mut Option<IDirectSound8>, punkouter: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::IUnknown>,
+    P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("dsound.dll" "system" fn DirectSoundCreate8(pcguiddevice : *const windows_core::GUID, ppds8 : *mut * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    DirectSoundCreate8(core::mem::transmute(pcguiddevice.unwrap_or(std::ptr::null())), core::mem::transmute(ppds8), punkouter.into_param().abi()).ok()
+    DirectSoundCreate8(core::mem::transmute(pcguiddevice.unwrap_or(std::ptr::null())), core::mem::transmute(ppds8), punkouter.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn DirectSoundEnumerateA(pdsenumcallback: LPDSENUMCALLBACKA, pcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
@@ -53,11 +53,11 @@ pub unsafe fn DirectSoundEnumerateW(pdsenumcallback: LPDSENUMCALLBACKW, pcontext
 #[inline]
 pub unsafe fn DirectSoundFullDuplexCreate<P0, P1>(pcguidcapturedevice: Option<*const windows_core::GUID>, pcguidrenderdevice: Option<*const windows_core::GUID>, pcdscbufferdesc: *const DSCBUFFERDESC, pcdsbufferdesc: *const DSBUFFERDESC, hwnd: P0, dwlevel: u32, ppdsfd: *mut Option<IDirectSoundFullDuplex>, ppdscbuffer8: *mut Option<IDirectSoundCaptureBuffer8>, ppdsbuffer8: *mut Option<IDirectSoundBuffer8>, punkouter: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
-    P1: windows_core::IntoParam<windows_core::IUnknown>,
+    P0: windows_core::Param<super::super::super::Foundation::HWND>,
+    P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("dsound.dll" "system" fn DirectSoundFullDuplexCreate(pcguidcapturedevice : *const windows_core::GUID, pcguidrenderdevice : *const windows_core::GUID, pcdscbufferdesc : *const DSCBUFFERDESC, pcdsbufferdesc : *const DSBUFFERDESC, hwnd : super::super::super::Foundation:: HWND, dwlevel : u32, ppdsfd : *mut * mut core::ffi::c_void, ppdscbuffer8 : *mut * mut core::ffi::c_void, ppdsbuffer8 : *mut * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    DirectSoundFullDuplexCreate(core::mem::transmute(pcguidcapturedevice.unwrap_or(std::ptr::null())), core::mem::transmute(pcguidrenderdevice.unwrap_or(std::ptr::null())), pcdscbufferdesc, pcdsbufferdesc, hwnd.into_param().abi(), dwlevel, core::mem::transmute(ppdsfd), core::mem::transmute(ppdscbuffer8), core::mem::transmute(ppdsbuffer8), punkouter.into_param().abi()).ok()
+    DirectSoundFullDuplexCreate(core::mem::transmute(pcguidcapturedevice.unwrap_or(std::ptr::null())), core::mem::transmute(pcguidrenderdevice.unwrap_or(std::ptr::null())), pcdscbufferdesc, pcdsbufferdesc, hwnd.param().abi(), dwlevel, core::mem::transmute(ppdsfd), core::mem::transmute(ppdscbuffer8), core::mem::transmute(ppdsbuffer8), punkouter.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn GetDeviceID(pguidsrc: Option<*const windows_core::GUID>) -> windows_core::Result<windows_core::GUID> {
@@ -70,25 +70,25 @@ windows_core::imp::interface_hierarchy!(IDirectSound, windows_core::IUnknown);
 impl IDirectSound {
     pub unsafe fn CreateSoundBuffer<P0>(&self, pcdsbufferdesc: *const DSBUFFERDESC, ppdsbuffer: *mut Option<IDirectSoundBuffer>, punkouter: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).CreateSoundBuffer)(windows_core::Interface::as_raw(self), pcdsbufferdesc, core::mem::transmute(ppdsbuffer), punkouter.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CreateSoundBuffer)(windows_core::Interface::as_raw(self), pcdsbufferdesc, core::mem::transmute(ppdsbuffer), punkouter.param().abi()).ok()
     }
     pub unsafe fn GetCaps(&self, pdscaps: *mut DSCAPS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), pdscaps).ok()
     }
     pub unsafe fn DuplicateSoundBuffer<P0>(&self, pdsbufferoriginal: P0) -> windows_core::Result<IDirectSoundBuffer>
     where
-        P0: windows_core::IntoParam<IDirectSoundBuffer>,
+        P0: windows_core::Param<IDirectSoundBuffer>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).DuplicateSoundBuffer)(windows_core::Interface::as_raw(self), pdsbufferoriginal.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).DuplicateSoundBuffer)(windows_core::Interface::as_raw(self), pdsbufferoriginal.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetCooperativeLevel<P0>(&self, hwnd: P0, dwlevel: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), dwlevel).ok()
+        (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), hwnd.param().abi(), dwlevel).ok()
     }
     pub unsafe fn Compact(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Compact)(windows_core::Interface::as_raw(self)).ok()
@@ -321,25 +321,25 @@ windows_core::imp::interface_hierarchy!(IDirectSound8, windows_core::IUnknown, I
 impl IDirectSound8 {
     pub unsafe fn CreateSoundBuffer<P0>(&self, pcdsbufferdesc: *const DSBUFFERDESC, ppdsbuffer: *mut Option<IDirectSoundBuffer>, punkouter: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.CreateSoundBuffer)(windows_core::Interface::as_raw(self), pcdsbufferdesc, core::mem::transmute(ppdsbuffer), punkouter.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.CreateSoundBuffer)(windows_core::Interface::as_raw(self), pcdsbufferdesc, core::mem::transmute(ppdsbuffer), punkouter.param().abi()).ok()
     }
     pub unsafe fn GetCaps(&self, pdscaps: *mut DSCAPS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.GetCaps)(windows_core::Interface::as_raw(self), pdscaps).ok()
     }
     pub unsafe fn DuplicateSoundBuffer<P0>(&self, pdsbufferoriginal: P0) -> windows_core::Result<IDirectSoundBuffer>
     where
-        P0: windows_core::IntoParam<IDirectSoundBuffer>,
+        P0: windows_core::Param<IDirectSoundBuffer>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DuplicateSoundBuffer)(windows_core::Interface::as_raw(self), pdsbufferoriginal.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.DuplicateSoundBuffer)(windows_core::Interface::as_raw(self), pdsbufferoriginal.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetCooperativeLevel<P0>(&self, hwnd: P0, dwlevel: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).base__.SetCooperativeLevel)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), dwlevel).ok()
+        (windows_core::Interface::vtable(self).base__.SetCooperativeLevel)(windows_core::Interface::as_raw(self), hwnd.param().abi(), dwlevel).ok()
     }
     pub unsafe fn Compact(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.Compact)(windows_core::Interface::as_raw(self)).ok()
@@ -394,9 +394,9 @@ impl IDirectSoundBuffer {
     }
     pub unsafe fn Initialize<P0>(&self, pdirectsound: P0, pcdsbufferdesc: *const DSBUFFERDESC) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirectSound>,
+        P0: windows_core::Param<IDirectSound>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pdirectsound.into_param().abi(), pcdsbufferdesc).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pdirectsound.param().abi(), pcdsbufferdesc).ok()
     }
     pub unsafe fn Lock(&self, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut core::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: Option<*mut *mut core::ffi::c_void>, pdwaudiobytes2: Option<*mut u32>, dwflags: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), dwoffset, dwbytes, ppvaudioptr1, pdwaudiobytes1, core::mem::transmute(ppvaudioptr2.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdwaudiobytes2.unwrap_or(std::ptr::null_mut())), dwflags).ok()
@@ -481,9 +481,9 @@ impl IDirectSoundBuffer8 {
     }
     pub unsafe fn Initialize<P0>(&self, pdirectsound: P0, pcdsbufferdesc: *const DSBUFFERDESC) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirectSound>,
+        P0: windows_core::Param<IDirectSound>,
     {
-        (windows_core::Interface::vtable(self).base__.Initialize)(windows_core::Interface::as_raw(self), pdirectsound.into_param().abi(), pcdsbufferdesc).ok()
+        (windows_core::Interface::vtable(self).base__.Initialize)(windows_core::Interface::as_raw(self), pdirectsound.param().abi(), pcdsbufferdesc).ok()
     }
     pub unsafe fn Lock(&self, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut core::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: Option<*mut *mut core::ffi::c_void>, pdwaudiobytes2: Option<*mut u32>, dwflags: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.Lock)(windows_core::Interface::as_raw(self), dwoffset, dwbytes, ppvaudioptr1, pdwaudiobytes1, core::mem::transmute(ppvaudioptr2.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdwaudiobytes2.unwrap_or(std::ptr::null_mut())), dwflags).ok()
@@ -537,9 +537,9 @@ windows_core::imp::interface_hierarchy!(IDirectSoundCapture, windows_core::IUnkn
 impl IDirectSoundCapture {
     pub unsafe fn CreateCaptureBuffer<P0>(&self, pcdscbufferdesc: *const DSCBUFFERDESC, ppdscbuffer: *mut Option<IDirectSoundCaptureBuffer>, punkouter: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).CreateCaptureBuffer)(windows_core::Interface::as_raw(self), pcdscbufferdesc, core::mem::transmute(ppdscbuffer), punkouter.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CreateCaptureBuffer)(windows_core::Interface::as_raw(self), pcdscbufferdesc, core::mem::transmute(ppdscbuffer), punkouter.param().abi()).ok()
     }
     pub unsafe fn GetCaps(&self) -> windows_core::Result<DSCCAPS> {
         let mut result__ = std::mem::zeroed();
@@ -575,9 +575,9 @@ impl IDirectSoundCaptureBuffer {
     }
     pub unsafe fn Initialize<P0>(&self, pdirectsoundcapture: P0, pcdscbufferdesc: *const DSCBUFFERDESC) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirectSoundCapture>,
+        P0: windows_core::Param<IDirectSoundCapture>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pdirectsoundcapture.into_param().abi(), pcdscbufferdesc).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pdirectsoundcapture.param().abi(), pcdscbufferdesc).ok()
     }
     pub unsafe fn Lock(&self, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut core::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: Option<*mut *mut core::ffi::c_void>, pdwaudiobytes2: Option<*mut u32>, dwflags: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), dwoffset, dwbytes, ppvaudioptr1, pdwaudiobytes1, core::mem::transmute(ppvaudioptr2.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdwaudiobytes2.unwrap_or(std::ptr::null_mut())), dwflags).ok()
@@ -624,9 +624,9 @@ impl IDirectSoundCaptureBuffer8 {
     }
     pub unsafe fn Initialize<P0>(&self, pdirectsoundcapture: P0, pcdscbufferdesc: *const DSCBUFFERDESC) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IDirectSoundCapture>,
+        P0: windows_core::Param<IDirectSoundCapture>,
     {
-        (windows_core::Interface::vtable(self).base__.Initialize)(windows_core::Interface::as_raw(self), pdirectsoundcapture.into_param().abi(), pcdscbufferdesc).ok()
+        (windows_core::Interface::vtable(self).base__.Initialize)(windows_core::Interface::as_raw(self), pdirectsoundcapture.param().abi(), pcdscbufferdesc).ok()
     }
     pub unsafe fn Lock(&self, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut core::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: Option<*mut *mut core::ffi::c_void>, pdwaudiobytes2: Option<*mut u32>, dwflags: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.Lock)(windows_core::Interface::as_raw(self), dwoffset, dwbytes, ppvaudioptr1, pdwaudiobytes1, core::mem::transmute(ppvaudioptr2.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdwaudiobytes2.unwrap_or(std::ptr::null_mut())), dwflags).ok()
@@ -870,9 +870,9 @@ windows_core::imp::interface_hierarchy!(IDirectSoundFullDuplex, windows_core::IU
 impl IDirectSoundFullDuplex {
     pub unsafe fn Initialize<P0>(&self, pcaptureguid: *const windows_core::GUID, prenderguid: *const windows_core::GUID, lpdscbufferdesc: *const DSCBUFFERDESC, lpdsbufferdesc: *const DSBUFFERDESC, hwnd: P0, dwlevel: u32, lplpdirectsoundcapturebuffer8: *mut Option<IDirectSoundCaptureBuffer8>, lplpdirectsoundbuffer8: *mut Option<IDirectSoundBuffer8>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pcaptureguid, prenderguid, lpdscbufferdesc, lpdsbufferdesc, hwnd.into_param().abi(), dwlevel, core::mem::transmute(lplpdirectsoundcapturebuffer8), core::mem::transmute(lplpdirectsoundbuffer8)).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pcaptureguid, prenderguid, lpdscbufferdesc, lpdsbufferdesc, hwnd.param().abi(), dwlevel, core::mem::transmute(lplpdirectsoundcapturebuffer8), core::mem::transmute(lplpdirectsoundbuffer8)).ok()
     }
 }
 #[repr(C)]

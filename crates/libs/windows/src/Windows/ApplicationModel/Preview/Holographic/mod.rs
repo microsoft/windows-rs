@@ -60,11 +60,11 @@ impl HolographicApplicationPreview {
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn IsHolographicActivation<P0>(activatedeventargs: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<super::super::Activation::IActivatedEventArgs>,
+        P0: windows_core::Param<super::super::Activation::IActivatedEventArgs>,
     {
         Self::IHolographicApplicationPreviewStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsHolographicActivation)(windows_core::Interface::as_raw(this), activatedeventargs.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsHolographicActivation)(windows_core::Interface::as_raw(this), activatedeventargs.param().abi(), &mut result__).map(|| result__)
         })
     }
     #[doc(hidden)]
@@ -87,18 +87,18 @@ impl HolographicKeyboardPlacementOverridePreview {
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "deprecated"))]
     pub fn SetPlacementOverride<P0>(&self, coordinatesystem: P0, topcenterposition: super::super::super::Foundation::Numerics::Vector3, normal: super::super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPlacementOverride)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), topcenterposition, normal).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPlacementOverride)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), topcenterposition, normal).ok() }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "deprecated"))]
     pub fn SetPlacementOverrideWithMaxSize<P0>(&self, coordinatesystem: P0, topcenterposition: super::super::super::Foundation::Numerics::Vector3, normal: super::super::super::Foundation::Numerics::Vector3, maxsize: super::super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPlacementOverrideWithMaxSize)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), topcenterposition, normal, maxsize).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPlacementOverrideWithMaxSize)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), topcenterposition, normal, maxsize).ok() }
     }
     #[cfg(feature = "deprecated")]
     pub fn ResetPlacementOverride(&self) -> windows_core::Result<()> {

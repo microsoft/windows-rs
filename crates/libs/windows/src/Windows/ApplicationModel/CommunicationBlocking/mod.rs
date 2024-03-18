@@ -54,21 +54,21 @@ impl CommunicationBlockingAccessManager {
     #[cfg(feature = "Foundation_Collections")]
     pub fn ShowBlockNumbersUI<P0>(phonenumbers: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShowBlockNumbersUI)(windows_core::Interface::as_raw(this), phonenumbers.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ShowBlockNumbersUI)(windows_core::Interface::as_raw(this), phonenumbers.param().abi(), &mut result__).map(|| result__)
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn ShowUnblockNumbersUI<P0>(phonenumbers: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShowUnblockNumbersUI)(windows_core::Interface::as_raw(this), phonenumbers.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ShowUnblockNumbersUI)(windows_core::Interface::as_raw(this), phonenumbers.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn ShowBlockedCallsUI() -> windows_core::Result<()> {

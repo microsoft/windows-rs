@@ -182,9 +182,9 @@ impl IOpcDigitalSignatureManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSignatureOriginPartName<P0>(&self, signatureoriginpartname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IOpcPartUri>,
+        P0: windows_core::Param<IOpcPartUri>,
     {
-        (windows_core::Interface::vtable(self).SetSignatureOriginPartName)(windows_core::Interface::as_raw(self), signatureoriginpartname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSignatureOriginPartName)(windows_core::Interface::as_raw(self), signatureoriginpartname.param().abi()).ok()
     }
     pub unsafe fn GetSignatureEnumerator(&self) -> windows_core::Result<IOpcDigitalSignatureEnumerator> {
         let mut result__ = std::mem::zeroed();
@@ -193,9 +193,9 @@ impl IOpcDigitalSignatureManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RemoveSignature<P0>(&self, signaturepartname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IOpcPartUri>,
+        P0: windows_core::Param<IOpcPartUri>,
     {
-        (windows_core::Interface::vtable(self).RemoveSignature)(windows_core::Interface::as_raw(self), signaturepartname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveSignature)(windows_core::Interface::as_raw(self), signaturepartname.param().abi()).ok()
     }
     pub unsafe fn CreateSigningOptions(&self) -> windows_core::Result<IOpcSigningOptions> {
         let mut result__ = std::mem::zeroed();
@@ -204,26 +204,26 @@ impl IOpcDigitalSignatureManager {
     #[cfg(feature = "Win32_Security_Cryptography")]
     pub unsafe fn Validate<P0>(&self, signature: P0, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT) -> windows_core::Result<OPC_SIGNATURE_VALIDATION_RESULT>
     where
-        P0: windows_core::IntoParam<IOpcDigitalSignature>,
+        P0: windows_core::Param<IOpcDigitalSignature>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Validate)(windows_core::Interface::as_raw(self), signature.into_param().abi(), certificate, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Validate)(windows_core::Interface::as_raw(self), signature.param().abi(), certificate, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_Security_Cryptography")]
     pub unsafe fn Sign<P0>(&self, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT, signingoptions: P0) -> windows_core::Result<IOpcDigitalSignature>
     where
-        P0: windows_core::IntoParam<IOpcSigningOptions>,
+        P0: windows_core::Param<IOpcSigningOptions>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Sign)(windows_core::Interface::as_raw(self), certificate, signingoptions.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Sign)(windows_core::Interface::as_raw(self), certificate, signingoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReplaceSignatureXml<P0>(&self, signaturepartname: P0, newsignaturexml: &[u8]) -> windows_core::Result<IOpcDigitalSignature>
     where
-        P0: windows_core::IntoParam<IOpcPartUri>,
+        P0: windows_core::Param<IOpcPartUri>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ReplaceSignatureXml)(windows_core::Interface::as_raw(self), signaturepartname.into_param().abi(), core::mem::transmute(newsignaturexml.as_ptr()), newsignaturexml.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ReplaceSignatureXml)(windows_core::Interface::as_raw(self), signaturepartname.param().abi(), core::mem::transmute(newsignaturexml.as_ptr()), newsignaturexml.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -267,18 +267,18 @@ impl IOpcFactory {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePartUri<P0>(&self, pwzuri: P0) -> windows_core::Result<IOpcPartUri>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreatePartUri)(windows_core::Interface::as_raw(self), pwzuri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreatePartUri)(windows_core::Interface::as_raw(self), pwzuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Com"))]
     pub unsafe fn CreateStreamOnFile<P0>(&self, filename: P0, iomode: OPC_STREAM_IO_MODE, securityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, dwflagsandattributes: u32) -> windows_core::Result<super::super::super::System::Com::IStream>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateStreamOnFile)(windows_core::Interface::as_raw(self), filename.into_param().abi(), iomode, securityattributes, dwflagsandattributes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateStreamOnFile)(windows_core::Interface::as_raw(self), filename.param().abi(), iomode, securityattributes, dwflagsandattributes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreatePackage(&self) -> windows_core::Result<IOpcPackage> {
         let mut result__ = std::mem::zeroed();
@@ -287,25 +287,25 @@ impl IOpcFactory {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReadPackageFromStream<P0>(&self, stream: P0, flags: OPC_READ_FLAGS) -> windows_core::Result<IOpcPackage>
     where
-        P0: windows_core::IntoParam<super::super::super::System::Com::IStream>,
+        P0: windows_core::Param<super::super::super::System::Com::IStream>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ReadPackageFromStream)(windows_core::Interface::as_raw(self), stream.into_param().abi(), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ReadPackageFromStream)(windows_core::Interface::as_raw(self), stream.param().abi(), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn WritePackageToStream<P0, P1>(&self, package: P0, flags: OPC_WRITE_FLAGS, stream: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IOpcPackage>,
-        P1: windows_core::IntoParam<super::super::super::System::Com::IStream>,
+        P0: windows_core::Param<IOpcPackage>,
+        P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        (windows_core::Interface::vtable(self).WritePackageToStream)(windows_core::Interface::as_raw(self), package.into_param().abi(), flags, stream.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).WritePackageToStream)(windows_core::Interface::as_raw(self), package.param().abi(), flags, stream.param().abi()).ok()
     }
     pub unsafe fn CreateDigitalSignatureManager<P0>(&self, package: P0) -> windows_core::Result<IOpcDigitalSignatureManager>
     where
-        P0: windows_core::IntoParam<IOpcPackage>,
+        P0: windows_core::Param<IOpcPackage>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateDigitalSignatureManager)(windows_core::Interface::as_raw(self), package.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateDigitalSignatureManager)(windows_core::Interface::as_raw(self), package.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -427,34 +427,34 @@ impl IOpcPartSet {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPart<P0>(&self, name: P0) -> windows_core::Result<IOpcPart>
     where
-        P0: windows_core::IntoParam<IOpcPartUri>,
+        P0: windows_core::Param<IOpcPartUri>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetPart)(windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetPart)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePart<P0, P1>(&self, name: P0, contenttype: P1, compressionoptions: OPC_COMPRESSION_OPTIONS) -> windows_core::Result<IOpcPart>
     where
-        P0: windows_core::IntoParam<IOpcPartUri>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<IOpcPartUri>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreatePart)(windows_core::Interface::as_raw(self), name.into_param().abi(), contenttype.into_param().abi(), compressionoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreatePart)(windows_core::Interface::as_raw(self), name.param().abi(), contenttype.param().abi(), compressionoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DeletePart<P0>(&self, name: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IOpcPartUri>,
+        P0: windows_core::Param<IOpcPartUri>,
     {
-        (windows_core::Interface::vtable(self).DeletePart)(windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeletePart)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PartExists<P0>(&self, name: P0) -> windows_core::Result<super::super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<IOpcPartUri>,
+        P0: windows_core::Param<IOpcPartUri>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).PartExists)(windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).PartExists)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetEnumerator(&self) -> windows_core::Result<IOpcPartEnumerator> {
         let mut result__ = std::mem::zeroed();
@@ -608,10 +608,10 @@ impl IOpcPartUri {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsEqual<P0>(&self, puri: P0) -> windows_core::Result<super::super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<super::super::super::System::Com::IUri>,
+        P0: windows_core::Param<super::super::super::System::Com::IUri>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsEqual)(windows_core::Interface::as_raw(self), puri.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.IsEqual)(windows_core::Interface::as_raw(self), puri.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRelationshipsPartUri(&self) -> windows_core::Result<IOpcPartUri> {
@@ -621,26 +621,26 @@ impl IOpcPartUri {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRelativeUri<P0>(&self, targetparturi: P0) -> windows_core::Result<super::super::super::System::Com::IUri>
     where
-        P0: windows_core::IntoParam<IOpcPartUri>,
+        P0: windows_core::Param<IOpcPartUri>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetRelativeUri)(windows_core::Interface::as_raw(self), targetparturi.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetRelativeUri)(windows_core::Interface::as_raw(self), targetparturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CombinePartUri<P0>(&self, relativeuri: P0) -> windows_core::Result<IOpcPartUri>
     where
-        P0: windows_core::IntoParam<super::super::super::System::Com::IUri>,
+        P0: windows_core::Param<super::super::super::System::Com::IUri>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CombinePartUri)(windows_core::Interface::as_raw(self), relativeuri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CombinePartUri)(windows_core::Interface::as_raw(self), relativeuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ComparePartUri<P0>(&self, parturi: P0) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<IOpcPartUri>,
+        P0: windows_core::Param<IOpcPartUri>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ComparePartUri)(windows_core::Interface::as_raw(self), parturi.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).ComparePartUri)(windows_core::Interface::as_raw(self), parturi.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSourceUri(&self) -> windows_core::Result<IOpcUri> {
@@ -786,16 +786,16 @@ windows_core::imp::interface_hierarchy!(IOpcRelationshipSelectorSet, windows_cor
 impl IOpcRelationshipSelectorSet {
     pub unsafe fn Create<P0>(&self, selector: OPC_RELATIONSHIP_SELECTOR, selectioncriterion: P0) -> windows_core::Result<IOpcRelationshipSelector>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), selector, selectioncriterion.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), selector, selectioncriterion.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Delete<P0>(&self, relationshipselector: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IOpcRelationshipSelector>,
+        P0: windows_core::Param<IOpcRelationshipSelector>,
     {
-        (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), relationshipselector.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), relationshipselector.param().abi()).ok()
     }
     pub unsafe fn GetEnumerator(&self) -> windows_core::Result<IOpcRelationshipSelectorEnumerator> {
         let mut result__ = std::mem::zeroed();
@@ -814,33 +814,33 @@ windows_core::imp::interface_hierarchy!(IOpcRelationshipSet, windows_core::IUnkn
 impl IOpcRelationshipSet {
     pub unsafe fn GetRelationship<P0>(&self, relationshipidentifier: P0) -> windows_core::Result<IOpcRelationship>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRelationship)(windows_core::Interface::as_raw(self), relationshipidentifier.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetRelationship)(windows_core::Interface::as_raw(self), relationshipidentifier.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateRelationship<P0, P1, P2>(&self, relationshipidentifier: P0, relationshiptype: P1, targeturi: P2, targetmode: OPC_URI_TARGET_MODE) -> windows_core::Result<IOpcRelationship>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<super::super::super::System::Com::IUri>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<super::super::super::System::Com::IUri>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateRelationship)(windows_core::Interface::as_raw(self), relationshipidentifier.into_param().abi(), relationshiptype.into_param().abi(), targeturi.into_param().abi(), targetmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateRelationship)(windows_core::Interface::as_raw(self), relationshipidentifier.param().abi(), relationshiptype.param().abi(), targeturi.param().abi(), targetmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteRelationship<P0>(&self, relationshipidentifier: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).DeleteRelationship)(windows_core::Interface::as_raw(self), relationshipidentifier.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteRelationship)(windows_core::Interface::as_raw(self), relationshipidentifier.param().abi()).ok()
     }
     pub unsafe fn RelationshipExists<P0>(&self, relationshipidentifier: P0) -> windows_core::Result<super::super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).RelationshipExists)(windows_core::Interface::as_raw(self), relationshipidentifier.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).RelationshipExists)(windows_core::Interface::as_raw(self), relationshipidentifier.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetEnumerator(&self) -> windows_core::Result<IOpcRelationshipEnumerator> {
         let mut result__ = std::mem::zeroed();
@@ -848,10 +848,10 @@ impl IOpcRelationshipSet {
     }
     pub unsafe fn GetEnumeratorForType<P0>(&self, relationshiptype: P0) -> windows_core::Result<IOpcRelationshipEnumerator>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetEnumeratorForType)(windows_core::Interface::as_raw(self), relationshiptype.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetEnumeratorForType)(windows_core::Interface::as_raw(self), relationshiptype.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRelationshipsContentStream(&self) -> windows_core::Result<super::super::super::System::Com::IStream> {
@@ -925,9 +925,9 @@ impl IOpcSignatureCustomObjectSet {
     }
     pub unsafe fn Delete<P0>(&self, customobject: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IOpcSignatureCustomObject>,
+        P0: windows_core::Param<IOpcSignatureCustomObject>,
     {
-        (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), customobject.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), customobject.param().abi()).ok()
     }
     pub unsafe fn GetEnumerator(&self) -> windows_core::Result<IOpcSignatureCustomObjectEnumerator> {
         let mut result__ = std::mem::zeroed();
@@ -1011,17 +1011,17 @@ impl IOpcSignaturePartReferenceSet {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Create<P0, P1>(&self, parturi: P0, digestmethod: P1, transformmethod: OPC_CANONICALIZATION_METHOD) -> windows_core::Result<IOpcSignaturePartReference>
     where
-        P0: windows_core::IntoParam<IOpcPartUri>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<IOpcPartUri>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), parturi.into_param().abi(), digestmethod.into_param().abi(), transformmethod, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), parturi.param().abi(), digestmethod.param().abi(), transformmethod, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Delete<P0>(&self, partreference: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IOpcSignaturePartReference>,
+        P0: windows_core::Param<IOpcSignaturePartReference>,
     {
-        (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), partreference.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), partreference.param().abi()).ok()
     }
     pub unsafe fn GetEnumerator(&self) -> windows_core::Result<IOpcSignaturePartReferenceEnumerator> {
         let mut result__ = std::mem::zeroed();
@@ -1113,19 +1113,19 @@ impl IOpcSignatureReferenceSet {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Create<P0, P1, P2, P3>(&self, referenceuri: P0, referenceid: P1, r#type: P2, digestmethod: P3, transformmethod: OPC_CANONICALIZATION_METHOD) -> windows_core::Result<IOpcSignatureReference>
     where
-        P0: windows_core::IntoParam<super::super::super::System::Com::IUri>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
-        P3: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<super::super::super::System::Com::IUri>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), referenceuri.into_param().abi(), referenceid.into_param().abi(), r#type.into_param().abi(), digestmethod.into_param().abi(), transformmethod, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), referenceuri.param().abi(), referenceid.param().abi(), r#type.param().abi(), digestmethod.param().abi(), transformmethod, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Delete<P0>(&self, reference: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IOpcSignatureReference>,
+        P0: windows_core::Param<IOpcSignatureReference>,
     {
-        (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), reference.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), reference.param().abi()).ok()
     }
     pub unsafe fn GetEnumerator(&self) -> windows_core::Result<IOpcSignatureReferenceEnumerator> {
         let mut result__ = std::mem::zeroed();
@@ -1217,12 +1217,12 @@ impl IOpcSignatureRelationshipReferenceSet {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Create<P0, P1, P2>(&self, sourceuri: P0, digestmethod: P1, relationshipsigningoption: OPC_RELATIONSHIPS_SIGNING_OPTION, selectorset: P2, transformmethod: OPC_CANONICALIZATION_METHOD) -> windows_core::Result<IOpcSignatureRelationshipReference>
     where
-        P0: windows_core::IntoParam<IOpcUri>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<IOpcRelationshipSelectorSet>,
+        P0: windows_core::Param<IOpcUri>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<IOpcRelationshipSelectorSet>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), sourceuri.into_param().abi(), digestmethod.into_param().abi(), relationshipsigningoption, selectorset.into_param().abi(), transformmethod, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), sourceuri.param().abi(), digestmethod.param().abi(), relationshipsigningoption, selectorset.param().abi(), transformmethod, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateRelationshipSelectorSet(&self) -> windows_core::Result<IOpcRelationshipSelectorSet> {
         let mut result__ = std::mem::zeroed();
@@ -1230,9 +1230,9 @@ impl IOpcSignatureRelationshipReferenceSet {
     }
     pub unsafe fn Delete<P0>(&self, relationshipreference: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IOpcSignatureRelationshipReference>,
+        P0: windows_core::Param<IOpcSignatureRelationshipReference>,
     {
-        (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), relationshipreference.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), relationshipreference.param().abi()).ok()
     }
     pub unsafe fn GetEnumerator(&self) -> windows_core::Result<IOpcSignatureRelationshipReferenceEnumerator> {
         let mut result__ = std::mem::zeroed();
@@ -1259,9 +1259,9 @@ impl IOpcSigningOptions {
     }
     pub unsafe fn SetSignatureId<P0>(&self, signatureid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSignatureId)(windows_core::Interface::as_raw(self), signatureid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSignatureId)(windows_core::Interface::as_raw(self), signatureid.param().abi()).ok()
     }
     pub unsafe fn GetSignatureMethod(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1269,9 +1269,9 @@ impl IOpcSigningOptions {
     }
     pub unsafe fn SetSignatureMethod<P0>(&self, signaturemethod: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSignatureMethod)(windows_core::Interface::as_raw(self), signaturemethod.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSignatureMethod)(windows_core::Interface::as_raw(self), signaturemethod.param().abi()).ok()
     }
     pub unsafe fn GetDefaultDigestMethod(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1279,9 +1279,9 @@ impl IOpcSigningOptions {
     }
     pub unsafe fn SetDefaultDigestMethod<P0>(&self, digestmethod: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDefaultDigestMethod)(windows_core::Interface::as_raw(self), digestmethod.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDefaultDigestMethod)(windows_core::Interface::as_raw(self), digestmethod.param().abi()).ok()
     }
     pub unsafe fn GetCertificateEmbeddingOption(&self) -> windows_core::Result<OPC_CERTIFICATE_EMBEDDING_OPTION> {
         let mut result__ = std::mem::zeroed();
@@ -1325,9 +1325,9 @@ impl IOpcSigningOptions {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSignaturePartName<P0>(&self, signaturepartname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IOpcPartUri>,
+        P0: windows_core::Param<IOpcPartUri>,
     {
-        (windows_core::Interface::vtable(self).SetSignaturePartName)(windows_core::Interface::as_raw(self), signaturepartname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSignaturePartName)(windows_core::Interface::as_raw(self), signaturepartname.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -1483,10 +1483,10 @@ impl IOpcUri {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsEqual<P0>(&self, puri: P0) -> windows_core::Result<super::super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<super::super::super::System::Com::IUri>,
+        P0: windows_core::Param<super::super::super::System::Com::IUri>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsEqual)(windows_core::Interface::as_raw(self), puri.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.IsEqual)(windows_core::Interface::as_raw(self), puri.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRelationshipsPartUri(&self) -> windows_core::Result<IOpcPartUri> {
@@ -1496,18 +1496,18 @@ impl IOpcUri {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRelativeUri<P0>(&self, targetparturi: P0) -> windows_core::Result<super::super::super::System::Com::IUri>
     where
-        P0: windows_core::IntoParam<IOpcPartUri>,
+        P0: windows_core::Param<IOpcPartUri>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRelativeUri)(windows_core::Interface::as_raw(self), targetparturi.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetRelativeUri)(windows_core::Interface::as_raw(self), targetparturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CombinePartUri<P0>(&self, relativeuri: P0) -> windows_core::Result<IOpcPartUri>
     where
-        P0: windows_core::IntoParam<super::super::super::System::Com::IUri>,
+        P0: windows_core::Param<super::super::super::System::Com::IUri>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CombinePartUri)(windows_core::Interface::as_raw(self), relativeuri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CombinePartUri)(windows_core::Interface::as_raw(self), relativeuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]

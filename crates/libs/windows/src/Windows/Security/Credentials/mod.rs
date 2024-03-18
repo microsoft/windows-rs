@@ -274,12 +274,12 @@ impl KeyCredential {
     #[cfg(feature = "Storage_Streams")]
     pub fn RequestSignAsync<P0>(&self, data: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<KeyCredentialOperationResult>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestSignAsync)(windows_core::Interface::as_raw(this), data.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestSignAsync)(windows_core::Interface::as_raw(this), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetAttestationAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<KeyCredentialAttestationResult>> {
@@ -590,12 +590,12 @@ impl PasswordCredentialPropertyStore {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Insert<P0>(&self, key: &windows_core::HSTRING, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -611,12 +611,12 @@ impl PasswordCredentialPropertyStore {
     #[cfg(feature = "Foundation_Collections")]
     pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::MapChangedEventHandler<windows_core::HSTRING, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::MapChangedEventHandler<windows_core::HSTRING, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -672,17 +672,17 @@ impl PasswordVault {
     }
     pub fn Add<P0>(&self, credential: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<PasswordCredential>,
+        P0: windows_core::Param<PasswordCredential>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Add)(windows_core::Interface::as_raw(this), credential.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Add)(windows_core::Interface::as_raw(this), credential.param().abi()).ok() }
     }
     pub fn Remove<P0>(&self, credential: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<PasswordCredential>,
+        P0: windows_core::Param<PasswordCredential>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Remove)(windows_core::Interface::as_raw(this), credential.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Remove)(windows_core::Interface::as_raw(this), credential.param().abi()).ok() }
     }
     pub fn Retrieve(&self, resource: &windows_core::HSTRING, username: &windows_core::HSTRING) -> windows_core::Result<PasswordCredential> {
         let this = self;
@@ -794,11 +794,11 @@ impl WebAccount {
     }
     pub fn CreateWebAccount<P0>(webaccountprovider: P0, username: &windows_core::HSTRING, state: WebAccountState) -> windows_core::Result<WebAccount>
     where
-        P0: windows_core::IntoParam<WebAccountProvider>,
+        P0: windows_core::Param<WebAccountProvider>,
     {
         Self::IWebAccountFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWebAccount)(windows_core::Interface::as_raw(this), webaccountprovider.into_param().abi(), core::mem::transmute_copy(username), state, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWebAccount)(windows_core::Interface::as_raw(this), webaccountprovider.param().abi(), core::mem::transmute_copy(username), state, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -877,11 +877,11 @@ impl WebAccountProvider {
     }
     pub fn CreateWebAccountProvider<P0>(id: &windows_core::HSTRING, displayname: &windows_core::HSTRING, iconuri: P0) -> windows_core::Result<WebAccountProvider>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         Self::IWebAccountProviderFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWebAccountProvider)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), core::mem::transmute_copy(displayname), iconuri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWebAccountProvider)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), core::mem::transmute_copy(displayname), iconuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

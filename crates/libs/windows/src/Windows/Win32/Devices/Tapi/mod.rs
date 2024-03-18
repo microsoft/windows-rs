@@ -2,66 +2,66 @@
 #[inline]
 pub unsafe fn GetTnefStreamCodepage<P0>(lpstream: P0, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::System::Com::IStream>,
+    P0: windows_core::Param<super::super::System::Com::IStream>,
 {
     windows_targets::link!("mapi32.dll" "system" fn GetTnefStreamCodepage(lpstream : * mut core::ffi::c_void, lpulcodepage : *mut u32, lpulsubcodepage : *mut u32) -> windows_core::HRESULT);
-    GetTnefStreamCodepage(lpstream.into_param().abi(), lpulcodepage, lpulsubcodepage).ok()
+    GetTnefStreamCodepage(lpstream.param().abi(), lpulcodepage, lpulsubcodepage).ok()
 }
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn OpenTnefStream<P0, P1>(lpvsupport: *mut core::ffi::c_void, lpstream: P0, lpszstreamname: *const i8, ulflags: u32, lpmessage: P1, wkeyval: u16, lpptnef: *mut Option<ITnef>) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::System::Com::IStream>,
-    P1: windows_core::IntoParam<super::super::System::AddressBook::IMessage>,
+    P0: windows_core::Param<super::super::System::Com::IStream>,
+    P1: windows_core::Param<super::super::System::AddressBook::IMessage>,
 {
     windows_targets::link!("mapi32.dll" "system" fn OpenTnefStream(lpvsupport : *mut core::ffi::c_void, lpstream : * mut core::ffi::c_void, lpszstreamname : *const i8, ulflags : u32, lpmessage : * mut core::ffi::c_void, wkeyval : u16, lpptnef : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    OpenTnefStream(lpvsupport, lpstream.into_param().abi(), lpszstreamname, ulflags, lpmessage.into_param().abi(), wkeyval, core::mem::transmute(lpptnef)).ok()
+    OpenTnefStream(lpvsupport, lpstream.param().abi(), lpszstreamname, ulflags, lpmessage.param().abi(), wkeyval, core::mem::transmute(lpptnef)).ok()
 }
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn OpenTnefStreamEx<P0, P1, P2>(lpvsupport: *mut core::ffi::c_void, lpstream: P0, lpszstreamname: *const i8, ulflags: u32, lpmessage: P1, wkeyval: u16, lpadressbook: P2, lpptnef: *mut Option<ITnef>) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::System::Com::IStream>,
-    P1: windows_core::IntoParam<super::super::System::AddressBook::IMessage>,
-    P2: windows_core::IntoParam<super::super::System::AddressBook::IAddrBook>,
+    P0: windows_core::Param<super::super::System::Com::IStream>,
+    P1: windows_core::Param<super::super::System::AddressBook::IMessage>,
+    P2: windows_core::Param<super::super::System::AddressBook::IAddrBook>,
 {
     windows_targets::link!("mapi32.dll" "system" fn OpenTnefStreamEx(lpvsupport : *mut core::ffi::c_void, lpstream : * mut core::ffi::c_void, lpszstreamname : *const i8, ulflags : u32, lpmessage : * mut core::ffi::c_void, wkeyval : u16, lpadressbook : * mut core::ffi::c_void, lpptnef : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    OpenTnefStreamEx(lpvsupport, lpstream.into_param().abi(), lpszstreamname, ulflags, lpmessage.into_param().abi(), wkeyval, lpadressbook.into_param().abi(), core::mem::transmute(lpptnef)).ok()
+    OpenTnefStreamEx(lpvsupport, lpstream.param().abi(), lpszstreamname, ulflags, lpmessage.param().abi(), wkeyval, lpadressbook.param().abi(), core::mem::transmute(lpptnef)).ok()
 }
 #[inline]
 pub unsafe fn lineAccept<P0>(hcall: u32, lpsuseruserinfo: P0, dwsize: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineAccept(hcall : u32, lpsuseruserinfo : windows_core::PCSTR, dwsize : u32) -> i32);
-    lineAccept(hcall, lpsuseruserinfo.into_param().abi(), dwsize)
+    lineAccept(hcall, lpsuseruserinfo.param().abi(), dwsize)
 }
 #[inline]
 pub unsafe fn lineAddProvider<P0, P1>(lpszproviderfilename: P0, hwndowner: P1, lpdwpermanentproviderid: *mut u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
-    P1: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineAddProvider(lpszproviderfilename : windows_core::PCSTR, hwndowner : super::super::Foundation:: HWND, lpdwpermanentproviderid : *mut u32) -> i32);
-    lineAddProvider(lpszproviderfilename.into_param().abi(), hwndowner.into_param().abi(), lpdwpermanentproviderid)
+    lineAddProvider(lpszproviderfilename.param().abi(), hwndowner.param().abi(), lpdwpermanentproviderid)
 }
 #[inline]
 pub unsafe fn lineAddProviderA<P0, P1>(lpszproviderfilename: P0, hwndowner: P1, lpdwpermanentproviderid: *mut u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
-    P1: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineAddProviderA(lpszproviderfilename : windows_core::PCSTR, hwndowner : super::super::Foundation:: HWND, lpdwpermanentproviderid : *mut u32) -> i32);
-    lineAddProviderA(lpszproviderfilename.into_param().abi(), hwndowner.into_param().abi(), lpdwpermanentproviderid)
+    lineAddProviderA(lpszproviderfilename.param().abi(), hwndowner.param().abi(), lpdwpermanentproviderid)
 }
 #[inline]
 pub unsafe fn lineAddProviderW<P0, P1>(lpszproviderfilename: P0, hwndowner: P1, lpdwpermanentproviderid: *mut u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineAddProviderW(lpszproviderfilename : windows_core::PCWSTR, hwndowner : super::super::Foundation:: HWND, lpdwpermanentproviderid : *mut u32) -> i32);
-    lineAddProviderW(lpszproviderfilename.into_param().abi(), hwndowner.into_param().abi(), lpdwpermanentproviderid)
+    lineAddProviderW(lpszproviderfilename.param().abi(), hwndowner.param().abi(), lpdwpermanentproviderid)
 }
 #[inline]
 pub unsafe fn lineAddToConference(hconfcall: u32, hconsultcall: u32) -> i32 {
@@ -76,34 +76,34 @@ pub unsafe fn lineAgentSpecific(hline: u32, dwaddressid: u32, dwagentextensionid
 #[inline]
 pub unsafe fn lineAnswer<P0>(hcall: u32, lpsuseruserinfo: P0, dwsize: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineAnswer(hcall : u32, lpsuseruserinfo : windows_core::PCSTR, dwsize : u32) -> i32);
-    lineAnswer(hcall, lpsuseruserinfo.into_param().abi(), dwsize)
+    lineAnswer(hcall, lpsuseruserinfo.param().abi(), dwsize)
 }
 #[inline]
 pub unsafe fn lineBlindTransfer<P0>(hcall: u32, lpszdestaddress: P0, dwcountrycode: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineBlindTransfer(hcall : u32, lpszdestaddress : windows_core::PCSTR, dwcountrycode : u32) -> i32);
-    lineBlindTransfer(hcall, lpszdestaddress.into_param().abi(), dwcountrycode)
+    lineBlindTransfer(hcall, lpszdestaddress.param().abi(), dwcountrycode)
 }
 #[inline]
 pub unsafe fn lineBlindTransferA<P0>(hcall: u32, lpszdestaddress: P0, dwcountrycode: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineBlindTransferA(hcall : u32, lpszdestaddress : windows_core::PCSTR, dwcountrycode : u32) -> i32);
-    lineBlindTransferA(hcall, lpszdestaddress.into_param().abi(), dwcountrycode)
+    lineBlindTransferA(hcall, lpszdestaddress.param().abi(), dwcountrycode)
 }
 #[inline]
 pub unsafe fn lineBlindTransferW<P0>(hcall: u32, lpszdestaddressw: P0, dwcountrycode: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineBlindTransferW(hcall : u32, lpszdestaddressw : windows_core::PCWSTR, dwcountrycode : u32) -> i32);
-    lineBlindTransferW(hcall, lpszdestaddressw.into_param().abi(), dwcountrycode)
+    lineBlindTransferW(hcall, lpszdestaddressw.param().abi(), dwcountrycode)
 }
 #[inline]
 pub unsafe fn lineClose(hline: u32) -> i32 {
@@ -123,98 +123,98 @@ pub unsafe fn lineCompleteTransfer(hcall: u32, hconsultcall: u32, lphconfcall: *
 #[inline]
 pub unsafe fn lineConfigDialog<P0, P1>(dwdeviceid: u32, hwndowner: P0, lpszdeviceclass: P1) -> i32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineConfigDialog(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCSTR) -> i32);
-    lineConfigDialog(dwdeviceid, hwndowner.into_param().abi(), lpszdeviceclass.into_param().abi())
+    lineConfigDialog(dwdeviceid, hwndowner.param().abi(), lpszdeviceclass.param().abi())
 }
 #[inline]
 pub unsafe fn lineConfigDialogA<P0, P1>(dwdeviceid: u32, hwndowner: P0, lpszdeviceclass: P1) -> i32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineConfigDialogA(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCSTR) -> i32);
-    lineConfigDialogA(dwdeviceid, hwndowner.into_param().abi(), lpszdeviceclass.into_param().abi())
+    lineConfigDialogA(dwdeviceid, hwndowner.param().abi(), lpszdeviceclass.param().abi())
 }
 #[inline]
 pub unsafe fn lineConfigDialogEdit<P0, P1>(dwdeviceid: u32, hwndowner: P0, lpszdeviceclass: P1, lpdeviceconfigin: *const core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineConfigDialogEdit(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCSTR, lpdeviceconfigin : *const core::ffi::c_void, dwsize : u32, lpdeviceconfigout : *mut VARSTRING) -> i32);
-    lineConfigDialogEdit(dwdeviceid, hwndowner.into_param().abi(), lpszdeviceclass.into_param().abi(), lpdeviceconfigin, dwsize, lpdeviceconfigout)
+    lineConfigDialogEdit(dwdeviceid, hwndowner.param().abi(), lpszdeviceclass.param().abi(), lpdeviceconfigin, dwsize, lpdeviceconfigout)
 }
 #[inline]
 pub unsafe fn lineConfigDialogEditA<P0, P1>(dwdeviceid: u32, hwndowner: P0, lpszdeviceclass: P1, lpdeviceconfigin: *const core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineConfigDialogEditA(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCSTR, lpdeviceconfigin : *const core::ffi::c_void, dwsize : u32, lpdeviceconfigout : *mut VARSTRING) -> i32);
-    lineConfigDialogEditA(dwdeviceid, hwndowner.into_param().abi(), lpszdeviceclass.into_param().abi(), lpdeviceconfigin, dwsize, lpdeviceconfigout)
+    lineConfigDialogEditA(dwdeviceid, hwndowner.param().abi(), lpszdeviceclass.param().abi(), lpdeviceconfigin, dwsize, lpdeviceconfigout)
 }
 #[inline]
 pub unsafe fn lineConfigDialogEditW<P0, P1>(dwdeviceid: u32, hwndowner: P0, lpszdeviceclass: P1, lpdeviceconfigin: *const core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineConfigDialogEditW(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCWSTR, lpdeviceconfigin : *const core::ffi::c_void, dwsize : u32, lpdeviceconfigout : *mut VARSTRING) -> i32);
-    lineConfigDialogEditW(dwdeviceid, hwndowner.into_param().abi(), lpszdeviceclass.into_param().abi(), lpdeviceconfigin, dwsize, lpdeviceconfigout)
+    lineConfigDialogEditW(dwdeviceid, hwndowner.param().abi(), lpszdeviceclass.param().abi(), lpdeviceconfigin, dwsize, lpdeviceconfigout)
 }
 #[inline]
 pub unsafe fn lineConfigDialogW<P0, P1>(dwdeviceid: u32, hwndowner: P0, lpszdeviceclass: P1) -> i32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineConfigDialogW(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCWSTR) -> i32);
-    lineConfigDialogW(dwdeviceid, hwndowner.into_param().abi(), lpszdeviceclass.into_param().abi())
+    lineConfigDialogW(dwdeviceid, hwndowner.param().abi(), lpszdeviceclass.param().abi())
 }
 #[inline]
 pub unsafe fn lineConfigProvider<P0>(hwndowner: P0, dwpermanentproviderid: u32) -> i32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineConfigProvider(hwndowner : super::super::Foundation:: HWND, dwpermanentproviderid : u32) -> i32);
-    lineConfigProvider(hwndowner.into_param().abi(), dwpermanentproviderid)
+    lineConfigProvider(hwndowner.param().abi(), dwpermanentproviderid)
 }
 #[inline]
 pub unsafe fn lineCreateAgentA<P0, P1>(hline: u32, lpszagentid: P0, lpszagentpin: P1, lphagent: *mut u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
-    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineCreateAgentA(hline : u32, lpszagentid : windows_core::PCSTR, lpszagentpin : windows_core::PCSTR, lphagent : *mut u32) -> i32);
-    lineCreateAgentA(hline, lpszagentid.into_param().abi(), lpszagentpin.into_param().abi(), lphagent)
+    lineCreateAgentA(hline, lpszagentid.param().abi(), lpszagentpin.param().abi(), lphagent)
 }
 #[inline]
 pub unsafe fn lineCreateAgentSessionA<P0>(hline: u32, hagent: u32, lpszagentpin: P0, dwworkingaddressid: u32, lpgroupid: *mut windows_core::GUID, lphagentsession: *mut u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineCreateAgentSessionA(hline : u32, hagent : u32, lpszagentpin : windows_core::PCSTR, dwworkingaddressid : u32, lpgroupid : *mut windows_core::GUID, lphagentsession : *mut u32) -> i32);
-    lineCreateAgentSessionA(hline, hagent, lpszagentpin.into_param().abi(), dwworkingaddressid, lpgroupid, lphagentsession)
+    lineCreateAgentSessionA(hline, hagent, lpszagentpin.param().abi(), dwworkingaddressid, lpgroupid, lphagentsession)
 }
 #[inline]
 pub unsafe fn lineCreateAgentSessionW<P0>(hline: u32, hagent: u32, lpszagentpin: P0, dwworkingaddressid: u32, lpgroupid: *mut windows_core::GUID, lphagentsession: *mut u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineCreateAgentSessionW(hline : u32, hagent : u32, lpszagentpin : windows_core::PCWSTR, dwworkingaddressid : u32, lpgroupid : *mut windows_core::GUID, lphagentsession : *mut u32) -> i32);
-    lineCreateAgentSessionW(hline, hagent, lpszagentpin.into_param().abi(), dwworkingaddressid, lpgroupid, lphagentsession)
+    lineCreateAgentSessionW(hline, hagent, lpszagentpin.param().abi(), dwworkingaddressid, lpgroupid, lphagentsession)
 }
 #[inline]
 pub unsafe fn lineCreateAgentW<P0, P1>(hline: u32, lpszagentid: P0, lpszagentpin: P1, lphagent: *mut u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineCreateAgentW(hline : u32, lpszagentid : windows_core::PCWSTR, lpszagentpin : windows_core::PCWSTR, lphagent : *mut u32) -> i32);
-    lineCreateAgentW(hline, lpszagentid.into_param().abi(), lpszagentpin.into_param().abi(), lphagent)
+    lineCreateAgentW(hline, lpszagentid.param().abi(), lpszagentpin.param().abi(), lphagent)
 }
 #[inline]
 pub unsafe fn lineDeallocateCall(hcall: u32) -> i32 {
@@ -234,34 +234,34 @@ pub unsafe fn lineDevSpecificFeature(hline: u32, dwfeature: u32, lpparams: *mut 
 #[inline]
 pub unsafe fn lineDial<P0>(hcall: u32, lpszdestaddress: P0, dwcountrycode: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineDial(hcall : u32, lpszdestaddress : windows_core::PCSTR, dwcountrycode : u32) -> i32);
-    lineDial(hcall, lpszdestaddress.into_param().abi(), dwcountrycode)
+    lineDial(hcall, lpszdestaddress.param().abi(), dwcountrycode)
 }
 #[inline]
 pub unsafe fn lineDialA<P0>(hcall: u32, lpszdestaddress: P0, dwcountrycode: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineDialA(hcall : u32, lpszdestaddress : windows_core::PCSTR, dwcountrycode : u32) -> i32);
-    lineDialA(hcall, lpszdestaddress.into_param().abi(), dwcountrycode)
+    lineDialA(hcall, lpszdestaddress.param().abi(), dwcountrycode)
 }
 #[inline]
 pub unsafe fn lineDialW<P0>(hcall: u32, lpszdestaddress: P0, dwcountrycode: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineDialW(hcall : u32, lpszdestaddress : windows_core::PCWSTR, dwcountrycode : u32) -> i32);
-    lineDialW(hcall, lpszdestaddress.into_param().abi(), dwcountrycode)
+    lineDialW(hcall, lpszdestaddress.param().abi(), dwcountrycode)
 }
 #[inline]
 pub unsafe fn lineDrop<P0>(hcall: u32, lpsuseruserinfo: P0, dwsize: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineDrop(hcall : u32, lpsuseruserinfo : windows_core::PCSTR, dwsize : u32) -> i32);
-    lineDrop(hcall, lpsuseruserinfo.into_param().abi(), dwsize)
+    lineDrop(hcall, lpsuseruserinfo.param().abi(), dwsize)
 }
 #[inline]
 pub unsafe fn lineForward(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
@@ -281,50 +281,50 @@ pub unsafe fn lineForwardW(hline: u32, balladdresses: u32, dwaddressid: u32, lpf
 #[inline]
 pub unsafe fn lineGatherDigits<P0>(hcall: u32, dwdigitmodes: u32, lpsdigits: Option<&mut [u8]>, lpszterminationdigits: P0, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineGatherDigits(hcall : u32, dwdigitmodes : u32, lpsdigits : windows_core::PSTR, dwnumdigits : u32, lpszterminationdigits : windows_core::PCSTR, dwfirstdigittimeout : u32, dwinterdigittimeout : u32) -> i32);
-    lineGatherDigits(hcall, dwdigitmodes, core::mem::transmute(lpsdigits.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpsdigits.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpszterminationdigits.into_param().abi(), dwfirstdigittimeout, dwinterdigittimeout)
+    lineGatherDigits(hcall, dwdigitmodes, core::mem::transmute(lpsdigits.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpsdigits.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpszterminationdigits.param().abi(), dwfirstdigittimeout, dwinterdigittimeout)
 }
 #[inline]
 pub unsafe fn lineGatherDigitsA<P0>(hcall: u32, dwdigitmodes: u32, lpsdigits: Option<&mut [u8]>, lpszterminationdigits: P0, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineGatherDigitsA(hcall : u32, dwdigitmodes : u32, lpsdigits : windows_core::PSTR, dwnumdigits : u32, lpszterminationdigits : windows_core::PCSTR, dwfirstdigittimeout : u32, dwinterdigittimeout : u32) -> i32);
-    lineGatherDigitsA(hcall, dwdigitmodes, core::mem::transmute(lpsdigits.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpsdigits.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpszterminationdigits.into_param().abi(), dwfirstdigittimeout, dwinterdigittimeout)
+    lineGatherDigitsA(hcall, dwdigitmodes, core::mem::transmute(lpsdigits.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpsdigits.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpszterminationdigits.param().abi(), dwfirstdigittimeout, dwinterdigittimeout)
 }
 #[inline]
 pub unsafe fn lineGatherDigitsW<P0>(hcall: u32, dwdigitmodes: u32, lpsdigits: Option<&mut [u16]>, lpszterminationdigits: P0, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineGatherDigitsW(hcall : u32, dwdigitmodes : u32, lpsdigits : windows_core::PWSTR, dwnumdigits : u32, lpszterminationdigits : windows_core::PCWSTR, dwfirstdigittimeout : u32, dwinterdigittimeout : u32) -> i32);
-    lineGatherDigitsW(hcall, dwdigitmodes, core::mem::transmute(lpsdigits.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpsdigits.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpszterminationdigits.into_param().abi(), dwfirstdigittimeout, dwinterdigittimeout)
+    lineGatherDigitsW(hcall, dwdigitmodes, core::mem::transmute(lpsdigits.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpsdigits.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpszterminationdigits.param().abi(), dwfirstdigittimeout, dwinterdigittimeout)
 }
 #[inline]
 pub unsafe fn lineGenerateDigits<P0>(hcall: u32, dwdigitmode: u32, lpszdigits: P0, dwduration: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineGenerateDigits(hcall : u32, dwdigitmode : u32, lpszdigits : windows_core::PCSTR, dwduration : u32) -> i32);
-    lineGenerateDigits(hcall, dwdigitmode, lpszdigits.into_param().abi(), dwduration)
+    lineGenerateDigits(hcall, dwdigitmode, lpszdigits.param().abi(), dwduration)
 }
 #[inline]
 pub unsafe fn lineGenerateDigitsA<P0>(hcall: u32, dwdigitmode: u32, lpszdigits: P0, dwduration: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineGenerateDigitsA(hcall : u32, dwdigitmode : u32, lpszdigits : windows_core::PCSTR, dwduration : u32) -> i32);
-    lineGenerateDigitsA(hcall, dwdigitmode, lpszdigits.into_param().abi(), dwduration)
+    lineGenerateDigitsA(hcall, dwdigitmode, lpszdigits.param().abi(), dwduration)
 }
 #[inline]
 pub unsafe fn lineGenerateDigitsW<P0>(hcall: u32, dwdigitmode: u32, lpszdigits: P0, dwduration: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineGenerateDigitsW(hcall : u32, dwdigitmode : u32, lpszdigits : windows_core::PCWSTR, dwduration : u32) -> i32);
-    lineGenerateDigitsW(hcall, dwdigitmode, lpszdigits.into_param().abi(), dwduration)
+    lineGenerateDigitsW(hcall, dwdigitmode, lpszdigits.param().abi(), dwduration)
 }
 #[inline]
 pub unsafe fn lineGenerateTone(hcall: u32, dwtonemode: u32, dwduration: u32, dwnumtones: u32, lptones: *const LINEGENERATETONE) -> i32 {
@@ -349,26 +349,26 @@ pub unsafe fn lineGetAddressCapsW(hlineapp: u32, dwdeviceid: u32, dwaddressid: u
 #[inline]
 pub unsafe fn lineGetAddressID<P0>(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: P0, dwsize: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineGetAddressID(hline : u32, lpdwaddressid : *mut u32, dwaddressmode : u32, lpsaddress : windows_core::PCSTR, dwsize : u32) -> i32);
-    lineGetAddressID(hline, lpdwaddressid, dwaddressmode, lpsaddress.into_param().abi(), dwsize)
+    lineGetAddressID(hline, lpdwaddressid, dwaddressmode, lpsaddress.param().abi(), dwsize)
 }
 #[inline]
 pub unsafe fn lineGetAddressIDA<P0>(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: P0, dwsize: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineGetAddressIDA(hline : u32, lpdwaddressid : *mut u32, dwaddressmode : u32, lpsaddress : windows_core::PCSTR, dwsize : u32) -> i32);
-    lineGetAddressIDA(hline, lpdwaddressid, dwaddressmode, lpsaddress.into_param().abi(), dwsize)
+    lineGetAddressIDA(hline, lpdwaddressid, dwaddressmode, lpsaddress.param().abi(), dwsize)
 }
 #[inline]
 pub unsafe fn lineGetAddressIDW<P0>(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: P0, dwsize: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineGetAddressIDW(hline : u32, lpdwaddressid : *mut u32, dwaddressmode : u32, lpsaddress : windows_core::PCWSTR, dwsize : u32) -> i32);
-    lineGetAddressIDW(hline, lpdwaddressid, dwaddressmode, lpsaddress.into_param().abi(), dwsize)
+    lineGetAddressIDW(hline, lpdwaddressid, dwaddressmode, lpsaddress.param().abi(), dwsize)
 }
 #[inline]
 pub unsafe fn lineGetAddressStatus(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32 {
@@ -445,26 +445,26 @@ pub unsafe fn lineGetAgentStatusW(hline: u32, dwaddressid: u32, lpagentstatus: *
 #[inline]
 pub unsafe fn lineGetAppPriority<P0>(lpszappfilename: P0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineGetAppPriority(lpszappfilename : windows_core::PCSTR, dwmediamode : u32, lpextensionid : *mut LINEEXTENSIONID, dwrequestmode : u32, lpextensionname : *mut VARSTRING, lpdwpriority : *mut u32) -> i32);
-    lineGetAppPriority(lpszappfilename.into_param().abi(), dwmediamode, lpextensionid, dwrequestmode, lpextensionname, lpdwpriority)
+    lineGetAppPriority(lpszappfilename.param().abi(), dwmediamode, lpextensionid, dwrequestmode, lpextensionname, lpdwpriority)
 }
 #[inline]
 pub unsafe fn lineGetAppPriorityA<P0>(lpszappfilename: P0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineGetAppPriorityA(lpszappfilename : windows_core::PCSTR, dwmediamode : u32, lpextensionid : *mut LINEEXTENSIONID, dwrequestmode : u32, lpextensionname : *mut VARSTRING, lpdwpriority : *mut u32) -> i32);
-    lineGetAppPriorityA(lpszappfilename.into_param().abi(), dwmediamode, lpextensionid, dwrequestmode, lpextensionname, lpdwpriority)
+    lineGetAppPriorityA(lpszappfilename.param().abi(), dwmediamode, lpextensionid, dwrequestmode, lpextensionname, lpdwpriority)
 }
 #[inline]
 pub unsafe fn lineGetAppPriorityW<P0>(lpszappfilename: P0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineGetAppPriorityW(lpszappfilename : windows_core::PCWSTR, dwmediamode : u32, lpextensionid : *mut LINEEXTENSIONID, dwrequestmode : u32, lpextensionname : *mut VARSTRING, lpdwpriority : *mut u32) -> i32);
-    lineGetAppPriorityW(lpszappfilename.into_param().abi(), dwmediamode, lpextensionid, dwrequestmode, lpextensionname, lpdwpriority)
+    lineGetAppPriorityW(lpszappfilename.param().abi(), dwmediamode, lpextensionid, dwrequestmode, lpextensionname, lpdwpriority)
 }
 #[inline]
 pub unsafe fn lineGetCallInfo(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32 {
@@ -524,26 +524,26 @@ pub unsafe fn lineGetDevCapsW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32,
 #[inline]
 pub unsafe fn lineGetDevConfig<P0>(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: P0) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineGetDevConfig(dwdeviceid : u32, lpdeviceconfig : *mut VARSTRING, lpszdeviceclass : windows_core::PCSTR) -> i32);
-    lineGetDevConfig(dwdeviceid, lpdeviceconfig, lpszdeviceclass.into_param().abi())
+    lineGetDevConfig(dwdeviceid, lpdeviceconfig, lpszdeviceclass.param().abi())
 }
 #[inline]
 pub unsafe fn lineGetDevConfigA<P0>(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: P0) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineGetDevConfigA(dwdeviceid : u32, lpdeviceconfig : *mut VARSTRING, lpszdeviceclass : windows_core::PCSTR) -> i32);
-    lineGetDevConfigA(dwdeviceid, lpdeviceconfig, lpszdeviceclass.into_param().abi())
+    lineGetDevConfigA(dwdeviceid, lpdeviceconfig, lpszdeviceclass.param().abi())
 }
 #[inline]
 pub unsafe fn lineGetDevConfigW<P0>(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: P0) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineGetDevConfigW(dwdeviceid : u32, lpdeviceconfig : *mut VARSTRING, lpszdeviceclass : windows_core::PCWSTR) -> i32);
-    lineGetDevConfigW(dwdeviceid, lpdeviceconfig, lpszdeviceclass.into_param().abi())
+    lineGetDevConfigW(dwdeviceid, lpdeviceconfig, lpszdeviceclass.param().abi())
 }
 #[inline]
 pub unsafe fn lineGetGroupListA(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST) -> i32 {
@@ -558,53 +558,53 @@ pub unsafe fn lineGetGroupListW(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST
 #[inline]
 pub unsafe fn lineGetID<P0>(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: P0) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineGetID(hline : u32, dwaddressid : u32, hcall : u32, dwselect : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : windows_core::PCSTR) -> i32);
-    lineGetID(hline, dwaddressid, hcall, dwselect, lpdeviceid, lpszdeviceclass.into_param().abi())
+    lineGetID(hline, dwaddressid, hcall, dwselect, lpdeviceid, lpszdeviceclass.param().abi())
 }
 #[inline]
 pub unsafe fn lineGetIDA<P0>(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: P0) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineGetIDA(hline : u32, dwaddressid : u32, hcall : u32, dwselect : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : windows_core::PCSTR) -> i32);
-    lineGetIDA(hline, dwaddressid, hcall, dwselect, lpdeviceid, lpszdeviceclass.into_param().abi())
+    lineGetIDA(hline, dwaddressid, hcall, dwselect, lpdeviceid, lpszdeviceclass.param().abi())
 }
 #[inline]
 pub unsafe fn lineGetIDW<P0>(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: P0) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineGetIDW(hline : u32, dwaddressid : u32, hcall : u32, dwselect : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : windows_core::PCWSTR) -> i32);
-    lineGetIDW(hline, dwaddressid, hcall, dwselect, lpdeviceid, lpszdeviceclass.into_param().abi())
+    lineGetIDW(hline, dwaddressid, hcall, dwselect, lpdeviceid, lpszdeviceclass.param().abi())
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn lineGetIcon<P0>(dwdeviceid: u32, lpszdeviceclass: P0, lphicon: *mut super::super::UI::WindowsAndMessaging::HICON) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineGetIcon(dwdeviceid : u32, lpszdeviceclass : windows_core::PCSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
-    lineGetIcon(dwdeviceid, lpszdeviceclass.into_param().abi(), lphicon)
+    lineGetIcon(dwdeviceid, lpszdeviceclass.param().abi(), lphicon)
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn lineGetIconA<P0>(dwdeviceid: u32, lpszdeviceclass: P0, lphicon: *mut super::super::UI::WindowsAndMessaging::HICON) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineGetIconA(dwdeviceid : u32, lpszdeviceclass : windows_core::PCSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
-    lineGetIconA(dwdeviceid, lpszdeviceclass.into_param().abi(), lphicon)
+    lineGetIconA(dwdeviceid, lpszdeviceclass.param().abi(), lphicon)
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn lineGetIconW<P0>(dwdeviceid: u32, lpszdeviceclass: P0, lphicon: *mut super::super::UI::WindowsAndMessaging::HICON) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineGetIconW(dwdeviceid : u32, lpszdeviceclass : windows_core::PCWSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
-    lineGetIconW(dwdeviceid, lpszdeviceclass.into_param().abi(), lphicon)
+    lineGetIconW(dwdeviceid, lpszdeviceclass.param().abi(), lphicon)
 }
 #[inline]
 pub unsafe fn lineGetLineDevStatus(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32 {
@@ -709,26 +709,26 @@ pub unsafe fn lineGetTranslateCapsW(hlineapp: u32, dwapiversion: u32, lptranslat
 #[inline]
 pub unsafe fn lineHandoff<P0>(hcall: u32, lpszfilename: P0, dwmediamode: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineHandoff(hcall : u32, lpszfilename : windows_core::PCSTR, dwmediamode : u32) -> i32);
-    lineHandoff(hcall, lpszfilename.into_param().abi(), dwmediamode)
+    lineHandoff(hcall, lpszfilename.param().abi(), dwmediamode)
 }
 #[inline]
 pub unsafe fn lineHandoffA<P0>(hcall: u32, lpszfilename: P0, dwmediamode: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineHandoffA(hcall : u32, lpszfilename : windows_core::PCSTR, dwmediamode : u32) -> i32);
-    lineHandoffA(hcall, lpszfilename.into_param().abi(), dwmediamode)
+    lineHandoffA(hcall, lpszfilename.param().abi(), dwmediamode)
 }
 #[inline]
 pub unsafe fn lineHandoffW<P0>(hcall: u32, lpszfilename: P0, dwmediamode: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineHandoffW(hcall : u32, lpszfilename : windows_core::PCWSTR, dwmediamode : u32) -> i32);
-    lineHandoffW(hcall, lpszfilename.into_param().abi(), dwmediamode)
+    lineHandoffW(hcall, lpszfilename.param().abi(), dwmediamode)
 }
 #[inline]
 pub unsafe fn lineHold(hcall: u32) -> i32 {
@@ -738,53 +738,53 @@ pub unsafe fn lineHold(hcall: u32) -> i32 {
 #[inline]
 pub unsafe fn lineInitialize<P0, P1>(lphlineapp: *mut u32, hinstance: P0, lpfncallback: LINECALLBACK, lpszappname: P1, lpdwnumdevs: *mut u32) -> i32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
-    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineInitialize(lphlineapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : LINECALLBACK, lpszappname : windows_core::PCSTR, lpdwnumdevs : *mut u32) -> i32);
-    lineInitialize(lphlineapp, hinstance.into_param().abi(), lpfncallback, lpszappname.into_param().abi(), lpdwnumdevs)
+    lineInitialize(lphlineapp, hinstance.param().abi(), lpfncallback, lpszappname.param().abi(), lpdwnumdevs)
 }
 #[inline]
 pub unsafe fn lineInitializeExA<P0, P1>(lphlineapp: *mut u32, hinstance: P0, lpfncallback: LINECALLBACK, lpszfriendlyappname: P1, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
-    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineInitializeExA(lphlineapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : LINECALLBACK, lpszfriendlyappname : windows_core::PCSTR, lpdwnumdevs : *mut u32, lpdwapiversion : *mut u32, lplineinitializeexparams : *mut LINEINITIALIZEEXPARAMS) -> i32);
-    lineInitializeExA(lphlineapp, hinstance.into_param().abi(), lpfncallback, lpszfriendlyappname.into_param().abi(), lpdwnumdevs, lpdwapiversion, lplineinitializeexparams)
+    lineInitializeExA(lphlineapp, hinstance.param().abi(), lpfncallback, lpszfriendlyappname.param().abi(), lpdwnumdevs, lpdwapiversion, lplineinitializeexparams)
 }
 #[inline]
 pub unsafe fn lineInitializeExW<P0, P1>(lphlineapp: *mut u32, hinstance: P0, lpfncallback: LINECALLBACK, lpszfriendlyappname: P1, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineInitializeExW(lphlineapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : LINECALLBACK, lpszfriendlyappname : windows_core::PCWSTR, lpdwnumdevs : *mut u32, lpdwapiversion : *mut u32, lplineinitializeexparams : *mut LINEINITIALIZEEXPARAMS) -> i32);
-    lineInitializeExW(lphlineapp, hinstance.into_param().abi(), lpfncallback, lpszfriendlyappname.into_param().abi(), lpdwnumdevs, lpdwapiversion, lplineinitializeexparams)
+    lineInitializeExW(lphlineapp, hinstance.param().abi(), lpfncallback, lpszfriendlyappname.param().abi(), lpdwnumdevs, lpdwapiversion, lplineinitializeexparams)
 }
 #[inline]
 pub unsafe fn lineMakeCall<P0>(hline: u32, lphcall: *mut u32, lpszdestaddress: P0, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineMakeCall(hline : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCSTR, dwcountrycode : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
-    lineMakeCall(hline, lphcall, lpszdestaddress.into_param().abi(), dwcountrycode, lpcallparams)
+    lineMakeCall(hline, lphcall, lpszdestaddress.param().abi(), dwcountrycode, lpcallparams)
 }
 #[inline]
 pub unsafe fn lineMakeCallA<P0>(hline: u32, lphcall: *mut u32, lpszdestaddress: P0, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineMakeCallA(hline : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCSTR, dwcountrycode : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
-    lineMakeCallA(hline, lphcall, lpszdestaddress.into_param().abi(), dwcountrycode, lpcallparams)
+    lineMakeCallA(hline, lphcall, lpszdestaddress.param().abi(), dwcountrycode, lpcallparams)
 }
 #[inline]
 pub unsafe fn lineMakeCallW<P0>(hline: u32, lphcall: *mut u32, lpszdestaddress: P0, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineMakeCallW(hline : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCWSTR, dwcountrycode : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
-    lineMakeCallW(hline, lphcall, lpszdestaddress.into_param().abi(), dwcountrycode, lpcallparams)
+    lineMakeCallW(hline, lphcall, lpszdestaddress.param().abi(), dwcountrycode, lpcallparams)
 }
 #[inline]
 pub unsafe fn lineMonitorDigits(hcall: u32, dwdigitmodes: u32) -> i32 {
@@ -829,53 +829,53 @@ pub unsafe fn lineOpenW(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapi
 #[inline]
 pub unsafe fn linePark<P0>(hcall: u32, dwparkmode: u32, lpszdiraddress: P0, lpnondiraddress: *mut VARSTRING) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn linePark(hcall : u32, dwparkmode : u32, lpszdiraddress : windows_core::PCSTR, lpnondiraddress : *mut VARSTRING) -> i32);
-    linePark(hcall, dwparkmode, lpszdiraddress.into_param().abi(), lpnondiraddress)
+    linePark(hcall, dwparkmode, lpszdiraddress.param().abi(), lpnondiraddress)
 }
 #[inline]
 pub unsafe fn lineParkA<P0>(hcall: u32, dwparkmode: u32, lpszdiraddress: P0, lpnondiraddress: *mut VARSTRING) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineParkA(hcall : u32, dwparkmode : u32, lpszdiraddress : windows_core::PCSTR, lpnondiraddress : *mut VARSTRING) -> i32);
-    lineParkA(hcall, dwparkmode, lpszdiraddress.into_param().abi(), lpnondiraddress)
+    lineParkA(hcall, dwparkmode, lpszdiraddress.param().abi(), lpnondiraddress)
 }
 #[inline]
 pub unsafe fn lineParkW<P0>(hcall: u32, dwparkmode: u32, lpszdiraddress: P0, lpnondiraddress: *mut VARSTRING) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineParkW(hcall : u32, dwparkmode : u32, lpszdiraddress : windows_core::PCWSTR, lpnondiraddress : *mut VARSTRING) -> i32);
-    lineParkW(hcall, dwparkmode, lpszdiraddress.into_param().abi(), lpnondiraddress)
+    lineParkW(hcall, dwparkmode, lpszdiraddress.param().abi(), lpnondiraddress)
 }
 #[inline]
 pub unsafe fn linePickup<P0, P1>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: P0, lpszgroupid: P1) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
-    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn linePickup(hline : u32, dwaddressid : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCSTR, lpszgroupid : windows_core::PCSTR) -> i32);
-    linePickup(hline, dwaddressid, lphcall, lpszdestaddress.into_param().abi(), lpszgroupid.into_param().abi())
+    linePickup(hline, dwaddressid, lphcall, lpszdestaddress.param().abi(), lpszgroupid.param().abi())
 }
 #[inline]
 pub unsafe fn linePickupA<P0, P1>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: P0, lpszgroupid: P1) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
-    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn linePickupA(hline : u32, dwaddressid : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCSTR, lpszgroupid : windows_core::PCSTR) -> i32);
-    linePickupA(hline, dwaddressid, lphcall, lpszdestaddress.into_param().abi(), lpszgroupid.into_param().abi())
+    linePickupA(hline, dwaddressid, lphcall, lpszdestaddress.param().abi(), lpszgroupid.param().abi())
 }
 #[inline]
 pub unsafe fn linePickupW<P0, P1>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: P0, lpszgroupid: P1) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn linePickupW(hline : u32, dwaddressid : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCWSTR, lpszgroupid : windows_core::PCWSTR) -> i32);
-    linePickupW(hline, dwaddressid, lphcall, lpszdestaddress.into_param().abi(), lpszgroupid.into_param().abi())
+    linePickupW(hline, dwaddressid, lphcall, lpszdestaddress.param().abi(), lpszgroupid.param().abi())
 }
 #[inline]
 pub unsafe fn linePrepareAddToConference(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
@@ -906,26 +906,26 @@ pub unsafe fn lineProxyResponse(hline: u32, lpproxyrequest: *mut LINEPROXYREQUES
 #[inline]
 pub unsafe fn lineRedirect<P0>(hcall: u32, lpszdestaddress: P0, dwcountrycode: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineRedirect(hcall : u32, lpszdestaddress : windows_core::PCSTR, dwcountrycode : u32) -> i32);
-    lineRedirect(hcall, lpszdestaddress.into_param().abi(), dwcountrycode)
+    lineRedirect(hcall, lpszdestaddress.param().abi(), dwcountrycode)
 }
 #[inline]
 pub unsafe fn lineRedirectA<P0>(hcall: u32, lpszdestaddress: P0, dwcountrycode: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineRedirectA(hcall : u32, lpszdestaddress : windows_core::PCSTR, dwcountrycode : u32) -> i32);
-    lineRedirectA(hcall, lpszdestaddress.into_param().abi(), dwcountrycode)
+    lineRedirectA(hcall, lpszdestaddress.param().abi(), dwcountrycode)
 }
 #[inline]
 pub unsafe fn lineRedirectW<P0>(hcall: u32, lpszdestaddress: P0, dwcountrycode: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineRedirectW(hcall : u32, lpszdestaddress : windows_core::PCWSTR, dwcountrycode : u32) -> i32);
-    lineRedirectW(hcall, lpszdestaddress.into_param().abi(), dwcountrycode)
+    lineRedirectW(hcall, lpszdestaddress.param().abi(), dwcountrycode)
 }
 #[inline]
 pub unsafe fn lineRegisterRequestRecipient(hlineapp: u32, dwregistrationinstance: u32, dwrequestmode: u32, benable: u32) -> i32 {
@@ -945,10 +945,10 @@ pub unsafe fn lineRemoveFromConference(hcall: u32) -> i32 {
 #[inline]
 pub unsafe fn lineRemoveProvider<P0>(dwpermanentproviderid: u32, hwndowner: P0) -> i32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineRemoveProvider(dwpermanentproviderid : u32, hwndowner : super::super::Foundation:: HWND) -> i32);
-    lineRemoveProvider(dwpermanentproviderid, hwndowner.into_param().abi())
+    lineRemoveProvider(dwpermanentproviderid, hwndowner.param().abi())
 }
 #[inline]
 pub unsafe fn lineSecureCall(hcall: u32) -> i32 {
@@ -958,10 +958,10 @@ pub unsafe fn lineSecureCall(hcall: u32) -> i32 {
 #[inline]
 pub unsafe fn lineSendUserUserInfo<P0>(hcall: u32, lpsuseruserinfo: P0, dwsize: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineSendUserUserInfo(hcall : u32, lpsuseruserinfo : windows_core::PCSTR, dwsize : u32) -> i32);
-    lineSendUserUserInfo(hcall, lpsuseruserinfo.into_param().abi(), dwsize)
+    lineSendUserUserInfo(hcall, lpsuseruserinfo.param().abi(), dwsize)
 }
 #[inline]
 pub unsafe fn lineSetAgentActivity(hline: u32, dwaddressid: u32, dwactivityid: u32) -> i32 {
@@ -996,29 +996,29 @@ pub unsafe fn lineSetAgentStateEx(hline: u32, hagent: u32, dwagentstate: u32, dw
 #[inline]
 pub unsafe fn lineSetAppPriority<P0, P1>(lpszappfilename: P0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: P1, dwpriority: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
-    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineSetAppPriority(lpszappfilename : windows_core::PCSTR, dwmediamode : u32, lpextensionid : *mut LINEEXTENSIONID, dwrequestmode : u32, lpszextensionname : windows_core::PCSTR, dwpriority : u32) -> i32);
-    lineSetAppPriority(lpszappfilename.into_param().abi(), dwmediamode, lpextensionid, dwrequestmode, lpszextensionname.into_param().abi(), dwpriority)
+    lineSetAppPriority(lpszappfilename.param().abi(), dwmediamode, lpextensionid, dwrequestmode, lpszextensionname.param().abi(), dwpriority)
 }
 #[inline]
 pub unsafe fn lineSetAppPriorityA<P0, P1>(lpszappfilename: P0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: P1, dwpriority: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
-    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineSetAppPriorityA(lpszappfilename : windows_core::PCSTR, dwmediamode : u32, lpextensionid : *mut LINEEXTENSIONID, dwrequestmode : u32, lpszextensionname : windows_core::PCSTR, dwpriority : u32) -> i32);
-    lineSetAppPriorityA(lpszappfilename.into_param().abi(), dwmediamode, lpextensionid, dwrequestmode, lpszextensionname.into_param().abi(), dwpriority)
+    lineSetAppPriorityA(lpszappfilename.param().abi(), dwmediamode, lpextensionid, dwrequestmode, lpszextensionname.param().abi(), dwpriority)
 }
 #[inline]
 pub unsafe fn lineSetAppPriorityW<P0, P1>(lpszappfilename: P0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: P1, dwpriority: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineSetAppPriorityW(lpszappfilename : windows_core::PCWSTR, dwmediamode : u32, lpextensionid : *mut LINEEXTENSIONID, dwrequestmode : u32, lpszextensionname : windows_core::PCWSTR, dwpriority : u32) -> i32);
-    lineSetAppPriorityW(lpszappfilename.into_param().abi(), dwmediamode, lpextensionid, dwrequestmode, lpszextensionname.into_param().abi(), dwpriority)
+    lineSetAppPriorityW(lpszappfilename.param().abi(), dwmediamode, lpextensionid, dwrequestmode, lpszextensionname.param().abi(), dwpriority)
 }
 #[inline]
 pub unsafe fn lineSetAppSpecific(hcall: u32, dwappspecific: u32) -> i32 {
@@ -1058,26 +1058,26 @@ pub unsafe fn lineSetCurrentLocation(hlineapp: u32, dwlocation: u32) -> i32 {
 #[inline]
 pub unsafe fn lineSetDevConfig<P0>(dwdeviceid: u32, lpdeviceconfig: *const core::ffi::c_void, dwsize: u32, lpszdeviceclass: P0) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineSetDevConfig(dwdeviceid : u32, lpdeviceconfig : *const core::ffi::c_void, dwsize : u32, lpszdeviceclass : windows_core::PCSTR) -> i32);
-    lineSetDevConfig(dwdeviceid, lpdeviceconfig, dwsize, lpszdeviceclass.into_param().abi())
+    lineSetDevConfig(dwdeviceid, lpdeviceconfig, dwsize, lpszdeviceclass.param().abi())
 }
 #[inline]
 pub unsafe fn lineSetDevConfigA<P0>(dwdeviceid: u32, lpdeviceconfig: *const core::ffi::c_void, dwsize: u32, lpszdeviceclass: P0) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineSetDevConfigA(dwdeviceid : u32, lpdeviceconfig : *const core::ffi::c_void, dwsize : u32, lpszdeviceclass : windows_core::PCSTR) -> i32);
-    lineSetDevConfigA(dwdeviceid, lpdeviceconfig, dwsize, lpszdeviceclass.into_param().abi())
+    lineSetDevConfigA(dwdeviceid, lpdeviceconfig, dwsize, lpszdeviceclass.param().abi())
 }
 #[inline]
 pub unsafe fn lineSetDevConfigW<P0>(dwdeviceid: u32, lpdeviceconfig: *const core::ffi::c_void, dwsize: u32, lpszdeviceclass: P0) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineSetDevConfigW(dwdeviceid : u32, lpdeviceconfig : *const core::ffi::c_void, dwsize : u32, lpszdeviceclass : windows_core::PCWSTR) -> i32);
-    lineSetDevConfigW(dwdeviceid, lpdeviceconfig, dwsize, lpszdeviceclass.into_param().abi())
+    lineSetDevConfigW(dwdeviceid, lpdeviceconfig, dwsize, lpszdeviceclass.param().abi())
 }
 #[inline]
 pub unsafe fn lineSetLineDevStatus(hline: u32, dwstatustochange: u32, fstatus: u32) -> i32 {
@@ -1117,26 +1117,26 @@ pub unsafe fn lineSetTerminal(hline: u32, dwaddressid: u32, hcall: u32, dwselect
 #[inline]
 pub unsafe fn lineSetTollList<P0>(hlineapp: u32, dwdeviceid: u32, lpszaddressin: P0, dwtolllistoption: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineSetTollList(hlineapp : u32, dwdeviceid : u32, lpszaddressin : windows_core::PCSTR, dwtolllistoption : u32) -> i32);
-    lineSetTollList(hlineapp, dwdeviceid, lpszaddressin.into_param().abi(), dwtolllistoption)
+    lineSetTollList(hlineapp, dwdeviceid, lpszaddressin.param().abi(), dwtolllistoption)
 }
 #[inline]
 pub unsafe fn lineSetTollListA<P0>(hlineapp: u32, dwdeviceid: u32, lpszaddressin: P0, dwtolllistoption: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineSetTollListA(hlineapp : u32, dwdeviceid : u32, lpszaddressin : windows_core::PCSTR, dwtolllistoption : u32) -> i32);
-    lineSetTollListA(hlineapp, dwdeviceid, lpszaddressin.into_param().abi(), dwtolllistoption)
+    lineSetTollListA(hlineapp, dwdeviceid, lpszaddressin.param().abi(), dwtolllistoption)
 }
 #[inline]
 pub unsafe fn lineSetTollListW<P0>(hlineapp: u32, dwdeviceid: u32, lpszaddressinw: P0, dwtolllistoption: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineSetTollListW(hlineapp : u32, dwdeviceid : u32, lpszaddressinw : windows_core::PCWSTR, dwtolllistoption : u32) -> i32);
-    lineSetTollListW(hlineapp, dwdeviceid, lpszaddressinw.into_param().abi(), dwtolllistoption)
+    lineSetTollListW(hlineapp, dwdeviceid, lpszaddressinw.param().abi(), dwtolllistoption)
 }
 #[inline]
 pub unsafe fn lineSetupConference(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
@@ -1181,53 +1181,53 @@ pub unsafe fn lineSwapHold(hactivecall: u32, hheldcall: u32) -> i32 {
 #[inline]
 pub unsafe fn lineTranslateAddress<P0>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: P0, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineTranslateAddress(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, lpszaddressin : windows_core::PCSTR, dwcard : u32, dwtranslateoptions : u32, lptranslateoutput : *mut LINETRANSLATEOUTPUT) -> i32);
-    lineTranslateAddress(hlineapp, dwdeviceid, dwapiversion, lpszaddressin.into_param().abi(), dwcard, dwtranslateoptions, lptranslateoutput)
+    lineTranslateAddress(hlineapp, dwdeviceid, dwapiversion, lpszaddressin.param().abi(), dwcard, dwtranslateoptions, lptranslateoutput)
 }
 #[inline]
 pub unsafe fn lineTranslateAddressA<P0>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: P0, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineTranslateAddressA(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, lpszaddressin : windows_core::PCSTR, dwcard : u32, dwtranslateoptions : u32, lptranslateoutput : *mut LINETRANSLATEOUTPUT) -> i32);
-    lineTranslateAddressA(hlineapp, dwdeviceid, dwapiversion, lpszaddressin.into_param().abi(), dwcard, dwtranslateoptions, lptranslateoutput)
+    lineTranslateAddressA(hlineapp, dwdeviceid, dwapiversion, lpszaddressin.param().abi(), dwcard, dwtranslateoptions, lptranslateoutput)
 }
 #[inline]
 pub unsafe fn lineTranslateAddressW<P0>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: P0, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineTranslateAddressW(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, lpszaddressin : windows_core::PCWSTR, dwcard : u32, dwtranslateoptions : u32, lptranslateoutput : *mut LINETRANSLATEOUTPUT) -> i32);
-    lineTranslateAddressW(hlineapp, dwdeviceid, dwapiversion, lpszaddressin.into_param().abi(), dwcard, dwtranslateoptions, lptranslateoutput)
+    lineTranslateAddressW(hlineapp, dwdeviceid, dwapiversion, lpszaddressin.param().abi(), dwcard, dwtranslateoptions, lptranslateoutput)
 }
 #[inline]
 pub unsafe fn lineTranslateDialog<P0, P1>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: P0, lpszaddressin: P1) -> i32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineTranslateDialog(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, hwndowner : super::super::Foundation:: HWND, lpszaddressin : windows_core::PCSTR) -> i32);
-    lineTranslateDialog(hlineapp, dwdeviceid, dwapiversion, hwndowner.into_param().abi(), lpszaddressin.into_param().abi())
+    lineTranslateDialog(hlineapp, dwdeviceid, dwapiversion, hwndowner.param().abi(), lpszaddressin.param().abi())
 }
 #[inline]
 pub unsafe fn lineTranslateDialogA<P0, P1>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: P0, lpszaddressin: P1) -> i32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineTranslateDialogA(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, hwndowner : super::super::Foundation:: HWND, lpszaddressin : windows_core::PCSTR) -> i32);
-    lineTranslateDialogA(hlineapp, dwdeviceid, dwapiversion, hwndowner.into_param().abi(), lpszaddressin.into_param().abi())
+    lineTranslateDialogA(hlineapp, dwdeviceid, dwapiversion, hwndowner.param().abi(), lpszaddressin.param().abi())
 }
 #[inline]
 pub unsafe fn lineTranslateDialogW<P0, P1>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: P0, lpszaddressin: P1) -> i32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineTranslateDialogW(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, hwndowner : super::super::Foundation:: HWND, lpszaddressin : windows_core::PCWSTR) -> i32);
-    lineTranslateDialogW(hlineapp, dwdeviceid, dwapiversion, hwndowner.into_param().abi(), lpszaddressin.into_param().abi())
+    lineTranslateDialogW(hlineapp, dwdeviceid, dwapiversion, hwndowner.param().abi(), lpszaddressin.param().abi())
 }
 #[inline]
 pub unsafe fn lineUncompleteCall(hline: u32, dwcompletionid: u32) -> i32 {
@@ -1242,26 +1242,26 @@ pub unsafe fn lineUnhold(hcall: u32) -> i32 {
 #[inline]
 pub unsafe fn lineUnpark<P0>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: P0) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineUnpark(hline : u32, dwaddressid : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCSTR) -> i32);
-    lineUnpark(hline, dwaddressid, lphcall, lpszdestaddress.into_param().abi())
+    lineUnpark(hline, dwaddressid, lphcall, lpszdestaddress.param().abi())
 }
 #[inline]
 pub unsafe fn lineUnparkA<P0>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: P0) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineUnparkA(hline : u32, dwaddressid : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCSTR) -> i32);
-    lineUnparkA(hline, dwaddressid, lphcall, lpszdestaddress.into_param().abi())
+    lineUnparkA(hline, dwaddressid, lphcall, lpszdestaddress.param().abi())
 }
 #[inline]
 pub unsafe fn lineUnparkW<P0>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: P0) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn lineUnparkW(hline : u32, dwaddressid : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCWSTR) -> i32);
-    lineUnparkW(hline, dwaddressid, lphcall, lpszdestaddress.into_param().abi())
+    lineUnparkW(hline, dwaddressid, lphcall, lpszdestaddress.param().abi())
 }
 #[inline]
 pub unsafe fn phoneClose(hphone: u32) -> i32 {
@@ -1271,29 +1271,29 @@ pub unsafe fn phoneClose(hphone: u32) -> i32 {
 #[inline]
 pub unsafe fn phoneConfigDialog<P0, P1>(dwdeviceid: u32, hwndowner: P0, lpszdeviceclass: P1) -> i32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn phoneConfigDialog(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCSTR) -> i32);
-    phoneConfigDialog(dwdeviceid, hwndowner.into_param().abi(), lpszdeviceclass.into_param().abi())
+    phoneConfigDialog(dwdeviceid, hwndowner.param().abi(), lpszdeviceclass.param().abi())
 }
 #[inline]
 pub unsafe fn phoneConfigDialogA<P0, P1>(dwdeviceid: u32, hwndowner: P0, lpszdeviceclass: P1) -> i32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn phoneConfigDialogA(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCSTR) -> i32);
-    phoneConfigDialogA(dwdeviceid, hwndowner.into_param().abi(), lpszdeviceclass.into_param().abi())
+    phoneConfigDialogA(dwdeviceid, hwndowner.param().abi(), lpszdeviceclass.param().abi())
 }
 #[inline]
 pub unsafe fn phoneConfigDialogW<P0, P1>(dwdeviceid: u32, hwndowner: P0, lpszdeviceclass: P1) -> i32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn phoneConfigDialogW(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCWSTR) -> i32);
-    phoneConfigDialogW(dwdeviceid, hwndowner.into_param().abi(), lpszdeviceclass.into_param().abi())
+    phoneConfigDialogW(dwdeviceid, hwndowner.param().abi(), lpszdeviceclass.param().abi())
 }
 #[inline]
 pub unsafe fn phoneDevSpecific(hphone: u32, lpparams: *mut core::ffi::c_void, dwsize: u32) -> i32 {
@@ -1353,53 +1353,53 @@ pub unsafe fn phoneGetHookSwitch(hphone: u32, lpdwhookswitchdevs: *mut u32) -> i
 #[inline]
 pub unsafe fn phoneGetID<P0>(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: P0) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn phoneGetID(hphone : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : windows_core::PCSTR) -> i32);
-    phoneGetID(hphone, lpdeviceid, lpszdeviceclass.into_param().abi())
+    phoneGetID(hphone, lpdeviceid, lpszdeviceclass.param().abi())
 }
 #[inline]
 pub unsafe fn phoneGetIDA<P0>(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: P0) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn phoneGetIDA(hphone : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : windows_core::PCSTR) -> i32);
-    phoneGetIDA(hphone, lpdeviceid, lpszdeviceclass.into_param().abi())
+    phoneGetIDA(hphone, lpdeviceid, lpszdeviceclass.param().abi())
 }
 #[inline]
 pub unsafe fn phoneGetIDW<P0>(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: P0) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn phoneGetIDW(hphone : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : windows_core::PCWSTR) -> i32);
-    phoneGetIDW(hphone, lpdeviceid, lpszdeviceclass.into_param().abi())
+    phoneGetIDW(hphone, lpdeviceid, lpszdeviceclass.param().abi())
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn phoneGetIcon<P0>(dwdeviceid: u32, lpszdeviceclass: P0, lphicon: *mut super::super::UI::WindowsAndMessaging::HICON) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn phoneGetIcon(dwdeviceid : u32, lpszdeviceclass : windows_core::PCSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
-    phoneGetIcon(dwdeviceid, lpszdeviceclass.into_param().abi(), lphicon)
+    phoneGetIcon(dwdeviceid, lpszdeviceclass.param().abi(), lphicon)
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn phoneGetIconA<P0>(dwdeviceid: u32, lpszdeviceclass: P0, lphicon: *mut super::super::UI::WindowsAndMessaging::HICON) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn phoneGetIconA(dwdeviceid : u32, lpszdeviceclass : windows_core::PCSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
-    phoneGetIconA(dwdeviceid, lpszdeviceclass.into_param().abi(), lphicon)
+    phoneGetIconA(dwdeviceid, lpszdeviceclass.param().abi(), lphicon)
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn phoneGetIconW<P0>(dwdeviceid: u32, lpszdeviceclass: P0, lphicon: *mut super::super::UI::WindowsAndMessaging::HICON) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn phoneGetIconW(dwdeviceid : u32, lpszdeviceclass : windows_core::PCWSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
-    phoneGetIconW(dwdeviceid, lpszdeviceclass.into_param().abi(), lphicon)
+    phoneGetIconW(dwdeviceid, lpszdeviceclass.param().abi(), lphicon)
 }
 #[inline]
 pub unsafe fn phoneGetLamp(hphone: u32, dwbuttonlampid: u32, lpdwlampmode: *mut u32) -> i32 {
@@ -1444,29 +1444,29 @@ pub unsafe fn phoneGetVolume(hphone: u32, dwhookswitchdev: u32, lpdwvolume: *mut
 #[inline]
 pub unsafe fn phoneInitialize<P0, P1>(lphphoneapp: *mut u32, hinstance: P0, lpfncallback: PHONECALLBACK, lpszappname: P1, lpdwnumdevs: *mut u32) -> i32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
-    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn phoneInitialize(lphphoneapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : PHONECALLBACK, lpszappname : windows_core::PCSTR, lpdwnumdevs : *mut u32) -> i32);
-    phoneInitialize(lphphoneapp, hinstance.into_param().abi(), lpfncallback, lpszappname.into_param().abi(), lpdwnumdevs)
+    phoneInitialize(lphphoneapp, hinstance.param().abi(), lpfncallback, lpszappname.param().abi(), lpdwnumdevs)
 }
 #[inline]
 pub unsafe fn phoneInitializeExA<P0, P1>(lphphoneapp: *mut u32, hinstance: P0, lpfncallback: PHONECALLBACK, lpszfriendlyappname: P1, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
-    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn phoneInitializeExA(lphphoneapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : PHONECALLBACK, lpszfriendlyappname : windows_core::PCSTR, lpdwnumdevs : *mut u32, lpdwapiversion : *mut u32, lpphoneinitializeexparams : *mut PHONEINITIALIZEEXPARAMS) -> i32);
-    phoneInitializeExA(lphphoneapp, hinstance.into_param().abi(), lpfncallback, lpszfriendlyappname.into_param().abi(), lpdwnumdevs, lpdwapiversion, lpphoneinitializeexparams)
+    phoneInitializeExA(lphphoneapp, hinstance.param().abi(), lpfncallback, lpszfriendlyappname.param().abi(), lpdwnumdevs, lpdwapiversion, lpphoneinitializeexparams)
 }
 #[inline]
 pub unsafe fn phoneInitializeExW<P0, P1>(lphphoneapp: *mut u32, hinstance: P0, lpfncallback: PHONECALLBACK, lpszfriendlyappname: P1, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn phoneInitializeExW(lphphoneapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : PHONECALLBACK, lpszfriendlyappname : windows_core::PCWSTR, lpdwnumdevs : *mut u32, lpdwapiversion : *mut u32, lpphoneinitializeexparams : *mut PHONEINITIALIZEEXPARAMS) -> i32);
-    phoneInitializeExW(lphphoneapp, hinstance.into_param().abi(), lpfncallback, lpszfriendlyappname.into_param().abi(), lpdwnumdevs, lpdwapiversion, lpphoneinitializeexparams)
+    phoneInitializeExW(lphphoneapp, hinstance.param().abi(), lpfncallback, lpszfriendlyappname.param().abi(), lpdwnumdevs, lpdwapiversion, lpphoneinitializeexparams)
 }
 #[inline]
 pub unsafe fn phoneNegotiateAPIVersion(hphoneapp: u32, dwdeviceid: u32, dwapilowversion: u32, dwapihighversion: u32, lpdwapiversion: *mut u32, lpextensionid: *mut PHONEEXTENSIONID) -> i32 {
@@ -1506,10 +1506,10 @@ pub unsafe fn phoneSetData(hphone: u32, dwdataid: u32, lpdata: *const core::ffi:
 #[inline]
 pub unsafe fn phoneSetDisplay<P0>(hphone: u32, dwrow: u32, dwcolumn: u32, lpsdisplay: P0, dwsize: u32) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn phoneSetDisplay(hphone : u32, dwrow : u32, dwcolumn : u32, lpsdisplay : windows_core::PCSTR, dwsize : u32) -> i32);
-    phoneSetDisplay(hphone, dwrow, dwcolumn, lpsdisplay.into_param().abi(), dwsize)
+    phoneSetDisplay(hphone, dwrow, dwcolumn, lpsdisplay.param().abi(), dwsize)
 }
 #[inline]
 pub unsafe fn phoneSetGain(hphone: u32, dwhookswitchdev: u32, dwgain: u32) -> i32 {
@@ -1564,89 +1564,89 @@ pub unsafe fn tapiGetLocationInfoW(lpszcountrycodew: &mut [u16; 8], lpszcitycode
 #[inline]
 pub unsafe fn tapiRequestDrop<P0, P1>(hwnd: P0, wrequestid: P1) -> i32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: windows_core::IntoParam<super::super::Foundation::WPARAM>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<super::super::Foundation::WPARAM>,
 {
     windows_targets::link!("tapi32.dll" "system" fn tapiRequestDrop(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM) -> i32);
-    tapiRequestDrop(hwnd.into_param().abi(), wrequestid.into_param().abi())
+    tapiRequestDrop(hwnd.param().abi(), wrequestid.param().abi())
 }
 #[inline]
 pub unsafe fn tapiRequestMakeCall<P0, P1, P2, P3>(lpszdestaddress: P0, lpszappname: P1, lpszcalledparty: P2, lpszcomment: P3) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
-    P1: windows_core::IntoParam<windows_core::PCSTR>,
-    P2: windows_core::IntoParam<windows_core::PCSTR>,
-    P3: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn tapiRequestMakeCall(lpszdestaddress : windows_core::PCSTR, lpszappname : windows_core::PCSTR, lpszcalledparty : windows_core::PCSTR, lpszcomment : windows_core::PCSTR) -> i32);
-    tapiRequestMakeCall(lpszdestaddress.into_param().abi(), lpszappname.into_param().abi(), lpszcalledparty.into_param().abi(), lpszcomment.into_param().abi())
+    tapiRequestMakeCall(lpszdestaddress.param().abi(), lpszappname.param().abi(), lpszcalledparty.param().abi(), lpszcomment.param().abi())
 }
 #[inline]
 pub unsafe fn tapiRequestMakeCallA<P0, P1, P2, P3>(lpszdestaddress: P0, lpszappname: P1, lpszcalledparty: P2, lpszcomment: P3) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
-    P1: windows_core::IntoParam<windows_core::PCSTR>,
-    P2: windows_core::IntoParam<windows_core::PCSTR>,
-    P3: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn tapiRequestMakeCallA(lpszdestaddress : windows_core::PCSTR, lpszappname : windows_core::PCSTR, lpszcalledparty : windows_core::PCSTR, lpszcomment : windows_core::PCSTR) -> i32);
-    tapiRequestMakeCallA(lpszdestaddress.into_param().abi(), lpszappname.into_param().abi(), lpszcalledparty.into_param().abi(), lpszcomment.into_param().abi())
+    tapiRequestMakeCallA(lpszdestaddress.param().abi(), lpszappname.param().abi(), lpszcalledparty.param().abi(), lpszcomment.param().abi())
 }
 #[inline]
 pub unsafe fn tapiRequestMakeCallW<P0, P1, P2, P3>(lpszdestaddress: P0, lpszappname: P1, lpszcalledparty: P2, lpszcomment: P3) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
-    P2: windows_core::IntoParam<windows_core::PCWSTR>,
-    P3: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn tapiRequestMakeCallW(lpszdestaddress : windows_core::PCWSTR, lpszappname : windows_core::PCWSTR, lpszcalledparty : windows_core::PCWSTR, lpszcomment : windows_core::PCWSTR) -> i32);
-    tapiRequestMakeCallW(lpszdestaddress.into_param().abi(), lpszappname.into_param().abi(), lpszcalledparty.into_param().abi(), lpszcomment.into_param().abi())
+    tapiRequestMakeCallW(lpszdestaddress.param().abi(), lpszappname.param().abi(), lpszcalledparty.param().abi(), lpszcomment.param().abi())
 }
 #[inline]
 pub unsafe fn tapiRequestMediaCall<P0, P1, P2, P3, P4, P5, P6, P7>(hwnd: P0, wrequestid: P1, lpszdeviceclass: P2, lpdeviceid: P3, dwsize: u32, dwsecure: u32, lpszdestaddress: P4, lpszappname: P5, lpszcalledparty: P6, lpszcomment: P7) -> i32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: windows_core::IntoParam<super::super::Foundation::WPARAM>,
-    P2: windows_core::IntoParam<windows_core::PCSTR>,
-    P3: windows_core::IntoParam<windows_core::PCSTR>,
-    P4: windows_core::IntoParam<windows_core::PCSTR>,
-    P5: windows_core::IntoParam<windows_core::PCSTR>,
-    P6: windows_core::IntoParam<windows_core::PCSTR>,
-    P7: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<super::super::Foundation::WPARAM>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
+    P4: windows_core::Param<windows_core::PCSTR>,
+    P5: windows_core::Param<windows_core::PCSTR>,
+    P6: windows_core::Param<windows_core::PCSTR>,
+    P7: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn tapiRequestMediaCall(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM, lpszdeviceclass : windows_core::PCSTR, lpdeviceid : windows_core::PCSTR, dwsize : u32, dwsecure : u32, lpszdestaddress : windows_core::PCSTR, lpszappname : windows_core::PCSTR, lpszcalledparty : windows_core::PCSTR, lpszcomment : windows_core::PCSTR) -> i32);
-    tapiRequestMediaCall(hwnd.into_param().abi(), wrequestid.into_param().abi(), lpszdeviceclass.into_param().abi(), lpdeviceid.into_param().abi(), dwsize, dwsecure, lpszdestaddress.into_param().abi(), lpszappname.into_param().abi(), lpszcalledparty.into_param().abi(), lpszcomment.into_param().abi())
+    tapiRequestMediaCall(hwnd.param().abi(), wrequestid.param().abi(), lpszdeviceclass.param().abi(), lpdeviceid.param().abi(), dwsize, dwsecure, lpszdestaddress.param().abi(), lpszappname.param().abi(), lpszcalledparty.param().abi(), lpszcomment.param().abi())
 }
 #[inline]
 pub unsafe fn tapiRequestMediaCallA<P0, P1, P2, P3, P4, P5, P6, P7>(hwnd: P0, wrequestid: P1, lpszdeviceclass: P2, lpdeviceid: P3, dwsize: u32, dwsecure: u32, lpszdestaddress: P4, lpszappname: P5, lpszcalledparty: P6, lpszcomment: P7) -> i32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: windows_core::IntoParam<super::super::Foundation::WPARAM>,
-    P2: windows_core::IntoParam<windows_core::PCSTR>,
-    P3: windows_core::IntoParam<windows_core::PCSTR>,
-    P4: windows_core::IntoParam<windows_core::PCSTR>,
-    P5: windows_core::IntoParam<windows_core::PCSTR>,
-    P6: windows_core::IntoParam<windows_core::PCSTR>,
-    P7: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<super::super::Foundation::WPARAM>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
+    P4: windows_core::Param<windows_core::PCSTR>,
+    P5: windows_core::Param<windows_core::PCSTR>,
+    P6: windows_core::Param<windows_core::PCSTR>,
+    P7: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn tapiRequestMediaCallA(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM, lpszdeviceclass : windows_core::PCSTR, lpdeviceid : windows_core::PCSTR, dwsize : u32, dwsecure : u32, lpszdestaddress : windows_core::PCSTR, lpszappname : windows_core::PCSTR, lpszcalledparty : windows_core::PCSTR, lpszcomment : windows_core::PCSTR) -> i32);
-    tapiRequestMediaCallA(hwnd.into_param().abi(), wrequestid.into_param().abi(), lpszdeviceclass.into_param().abi(), lpdeviceid.into_param().abi(), dwsize, dwsecure, lpszdestaddress.into_param().abi(), lpszappname.into_param().abi(), lpszcalledparty.into_param().abi(), lpszcomment.into_param().abi())
+    tapiRequestMediaCallA(hwnd.param().abi(), wrequestid.param().abi(), lpszdeviceclass.param().abi(), lpdeviceid.param().abi(), dwsize, dwsecure, lpszdestaddress.param().abi(), lpszappname.param().abi(), lpszcalledparty.param().abi(), lpszcomment.param().abi())
 }
 #[inline]
 pub unsafe fn tapiRequestMediaCallW<P0, P1, P2, P3, P4, P5, P6, P7>(hwnd: P0, wrequestid: P1, lpszdeviceclass: P2, lpdeviceid: P3, dwsize: u32, dwsecure: u32, lpszdestaddress: P4, lpszappname: P5, lpszcalledparty: P6, lpszcomment: P7) -> i32
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: windows_core::IntoParam<super::super::Foundation::WPARAM>,
-    P2: windows_core::IntoParam<windows_core::PCWSTR>,
-    P3: windows_core::IntoParam<windows_core::PCWSTR>,
-    P4: windows_core::IntoParam<windows_core::PCWSTR>,
-    P5: windows_core::IntoParam<windows_core::PCWSTR>,
-    P6: windows_core::IntoParam<windows_core::PCWSTR>,
-    P7: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<super::super::Foundation::WPARAM>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
+    P4: windows_core::Param<windows_core::PCWSTR>,
+    P5: windows_core::Param<windows_core::PCWSTR>,
+    P6: windows_core::Param<windows_core::PCWSTR>,
+    P7: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tapi32.dll" "system" fn tapiRequestMediaCallW(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM, lpszdeviceclass : windows_core::PCWSTR, lpdeviceid : windows_core::PCWSTR, dwsize : u32, dwsecure : u32, lpszdestaddress : windows_core::PCWSTR, lpszappname : windows_core::PCWSTR, lpszcalledparty : windows_core::PCWSTR, lpszcomment : windows_core::PCWSTR) -> i32);
-    tapiRequestMediaCallW(hwnd.into_param().abi(), wrequestid.into_param().abi(), lpszdeviceclass.into_param().abi(), lpdeviceid.into_param().abi(), dwsize, dwsecure, lpszdestaddress.into_param().abi(), lpszappname.into_param().abi(), lpszcalledparty.into_param().abi(), lpszcomment.into_param().abi())
+    tapiRequestMediaCallW(hwnd.param().abi(), wrequestid.param().abi(), lpszdeviceclass.param().abi(), lpdeviceid.param().abi(), dwsize, dwsecure, lpszdestaddress.param().abi(), lpszappname.param().abi(), lpszcalledparty.param().abi(), lpszcomment.param().abi())
 }
 windows_core::imp::define_interface!(IEnumACDGroup, IEnumACDGroup_Vtbl, 0x5afc3157_4bcc_11d1_bf80_00805fc147d3);
 windows_core::imp::interface_hierarchy!(IEnumACDGroup, windows_core::IUnknown);
@@ -2291,44 +2291,44 @@ impl IMcastAddressAllocation {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RequestAddress<P0>(&self, pscope: P0, leasestarttime: f64, leasestoptime: f64, numaddresses: i32) -> windows_core::Result<IMcastLeaseInfo>
     where
-        P0: windows_core::IntoParam<IMcastScope>,
+        P0: windows_core::Param<IMcastScope>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).RequestAddress)(windows_core::Interface::as_raw(self), pscope.into_param().abi(), leasestarttime, leasestoptime, numaddresses, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RequestAddress)(windows_core::Interface::as_raw(self), pscope.param().abi(), leasestarttime, leasestoptime, numaddresses, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RenewAddress<P0>(&self, lreserved: i32, prenewrequest: P0) -> windows_core::Result<IMcastLeaseInfo>
     where
-        P0: windows_core::IntoParam<IMcastLeaseInfo>,
+        P0: windows_core::Param<IMcastLeaseInfo>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).RenewAddress)(windows_core::Interface::as_raw(self), lreserved, prenewrequest.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RenewAddress)(windows_core::Interface::as_raw(self), lreserved, prenewrequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReleaseAddress<P0>(&self, preleaserequest: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMcastLeaseInfo>,
+        P0: windows_core::Param<IMcastLeaseInfo>,
     {
-        (windows_core::Interface::vtable(self).ReleaseAddress)(windows_core::Interface::as_raw(self), preleaserequest.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ReleaseAddress)(windows_core::Interface::as_raw(self), preleaserequest.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateLeaseInfo<P0, P1>(&self, leasestarttime: f64, leasestoptime: f64, dwnumaddresses: u32, ppaddresses: *const windows_core::PCWSTR, prequestid: P0, pserveraddress: P1) -> windows_core::Result<IMcastLeaseInfo>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateLeaseInfo)(windows_core::Interface::as_raw(self), leasestarttime, leasestoptime, dwnumaddresses, ppaddresses, prequestid.into_param().abi(), pserveraddress.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateLeaseInfo)(windows_core::Interface::as_raw(self), leasestarttime, leasestoptime, dwnumaddresses, ppaddresses, prequestid.param().abi(), pserveraddress.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateLeaseInfoFromVariant<P0, P1, P2>(&self, leasestarttime: f64, leasestoptime: f64, vaddresses: P0, prequestid: P1, pserveraddress: P2) -> windows_core::Result<IMcastLeaseInfo>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateLeaseInfoFromVariant)(windows_core::Interface::as_raw(self), leasestarttime, leasestoptime, vaddresses.into_param().abi(), prequestid.into_param().abi(), pserveraddress.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateLeaseInfoFromVariant)(windows_core::Interface::as_raw(self), leasestarttime, leasestoptime, vaddresses.param().abi(), prequestid.param().abi(), pserveraddress.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2594,10 +2594,10 @@ impl ITAddress {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateCall<P0>(&self, pdestaddress: P0, laddresstype: i32, lmediatypes: i32) -> windows_core::Result<ITBasicCallControl>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateCall)(windows_core::Interface::as_raw(self), pdestaddress.into_param().abi(), laddresstype, lmediatypes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateCall)(windows_core::Interface::as_raw(self), pdestaddress.param().abi(), laddresstype, lmediatypes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Calls(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -2619,10 +2619,10 @@ impl ITAddress {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Forward<P0, P1>(&self, pforwardinfo: P0, pcall: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITForwardInformation>,
-        P1: windows_core::IntoParam<ITBasicCallControl>,
+        P0: windows_core::Param<ITForwardInformation>,
+        P1: windows_core::Param<ITBasicCallControl>,
     {
-        (windows_core::Interface::vtable(self).Forward)(windows_core::Interface::as_raw(self), pforwardinfo.into_param().abi(), pcall.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Forward)(windows_core::Interface::as_raw(self), pforwardinfo.param().abi(), pcall.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentForwardInfo(&self) -> windows_core::Result<ITForwardInformation> {
@@ -2631,9 +2631,9 @@ impl ITAddress {
     }
     pub unsafe fn SetMessageWaiting<P0>(&self, fmessagewaiting: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetMessageWaiting)(windows_core::Interface::as_raw(self), fmessagewaiting.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetMessageWaiting)(windows_core::Interface::as_raw(self), fmessagewaiting.param().abi()).ok()
     }
     pub unsafe fn MessageWaiting(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -2641,9 +2641,9 @@ impl ITAddress {
     }
     pub unsafe fn SetDoNotDisturb<P0>(&self, fdonotdisturb: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetDoNotDisturb)(windows_core::Interface::as_raw(self), fdonotdisturb.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDoNotDisturb)(windows_core::Interface::as_raw(self), fdonotdisturb.param().abi()).ok()
     }
     pub unsafe fn DoNotDisturb(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -2711,10 +2711,10 @@ impl ITAddress2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateCall<P0>(&self, pdestaddress: P0, laddresstype: i32, lmediatypes: i32) -> windows_core::Result<ITBasicCallControl>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateCall)(windows_core::Interface::as_raw(self), pdestaddress.into_param().abi(), laddresstype, lmediatypes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateCall)(windows_core::Interface::as_raw(self), pdestaddress.param().abi(), laddresstype, lmediatypes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Calls(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -2736,10 +2736,10 @@ impl ITAddress2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Forward<P0, P1>(&self, pforwardinfo: P0, pcall: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITForwardInformation>,
-        P1: windows_core::IntoParam<ITBasicCallControl>,
+        P0: windows_core::Param<ITForwardInformation>,
+        P1: windows_core::Param<ITBasicCallControl>,
     {
-        (windows_core::Interface::vtable(self).base__.Forward)(windows_core::Interface::as_raw(self), pforwardinfo.into_param().abi(), pcall.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Forward)(windows_core::Interface::as_raw(self), pforwardinfo.param().abi(), pcall.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentForwardInfo(&self) -> windows_core::Result<ITForwardInformation> {
@@ -2748,9 +2748,9 @@ impl ITAddress2 {
     }
     pub unsafe fn SetMessageWaiting<P0>(&self, fmessagewaiting: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.SetMessageWaiting)(windows_core::Interface::as_raw(self), fmessagewaiting.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetMessageWaiting)(windows_core::Interface::as_raw(self), fmessagewaiting.param().abi()).ok()
     }
     pub unsafe fn MessageWaiting(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -2758,9 +2758,9 @@ impl ITAddress2 {
     }
     pub unsafe fn SetDoNotDisturb<P0>(&self, fdonotdisturb: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.SetDoNotDisturb)(windows_core::Interface::as_raw(self), fdonotdisturb.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetDoNotDisturb)(windows_core::Interface::as_raw(self), fdonotdisturb.param().abi()).ok()
     }
     pub unsafe fn DoNotDisturb(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -2777,10 +2777,10 @@ impl ITAddress2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPhoneFromTerminal<P0>(&self, pterminal: P0) -> windows_core::Result<ITPhone>
     where
-        P0: windows_core::IntoParam<ITTerminal>,
+        P0: windows_core::Param<ITTerminal>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetPhoneFromTerminal)(windows_core::Interface::as_raw(self), pterminal.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetPhoneFromTerminal)(windows_core::Interface::as_raw(self), pterminal.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn PreferredPhones(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -2796,24 +2796,24 @@ impl ITAddress2 {
     }
     pub unsafe fn put_EventFilter<P0>(&self, tapievent: TAPI_EVENT, lsubevent: i32, benable: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).put_EventFilter)(windows_core::Interface::as_raw(self), tapievent, lsubevent, benable.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).put_EventFilter)(windows_core::Interface::as_raw(self), tapievent, lsubevent, benable.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DeviceSpecific<P0>(&self, pcall: P0, pparams: *const u8, dwsize: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITCallInfo>,
+        P0: windows_core::Param<ITCallInfo>,
     {
-        (windows_core::Interface::vtable(self).DeviceSpecific)(windows_core::Interface::as_raw(self), pcall.into_param().abi(), pparams, dwsize).ok()
+        (windows_core::Interface::vtable(self).DeviceSpecific)(windows_core::Interface::as_raw(self), pcall.param().abi(), pparams, dwsize).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DeviceSpecificVariant<P0, P1>(&self, pcall: P0, vardevspecificbytearray: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITCallInfo>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<ITCallInfo>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeviceSpecificVariant)(windows_core::Interface::as_raw(self), pcall.into_param().abi(), vardevspecificbytearray.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeviceSpecificVariant)(windows_core::Interface::as_raw(self), pcall.param().abi(), vardevspecificbytearray.param().abi()).ok()
     }
     pub unsafe fn NegotiateExtVersion(&self, llowversion: i32, lhighversion: i32) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -2985,16 +2985,16 @@ impl ITAddressTranslation {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TranslateAddress<P0>(&self, paddresstotranslate: P0, lcard: i32, ltranslateoptions: i32) -> windows_core::Result<ITAddressTranslationInfo>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).TranslateAddress)(windows_core::Interface::as_raw(self), paddresstotranslate.into_param().abi(), lcard, ltranslateoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).TranslateAddress)(windows_core::Interface::as_raw(self), paddresstotranslate.param().abi(), lcard, ltranslateoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn TranslateDialog<P0>(&self, hwndowner: isize, paddressin: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).TranslateDialog)(windows_core::Interface::as_raw(self), hwndowner, paddressin.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).TranslateDialog)(windows_core::Interface::as_raw(self), hwndowner, paddressin.param().abi()).ok()
     }
     pub unsafe fn EnumerateLocations(&self) -> windows_core::Result<IEnumLocation> {
         let mut result__ = std::mem::zeroed();
@@ -3077,21 +3077,21 @@ impl ITAgent {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateSession<P0, P1>(&self, pacdgroup: P0, paddress: P1) -> windows_core::Result<ITAgentSession>
     where
-        P0: windows_core::IntoParam<ITACDGroup>,
-        P1: windows_core::IntoParam<ITAddress>,
+        P0: windows_core::Param<ITACDGroup>,
+        P1: windows_core::Param<ITAddress>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateSession)(windows_core::Interface::as_raw(self), pacdgroup.into_param().abi(), paddress.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateSession)(windows_core::Interface::as_raw(self), pacdgroup.param().abi(), paddress.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateSessionWithPIN<P0, P1, P2>(&self, pacdgroup: P0, paddress: P1, ppin: P2) -> windows_core::Result<ITAgentSession>
     where
-        P0: windows_core::IntoParam<ITACDGroup>,
-        P1: windows_core::IntoParam<ITAddress>,
-        P2: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<ITACDGroup>,
+        P1: windows_core::Param<ITAddress>,
+        P2: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateSessionWithPIN)(windows_core::Interface::as_raw(self), pacdgroup.into_param().abi(), paddress.into_param().abi(), ppin.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateSessionWithPIN)(windows_core::Interface::as_raw(self), pacdgroup.param().abi(), paddress.param().abi(), ppin.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3224,11 +3224,11 @@ impl ITAgentHandler {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAgentWithID<P0, P1>(&self, pid: P0, ppin: P1) -> windows_core::Result<ITAgent>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateAgentWithID)(windows_core::Interface::as_raw(self), pid.into_param().abi(), ppin.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateAgentWithID)(windows_core::Interface::as_raw(self), pid.param().abi(), ppin.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumerateACDGroups(&self) -> windows_core::Result<IEnumACDGroup> {
         let mut result__ = std::mem::zeroed();
@@ -3443,9 +3443,9 @@ impl ITAllocatorProperties {
     }
     pub unsafe fn SetAllocateBuffers<P0>(&self, ballocbuffers: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetAllocateBuffers)(windows_core::Interface::as_raw(self), ballocbuffers.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAllocateBuffers)(windows_core::Interface::as_raw(self), ballocbuffers.param().abi()).ok()
     }
     pub unsafe fn GetAllocateBuffers(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -3503,9 +3503,9 @@ impl ITAutomatedPhoneControl {
     }
     pub unsafe fn SetPhoneHandlingEnabled<P0>(&self, fenabled: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetPhoneHandlingEnabled)(windows_core::Interface::as_raw(self), fenabled.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetPhoneHandlingEnabled)(windows_core::Interface::as_raw(self), fenabled.param().abi()).ok()
     }
     pub unsafe fn PhoneHandlingEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -3520,9 +3520,9 @@ impl ITAutomatedPhoneControl {
     }
     pub unsafe fn SetAutoDialtone<P0>(&self, fenabled: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetAutoDialtone)(windows_core::Interface::as_raw(self), fenabled.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAutoDialtone)(windows_core::Interface::as_raw(self), fenabled.param().abi()).ok()
     }
     pub unsafe fn AutoDialtone(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -3530,9 +3530,9 @@ impl ITAutomatedPhoneControl {
     }
     pub unsafe fn SetAutoStopTonesOnOnHook<P0>(&self, fenabled: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetAutoStopTonesOnOnHook)(windows_core::Interface::as_raw(self), fenabled.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAutoStopTonesOnOnHook)(windows_core::Interface::as_raw(self), fenabled.param().abi()).ok()
     }
     pub unsafe fn AutoStopTonesOnOnHook(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -3540,9 +3540,9 @@ impl ITAutomatedPhoneControl {
     }
     pub unsafe fn SetAutoStopRingOnOffHook<P0>(&self, fenabled: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetAutoStopRingOnOffHook)(windows_core::Interface::as_raw(self), fenabled.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAutoStopRingOnOffHook)(windows_core::Interface::as_raw(self), fenabled.param().abi()).ok()
     }
     pub unsafe fn AutoStopRingOnOffHook(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -3550,9 +3550,9 @@ impl ITAutomatedPhoneControl {
     }
     pub unsafe fn SetAutoKeypadTones<P0>(&self, fenabled: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetAutoKeypadTones)(windows_core::Interface::as_raw(self), fenabled.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAutoKeypadTones)(windows_core::Interface::as_raw(self), fenabled.param().abi()).ok()
     }
     pub unsafe fn AutoKeypadTones(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -3567,9 +3567,9 @@ impl ITAutomatedPhoneControl {
     }
     pub unsafe fn SetAutoVolumeControl<P0>(&self, fenabled: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetAutoVolumeControl)(windows_core::Interface::as_raw(self), fenabled.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAutoVolumeControl)(windows_core::Interface::as_raw(self), fenabled.param().abi()).ok()
     }
     pub unsafe fn AutoVolumeControl(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -3599,17 +3599,17 @@ impl ITAutomatedPhoneControl {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SelectCall<P0, P1>(&self, pcall: P0, fselectdefaultterminals: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITCallInfo>,
-        P1: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<ITCallInfo>,
+        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SelectCall)(windows_core::Interface::as_raw(self), pcall.into_param().abi(), fselectdefaultterminals.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SelectCall)(windows_core::Interface::as_raw(self), pcall.param().abi(), fselectdefaultterminals.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UnselectCall<P0>(&self, pcall: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITCallInfo>,
+        P0: windows_core::Param<ITCallInfo>,
     {
-        (windows_core::Interface::vtable(self).UnselectCall)(windows_core::Interface::as_raw(self), pcall.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).UnselectCall)(windows_core::Interface::as_raw(self), pcall.param().abi()).ok()
     }
     pub unsafe fn EnumerateSelectedCalls(&self) -> windows_core::Result<IEnumCall> {
         let mut result__ = std::mem::zeroed();
@@ -3701,9 +3701,9 @@ windows_core::imp::interface_hierarchy!(ITBasicCallControl, windows_core::IUnkno
 impl ITBasicCallControl {
     pub unsafe fn Connect<P0>(&self, fsync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), fsync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), fsync.param().abi()).ok()
     }
     pub unsafe fn Answer(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Answer)(windows_core::Interface::as_raw(self)).ok()
@@ -3713,15 +3713,15 @@ impl ITBasicCallControl {
     }
     pub unsafe fn Hold<P0>(&self, fhold: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).Hold)(windows_core::Interface::as_raw(self), fhold.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Hold)(windows_core::Interface::as_raw(self), fhold.param().abi()).ok()
     }
     pub unsafe fn HandoffDirect<P0>(&self, papplicationname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).HandoffDirect)(windows_core::Interface::as_raw(self), papplicationname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).HandoffDirect)(windows_core::Interface::as_raw(self), papplicationname.param().abi()).ok()
     }
     pub unsafe fn HandoffIndirect(&self, lmediatype: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).HandoffIndirect)(windows_core::Interface::as_raw(self), lmediatype).ok()
@@ -3729,37 +3729,37 @@ impl ITBasicCallControl {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Conference<P0, P1>(&self, pcall: P0, fsync: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITBasicCallControl>,
-        P1: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<ITBasicCallControl>,
+        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).Conference)(windows_core::Interface::as_raw(self), pcall.into_param().abi(), fsync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Conference)(windows_core::Interface::as_raw(self), pcall.param().abi(), fsync.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Transfer<P0, P1>(&self, pcall: P0, fsync: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITBasicCallControl>,
-        P1: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<ITBasicCallControl>,
+        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).Transfer)(windows_core::Interface::as_raw(self), pcall.into_param().abi(), fsync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Transfer)(windows_core::Interface::as_raw(self), pcall.param().abi(), fsync.param().abi()).ok()
     }
     pub unsafe fn BlindTransfer<P0>(&self, pdestaddress: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).BlindTransfer)(windows_core::Interface::as_raw(self), pdestaddress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).BlindTransfer)(windows_core::Interface::as_raw(self), pdestaddress.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SwapHold<P0>(&self, pcall: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITBasicCallControl>,
+        P0: windows_core::Param<ITBasicCallControl>,
     {
-        (windows_core::Interface::vtable(self).SwapHold)(windows_core::Interface::as_raw(self), pcall.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SwapHold)(windows_core::Interface::as_raw(self), pcall.param().abi()).ok()
     }
     pub unsafe fn ParkDirect<P0>(&self, pparkaddress: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).ParkDirect)(windows_core::Interface::as_raw(self), pparkaddress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ParkDirect)(windows_core::Interface::as_raw(self), pparkaddress.param().abi()).ok()
     }
     pub unsafe fn ParkIndirect(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3773,15 +3773,15 @@ impl ITBasicCallControl {
     }
     pub unsafe fn Pickup<P0>(&self, pgroupid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).Pickup)(windows_core::Interface::as_raw(self), pgroupid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Pickup)(windows_core::Interface::as_raw(self), pgroupid.param().abi()).ok()
     }
     pub unsafe fn Dial<P0>(&self, pdestaddress: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).Dial)(windows_core::Interface::as_raw(self), pdestaddress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Dial)(windows_core::Interface::as_raw(self), pdestaddress.param().abi()).ok()
     }
     pub unsafe fn Finish(&self, finishmode: FINISH_MODE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Finish)(windows_core::Interface::as_raw(self), finishmode).ok()
@@ -3830,9 +3830,9 @@ windows_core::imp::interface_hierarchy!(ITBasicCallControl2, windows_core::IUnkn
 impl ITBasicCallControl2 {
     pub unsafe fn Connect<P0>(&self, fsync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.Connect)(windows_core::Interface::as_raw(self), fsync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Connect)(windows_core::Interface::as_raw(self), fsync.param().abi()).ok()
     }
     pub unsafe fn Answer(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.Answer)(windows_core::Interface::as_raw(self)).ok()
@@ -3842,15 +3842,15 @@ impl ITBasicCallControl2 {
     }
     pub unsafe fn Hold<P0>(&self, fhold: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.Hold)(windows_core::Interface::as_raw(self), fhold.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Hold)(windows_core::Interface::as_raw(self), fhold.param().abi()).ok()
     }
     pub unsafe fn HandoffDirect<P0>(&self, papplicationname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.HandoffDirect)(windows_core::Interface::as_raw(self), papplicationname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.HandoffDirect)(windows_core::Interface::as_raw(self), papplicationname.param().abi()).ok()
     }
     pub unsafe fn HandoffIndirect(&self, lmediatype: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.HandoffIndirect)(windows_core::Interface::as_raw(self), lmediatype).ok()
@@ -3858,37 +3858,37 @@ impl ITBasicCallControl2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Conference<P0, P1>(&self, pcall: P0, fsync: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITBasicCallControl>,
-        P1: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<ITBasicCallControl>,
+        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.Conference)(windows_core::Interface::as_raw(self), pcall.into_param().abi(), fsync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Conference)(windows_core::Interface::as_raw(self), pcall.param().abi(), fsync.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Transfer<P0, P1>(&self, pcall: P0, fsync: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITBasicCallControl>,
-        P1: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<ITBasicCallControl>,
+        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.Transfer)(windows_core::Interface::as_raw(self), pcall.into_param().abi(), fsync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Transfer)(windows_core::Interface::as_raw(self), pcall.param().abi(), fsync.param().abi()).ok()
     }
     pub unsafe fn BlindTransfer<P0>(&self, pdestaddress: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.BlindTransfer)(windows_core::Interface::as_raw(self), pdestaddress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.BlindTransfer)(windows_core::Interface::as_raw(self), pdestaddress.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SwapHold<P0>(&self, pcall: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITBasicCallControl>,
+        P0: windows_core::Param<ITBasicCallControl>,
     {
-        (windows_core::Interface::vtable(self).base__.SwapHold)(windows_core::Interface::as_raw(self), pcall.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SwapHold)(windows_core::Interface::as_raw(self), pcall.param().abi()).ok()
     }
     pub unsafe fn ParkDirect<P0>(&self, pparkaddress: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.ParkDirect)(windows_core::Interface::as_raw(self), pparkaddress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.ParkDirect)(windows_core::Interface::as_raw(self), pparkaddress.param().abi()).ok()
     }
     pub unsafe fn ParkIndirect(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3902,15 +3902,15 @@ impl ITBasicCallControl2 {
     }
     pub unsafe fn Pickup<P0>(&self, pgroupid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.Pickup)(windows_core::Interface::as_raw(self), pgroupid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Pickup)(windows_core::Interface::as_raw(self), pgroupid.param().abi()).ok()
     }
     pub unsafe fn Dial<P0>(&self, pdestaddress: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.Dial)(windows_core::Interface::as_raw(self), pdestaddress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Dial)(windows_core::Interface::as_raw(self), pdestaddress.param().abi()).ok()
     }
     pub unsafe fn Finish(&self, finishmode: FINISH_MODE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.Finish)(windows_core::Interface::as_raw(self), finishmode).ok()
@@ -3921,24 +3921,24 @@ impl ITBasicCallControl2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RequestTerminal<P0>(&self, bstrterminalclassguid: P0, lmediatype: i32, direction: TERMINAL_DIRECTION) -> windows_core::Result<ITTerminal>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).RequestTerminal)(windows_core::Interface::as_raw(self), bstrterminalclassguid.into_param().abi(), lmediatype, direction, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RequestTerminal)(windows_core::Interface::as_raw(self), bstrterminalclassguid.param().abi(), lmediatype, direction, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SelectTerminalOnCall<P0>(&self, pterminal: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITTerminal>,
+        P0: windows_core::Param<ITTerminal>,
     {
-        (windows_core::Interface::vtable(self).SelectTerminalOnCall)(windows_core::Interface::as_raw(self), pterminal.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SelectTerminalOnCall)(windows_core::Interface::as_raw(self), pterminal.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UnselectTerminalOnCall<P0>(&self, pterminal: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITTerminal>,
+        P0: windows_core::Param<ITTerminal>,
     {
-        (windows_core::Interface::vtable(self).UnselectTerminalOnCall)(windows_core::Interface::as_raw(self), pterminal.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).UnselectTerminalOnCall)(windows_core::Interface::as_raw(self), pterminal.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4066,9 +4066,9 @@ impl ITCallInfo {
     }
     pub unsafe fn put_CallInfoString<P0>(&self, callinfostring: CALLINFO_STRING, pcallinfostring: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).put_CallInfoString)(windows_core::Interface::as_raw(self), callinfostring, pcallinfostring.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).put_CallInfoString)(windows_core::Interface::as_raw(self), callinfostring, pcallinfostring.param().abi()).ok()
     }
     pub unsafe fn get_CallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -4076,9 +4076,9 @@ impl ITCallInfo {
     }
     pub unsafe fn put_CallInfoBuffer<P0>(&self, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).put_CallInfoBuffer)(windows_core::Interface::as_raw(self), callinfobuffer, pcallinfobuffer.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).put_CallInfoBuffer)(windows_core::Interface::as_raw(self), callinfobuffer, pcallinfobuffer.param().abi()).ok()
     }
     pub unsafe fn GetCallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, pdwsize: *mut u32, ppcallinfobuffer: *mut *mut u8) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetCallInfoBuffer)(windows_core::Interface::as_raw(self), callinfobuffer, pdwsize, ppcallinfobuffer).ok()
@@ -4151,9 +4151,9 @@ impl ITCallInfo2 {
     }
     pub unsafe fn put_CallInfoString<P0>(&self, callinfostring: CALLINFO_STRING, pcallinfostring: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.put_CallInfoString)(windows_core::Interface::as_raw(self), callinfostring, pcallinfostring.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.put_CallInfoString)(windows_core::Interface::as_raw(self), callinfostring, pcallinfostring.param().abi()).ok()
     }
     pub unsafe fn get_CallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -4161,9 +4161,9 @@ impl ITCallInfo2 {
     }
     pub unsafe fn put_CallInfoBuffer<P0>(&self, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.put_CallInfoBuffer)(windows_core::Interface::as_raw(self), callinfobuffer, pcallinfobuffer.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.put_CallInfoBuffer)(windows_core::Interface::as_raw(self), callinfobuffer, pcallinfobuffer.param().abi()).ok()
     }
     pub unsafe fn GetCallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, pdwsize: *mut u32, ppcallinfobuffer: *mut *mut u8) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.GetCallInfoBuffer)(windows_core::Interface::as_raw(self), callinfobuffer, pdwsize, ppcallinfobuffer).ok()
@@ -4180,9 +4180,9 @@ impl ITCallInfo2 {
     }
     pub unsafe fn put_EventFilter<P0>(&self, tapievent: TAPI_EVENT, lsubevent: i32, benable: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).put_EventFilter)(windows_core::Interface::as_raw(self), tapievent, lsubevent, benable.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).put_EventFilter)(windows_core::Interface::as_raw(self), tapievent, lsubevent, benable.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4682,65 +4682,65 @@ impl ITDirectory {
     }
     pub unsafe fn EnableAutoRefresh<P0>(&self, fenable: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).EnableAutoRefresh)(windows_core::Interface::as_raw(self), fenable.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).EnableAutoRefresh)(windows_core::Interface::as_raw(self), fenable.param().abi()).ok()
     }
     pub unsafe fn Connect<P0>(&self, fsecure: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), fsecure.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), fsecure.param().abi()).ok()
     }
     pub unsafe fn Bind<P0, P1, P2>(&self, pdomainname: P0, pusername: P1, ppassword: P2, lflags: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).Bind)(windows_core::Interface::as_raw(self), pdomainname.into_param().abi(), pusername.into_param().abi(), ppassword.into_param().abi(), lflags).ok()
+        (windows_core::Interface::vtable(self).Bind)(windows_core::Interface::as_raw(self), pdomainname.param().abi(), pusername.param().abi(), ppassword.param().abi(), lflags).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddDirectoryObject<P0>(&self, pdirectoryobject: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITDirectoryObject>,
+        P0: windows_core::Param<ITDirectoryObject>,
     {
-        (windows_core::Interface::vtable(self).AddDirectoryObject)(windows_core::Interface::as_raw(self), pdirectoryobject.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddDirectoryObject)(windows_core::Interface::as_raw(self), pdirectoryobject.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ModifyDirectoryObject<P0>(&self, pdirectoryobject: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITDirectoryObject>,
+        P0: windows_core::Param<ITDirectoryObject>,
     {
-        (windows_core::Interface::vtable(self).ModifyDirectoryObject)(windows_core::Interface::as_raw(self), pdirectoryobject.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ModifyDirectoryObject)(windows_core::Interface::as_raw(self), pdirectoryobject.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RefreshDirectoryObject<P0>(&self, pdirectoryobject: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITDirectoryObject>,
+        P0: windows_core::Param<ITDirectoryObject>,
     {
-        (windows_core::Interface::vtable(self).RefreshDirectoryObject)(windows_core::Interface::as_raw(self), pdirectoryobject.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RefreshDirectoryObject)(windows_core::Interface::as_raw(self), pdirectoryobject.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DeleteDirectoryObject<P0>(&self, pdirectoryobject: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITDirectoryObject>,
+        P0: windows_core::Param<ITDirectoryObject>,
     {
-        (windows_core::Interface::vtable(self).DeleteDirectoryObject)(windows_core::Interface::as_raw(self), pdirectoryobject.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteDirectoryObject)(windows_core::Interface::as_raw(self), pdirectoryobject.param().abi()).ok()
     }
     pub unsafe fn get_DirectoryObjects<P0>(&self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_DirectoryObjects)(windows_core::Interface::as_raw(self), directoryobjecttype, pname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_DirectoryObjects)(windows_core::Interface::as_raw(self), directoryobjecttype, pname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumerateDirectoryObjects<P0>(&self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: P0) -> windows_core::Result<IEnumDirectoryObject>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumerateDirectoryObjects)(windows_core::Interface::as_raw(self), directoryobjecttype, pname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumerateDirectoryObjects)(windows_core::Interface::as_raw(self), directoryobjecttype, pname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4790,9 +4790,9 @@ impl ITDirectoryObject {
     }
     pub unsafe fn SetName<P0>(&self, pname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), pname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), pname.param().abi()).ok()
     }
     pub unsafe fn get_DialableAddrs(&self, dwaddresstype: i32) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -4810,9 +4810,9 @@ impl ITDirectoryObject {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSecurityDescriptor<P0>(&self, psecdes: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::System::Com::IDispatch>,
+        P0: windows_core::Param<super::super::System::Com::IDispatch>,
     {
-        (windows_core::Interface::vtable(self).SetSecurityDescriptor)(windows_core::Interface::as_raw(self), psecdes.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSecurityDescriptor)(windows_core::Interface::as_raw(self), psecdes.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4849,9 +4849,9 @@ impl ITDirectoryObjectConference {
     }
     pub unsafe fn SetOriginator<P0>(&self, poriginator: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOriginator)(windows_core::Interface::as_raw(self), poriginator.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOriginator)(windows_core::Interface::as_raw(self), poriginator.param().abi()).ok()
     }
     pub unsafe fn AdvertisingScope(&self) -> windows_core::Result<RND_ADVERTISING_SCOPE> {
         let mut result__ = std::mem::zeroed();
@@ -4866,9 +4866,9 @@ impl ITDirectoryObjectConference {
     }
     pub unsafe fn SetUrl<P0>(&self, purl: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetUrl)(windows_core::Interface::as_raw(self), purl.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetUrl)(windows_core::Interface::as_raw(self), purl.param().abi()).ok()
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4876,9 +4876,9 @@ impl ITDirectoryObjectConference {
     }
     pub unsafe fn SetDescription<P0>(&self, pdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), pdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), pdescription.param().abi()).ok()
     }
     pub unsafe fn IsEncrypted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -4886,9 +4886,9 @@ impl ITDirectoryObjectConference {
     }
     pub unsafe fn SetIsEncrypted<P0>(&self, fencrypted: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetIsEncrypted)(windows_core::Interface::as_raw(self), fencrypted.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetIsEncrypted)(windows_core::Interface::as_raw(self), fencrypted.param().abi()).ok()
     }
     pub unsafe fn StartTime(&self) -> windows_core::Result<f64> {
         let mut result__ = std::mem::zeroed();
@@ -4937,9 +4937,9 @@ impl ITDirectoryObjectUser {
     }
     pub unsafe fn SetIPPhonePrimary<P0>(&self, pname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetIPPhonePrimary)(windows_core::Interface::as_raw(self), pname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetIPPhonePrimary)(windows_core::Interface::as_raw(self), pname.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4958,11 +4958,11 @@ impl ITDispatchMapper {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryDispatchInterface<P0, P1>(&self, piid: P0, pinterfacetomap: P1) -> windows_core::Result<super::super::System::Com::IDispatch>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<super::super::System::Com::IDispatch>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<super::super::System::Com::IDispatch>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).QueryDispatchInterface)(windows_core::Interface::as_raw(self), piid.into_param().abi(), pinterfacetomap.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).QueryDispatchInterface)(windows_core::Interface::as_raw(self), piid.param().abi(), pinterfacetomap.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5056,9 +5056,9 @@ impl ITFileTrack {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetAudioFormatForScripting<P0>(&self, paudioformat: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITScriptableAudioFormat>,
+        P0: windows_core::Param<ITScriptableAudioFormat>,
     {
-        (windows_core::Interface::vtable(self).SetAudioFormatForScripting)(windows_core::Interface::as_raw(self), paudioformat.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAudioFormatForScripting)(windows_core::Interface::as_raw(self), paudioformat.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EmptyAudioFormatForScripting(&self) -> windows_core::Result<ITScriptableAudioFormat> {
@@ -5110,10 +5110,10 @@ impl ITForwardInformation {
     }
     pub unsafe fn SetForwardType<P0, P1>(&self, forwardtype: i32, pdestaddress: P0, pcalleraddress: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetForwardType)(windows_core::Interface::as_raw(self), forwardtype, pdestaddress.into_param().abi(), pcalleraddress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetForwardType)(windows_core::Interface::as_raw(self), forwardtype, pdestaddress.param().abi(), pcalleraddress.param().abi()).ok()
     }
     pub unsafe fn get_ForwardTypeDestination(&self, forwardtype: i32) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -5157,10 +5157,10 @@ impl ITForwardInformation2 {
     }
     pub unsafe fn SetForwardType<P0, P1>(&self, forwardtype: i32, pdestaddress: P0, pcalleraddress: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetForwardType)(windows_core::Interface::as_raw(self), forwardtype, pdestaddress.into_param().abi(), pcalleraddress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetForwardType)(windows_core::Interface::as_raw(self), forwardtype, pdestaddress.param().abi(), pcalleraddress.param().abi()).ok()
     }
     pub unsafe fn get_ForwardTypeDestination(&self, forwardtype: i32) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -5178,10 +5178,10 @@ impl ITForwardInformation2 {
     }
     pub unsafe fn SetForwardType2<P0, P1>(&self, forwardtype: i32, pdestaddress: P0, destaddresstype: i32, pcalleraddress: P1, calleraddresstype: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetForwardType2)(windows_core::Interface::as_raw(self), forwardtype, pdestaddress.into_param().abi(), destaddresstype, pcalleraddress.into_param().abi(), calleraddresstype).ok()
+        (windows_core::Interface::vtable(self).SetForwardType2)(windows_core::Interface::as_raw(self), forwardtype, pdestaddress.param().abi(), destaddresstype, pcalleraddress.param().abi(), calleraddresstype).ok()
     }
     pub unsafe fn GetForwardType2(&self, forwardtype: i32, ppdestinationaddress: *mut windows_core::BSTR, pdestaddresstype: *mut i32, ppcalleraddress: *mut windows_core::BSTR, pcalleraddresstype: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetForwardType2)(windows_core::Interface::as_raw(self), forwardtype, core::mem::transmute(ppdestinationaddress), pdestaddresstype, core::mem::transmute(ppcalleraddress), pcalleraddresstype).ok()
@@ -5230,21 +5230,21 @@ windows_core::imp::interface_hierarchy!(ITLegacyAddressMediaControl, windows_cor
 impl ITLegacyAddressMediaControl {
     pub unsafe fn GetID<P0>(&self, pdeviceclass: P0, pdwsize: *mut u32, ppdeviceid: *mut *mut u8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).GetID)(windows_core::Interface::as_raw(self), pdeviceclass.into_param().abi(), pdwsize, ppdeviceid).ok()
+        (windows_core::Interface::vtable(self).GetID)(windows_core::Interface::as_raw(self), pdeviceclass.param().abi(), pdwsize, ppdeviceid).ok()
     }
     pub unsafe fn GetDevConfig<P0>(&self, pdeviceclass: P0, pdwsize: *mut u32, ppdeviceconfig: *mut *mut u8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).GetDevConfig)(windows_core::Interface::as_raw(self), pdeviceclass.into_param().abi(), pdwsize, ppdeviceconfig).ok()
+        (windows_core::Interface::vtable(self).GetDevConfig)(windows_core::Interface::as_raw(self), pdeviceclass.param().abi(), pdwsize, ppdeviceconfig).ok()
     }
     pub unsafe fn SetDevConfig<P0>(&self, pdeviceclass: P0, pdeviceconfig: &[u8]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDevConfig)(windows_core::Interface::as_raw(self), pdeviceclass.into_param().abi(), pdeviceconfig.len().try_into().unwrap(), core::mem::transmute(pdeviceconfig.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).SetDevConfig)(windows_core::Interface::as_raw(self), pdeviceclass.param().abi(), pdeviceconfig.len().try_into().unwrap(), core::mem::transmute(pdeviceconfig.as_ptr())).ok()
     }
 }
 #[repr(C)]
@@ -5259,35 +5259,35 @@ windows_core::imp::interface_hierarchy!(ITLegacyAddressMediaControl2, windows_co
 impl ITLegacyAddressMediaControl2 {
     pub unsafe fn GetID<P0>(&self, pdeviceclass: P0, pdwsize: *mut u32, ppdeviceid: *mut *mut u8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.GetID)(windows_core::Interface::as_raw(self), pdeviceclass.into_param().abi(), pdwsize, ppdeviceid).ok()
+        (windows_core::Interface::vtable(self).base__.GetID)(windows_core::Interface::as_raw(self), pdeviceclass.param().abi(), pdwsize, ppdeviceid).ok()
     }
     pub unsafe fn GetDevConfig<P0>(&self, pdeviceclass: P0, pdwsize: *mut u32, ppdeviceconfig: *mut *mut u8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.GetDevConfig)(windows_core::Interface::as_raw(self), pdeviceclass.into_param().abi(), pdwsize, ppdeviceconfig).ok()
+        (windows_core::Interface::vtable(self).base__.GetDevConfig)(windows_core::Interface::as_raw(self), pdeviceclass.param().abi(), pdwsize, ppdeviceconfig).ok()
     }
     pub unsafe fn SetDevConfig<P0>(&self, pdeviceclass: P0, pdeviceconfig: &[u8]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetDevConfig)(windows_core::Interface::as_raw(self), pdeviceclass.into_param().abi(), pdeviceconfig.len().try_into().unwrap(), core::mem::transmute(pdeviceconfig.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).base__.SetDevConfig)(windows_core::Interface::as_raw(self), pdeviceclass.param().abi(), pdeviceconfig.len().try_into().unwrap(), core::mem::transmute(pdeviceconfig.as_ptr())).ok()
     }
     pub unsafe fn ConfigDialog<P0, P1>(&self, hwndowner: P0, pdeviceclass: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).ConfigDialog)(windows_core::Interface::as_raw(self), hwndowner.into_param().abi(), pdeviceclass.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ConfigDialog)(windows_core::Interface::as_raw(self), hwndowner.param().abi(), pdeviceclass.param().abi()).ok()
     }
     pub unsafe fn ConfigDialogEdit<P0, P1>(&self, hwndowner: P0, pdeviceclass: P1, pdeviceconfigin: &[u8], pdwsizeout: *mut u32, ppdeviceconfigout: *mut *mut u8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).ConfigDialogEdit)(windows_core::Interface::as_raw(self), hwndowner.into_param().abi(), pdeviceclass.into_param().abi(), pdeviceconfigin.len().try_into().unwrap(), core::mem::transmute(pdeviceconfigin.as_ptr()), pdwsizeout, ppdeviceconfigout).ok()
+        (windows_core::Interface::vtable(self).ConfigDialogEdit)(windows_core::Interface::as_raw(self), hwndowner.param().abi(), pdeviceclass.param().abi(), pdeviceconfigin.len().try_into().unwrap(), core::mem::transmute(pdeviceconfigin.as_ptr()), pdwsizeout, ppdeviceconfigout).ok()
     }
 }
 #[repr(C)]
@@ -5307,15 +5307,15 @@ impl ITLegacyCallMediaControl {
     }
     pub unsafe fn GenerateDigits<P0>(&self, pdigits: P0, digitmode: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).GenerateDigits)(windows_core::Interface::as_raw(self), pdigits.into_param().abi(), digitmode).ok()
+        (windows_core::Interface::vtable(self).GenerateDigits)(windows_core::Interface::as_raw(self), pdigits.param().abi(), digitmode).ok()
     }
     pub unsafe fn GetID<P0>(&self, pdeviceclass: P0, pdwsize: *mut u32, ppdeviceid: *mut *mut u8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).GetID)(windows_core::Interface::as_raw(self), pdeviceclass.into_param().abi(), pdwsize, ppdeviceid).ok()
+        (windows_core::Interface::vtable(self).GetID)(windows_core::Interface::as_raw(self), pdeviceclass.param().abi(), pdwsize, ppdeviceid).ok()
     }
     pub unsafe fn SetMediaType(&self, lmediatype: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetMediaType)(windows_core::Interface::as_raw(self), lmediatype).ok()
@@ -5345,15 +5345,15 @@ impl ITLegacyCallMediaControl2 {
     }
     pub unsafe fn GenerateDigits<P0>(&self, pdigits: P0, digitmode: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.GenerateDigits)(windows_core::Interface::as_raw(self), pdigits.into_param().abi(), digitmode).ok()
+        (windows_core::Interface::vtable(self).base__.GenerateDigits)(windows_core::Interface::as_raw(self), pdigits.param().abi(), digitmode).ok()
     }
     pub unsafe fn GetID<P0>(&self, pdeviceclass: P0, pdwsize: *mut u32, ppdeviceid: *mut *mut u8) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.GetID)(windows_core::Interface::as_raw(self), pdeviceclass.into_param().abi(), pdwsize, ppdeviceid).ok()
+        (windows_core::Interface::vtable(self).base__.GetID)(windows_core::Interface::as_raw(self), pdeviceclass.param().abi(), pdwsize, ppdeviceid).ok()
     }
     pub unsafe fn SetMediaType(&self, lmediatype: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.SetMediaType)(windows_core::Interface::as_raw(self), lmediatype).ok()
@@ -5363,15 +5363,15 @@ impl ITLegacyCallMediaControl2 {
     }
     pub unsafe fn GenerateDigits2<P0>(&self, pdigits: P0, digitmode: i32, lduration: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).GenerateDigits2)(windows_core::Interface::as_raw(self), pdigits.into_param().abi(), digitmode, lduration).ok()
+        (windows_core::Interface::vtable(self).GenerateDigits2)(windows_core::Interface::as_raw(self), pdigits.param().abi(), digitmode, lduration).ok()
     }
     pub unsafe fn GatherDigits<P0>(&self, digitmode: i32, lnumdigits: i32, pterminationdigits: P0, lfirstdigittimeout: i32, linterdigittimeout: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).GatherDigits)(windows_core::Interface::as_raw(self), digitmode, lnumdigits, pterminationdigits.into_param().abi(), lfirstdigittimeout, linterdigittimeout).ok()
+        (windows_core::Interface::vtable(self).GatherDigits)(windows_core::Interface::as_raw(self), digitmode, lnumdigits, pterminationdigits.param().abi(), lfirstdigittimeout, linterdigittimeout).ok()
     }
     pub unsafe fn DetectTones(&self, ptonelist: *const TAPI_DETECTTONE, lnumtones: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DetectTones)(windows_core::Interface::as_raw(self), ptonelist, lnumtones).ok()
@@ -5379,9 +5379,9 @@ impl ITLegacyCallMediaControl2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DetectTonesByCollection<P0>(&self, pdetecttonecollection: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITCollection2>,
+        P0: windows_core::Param<ITCollection2>,
     {
-        (windows_core::Interface::vtable(self).DetectTonesByCollection)(windows_core::Interface::as_raw(self), pdetecttonecollection.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DetectTonesByCollection)(windows_core::Interface::as_raw(self), pdetecttonecollection.param().abi()).ok()
     }
     pub unsafe fn GenerateTone(&self, tonemode: TAPI_TONEMODE, lduration: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GenerateTone)(windows_core::Interface::as_raw(self), tonemode, lduration).ok()
@@ -5392,9 +5392,9 @@ impl ITLegacyCallMediaControl2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GenerateCustomTonesByCollection<P0>(&self, pcustomtonecollection: P0, lduration: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITCollection2>,
+        P0: windows_core::Param<ITCollection2>,
     {
-        (windows_core::Interface::vtable(self).GenerateCustomTonesByCollection)(windows_core::Interface::as_raw(self), pcustomtonecollection.into_param().abi(), lduration).ok()
+        (windows_core::Interface::vtable(self).GenerateCustomTonesByCollection)(windows_core::Interface::as_raw(self), pcustomtonecollection.param().abi(), lduration).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDetectToneObject(&self) -> windows_core::Result<ITDetectTone> {
@@ -5408,10 +5408,10 @@ impl ITLegacyCallMediaControl2 {
     }
     pub unsafe fn GetIDAsVariant<P0>(&self, bstrdeviceclass: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetIDAsVariant)(windows_core::Interface::as_raw(self), bstrdeviceclass.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetIDAsVariant)(windows_core::Interface::as_raw(self), bstrdeviceclass.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5536,22 +5536,22 @@ impl ITMSPAddress {
     }
     pub unsafe fn CreateMSPCall<P0>(&self, hcall: *const i32, dwreserved: u32, dwmediatype: u32, pouterunknown: P0) -> windows_core::Result<windows_core::IUnknown>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateMSPCall)(windows_core::Interface::as_raw(self), hcall, dwreserved, dwmediatype, pouterunknown.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateMSPCall)(windows_core::Interface::as_raw(self), hcall, dwreserved, dwmediatype, pouterunknown.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ShutdownMSPCall<P0>(&self, pstreamcontrol: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).ShutdownMSPCall)(windows_core::Interface::as_raw(self), pstreamcontrol.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ShutdownMSPCall)(windows_core::Interface::as_raw(self), pstreamcontrol.param().abi()).ok()
     }
     pub unsafe fn ReceiveTSPData<P0>(&self, pmspcall: P0, pbuffer: &[u8]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).ReceiveTSPData)(windows_core::Interface::as_raw(self), pmspcall.into_param().abi(), core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).ReceiveTSPData)(windows_core::Interface::as_raw(self), pmspcall.param().abi(), core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetEvent(&self, pdwsize: *mut u32, peventbuffer: *mut u8) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetEvent)(windows_core::Interface::as_raw(self), pdwsize, peventbuffer).ok()
@@ -5604,9 +5604,9 @@ windows_core::imp::interface_hierarchy!(ITMediaPlayback, windows_core::IUnknown,
 impl ITMediaPlayback {
     pub unsafe fn SetPlayList<P0>(&self, playlistvariant: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetPlayList)(windows_core::Interface::as_raw(self), playlistvariant.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetPlayList)(windows_core::Interface::as_raw(self), playlistvariant.param().abi()).ok()
     }
     pub unsafe fn PlayList(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -5628,9 +5628,9 @@ windows_core::imp::interface_hierarchy!(ITMediaRecord, windows_core::IUnknown, s
 impl ITMediaRecord {
     pub unsafe fn SetFileName<P0>(&self, bstrfilename: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetFileName)(windows_core::Interface::as_raw(self), bstrfilename.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetFileName)(windows_core::Interface::as_raw(self), bstrfilename.param().abi()).ok()
     }
     pub unsafe fn FileName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -5696,9 +5696,9 @@ impl ITMultiTrackTerminal {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RemoveTrackTerminal<P0>(&self, ptrackterminaltoremove: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITTerminal>,
+        P0: windows_core::Param<ITTerminal>,
     {
-        (windows_core::Interface::vtable(self).RemoveTrackTerminal)(windows_core::Interface::as_raw(self), ptrackterminaltoremove.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveTrackTerminal)(windows_core::Interface::as_raw(self), ptrackterminaltoremove.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5749,18 +5749,18 @@ impl ITPhone {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Terminals<P0>(&self, paddress: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<ITAddress>,
+        P0: windows_core::Param<ITAddress>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Terminals)(windows_core::Interface::as_raw(self), paddress.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_Terminals)(windows_core::Interface::as_raw(self), paddress.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumerateTerminals<P0>(&self, paddress: P0) -> windows_core::Result<IEnumTerminal>
     where
-        P0: windows_core::IntoParam<ITAddress>,
+        P0: windows_core::Param<ITAddress>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumerateTerminals)(windows_core::Interface::as_raw(self), paddress.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumerateTerminals)(windows_core::Interface::as_raw(self), paddress.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn get_ButtonMode(&self, lbuttonid: i32) -> windows_core::Result<PHONE_BUTTON_MODE> {
         let mut result__ = std::mem::zeroed();
@@ -5782,9 +5782,9 @@ impl ITPhone {
     }
     pub unsafe fn put_ButtonText<P0>(&self, lbuttonid: i32, bstrbuttontext: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).put_ButtonText)(windows_core::Interface::as_raw(self), lbuttonid, bstrbuttontext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).put_ButtonText)(windows_core::Interface::as_raw(self), lbuttonid, bstrbuttontext.param().abi()).ok()
     }
     pub unsafe fn get_ButtonState(&self, lbuttonid: i32) -> windows_core::Result<PHONE_BUTTON_STATE> {
         let mut result__ = std::mem::zeroed();
@@ -5835,9 +5835,9 @@ impl ITPhone {
     }
     pub unsafe fn SetDisplay<P0>(&self, lrow: i32, lcolumn: i32, bstrdisplay: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDisplay)(windows_core::Interface::as_raw(self), lrow, lcolumn, bstrdisplay.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDisplay)(windows_core::Interface::as_raw(self), lrow, lcolumn, bstrdisplay.param().abi()).ok()
     }
     pub unsafe fn PreferredAddresses(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -5852,9 +5852,9 @@ impl ITPhone {
     }
     pub unsafe fn DeviceSpecificVariant<P0>(&self, vardevspecificbytearray: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeviceSpecificVariant)(windows_core::Interface::as_raw(self), vardevspecificbytearray.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeviceSpecificVariant)(windows_core::Interface::as_raw(self), vardevspecificbytearray.param().abi()).ok()
     }
     pub unsafe fn NegotiateExtVersion(&self, llowversion: i32, lhighversion: i32) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -6074,9 +6074,9 @@ windows_core::imp::interface_hierarchy!(ITPluggableTerminalEventSinkRegistration
 impl ITPluggableTerminalEventSinkRegistration {
     pub unsafe fn RegisterSink<P0>(&self, peventsink: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITPluggableTerminalEventSink>,
+        P0: windows_core::Param<ITPluggableTerminalEventSink>,
     {
-        (windows_core::Interface::vtable(self).RegisterSink)(windows_core::Interface::as_raw(self), peventsink.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RegisterSink)(windows_core::Interface::as_raw(self), peventsink.param().abi()).ok()
     }
     pub unsafe fn UnregisterSink(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UnregisterSink)(windows_core::Interface::as_raw(self)).ok()
@@ -6308,18 +6308,18 @@ impl ITRendezvous {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDirectory<P0>(&self, directorytype: DIRECTORY_TYPE, pname: P0) -> windows_core::Result<ITDirectory>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateDirectory)(windows_core::Interface::as_raw(self), directorytype, pname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateDirectory)(windows_core::Interface::as_raw(self), directorytype, pname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDirectoryObject<P0>(&self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: P0) -> windows_core::Result<ITDirectoryObject>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateDirectoryObject)(windows_core::Interface::as_raw(self), directoryobjecttype, pname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateDirectoryObject)(windows_core::Interface::as_raw(self), directoryobjecttype, pname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6345,12 +6345,12 @@ windows_core::imp::interface_hierarchy!(ITRequest, windows_core::IUnknown, super
 impl ITRequest {
     pub unsafe fn MakeCall<P0, P1, P2, P3>(&self, pdestaddress: P0, pappname: P1, pcalledparty: P2, pcomment: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::BSTR>,
-        P3: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::BSTR>,
+        P3: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).MakeCall)(windows_core::Interface::as_raw(self), pdestaddress.into_param().abi(), pappname.into_param().abi(), pcalledparty.into_param().abi(), pcomment.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).MakeCall)(windows_core::Interface::as_raw(self), pdestaddress.param().abi(), pappname.param().abi(), pcalledparty.param().abi(), pcomment.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6514,16 +6514,16 @@ impl ITStream {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SelectTerminal<P0>(&self, pterminal: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITTerminal>,
+        P0: windows_core::Param<ITTerminal>,
     {
-        (windows_core::Interface::vtable(self).SelectTerminal)(windows_core::Interface::as_raw(self), pterminal.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SelectTerminal)(windows_core::Interface::as_raw(self), pterminal.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UnselectTerminal<P0>(&self, pterminal: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITTerminal>,
+        P0: windows_core::Param<ITTerminal>,
     {
-        (windows_core::Interface::vtable(self).UnselectTerminal)(windows_core::Interface::as_raw(self), pterminal.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).UnselectTerminal)(windows_core::Interface::as_raw(self), pterminal.param().abi()).ok()
     }
     pub unsafe fn EnumerateTerminals(&self) -> windows_core::Result<IEnumTerminal> {
         let mut result__ = std::mem::zeroed();
@@ -6569,9 +6569,9 @@ impl ITStreamControl {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RemoveStream<P0>(&self, pstream: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITStream>,
+        P0: windows_core::Param<ITStream>,
     {
-        (windows_core::Interface::vtable(self).RemoveStream)(windows_core::Interface::as_raw(self), pstream.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveStream)(windows_core::Interface::as_raw(self), pstream.param().abi()).ok()
     }
     pub unsafe fn EnumerateStreams(&self) -> windows_core::Result<IEnumStream> {
         let mut result__ = std::mem::zeroed();
@@ -6615,16 +6615,16 @@ impl ITSubStream {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SelectTerminal<P0>(&self, pterminal: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITTerminal>,
+        P0: windows_core::Param<ITTerminal>,
     {
-        (windows_core::Interface::vtable(self).SelectTerminal)(windows_core::Interface::as_raw(self), pterminal.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SelectTerminal)(windows_core::Interface::as_raw(self), pterminal.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UnselectTerminal<P0>(&self, pterminal: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITTerminal>,
+        P0: windows_core::Param<ITTerminal>,
     {
-        (windows_core::Interface::vtable(self).UnselectTerminal)(windows_core::Interface::as_raw(self), pterminal.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).UnselectTerminal)(windows_core::Interface::as_raw(self), pterminal.param().abi()).ok()
     }
     pub unsafe fn EnumerateTerminals(&self) -> windows_core::Result<IEnumTerminal> {
         let mut result__ = std::mem::zeroed();
@@ -6676,9 +6676,9 @@ impl ITSubStreamControl {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RemoveSubStream<P0>(&self, psubstream: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITSubStream>,
+        P0: windows_core::Param<ITSubStream>,
     {
-        (windows_core::Interface::vtable(self).RemoveSubStream)(windows_core::Interface::as_raw(self), psubstream.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveSubStream)(windows_core::Interface::as_raw(self), psubstream.param().abi()).ok()
     }
     pub unsafe fn EnumerateSubStreams(&self) -> windows_core::Result<IEnumSubStream> {
         let mut result__ = std::mem::zeroed();
@@ -6727,12 +6727,12 @@ impl ITTAPI {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RegisterCallNotifications<P0, P1, P2>(&self, paddress: P0, fmonitor: P1, fowner: P2, lmediatypes: i32, lcallbackinstance: i32) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<ITAddress>,
-        P1: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<ITAddress>,
+        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
+        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).RegisterCallNotifications)(windows_core::Interface::as_raw(self), paddress.into_param().abi(), fmonitor.into_param().abi(), fowner.into_param().abi(), lmediatypes, lcallbackinstance, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).RegisterCallNotifications)(windows_core::Interface::as_raw(self), paddress.param().abi(), fmonitor.param().abi(), fowner.param().abi(), lmediatypes, lcallbackinstance, &mut result__).map(|| result__)
     }
     pub unsafe fn UnregisterNotifications(&self, lregister: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UnregisterNotifications)(windows_core::Interface::as_raw(self), lregister).ok()
@@ -6747,10 +6747,10 @@ impl ITTAPI {
     }
     pub unsafe fn SetCallHubTracking<P0, P1>(&self, paddresses: P0, btracking: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetCallHubTracking)(windows_core::Interface::as_raw(self), paddresses.into_param().abi(), btracking.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetCallHubTracking)(windows_core::Interface::as_raw(self), paddresses.param().abi(), btracking.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumeratePrivateTAPIObjects(&self) -> windows_core::Result<super::super::System::Com::IEnumUnknown> {
@@ -6763,23 +6763,23 @@ impl ITTAPI {
     }
     pub unsafe fn RegisterRequestRecipient<P0>(&self, lregistrationinstance: i32, lrequestmode: i32, fenable: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).RegisterRequestRecipient)(windows_core::Interface::as_raw(self), lregistrationinstance, lrequestmode, fenable.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RegisterRequestRecipient)(windows_core::Interface::as_raw(self), lregistrationinstance, lrequestmode, fenable.param().abi()).ok()
     }
     pub unsafe fn SetAssistedTelephonyPriority<P0, P1>(&self, pappfilename: P0, fpriority: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetAssistedTelephonyPriority)(windows_core::Interface::as_raw(self), pappfilename.into_param().abi(), fpriority.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAssistedTelephonyPriority)(windows_core::Interface::as_raw(self), pappfilename.param().abi(), fpriority.param().abi()).ok()
     }
     pub unsafe fn SetApplicationPriority<P0, P1>(&self, pappfilename: P0, lmediatype: i32, fpriority: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetApplicationPriority)(windows_core::Interface::as_raw(self), pappfilename.into_param().abi(), lmediatype, fpriority.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetApplicationPriority)(windows_core::Interface::as_raw(self), pappfilename.param().abi(), lmediatype, fpriority.param().abi()).ok()
     }
     pub unsafe fn SetEventFilter(&self, lfiltermask: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetEventFilter)(windows_core::Interface::as_raw(self), lfiltermask).ok()
@@ -6839,12 +6839,12 @@ impl ITTAPI2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RegisterCallNotifications<P0, P1, P2>(&self, paddress: P0, fmonitor: P1, fowner: P2, lmediatypes: i32, lcallbackinstance: i32) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<ITAddress>,
-        P1: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<ITAddress>,
+        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
+        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RegisterCallNotifications)(windows_core::Interface::as_raw(self), paddress.into_param().abi(), fmonitor.into_param().abi(), fowner.into_param().abi(), lmediatypes, lcallbackinstance, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.RegisterCallNotifications)(windows_core::Interface::as_raw(self), paddress.param().abi(), fmonitor.param().abi(), fowner.param().abi(), lmediatypes, lcallbackinstance, &mut result__).map(|| result__)
     }
     pub unsafe fn UnregisterNotifications(&self, lregister: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.UnregisterNotifications)(windows_core::Interface::as_raw(self), lregister).ok()
@@ -6859,10 +6859,10 @@ impl ITTAPI2 {
     }
     pub unsafe fn SetCallHubTracking<P0, P1>(&self, paddresses: P0, btracking: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.SetCallHubTracking)(windows_core::Interface::as_raw(self), paddresses.into_param().abi(), btracking.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetCallHubTracking)(windows_core::Interface::as_raw(self), paddresses.param().abi(), btracking.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumeratePrivateTAPIObjects(&self) -> windows_core::Result<super::super::System::Com::IEnumUnknown> {
@@ -6875,23 +6875,23 @@ impl ITTAPI2 {
     }
     pub unsafe fn RegisterRequestRecipient<P0>(&self, lregistrationinstance: i32, lrequestmode: i32, fenable: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.RegisterRequestRecipient)(windows_core::Interface::as_raw(self), lregistrationinstance, lrequestmode, fenable.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.RegisterRequestRecipient)(windows_core::Interface::as_raw(self), lregistrationinstance, lrequestmode, fenable.param().abi()).ok()
     }
     pub unsafe fn SetAssistedTelephonyPriority<P0, P1>(&self, pappfilename: P0, fpriority: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.SetAssistedTelephonyPriority)(windows_core::Interface::as_raw(self), pappfilename.into_param().abi(), fpriority.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetAssistedTelephonyPriority)(windows_core::Interface::as_raw(self), pappfilename.param().abi(), fpriority.param().abi()).ok()
     }
     pub unsafe fn SetApplicationPriority<P0, P1>(&self, pappfilename: P0, lmediatype: i32, fpriority: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.SetApplicationPriority)(windows_core::Interface::as_raw(self), pappfilename.into_param().abi(), lmediatype, fpriority.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetApplicationPriority)(windows_core::Interface::as_raw(self), pappfilename.param().abi(), lmediatype, fpriority.param().abi()).ok()
     }
     pub unsafe fn SetEventFilter(&self, lfiltermask: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.SetEventFilter)(windows_core::Interface::as_raw(self), lfiltermask).ok()
@@ -6964,9 +6964,9 @@ impl ITTAPIEventNotification {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Event<P0>(&self, tapievent: TAPI_EVENT, pevent: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::System::Com::IDispatch>,
+        P0: windows_core::Param<super::super::System::Com::IDispatch>,
     {
-        (windows_core::Interface::vtable(self).Event)(windows_core::Interface::as_raw(self), tapievent, pevent.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Event)(windows_core::Interface::as_raw(self), tapievent, pevent.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -7158,10 +7158,10 @@ impl ITTerminalSupport {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTerminal<P0>(&self, pterminalclass: P0, lmediatype: i32, direction: TERMINAL_DIRECTION) -> windows_core::Result<ITTerminal>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateTerminal)(windows_core::Interface::as_raw(self), pterminalclass.into_param().abi(), lmediatype, direction, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateTerminal)(windows_core::Interface::as_raw(self), pterminalclass.param().abi(), lmediatype, direction, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDefaultStaticTerminal(&self, lmediatype: i32, direction: TERMINAL_DIRECTION) -> windows_core::Result<ITTerminal> {
@@ -7211,10 +7211,10 @@ impl ITTerminalSupport2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTerminal<P0>(&self, pterminalclass: P0, lmediatype: i32, direction: TERMINAL_DIRECTION) -> windows_core::Result<ITTerminal>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateTerminal)(windows_core::Interface::as_raw(self), pterminalclass.into_param().abi(), lmediatype, direction, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateTerminal)(windows_core::Interface::as_raw(self), pterminalclass.param().abi(), lmediatype, direction, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDefaultStaticTerminal(&self, lmediatype: i32, direction: TERMINAL_DIRECTION) -> windows_core::Result<ITTerminal> {
@@ -7231,10 +7231,10 @@ impl ITTerminalSupport2 {
     }
     pub unsafe fn get_PluggableTerminalClasses<P0>(&self, bstrterminalsuperclass: P0, lmediatype: i32) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_PluggableTerminalClasses)(windows_core::Interface::as_raw(self), bstrterminalsuperclass.into_param().abi(), lmediatype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_PluggableTerminalClasses)(windows_core::Interface::as_raw(self), bstrterminalsuperclass.param().abi(), lmediatype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumeratePluggableTerminalClasses(&self, iidterminalsuperclass: windows_core::GUID, lmediatype: i32) -> windows_core::Result<IEnumPluggableTerminalClassInfo> {
         let mut result__ = std::mem::zeroed();
@@ -7338,10 +7338,10 @@ impl ITnef {
     #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
     pub unsafe fn OpenTaggedBody<P0>(&self, lpmessage: P0, ulflags: u32) -> windows_core::Result<super::super::System::Com::IStream>
     where
-        P0: windows_core::IntoParam<super::super::System::AddressBook::IMessage>,
+        P0: windows_core::Param<super::super::System::AddressBook::IMessage>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OpenTaggedBody)(windows_core::Interface::as_raw(self), lpmessage.into_param().abi(), ulflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).OpenTaggedBody)(windows_core::Interface::as_raw(self), lpmessage.param().abi(), ulflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
     pub unsafe fn SetProps(&self, ulflags: u32, ulelemid: u32, cvalues: u32, lpprops: *mut super::super::System::AddressBook::SPropValue) -> windows_core::Result<()> {
@@ -7350,9 +7350,9 @@ impl ITnef {
     #[cfg(feature = "Win32_System_AddressBook")]
     pub unsafe fn EncodeRecips<P0>(&self, ulflags: u32, lprecipienttable: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::System::AddressBook::IMAPITable>,
+        P0: windows_core::Param<super::super::System::AddressBook::IMAPITable>,
     {
-        (windows_core::Interface::vtable(self).EncodeRecips)(windows_core::Interface::as_raw(self), ulflags, lprecipienttable.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).EncodeRecips)(windows_core::Interface::as_raw(self), ulflags, lprecipienttable.param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
     pub unsafe fn FinishComponent(&self, ulflags: u32, ulcomponentid: u32, lpcustomproplist: *mut super::super::System::AddressBook::SPropTagArray, lpcustomprops: *mut super::super::System::AddressBook::SPropValue, lpproplist: *mut super::super::System::AddressBook::SPropTagArray, lpproblems: *mut *mut STnefProblemArray) -> windows_core::Result<()> {

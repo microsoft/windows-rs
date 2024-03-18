@@ -4,10 +4,10 @@ impl ICompositionCapabilitiesInteropFactory {
     #[cfg(feature = "UI_Composition")]
     pub unsafe fn GetForWindow<P0>(&self, hwnd: P0) -> windows_core::Result<super::super::super::super::UI::Composition::CompositionCapabilities>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::super::Foundation::HWND>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetForWindow)(windows_core::Interface::as_raw(self), hwnd.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -81,9 +81,9 @@ impl ICompositionDrawingSurfaceInterop2 {
     }
     pub unsafe fn CopySurface<P0>(&self, destinationresource: P0, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: Option<*const super::super::super::Foundation::RECT>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).CopySurface)(windows_core::Interface::as_raw(self), destinationresource.into_param().abi(), destinationoffsetx, destinationoffsety, core::mem::transmute(sourcerectangle.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).CopySurface)(windows_core::Interface::as_raw(self), destinationresource.param().abi(), destinationoffsetx, destinationoffsety, core::mem::transmute(sourcerectangle.unwrap_or(std::ptr::null()))).ok()
     }
 }
 #[repr(C)]
@@ -100,9 +100,9 @@ impl ICompositionGraphicsDeviceInterop {
     }
     pub unsafe fn SetRenderingDevice<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).SetRenderingDevice)(windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetRenderingDevice)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -129,11 +129,11 @@ impl ICompositorDesktopInterop {
     #[cfg(feature = "UI_Composition_Desktop")]
     pub unsafe fn CreateDesktopWindowTarget<P0, P1>(&self, hwndtarget: P0, istopmost: P1) -> windows_core::Result<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::HWND>,
+        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateDesktopWindowTarget)(windows_core::Interface::as_raw(self), hwndtarget.into_param().abi(), istopmost.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateDesktopWindowTarget)(windows_core::Interface::as_raw(self), hwndtarget.param().abi(), istopmost.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnsureOnThread(&self, threadid: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EnsureOnThread)(windows_core::Interface::as_raw(self), threadid).ok()
@@ -154,26 +154,26 @@ impl ICompositorInterop {
     #[cfg(feature = "UI_Composition")]
     pub unsafe fn CreateCompositionSurfaceForHandle<P0>(&self, swapchain: P0) -> windows_core::Result<super::super::super::super::UI::Composition::ICompositionSurface>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
+        P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateCompositionSurfaceForHandle)(windows_core::Interface::as_raw(self), swapchain.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateCompositionSurfaceForHandle)(windows_core::Interface::as_raw(self), swapchain.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "UI_Composition")]
     pub unsafe fn CreateCompositionSurfaceForSwapChain<P0>(&self, swapchain: P0) -> windows_core::Result<super::super::super::super::UI::Composition::ICompositionSurface>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateCompositionSurfaceForSwapChain)(windows_core::Interface::as_raw(self), swapchain.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateCompositionSurfaceForSwapChain)(windows_core::Interface::as_raw(self), swapchain.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "UI_Composition")]
     pub unsafe fn CreateGraphicsDevice<P0>(&self, renderingdevice: P0) -> windows_core::Result<super::super::super::super::UI::Composition::CompositionGraphicsDevice>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateGraphicsDevice)(windows_core::Interface::as_raw(self), renderingdevice.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateGraphicsDevice)(windows_core::Interface::as_raw(self), renderingdevice.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -197,18 +197,18 @@ windows_core::imp::interface_hierarchy!(ICompositorInterop2, windows_core::IUnkn
 impl ICompositorInterop2 {
     pub unsafe fn CheckCompositionTextureSupport<P0>(&self, renderingdevice: P0) -> windows_core::Result<super::super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CheckCompositionTextureSupport)(windows_core::Interface::as_raw(self), renderingdevice.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).CheckCompositionTextureSupport)(windows_core::Interface::as_raw(self), renderingdevice.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "UI_Composition")]
     pub unsafe fn CreateCompositionTexture<P0>(&self, d3dtexture: P0) -> windows_core::Result<super::super::super::super::UI::Composition::ICompositionTexture>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateCompositionTexture)(windows_core::Interface::as_raw(self), d3dtexture.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateCompositionTexture)(windows_core::Interface::as_raw(self), d3dtexture.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]

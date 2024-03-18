@@ -28,10 +28,10 @@ pub unsafe fn WscRegisterForUserNotifications() -> windows_core::Result<()> {
 #[inline]
 pub unsafe fn WscUnRegisterChanges<P0>(hregistrationhandle: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("wscapi.dll" "system" fn WscUnRegisterChanges(hregistrationhandle : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    WscUnRegisterChanges(hregistrationhandle.into_param().abi()).ok()
+    WscUnRegisterChanges(hregistrationhandle.param().abi()).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWSCDefaultProduct, IWSCDefaultProduct_Vtbl, 0x0476d69c_f21a_11e5_9ce9_5e5517507c66);
@@ -41,9 +41,9 @@ windows_core::imp::interface_hierarchy!(IWSCDefaultProduct, windows_core::IUnkno
 impl IWSCDefaultProduct {
     pub unsafe fn SetDefaultProduct<P0>(&self, etype: SECURITY_PRODUCT_TYPE, pguid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDefaultProduct)(windows_core::Interface::as_raw(self), etype, pguid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDefaultProduct)(windows_core::Interface::as_raw(self), etype, pguid.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

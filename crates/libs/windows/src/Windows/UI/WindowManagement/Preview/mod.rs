@@ -22,9 +22,9 @@ windows_core::imp::interface_hierarchy!(WindowManagementPreview, windows_core::I
 impl WindowManagementPreview {
     pub fn SetPreferredMinSize<P0>(window: P0, preferredframeminsize: super::super::super::Foundation::Size) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::AppWindow>,
+        P0: windows_core::Param<super::AppWindow>,
     {
-        Self::IWindowManagementPreviewStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetPreferredMinSize)(windows_core::Interface::as_raw(this), window.into_param().abi(), preferredframeminsize).ok() })
+        Self::IWindowManagementPreviewStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetPreferredMinSize)(windows_core::Interface::as_raw(this), window.param().abi(), preferredframeminsize).ok() })
     }
     #[doc(hidden)]
     pub fn IWindowManagementPreviewStatics<R, F: FnOnce(&IWindowManagementPreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

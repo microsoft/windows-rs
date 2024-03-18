@@ -412,12 +412,12 @@ impl ActivationSignalDetectionConfiguration {
     }
     pub fn AvailabilityChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ActivationSignalDetectionConfiguration, DetectionConfigurationAvailabilityChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ActivationSignalDetectionConfiguration, DetectionConfigurationAvailabilityChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AvailabilityChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AvailabilityChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAvailabilityChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -427,20 +427,20 @@ impl ActivationSignalDetectionConfiguration {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetModelData<P0>(&self, datatype: &windows_core::HSTRING, data: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IInputStream>,
+        P0: windows_core::Param<super::super::Storage::Streams::IInputStream>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetModelData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(datatype), data.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetModelData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(datatype), data.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn SetModelDataAsync<P0>(&self, datatype: &windows_core::HSTRING, data: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IInputStream>,
+        P0: windows_core::Param<super::super::Storage::Streams::IInputStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetModelDataAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(datatype), data.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetModelDataAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(datatype), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetModelDataType(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -508,23 +508,23 @@ impl ActivationSignalDetectionConfiguration {
     #[cfg(feature = "Storage_Streams")]
     pub fn ApplyTrainingData<P0>(&self, trainingdataformat: ActivationSignalDetectionTrainingDataFormat, trainingdata: P0) -> windows_core::Result<DetectionConfigurationTrainingStatus>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IInputStream>,
+        P0: windows_core::Param<super::super::Storage::Streams::IInputStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ApplyTrainingData)(windows_core::Interface::as_raw(this), trainingdataformat, trainingdata.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ApplyTrainingData)(windows_core::Interface::as_raw(this), trainingdataformat, trainingdata.param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn ApplyTrainingDataAsync<P0>(&self, trainingdataformat: ActivationSignalDetectionTrainingDataFormat, trainingdata: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DetectionConfigurationTrainingStatus>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IInputStream>,
+        P0: windows_core::Param<super::super::Storage::Streams::IInputStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ApplyTrainingDataAsync)(windows_core::Interface::as_raw(this), trainingdataformat, trainingdata.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ApplyTrainingDataAsync)(windows_core::Interface::as_raw(this), trainingdataformat, trainingdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ClearTrainingData(&self) -> windows_core::Result<()> {
@@ -541,23 +541,23 @@ impl ActivationSignalDetectionConfiguration {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetModelDataWithResult<P0>(&self, datatype: &windows_core::HSTRING, data: P0) -> windows_core::Result<ActivationSignalDetectionConfigurationSetModelDataResult>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IInputStream>,
+        P0: windows_core::Param<super::super::Storage::Streams::IInputStream>,
     {
         let this = &windows_core::Interface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetModelDataWithResult)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(datatype), data.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SetModelDataWithResult)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(datatype), data.param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn SetModelDataWithResultAsync<P0>(&self, datatype: &windows_core::HSTRING, data: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationSetModelDataResult>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IInputStream>,
+        P0: windows_core::Param<super::super::Storage::Streams::IInputStream>,
     {
         let this = &windows_core::Interface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetModelDataWithResultAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(datatype), data.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetModelDataWithResultAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(datatype), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetEnabledWithResultAsync(&self, value: bool) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationStateChangeResult>> {
@@ -899,12 +899,12 @@ impl ConversationalAgentSession {
     }
     pub fn SessionInterrupted<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSessionInterruptedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSessionInterruptedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SessionInterrupted)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SessionInterrupted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSessionInterrupted(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -913,12 +913,12 @@ impl ConversationalAgentSession {
     }
     pub fn SignalDetected<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSignalDetectedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSignalDetectedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SignalDetected)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SignalDetected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSignalDetected(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -927,12 +927,12 @@ impl ConversationalAgentSession {
     }
     pub fn SystemStateChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSystemStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSystemStateChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemStateChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SystemStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSystemStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1054,23 +1054,23 @@ impl ConversationalAgentSession {
     #[cfg(feature = "Media_Audio")]
     pub fn CreateAudioDeviceInputNodeAsync<P0>(&self, graph: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Media::Audio::AudioDeviceInputNode>>
     where
-        P0: windows_core::IntoParam<super::super::Media::Audio::AudioGraph>,
+        P0: windows_core::Param<super::super::Media::Audio::AudioGraph>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateAudioDeviceInputNodeAsync)(windows_core::Interface::as_raw(this), graph.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateAudioDeviceInputNodeAsync)(windows_core::Interface::as_raw(this), graph.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_Audio")]
     pub fn CreateAudioDeviceInputNode<P0>(&self, graph: P0) -> windows_core::Result<super::super::Media::Audio::AudioDeviceInputNode>
     where
-        P0: windows_core::IntoParam<super::super::Media::Audio::AudioGraph>,
+        P0: windows_core::Param<super::super::Media::Audio::AudioGraph>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateAudioDeviceInputNode)(windows_core::Interface::as_raw(this), graph.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateAudioDeviceInputNode)(windows_core::Interface::as_raw(this), graph.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetAudioCaptureDeviceIdAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
@@ -1280,10 +1280,10 @@ impl ConversationalAgentSignal {
     }
     pub fn SetSignalContext<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSignalContext)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSignalContext)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn SignalStart(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;

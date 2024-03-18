@@ -19,17 +19,17 @@ impl IDirect3DDevice9On12 {
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Direct3D9"))]
     pub unsafe fn UnwrapUnderlyingResource<P0, P1>(&self, presource: P0, pcommandqueue: P1, riid: *const windows_core::GUID, ppvresource12: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::Direct3D9::IDirect3DResource9>,
-        P1: windows_core::IntoParam<super::Direct3D12::ID3D12CommandQueue>,
+        P0: windows_core::Param<super::Direct3D9::IDirect3DResource9>,
+        P1: windows_core::Param<super::Direct3D12::ID3D12CommandQueue>,
     {
-        (windows_core::Interface::vtable(self).UnwrapUnderlyingResource)(windows_core::Interface::as_raw(self), presource.into_param().abi(), pcommandqueue.into_param().abi(), riid, ppvresource12).ok()
+        (windows_core::Interface::vtable(self).UnwrapUnderlyingResource)(windows_core::Interface::as_raw(self), presource.param().abi(), pcommandqueue.param().abi(), riid, ppvresource12).ok()
     }
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Direct3D9"))]
     pub unsafe fn ReturnUnderlyingResource<P0>(&self, presource: P0, numsync: u32, psignalvalues: *mut u64, ppfences: *mut Option<super::Direct3D12::ID3D12Fence>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::Direct3D9::IDirect3DResource9>,
+        P0: windows_core::Param<super::Direct3D9::IDirect3DResource9>,
     {
-        (windows_core::Interface::vtable(self).ReturnUnderlyingResource)(windows_core::Interface::as_raw(self), presource.into_param().abi(), numsync, psignalvalues, core::mem::transmute(ppfences)).ok()
+        (windows_core::Interface::vtable(self).ReturnUnderlyingResource)(windows_core::Interface::as_raw(self), presource.param().abi(), numsync, psignalvalues, core::mem::transmute(ppfences)).ok()
     }
 }
 #[repr(C)]

@@ -3,29 +3,29 @@ pub mod UI;
 #[inline]
 pub unsafe fn AuthzAccessCheck<P0, P1, P2>(flags: AUTHZ_ACCESS_CHECK_FLAGS, hauthzclientcontext: P0, prequest: *const AUTHZ_ACCESS_REQUEST, hauditevent: P1, psecuritydescriptor: P2, optionalsecuritydescriptorarray: Option<&[super::PSECURITY_DESCRIPTOR]>, preply: *mut AUTHZ_ACCESS_REPLY, phaccesscheckresults: Option<*mut AUTHZ_ACCESS_CHECK_RESULTS_HANDLE>) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<AUTHZ_CLIENT_CONTEXT_HANDLE>,
-    P1: windows_core::IntoParam<AUTHZ_AUDIT_EVENT_HANDLE>,
-    P2: windows_core::IntoParam<super::PSECURITY_DESCRIPTOR>,
+    P0: windows_core::Param<AUTHZ_CLIENT_CONTEXT_HANDLE>,
+    P1: windows_core::Param<AUTHZ_AUDIT_EVENT_HANDLE>,
+    P2: windows_core::Param<super::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("authz.dll" "system" fn AuthzAccessCheck(flags : AUTHZ_ACCESS_CHECK_FLAGS, hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, prequest : *const AUTHZ_ACCESS_REQUEST, hauditevent : AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor : super:: PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray : *const super:: PSECURITY_DESCRIPTOR, optionalsecuritydescriptorcount : u32, preply : *mut AUTHZ_ACCESS_REPLY, phaccesscheckresults : *mut AUTHZ_ACCESS_CHECK_RESULTS_HANDLE) -> super::super::Foundation:: BOOL);
-    AuthzAccessCheck(flags, hauthzclientcontext.into_param().abi(), prequest, hauditevent.into_param().abi(), psecuritydescriptor.into_param().abi(), core::mem::transmute(optionalsecuritydescriptorarray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), optionalsecuritydescriptorarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), preply, core::mem::transmute(phaccesscheckresults.unwrap_or(std::ptr::null_mut()))).ok()
+    AuthzAccessCheck(flags, hauthzclientcontext.param().abi(), prequest, hauditevent.param().abi(), psecuritydescriptor.param().abi(), core::mem::transmute(optionalsecuritydescriptorarray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), optionalsecuritydescriptorarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), preply, core::mem::transmute(phaccesscheckresults.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn AuthzAddSidsToContext<P0>(hauthzclientcontext: P0, sids: Option<*const super::SID_AND_ATTRIBUTES>, sidcount: u32, restrictedsids: Option<*const super::SID_AND_ATTRIBUTES>, restrictedsidcount: u32, phnewauthzclientcontext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<AUTHZ_CLIENT_CONTEXT_HANDLE>,
+    P0: windows_core::Param<AUTHZ_CLIENT_CONTEXT_HANDLE>,
 {
     windows_targets::link!("authz.dll" "system" fn AuthzAddSidsToContext(hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, sids : *const super:: SID_AND_ATTRIBUTES, sidcount : u32, restrictedsids : *const super:: SID_AND_ATTRIBUTES, restrictedsidcount : u32, phnewauthzclientcontext : *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> super::super::Foundation:: BOOL);
-    AuthzAddSidsToContext(hauthzclientcontext.into_param().abi(), core::mem::transmute(sids.unwrap_or(std::ptr::null())), sidcount, core::mem::transmute(restrictedsids.unwrap_or(std::ptr::null())), restrictedsidcount, phnewauthzclientcontext).ok()
+    AuthzAddSidsToContext(hauthzclientcontext.param().abi(), core::mem::transmute(sids.unwrap_or(std::ptr::null())), sidcount, core::mem::transmute(restrictedsids.unwrap_or(std::ptr::null())), restrictedsidcount, phnewauthzclientcontext).ok()
 }
 #[inline]
 pub unsafe fn AuthzCachedAccessCheck<P0, P1>(flags: u32, haccesscheckresults: P0, prequest: *const AUTHZ_ACCESS_REQUEST, hauditevent: P1, preply: *mut AUTHZ_ACCESS_REPLY) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<AUTHZ_ACCESS_CHECK_RESULTS_HANDLE>,
-    P1: windows_core::IntoParam<AUTHZ_AUDIT_EVENT_HANDLE>,
+    P0: windows_core::Param<AUTHZ_ACCESS_CHECK_RESULTS_HANDLE>,
+    P1: windows_core::Param<AUTHZ_AUDIT_EVENT_HANDLE>,
 {
     windows_targets::link!("authz.dll" "system" fn AuthzCachedAccessCheck(flags : u32, haccesscheckresults : AUTHZ_ACCESS_CHECK_RESULTS_HANDLE, prequest : *const AUTHZ_ACCESS_REQUEST, hauditevent : AUTHZ_AUDIT_EVENT_HANDLE, preply : *mut AUTHZ_ACCESS_REPLY) -> super::super::Foundation:: BOOL);
-    AuthzCachedAccessCheck(flags, haccesscheckresults.into_param().abi(), prequest, hauditevent.into_param().abi(), preply).ok()
+    AuthzCachedAccessCheck(flags, haccesscheckresults.param().abi(), prequest, hauditevent.param().abi(), preply).ok()
 }
 #[inline]
 pub unsafe fn AuthzEnumerateSecurityEventSources(dwflags: u32, buffer: *mut AUTHZ_SOURCE_SCHEMA_REGISTRATION, pdwcount: *mut u32, pdwlength: *mut u32) -> windows_core::Result<()> {
@@ -35,19 +35,19 @@ pub unsafe fn AuthzEnumerateSecurityEventSources(dwflags: u32, buffer: *mut AUTH
 #[inline]
 pub unsafe fn AuthzEvaluateSacl<P0, P1>(authzclientcontext: P0, prequest: *const AUTHZ_ACCESS_REQUEST, sacl: *const super::ACL, grantedaccess: u32, accessgranted: P1, pbgenerateaudit: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<AUTHZ_CLIENT_CONTEXT_HANDLE>,
-    P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<AUTHZ_CLIENT_CONTEXT_HANDLE>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("authz.dll" "system" fn AuthzEvaluateSacl(authzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, prequest : *const AUTHZ_ACCESS_REQUEST, sacl : *const super:: ACL, grantedaccess : u32, accessgranted : super::super::Foundation:: BOOL, pbgenerateaudit : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    AuthzEvaluateSacl(authzclientcontext.into_param().abi(), prequest, sacl, grantedaccess, accessgranted.into_param().abi(), pbgenerateaudit)
+    AuthzEvaluateSacl(authzclientcontext.param().abi(), prequest, sacl, grantedaccess, accessgranted.param().abi(), pbgenerateaudit)
 }
 #[inline]
 pub unsafe fn AuthzFreeAuditEvent<P0>(hauditevent: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<AUTHZ_AUDIT_EVENT_HANDLE>,
+    P0: windows_core::Param<AUTHZ_AUDIT_EVENT_HANDLE>,
 {
     windows_targets::link!("authz.dll" "system" fn AuthzFreeAuditEvent(hauditevent : AUTHZ_AUDIT_EVENT_HANDLE) -> super::super::Foundation:: BOOL);
-    AuthzFreeAuditEvent(hauditevent.into_param().abi()).ok()
+    AuthzFreeAuditEvent(hauditevent.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn AuthzFreeCentralAccessPolicyCache() -> windows_core::Result<()> {
@@ -57,94 +57,94 @@ pub unsafe fn AuthzFreeCentralAccessPolicyCache() -> windows_core::Result<()> {
 #[inline]
 pub unsafe fn AuthzFreeContext<P0>(hauthzclientcontext: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<AUTHZ_CLIENT_CONTEXT_HANDLE>,
+    P0: windows_core::Param<AUTHZ_CLIENT_CONTEXT_HANDLE>,
 {
     windows_targets::link!("authz.dll" "system" fn AuthzFreeContext(hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE) -> super::super::Foundation:: BOOL);
-    AuthzFreeContext(hauthzclientcontext.into_param().abi()).ok()
+    AuthzFreeContext(hauthzclientcontext.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn AuthzFreeHandle<P0>(haccesscheckresults: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<AUTHZ_ACCESS_CHECK_RESULTS_HANDLE>,
+    P0: windows_core::Param<AUTHZ_ACCESS_CHECK_RESULTS_HANDLE>,
 {
     windows_targets::link!("authz.dll" "system" fn AuthzFreeHandle(haccesscheckresults : AUTHZ_ACCESS_CHECK_RESULTS_HANDLE) -> super::super::Foundation:: BOOL);
-    AuthzFreeHandle(haccesscheckresults.into_param().abi()).ok()
+    AuthzFreeHandle(haccesscheckresults.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn AuthzFreeResourceManager<P0>(hauthzresourcemanager: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<AUTHZ_RESOURCE_MANAGER_HANDLE>,
+    P0: windows_core::Param<AUTHZ_RESOURCE_MANAGER_HANDLE>,
 {
     windows_targets::link!("authz.dll" "system" fn AuthzFreeResourceManager(hauthzresourcemanager : AUTHZ_RESOURCE_MANAGER_HANDLE) -> super::super::Foundation:: BOOL);
-    AuthzFreeResourceManager(hauthzresourcemanager.into_param().abi()).ok()
+    AuthzFreeResourceManager(hauthzresourcemanager.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn AuthzGetInformationFromContext<P0>(hauthzclientcontext: P0, infoclass: AUTHZ_CONTEXT_INFORMATION_CLASS, buffersize: u32, psizerequired: *mut u32, buffer: *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<AUTHZ_CLIENT_CONTEXT_HANDLE>,
+    P0: windows_core::Param<AUTHZ_CLIENT_CONTEXT_HANDLE>,
 {
     windows_targets::link!("authz.dll" "system" fn AuthzGetInformationFromContext(hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, infoclass : AUTHZ_CONTEXT_INFORMATION_CLASS, buffersize : u32, psizerequired : *mut u32, buffer : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    AuthzGetInformationFromContext(hauthzclientcontext.into_param().abi(), infoclass, buffersize, psizerequired, buffer).ok()
+    AuthzGetInformationFromContext(hauthzclientcontext.param().abi(), infoclass, buffersize, psizerequired, buffer).ok()
 }
 #[inline]
 pub unsafe fn AuthzInitializeCompoundContext<P0, P1>(usercontext: P0, devicecontext: P1, phcompoundcontext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<AUTHZ_CLIENT_CONTEXT_HANDLE>,
-    P1: windows_core::IntoParam<AUTHZ_CLIENT_CONTEXT_HANDLE>,
+    P0: windows_core::Param<AUTHZ_CLIENT_CONTEXT_HANDLE>,
+    P1: windows_core::Param<AUTHZ_CLIENT_CONTEXT_HANDLE>,
 {
     windows_targets::link!("authz.dll" "system" fn AuthzInitializeCompoundContext(usercontext : AUTHZ_CLIENT_CONTEXT_HANDLE, devicecontext : AUTHZ_CLIENT_CONTEXT_HANDLE, phcompoundcontext : *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> super::super::Foundation:: BOOL);
-    AuthzInitializeCompoundContext(usercontext.into_param().abi(), devicecontext.into_param().abi(), phcompoundcontext).ok()
+    AuthzInitializeCompoundContext(usercontext.param().abi(), devicecontext.param().abi(), phcompoundcontext).ok()
 }
 #[inline]
 pub unsafe fn AuthzInitializeContextFromAuthzContext<P0>(flags: u32, hauthzclientcontext: P0, pexpirationtime: Option<*const i64>, identifier: super::super::Foundation::LUID, dynamicgroupargs: *const core::ffi::c_void, phnewauthzclientcontext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<AUTHZ_CLIENT_CONTEXT_HANDLE>,
+    P0: windows_core::Param<AUTHZ_CLIENT_CONTEXT_HANDLE>,
 {
     windows_targets::link!("authz.dll" "system" fn AuthzInitializeContextFromAuthzContext(flags : u32, hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, pexpirationtime : *const i64, identifier : super::super::Foundation:: LUID, dynamicgroupargs : *const core::ffi::c_void, phnewauthzclientcontext : *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> super::super::Foundation:: BOOL);
-    AuthzInitializeContextFromAuthzContext(flags, hauthzclientcontext.into_param().abi(), core::mem::transmute(pexpirationtime.unwrap_or(std::ptr::null())), core::mem::transmute(identifier), dynamicgroupargs, phnewauthzclientcontext).ok()
+    AuthzInitializeContextFromAuthzContext(flags, hauthzclientcontext.param().abi(), core::mem::transmute(pexpirationtime.unwrap_or(std::ptr::null())), core::mem::transmute(identifier), dynamicgroupargs, phnewauthzclientcontext).ok()
 }
 #[inline]
 pub unsafe fn AuthzInitializeContextFromSid<P0, P1>(flags: u32, usersid: P0, hauthzresourcemanager: P1, pexpirationtime: Option<*const i64>, identifier: super::super::Foundation::LUID, dynamicgroupargs: Option<*const core::ffi::c_void>, phauthzclientcontext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::PSID>,
-    P1: windows_core::IntoParam<AUTHZ_RESOURCE_MANAGER_HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::PSID>,
+    P1: windows_core::Param<AUTHZ_RESOURCE_MANAGER_HANDLE>,
 {
     windows_targets::link!("authz.dll" "system" fn AuthzInitializeContextFromSid(flags : u32, usersid : super::super::Foundation:: PSID, hauthzresourcemanager : AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime : *const i64, identifier : super::super::Foundation:: LUID, dynamicgroupargs : *const core::ffi::c_void, phauthzclientcontext : *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> super::super::Foundation:: BOOL);
-    AuthzInitializeContextFromSid(flags, usersid.into_param().abi(), hauthzresourcemanager.into_param().abi(), core::mem::transmute(pexpirationtime.unwrap_or(std::ptr::null())), core::mem::transmute(identifier), core::mem::transmute(dynamicgroupargs.unwrap_or(std::ptr::null())), phauthzclientcontext).ok()
+    AuthzInitializeContextFromSid(flags, usersid.param().abi(), hauthzresourcemanager.param().abi(), core::mem::transmute(pexpirationtime.unwrap_or(std::ptr::null())), core::mem::transmute(identifier), core::mem::transmute(dynamicgroupargs.unwrap_or(std::ptr::null())), phauthzclientcontext).ok()
 }
 #[inline]
 pub unsafe fn AuthzInitializeContextFromToken<P0, P1>(flags: u32, tokenhandle: P0, hauthzresourcemanager: P1, pexpirationtime: Option<*const i64>, identifier: super::super::Foundation::LUID, dynamicgroupargs: Option<*const core::ffi::c_void>, phauthzclientcontext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: windows_core::IntoParam<AUTHZ_RESOURCE_MANAGER_HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<AUTHZ_RESOURCE_MANAGER_HANDLE>,
 {
     windows_targets::link!("authz.dll" "system" fn AuthzInitializeContextFromToken(flags : u32, tokenhandle : super::super::Foundation:: HANDLE, hauthzresourcemanager : AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime : *const i64, identifier : super::super::Foundation:: LUID, dynamicgroupargs : *const core::ffi::c_void, phauthzclientcontext : *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> super::super::Foundation:: BOOL);
-    AuthzInitializeContextFromToken(flags, tokenhandle.into_param().abi(), hauthzresourcemanager.into_param().abi(), core::mem::transmute(pexpirationtime.unwrap_or(std::ptr::null())), core::mem::transmute(identifier), core::mem::transmute(dynamicgroupargs.unwrap_or(std::ptr::null())), phauthzclientcontext).ok()
+    AuthzInitializeContextFromToken(flags, tokenhandle.param().abi(), hauthzresourcemanager.param().abi(), core::mem::transmute(pexpirationtime.unwrap_or(std::ptr::null())), core::mem::transmute(identifier), core::mem::transmute(dynamicgroupargs.unwrap_or(std::ptr::null())), phauthzclientcontext).ok()
 }
 #[inline]
 pub unsafe fn AuthzInitializeObjectAccessAuditEvent<P0, P1, P2, P3, P4>(flags: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS, hauditeventtype: P0, szoperationtype: P1, szobjecttype: P2, szobjectname: P3, szadditionalinfo: P4, phauditevent: *mut AUTHZ_AUDIT_EVENT_HANDLE, dwadditionalparametercount: u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<AUTHZ_AUDIT_EVENT_TYPE_HANDLE>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
-    P2: windows_core::IntoParam<windows_core::PCWSTR>,
-    P3: windows_core::IntoParam<windows_core::PCWSTR>,
-    P4: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<AUTHZ_AUDIT_EVENT_TYPE_HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
+    P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("authz.dll" "cdecl" fn AuthzInitializeObjectAccessAuditEvent(flags : AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS, hauditeventtype : AUTHZ_AUDIT_EVENT_TYPE_HANDLE, szoperationtype : windows_core::PCWSTR, szobjecttype : windows_core::PCWSTR, szobjectname : windows_core::PCWSTR, szadditionalinfo : windows_core::PCWSTR, phauditevent : *mut AUTHZ_AUDIT_EVENT_HANDLE, dwadditionalparametercount : u32) -> super::super::Foundation:: BOOL);
-    AuthzInitializeObjectAccessAuditEvent(flags, hauditeventtype.into_param().abi(), szoperationtype.into_param().abi(), szobjecttype.into_param().abi(), szobjectname.into_param().abi(), szadditionalinfo.into_param().abi(), phauditevent, dwadditionalparametercount).ok()
+    AuthzInitializeObjectAccessAuditEvent(flags, hauditeventtype.param().abi(), szoperationtype.param().abi(), szobjecttype.param().abi(), szobjectname.param().abi(), szadditionalinfo.param().abi(), phauditevent, dwadditionalparametercount).ok()
 }
 #[inline]
 pub unsafe fn AuthzInitializeObjectAccessAuditEvent2<P0, P1, P2, P3, P4, P5>(flags: u32, hauditeventtype: P0, szoperationtype: P1, szobjecttype: P2, szobjectname: P3, szadditionalinfo: P4, szadditionalinfo2: P5, phauditevent: *mut AUTHZ_AUDIT_EVENT_HANDLE, dwadditionalparametercount: u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<AUTHZ_AUDIT_EVENT_TYPE_HANDLE>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
-    P2: windows_core::IntoParam<windows_core::PCWSTR>,
-    P3: windows_core::IntoParam<windows_core::PCWSTR>,
-    P4: windows_core::IntoParam<windows_core::PCWSTR>,
-    P5: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<AUTHZ_AUDIT_EVENT_TYPE_HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
+    P4: windows_core::Param<windows_core::PCWSTR>,
+    P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("authz.dll" "cdecl" fn AuthzInitializeObjectAccessAuditEvent2(flags : u32, hauditeventtype : AUTHZ_AUDIT_EVENT_TYPE_HANDLE, szoperationtype : windows_core::PCWSTR, szobjecttype : windows_core::PCWSTR, szobjectname : windows_core::PCWSTR, szadditionalinfo : windows_core::PCWSTR, szadditionalinfo2 : windows_core::PCWSTR, phauditevent : *mut AUTHZ_AUDIT_EVENT_HANDLE, dwadditionalparametercount : u32) -> super::super::Foundation:: BOOL);
-    AuthzInitializeObjectAccessAuditEvent2(flags, hauditeventtype.into_param().abi(), szoperationtype.into_param().abi(), szobjecttype.into_param().abi(), szobjectname.into_param().abi(), szadditionalinfo.into_param().abi(), szadditionalinfo2.into_param().abi(), phauditevent, dwadditionalparametercount).ok()
+    AuthzInitializeObjectAccessAuditEvent2(flags, hauditeventtype.param().abi(), szoperationtype.param().abi(), szobjecttype.param().abi(), szobjectname.param().abi(), szadditionalinfo.param().abi(), szadditionalinfo2.param().abi(), phauditevent, dwadditionalparametercount).ok()
 }
 #[inline]
 pub unsafe fn AuthzInitializeRemoteResourceManager(prpcinitinfo: *const AUTHZ_RPC_INIT_INFO_CLIENT, phauthzresourcemanager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> windows_core::Result<()> {
@@ -154,10 +154,10 @@ pub unsafe fn AuthzInitializeRemoteResourceManager(prpcinitinfo: *const AUTHZ_RP
 #[inline]
 pub unsafe fn AuthzInitializeResourceManager<P0>(flags: u32, pfndynamicaccesscheck: PFN_AUTHZ_DYNAMIC_ACCESS_CHECK, pfncomputedynamicgroups: PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS, pfnfreedynamicgroups: PFN_AUTHZ_FREE_DYNAMIC_GROUPS, szresourcemanagername: P0, phauthzresourcemanager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("authz.dll" "system" fn AuthzInitializeResourceManager(flags : u32, pfndynamicaccesscheck : PFN_AUTHZ_DYNAMIC_ACCESS_CHECK, pfncomputedynamicgroups : PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS, pfnfreedynamicgroups : PFN_AUTHZ_FREE_DYNAMIC_GROUPS, szresourcemanagername : windows_core::PCWSTR, phauthzresourcemanager : *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> super::super::Foundation:: BOOL);
-    AuthzInitializeResourceManager(flags, pfndynamicaccesscheck, pfncomputedynamicgroups, pfnfreedynamicgroups, szresourcemanagername.into_param().abi(), phauthzresourcemanager).ok()
+    AuthzInitializeResourceManager(flags, pfndynamicaccesscheck, pfncomputedynamicgroups, pfnfreedynamicgroups, szresourcemanagername.param().abi(), phauthzresourcemanager).ok()
 }
 #[inline]
 pub unsafe fn AuthzInitializeResourceManagerEx(flags: AUTHZ_RESOURCE_MANAGER_FLAGS, pauthzinitinfo: Option<*const AUTHZ_INIT_INFO>, phauthzresourcemanager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> windows_core::Result<()> {
@@ -172,36 +172,36 @@ pub unsafe fn AuthzInstallSecurityEventSource(dwflags: u32, pregistration: *cons
 #[inline]
 pub unsafe fn AuthzModifyClaims<P0>(hauthzclientcontext: P0, claimclass: AUTHZ_CONTEXT_INFORMATION_CLASS, pclaimoperations: *const AUTHZ_SECURITY_ATTRIBUTE_OPERATION, pclaims: Option<*const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION>) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<AUTHZ_CLIENT_CONTEXT_HANDLE>,
+    P0: windows_core::Param<AUTHZ_CLIENT_CONTEXT_HANDLE>,
 {
     windows_targets::link!("authz.dll" "system" fn AuthzModifyClaims(hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, claimclass : AUTHZ_CONTEXT_INFORMATION_CLASS, pclaimoperations : *const AUTHZ_SECURITY_ATTRIBUTE_OPERATION, pclaims : *const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION) -> super::super::Foundation:: BOOL);
-    AuthzModifyClaims(hauthzclientcontext.into_param().abi(), claimclass, pclaimoperations, core::mem::transmute(pclaims.unwrap_or(std::ptr::null()))).ok()
+    AuthzModifyClaims(hauthzclientcontext.param().abi(), claimclass, pclaimoperations, core::mem::transmute(pclaims.unwrap_or(std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn AuthzModifySecurityAttributes<P0>(hauthzclientcontext: P0, poperations: *const AUTHZ_SECURITY_ATTRIBUTE_OPERATION, pattributes: Option<*const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION>) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<AUTHZ_CLIENT_CONTEXT_HANDLE>,
+    P0: windows_core::Param<AUTHZ_CLIENT_CONTEXT_HANDLE>,
 {
     windows_targets::link!("authz.dll" "system" fn AuthzModifySecurityAttributes(hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, poperations : *const AUTHZ_SECURITY_ATTRIBUTE_OPERATION, pattributes : *const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION) -> super::super::Foundation:: BOOL);
-    AuthzModifySecurityAttributes(hauthzclientcontext.into_param().abi(), poperations, core::mem::transmute(pattributes.unwrap_or(std::ptr::null()))).ok()
+    AuthzModifySecurityAttributes(hauthzclientcontext.param().abi(), poperations, core::mem::transmute(pattributes.unwrap_or(std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn AuthzModifySids<P0>(hauthzclientcontext: P0, sidclass: AUTHZ_CONTEXT_INFORMATION_CLASS, psidoperations: *const AUTHZ_SID_OPERATION, psids: Option<*const super::TOKEN_GROUPS>) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<AUTHZ_CLIENT_CONTEXT_HANDLE>,
+    P0: windows_core::Param<AUTHZ_CLIENT_CONTEXT_HANDLE>,
 {
     windows_targets::link!("authz.dll" "system" fn AuthzModifySids(hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, sidclass : AUTHZ_CONTEXT_INFORMATION_CLASS, psidoperations : *const AUTHZ_SID_OPERATION, psids : *const super:: TOKEN_GROUPS) -> super::super::Foundation:: BOOL);
-    AuthzModifySids(hauthzclientcontext.into_param().abi(), sidclass, psidoperations, core::mem::transmute(psids.unwrap_or(std::ptr::null()))).ok()
+    AuthzModifySids(hauthzclientcontext.param().abi(), sidclass, psidoperations, core::mem::transmute(psids.unwrap_or(std::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn AuthzOpenObjectAudit<P0, P1, P2>(flags: u32, hauthzclientcontext: P0, prequest: *const AUTHZ_ACCESS_REQUEST, hauditevent: P1, psecuritydescriptor: P2, optionalsecuritydescriptorarray: Option<&[super::PSECURITY_DESCRIPTOR]>, preply: *const AUTHZ_ACCESS_REPLY) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<AUTHZ_CLIENT_CONTEXT_HANDLE>,
-    P1: windows_core::IntoParam<AUTHZ_AUDIT_EVENT_HANDLE>,
-    P2: windows_core::IntoParam<super::PSECURITY_DESCRIPTOR>,
+    P0: windows_core::Param<AUTHZ_CLIENT_CONTEXT_HANDLE>,
+    P1: windows_core::Param<AUTHZ_AUDIT_EVENT_HANDLE>,
+    P2: windows_core::Param<super::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("authz.dll" "system" fn AuthzOpenObjectAudit(flags : u32, hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, prequest : *const AUTHZ_ACCESS_REQUEST, hauditevent : AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor : super:: PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray : *const super:: PSECURITY_DESCRIPTOR, optionalsecuritydescriptorcount : u32, preply : *const AUTHZ_ACCESS_REPLY) -> super::super::Foundation:: BOOL);
-    AuthzOpenObjectAudit(flags, hauthzclientcontext.into_param().abi(), prequest, hauditevent.into_param().abi(), psecuritydescriptor.into_param().abi(), core::mem::transmute(optionalsecuritydescriptorarray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), optionalsecuritydescriptorarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), preply).ok()
+    AuthzOpenObjectAudit(flags, hauthzclientcontext.param().abi(), prequest, hauditevent.param().abi(), psecuritydescriptor.param().abi(), core::mem::transmute(optionalsecuritydescriptorarray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), optionalsecuritydescriptorarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), preply).ok()
 }
 #[cfg(feature = "Win32_System_Threading")]
 #[inline]
@@ -212,53 +212,53 @@ pub unsafe fn AuthzRegisterCapChangeNotification(phcapchangesubscription: *mut A
 #[inline]
 pub unsafe fn AuthzRegisterSecurityEventSource<P0>(dwflags: u32, szeventsourcename: P0, pheventprovider: *mut AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("authz.dll" "system" fn AuthzRegisterSecurityEventSource(dwflags : u32, szeventsourcename : windows_core::PCWSTR, pheventprovider : *mut AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE) -> super::super::Foundation:: BOOL);
-    AuthzRegisterSecurityEventSource(dwflags, szeventsourcename.into_param().abi(), pheventprovider).ok()
+    AuthzRegisterSecurityEventSource(dwflags, szeventsourcename.param().abi(), pheventprovider).ok()
 }
 #[inline]
 pub unsafe fn AuthzReportSecurityEvent<P0, P1>(dwflags: u32, heventprovider: P0, dwauditid: u32, pusersid: P1, dwcount: u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE>,
-    P1: windows_core::IntoParam<super::super::Foundation::PSID>,
+    P0: windows_core::Param<AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE>,
+    P1: windows_core::Param<super::super::Foundation::PSID>,
 {
     windows_targets::link!("authz.dll" "cdecl" fn AuthzReportSecurityEvent(dwflags : u32, heventprovider : AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE, dwauditid : u32, pusersid : super::super::Foundation:: PSID, dwcount : u32) -> super::super::Foundation:: BOOL);
-    AuthzReportSecurityEvent(dwflags, heventprovider.into_param().abi(), dwauditid, pusersid.into_param().abi(), dwcount).ok()
+    AuthzReportSecurityEvent(dwflags, heventprovider.param().abi(), dwauditid, pusersid.param().abi(), dwcount).ok()
 }
 #[inline]
 pub unsafe fn AuthzReportSecurityEventFromParams<P0, P1>(dwflags: u32, heventprovider: P0, dwauditid: u32, pusersid: P1, pparams: *const AUDIT_PARAMS) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE>,
-    P1: windows_core::IntoParam<super::super::Foundation::PSID>,
+    P0: windows_core::Param<AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE>,
+    P1: windows_core::Param<super::super::Foundation::PSID>,
 {
     windows_targets::link!("authz.dll" "system" fn AuthzReportSecurityEventFromParams(dwflags : u32, heventprovider : AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE, dwauditid : u32, pusersid : super::super::Foundation:: PSID, pparams : *const AUDIT_PARAMS) -> super::super::Foundation:: BOOL);
-    AuthzReportSecurityEventFromParams(dwflags, heventprovider.into_param().abi(), dwauditid, pusersid.into_param().abi(), pparams).ok()
+    AuthzReportSecurityEventFromParams(dwflags, heventprovider.param().abi(), dwauditid, pusersid.param().abi(), pparams).ok()
 }
 #[inline]
 pub unsafe fn AuthzSetAppContainerInformation<P0, P1>(hauthzclientcontext: P0, pappcontainersid: P1, pcapabilitysids: Option<&[super::SID_AND_ATTRIBUTES]>) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<AUTHZ_CLIENT_CONTEXT_HANDLE>,
-    P1: windows_core::IntoParam<super::super::Foundation::PSID>,
+    P0: windows_core::Param<AUTHZ_CLIENT_CONTEXT_HANDLE>,
+    P1: windows_core::Param<super::super::Foundation::PSID>,
 {
     windows_targets::link!("authz.dll" "system" fn AuthzSetAppContainerInformation(hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, pappcontainersid : super::super::Foundation:: PSID, capabilitycount : u32, pcapabilitysids : *const super:: SID_AND_ATTRIBUTES) -> super::super::Foundation:: BOOL);
-    AuthzSetAppContainerInformation(hauthzclientcontext.into_param().abi(), pappcontainersid.into_param().abi(), pcapabilitysids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcapabilitysids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    AuthzSetAppContainerInformation(hauthzclientcontext.param().abi(), pappcontainersid.param().abi(), pcapabilitysids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcapabilitysids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok()
 }
 #[inline]
 pub unsafe fn AuthzUninstallSecurityEventSource<P0>(dwflags: u32, szeventsourcename: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("authz.dll" "system" fn AuthzUninstallSecurityEventSource(dwflags : u32, szeventsourcename : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
-    AuthzUninstallSecurityEventSource(dwflags, szeventsourcename.into_param().abi()).ok()
+    AuthzUninstallSecurityEventSource(dwflags, szeventsourcename.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn AuthzUnregisterCapChangeNotification<P0>(hcapchangesubscription: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE>,
+    P0: windows_core::Param<AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE>,
 {
     windows_targets::link!("authz.dll" "system" fn AuthzUnregisterCapChangeNotification(hcapchangesubscription : AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE) -> super::super::Foundation:: BOOL);
-    AuthzUnregisterCapChangeNotification(hcapchangesubscription.into_param().abi()).ok()
+    AuthzUnregisterCapChangeNotification(hcapchangesubscription.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn AuthzUnregisterSecurityEventSource(dwflags: u32, pheventprovider: *mut AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE) -> windows_core::Result<()> {
@@ -268,34 +268,34 @@ pub unsafe fn AuthzUnregisterSecurityEventSource(dwflags: u32, pheventprovider: 
 #[inline]
 pub unsafe fn BuildExplicitAccessWithNameA<P0>(pexplicitaccess: *mut EXPLICIT_ACCESS_A, ptrusteename: P0, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: super::ACE_FLAGS)
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn BuildExplicitAccessWithNameA(pexplicitaccess : *mut EXPLICIT_ACCESS_A, ptrusteename : windows_core::PCSTR, accesspermissions : u32, accessmode : ACCESS_MODE, inheritance : super:: ACE_FLAGS));
-    BuildExplicitAccessWithNameA(pexplicitaccess, ptrusteename.into_param().abi(), accesspermissions, accessmode, inheritance)
+    BuildExplicitAccessWithNameA(pexplicitaccess, ptrusteename.param().abi(), accesspermissions, accessmode, inheritance)
 }
 #[inline]
 pub unsafe fn BuildExplicitAccessWithNameW<P0>(pexplicitaccess: *mut EXPLICIT_ACCESS_W, ptrusteename: P0, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: super::ACE_FLAGS)
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn BuildExplicitAccessWithNameW(pexplicitaccess : *mut EXPLICIT_ACCESS_W, ptrusteename : windows_core::PCWSTR, accesspermissions : u32, accessmode : ACCESS_MODE, inheritance : super:: ACE_FLAGS));
-    BuildExplicitAccessWithNameW(pexplicitaccess, ptrusteename.into_param().abi(), accesspermissions, accessmode, inheritance)
+    BuildExplicitAccessWithNameW(pexplicitaccess, ptrusteename.param().abi(), accesspermissions, accessmode, inheritance)
 }
 #[inline]
 pub unsafe fn BuildImpersonateExplicitAccessWithNameA<P0>(pexplicitaccess: *mut EXPLICIT_ACCESS_A, ptrusteename: P0, ptrustee: Option<*const TRUSTEE_A>, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: u32)
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn BuildImpersonateExplicitAccessWithNameA(pexplicitaccess : *mut EXPLICIT_ACCESS_A, ptrusteename : windows_core::PCSTR, ptrustee : *const TRUSTEE_A, accesspermissions : u32, accessmode : ACCESS_MODE, inheritance : u32));
-    BuildImpersonateExplicitAccessWithNameA(pexplicitaccess, ptrusteename.into_param().abi(), core::mem::transmute(ptrustee.unwrap_or(std::ptr::null())), accesspermissions, accessmode, inheritance)
+    BuildImpersonateExplicitAccessWithNameA(pexplicitaccess, ptrusteename.param().abi(), core::mem::transmute(ptrustee.unwrap_or(std::ptr::null())), accesspermissions, accessmode, inheritance)
 }
 #[inline]
 pub unsafe fn BuildImpersonateExplicitAccessWithNameW<P0>(pexplicitaccess: *mut EXPLICIT_ACCESS_W, ptrusteename: P0, ptrustee: Option<*const TRUSTEE_W>, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: u32)
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn BuildImpersonateExplicitAccessWithNameW(pexplicitaccess : *mut EXPLICIT_ACCESS_W, ptrusteename : windows_core::PCWSTR, ptrustee : *const TRUSTEE_W, accesspermissions : u32, accessmode : ACCESS_MODE, inheritance : u32));
-    BuildImpersonateExplicitAccessWithNameW(pexplicitaccess, ptrusteename.into_param().abi(), core::mem::transmute(ptrustee.unwrap_or(std::ptr::null())), accesspermissions, accessmode, inheritance)
+    BuildImpersonateExplicitAccessWithNameW(pexplicitaccess, ptrusteename.param().abi(), core::mem::transmute(ptrustee.unwrap_or(std::ptr::null())), accesspermissions, accessmode, inheritance)
 }
 #[inline]
 pub unsafe fn BuildImpersonateTrusteeA(ptrustee: *mut TRUSTEE_A, pimpersonatetrustee: Option<*const TRUSTEE_A>) {
@@ -310,7 +310,7 @@ pub unsafe fn BuildImpersonateTrusteeW(ptrustee: *mut TRUSTEE_W, pimpersonatetru
 #[inline]
 pub unsafe fn BuildSecurityDescriptorA<P0>(powner: Option<*const TRUSTEE_A>, pgroup: Option<*const TRUSTEE_A>, plistofaccessentries: Option<&[EXPLICIT_ACCESS_A]>, plistofauditentries: Option<&[EXPLICIT_ACCESS_A]>, poldsd: P0, psizenewsd: *mut u32, pnewsd: *mut super::PSECURITY_DESCRIPTOR) -> super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<super::PSECURITY_DESCRIPTOR>,
+    P0: windows_core::Param<super::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn BuildSecurityDescriptorA(powner : *const TRUSTEE_A, pgroup : *const TRUSTEE_A, ccountofaccessentries : u32, plistofaccessentries : *const EXPLICIT_ACCESS_A, ccountofauditentries : u32, plistofauditentries : *const EXPLICIT_ACCESS_A, poldsd : super:: PSECURITY_DESCRIPTOR, psizenewsd : *mut u32, pnewsd : *mut super:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: WIN32_ERROR);
     BuildSecurityDescriptorA(
@@ -320,7 +320,7 @@ where
         core::mem::transmute(plistofaccessentries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         plistofauditentries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(plistofauditentries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-        poldsd.into_param().abi(),
+        poldsd.param().abi(),
         psizenewsd,
         pnewsd,
     )
@@ -328,7 +328,7 @@ where
 #[inline]
 pub unsafe fn BuildSecurityDescriptorW<P0>(powner: Option<*const TRUSTEE_W>, pgroup: Option<*const TRUSTEE_W>, plistofaccessentries: Option<&[EXPLICIT_ACCESS_W]>, plistofauditentries: Option<&[EXPLICIT_ACCESS_W]>, poldsd: P0, psizenewsd: *mut u32, pnewsd: *mut super::PSECURITY_DESCRIPTOR) -> super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<super::PSECURITY_DESCRIPTOR>,
+    P0: windows_core::Param<super::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn BuildSecurityDescriptorW(powner : *const TRUSTEE_W, pgroup : *const TRUSTEE_W, ccountofaccessentries : u32, plistofaccessentries : *const EXPLICIT_ACCESS_W, ccountofauditentries : u32, plistofauditentries : *const EXPLICIT_ACCESS_W, poldsd : super:: PSECURITY_DESCRIPTOR, psizenewsd : *mut u32, pnewsd : *mut super:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: WIN32_ERROR);
     BuildSecurityDescriptorW(
@@ -338,7 +338,7 @@ where
         core::mem::transmute(plistofaccessentries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         plistofauditentries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(plistofauditentries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-        poldsd.into_param().abi(),
+        poldsd.param().abi(),
         psizenewsd,
         pnewsd,
     )
@@ -346,134 +346,134 @@ where
 #[inline]
 pub unsafe fn BuildTrusteeWithNameA<P0>(ptrustee: *mut TRUSTEE_A, pname: P0)
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn BuildTrusteeWithNameA(ptrustee : *mut TRUSTEE_A, pname : windows_core::PCSTR));
-    BuildTrusteeWithNameA(ptrustee, pname.into_param().abi())
+    BuildTrusteeWithNameA(ptrustee, pname.param().abi())
 }
 #[inline]
 pub unsafe fn BuildTrusteeWithNameW<P0>(ptrustee: *mut TRUSTEE_W, pname: P0)
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn BuildTrusteeWithNameW(ptrustee : *mut TRUSTEE_W, pname : windows_core::PCWSTR));
-    BuildTrusteeWithNameW(ptrustee, pname.into_param().abi())
+    BuildTrusteeWithNameW(ptrustee, pname.param().abi())
 }
 #[inline]
 pub unsafe fn BuildTrusteeWithObjectsAndNameA<P0, P1, P2>(ptrustee: *mut TRUSTEE_A, pobjname: Option<*const OBJECTS_AND_NAME_A>, objecttype: SE_OBJECT_TYPE, objecttypename: P0, inheritedobjecttypename: P1, name: P2)
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
-    P1: windows_core::IntoParam<windows_core::PCSTR>,
-    P2: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn BuildTrusteeWithObjectsAndNameA(ptrustee : *mut TRUSTEE_A, pobjname : *const OBJECTS_AND_NAME_A, objecttype : SE_OBJECT_TYPE, objecttypename : windows_core::PCSTR, inheritedobjecttypename : windows_core::PCSTR, name : windows_core::PCSTR));
-    BuildTrusteeWithObjectsAndNameA(ptrustee, core::mem::transmute(pobjname.unwrap_or(std::ptr::null())), objecttype, objecttypename.into_param().abi(), inheritedobjecttypename.into_param().abi(), name.into_param().abi())
+    BuildTrusteeWithObjectsAndNameA(ptrustee, core::mem::transmute(pobjname.unwrap_or(std::ptr::null())), objecttype, objecttypename.param().abi(), inheritedobjecttypename.param().abi(), name.param().abi())
 }
 #[inline]
 pub unsafe fn BuildTrusteeWithObjectsAndNameW<P0, P1, P2>(ptrustee: *mut TRUSTEE_W, pobjname: Option<*const OBJECTS_AND_NAME_W>, objecttype: SE_OBJECT_TYPE, objecttypename: P0, inheritedobjecttypename: P1, name: P2)
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
-    P2: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn BuildTrusteeWithObjectsAndNameW(ptrustee : *mut TRUSTEE_W, pobjname : *const OBJECTS_AND_NAME_W, objecttype : SE_OBJECT_TYPE, objecttypename : windows_core::PCWSTR, inheritedobjecttypename : windows_core::PCWSTR, name : windows_core::PCWSTR));
-    BuildTrusteeWithObjectsAndNameW(ptrustee, core::mem::transmute(pobjname.unwrap_or(std::ptr::null())), objecttype, objecttypename.into_param().abi(), inheritedobjecttypename.into_param().abi(), name.into_param().abi())
+    BuildTrusteeWithObjectsAndNameW(ptrustee, core::mem::transmute(pobjname.unwrap_or(std::ptr::null())), objecttype, objecttypename.param().abi(), inheritedobjecttypename.param().abi(), name.param().abi())
 }
 #[inline]
 pub unsafe fn BuildTrusteeWithObjectsAndSidA<P0>(ptrustee: *mut TRUSTEE_A, pobjsid: Option<*const OBJECTS_AND_SID>, pobjectguid: Option<*const windows_core::GUID>, pinheritedobjectguid: Option<*const windows_core::GUID>, psid: P0)
 where
-    P0: windows_core::IntoParam<super::super::Foundation::PSID>,
+    P0: windows_core::Param<super::super::Foundation::PSID>,
 {
     windows_targets::link!("advapi32.dll" "system" fn BuildTrusteeWithObjectsAndSidA(ptrustee : *mut TRUSTEE_A, pobjsid : *const OBJECTS_AND_SID, pobjectguid : *const windows_core::GUID, pinheritedobjectguid : *const windows_core::GUID, psid : super::super::Foundation:: PSID));
-    BuildTrusteeWithObjectsAndSidA(ptrustee, core::mem::transmute(pobjsid.unwrap_or(std::ptr::null())), core::mem::transmute(pobjectguid.unwrap_or(std::ptr::null())), core::mem::transmute(pinheritedobjectguid.unwrap_or(std::ptr::null())), psid.into_param().abi())
+    BuildTrusteeWithObjectsAndSidA(ptrustee, core::mem::transmute(pobjsid.unwrap_or(std::ptr::null())), core::mem::transmute(pobjectguid.unwrap_or(std::ptr::null())), core::mem::transmute(pinheritedobjectguid.unwrap_or(std::ptr::null())), psid.param().abi())
 }
 #[inline]
 pub unsafe fn BuildTrusteeWithObjectsAndSidW<P0>(ptrustee: *mut TRUSTEE_W, pobjsid: Option<*const OBJECTS_AND_SID>, pobjectguid: Option<*const windows_core::GUID>, pinheritedobjectguid: Option<*const windows_core::GUID>, psid: P0)
 where
-    P0: windows_core::IntoParam<super::super::Foundation::PSID>,
+    P0: windows_core::Param<super::super::Foundation::PSID>,
 {
     windows_targets::link!("advapi32.dll" "system" fn BuildTrusteeWithObjectsAndSidW(ptrustee : *mut TRUSTEE_W, pobjsid : *const OBJECTS_AND_SID, pobjectguid : *const windows_core::GUID, pinheritedobjectguid : *const windows_core::GUID, psid : super::super::Foundation:: PSID));
-    BuildTrusteeWithObjectsAndSidW(ptrustee, core::mem::transmute(pobjsid.unwrap_or(std::ptr::null())), core::mem::transmute(pobjectguid.unwrap_or(std::ptr::null())), core::mem::transmute(pinheritedobjectguid.unwrap_or(std::ptr::null())), psid.into_param().abi())
+    BuildTrusteeWithObjectsAndSidW(ptrustee, core::mem::transmute(pobjsid.unwrap_or(std::ptr::null())), core::mem::transmute(pobjectguid.unwrap_or(std::ptr::null())), core::mem::transmute(pinheritedobjectguid.unwrap_or(std::ptr::null())), psid.param().abi())
 }
 #[inline]
 pub unsafe fn BuildTrusteeWithSidA<P0>(ptrustee: *mut TRUSTEE_A, psid: P0)
 where
-    P0: windows_core::IntoParam<super::super::Foundation::PSID>,
+    P0: windows_core::Param<super::super::Foundation::PSID>,
 {
     windows_targets::link!("advapi32.dll" "system" fn BuildTrusteeWithSidA(ptrustee : *mut TRUSTEE_A, psid : super::super::Foundation:: PSID));
-    BuildTrusteeWithSidA(ptrustee, psid.into_param().abi())
+    BuildTrusteeWithSidA(ptrustee, psid.param().abi())
 }
 #[inline]
 pub unsafe fn BuildTrusteeWithSidW<P0>(ptrustee: *mut TRUSTEE_W, psid: P0)
 where
-    P0: windows_core::IntoParam<super::super::Foundation::PSID>,
+    P0: windows_core::Param<super::super::Foundation::PSID>,
 {
     windows_targets::link!("advapi32.dll" "system" fn BuildTrusteeWithSidW(ptrustee : *mut TRUSTEE_W, psid : super::super::Foundation:: PSID));
-    BuildTrusteeWithSidW(ptrustee, psid.into_param().abi())
+    BuildTrusteeWithSidW(ptrustee, psid.param().abi())
 }
 #[inline]
 pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorA<P0>(securitydescriptor: P0, requestedstringsdrevision: u32, securityinformation: super::OBJECT_SECURITY_INFORMATION, stringsecuritydescriptor: *mut windows_core::PSTR, stringsecuritydescriptorlen: Option<*mut u32>) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::PSECURITY_DESCRIPTOR>,
+    P0: windows_core::Param<super::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor : super:: PSECURITY_DESCRIPTOR, requestedstringsdrevision : u32, securityinformation : super:: OBJECT_SECURITY_INFORMATION, stringsecuritydescriptor : *mut windows_core::PSTR, stringsecuritydescriptorlen : *mut u32) -> super::super::Foundation:: BOOL);
-    ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor.into_param().abi(), requestedstringsdrevision, securityinformation, stringsecuritydescriptor, core::mem::transmute(stringsecuritydescriptorlen.unwrap_or(std::ptr::null_mut()))).ok()
+    ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor.param().abi(), requestedstringsdrevision, securityinformation, stringsecuritydescriptor, core::mem::transmute(stringsecuritydescriptorlen.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorW<P0>(securitydescriptor: P0, requestedstringsdrevision: u32, securityinformation: super::OBJECT_SECURITY_INFORMATION, stringsecuritydescriptor: *mut windows_core::PWSTR, stringsecuritydescriptorlen: Option<*mut u32>) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::PSECURITY_DESCRIPTOR>,
+    P0: windows_core::Param<super::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor : super:: PSECURITY_DESCRIPTOR, requestedstringsdrevision : u32, securityinformation : super:: OBJECT_SECURITY_INFORMATION, stringsecuritydescriptor : *mut windows_core::PWSTR, stringsecuritydescriptorlen : *mut u32) -> super::super::Foundation:: BOOL);
-    ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor.into_param().abi(), requestedstringsdrevision, securityinformation, stringsecuritydescriptor, core::mem::transmute(stringsecuritydescriptorlen.unwrap_or(std::ptr::null_mut()))).ok()
+    ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor.param().abi(), requestedstringsdrevision, securityinformation, stringsecuritydescriptor, core::mem::transmute(stringsecuritydescriptorlen.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn ConvertSidToStringSidA<P0>(sid: P0, stringsid: *mut windows_core::PSTR) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::PSID>,
+    P0: windows_core::Param<super::super::Foundation::PSID>,
 {
     windows_targets::link!("advapi32.dll" "system" fn ConvertSidToStringSidA(sid : super::super::Foundation:: PSID, stringsid : *mut windows_core::PSTR) -> super::super::Foundation:: BOOL);
-    ConvertSidToStringSidA(sid.into_param().abi(), stringsid).ok()
+    ConvertSidToStringSidA(sid.param().abi(), stringsid).ok()
 }
 #[inline]
 pub unsafe fn ConvertSidToStringSidW<P0>(sid: P0, stringsid: *mut windows_core::PWSTR) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::PSID>,
+    P0: windows_core::Param<super::super::Foundation::PSID>,
 {
     windows_targets::link!("advapi32.dll" "system" fn ConvertSidToStringSidW(sid : super::super::Foundation:: PSID, stringsid : *mut windows_core::PWSTR) -> super::super::Foundation:: BOOL);
-    ConvertSidToStringSidW(sid.into_param().abi(), stringsid).ok()
+    ConvertSidToStringSidW(sid.param().abi(), stringsid).ok()
 }
 #[inline]
 pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorA<P0>(stringsecuritydescriptor: P0, stringsdrevision: u32, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR, securitydescriptorsize: Option<*mut u32>) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn ConvertStringSecurityDescriptorToSecurityDescriptorA(stringsecuritydescriptor : windows_core::PCSTR, stringsdrevision : u32, securitydescriptor : *mut super:: PSECURITY_DESCRIPTOR, securitydescriptorsize : *mut u32) -> super::super::Foundation:: BOOL);
-    ConvertStringSecurityDescriptorToSecurityDescriptorA(stringsecuritydescriptor.into_param().abi(), stringsdrevision, securitydescriptor, core::mem::transmute(securitydescriptorsize.unwrap_or(std::ptr::null_mut()))).ok()
+    ConvertStringSecurityDescriptorToSecurityDescriptorA(stringsecuritydescriptor.param().abi(), stringsdrevision, securitydescriptor, core::mem::transmute(securitydescriptorsize.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorW<P0>(stringsecuritydescriptor: P0, stringsdrevision: u32, securitydescriptor: *mut super::PSECURITY_DESCRIPTOR, securitydescriptorsize: Option<*mut u32>) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn ConvertStringSecurityDescriptorToSecurityDescriptorW(stringsecuritydescriptor : windows_core::PCWSTR, stringsdrevision : u32, securitydescriptor : *mut super:: PSECURITY_DESCRIPTOR, securitydescriptorsize : *mut u32) -> super::super::Foundation:: BOOL);
-    ConvertStringSecurityDescriptorToSecurityDescriptorW(stringsecuritydescriptor.into_param().abi(), stringsdrevision, securitydescriptor, core::mem::transmute(securitydescriptorsize.unwrap_or(std::ptr::null_mut()))).ok()
+    ConvertStringSecurityDescriptorToSecurityDescriptorW(stringsecuritydescriptor.param().abi(), stringsdrevision, securitydescriptor, core::mem::transmute(securitydescriptorsize.unwrap_or(std::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn ConvertStringSidToSidA<P0>(stringsid: P0, sid: *mut super::super::Foundation::PSID) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn ConvertStringSidToSidA(stringsid : windows_core::PCSTR, sid : *mut super::super::Foundation:: PSID) -> super::super::Foundation:: BOOL);
-    ConvertStringSidToSidA(stringsid.into_param().abi(), sid).ok()
+    ConvertStringSidToSidA(stringsid.param().abi(), sid).ok()
 }
 #[inline]
 pub unsafe fn ConvertStringSidToSidW<P0>(stringsid: P0, sid: *mut super::super::Foundation::PSID) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn ConvertStringSidToSidW(stringsid : windows_core::PCWSTR, sid : *mut super::super::Foundation:: PSID) -> super::super::Foundation:: BOOL);
-    ConvertStringSidToSidW(stringsid.into_param().abi(), sid).ok()
+    ConvertStringSidToSidW(stringsid.param().abi(), sid).ok()
 }
 #[inline]
 pub unsafe fn FreeInheritedFromArray(pinheritarray: &[INHERITED_FROMW], pfnarray: Option<*const FN_OBJECT_MGR_FUNCTS>) -> super::super::Foundation::WIN32_ERROR {
@@ -513,20 +513,20 @@ pub unsafe fn GetExplicitEntriesFromAclW(pacl: *const super::ACL, pccountofexpli
 #[inline]
 pub unsafe fn GetInheritanceSourceA<P0, P1>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, container: P1, pobjectclassguids: Option<&[*const windows_core::GUID]>, pacl: *const super::ACL, pfnarray: Option<*const FN_OBJECT_MGR_FUNCTS>, pgenericmapping: *const super::GENERIC_MAPPING, pinheritarray: *mut INHERITED_FROMA) -> super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
-    P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("advapi32.dll" "system" fn GetInheritanceSourceA(pobjectname : windows_core::PCSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, container : super::super::Foundation:: BOOL, pobjectclassguids : *const *const windows_core::GUID, guidcount : u32, pacl : *const super:: ACL, pfnarray : *const FN_OBJECT_MGR_FUNCTS, pgenericmapping : *const super:: GENERIC_MAPPING, pinheritarray : *mut INHERITED_FROMA) -> super::super::Foundation:: WIN32_ERROR);
-    GetInheritanceSourceA(pobjectname.into_param().abi(), objecttype, securityinfo, container.into_param().abi(), core::mem::transmute(pobjectclassguids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pobjectclassguids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pacl, core::mem::transmute(pfnarray.unwrap_or(std::ptr::null())), pgenericmapping, pinheritarray)
+    GetInheritanceSourceA(pobjectname.param().abi(), objecttype, securityinfo, container.param().abi(), core::mem::transmute(pobjectclassguids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pobjectclassguids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pacl, core::mem::transmute(pfnarray.unwrap_or(std::ptr::null())), pgenericmapping, pinheritarray)
 }
 #[inline]
 pub unsafe fn GetInheritanceSourceW<P0, P1>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, container: P1, pobjectclassguids: Option<&[*const windows_core::GUID]>, pacl: *const super::ACL, pfnarray: Option<*const FN_OBJECT_MGR_FUNCTS>, pgenericmapping: *const super::GENERIC_MAPPING, pinheritarray: *mut INHERITED_FROMW) -> super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("advapi32.dll" "system" fn GetInheritanceSourceW(pobjectname : windows_core::PCWSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, container : super::super::Foundation:: BOOL, pobjectclassguids : *const *const windows_core::GUID, guidcount : u32, pacl : *const super:: ACL, pfnarray : *const FN_OBJECT_MGR_FUNCTS, pgenericmapping : *const super:: GENERIC_MAPPING, pinheritarray : *mut INHERITED_FROMW) -> super::super::Foundation:: WIN32_ERROR);
-    GetInheritanceSourceW(pobjectname.into_param().abi(), objecttype, securityinfo, container.into_param().abi(), core::mem::transmute(pobjectclassguids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pobjectclassguids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pacl, core::mem::transmute(pfnarray.unwrap_or(std::ptr::null())), pgenericmapping, pinheritarray)
+    GetInheritanceSourceW(pobjectname.param().abi(), objecttype, securityinfo, container.param().abi(), core::mem::transmute(pobjectclassguids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pobjectclassguids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pacl, core::mem::transmute(pfnarray.unwrap_or(std::ptr::null())), pgenericmapping, pinheritarray)
 }
 #[inline]
 pub unsafe fn GetMultipleTrusteeA(ptrustee: Option<*const TRUSTEE_A>) -> *mut TRUSTEE_A {
@@ -551,26 +551,26 @@ pub unsafe fn GetMultipleTrusteeW(ptrustee: Option<*const TRUSTEE_W>) -> *mut TR
 #[inline]
 pub unsafe fn GetNamedSecurityInfoA<P0>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, ppsidowner: Option<*mut super::super::Foundation::PSID>, ppsidgroup: Option<*mut super::super::Foundation::PSID>, ppdacl: Option<*mut *mut super::ACL>, ppsacl: Option<*mut *mut super::ACL>, ppsecuritydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn GetNamedSecurityInfoA(pobjectname : windows_core::PCSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, ppsidowner : *mut super::super::Foundation:: PSID, ppsidgroup : *mut super::super::Foundation:: PSID, ppdacl : *mut *mut super:: ACL, ppsacl : *mut *mut super:: ACL, ppsecuritydescriptor : *mut super:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: WIN32_ERROR);
-    GetNamedSecurityInfoA(pobjectname.into_param().abi(), objecttype, securityinfo, core::mem::transmute(ppsidowner.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppsidgroup.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppdacl.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppsacl.unwrap_or(std::ptr::null_mut())), ppsecuritydescriptor)
+    GetNamedSecurityInfoA(pobjectname.param().abi(), objecttype, securityinfo, core::mem::transmute(ppsidowner.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppsidgroup.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppdacl.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppsacl.unwrap_or(std::ptr::null_mut())), ppsecuritydescriptor)
 }
 #[inline]
 pub unsafe fn GetNamedSecurityInfoW<P0>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, ppsidowner: Option<*mut super::super::Foundation::PSID>, ppsidgroup: Option<*mut super::super::Foundation::PSID>, ppdacl: Option<*mut *mut super::ACL>, ppsacl: Option<*mut *mut super::ACL>, ppsecuritydescriptor: *mut super::PSECURITY_DESCRIPTOR) -> super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn GetNamedSecurityInfoW(pobjectname : windows_core::PCWSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, ppsidowner : *mut super::super::Foundation:: PSID, ppsidgroup : *mut super::super::Foundation:: PSID, ppdacl : *mut *mut super:: ACL, ppsacl : *mut *mut super:: ACL, ppsecuritydescriptor : *mut super:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: WIN32_ERROR);
-    GetNamedSecurityInfoW(pobjectname.into_param().abi(), objecttype, securityinfo, core::mem::transmute(ppsidowner.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppsidgroup.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppdacl.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppsacl.unwrap_or(std::ptr::null_mut())), ppsecuritydescriptor)
+    GetNamedSecurityInfoW(pobjectname.param().abi(), objecttype, securityinfo, core::mem::transmute(ppsidowner.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppsidgroup.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppdacl.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppsacl.unwrap_or(std::ptr::null_mut())), ppsecuritydescriptor)
 }
 #[inline]
 pub unsafe fn GetSecurityInfo<P0>(handle: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, ppsidowner: Option<*mut super::super::Foundation::PSID>, ppsidgroup: Option<*mut super::super::Foundation::PSID>, ppdacl: Option<*mut *mut super::ACL>, ppsacl: Option<*mut *mut super::ACL>, ppsecuritydescriptor: Option<*mut super::PSECURITY_DESCRIPTOR>) -> super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("advapi32.dll" "system" fn GetSecurityInfo(handle : super::super::Foundation:: HANDLE, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, ppsidowner : *mut super::super::Foundation:: PSID, ppsidgroup : *mut super::super::Foundation:: PSID, ppdacl : *mut *mut super:: ACL, ppsacl : *mut *mut super:: ACL, ppsecuritydescriptor : *mut super:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: WIN32_ERROR);
-    GetSecurityInfo(handle.into_param().abi(), objecttype, securityinfo, core::mem::transmute(ppsidowner.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppsidgroup.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppdacl.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppsacl.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppsecuritydescriptor.unwrap_or(std::ptr::null_mut())))
+    GetSecurityInfo(handle.param().abi(), objecttype, securityinfo, core::mem::transmute(ppsidowner.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppsidgroup.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppdacl.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppsacl.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppsecuritydescriptor.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn GetTrusteeFormA(ptrustee: *const TRUSTEE_A) -> TRUSTEE_FORM {
@@ -605,18 +605,18 @@ pub unsafe fn GetTrusteeTypeW(ptrustee: Option<*const TRUSTEE_W>) -> TRUSTEE_TYP
 #[inline]
 pub unsafe fn LookupSecurityDescriptorPartsA<P0>(ppowner: Option<*mut *mut TRUSTEE_A>, ppgroup: Option<*mut *mut TRUSTEE_A>, pccountofaccessentries: Option<*mut u32>, pplistofaccessentries: *mut *mut EXPLICIT_ACCESS_A, pccountofauditentries: Option<*mut u32>, pplistofauditentries: *mut *mut EXPLICIT_ACCESS_A, psd: P0) -> super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<super::PSECURITY_DESCRIPTOR>,
+    P0: windows_core::Param<super::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn LookupSecurityDescriptorPartsA(ppowner : *mut *mut TRUSTEE_A, ppgroup : *mut *mut TRUSTEE_A, pccountofaccessentries : *mut u32, pplistofaccessentries : *mut *mut EXPLICIT_ACCESS_A, pccountofauditentries : *mut u32, pplistofauditentries : *mut *mut EXPLICIT_ACCESS_A, psd : super:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: WIN32_ERROR);
-    LookupSecurityDescriptorPartsA(core::mem::transmute(ppowner.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppgroup.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pccountofaccessentries.unwrap_or(std::ptr::null_mut())), pplistofaccessentries, core::mem::transmute(pccountofauditentries.unwrap_or(std::ptr::null_mut())), pplistofauditentries, psd.into_param().abi())
+    LookupSecurityDescriptorPartsA(core::mem::transmute(ppowner.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppgroup.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pccountofaccessentries.unwrap_or(std::ptr::null_mut())), pplistofaccessentries, core::mem::transmute(pccountofauditentries.unwrap_or(std::ptr::null_mut())), pplistofauditentries, psd.param().abi())
 }
 #[inline]
 pub unsafe fn LookupSecurityDescriptorPartsW<P0>(ppowner: Option<*mut *mut TRUSTEE_W>, ppgroup: Option<*mut *mut TRUSTEE_W>, pccountofaccessentries: Option<*mut u32>, pplistofaccessentries: *mut *mut EXPLICIT_ACCESS_W, pccountofauditentries: Option<*mut u32>, pplistofauditentries: *mut *mut EXPLICIT_ACCESS_W, psd: P0) -> super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<super::PSECURITY_DESCRIPTOR>,
+    P0: windows_core::Param<super::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn LookupSecurityDescriptorPartsW(ppowner : *mut *mut TRUSTEE_W, ppgroup : *mut *mut TRUSTEE_W, pccountofaccessentries : *mut u32, pplistofaccessentries : *mut *mut EXPLICIT_ACCESS_W, pccountofauditentries : *mut u32, pplistofauditentries : *mut *mut EXPLICIT_ACCESS_W, psd : super:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: WIN32_ERROR);
-    LookupSecurityDescriptorPartsW(core::mem::transmute(ppowner.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppgroup.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pccountofaccessentries.unwrap_or(std::ptr::null_mut())), pplistofaccessentries, core::mem::transmute(pccountofauditentries.unwrap_or(std::ptr::null_mut())), pplistofauditentries, psd.into_param().abi())
+    LookupSecurityDescriptorPartsW(core::mem::transmute(ppowner.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppgroup.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pccountofaccessentries.unwrap_or(std::ptr::null_mut())), pplistofaccessentries, core::mem::transmute(pccountofauditentries.unwrap_or(std::ptr::null_mut())), pplistofauditentries, psd.param().abi())
 }
 #[inline]
 pub unsafe fn SetEntriesInAclA(plistofexplicitentries: Option<&[EXPLICIT_ACCESS_A]>, oldacl: Option<*const super::ACL>, newacl: *mut *mut super::ACL) -> super::super::Foundation::WIN32_ERROR {
@@ -631,74 +631,74 @@ pub unsafe fn SetEntriesInAclW(plistofexplicitentries: Option<&[EXPLICIT_ACCESS_
 #[inline]
 pub unsafe fn SetNamedSecurityInfoA<P0, P1, P2>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, psidowner: P1, psidgroup: P2, pdacl: Option<*const super::ACL>, psacl: Option<*const super::ACL>) -> super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
-    P1: windows_core::IntoParam<super::super::Foundation::PSID>,
-    P2: windows_core::IntoParam<super::super::Foundation::PSID>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<super::super::Foundation::PSID>,
+    P2: windows_core::Param<super::super::Foundation::PSID>,
 {
     windows_targets::link!("advapi32.dll" "system" fn SetNamedSecurityInfoA(pobjectname : windows_core::PCSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, psidowner : super::super::Foundation:: PSID, psidgroup : super::super::Foundation:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL) -> super::super::Foundation:: WIN32_ERROR);
-    SetNamedSecurityInfoA(pobjectname.into_param().abi(), objecttype, securityinfo, psidowner.into_param().abi(), psidgroup.into_param().abi(), core::mem::transmute(pdacl.unwrap_or(std::ptr::null())), core::mem::transmute(psacl.unwrap_or(std::ptr::null())))
+    SetNamedSecurityInfoA(pobjectname.param().abi(), objecttype, securityinfo, psidowner.param().abi(), psidgroup.param().abi(), core::mem::transmute(pdacl.unwrap_or(std::ptr::null())), core::mem::transmute(psacl.unwrap_or(std::ptr::null())))
 }
 #[inline]
 pub unsafe fn SetNamedSecurityInfoW<P0, P1, P2>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, psidowner: P1, psidgroup: P2, pdacl: Option<*const super::ACL>, psacl: Option<*const super::ACL>) -> super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<super::super::Foundation::PSID>,
-    P2: windows_core::IntoParam<super::super::Foundation::PSID>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<super::super::Foundation::PSID>,
+    P2: windows_core::Param<super::super::Foundation::PSID>,
 {
     windows_targets::link!("advapi32.dll" "system" fn SetNamedSecurityInfoW(pobjectname : windows_core::PCWSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, psidowner : super::super::Foundation:: PSID, psidgroup : super::super::Foundation:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL) -> super::super::Foundation:: WIN32_ERROR);
-    SetNamedSecurityInfoW(pobjectname.into_param().abi(), objecttype, securityinfo, psidowner.into_param().abi(), psidgroup.into_param().abi(), core::mem::transmute(pdacl.unwrap_or(std::ptr::null())), core::mem::transmute(psacl.unwrap_or(std::ptr::null())))
+    SetNamedSecurityInfoW(pobjectname.param().abi(), objecttype, securityinfo, psidowner.param().abi(), psidgroup.param().abi(), core::mem::transmute(pdacl.unwrap_or(std::ptr::null())), core::mem::transmute(psacl.unwrap_or(std::ptr::null())))
 }
 #[inline]
 pub unsafe fn SetSecurityInfo<P0, P1, P2>(handle: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, psidowner: P1, psidgroup: P2, pdacl: Option<*const super::ACL>, psacl: Option<*const super::ACL>) -> super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: windows_core::IntoParam<super::super::Foundation::PSID>,
-    P2: windows_core::IntoParam<super::super::Foundation::PSID>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::Foundation::PSID>,
+    P2: windows_core::Param<super::super::Foundation::PSID>,
 {
     windows_targets::link!("advapi32.dll" "system" fn SetSecurityInfo(handle : super::super::Foundation:: HANDLE, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, psidowner : super::super::Foundation:: PSID, psidgroup : super::super::Foundation:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL) -> super::super::Foundation:: WIN32_ERROR);
-    SetSecurityInfo(handle.into_param().abi(), objecttype, securityinfo, psidowner.into_param().abi(), psidgroup.into_param().abi(), core::mem::transmute(pdacl.unwrap_or(std::ptr::null())), core::mem::transmute(psacl.unwrap_or(std::ptr::null())))
+    SetSecurityInfo(handle.param().abi(), objecttype, securityinfo, psidowner.param().abi(), psidgroup.param().abi(), core::mem::transmute(pdacl.unwrap_or(std::ptr::null())), core::mem::transmute(psacl.unwrap_or(std::ptr::null())))
 }
 #[inline]
 pub unsafe fn TreeResetNamedSecurityInfoA<P0, P1, P2, P3>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, powner: P1, pgroup: P2, pdacl: Option<*const super::ACL>, psacl: Option<*const super::ACL>, keepexplicit: P3, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: Option<*const core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
-    P1: windows_core::IntoParam<super::super::Foundation::PSID>,
-    P2: windows_core::IntoParam<super::super::Foundation::PSID>,
-    P3: windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<super::super::Foundation::PSID>,
+    P2: windows_core::Param<super::super::Foundation::PSID>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("advapi32.dll" "system" fn TreeResetNamedSecurityInfoA(pobjectname : windows_core::PCSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, powner : super::super::Foundation:: PSID, pgroup : super::super::Foundation:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL, keepexplicit : super::super::Foundation:: BOOL, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *const core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
-    TreeResetNamedSecurityInfoA(pobjectname.into_param().abi(), objecttype, securityinfo, powner.into_param().abi(), pgroup.into_param().abi(), core::mem::transmute(pdacl.unwrap_or(std::ptr::null())), core::mem::transmute(psacl.unwrap_or(std::ptr::null())), keepexplicit.into_param().abi(), fnprogress, progressinvokesetting, core::mem::transmute(args.unwrap_or(std::ptr::null())))
+    TreeResetNamedSecurityInfoA(pobjectname.param().abi(), objecttype, securityinfo, powner.param().abi(), pgroup.param().abi(), core::mem::transmute(pdacl.unwrap_or(std::ptr::null())), core::mem::transmute(psacl.unwrap_or(std::ptr::null())), keepexplicit.param().abi(), fnprogress, progressinvokesetting, core::mem::transmute(args.unwrap_or(std::ptr::null())))
 }
 #[inline]
 pub unsafe fn TreeResetNamedSecurityInfoW<P0, P1, P2, P3>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, powner: P1, pgroup: P2, pdacl: Option<*const super::ACL>, psacl: Option<*const super::ACL>, keepexplicit: P3, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: Option<*const core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<super::super::Foundation::PSID>,
-    P2: windows_core::IntoParam<super::super::Foundation::PSID>,
-    P3: windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<super::super::Foundation::PSID>,
+    P2: windows_core::Param<super::super::Foundation::PSID>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("advapi32.dll" "system" fn TreeResetNamedSecurityInfoW(pobjectname : windows_core::PCWSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, powner : super::super::Foundation:: PSID, pgroup : super::super::Foundation:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL, keepexplicit : super::super::Foundation:: BOOL, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *const core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
-    TreeResetNamedSecurityInfoW(pobjectname.into_param().abi(), objecttype, securityinfo, powner.into_param().abi(), pgroup.into_param().abi(), core::mem::transmute(pdacl.unwrap_or(std::ptr::null())), core::mem::transmute(psacl.unwrap_or(std::ptr::null())), keepexplicit.into_param().abi(), fnprogress, progressinvokesetting, core::mem::transmute(args.unwrap_or(std::ptr::null())))
+    TreeResetNamedSecurityInfoW(pobjectname.param().abi(), objecttype, securityinfo, powner.param().abi(), pgroup.param().abi(), core::mem::transmute(pdacl.unwrap_or(std::ptr::null())), core::mem::transmute(psacl.unwrap_or(std::ptr::null())), keepexplicit.param().abi(), fnprogress, progressinvokesetting, core::mem::transmute(args.unwrap_or(std::ptr::null())))
 }
 #[inline]
 pub unsafe fn TreeSetNamedSecurityInfoA<P0, P1, P2>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, powner: P1, pgroup: P2, pdacl: Option<*const super::ACL>, psacl: Option<*const super::ACL>, dwaction: TREE_SEC_INFO, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: Option<*const core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
-    P1: windows_core::IntoParam<super::super::Foundation::PSID>,
-    P2: windows_core::IntoParam<super::super::Foundation::PSID>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<super::super::Foundation::PSID>,
+    P2: windows_core::Param<super::super::Foundation::PSID>,
 {
     windows_targets::link!("advapi32.dll" "system" fn TreeSetNamedSecurityInfoA(pobjectname : windows_core::PCSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, powner : super::super::Foundation:: PSID, pgroup : super::super::Foundation:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL, dwaction : TREE_SEC_INFO, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *const core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
-    TreeSetNamedSecurityInfoA(pobjectname.into_param().abi(), objecttype, securityinfo, powner.into_param().abi(), pgroup.into_param().abi(), core::mem::transmute(pdacl.unwrap_or(std::ptr::null())), core::mem::transmute(psacl.unwrap_or(std::ptr::null())), dwaction, fnprogress, progressinvokesetting, core::mem::transmute(args.unwrap_or(std::ptr::null())))
+    TreeSetNamedSecurityInfoA(pobjectname.param().abi(), objecttype, securityinfo, powner.param().abi(), pgroup.param().abi(), core::mem::transmute(pdacl.unwrap_or(std::ptr::null())), core::mem::transmute(psacl.unwrap_or(std::ptr::null())), dwaction, fnprogress, progressinvokesetting, core::mem::transmute(args.unwrap_or(std::ptr::null())))
 }
 #[inline]
 pub unsafe fn TreeSetNamedSecurityInfoW<P0, P1, P2>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, powner: P1, pgroup: P2, pdacl: Option<*const super::ACL>, psacl: Option<*const super::ACL>, dwaction: TREE_SEC_INFO, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: Option<*const core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<super::super::Foundation::PSID>,
-    P2: windows_core::IntoParam<super::super::Foundation::PSID>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<super::super::Foundation::PSID>,
+    P2: windows_core::Param<super::super::Foundation::PSID>,
 {
     windows_targets::link!("advapi32.dll" "system" fn TreeSetNamedSecurityInfoW(pobjectname : windows_core::PCWSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, powner : super::super::Foundation:: PSID, pgroup : super::super::Foundation:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL, dwaction : TREE_SEC_INFO, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *const core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
-    TreeSetNamedSecurityInfoW(pobjectname.into_param().abi(), objecttype, securityinfo, powner.into_param().abi(), pgroup.into_param().abi(), core::mem::transmute(pdacl.unwrap_or(std::ptr::null())), core::mem::transmute(psacl.unwrap_or(std::ptr::null())), dwaction, fnprogress, progressinvokesetting, core::mem::transmute(args.unwrap_or(std::ptr::null())))
+    TreeSetNamedSecurityInfoW(pobjectname.param().abi(), objecttype, securityinfo, powner.param().abi(), pgroup.param().abi(), core::mem::transmute(pdacl.unwrap_or(std::ptr::null())), core::mem::transmute(psacl.unwrap_or(std::ptr::null())), dwaction, fnprogress, progressinvokesetting, core::mem::transmute(args.unwrap_or(std::ptr::null())))
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAzApplication, IAzApplication_Vtbl, 0x987bc7c7_b813_4d27_bede_6ba5ae867e95);
@@ -712,9 +712,9 @@ impl IAzApplication {
     }
     pub unsafe fn SetName<P0>(&self, bstrname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), bstrname.param().abi()).ok()
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -722,9 +722,9 @@ impl IAzApplication {
     }
     pub unsafe fn SetDescription<P0>(&self, bstrdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.param().abi()).ok()
     }
     pub unsafe fn ApplicationData(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -732,9 +732,9 @@ impl IAzApplication {
     }
     pub unsafe fn SetApplicationData<P0>(&self, bstrapplicationdata: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.param().abi()).ok()
     }
     pub unsafe fn AuthzInterfaceClsid(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -742,9 +742,9 @@ impl IAzApplication {
     }
     pub unsafe fn SetAuthzInterfaceClsid<P0>(&self, bstrprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetAuthzInterfaceClsid)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAuthzInterfaceClsid)(windows_core::Interface::as_raw(self), bstrprop.param().abi()).ok()
     }
     pub unsafe fn Version(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -752,9 +752,9 @@ impl IAzApplication {
     }
     pub unsafe fn SetVersion<P0>(&self, bstrprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetVersion)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetVersion)(windows_core::Interface::as_raw(self), bstrprop.param().abi()).ok()
     }
     pub unsafe fn GenerateAudits(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -762,9 +762,9 @@ impl IAzApplication {
     }
     pub unsafe fn SetGenerateAudits<P0>(&self, bprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetGenerateAudits)(windows_core::Interface::as_raw(self), bprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetGenerateAudits)(windows_core::Interface::as_raw(self), bprop.param().abi()).ok()
     }
     pub unsafe fn ApplyStoreSacl(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -772,9 +772,9 @@ impl IAzApplication {
     }
     pub unsafe fn SetApplyStoreSacl<P0>(&self, bprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetApplyStoreSacl)(windows_core::Interface::as_raw(self), bprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetApplyStoreSacl)(windows_core::Interface::as_raw(self), bprop.param().abi()).ok()
     }
     pub unsafe fn Writable(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -782,17 +782,17 @@ impl IAzApplication {
     }
     pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn PolicyAdministrators(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -804,31 +804,31 @@ impl IAzApplication {
     }
     pub unsafe fn AddPolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddPolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddPolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeletePolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeletePolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddPolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddPolicyReader)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddPolicyReader)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeletePolicyReader)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeletePolicyReader)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Scopes(&self) -> windows_core::Result<IAzScopes> {
@@ -838,27 +838,27 @@ impl IAzApplication {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenScope<P0, P1>(&self, bstrscopename: P0, varreserved: P1) -> windows_core::Result<IAzScope>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OpenScope)(windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).OpenScope)(windows_core::Interface::as_raw(self), bstrscopename.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateScope<P0, P1>(&self, bstrscopename: P0, varreserved: P1) -> windows_core::Result<IAzScope>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateScope)(windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateScope)(windows_core::Interface::as_raw(self), bstrscopename.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteScope<P0, P1>(&self, bstrscopename: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeleteScope)(windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteScope)(windows_core::Interface::as_raw(self), bstrscopename.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Operations(&self) -> windows_core::Result<IAzOperations> {
@@ -868,27 +868,27 @@ impl IAzApplication {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenOperation<P0, P1>(&self, bstroperationname: P0, varreserved: P1) -> windows_core::Result<IAzOperation>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OpenOperation)(windows_core::Interface::as_raw(self), bstroperationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).OpenOperation)(windows_core::Interface::as_raw(self), bstroperationname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateOperation<P0, P1>(&self, bstroperationname: P0, varreserved: P1) -> windows_core::Result<IAzOperation>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateOperation)(windows_core::Interface::as_raw(self), bstroperationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateOperation)(windows_core::Interface::as_raw(self), bstroperationname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteOperation<P0, P1>(&self, bstroperationname: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeleteOperation)(windows_core::Interface::as_raw(self), bstroperationname.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteOperation)(windows_core::Interface::as_raw(self), bstroperationname.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Tasks(&self) -> windows_core::Result<IAzTasks> {
@@ -898,27 +898,27 @@ impl IAzApplication {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> windows_core::Result<IAzTask>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OpenTask)(windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).OpenTask)(windows_core::Interface::as_raw(self), bstrtaskname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> windows_core::Result<IAzTask>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateTask)(windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateTask)(windows_core::Interface::as_raw(self), bstrtaskname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeleteTask)(windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteTask)(windows_core::Interface::as_raw(self), bstrtaskname.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ApplicationGroups(&self) -> windows_core::Result<IAzApplicationGroups> {
@@ -928,27 +928,27 @@ impl IAzApplication {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> windows_core::Result<IAzApplicationGroup>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OpenApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).OpenApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> windows_core::Result<IAzApplicationGroup>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeleteApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Roles(&self) -> windows_core::Result<IAzRoles> {
@@ -958,65 +958,65 @@ impl IAzApplication {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> windows_core::Result<IAzRole>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OpenRole)(windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).OpenRole)(windows_core::Interface::as_raw(self), bstrrolename.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> windows_core::Result<IAzRole>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateRole)(windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateRole)(windows_core::Interface::as_raw(self), bstrrolename.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeleteRole)(windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteRole)(windows_core::Interface::as_raw(self), bstrrolename.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeClientContextFromToken<P0>(&self, ulltokenhandle: u64, varreserved: P0) -> windows_core::Result<IAzClientContext>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).InitializeClientContextFromToken)(windows_core::Interface::as_raw(self), ulltokenhandle, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).InitializeClientContextFromToken)(windows_core::Interface::as_raw(self), ulltokenhandle, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeClientContextFromName<P0, P1, P2>(&self, clientname: P0, domainname: P1, varreserved: P2) -> windows_core::Result<IAzClientContext>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).InitializeClientContextFromName)(windows_core::Interface::as_raw(self), clientname.into_param().abi(), domainname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).InitializeClientContextFromName)(windows_core::Interface::as_raw(self), clientname.param().abi(), domainname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DelegatedPolicyUsers(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -1024,26 +1024,26 @@ impl IAzApplication {
     }
     pub unsafe fn AddDelegatedPolicyUser<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddDelegatedPolicyUser)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddDelegatedPolicyUser)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteDelegatedPolicyUser<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeleteDelegatedPolicyUser)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteDelegatedPolicyUser)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeClientContextFromStringSid<P0, P1>(&self, sidstring: P0, loptions: i32, varreserved: P1) -> windows_core::Result<IAzClientContext>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).InitializeClientContextFromStringSid)(windows_core::Interface::as_raw(self), sidstring.into_param().abi(), loptions, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).InitializeClientContextFromStringSid)(windows_core::Interface::as_raw(self), sidstring.param().abi(), loptions, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn PolicyAdministratorsName(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -1055,31 +1055,31 @@ impl IAzApplication {
     }
     pub unsafe fn AddPolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddPolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddPolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeletePolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeletePolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddPolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddPolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddPolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeletePolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeletePolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DelegatedPolicyUsersName(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -1087,17 +1087,17 @@ impl IAzApplication {
     }
     pub unsafe fn AddDelegatedPolicyUserName<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteDelegatedPolicyUserName<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeleteDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.param().abi(), varreserved.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1232,9 +1232,9 @@ impl IAzApplication2 {
     }
     pub unsafe fn SetName<P0>(&self, bstrname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), bstrname.param().abi()).ok()
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1242,9 +1242,9 @@ impl IAzApplication2 {
     }
     pub unsafe fn SetDescription<P0>(&self, bstrdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.param().abi()).ok()
     }
     pub unsafe fn ApplicationData(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1252,9 +1252,9 @@ impl IAzApplication2 {
     }
     pub unsafe fn SetApplicationData<P0>(&self, bstrapplicationdata: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.param().abi()).ok()
     }
     pub unsafe fn AuthzInterfaceClsid(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1262,9 +1262,9 @@ impl IAzApplication2 {
     }
     pub unsafe fn SetAuthzInterfaceClsid<P0>(&self, bstrprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetAuthzInterfaceClsid)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetAuthzInterfaceClsid)(windows_core::Interface::as_raw(self), bstrprop.param().abi()).ok()
     }
     pub unsafe fn Version(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1272,9 +1272,9 @@ impl IAzApplication2 {
     }
     pub unsafe fn SetVersion<P0>(&self, bstrprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetVersion)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetVersion)(windows_core::Interface::as_raw(self), bstrprop.param().abi()).ok()
     }
     pub unsafe fn GenerateAudits(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -1282,9 +1282,9 @@ impl IAzApplication2 {
     }
     pub unsafe fn SetGenerateAudits<P0>(&self, bprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.SetGenerateAudits)(windows_core::Interface::as_raw(self), bprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetGenerateAudits)(windows_core::Interface::as_raw(self), bprop.param().abi()).ok()
     }
     pub unsafe fn ApplyStoreSacl(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -1292,9 +1292,9 @@ impl IAzApplication2 {
     }
     pub unsafe fn SetApplyStoreSacl<P0>(&self, bprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.SetApplyStoreSacl)(windows_core::Interface::as_raw(self), bprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetApplyStoreSacl)(windows_core::Interface::as_raw(self), bprop.param().abi()).ok()
     }
     pub unsafe fn Writable(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -1302,17 +1302,17 @@ impl IAzApplication2 {
     }
     pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn PolicyAdministrators(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -1324,31 +1324,31 @@ impl IAzApplication2 {
     }
     pub unsafe fn AddPolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddPolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddPolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeletePolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeletePolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddPolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddPolicyReader)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddPolicyReader)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeletePolicyReader)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeletePolicyReader)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Scopes(&self) -> windows_core::Result<IAzScopes> {
@@ -1358,27 +1358,27 @@ impl IAzApplication2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenScope<P0, P1>(&self, bstrscopename: P0, varreserved: P1) -> windows_core::Result<IAzScope>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.OpenScope)(windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.OpenScope)(windows_core::Interface::as_raw(self), bstrscopename.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateScope<P0, P1>(&self, bstrscopename: P0, varreserved: P1) -> windows_core::Result<IAzScope>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateScope)(windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateScope)(windows_core::Interface::as_raw(self), bstrscopename.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteScope<P0, P1>(&self, bstrscopename: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteScope)(windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteScope)(windows_core::Interface::as_raw(self), bstrscopename.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Operations(&self) -> windows_core::Result<IAzOperations> {
@@ -1388,27 +1388,27 @@ impl IAzApplication2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenOperation<P0, P1>(&self, bstroperationname: P0, varreserved: P1) -> windows_core::Result<IAzOperation>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.OpenOperation)(windows_core::Interface::as_raw(self), bstroperationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.OpenOperation)(windows_core::Interface::as_raw(self), bstroperationname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateOperation<P0, P1>(&self, bstroperationname: P0, varreserved: P1) -> windows_core::Result<IAzOperation>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateOperation)(windows_core::Interface::as_raw(self), bstroperationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateOperation)(windows_core::Interface::as_raw(self), bstroperationname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteOperation<P0, P1>(&self, bstroperationname: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteOperation)(windows_core::Interface::as_raw(self), bstroperationname.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteOperation)(windows_core::Interface::as_raw(self), bstroperationname.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Tasks(&self) -> windows_core::Result<IAzTasks> {
@@ -1418,27 +1418,27 @@ impl IAzApplication2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> windows_core::Result<IAzTask>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.OpenTask)(windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.OpenTask)(windows_core::Interface::as_raw(self), bstrtaskname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> windows_core::Result<IAzTask>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateTask)(windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateTask)(windows_core::Interface::as_raw(self), bstrtaskname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteTask)(windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteTask)(windows_core::Interface::as_raw(self), bstrtaskname.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ApplicationGroups(&self) -> windows_core::Result<IAzApplicationGroups> {
@@ -1448,27 +1448,27 @@ impl IAzApplication2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> windows_core::Result<IAzApplicationGroup>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.OpenApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.OpenApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> windows_core::Result<IAzApplicationGroup>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Roles(&self) -> windows_core::Result<IAzRoles> {
@@ -1478,65 +1478,65 @@ impl IAzApplication2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> windows_core::Result<IAzRole>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.OpenRole)(windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.OpenRole)(windows_core::Interface::as_raw(self), bstrrolename.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> windows_core::Result<IAzRole>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateRole)(windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateRole)(windows_core::Interface::as_raw(self), bstrrolename.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteRole)(windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteRole)(windows_core::Interface::as_raw(self), bstrrolename.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeClientContextFromToken<P0>(&self, ulltokenhandle: u64, varreserved: P0) -> windows_core::Result<IAzClientContext>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.InitializeClientContextFromToken)(windows_core::Interface::as_raw(self), ulltokenhandle, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.InitializeClientContextFromToken)(windows_core::Interface::as_raw(self), ulltokenhandle, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeClientContextFromName<P0, P1, P2>(&self, clientname: P0, domainname: P1, varreserved: P2) -> windows_core::Result<IAzClientContext>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.InitializeClientContextFromName)(windows_core::Interface::as_raw(self), clientname.into_param().abi(), domainname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.InitializeClientContextFromName)(windows_core::Interface::as_raw(self), clientname.param().abi(), domainname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DelegatedPolicyUsers(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -1544,26 +1544,26 @@ impl IAzApplication2 {
     }
     pub unsafe fn AddDelegatedPolicyUser<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddDelegatedPolicyUser)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddDelegatedPolicyUser)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteDelegatedPolicyUser<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteDelegatedPolicyUser)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteDelegatedPolicyUser)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeClientContextFromStringSid<P0, P1>(&self, sidstring: P0, loptions: i32, varreserved: P1) -> windows_core::Result<IAzClientContext>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.InitializeClientContextFromStringSid)(windows_core::Interface::as_raw(self), sidstring.into_param().abi(), loptions, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.InitializeClientContextFromStringSid)(windows_core::Interface::as_raw(self), sidstring.param().abi(), loptions, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn PolicyAdministratorsName(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -1575,31 +1575,31 @@ impl IAzApplication2 {
     }
     pub unsafe fn AddPolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddPolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddPolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeletePolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeletePolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddPolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddPolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddPolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeletePolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeletePolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DelegatedPolicyUsersName(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -1607,34 +1607,34 @@ impl IAzApplication2 {
     }
     pub unsafe fn AddDelegatedPolicyUserName<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteDelegatedPolicyUserName<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeClientContextFromToken2<P0>(&self, ultokenhandlelowpart: u32, ultokenhandlehighpart: u32, varreserved: P0) -> windows_core::Result<IAzClientContext2>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).InitializeClientContextFromToken2)(windows_core::Interface::as_raw(self), ultokenhandlelowpart, ultokenhandlehighpart, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).InitializeClientContextFromToken2)(windows_core::Interface::as_raw(self), ultokenhandlelowpart, ultokenhandlehighpart, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeClientContext2<P0, P1>(&self, identifyingstring: P0, varreserved: P1) -> windows_core::Result<IAzClientContext2>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).InitializeClientContext2)(windows_core::Interface::as_raw(self), identifyingstring.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).InitializeClientContext2)(windows_core::Interface::as_raw(self), identifyingstring.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1662,9 +1662,9 @@ impl IAzApplication3 {
     }
     pub unsafe fn SetName<P0>(&self, bstrname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetName)(windows_core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetName)(windows_core::Interface::as_raw(self), bstrname.param().abi()).ok()
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1672,9 +1672,9 @@ impl IAzApplication3 {
     }
     pub unsafe fn SetDescription<P0>(&self, bstrdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.param().abi()).ok()
     }
     pub unsafe fn ApplicationData(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1682,9 +1682,9 @@ impl IAzApplication3 {
     }
     pub unsafe fn SetApplicationData<P0>(&self, bstrapplicationdata: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.param().abi()).ok()
     }
     pub unsafe fn AuthzInterfaceClsid(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1692,9 +1692,9 @@ impl IAzApplication3 {
     }
     pub unsafe fn SetAuthzInterfaceClsid<P0>(&self, bstrprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetAuthzInterfaceClsid)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetAuthzInterfaceClsid)(windows_core::Interface::as_raw(self), bstrprop.param().abi()).ok()
     }
     pub unsafe fn Version(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1702,9 +1702,9 @@ impl IAzApplication3 {
     }
     pub unsafe fn SetVersion<P0>(&self, bstrprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetVersion)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetVersion)(windows_core::Interface::as_raw(self), bstrprop.param().abi()).ok()
     }
     pub unsafe fn GenerateAudits(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -1712,9 +1712,9 @@ impl IAzApplication3 {
     }
     pub unsafe fn SetGenerateAudits<P0>(&self, bprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetGenerateAudits)(windows_core::Interface::as_raw(self), bprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetGenerateAudits)(windows_core::Interface::as_raw(self), bprop.param().abi()).ok()
     }
     pub unsafe fn ApplyStoreSacl(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -1722,9 +1722,9 @@ impl IAzApplication3 {
     }
     pub unsafe fn SetApplyStoreSacl<P0>(&self, bprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetApplyStoreSacl)(windows_core::Interface::as_raw(self), bprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetApplyStoreSacl)(windows_core::Interface::as_raw(self), bprop.param().abi()).ok()
     }
     pub unsafe fn Writable(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -1732,17 +1732,17 @@ impl IAzApplication3 {
     }
     pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn PolicyAdministrators(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -1754,31 +1754,31 @@ impl IAzApplication3 {
     }
     pub unsafe fn AddPolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.AddPolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.AddPolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.DeletePolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.DeletePolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddPolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.AddPolicyReader)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.AddPolicyReader)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.DeletePolicyReader)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.DeletePolicyReader)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Scopes(&self) -> windows_core::Result<IAzScopes> {
@@ -1788,27 +1788,27 @@ impl IAzApplication3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenScope<P0, P1>(&self, bstrscopename: P0, varreserved: P1) -> windows_core::Result<IAzScope>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.OpenScope)(windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.OpenScope)(windows_core::Interface::as_raw(self), bstrscopename.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateScope<P0, P1>(&self, bstrscopename: P0, varreserved: P1) -> windows_core::Result<IAzScope>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CreateScope)(windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.CreateScope)(windows_core::Interface::as_raw(self), bstrscopename.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteScope<P0, P1>(&self, bstrscopename: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.DeleteScope)(windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.DeleteScope)(windows_core::Interface::as_raw(self), bstrscopename.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Operations(&self) -> windows_core::Result<IAzOperations> {
@@ -1818,27 +1818,27 @@ impl IAzApplication3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenOperation<P0, P1>(&self, bstroperationname: P0, varreserved: P1) -> windows_core::Result<IAzOperation>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.OpenOperation)(windows_core::Interface::as_raw(self), bstroperationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.OpenOperation)(windows_core::Interface::as_raw(self), bstroperationname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateOperation<P0, P1>(&self, bstroperationname: P0, varreserved: P1) -> windows_core::Result<IAzOperation>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CreateOperation)(windows_core::Interface::as_raw(self), bstroperationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.CreateOperation)(windows_core::Interface::as_raw(self), bstroperationname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteOperation<P0, P1>(&self, bstroperationname: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.DeleteOperation)(windows_core::Interface::as_raw(self), bstroperationname.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.DeleteOperation)(windows_core::Interface::as_raw(self), bstroperationname.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Tasks(&self) -> windows_core::Result<IAzTasks> {
@@ -1848,27 +1848,27 @@ impl IAzApplication3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> windows_core::Result<IAzTask>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.OpenTask)(windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.OpenTask)(windows_core::Interface::as_raw(self), bstrtaskname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> windows_core::Result<IAzTask>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CreateTask)(windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.CreateTask)(windows_core::Interface::as_raw(self), bstrtaskname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.DeleteTask)(windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.DeleteTask)(windows_core::Interface::as_raw(self), bstrtaskname.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ApplicationGroups(&self) -> windows_core::Result<IAzApplicationGroups> {
@@ -1878,27 +1878,27 @@ impl IAzApplication3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> windows_core::Result<IAzApplicationGroup>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.OpenApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.OpenApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> windows_core::Result<IAzApplicationGroup>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CreateApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.CreateApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.DeleteApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.DeleteApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Roles(&self) -> windows_core::Result<IAzRoles> {
@@ -1908,65 +1908,65 @@ impl IAzApplication3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> windows_core::Result<IAzRole>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.OpenRole)(windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.OpenRole)(windows_core::Interface::as_raw(self), bstrrolename.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> windows_core::Result<IAzRole>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CreateRole)(windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.CreateRole)(windows_core::Interface::as_raw(self), bstrrolename.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.DeleteRole)(windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.DeleteRole)(windows_core::Interface::as_raw(self), bstrrolename.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeClientContextFromToken<P0>(&self, ulltokenhandle: u64, varreserved: P0) -> windows_core::Result<IAzClientContext>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.InitializeClientContextFromToken)(windows_core::Interface::as_raw(self), ulltokenhandle, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.InitializeClientContextFromToken)(windows_core::Interface::as_raw(self), ulltokenhandle, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeClientContextFromName<P0, P1, P2>(&self, clientname: P0, domainname: P1, varreserved: P2) -> windows_core::Result<IAzClientContext>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.InitializeClientContextFromName)(windows_core::Interface::as_raw(self), clientname.into_param().abi(), domainname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.InitializeClientContextFromName)(windows_core::Interface::as_raw(self), clientname.param().abi(), domainname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DelegatedPolicyUsers(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -1974,26 +1974,26 @@ impl IAzApplication3 {
     }
     pub unsafe fn AddDelegatedPolicyUser<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.AddDelegatedPolicyUser)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.AddDelegatedPolicyUser)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteDelegatedPolicyUser<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.DeleteDelegatedPolicyUser)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.DeleteDelegatedPolicyUser)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeClientContextFromStringSid<P0, P1>(&self, sidstring: P0, loptions: i32, varreserved: P1) -> windows_core::Result<IAzClientContext>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.InitializeClientContextFromStringSid)(windows_core::Interface::as_raw(self), sidstring.into_param().abi(), loptions, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.InitializeClientContextFromStringSid)(windows_core::Interface::as_raw(self), sidstring.param().abi(), loptions, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn PolicyAdministratorsName(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -2005,31 +2005,31 @@ impl IAzApplication3 {
     }
     pub unsafe fn AddPolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.AddPolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.AddPolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.DeletePolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.DeletePolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddPolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.AddPolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.AddPolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.DeletePolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.DeletePolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DelegatedPolicyUsersName(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -2037,63 +2037,63 @@ impl IAzApplication3 {
     }
     pub unsafe fn AddDelegatedPolicyUserName<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.AddDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.AddDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteDelegatedPolicyUserName<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.DeleteDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.DeleteDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeClientContextFromToken2<P0>(&self, ultokenhandlelowpart: u32, ultokenhandlehighpart: u32, varreserved: P0) -> windows_core::Result<IAzClientContext2>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.InitializeClientContextFromToken2)(windows_core::Interface::as_raw(self), ultokenhandlelowpart, ultokenhandlehighpart, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.InitializeClientContextFromToken2)(windows_core::Interface::as_raw(self), ultokenhandlelowpart, ultokenhandlehighpart, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeClientContext2<P0, P1>(&self, identifyingstring: P0, varreserved: P1) -> windows_core::Result<IAzClientContext2>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.InitializeClientContext2)(windows_core::Interface::as_raw(self), identifyingstring.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.InitializeClientContext2)(windows_core::Interface::as_raw(self), identifyingstring.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ScopeExists<P0>(&self, bstrscopename: P0) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ScopeExists)(windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).ScopeExists)(windows_core::Interface::as_raw(self), bstrscopename.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenScope2<P0>(&self, bstrscopename: P0) -> windows_core::Result<IAzScope2>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OpenScope2)(windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).OpenScope2)(windows_core::Interface::as_raw(self), bstrscopename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateScope2<P0>(&self, bstrscopename: P0) -> windows_core::Result<IAzScope2>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateScope2)(windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateScope2)(windows_core::Interface::as_raw(self), bstrscopename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteScope2<P0>(&self, bstrscopename: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).DeleteScope2)(windows_core::Interface::as_raw(self), bstrscopename.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteScope2)(windows_core::Interface::as_raw(self), bstrscopename.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RoleDefinitions(&self) -> windows_core::Result<IAzRoleDefinitions> {
@@ -2103,24 +2103,24 @@ impl IAzApplication3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateRoleDefinition<P0>(&self, bstrroledefinitionname: P0) -> windows_core::Result<IAzRoleDefinition>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateRoleDefinition)(windows_core::Interface::as_raw(self), bstrroledefinitionname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateRoleDefinition)(windows_core::Interface::as_raw(self), bstrroledefinitionname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenRoleDefinition<P0>(&self, bstrroledefinitionname: P0) -> windows_core::Result<IAzRoleDefinition>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OpenRoleDefinition)(windows_core::Interface::as_raw(self), bstrroledefinitionname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).OpenRoleDefinition)(windows_core::Interface::as_raw(self), bstrroledefinitionname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteRoleDefinition<P0>(&self, bstrroledefinitionname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).DeleteRoleDefinition)(windows_core::Interface::as_raw(self), bstrroledefinitionname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteRoleDefinition)(windows_core::Interface::as_raw(self), bstrroledefinitionname.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RoleAssignments(&self) -> windows_core::Result<IAzRoleAssignments> {
@@ -2130,24 +2130,24 @@ impl IAzApplication3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateRoleAssignment<P0>(&self, bstrroleassignmentname: P0) -> windows_core::Result<IAzRoleAssignment>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateRoleAssignment)(windows_core::Interface::as_raw(self), bstrroleassignmentname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateRoleAssignment)(windows_core::Interface::as_raw(self), bstrroleassignmentname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenRoleAssignment<P0>(&self, bstrroleassignmentname: P0) -> windows_core::Result<IAzRoleAssignment>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OpenRoleAssignment)(windows_core::Interface::as_raw(self), bstrroleassignmentname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).OpenRoleAssignment)(windows_core::Interface::as_raw(self), bstrroleassignmentname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteRoleAssignment<P0>(&self, bstrroleassignmentname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).DeleteRoleAssignment)(windows_core::Interface::as_raw(self), bstrroleassignmentname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteRoleAssignment)(windows_core::Interface::as_raw(self), bstrroleassignmentname.param().abi()).ok()
     }
     pub unsafe fn BizRulesEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -2155,9 +2155,9 @@ impl IAzApplication3 {
     }
     pub unsafe fn SetBizRulesEnabled<P0>(&self, benabled: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetBizRulesEnabled)(windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetBizRulesEnabled)(windows_core::Interface::as_raw(self), benabled.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2215,9 +2215,9 @@ impl IAzApplicationGroup {
     }
     pub unsafe fn SetName<P0>(&self, bstrname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), bstrname.param().abi()).ok()
     }
     pub unsafe fn Type(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -2232,9 +2232,9 @@ impl IAzApplicationGroup {
     }
     pub unsafe fn SetLdapQuery<P0>(&self, bstrprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetLdapQuery)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetLdapQuery)(windows_core::Interface::as_raw(self), bstrprop.param().abi()).ok()
     }
     pub unsafe fn AppMembers(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -2258,65 +2258,65 @@ impl IAzApplicationGroup {
     }
     pub unsafe fn SetDescription<P0>(&self, bstrdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.param().abi()).ok()
     }
     pub unsafe fn AddAppMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddAppMember)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddAppMember)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteAppMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeleteAppMember)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteAppMember)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddAppNonMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddAppNonMember)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddAppNonMember)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteAppNonMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeleteAppNonMember)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteAppNonMember)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddMember)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddMember)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeleteMember)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteMember)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddNonMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddNonMember)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddNonMember)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteNonMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeleteNonMember)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteNonMember)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn Writable(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -2324,65 +2324,65 @@ impl IAzApplicationGroup {
     }
     pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.param().abi()).ok()
     }
     pub unsafe fn AddMemberName<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddMemberName)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddMemberName)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteMemberName<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeleteMemberName)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteMemberName)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddNonMemberName<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddNonMemberName)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddNonMemberName)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteNonMemberName<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeleteNonMemberName)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteNonMemberName)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn MembersName(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -2442,9 +2442,9 @@ impl IAzApplicationGroup2 {
     }
     pub unsafe fn SetName<P0>(&self, bstrname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), bstrname.param().abi()).ok()
     }
     pub unsafe fn Type(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -2459,9 +2459,9 @@ impl IAzApplicationGroup2 {
     }
     pub unsafe fn SetLdapQuery<P0>(&self, bstrprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetLdapQuery)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetLdapQuery)(windows_core::Interface::as_raw(self), bstrprop.param().abi()).ok()
     }
     pub unsafe fn AppMembers(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -2485,65 +2485,65 @@ impl IAzApplicationGroup2 {
     }
     pub unsafe fn SetDescription<P0>(&self, bstrdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.param().abi()).ok()
     }
     pub unsafe fn AddAppMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddAppMember)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddAppMember)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteAppMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteAppMember)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteAppMember)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddAppNonMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddAppNonMember)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddAppNonMember)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteAppNonMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteAppNonMember)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteAppNonMember)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddMember)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddMember)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteMember)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteMember)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddNonMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddNonMember)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddNonMember)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteNonMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteNonMember)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteNonMember)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn Writable(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -2551,65 +2551,65 @@ impl IAzApplicationGroup2 {
     }
     pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.param().abi()).ok()
     }
     pub unsafe fn AddMemberName<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddMemberName)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddMemberName)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteMemberName<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteMemberName)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteMemberName)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddNonMemberName<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddNonMemberName)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddNonMemberName)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteNonMemberName<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteNonMemberName)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteNonMemberName)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn MembersName(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -2625,9 +2625,9 @@ impl IAzApplicationGroup2 {
     }
     pub unsafe fn SetBizRule<P0>(&self, bstrprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetBizRule)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetBizRule)(windows_core::Interface::as_raw(self), bstrprop.param().abi()).ok()
     }
     pub unsafe fn BizRuleLanguage(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -2635,9 +2635,9 @@ impl IAzApplicationGroup2 {
     }
     pub unsafe fn SetBizRuleLanguage<P0>(&self, bstrprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetBizRuleLanguage)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetBizRuleLanguage)(windows_core::Interface::as_raw(self), bstrprop.param().abi()).ok()
     }
     pub unsafe fn BizRuleImportedPath(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -2645,18 +2645,18 @@ impl IAzApplicationGroup2 {
     }
     pub unsafe fn SetBizRuleImportedPath<P0>(&self, bstrprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetBizRuleImportedPath)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetBizRuleImportedPath)(windows_core::Interface::as_raw(self), bstrprop.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RoleAssignments<P0, P1>(&self, bstrscopename: P0, brecursive: P1) -> windows_core::Result<IAzRoleAssignments>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).RoleAssignments)(windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), brecursive.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RoleAssignments)(windows_core::Interface::as_raw(self), bstrscopename.param().abi(), brecursive.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2740,9 +2740,9 @@ impl IAzAuthorizationStore {
     }
     pub unsafe fn SetDescription<P0>(&self, bstrdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.param().abi()).ok()
     }
     pub unsafe fn ApplicationData(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -2750,9 +2750,9 @@ impl IAzAuthorizationStore {
     }
     pub unsafe fn SetApplicationData<P0>(&self, bstrapplicationdata: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.param().abi()).ok()
     }
     pub unsafe fn DomainTimeout(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -2781,9 +2781,9 @@ impl IAzAuthorizationStore {
     }
     pub unsafe fn SetGenerateAudits<P0>(&self, bprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetGenerateAudits)(windows_core::Interface::as_raw(self), bprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetGenerateAudits)(windows_core::Interface::as_raw(self), bprop.param().abi()).ok()
     }
     pub unsafe fn Writable(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -2791,31 +2791,31 @@ impl IAzAuthorizationStore {
     }
     pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: AZ_PROP_CONSTANTS, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn PolicyAdministrators(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -2827,50 +2827,50 @@ impl IAzAuthorizationStore {
     }
     pub unsafe fn AddPolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddPolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddPolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeletePolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeletePolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddPolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddPolicyReader)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddPolicyReader)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeletePolicyReader)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeletePolicyReader)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn Initialize<P0, P1>(&self, lflags: AZ_PROP_CONSTANTS, bstrpolicyurl: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), lflags, bstrpolicyurl.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), lflags, bstrpolicyurl.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn UpdateCache<P0>(&self, varreserved: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).UpdateCache)(windows_core::Interface::as_raw(self), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).UpdateCache)(windows_core::Interface::as_raw(self), varreserved.param().abi()).ok()
     }
     pub unsafe fn Delete<P0>(&self, varreserved: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Applications(&self) -> windows_core::Result<IAzApplications> {
@@ -2880,27 +2880,27 @@ impl IAzAuthorizationStore {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenApplication<P0, P1>(&self, bstrapplicationname: P0, varreserved: P1) -> windows_core::Result<IAzApplication>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OpenApplication)(windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).OpenApplication)(windows_core::Interface::as_raw(self), bstrapplicationname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateApplication<P0, P1>(&self, bstrapplicationname: P0, varreserved: P1) -> windows_core::Result<IAzApplication>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateApplication)(windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateApplication)(windows_core::Interface::as_raw(self), bstrapplicationname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteApplication<P0, P1>(&self, bstrapplicationname: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeleteApplication)(windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteApplication)(windows_core::Interface::as_raw(self), bstrapplicationname.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ApplicationGroups(&self) -> windows_core::Result<IAzApplicationGroups> {
@@ -2910,33 +2910,33 @@ impl IAzAuthorizationStore {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> windows_core::Result<IAzApplicationGroup>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> windows_core::Result<IAzApplicationGroup>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OpenApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).OpenApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeleteApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.param().abi()).ok()
     }
     pub unsafe fn DelegatedPolicyUsers(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -2944,17 +2944,17 @@ impl IAzAuthorizationStore {
     }
     pub unsafe fn AddDelegatedPolicyUser<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddDelegatedPolicyUser)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddDelegatedPolicyUser)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteDelegatedPolicyUser<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeleteDelegatedPolicyUser)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteDelegatedPolicyUser)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn TargetMachine(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -2966,9 +2966,9 @@ impl IAzAuthorizationStore {
     }
     pub unsafe fn SetApplyStoreSacl<P0>(&self, bapplystoresacl: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetApplyStoreSacl)(windows_core::Interface::as_raw(self), bapplystoresacl.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetApplyStoreSacl)(windows_core::Interface::as_raw(self), bapplystoresacl.param().abi()).ok()
     }
     pub unsafe fn PolicyAdministratorsName(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -2980,31 +2980,31 @@ impl IAzAuthorizationStore {
     }
     pub unsafe fn AddPolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddPolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddPolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeletePolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeletePolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddPolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddPolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddPolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeletePolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeletePolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DelegatedPolicyUsersName(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -3012,23 +3012,23 @@ impl IAzAuthorizationStore {
     }
     pub unsafe fn AddDelegatedPolicyUserName<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteDelegatedPolicyUserName<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeleteDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn CloseApplication<P0>(&self, bstrapplicationname: P0, lflag: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).CloseApplication)(windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), lflag).ok()
+        (windows_core::Interface::vtable(self).CloseApplication)(windows_core::Interface::as_raw(self), bstrapplicationname.param().abi(), lflag).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3117,9 +3117,9 @@ impl IAzAuthorizationStore2 {
     }
     pub unsafe fn SetDescription<P0>(&self, bstrdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.param().abi()).ok()
     }
     pub unsafe fn ApplicationData(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3127,9 +3127,9 @@ impl IAzAuthorizationStore2 {
     }
     pub unsafe fn SetApplicationData<P0>(&self, bstrapplicationdata: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.param().abi()).ok()
     }
     pub unsafe fn DomainTimeout(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -3158,9 +3158,9 @@ impl IAzAuthorizationStore2 {
     }
     pub unsafe fn SetGenerateAudits<P0>(&self, bprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.SetGenerateAudits)(windows_core::Interface::as_raw(self), bprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetGenerateAudits)(windows_core::Interface::as_raw(self), bprop.param().abi()).ok()
     }
     pub unsafe fn Writable(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -3168,31 +3168,31 @@ impl IAzAuthorizationStore2 {
     }
     pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: AZ_PROP_CONSTANTS, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn PolicyAdministrators(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -3204,50 +3204,50 @@ impl IAzAuthorizationStore2 {
     }
     pub unsafe fn AddPolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddPolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddPolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeletePolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeletePolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddPolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddPolicyReader)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddPolicyReader)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeletePolicyReader)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeletePolicyReader)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn Initialize<P0, P1>(&self, lflags: AZ_PROP_CONSTANTS, bstrpolicyurl: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.Initialize)(windows_core::Interface::as_raw(self), lflags, bstrpolicyurl.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Initialize)(windows_core::Interface::as_raw(self), lflags, bstrpolicyurl.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn UpdateCache<P0>(&self, varreserved: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.UpdateCache)(windows_core::Interface::as_raw(self), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.UpdateCache)(windows_core::Interface::as_raw(self), varreserved.param().abi()).ok()
     }
     pub unsafe fn Delete<P0>(&self, varreserved: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.Delete)(windows_core::Interface::as_raw(self), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Delete)(windows_core::Interface::as_raw(self), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Applications(&self) -> windows_core::Result<IAzApplications> {
@@ -3257,27 +3257,27 @@ impl IAzAuthorizationStore2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenApplication<P0, P1>(&self, bstrapplicationname: P0, varreserved: P1) -> windows_core::Result<IAzApplication>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.OpenApplication)(windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.OpenApplication)(windows_core::Interface::as_raw(self), bstrapplicationname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateApplication<P0, P1>(&self, bstrapplicationname: P0, varreserved: P1) -> windows_core::Result<IAzApplication>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateApplication)(windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateApplication)(windows_core::Interface::as_raw(self), bstrapplicationname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteApplication<P0, P1>(&self, bstrapplicationname: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteApplication)(windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteApplication)(windows_core::Interface::as_raw(self), bstrapplicationname.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ApplicationGroups(&self) -> windows_core::Result<IAzApplicationGroups> {
@@ -3287,33 +3287,33 @@ impl IAzAuthorizationStore2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> windows_core::Result<IAzApplicationGroup>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> windows_core::Result<IAzApplicationGroup>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.OpenApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.OpenApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.param().abi()).ok()
     }
     pub unsafe fn DelegatedPolicyUsers(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -3321,17 +3321,17 @@ impl IAzAuthorizationStore2 {
     }
     pub unsafe fn AddDelegatedPolicyUser<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddDelegatedPolicyUser)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddDelegatedPolicyUser)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteDelegatedPolicyUser<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteDelegatedPolicyUser)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteDelegatedPolicyUser)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn TargetMachine(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3343,9 +3343,9 @@ impl IAzAuthorizationStore2 {
     }
     pub unsafe fn SetApplyStoreSacl<P0>(&self, bapplystoresacl: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.SetApplyStoreSacl)(windows_core::Interface::as_raw(self), bapplystoresacl.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetApplyStoreSacl)(windows_core::Interface::as_raw(self), bapplystoresacl.param().abi()).ok()
     }
     pub unsafe fn PolicyAdministratorsName(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -3357,31 +3357,31 @@ impl IAzAuthorizationStore2 {
     }
     pub unsafe fn AddPolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddPolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddPolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeletePolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeletePolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddPolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddPolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddPolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeletePolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeletePolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DelegatedPolicyUsersName(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -3389,41 +3389,41 @@ impl IAzAuthorizationStore2 {
     }
     pub unsafe fn AddDelegatedPolicyUserName<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteDelegatedPolicyUserName<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn CloseApplication<P0>(&self, bstrapplicationname: P0, lflag: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.CloseApplication)(windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), lflag).ok()
+        (windows_core::Interface::vtable(self).base__.CloseApplication)(windows_core::Interface::as_raw(self), bstrapplicationname.param().abi(), lflag).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenApplication2<P0, P1>(&self, bstrapplicationname: P0, varreserved: P1) -> windows_core::Result<IAzApplication2>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OpenApplication2)(windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).OpenApplication2)(windows_core::Interface::as_raw(self), bstrapplicationname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateApplication2<P0, P1>(&self, bstrapplicationname: P0, varreserved: P1) -> windows_core::Result<IAzApplication2>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateApplication2)(windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateApplication2)(windows_core::Interface::as_raw(self), bstrapplicationname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3451,9 +3451,9 @@ impl IAzAuthorizationStore3 {
     }
     pub unsafe fn SetDescription<P0>(&self, bstrdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.param().abi()).ok()
     }
     pub unsafe fn ApplicationData(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3461,9 +3461,9 @@ impl IAzAuthorizationStore3 {
     }
     pub unsafe fn SetApplicationData<P0>(&self, bstrapplicationdata: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.param().abi()).ok()
     }
     pub unsafe fn DomainTimeout(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -3492,9 +3492,9 @@ impl IAzAuthorizationStore3 {
     }
     pub unsafe fn SetGenerateAudits<P0>(&self, bprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetGenerateAudits)(windows_core::Interface::as_raw(self), bprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetGenerateAudits)(windows_core::Interface::as_raw(self), bprop.param().abi()).ok()
     }
     pub unsafe fn Writable(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -3502,31 +3502,31 @@ impl IAzAuthorizationStore3 {
     }
     pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: AZ_PROP_CONSTANTS, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn PolicyAdministrators(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -3538,50 +3538,50 @@ impl IAzAuthorizationStore3 {
     }
     pub unsafe fn AddPolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.AddPolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.AddPolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.DeletePolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.DeletePolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddPolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.AddPolicyReader)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.AddPolicyReader)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.DeletePolicyReader)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.DeletePolicyReader)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn Initialize<P0, P1>(&self, lflags: AZ_PROP_CONSTANTS, bstrpolicyurl: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.Initialize)(windows_core::Interface::as_raw(self), lflags, bstrpolicyurl.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.Initialize)(windows_core::Interface::as_raw(self), lflags, bstrpolicyurl.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn UpdateCache<P0>(&self, varreserved: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.UpdateCache)(windows_core::Interface::as_raw(self), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.UpdateCache)(windows_core::Interface::as_raw(self), varreserved.param().abi()).ok()
     }
     pub unsafe fn Delete<P0>(&self, varreserved: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.Delete)(windows_core::Interface::as_raw(self), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.Delete)(windows_core::Interface::as_raw(self), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Applications(&self) -> windows_core::Result<IAzApplications> {
@@ -3591,27 +3591,27 @@ impl IAzAuthorizationStore3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenApplication<P0, P1>(&self, bstrapplicationname: P0, varreserved: P1) -> windows_core::Result<IAzApplication>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.OpenApplication)(windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.OpenApplication)(windows_core::Interface::as_raw(self), bstrapplicationname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateApplication<P0, P1>(&self, bstrapplicationname: P0, varreserved: P1) -> windows_core::Result<IAzApplication>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CreateApplication)(windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.CreateApplication)(windows_core::Interface::as_raw(self), bstrapplicationname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteApplication<P0, P1>(&self, bstrapplicationname: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.DeleteApplication)(windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.DeleteApplication)(windows_core::Interface::as_raw(self), bstrapplicationname.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ApplicationGroups(&self) -> windows_core::Result<IAzApplicationGroups> {
@@ -3621,33 +3621,33 @@ impl IAzAuthorizationStore3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> windows_core::Result<IAzApplicationGroup>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CreateApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.CreateApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> windows_core::Result<IAzApplicationGroup>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.OpenApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.OpenApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.DeleteApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.DeleteApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.param().abi()).ok()
     }
     pub unsafe fn DelegatedPolicyUsers(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -3655,17 +3655,17 @@ impl IAzAuthorizationStore3 {
     }
     pub unsafe fn AddDelegatedPolicyUser<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.AddDelegatedPolicyUser)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.AddDelegatedPolicyUser)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteDelegatedPolicyUser<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.DeleteDelegatedPolicyUser)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.DeleteDelegatedPolicyUser)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn TargetMachine(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3677,9 +3677,9 @@ impl IAzAuthorizationStore3 {
     }
     pub unsafe fn SetApplyStoreSacl<P0>(&self, bapplystoresacl: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetApplyStoreSacl)(windows_core::Interface::as_raw(self), bapplystoresacl.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetApplyStoreSacl)(windows_core::Interface::as_raw(self), bapplystoresacl.param().abi()).ok()
     }
     pub unsafe fn PolicyAdministratorsName(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -3691,31 +3691,31 @@ impl IAzAuthorizationStore3 {
     }
     pub unsafe fn AddPolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.AddPolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.AddPolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.DeletePolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.DeletePolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddPolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.AddPolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.AddPolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.DeletePolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.DeletePolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DelegatedPolicyUsersName(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -3723,41 +3723,41 @@ impl IAzAuthorizationStore3 {
     }
     pub unsafe fn AddDelegatedPolicyUserName<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.AddDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.AddDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteDelegatedPolicyUserName<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.DeleteDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.DeleteDelegatedPolicyUserName)(windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn CloseApplication<P0>(&self, bstrapplicationname: P0, lflag: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.CloseApplication)(windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), lflag).ok()
+        (windows_core::Interface::vtable(self).base__.base__.CloseApplication)(windows_core::Interface::as_raw(self), bstrapplicationname.param().abi(), lflag).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenApplication2<P0, P1>(&self, bstrapplicationname: P0, varreserved: P1) -> windows_core::Result<IAzApplication2>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.OpenApplication2)(windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.OpenApplication2)(windows_core::Interface::as_raw(self), bstrapplicationname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateApplication2<P0, P1>(&self, bstrapplicationname: P0, varreserved: P1) -> windows_core::Result<IAzApplication2>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateApplication2)(windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateApplication2)(windows_core::Interface::as_raw(self), bstrapplicationname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn IsUpdateNeeded(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -3796,15 +3796,15 @@ windows_core::imp::interface_hierarchy!(IAzBizRuleContext, windows_core::IUnknow
 impl IAzBizRuleContext {
     pub unsafe fn SetBusinessRuleResult<P0>(&self, bresult: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetBusinessRuleResult)(windows_core::Interface::as_raw(self), bresult.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetBusinessRuleResult)(windows_core::Interface::as_raw(self), bresult.param().abi()).ok()
     }
     pub unsafe fn SetBusinessRuleString<P0>(&self, bstrbusinessrulestring: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetBusinessRuleString)(windows_core::Interface::as_raw(self), bstrbusinessrulestring.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetBusinessRuleString)(windows_core::Interface::as_raw(self), bstrbusinessrulestring.param().abi()).ok()
     }
     pub unsafe fn BusinessRuleString(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3812,10 +3812,10 @@ impl IAzBizRuleContext {
     }
     pub unsafe fn GetParameter<P0>(&self, bstrparametername: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetParameter)(windows_core::Interface::as_raw(self), bstrparametername.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetParameter)(windows_core::Interface::as_raw(self), bstrparametername.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3835,30 +3835,30 @@ windows_core::imp::interface_hierarchy!(IAzBizRuleInterfaces, windows_core::IUnk
 impl IAzBizRuleInterfaces {
     pub unsafe fn AddInterface<P0, P1>(&self, bstrinterfacename: P0, linterfaceflag: i32, varinterface: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddInterface)(windows_core::Interface::as_raw(self), bstrinterfacename.into_param().abi(), linterfaceflag, varinterface.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddInterface)(windows_core::Interface::as_raw(self), bstrinterfacename.param().abi(), linterfaceflag, varinterface.param().abi()).ok()
     }
     pub unsafe fn AddInterfaces<P0, P1, P2>(&self, varinterfacenames: P0, varinterfaceflags: P1, varinterfaces: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
-        P2: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
+        P2: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddInterfaces)(windows_core::Interface::as_raw(self), varinterfacenames.into_param().abi(), varinterfaceflags.into_param().abi(), varinterfaces.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddInterfaces)(windows_core::Interface::as_raw(self), varinterfacenames.param().abi(), varinterfaceflags.param().abi(), varinterfaces.param().abi()).ok()
     }
     pub unsafe fn GetInterfaceValue<P0>(&self, bstrinterfacename: P0, linterfaceflag: *mut i32, varinterface: *mut windows_core::VARIANT) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).GetInterfaceValue)(windows_core::Interface::as_raw(self), bstrinterfacename.into_param().abi(), linterfaceflag, core::mem::transmute(varinterface)).ok()
+        (windows_core::Interface::vtable(self).GetInterfaceValue)(windows_core::Interface::as_raw(self), bstrinterfacename.param().abi(), linterfaceflag, core::mem::transmute(varinterface)).ok()
     }
     pub unsafe fn Remove<P0>(&self, bstrinterfacename: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), bstrinterfacename.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), bstrinterfacename.param().abi()).ok()
     }
     pub unsafe fn RemoveAll(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveAll)(windows_core::Interface::as_raw(self)).ok()
@@ -3887,30 +3887,30 @@ windows_core::imp::interface_hierarchy!(IAzBizRuleParameters, windows_core::IUnk
 impl IAzBizRuleParameters {
     pub unsafe fn AddParameter<P0, P1>(&self, bstrparametername: P0, varparametervalue: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddParameter)(windows_core::Interface::as_raw(self), bstrparametername.into_param().abi(), varparametervalue.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddParameter)(windows_core::Interface::as_raw(self), bstrparametername.param().abi(), varparametervalue.param().abi()).ok()
     }
     pub unsafe fn AddParameters<P0, P1>(&self, varparameternames: P0, varparametervalues: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddParameters)(windows_core::Interface::as_raw(self), varparameternames.into_param().abi(), varparametervalues.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddParameters)(windows_core::Interface::as_raw(self), varparameternames.param().abi(), varparametervalues.param().abi()).ok()
     }
     pub unsafe fn GetParameterValue<P0>(&self, bstrparametername: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetParameterValue)(windows_core::Interface::as_raw(self), bstrparametername.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetParameterValue)(windows_core::Interface::as_raw(self), bstrparametername.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Remove<P0>(&self, varparametername: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), varparametername.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), varparametername.param().abi()).ok()
     }
     pub unsafe fn RemoveAll(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveAll)(windows_core::Interface::as_raw(self)).ok()
@@ -3939,17 +3939,17 @@ windows_core::imp::interface_hierarchy!(IAzClientContext, windows_core::IUnknown
 impl IAzClientContext {
     pub unsafe fn AccessCheck<P0, P1, P2, P3, P4, P5, P6, P7>(&self, bstrobjectname: P0, varscopenames: P1, varoperations: P2, varparameternames: P3, varparametervalues: P4, varinterfacenames: P5, varinterfaceflags: P6, varinterfaces: P7) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
-        P2: windows_core::IntoParam<windows_core::VARIANT>,
-        P3: windows_core::IntoParam<windows_core::VARIANT>,
-        P4: windows_core::IntoParam<windows_core::VARIANT>,
-        P5: windows_core::IntoParam<windows_core::VARIANT>,
-        P6: windows_core::IntoParam<windows_core::VARIANT>,
-        P7: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
+        P2: windows_core::Param<windows_core::VARIANT>,
+        P3: windows_core::Param<windows_core::VARIANT>,
+        P4: windows_core::Param<windows_core::VARIANT>,
+        P5: windows_core::Param<windows_core::VARIANT>,
+        P6: windows_core::Param<windows_core::VARIANT>,
+        P7: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AccessCheck)(windows_core::Interface::as_raw(self), bstrobjectname.into_param().abi(), varscopenames.into_param().abi(), varoperations.into_param().abi(), varparameternames.into_param().abi(), varparametervalues.into_param().abi(), varinterfacenames.into_param().abi(), varinterfaceflags.into_param().abi(), varinterfaces.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).AccessCheck)(windows_core::Interface::as_raw(self), bstrobjectname.param().abi(), varscopenames.param().abi(), varoperations.param().abi(), varparameternames.param().abi(), varparametervalues.param().abi(), varinterfacenames.param().abi(), varinterfaceflags.param().abi(), varinterfaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetBusinessRuleString(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3985,17 +3985,17 @@ impl IAzClientContext {
     }
     pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRoles<P0>(&self, bstrscopename: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRoles)(windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetRoles)(windows_core::Interface::as_raw(self), bstrscopename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RoleForAccessCheck(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4003,9 +4003,9 @@ impl IAzClientContext {
     }
     pub unsafe fn SetRoleForAccessCheck<P0>(&self, bstrprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetRoleForAccessCheck)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetRoleForAccessCheck)(windows_core::Interface::as_raw(self), bstrprop.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4034,17 +4034,17 @@ windows_core::imp::interface_hierarchy!(IAzClientContext2, windows_core::IUnknow
 impl IAzClientContext2 {
     pub unsafe fn AccessCheck<P0, P1, P2, P3, P4, P5, P6, P7>(&self, bstrobjectname: P0, varscopenames: P1, varoperations: P2, varparameternames: P3, varparametervalues: P4, varinterfacenames: P5, varinterfaceflags: P6, varinterfaces: P7) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
-        P2: windows_core::IntoParam<windows_core::VARIANT>,
-        P3: windows_core::IntoParam<windows_core::VARIANT>,
-        P4: windows_core::IntoParam<windows_core::VARIANT>,
-        P5: windows_core::IntoParam<windows_core::VARIANT>,
-        P6: windows_core::IntoParam<windows_core::VARIANT>,
-        P7: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
+        P2: windows_core::Param<windows_core::VARIANT>,
+        P3: windows_core::Param<windows_core::VARIANT>,
+        P4: windows_core::Param<windows_core::VARIANT>,
+        P5: windows_core::Param<windows_core::VARIANT>,
+        P6: windows_core::Param<windows_core::VARIANT>,
+        P7: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.AccessCheck)(windows_core::Interface::as_raw(self), bstrobjectname.into_param().abi(), varscopenames.into_param().abi(), varoperations.into_param().abi(), varparameternames.into_param().abi(), varparametervalues.into_param().abi(), varinterfacenames.into_param().abi(), varinterfaceflags.into_param().abi(), varinterfaces.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.AccessCheck)(windows_core::Interface::as_raw(self), bstrobjectname.param().abi(), varscopenames.param().abi(), varoperations.param().abi(), varparameternames.param().abi(), varparametervalues.param().abi(), varinterfacenames.param().abi(), varinterfaceflags.param().abi(), varinterfaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetBusinessRuleString(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4080,17 +4080,17 @@ impl IAzClientContext2 {
     }
     pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRoles<P0>(&self, bstrscopename: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetRoles)(windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetRoles)(windows_core::Interface::as_raw(self), bstrscopename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RoleForAccessCheck(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4098,37 +4098,37 @@ impl IAzClientContext2 {
     }
     pub unsafe fn SetRoleForAccessCheck<P0>(&self, bstrprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetRoleForAccessCheck)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetRoleForAccessCheck)(windows_core::Interface::as_raw(self), bstrprop.param().abi()).ok()
     }
     pub unsafe fn GetAssignedScopesPage(&self, loptions: i32, pagesize: i32, pvarcursor: *mut windows_core::VARIANT, pvarscopenames: *mut windows_core::VARIANT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetAssignedScopesPage)(windows_core::Interface::as_raw(self), loptions, pagesize, core::mem::transmute(pvarcursor), core::mem::transmute(pvarscopenames)).ok()
     }
     pub unsafe fn AddRoles<P0, P1>(&self, varroles: P0, bstrscopename: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).AddRoles)(windows_core::Interface::as_raw(self), varroles.into_param().abi(), bstrscopename.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddRoles)(windows_core::Interface::as_raw(self), varroles.param().abi(), bstrscopename.param().abi()).ok()
     }
     pub unsafe fn AddApplicationGroups<P0>(&self, varapplicationgroups: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddApplicationGroups)(windows_core::Interface::as_raw(self), varapplicationgroups.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddApplicationGroups)(windows_core::Interface::as_raw(self), varapplicationgroups.param().abi()).ok()
     }
     pub unsafe fn AddStringSids<P0>(&self, varstringsids: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddStringSids)(windows_core::Interface::as_raw(self), varstringsids.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddStringSids)(windows_core::Interface::as_raw(self), varstringsids.param().abi()).ok()
     }
     pub unsafe fn SetLDAPQueryDN<P0>(&self, bstrldapquerydn: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetLDAPQueryDN)(windows_core::Interface::as_raw(self), bstrldapquerydn.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetLDAPQueryDN)(windows_core::Interface::as_raw(self), bstrldapquerydn.param().abi()).ok()
     }
     pub unsafe fn LDAPQueryDN(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4154,17 +4154,17 @@ windows_core::imp::interface_hierarchy!(IAzClientContext3, windows_core::IUnknow
 impl IAzClientContext3 {
     pub unsafe fn AccessCheck<P0, P1, P2, P3, P4, P5, P6, P7>(&self, bstrobjectname: P0, varscopenames: P1, varoperations: P2, varparameternames: P3, varparametervalues: P4, varinterfacenames: P5, varinterfaceflags: P6, varinterfaces: P7) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
-        P2: windows_core::IntoParam<windows_core::VARIANT>,
-        P3: windows_core::IntoParam<windows_core::VARIANT>,
-        P4: windows_core::IntoParam<windows_core::VARIANT>,
-        P5: windows_core::IntoParam<windows_core::VARIANT>,
-        P6: windows_core::IntoParam<windows_core::VARIANT>,
-        P7: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
+        P2: windows_core::Param<windows_core::VARIANT>,
+        P3: windows_core::Param<windows_core::VARIANT>,
+        P4: windows_core::Param<windows_core::VARIANT>,
+        P5: windows_core::Param<windows_core::VARIANT>,
+        P6: windows_core::Param<windows_core::VARIANT>,
+        P7: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.AccessCheck)(windows_core::Interface::as_raw(self), bstrobjectname.into_param().abi(), varscopenames.into_param().abi(), varoperations.into_param().abi(), varparameternames.into_param().abi(), varparametervalues.into_param().abi(), varinterfacenames.into_param().abi(), varinterfaceflags.into_param().abi(), varinterfaces.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.AccessCheck)(windows_core::Interface::as_raw(self), bstrobjectname.param().abi(), varscopenames.param().abi(), varoperations.param().abi(), varparameternames.param().abi(), varparametervalues.param().abi(), varinterfacenames.param().abi(), varinterfaceflags.param().abi(), varinterfaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetBusinessRuleString(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4200,17 +4200,17 @@ impl IAzClientContext3 {
     }
     pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRoles<P0>(&self, bstrscopename: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetRoles)(windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.base__.GetRoles)(windows_core::Interface::as_raw(self), bstrscopename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RoleForAccessCheck(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4218,37 +4218,37 @@ impl IAzClientContext3 {
     }
     pub unsafe fn SetRoleForAccessCheck<P0>(&self, bstrprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetRoleForAccessCheck)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetRoleForAccessCheck)(windows_core::Interface::as_raw(self), bstrprop.param().abi()).ok()
     }
     pub unsafe fn GetAssignedScopesPage(&self, loptions: i32, pagesize: i32, pvarcursor: *mut windows_core::VARIANT, pvarscopenames: *mut windows_core::VARIANT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.GetAssignedScopesPage)(windows_core::Interface::as_raw(self), loptions, pagesize, core::mem::transmute(pvarcursor), core::mem::transmute(pvarscopenames)).ok()
     }
     pub unsafe fn AddRoles<P0, P1>(&self, varroles: P0, bstrscopename: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.AddRoles)(windows_core::Interface::as_raw(self), varroles.into_param().abi(), bstrscopename.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddRoles)(windows_core::Interface::as_raw(self), varroles.param().abi(), bstrscopename.param().abi()).ok()
     }
     pub unsafe fn AddApplicationGroups<P0>(&self, varapplicationgroups: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddApplicationGroups)(windows_core::Interface::as_raw(self), varapplicationgroups.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddApplicationGroups)(windows_core::Interface::as_raw(self), varapplicationgroups.param().abi()).ok()
     }
     pub unsafe fn AddStringSids<P0>(&self, varstringsids: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddStringSids)(windows_core::Interface::as_raw(self), varstringsids.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddStringSids)(windows_core::Interface::as_raw(self), varstringsids.param().abi()).ok()
     }
     pub unsafe fn SetLDAPQueryDN<P0>(&self, bstrldapquerydn: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetLDAPQueryDN)(windows_core::Interface::as_raw(self), bstrldapquerydn.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetLDAPQueryDN)(windows_core::Interface::as_raw(self), bstrldapquerydn.param().abi()).ok()
     }
     pub unsafe fn LDAPQueryDN(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4256,35 +4256,35 @@ impl IAzClientContext3 {
     }
     pub unsafe fn AccessCheck2<P0, P1>(&self, bstrobjectname: P0, bstrscopename: P1, loperation: i32) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AccessCheck2)(windows_core::Interface::as_raw(self), bstrobjectname.into_param().abi(), bstrscopename.into_param().abi(), loperation, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AccessCheck2)(windows_core::Interface::as_raw(self), bstrobjectname.param().abi(), bstrscopename.param().abi(), loperation, &mut result__).map(|| result__)
     }
     pub unsafe fn IsInRoleAssignment<P0, P1>(&self, bstrscopename: P0, bstrrolename: P1) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).IsInRoleAssignment)(windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), bstrrolename.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).IsInRoleAssignment)(windows_core::Interface::as_raw(self), bstrscopename.param().abi(), bstrrolename.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetOperations<P0>(&self, bstrscopename: P0) -> windows_core::Result<IAzOperations>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOperations)(windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetOperations)(windows_core::Interface::as_raw(self), bstrscopename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTasks<P0>(&self, bstrscopename: P0) -> windows_core::Result<IAzTasks>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetTasks)(windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetTasks)(windows_core::Interface::as_raw(self), bstrscopename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BizRuleParameters(&self) -> windows_core::Result<IAzBizRuleParameters> {
@@ -4298,10 +4298,10 @@ impl IAzClientContext3 {
     }
     pub unsafe fn GetGroups<P0>(&self, bstrscopename: P0, uloptions: AZ_PROP_CONSTANTS) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetGroups)(windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), uloptions.0 as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetGroups)(windows_core::Interface::as_raw(self), bstrscopename.param().abi(), uloptions.0 as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Sids(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -4341,15 +4341,15 @@ windows_core::imp::interface_hierarchy!(IAzNameResolver, windows_core::IUnknown,
 impl IAzNameResolver {
     pub unsafe fn NameFromSid<P0>(&self, bstrsid: P0, psidtype: *mut i32, pbstrname: *mut windows_core::BSTR) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).NameFromSid)(windows_core::Interface::as_raw(self), bstrsid.into_param().abi(), psidtype, core::mem::transmute(pbstrname)).ok()
+        (windows_core::Interface::vtable(self).NameFromSid)(windows_core::Interface::as_raw(self), bstrsid.param().abi(), psidtype, core::mem::transmute(pbstrname)).ok()
     }
     pub unsafe fn NamesFromSids<P0>(&self, vsids: P0, pvsidtypes: *mut windows_core::VARIANT, pvnames: *mut windows_core::VARIANT) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).NamesFromSids)(windows_core::Interface::as_raw(self), vsids.into_param().abi(), core::mem::transmute(pvsidtypes), core::mem::transmute(pvnames)).ok()
+        (windows_core::Interface::vtable(self).NamesFromSids)(windows_core::Interface::as_raw(self), vsids.param().abi(), core::mem::transmute(pvsidtypes), core::mem::transmute(pvnames)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4367,10 +4367,10 @@ windows_core::imp::interface_hierarchy!(IAzObjectPicker, windows_core::IUnknown,
 impl IAzObjectPicker {
     pub unsafe fn GetPrincipals<P0, P1>(&self, hparentwnd: P0, bstrtitle: P1, pvsidtypes: *mut windows_core::VARIANT, pvnames: *mut windows_core::VARIANT, pvsids: *mut windows_core::VARIANT) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HWND>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).GetPrincipals)(windows_core::Interface::as_raw(self), hparentwnd.into_param().abi(), bstrtitle.into_param().abi(), core::mem::transmute(pvsidtypes), core::mem::transmute(pvnames), core::mem::transmute(pvsids)).ok()
+        (windows_core::Interface::vtable(self).GetPrincipals)(windows_core::Interface::as_raw(self), hparentwnd.param().abi(), bstrtitle.param().abi(), core::mem::transmute(pvsidtypes), core::mem::transmute(pvnames), core::mem::transmute(pvsids)).ok()
     }
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4396,9 +4396,9 @@ impl IAzOperation {
     }
     pub unsafe fn SetName<P0>(&self, bstrname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), bstrname.param().abi()).ok()
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4406,9 +4406,9 @@ impl IAzOperation {
     }
     pub unsafe fn SetDescription<P0>(&self, bstrdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.param().abi()).ok()
     }
     pub unsafe fn ApplicationData(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4416,9 +4416,9 @@ impl IAzOperation {
     }
     pub unsafe fn SetApplicationData<P0>(&self, bstrapplicationdata: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.param().abi()).ok()
     }
     pub unsafe fn OperationID(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -4433,23 +4433,23 @@ impl IAzOperation {
     }
     pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4481,9 +4481,9 @@ impl IAzOperation2 {
     }
     pub unsafe fn SetName<P0>(&self, bstrname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), bstrname.param().abi()).ok()
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4491,9 +4491,9 @@ impl IAzOperation2 {
     }
     pub unsafe fn SetDescription<P0>(&self, bstrdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.param().abi()).ok()
     }
     pub unsafe fn ApplicationData(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4501,9 +4501,9 @@ impl IAzOperation2 {
     }
     pub unsafe fn SetApplicationData<P0>(&self, bstrapplicationdata: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.param().abi()).ok()
     }
     pub unsafe fn OperationID(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -4518,32 +4518,32 @@ impl IAzOperation2 {
     }
     pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RoleAssignments<P0, P1>(&self, bstrscopename: P0, brecursive: P1) -> windows_core::Result<IAzRoleAssignments>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).RoleAssignments)(windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), brecursive.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RoleAssignments)(windows_core::Interface::as_raw(self), bstrscopename.param().abi(), brecursive.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4624,9 +4624,9 @@ impl IAzRole {
     }
     pub unsafe fn SetName<P0>(&self, bstrname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), bstrname.param().abi()).ok()
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4634,9 +4634,9 @@ impl IAzRole {
     }
     pub unsafe fn SetDescription<P0>(&self, bstrdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.param().abi()).ok()
     }
     pub unsafe fn ApplicationData(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4644,65 +4644,65 @@ impl IAzRole {
     }
     pub unsafe fn SetApplicationData<P0>(&self, bstrapplicationdata: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.param().abi()).ok()
     }
     pub unsafe fn AddAppMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddAppMember)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddAppMember)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteAppMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeleteAppMember)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteAppMember)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddTask<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddTask)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddTask)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteTask<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeleteTask)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteTask)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddOperation<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddOperation)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddOperation)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteOperation<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeleteOperation)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteOperation)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddMember)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddMember)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeleteMember)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteMember)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn Writable(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -4710,17 +4710,17 @@ impl IAzRole {
     }
     pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AppMembers(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -4740,37 +4740,37 @@ impl IAzRole {
     }
     pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.param().abi()).ok()
     }
     pub unsafe fn AddMemberName<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddMemberName)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddMemberName)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteMemberName<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeleteMemberName)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteMemberName)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn MembersName(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -4821,9 +4821,9 @@ impl IAzRoleAssignment {
     }
     pub unsafe fn SetName<P0>(&self, bstrname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), bstrname.param().abi()).ok()
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4831,9 +4831,9 @@ impl IAzRoleAssignment {
     }
     pub unsafe fn SetDescription<P0>(&self, bstrdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.param().abi()).ok()
     }
     pub unsafe fn ApplicationData(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4841,65 +4841,65 @@ impl IAzRoleAssignment {
     }
     pub unsafe fn SetApplicationData<P0>(&self, bstrapplicationdata: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.param().abi()).ok()
     }
     pub unsafe fn AddAppMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddAppMember)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddAppMember)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteAppMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteAppMember)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteAppMember)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddTask<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddTask)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddTask)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteTask<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteTask)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteTask)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddOperation<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddOperation)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddOperation)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteOperation<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteOperation)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteOperation)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddMember)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddMember)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteMember)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteMember)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn Writable(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -4907,17 +4907,17 @@ impl IAzRoleAssignment {
     }
     pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AppMembers(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -4937,37 +4937,37 @@ impl IAzRoleAssignment {
     }
     pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.param().abi()).ok()
     }
     pub unsafe fn AddMemberName<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddMemberName)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddMemberName)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteMemberName<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteMemberName)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteMemberName)(windows_core::Interface::as_raw(self), bstrprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn MembersName(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -4975,15 +4975,15 @@ impl IAzRoleAssignment {
     }
     pub unsafe fn AddRoleDefinition<P0>(&self, bstrroledefinition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).AddRoleDefinition)(windows_core::Interface::as_raw(self), bstrroledefinition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddRoleDefinition)(windows_core::Interface::as_raw(self), bstrroledefinition.param().abi()).ok()
     }
     pub unsafe fn DeleteRoleDefinition<P0>(&self, bstrroledefinition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).DeleteRoleDefinition)(windows_core::Interface::as_raw(self), bstrroledefinition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteRoleDefinition)(windows_core::Interface::as_raw(self), bstrroledefinition.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RoleDefinitions(&self) -> windows_core::Result<IAzRoleDefinitions> {
@@ -5050,9 +5050,9 @@ impl IAzRoleDefinition {
     }
     pub unsafe fn SetName<P0>(&self, bstrname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), bstrname.param().abi()).ok()
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -5060,9 +5060,9 @@ impl IAzRoleDefinition {
     }
     pub unsafe fn SetDescription<P0>(&self, bstrdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.param().abi()).ok()
     }
     pub unsafe fn ApplicationData(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -5070,9 +5070,9 @@ impl IAzRoleDefinition {
     }
     pub unsafe fn SetApplicationData<P0>(&self, bstrapplicationdata: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.param().abi()).ok()
     }
     pub unsafe fn BizRule(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -5080,9 +5080,9 @@ impl IAzRoleDefinition {
     }
     pub unsafe fn SetBizRule<P0>(&self, bstrprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetBizRule)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetBizRule)(windows_core::Interface::as_raw(self), bstrprop.param().abi()).ok()
     }
     pub unsafe fn BizRuleLanguage(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -5090,9 +5090,9 @@ impl IAzRoleDefinition {
     }
     pub unsafe fn SetBizRuleLanguage<P0>(&self, bstrprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetBizRuleLanguage)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetBizRuleLanguage)(windows_core::Interface::as_raw(self), bstrprop.param().abi()).ok()
     }
     pub unsafe fn BizRuleImportedPath(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -5100,9 +5100,9 @@ impl IAzRoleDefinition {
     }
     pub unsafe fn SetBizRuleImportedPath<P0>(&self, bstrprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetBizRuleImportedPath)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetBizRuleImportedPath)(windows_core::Interface::as_raw(self), bstrprop.param().abi()).ok()
     }
     pub unsafe fn IsRoleDefinition(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -5110,9 +5110,9 @@ impl IAzRoleDefinition {
     }
     pub unsafe fn SetIsRoleDefinition<P0>(&self, fprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.SetIsRoleDefinition)(windows_core::Interface::as_raw(self), fprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetIsRoleDefinition)(windows_core::Interface::as_raw(self), fprop.param().abi()).ok()
     }
     pub unsafe fn Operations(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -5124,31 +5124,31 @@ impl IAzRoleDefinition {
     }
     pub unsafe fn AddOperation<P0, P1>(&self, bstrop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddOperation)(windows_core::Interface::as_raw(self), bstrop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddOperation)(windows_core::Interface::as_raw(self), bstrop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteOperation<P0, P1>(&self, bstrop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteOperation)(windows_core::Interface::as_raw(self), bstrop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteOperation)(windows_core::Interface::as_raw(self), bstrop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddTask<P0, P1>(&self, bstrtask: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddTask)(windows_core::Interface::as_raw(self), bstrtask.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddTask)(windows_core::Interface::as_raw(self), bstrtask.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteTask<P0, P1>(&self, bstrtask: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteTask)(windows_core::Interface::as_raw(self), bstrtask.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteTask)(windows_core::Interface::as_raw(self), bstrtask.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn Writable(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -5156,58 +5156,58 @@ impl IAzRoleDefinition {
     }
     pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RoleAssignments<P0, P1>(&self, bstrscopename: P0, brecursive: P1) -> windows_core::Result<IAzRoleAssignments>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).RoleAssignments)(windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), brecursive.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RoleAssignments)(windows_core::Interface::as_raw(self), bstrscopename.param().abi(), brecursive.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AddRoleDefinition<P0>(&self, bstrroledefinition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).AddRoleDefinition)(windows_core::Interface::as_raw(self), bstrroledefinition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddRoleDefinition)(windows_core::Interface::as_raw(self), bstrroledefinition.param().abi()).ok()
     }
     pub unsafe fn DeleteRoleDefinition<P0>(&self, bstrroledefinition: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).DeleteRoleDefinition)(windows_core::Interface::as_raw(self), bstrroledefinition.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteRoleDefinition)(windows_core::Interface::as_raw(self), bstrroledefinition.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RoleDefinitions(&self) -> windows_core::Result<IAzRoleDefinitions> {
@@ -5296,9 +5296,9 @@ impl IAzScope {
     }
     pub unsafe fn SetName<P0>(&self, bstrname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), bstrname.param().abi()).ok()
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -5306,9 +5306,9 @@ impl IAzScope {
     }
     pub unsafe fn SetDescription<P0>(&self, bstrdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.param().abi()).ok()
     }
     pub unsafe fn ApplicationData(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -5316,9 +5316,9 @@ impl IAzScope {
     }
     pub unsafe fn SetApplicationData<P0>(&self, bstrapplicationdata: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.param().abi()).ok()
     }
     pub unsafe fn Writable(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -5326,31 +5326,31 @@ impl IAzScope {
     }
     pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn PolicyAdministrators(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -5362,31 +5362,31 @@ impl IAzScope {
     }
     pub unsafe fn AddPolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddPolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddPolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeletePolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeletePolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddPolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddPolicyReader)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddPolicyReader)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeletePolicyReader)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeletePolicyReader)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ApplicationGroups(&self) -> windows_core::Result<IAzApplicationGroups> {
@@ -5396,27 +5396,27 @@ impl IAzScope {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> windows_core::Result<IAzApplicationGroup>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OpenApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).OpenApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> windows_core::Result<IAzApplicationGroup>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeleteApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Roles(&self) -> windows_core::Result<IAzRoles> {
@@ -5426,27 +5426,27 @@ impl IAzScope {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> windows_core::Result<IAzRole>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OpenRole)(windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).OpenRole)(windows_core::Interface::as_raw(self), bstrrolename.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> windows_core::Result<IAzRole>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateRole)(windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateRole)(windows_core::Interface::as_raw(self), bstrrolename.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeleteRole)(windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteRole)(windows_core::Interface::as_raw(self), bstrrolename.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Tasks(&self) -> windows_core::Result<IAzTasks> {
@@ -5456,33 +5456,33 @@ impl IAzScope {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> windows_core::Result<IAzTask>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OpenTask)(windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).OpenTask)(windows_core::Interface::as_raw(self), bstrtaskname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> windows_core::Result<IAzTask>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateTask)(windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateTask)(windows_core::Interface::as_raw(self), bstrtaskname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeleteTask)(windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteTask)(windows_core::Interface::as_raw(self), bstrtaskname.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.param().abi()).ok()
     }
     pub unsafe fn CanBeDelegated(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -5502,31 +5502,31 @@ impl IAzScope {
     }
     pub unsafe fn AddPolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddPolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddPolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeletePolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeletePolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddPolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddPolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddPolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeletePolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeletePolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5611,9 +5611,9 @@ impl IAzScope2 {
     }
     pub unsafe fn SetName<P0>(&self, bstrname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), bstrname.param().abi()).ok()
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -5621,9 +5621,9 @@ impl IAzScope2 {
     }
     pub unsafe fn SetDescription<P0>(&self, bstrdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.param().abi()).ok()
     }
     pub unsafe fn ApplicationData(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -5631,9 +5631,9 @@ impl IAzScope2 {
     }
     pub unsafe fn SetApplicationData<P0>(&self, bstrapplicationdata: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.param().abi()).ok()
     }
     pub unsafe fn Writable(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -5641,31 +5641,31 @@ impl IAzScope2 {
     }
     pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn PolicyAdministrators(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -5677,31 +5677,31 @@ impl IAzScope2 {
     }
     pub unsafe fn AddPolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddPolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddPolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeletePolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeletePolicyAdministrator)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddPolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddPolicyReader)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddPolicyReader)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeletePolicyReader)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeletePolicyReader)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ApplicationGroups(&self) -> windows_core::Result<IAzApplicationGroups> {
@@ -5711,27 +5711,27 @@ impl IAzScope2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> windows_core::Result<IAzApplicationGroup>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.OpenApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.OpenApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> windows_core::Result<IAzApplicationGroup>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteApplicationGroup)(windows_core::Interface::as_raw(self), bstrgroupname.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Roles(&self) -> windows_core::Result<IAzRoles> {
@@ -5741,27 +5741,27 @@ impl IAzScope2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> windows_core::Result<IAzRole>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.OpenRole)(windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.OpenRole)(windows_core::Interface::as_raw(self), bstrrolename.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> windows_core::Result<IAzRole>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateRole)(windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateRole)(windows_core::Interface::as_raw(self), bstrrolename.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteRole)(windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteRole)(windows_core::Interface::as_raw(self), bstrrolename.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Tasks(&self) -> windows_core::Result<IAzTasks> {
@@ -5771,33 +5771,33 @@ impl IAzScope2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> windows_core::Result<IAzTask>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.OpenTask)(windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.OpenTask)(windows_core::Interface::as_raw(self), bstrtaskname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> windows_core::Result<IAzTask>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateTask)(windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.CreateTask)(windows_core::Interface::as_raw(self), bstrtaskname.param().abi(), varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteTask)(windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteTask)(windows_core::Interface::as_raw(self), bstrtaskname.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.param().abi()).ok()
     }
     pub unsafe fn CanBeDelegated(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -5817,31 +5817,31 @@ impl IAzScope2 {
     }
     pub unsafe fn AddPolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddPolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddPolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeletePolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeletePolicyAdministratorName)(windows_core::Interface::as_raw(self), bstradmin.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddPolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddPolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddPolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeletePolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeletePolicyReaderName)(windows_core::Interface::as_raw(self), bstrreader.param().abi(), varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RoleDefinitions(&self) -> windows_core::Result<IAzRoleDefinitions> {
@@ -5851,24 +5851,24 @@ impl IAzScope2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateRoleDefinition<P0>(&self, bstrroledefinitionname: P0) -> windows_core::Result<IAzRoleDefinition>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateRoleDefinition)(windows_core::Interface::as_raw(self), bstrroledefinitionname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateRoleDefinition)(windows_core::Interface::as_raw(self), bstrroledefinitionname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenRoleDefinition<P0>(&self, bstrroledefinitionname: P0) -> windows_core::Result<IAzRoleDefinition>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OpenRoleDefinition)(windows_core::Interface::as_raw(self), bstrroledefinitionname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).OpenRoleDefinition)(windows_core::Interface::as_raw(self), bstrroledefinitionname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteRoleDefinition<P0>(&self, bstrroledefinitionname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).DeleteRoleDefinition)(windows_core::Interface::as_raw(self), bstrroledefinitionname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteRoleDefinition)(windows_core::Interface::as_raw(self), bstrroledefinitionname.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RoleAssignments(&self) -> windows_core::Result<IAzRoleAssignments> {
@@ -5878,24 +5878,24 @@ impl IAzScope2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateRoleAssignment<P0>(&self, bstrroleassignmentname: P0) -> windows_core::Result<IAzRoleAssignment>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateRoleAssignment)(windows_core::Interface::as_raw(self), bstrroleassignmentname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateRoleAssignment)(windows_core::Interface::as_raw(self), bstrroleassignmentname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenRoleAssignment<P0>(&self, bstrroleassignmentname: P0) -> windows_core::Result<IAzRoleAssignment>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OpenRoleAssignment)(windows_core::Interface::as_raw(self), bstrroleassignmentname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).OpenRoleAssignment)(windows_core::Interface::as_raw(self), bstrroleassignmentname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteRoleAssignment<P0>(&self, bstrroleassignmentname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).DeleteRoleAssignment)(windows_core::Interface::as_raw(self), bstrroleassignmentname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteRoleAssignment)(windows_core::Interface::as_raw(self), bstrroleassignmentname.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5968,9 +5968,9 @@ impl IAzTask {
     }
     pub unsafe fn SetName<P0>(&self, bstrname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), bstrname.param().abi()).ok()
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -5978,9 +5978,9 @@ impl IAzTask {
     }
     pub unsafe fn SetDescription<P0>(&self, bstrdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.param().abi()).ok()
     }
     pub unsafe fn ApplicationData(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -5988,9 +5988,9 @@ impl IAzTask {
     }
     pub unsafe fn SetApplicationData<P0>(&self, bstrapplicationdata: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.param().abi()).ok()
     }
     pub unsafe fn BizRule(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -5998,9 +5998,9 @@ impl IAzTask {
     }
     pub unsafe fn SetBizRule<P0>(&self, bstrprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetBizRule)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetBizRule)(windows_core::Interface::as_raw(self), bstrprop.param().abi()).ok()
     }
     pub unsafe fn BizRuleLanguage(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -6008,9 +6008,9 @@ impl IAzTask {
     }
     pub unsafe fn SetBizRuleLanguage<P0>(&self, bstrprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetBizRuleLanguage)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetBizRuleLanguage)(windows_core::Interface::as_raw(self), bstrprop.param().abi()).ok()
     }
     pub unsafe fn BizRuleImportedPath(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -6018,9 +6018,9 @@ impl IAzTask {
     }
     pub unsafe fn SetBizRuleImportedPath<P0>(&self, bstrprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetBizRuleImportedPath)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetBizRuleImportedPath)(windows_core::Interface::as_raw(self), bstrprop.param().abi()).ok()
     }
     pub unsafe fn IsRoleDefinition(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -6028,9 +6028,9 @@ impl IAzTask {
     }
     pub unsafe fn SetIsRoleDefinition<P0>(&self, fprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetIsRoleDefinition)(windows_core::Interface::as_raw(self), fprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetIsRoleDefinition)(windows_core::Interface::as_raw(self), fprop.param().abi()).ok()
     }
     pub unsafe fn Operations(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -6042,31 +6042,31 @@ impl IAzTask {
     }
     pub unsafe fn AddOperation<P0, P1>(&self, bstrop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddOperation)(windows_core::Interface::as_raw(self), bstrop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddOperation)(windows_core::Interface::as_raw(self), bstrop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteOperation<P0, P1>(&self, bstrop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeleteOperation)(windows_core::Interface::as_raw(self), bstrop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteOperation)(windows_core::Interface::as_raw(self), bstrop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddTask<P0, P1>(&self, bstrtask: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddTask)(windows_core::Interface::as_raw(self), bstrtask.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddTask)(windows_core::Interface::as_raw(self), bstrtask.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteTask<P0, P1>(&self, bstrtask: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeleteTask)(windows_core::Interface::as_raw(self), bstrtask.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeleteTask)(windows_core::Interface::as_raw(self), bstrtask.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn Writable(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -6074,37 +6074,37 @@ impl IAzTask {
     }
     pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6150,9 +6150,9 @@ impl IAzTask2 {
     }
     pub unsafe fn SetName<P0>(&self, bstrname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), bstrname.param().abi()).ok()
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -6160,9 +6160,9 @@ impl IAzTask2 {
     }
     pub unsafe fn SetDescription<P0>(&self, bstrdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.param().abi()).ok()
     }
     pub unsafe fn ApplicationData(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -6170,9 +6170,9 @@ impl IAzTask2 {
     }
     pub unsafe fn SetApplicationData<P0>(&self, bstrapplicationdata: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetApplicationData)(windows_core::Interface::as_raw(self), bstrapplicationdata.param().abi()).ok()
     }
     pub unsafe fn BizRule(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -6180,9 +6180,9 @@ impl IAzTask2 {
     }
     pub unsafe fn SetBizRule<P0>(&self, bstrprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetBizRule)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetBizRule)(windows_core::Interface::as_raw(self), bstrprop.param().abi()).ok()
     }
     pub unsafe fn BizRuleLanguage(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -6190,9 +6190,9 @@ impl IAzTask2 {
     }
     pub unsafe fn SetBizRuleLanguage<P0>(&self, bstrprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetBizRuleLanguage)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetBizRuleLanguage)(windows_core::Interface::as_raw(self), bstrprop.param().abi()).ok()
     }
     pub unsafe fn BizRuleImportedPath(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -6200,9 +6200,9 @@ impl IAzTask2 {
     }
     pub unsafe fn SetBizRuleImportedPath<P0>(&self, bstrprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetBizRuleImportedPath)(windows_core::Interface::as_raw(self), bstrprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetBizRuleImportedPath)(windows_core::Interface::as_raw(self), bstrprop.param().abi()).ok()
     }
     pub unsafe fn IsRoleDefinition(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -6210,9 +6210,9 @@ impl IAzTask2 {
     }
     pub unsafe fn SetIsRoleDefinition<P0>(&self, fprop: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.SetIsRoleDefinition)(windows_core::Interface::as_raw(self), fprop.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetIsRoleDefinition)(windows_core::Interface::as_raw(self), fprop.param().abi()).ok()
     }
     pub unsafe fn Operations(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -6224,31 +6224,31 @@ impl IAzTask2 {
     }
     pub unsafe fn AddOperation<P0, P1>(&self, bstrop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddOperation)(windows_core::Interface::as_raw(self), bstrop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddOperation)(windows_core::Interface::as_raw(self), bstrop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteOperation<P0, P1>(&self, bstrop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteOperation)(windows_core::Interface::as_raw(self), bstrop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteOperation)(windows_core::Interface::as_raw(self), bstrop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddTask<P0, P1>(&self, bstrtask: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddTask)(windows_core::Interface::as_raw(self), bstrtask.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddTask)(windows_core::Interface::as_raw(self), bstrtask.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeleteTask<P0, P1>(&self, bstrtask: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeleteTask)(windows_core::Interface::as_raw(self), bstrtask.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeleteTask)(windows_core::Interface::as_raw(self), bstrtask.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn Writable(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -6256,46 +6256,46 @@ impl IAzTask2 {
     }
     pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetProperty)(windows_core::Interface::as_raw(self), lpropid, varreserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetProperty)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.AddPropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DeletePropertyItem)(windows_core::Interface::as_raw(self), lpropid, varprop.param().abi(), varreserved.param().abi()).ok()
     }
     pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Submit)(windows_core::Interface::as_raw(self), lflags, varreserved.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RoleAssignments<P0, P1>(&self, bstrscopename: P0, brecursive: P1) -> windows_core::Result<IAzRoleAssignments>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).RoleAssignments)(windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), brecursive.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).RoleAssignments)(windows_core::Interface::as_raw(self), bstrscopename.param().abi(), brecursive.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]

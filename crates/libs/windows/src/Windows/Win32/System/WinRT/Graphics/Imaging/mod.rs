@@ -20,22 +20,22 @@ impl ISoftwareBitmapNativeFactory {
     #[cfg(feature = "Win32_Graphics_Imaging")]
     pub unsafe fn CreateFromWICBitmap<P0, P1, T>(&self, data: P0, forcereadonly: P1) -> windows_core::Result<T>
     where
-        P0: windows_core::IntoParam<super::super::super::super::Graphics::Imaging::IWICBitmap>,
-        P1: windows_core::IntoParam<super::super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::super::Graphics::Imaging::IWICBitmap>,
+        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
         T: windows_core::Interface,
     {
         let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).CreateFromWICBitmap)(windows_core::Interface::as_raw(self), data.into_param().abi(), forcereadonly.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateFromWICBitmap)(windows_core::Interface::as_raw(self), data.param().abi(), forcereadonly.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn CreateFromMF2DBuffer2<P0, P1, T>(&self, data: P0, subtype: *const windows_core::GUID, width: u32, height: u32, forcereadonly: P1, mindisplayaperture: Option<*const super::super::super::super::Media::MediaFoundation::MFVideoArea>) -> windows_core::Result<T>
     where
-        P0: windows_core::IntoParam<super::super::super::super::Media::MediaFoundation::IMF2DBuffer2>,
-        P1: windows_core::IntoParam<super::super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::super::Media::MediaFoundation::IMF2DBuffer2>,
+        P1: windows_core::Param<super::super::super::super::Foundation::BOOL>,
         T: windows_core::Interface,
     {
         let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).CreateFromMF2DBuffer2)(windows_core::Interface::as_raw(self), data.into_param().abi(), subtype, width, height, forcereadonly.into_param().abi(), core::mem::transmute(mindisplayaperture.unwrap_or(std::ptr::null())), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateFromMF2DBuffer2)(windows_core::Interface::as_raw(self), data.param().abi(), subtype, width, height, forcereadonly.param().abi(), core::mem::transmute(mindisplayaperture.unwrap_or(std::ptr::null())), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]

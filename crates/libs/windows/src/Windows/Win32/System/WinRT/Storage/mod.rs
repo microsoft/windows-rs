@@ -28,11 +28,11 @@ windows_core::imp::interface_hierarchy!(IStorageFolderHandleAccess, windows_core
 impl IStorageFolderHandleAccess {
     pub unsafe fn Create<P0, P1>(&self, filename: P0, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: P1) -> windows_core::Result<super::super::super::Foundation::HANDLE>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<IOplockBreakingHandler>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<IOplockBreakingHandler>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), filename.into_param().abi(), creationoptions, accessoptions, sharingoptions, options, oplockbreakinghandler.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), filename.param().abi(), creationoptions, accessoptions, sharingoptions, options, oplockbreakinghandler.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -45,10 +45,10 @@ windows_core::imp::interface_hierarchy!(IStorageItemHandleAccess, windows_core::
 impl IStorageItemHandleAccess {
     pub unsafe fn Create<P0>(&self, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: P0) -> windows_core::Result<super::super::super::Foundation::HANDLE>
     where
-        P0: windows_core::IntoParam<IOplockBreakingHandler>,
+        P0: windows_core::Param<IOplockBreakingHandler>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), accessoptions, sharingoptions, options, oplockbreakinghandler.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), accessoptions, sharingoptions, options, oplockbreakinghandler.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -73,10 +73,10 @@ windows_core::imp::interface_hierarchy!(IUnbufferedFileHandleProvider, windows_c
 impl IUnbufferedFileHandleProvider {
     pub unsafe fn OpenUnbufferedFileHandle<P0>(&self, oplockbreakcallback: P0) -> windows_core::Result<usize>
     where
-        P0: windows_core::IntoParam<IUnbufferedFileHandleOplockCallback>,
+        P0: windows_core::Param<IUnbufferedFileHandleOplockCallback>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).OpenUnbufferedFileHandle)(windows_core::Interface::as_raw(self), oplockbreakcallback.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).OpenUnbufferedFileHandle)(windows_core::Interface::as_raw(self), oplockbreakcallback.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn CloseUnbufferedFileHandle(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CloseUnbufferedFileHandle)(windows_core::Interface::as_raw(self)).ok()

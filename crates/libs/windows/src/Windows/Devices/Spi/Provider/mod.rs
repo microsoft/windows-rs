@@ -30,12 +30,12 @@ windows_core::imp::interface_hierarchy!(ISpiControllerProvider, windows_core::IU
 impl ISpiControllerProvider {
     pub fn GetDeviceProvider<P0>(&self, settings: P0) -> windows_core::Result<ISpiDeviceProvider>
     where
-        P0: windows_core::IntoParam<ProviderSpiConnectionSettings>,
+        P0: windows_core::Param<ProviderSpiConnectionSettings>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDeviceProvider)(windows_core::Interface::as_raw(this), settings.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDeviceProvider)(windows_core::Interface::as_raw(this), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }

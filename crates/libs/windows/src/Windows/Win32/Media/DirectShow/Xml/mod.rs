@@ -4,24 +4,24 @@ impl IXMLGraphBuilder {
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn BuildFromXML<P0, P1>(&self, pgraph: P0, pxml: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::IGraphBuilder>,
-        P1: windows_core::IntoParam<super::super::super::Data::Xml::MsXml::IXMLElement>,
+        P0: windows_core::Param<super::IGraphBuilder>,
+        P1: windows_core::Param<super::super::super::Data::Xml::MsXml::IXMLElement>,
     {
-        (windows_core::Interface::vtable(self).BuildFromXML)(windows_core::Interface::as_raw(self), pgraph.into_param().abi(), pxml.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).BuildFromXML)(windows_core::Interface::as_raw(self), pgraph.param().abi(), pxml.param().abi()).ok()
     }
     pub unsafe fn SaveToXML<P0>(&self, pgraph: P0, pbstrxml: *mut windows_core::BSTR) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::IGraphBuilder>,
+        P0: windows_core::Param<super::IGraphBuilder>,
     {
-        (windows_core::Interface::vtable(self).SaveToXML)(windows_core::Interface::as_raw(self), pgraph.into_param().abi(), core::mem::transmute(pbstrxml)).ok()
+        (windows_core::Interface::vtable(self).SaveToXML)(windows_core::Interface::as_raw(self), pgraph.param().abi(), core::mem::transmute(pbstrxml)).ok()
     }
     pub unsafe fn BuildFromXMLFile<P0, P1, P2>(&self, pgraph: P0, wszfilename: P1, wszbaseurl: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::IGraphBuilder>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<super::IGraphBuilder>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).BuildFromXMLFile)(windows_core::Interface::as_raw(self), pgraph.into_param().abi(), wszfilename.into_param().abi(), wszbaseurl.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).BuildFromXMLFile)(windows_core::Interface::as_raw(self), pgraph.param().abi(), wszfilename.param().abi(), wszbaseurl.param().abi()).ok()
     }
 }
 #[repr(C)]

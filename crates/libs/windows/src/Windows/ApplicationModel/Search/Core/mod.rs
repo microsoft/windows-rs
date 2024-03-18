@@ -174,10 +174,10 @@ impl SearchSuggestionManager {
     }
     pub fn SetLocalContentSuggestionSettings<P0>(&self, settings: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::LocalContentSuggestionSettings>,
+        P0: windows_core::Param<super::LocalContentSuggestionSettings>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLocalContentSuggestionSettings)(windows_core::Interface::as_raw(this), settings.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLocalContentSuggestionSettings)(windows_core::Interface::as_raw(this), settings.param().abi()).ok() }
     }
     pub fn SetQuery(&self, querytext: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
@@ -189,10 +189,10 @@ impl SearchSuggestionManager {
     }
     pub fn SetQueryWithSearchQueryLinguisticDetails<P0>(&self, querytext: &windows_core::HSTRING, language: &windows_core::HSTRING, linguisticdetails: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::SearchQueryLinguisticDetails>,
+        P0: windows_core::Param<super::SearchQueryLinguisticDetails>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetQueryWithSearchQueryLinguisticDetails)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(querytext), core::mem::transmute_copy(language), linguisticdetails.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetQueryWithSearchQueryLinguisticDetails)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(querytext), core::mem::transmute_copy(language), linguisticdetails.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Suggestions(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IObservableVector<SearchSuggestion>> {
@@ -216,12 +216,12 @@ impl SearchSuggestionManager {
     }
     pub fn SuggestionsRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, SearchSuggestionsRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, SearchSuggestionsRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SuggestionsRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SuggestionsRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSuggestionsRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -230,12 +230,12 @@ impl SearchSuggestionManager {
     }
     pub fn RequestingFocusOnKeyboardInput<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, RequestingFocusOnKeyboardInputEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, RequestingFocusOnKeyboardInputEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestingFocusOnKeyboardInput)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RequestingFocusOnKeyboardInput)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRequestingFocusOnKeyboardInput(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {

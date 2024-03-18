@@ -6,35 +6,35 @@ pub unsafe fn CloseTrace(tracehandle: PROCESSTRACE_HANDLE) -> super::super::supe
 #[inline]
 pub unsafe fn ControlTraceA<P0>(tracehandle: CONTROLTRACE_HANDLE, instancename: P0, properties: *mut EVENT_TRACE_PROPERTIES, controlcode: EVENT_TRACE_CONTROL) -> super::super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn ControlTraceA(tracehandle : CONTROLTRACE_HANDLE, instancename : windows_core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES, controlcode : EVENT_TRACE_CONTROL) -> super::super::super::Foundation:: WIN32_ERROR);
-    ControlTraceA(core::mem::transmute(tracehandle), instancename.into_param().abi(), properties, controlcode)
+    ControlTraceA(core::mem::transmute(tracehandle), instancename.param().abi(), properties, controlcode)
 }
 #[inline]
 pub unsafe fn ControlTraceW<P0>(tracehandle: CONTROLTRACE_HANDLE, instancename: P0, properties: *mut EVENT_TRACE_PROPERTIES, controlcode: EVENT_TRACE_CONTROL) -> super::super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn ControlTraceW(tracehandle : CONTROLTRACE_HANDLE, instancename : windows_core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES, controlcode : EVENT_TRACE_CONTROL) -> super::super::super::Foundation:: WIN32_ERROR);
-    ControlTraceW(core::mem::transmute(tracehandle), instancename.into_param().abi(), properties, controlcode)
+    ControlTraceW(core::mem::transmute(tracehandle), instancename.param().abi(), properties, controlcode)
 }
 #[inline]
 pub unsafe fn CreateTraceInstanceId<P0>(reghandle: P0, instinfo: *mut EVENT_INSTANCE_INFO) -> super::super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("advapi32.dll" "system" fn CreateTraceInstanceId(reghandle : super::super::super::Foundation:: HANDLE, instinfo : *mut EVENT_INSTANCE_INFO) -> super::super::super::Foundation:: WIN32_ERROR);
-    CreateTraceInstanceId(reghandle.into_param().abi(), instinfo)
+    CreateTraceInstanceId(reghandle.param().abi(), instinfo)
 }
 #[inline]
 pub unsafe fn CveEventWrite<P0, P1>(cveid: P0, additionaldetails: P1) -> i32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn CveEventWrite(cveid : windows_core::PCWSTR, additionaldetails : windows_core::PCWSTR) -> i32);
-    CveEventWrite(cveid.into_param().abi(), additionaldetails.into_param().abi())
+    CveEventWrite(cveid.param().abi(), additionaldetails.param().abi())
 }
 #[inline]
 pub unsafe fn EnableTrace(enable: u32, enableflag: u32, enablelevel: u32, controlguid: *const windows_core::GUID, tracehandle: CONTROLTRACE_HANDLE) -> super::super::super::Foundation::WIN32_ERROR {
@@ -64,11 +64,11 @@ pub unsafe fn EnumerateTraceGuidsEx(tracequeryinfoclass: TRACE_QUERY_INFO_CLASS,
 #[inline]
 pub unsafe fn EventAccessControl<P0, P1>(guid: *const windows_core::GUID, operation: u32, sid: P0, rights: u32, allowordeny: P1) -> u32
 where
-    P0: windows_core::IntoParam<super::super::super::Foundation::PSID>,
-    P1: windows_core::IntoParam<super::super::super::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Foundation::PSID>,
+    P1: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("advapi32.dll" "system" fn EventAccessControl(guid : *const windows_core::GUID, operation : u32, sid : super::super::super::Foundation:: PSID, rights : u32, allowordeny : super::super::super::Foundation:: BOOLEAN) -> u32);
-    EventAccessControl(guid, operation, sid.into_param().abi(), rights, allowordeny.into_param().abi())
+    EventAccessControl(guid, operation, sid.param().abi(), rights, allowordeny.param().abi())
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -124,10 +124,10 @@ pub unsafe fn EventWriteEx(reghandle: u64, eventdescriptor: *const EVENT_DESCRIP
 #[inline]
 pub unsafe fn EventWriteString<P0>(reghandle: u64, level: u8, keyword: u64, string: P0) -> u32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn EventWriteString(reghandle : u64, level : u8, keyword : u64, string : windows_core::PCWSTR) -> u32);
-    EventWriteString(reghandle, level, keyword, string.into_param().abi())
+    EventWriteString(reghandle, level, keyword, string.param().abi())
 }
 #[inline]
 pub unsafe fn EventWriteTransfer(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, activityid: Option<*const windows_core::GUID>, relatedactivityid: Option<*const windows_core::GUID>, userdata: Option<&[EVENT_DATA_DESCRIPTOR]>) -> u32 {
@@ -137,18 +137,18 @@ pub unsafe fn EventWriteTransfer(reghandle: u64, eventdescriptor: *const EVENT_D
 #[inline]
 pub unsafe fn FlushTraceA<P0>(tracehandle: CONTROLTRACE_HANDLE, instancename: P0, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn FlushTraceA(tracehandle : CONTROLTRACE_HANDLE, instancename : windows_core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
-    FlushTraceA(core::mem::transmute(tracehandle), instancename.into_param().abi(), properties)
+    FlushTraceA(core::mem::transmute(tracehandle), instancename.param().abi(), properties)
 }
 #[inline]
 pub unsafe fn FlushTraceW<P0>(tracehandle: CONTROLTRACE_HANDLE, instancename: P0, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn FlushTraceW(tracehandle : CONTROLTRACE_HANDLE, instancename : windows_core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
-    FlushTraceW(core::mem::transmute(tracehandle), instancename.into_param().abi(), properties)
+    FlushTraceW(core::mem::transmute(tracehandle), instancename.param().abi(), properties)
 }
 #[inline]
 pub unsafe fn GetTraceEnableFlags(tracehandle: u64) -> u32 {
@@ -181,29 +181,29 @@ pub unsafe fn OpenTraceFromBufferStream(options: *const ETW_OPEN_TRACE_OPTIONS, 
 #[inline]
 pub unsafe fn OpenTraceFromFile<P0>(logfilename: P0, options: *const ETW_OPEN_TRACE_OPTIONS, logfileheader: Option<*mut TRACE_LOGFILE_HEADER>) -> u64
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn OpenTraceFromFile(logfilename : windows_core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, logfileheader : *mut TRACE_LOGFILE_HEADER) -> u64);
-    OpenTraceFromFile(logfilename.into_param().abi(), options, core::mem::transmute(logfileheader.unwrap_or(std::ptr::null_mut())))
+    OpenTraceFromFile(logfilename.param().abi(), options, core::mem::transmute(logfileheader.unwrap_or(std::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_System_Time")]
 #[inline]
 pub unsafe fn OpenTraceFromRealTimeLogger<P0>(loggername: P0, options: *const ETW_OPEN_TRACE_OPTIONS, logfileheader: Option<*mut TRACE_LOGFILE_HEADER>) -> u64
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn OpenTraceFromRealTimeLogger(loggername : windows_core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, logfileheader : *mut TRACE_LOGFILE_HEADER) -> u64);
-    OpenTraceFromRealTimeLogger(loggername.into_param().abi(), options, core::mem::transmute(logfileheader.unwrap_or(std::ptr::null_mut())))
+    OpenTraceFromRealTimeLogger(loggername.param().abi(), options, core::mem::transmute(logfileheader.unwrap_or(std::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_System_Time")]
 #[inline]
 pub unsafe fn OpenTraceFromRealTimeLoggerWithAllocationOptions<P0, P1>(loggername: P0, options: *const ETW_OPEN_TRACE_OPTIONS, allocationsize: usize, memorypartitionhandle: P1, logfileheader: Option<*mut TRACE_LOGFILE_HEADER>) -> u64
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("advapi32.dll" "system" fn OpenTraceFromRealTimeLoggerWithAllocationOptions(loggername : windows_core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, allocationsize : usize, memorypartitionhandle : super::super::super::Foundation:: HANDLE, logfileheader : *mut TRACE_LOGFILE_HEADER) -> u64);
-    OpenTraceFromRealTimeLoggerWithAllocationOptions(loggername.into_param().abi(), options, allocationsize, memorypartitionhandle.into_param().abi(), core::mem::transmute(logfileheader.unwrap_or(std::ptr::null_mut())))
+    OpenTraceFromRealTimeLoggerWithAllocationOptions(loggername.param().abi(), options, allocationsize, memorypartitionhandle.param().abi(), core::mem::transmute(logfileheader.unwrap_or(std::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_System_Time")]
 #[inline]
@@ -244,10 +244,10 @@ pub unsafe fn QueryAllTracesW(propertyarray: &mut [*mut EVENT_TRACE_PROPERTIES],
 #[inline]
 pub unsafe fn QueryTraceA<P0>(tracehandle: CONTROLTRACE_HANDLE, instancename: P0, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn QueryTraceA(tracehandle : CONTROLTRACE_HANDLE, instancename : windows_core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
-    QueryTraceA(core::mem::transmute(tracehandle), instancename.into_param().abi(), properties)
+    QueryTraceA(core::mem::transmute(tracehandle), instancename.param().abi(), properties)
 }
 #[inline]
 pub unsafe fn QueryTraceProcessingHandle(processinghandle: PROCESSTRACE_HANDLE, informationclass: ETW_PROCESS_HANDLE_INFO_TYPE, inbuffer: Option<*const core::ffi::c_void>, inbuffersize: u32, outbuffer: Option<*mut core::ffi::c_void>, outbuffersize: u32, returnlength: *mut u32) -> super::super::super::Foundation::WIN32_ERROR {
@@ -257,28 +257,28 @@ pub unsafe fn QueryTraceProcessingHandle(processinghandle: PROCESSTRACE_HANDLE, 
 #[inline]
 pub unsafe fn QueryTraceW<P0>(tracehandle: CONTROLTRACE_HANDLE, instancename: P0, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn QueryTraceW(tracehandle : CONTROLTRACE_HANDLE, instancename : windows_core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
-    QueryTraceW(core::mem::transmute(tracehandle), instancename.into_param().abi(), properties)
+    QueryTraceW(core::mem::transmute(tracehandle), instancename.param().abi(), properties)
 }
 #[inline]
 pub unsafe fn RegisterTraceGuidsA<P0, P1>(requestaddress: WMIDPREQUEST, requestcontext: Option<*const core::ffi::c_void>, controlguid: *const windows_core::GUID, traceguidreg: Option<&[TRACE_GUID_REGISTRATION]>, mofimagepath: P0, mofresourcename: P1, registrationhandle: *mut u64) -> u32
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
-    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn RegisterTraceGuidsA(requestaddress : WMIDPREQUEST, requestcontext : *const core::ffi::c_void, controlguid : *const windows_core::GUID, guidcount : u32, traceguidreg : *const TRACE_GUID_REGISTRATION, mofimagepath : windows_core::PCSTR, mofresourcename : windows_core::PCSTR, registrationhandle : *mut u64) -> u32);
-    RegisterTraceGuidsA(requestaddress, core::mem::transmute(requestcontext.unwrap_or(std::ptr::null())), controlguid, traceguidreg.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(traceguidreg.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), mofimagepath.into_param().abi(), mofresourcename.into_param().abi(), registrationhandle)
+    RegisterTraceGuidsA(requestaddress, core::mem::transmute(requestcontext.unwrap_or(std::ptr::null())), controlguid, traceguidreg.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(traceguidreg.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), mofimagepath.param().abi(), mofresourcename.param().abi(), registrationhandle)
 }
 #[inline]
 pub unsafe fn RegisterTraceGuidsW<P0, P1>(requestaddress: WMIDPREQUEST, requestcontext: Option<*const core::ffi::c_void>, controlguid: *const windows_core::GUID, traceguidreg: Option<&[TRACE_GUID_REGISTRATION]>, mofimagepath: P0, mofresourcename: P1, registrationhandle: *mut u64) -> u32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn RegisterTraceGuidsW(requestaddress : WMIDPREQUEST, requestcontext : *const core::ffi::c_void, controlguid : *const windows_core::GUID, guidcount : u32, traceguidreg : *const TRACE_GUID_REGISTRATION, mofimagepath : windows_core::PCWSTR, mofresourcename : windows_core::PCWSTR, registrationhandle : *mut u64) -> u32);
-    RegisterTraceGuidsW(requestaddress, core::mem::transmute(requestcontext.unwrap_or(std::ptr::null())), controlguid, traceguidreg.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(traceguidreg.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), mofimagepath.into_param().abi(), mofresourcename.into_param().abi(), registrationhandle)
+    RegisterTraceGuidsW(requestaddress, core::mem::transmute(requestcontext.unwrap_or(std::ptr::null())), controlguid, traceguidreg.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(traceguidreg.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), mofimagepath.param().abi(), mofresourcename.param().abi(), registrationhandle)
 }
 #[inline]
 pub unsafe fn RemoveTraceCallback(pguid: *const windows_core::GUID) -> super::super::super::Foundation::WIN32_ERROR {
@@ -293,34 +293,34 @@ pub unsafe fn SetTraceCallback(pguid: *const windows_core::GUID, eventcallback: 
 #[inline]
 pub unsafe fn StartTraceA<P0>(tracehandle: *mut CONTROLTRACE_HANDLE, instancename: P0, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn StartTraceA(tracehandle : *mut CONTROLTRACE_HANDLE, instancename : windows_core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
-    StartTraceA(tracehandle, instancename.into_param().abi(), properties)
+    StartTraceA(tracehandle, instancename.param().abi(), properties)
 }
 #[inline]
 pub unsafe fn StartTraceW<P0>(tracehandle: *mut CONTROLTRACE_HANDLE, instancename: P0, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn StartTraceW(tracehandle : *mut CONTROLTRACE_HANDLE, instancename : windows_core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
-    StartTraceW(tracehandle, instancename.into_param().abi(), properties)
+    StartTraceW(tracehandle, instancename.param().abi(), properties)
 }
 #[inline]
 pub unsafe fn StopTraceA<P0>(tracehandle: CONTROLTRACE_HANDLE, instancename: P0, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn StopTraceA(tracehandle : CONTROLTRACE_HANDLE, instancename : windows_core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
-    StopTraceA(core::mem::transmute(tracehandle), instancename.into_param().abi(), properties)
+    StopTraceA(core::mem::transmute(tracehandle), instancename.param().abi(), properties)
 }
 #[inline]
 pub unsafe fn StopTraceW<P0>(tracehandle: CONTROLTRACE_HANDLE, instancename: P0, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn StopTraceW(tracehandle : CONTROLTRACE_HANDLE, instancename : windows_core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
-    StopTraceW(core::mem::transmute(tracehandle), instancename.into_param().abi(), properties)
+    StopTraceW(core::mem::transmute(tracehandle), instancename.param().abi(), properties)
 }
 #[inline]
 pub unsafe fn TdhAggregatePayloadFilters(payloadfiltercount: u32, payloadfilterptrs: *const *const core::ffi::c_void, eventmatchallflags: Option<*const super::super::super::Foundation::BOOLEAN>, eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> u32 {
@@ -335,18 +335,18 @@ pub unsafe fn TdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor: *mut
 #[inline]
 pub unsafe fn TdhCloseDecodingHandle<P0>(handle: P0) -> u32
 where
-    P0: windows_core::IntoParam<TDH_HANDLE>,
+    P0: windows_core::Param<TDH_HANDLE>,
 {
     windows_targets::link!("tdh.dll" "system" fn TdhCloseDecodingHandle(handle : TDH_HANDLE) -> u32);
-    TdhCloseDecodingHandle(handle.into_param().abi())
+    TdhCloseDecodingHandle(handle.param().abi())
 }
 #[inline]
 pub unsafe fn TdhCreatePayloadFilter<P0>(providerguid: *const windows_core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, eventmatchany: P0, payloadpredicates: &[PAYLOAD_FILTER_PREDICATE], payloadfilter: *mut *mut core::ffi::c_void) -> u32
 where
-    P0: windows_core::IntoParam<super::super::super::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("tdh.dll" "system" fn TdhCreatePayloadFilter(providerguid : *const windows_core::GUID, eventdescriptor : *const EVENT_DESCRIPTOR, eventmatchany : super::super::super::Foundation:: BOOLEAN, payloadpredicatecount : u32, payloadpredicates : *const PAYLOAD_FILTER_PREDICATE, payloadfilter : *mut *mut core::ffi::c_void) -> u32);
-    TdhCreatePayloadFilter(providerguid, eventdescriptor, eventmatchany.into_param().abi(), payloadpredicates.len().try_into().unwrap(), core::mem::transmute(payloadpredicates.as_ptr()), payloadfilter)
+    TdhCreatePayloadFilter(providerguid, eventdescriptor, eventmatchany.param().abi(), payloadpredicates.len().try_into().unwrap(), core::mem::transmute(payloadpredicates.as_ptr()), payloadfilter)
 }
 #[inline]
 pub unsafe fn TdhDeletePayloadFilter(payloadfilter: *mut *mut core::ffi::c_void) -> u32 {
@@ -386,10 +386,10 @@ pub unsafe fn TdhFormatProperty(eventinfo: *const TRACE_EVENT_INFO, mapinfo: Opt
 #[inline]
 pub unsafe fn TdhGetDecodingParameter<P0>(handle: P0, tdhcontext: *mut TDH_CONTEXT) -> u32
 where
-    P0: windows_core::IntoParam<TDH_HANDLE>,
+    P0: windows_core::Param<TDH_HANDLE>,
 {
     windows_targets::link!("tdh.dll" "system" fn TdhGetDecodingParameter(handle : TDH_HANDLE, tdhcontext : *mut TDH_CONTEXT) -> u32);
-    TdhGetDecodingParameter(handle.into_param().abi(), tdhcontext)
+    TdhGetDecodingParameter(handle.param().abi(), tdhcontext)
 }
 #[inline]
 pub unsafe fn TdhGetEventInformation(event: *const EVENT_RECORD, tdhcontext: Option<&[TDH_CONTEXT]>, buffer: Option<*mut TRACE_EVENT_INFO>, buffersize: *mut u32) -> u32 {
@@ -399,10 +399,10 @@ pub unsafe fn TdhGetEventInformation(event: *const EVENT_RECORD, tdhcontext: Opt
 #[inline]
 pub unsafe fn TdhGetEventMapInformation<P0>(pevent: *const EVENT_RECORD, pmapname: P0, pbuffer: Option<*mut EVENT_MAP_INFO>, pbuffersize: *mut u32) -> u32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tdh.dll" "system" fn TdhGetEventMapInformation(pevent : *const EVENT_RECORD, pmapname : windows_core::PCWSTR, pbuffer : *mut EVENT_MAP_INFO, pbuffersize : *mut u32) -> u32);
-    TdhGetEventMapInformation(pevent, pmapname.into_param().abi(), core::mem::transmute(pbuffer.unwrap_or(std::ptr::null_mut())), pbuffersize)
+    TdhGetEventMapInformation(pevent, pmapname.param().abi(), core::mem::transmute(pbuffer.unwrap_or(std::ptr::null_mut())), pbuffersize)
 }
 #[inline]
 pub unsafe fn TdhGetManifestEventInformation(providerguid: *const windows_core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, buffer: Option<*mut TRACE_EVENT_INFO>, buffersize: *mut u32) -> u32 {
@@ -422,35 +422,35 @@ pub unsafe fn TdhGetPropertySize(pevent: *const EVENT_RECORD, ptdhcontext: Optio
 #[inline]
 pub unsafe fn TdhGetWppMessage<P0>(handle: P0, eventrecord: *const EVENT_RECORD, buffersize: *mut u32, buffer: *mut u8) -> u32
 where
-    P0: windows_core::IntoParam<TDH_HANDLE>,
+    P0: windows_core::Param<TDH_HANDLE>,
 {
     windows_targets::link!("tdh.dll" "system" fn TdhGetWppMessage(handle : TDH_HANDLE, eventrecord : *const EVENT_RECORD, buffersize : *mut u32, buffer : *mut u8) -> u32);
-    TdhGetWppMessage(handle.into_param().abi(), eventrecord, buffersize, buffer)
+    TdhGetWppMessage(handle.param().abi(), eventrecord, buffersize, buffer)
 }
 #[inline]
 pub unsafe fn TdhGetWppProperty<P0, P1>(handle: P0, eventrecord: *const EVENT_RECORD, propertyname: P1, buffersize: *mut u32, buffer: *mut u8) -> u32
 where
-    P0: windows_core::IntoParam<TDH_HANDLE>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<TDH_HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tdh.dll" "system" fn TdhGetWppProperty(handle : TDH_HANDLE, eventrecord : *const EVENT_RECORD, propertyname : windows_core::PCWSTR, buffersize : *mut u32, buffer : *mut u8) -> u32);
-    TdhGetWppProperty(handle.into_param().abi(), eventrecord, propertyname.into_param().abi(), buffersize, buffer)
+    TdhGetWppProperty(handle.param().abi(), eventrecord, propertyname.param().abi(), buffersize, buffer)
 }
 #[inline]
 pub unsafe fn TdhLoadManifest<P0>(manifest: P0) -> u32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tdh.dll" "system" fn TdhLoadManifest(manifest : windows_core::PCWSTR) -> u32);
-    TdhLoadManifest(manifest.into_param().abi())
+    TdhLoadManifest(manifest.param().abi())
 }
 #[inline]
 pub unsafe fn TdhLoadManifestFromBinary<P0>(binarypath: P0) -> u32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tdh.dll" "system" fn TdhLoadManifestFromBinary(binarypath : windows_core::PCWSTR) -> u32);
-    TdhLoadManifestFromBinary(binarypath.into_param().abi())
+    TdhLoadManifestFromBinary(binarypath.param().abi())
 }
 #[inline]
 pub unsafe fn TdhLoadManifestFromMemory(pdata: *const core::ffi::c_void, cbdata: u32) -> u32 {
@@ -470,18 +470,18 @@ pub unsafe fn TdhQueryProviderFieldInformation(pguid: *const windows_core::GUID,
 #[inline]
 pub unsafe fn TdhSetDecodingParameter<P0>(handle: P0, tdhcontext: *const TDH_CONTEXT) -> u32
 where
-    P0: windows_core::IntoParam<TDH_HANDLE>,
+    P0: windows_core::Param<TDH_HANDLE>,
 {
     windows_targets::link!("tdh.dll" "system" fn TdhSetDecodingParameter(handle : TDH_HANDLE, tdhcontext : *const TDH_CONTEXT) -> u32);
-    TdhSetDecodingParameter(handle.into_param().abi(), tdhcontext)
+    TdhSetDecodingParameter(handle.param().abi(), tdhcontext)
 }
 #[inline]
 pub unsafe fn TdhUnloadManifest<P0>(manifest: P0) -> u32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tdh.dll" "system" fn TdhUnloadManifest(manifest : windows_core::PCWSTR) -> u32);
-    TdhUnloadManifest(manifest.into_param().abi())
+    TdhUnloadManifest(manifest.param().abi())
 }
 #[inline]
 pub unsafe fn TdhUnloadManifestFromMemory(pdata: *const core::ffi::c_void, cbdata: u32) -> u32 {
@@ -526,18 +526,18 @@ pub unsafe fn UnregisterTraceGuids(registrationhandle: u64) -> u32 {
 #[inline]
 pub unsafe fn UpdateTraceA<P0>(tracehandle: CONTROLTRACE_HANDLE, instancename: P0, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn UpdateTraceA(tracehandle : CONTROLTRACE_HANDLE, instancename : windows_core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
-    UpdateTraceA(core::mem::transmute(tracehandle), instancename.into_param().abi(), properties)
+    UpdateTraceA(core::mem::transmute(tracehandle), instancename.param().abi(), properties)
 }
 #[inline]
 pub unsafe fn UpdateTraceW<P0>(tracehandle: CONTROLTRACE_HANDLE, instancename: P0, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn UpdateTraceW(tracehandle : CONTROLTRACE_HANDLE, instancename : windows_core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
-    UpdateTraceW(core::mem::transmute(tracehandle), instancename.into_param().abi(), properties)
+    UpdateTraceW(core::mem::transmute(tracehandle), instancename.param().abi(), properties)
 }
 windows_core::imp::define_interface!(ITraceEvent, ITraceEvent_Vtbl, 0x8cc97f40_9028_4ff3_9b62_7d1f79ca7bcb);
 windows_core::imp::interface_hierarchy!(ITraceEvent, windows_core::IUnknown);
@@ -603,23 +603,23 @@ windows_core::imp::interface_hierarchy!(ITraceEventCallback, windows_core::IUnkn
 impl ITraceEventCallback {
     pub unsafe fn OnBeginProcessTrace<P0, P1>(&self, headerevent: P0, relogger: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITraceEvent>,
-        P1: windows_core::IntoParam<ITraceRelogger>,
+        P0: windows_core::Param<ITraceEvent>,
+        P1: windows_core::Param<ITraceRelogger>,
     {
-        (windows_core::Interface::vtable(self).OnBeginProcessTrace)(windows_core::Interface::as_raw(self), headerevent.into_param().abi(), relogger.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnBeginProcessTrace)(windows_core::Interface::as_raw(self), headerevent.param().abi(), relogger.param().abi()).ok()
     }
     pub unsafe fn OnFinalizeProcessTrace<P0>(&self, relogger: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITraceRelogger>,
+        P0: windows_core::Param<ITraceRelogger>,
     {
-        (windows_core::Interface::vtable(self).OnFinalizeProcessTrace)(windows_core::Interface::as_raw(self), relogger.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnFinalizeProcessTrace)(windows_core::Interface::as_raw(self), relogger.param().abi()).ok()
     }
     pub unsafe fn OnEvent<P0, P1>(&self, event: P0, relogger: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITraceEvent>,
-        P1: windows_core::IntoParam<ITraceRelogger>,
+        P0: windows_core::Param<ITraceEvent>,
+        P1: windows_core::Param<ITraceRelogger>,
     {
-        (windows_core::Interface::vtable(self).OnEvent)(windows_core::Interface::as_raw(self), event.into_param().abi(), relogger.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnEvent)(windows_core::Interface::as_raw(self), event.param().abi(), relogger.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -634,29 +634,29 @@ windows_core::imp::interface_hierarchy!(ITraceRelogger, windows_core::IUnknown);
 impl ITraceRelogger {
     pub unsafe fn AddLogfileTraceStream<P0>(&self, logfilename: P0, usercontext: *const core::ffi::c_void) -> windows_core::Result<RELOGSTREAM_HANDLE>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddLogfileTraceStream)(windows_core::Interface::as_raw(self), logfilename.into_param().abi(), usercontext, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AddLogfileTraceStream)(windows_core::Interface::as_raw(self), logfilename.param().abi(), usercontext, &mut result__).map(|| result__)
     }
     pub unsafe fn AddRealtimeTraceStream<P0>(&self, loggername: P0, usercontext: *const core::ffi::c_void) -> windows_core::Result<RELOGSTREAM_HANDLE>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddRealtimeTraceStream)(windows_core::Interface::as_raw(self), loggername.into_param().abi(), usercontext, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).AddRealtimeTraceStream)(windows_core::Interface::as_raw(self), loggername.param().abi(), usercontext, &mut result__).map(|| result__)
     }
     pub unsafe fn RegisterCallback<P0>(&self, callback: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITraceEventCallback>,
+        P0: windows_core::Param<ITraceEventCallback>,
     {
-        (windows_core::Interface::vtable(self).RegisterCallback)(windows_core::Interface::as_raw(self), callback.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RegisterCallback)(windows_core::Interface::as_raw(self), callback.param().abi()).ok()
     }
     pub unsafe fn Inject<P0>(&self, event: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ITraceEvent>,
+        P0: windows_core::Param<ITraceEvent>,
     {
-        (windows_core::Interface::vtable(self).Inject)(windows_core::Interface::as_raw(self), event.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Inject)(windows_core::Interface::as_raw(self), event.param().abi()).ok()
     }
     pub unsafe fn CreateEventInstance(&self, tracehandle: RELOGSTREAM_HANDLE, flags: u32) -> windows_core::Result<ITraceEvent> {
         let mut result__ = std::mem::zeroed();
@@ -667,15 +667,15 @@ impl ITraceRelogger {
     }
     pub unsafe fn SetOutputFilename<P0>(&self, logfilename: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOutputFilename)(windows_core::Interface::as_raw(self), logfilename.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutputFilename)(windows_core::Interface::as_raw(self), logfilename.param().abi()).ok()
     }
     pub unsafe fn SetCompressionMode<P0>(&self, compressionmode: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOLEAN>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
     {
-        (windows_core::Interface::vtable(self).SetCompressionMode)(windows_core::Interface::as_raw(self), compressionmode.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetCompressionMode)(windows_core::Interface::as_raw(self), compressionmode.param().abi()).ok()
     }
     pub unsafe fn Cancel(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)).ok()

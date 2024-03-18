@@ -1276,10 +1276,10 @@ impl MediaEncodingProfile {
     }
     pub fn SetAudio<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<AudioEncodingProperties>,
+        P0: windows_core::Param<AudioEncodingProperties>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAudio)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAudio)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Audio(&self) -> windows_core::Result<AudioEncodingProperties> {
         let this = self;
@@ -1290,10 +1290,10 @@ impl MediaEncodingProfile {
     }
     pub fn SetVideo<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<VideoEncodingProperties>,
+        P0: windows_core::Param<VideoEncodingProperties>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetVideo)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetVideo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Video(&self) -> windows_core::Result<VideoEncodingProperties> {
         let this = self;
@@ -1304,10 +1304,10 @@ impl MediaEncodingProfile {
     }
     pub fn SetContainer<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ContainerEncodingProperties>,
+        P0: windows_core::Param<ContainerEncodingProperties>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContainer)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetContainer)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Container(&self) -> windows_core::Result<ContainerEncodingProperties> {
         let this = self;
@@ -1319,10 +1319,10 @@ impl MediaEncodingProfile {
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     pub fn SetAudioTracks<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<super::Core::AudioStreamDescriptor>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::Core::AudioStreamDescriptor>>,
     {
         let this = &windows_core::Interface::cast::<IMediaEncodingProfile2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAudioTracks)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAudioTracks)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     pub fn GetAudioTracks(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::Core::AudioStreamDescriptor>> {
@@ -1335,10 +1335,10 @@ impl MediaEncodingProfile {
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     pub fn SetVideoTracks<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<super::Core::VideoStreamDescriptor>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::Core::VideoStreamDescriptor>>,
     {
         let this = &windows_core::Interface::cast::<IMediaEncodingProfile2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetVideoTracks)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetVideoTracks)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     pub fn GetVideoTracks(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::Core::VideoStreamDescriptor>> {
@@ -1351,10 +1351,10 @@ impl MediaEncodingProfile {
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     pub fn SetTimedMetadataTracks<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataStreamDescriptor>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataStreamDescriptor>>,
     {
         let this = &windows_core::Interface::cast::<IMediaEncodingProfile3>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetTimedMetadataTracks)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetTimedMetadataTracks)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     pub fn GetTimedMetadataTracks(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::Core::TimedMetadataStreamDescriptor>> {
@@ -1397,21 +1397,21 @@ impl MediaEncodingProfile {
     #[cfg(feature = "Storage")]
     pub fn CreateFromFileAsync<P0>(file: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::IStorageFile>,
+        P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromFileAsync)(windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromFileAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromStreamAsync<P0>(stream: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStream>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
     {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromStreamAsync)(windows_core::Interface::as_raw(this), stream.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromStreamAsync)(windows_core::Interface::as_raw(this), stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWav(quality: AudioEncodingQuality) -> windows_core::Result<MediaEncodingProfile> {
@@ -1908,12 +1908,12 @@ impl MediaPropertySet {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Insert<P0>(&self, key: windows_core::GUID, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), key, value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), key, value.param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]

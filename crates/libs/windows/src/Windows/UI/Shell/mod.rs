@@ -397,12 +397,12 @@ impl FocusSessionManager {
     }
     pub fn IsFocusActiveChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<FocusSessionManager, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<FocusSessionManager, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsFocusActiveChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsFocusActiveChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveIsFocusActiveChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -453,12 +453,12 @@ impl SecurityAppManager {
     }
     pub fn Register<P0>(&self, kind: SecurityAppKind, displayname: &windows_core::HSTRING, detailsuri: P0, registerperuser: bool) -> windows_core::Result<windows_core::GUID>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Register)(windows_core::Interface::as_raw(this), kind, core::mem::transmute_copy(displayname), detailsuri.into_param().abi(), registerperuser, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Register)(windows_core::Interface::as_raw(this), kind, core::mem::transmute_copy(displayname), detailsuri.param().abi(), registerperuser, &mut result__).map(|| result__)
         }
     }
     pub fn Unregister(&self, kind: SecurityAppKind, guidregistration: windows_core::GUID) -> windows_core::Result<()> {
@@ -467,10 +467,10 @@ impl SecurityAppManager {
     }
     pub fn UpdateState<P0>(&self, kind: SecurityAppKind, guidregistration: windows_core::GUID, state: SecurityAppState, substatus: SecurityAppSubstatus, detailsuri: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).UpdateState)(windows_core::Interface::as_raw(this), kind, guidregistration, state, substatus, detailsuri.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).UpdateState)(windows_core::Interface::as_raw(this), kind, guidregistration, state, substatus, detailsuri.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for SecurityAppManager {
@@ -540,12 +540,12 @@ impl ShareWindowCommandSource {
     }
     pub fn CommandRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ShareWindowCommandSource, ShareWindowCommandEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ShareWindowCommandSource, ShareWindowCommandEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CommandRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CommandRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCommandRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -554,12 +554,12 @@ impl ShareWindowCommandSource {
     }
     pub fn CommandInvoked<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ShareWindowCommandSource, ShareWindowCommandEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ShareWindowCommandSource, ShareWindowCommandEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CommandInvoked)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CommandInvoked)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCommandInvoked(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -619,12 +619,12 @@ impl TaskbarManager {
     #[cfg(feature = "ApplicationModel_Core")]
     pub fn IsAppListEntryPinnedAsync<P0>(&self, applistentry: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::super::ApplicationModel::Core::AppListEntry>,
+        P0: windows_core::Param<super::super::ApplicationModel::Core::AppListEntry>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsAppListEntryPinnedAsync)(windows_core::Interface::as_raw(this), applistentry.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).IsAppListEntryPinnedAsync)(windows_core::Interface::as_raw(this), applistentry.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RequestPinCurrentAppAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
@@ -637,12 +637,12 @@ impl TaskbarManager {
     #[cfg(feature = "ApplicationModel_Core")]
     pub fn RequestPinAppListEntryAsync<P0>(&self, applistentry: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::super::ApplicationModel::Core::AppListEntry>,
+        P0: windows_core::Param<super::super::ApplicationModel::Core::AppListEntry>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestPinAppListEntryAsync)(windows_core::Interface::as_raw(this), applistentry.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestPinAppListEntryAsync)(windows_core::Interface::as_raw(this), applistentry.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsSecondaryTilePinnedAsync(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
@@ -655,12 +655,12 @@ impl TaskbarManager {
     #[cfg(feature = "UI_StartScreen")]
     pub fn RequestPinSecondaryTileAsync<P0>(&self, secondarytile: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::StartScreen::SecondaryTile>,
+        P0: windows_core::Param<super::StartScreen::SecondaryTile>,
     {
         let this = &windows_core::Interface::cast::<ITaskbarManager2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestPinSecondaryTileAsync)(windows_core::Interface::as_raw(this), secondarytile.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestPinSecondaryTileAsync)(windows_core::Interface::as_raw(this), secondarytile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryUnpinSecondaryTileAsync(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
@@ -715,10 +715,10 @@ impl WindowTab {
     }
     pub fn SetTag<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTag)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetTag)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Title(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -740,10 +740,10 @@ impl WindowTab {
     }
     pub fn SetIcon<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<WindowTabIcon>,
+        P0: windows_core::Param<WindowTabIcon>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIcon)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetIcon)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn TreatAsSecondaryTileId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -765,10 +765,10 @@ impl WindowTab {
     }
     pub fn SetGroup<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<WindowTabGroup>,
+        P0: windows_core::Param<WindowTabGroup>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetGroup)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetGroup)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ReportThumbnailAvailable(&self) -> windows_core::Result<()> {
         let this = self;
@@ -854,29 +854,29 @@ impl WindowTabCollection {
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<WindowTab>,
+        P0: windows_core::Param<WindowTab>,
     {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<WindowTab>>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.into_param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt<P0>(&self, index: u32, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<WindowTab>,
+        P0: windows_core::Param<WindowTab>,
     {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<WindowTab>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt<P0>(&self, index: u32, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<WindowTab>,
+        P0: windows_core::Param<WindowTab>,
     {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<WindowTab>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
@@ -886,10 +886,10 @@ impl WindowTabCollection {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<WindowTab>,
+        P0: windows_core::Param<WindowTab>,
     {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<WindowTab>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
@@ -916,10 +916,10 @@ impl WindowTabCollection {
     }
     pub fn MoveTab<P0>(&self, tab: P0, index: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<WindowTab>,
+        P0: windows_core::Param<WindowTab>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).MoveTab)(windows_core::Interface::as_raw(this), tab.into_param().abi(), index).ok() }
+        unsafe { (windows_core::Interface::vtable(this).MoveTab)(windows_core::Interface::as_raw(this), tab.param().abi(), index).ok() }
     }
 }
 impl windows_core::RuntimeType for WindowTabCollection {
@@ -982,10 +982,10 @@ impl WindowTabGroup {
     }
     pub fn SetIcon<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<WindowTabIcon>,
+        P0: windows_core::Param<WindowTabIcon>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIcon)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetIcon)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for WindowTabGroup {
@@ -1013,21 +1013,21 @@ impl WindowTabIcon {
     }
     pub fn CreateFromFontGlyphWithUri<P0>(glyph: &windows_core::HSTRING, fontfamily: &windows_core::HSTRING, fonturi: P0) -> windows_core::Result<WindowTabIcon>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         Self::IWindowTabIconStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromFontGlyphWithUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(glyph), core::mem::transmute_copy(fontfamily), fonturi.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromFontGlyphWithUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(glyph), core::mem::transmute_copy(fontfamily), fonturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromImage<P0>(image: P0) -> windows_core::Result<WindowTabIcon>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStreamReference>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         Self::IWindowTabIconStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromImage)(windows_core::Interface::as_raw(this), image.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromImage)(windows_core::Interface::as_raw(this), image.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1062,19 +1062,19 @@ impl WindowTabManager {
     }
     pub fn SetActiveTab<P0>(&self, tab: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<WindowTab>,
+        P0: windows_core::Param<WindowTab>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetActiveTab)(windows_core::Interface::as_raw(this), tab.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetActiveTab)(windows_core::Interface::as_raw(this), tab.param().abi()).ok() }
     }
     pub fn TabSwitchRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<WindowTabManager, WindowTabSwitchRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowTabManager, WindowTabSwitchRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TabSwitchRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TabSwitchRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveTabSwitchRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1083,12 +1083,12 @@ impl WindowTabManager {
     }
     pub fn TabCloseRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<WindowTabManager, WindowTabCloseRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowTabManager, WindowTabCloseRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TabCloseRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TabCloseRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveTabCloseRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1097,12 +1097,12 @@ impl WindowTabManager {
     }
     pub fn TabTearOutRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<WindowTabManager, WindowTabTearOutRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowTabManager, WindowTabTearOutRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TabTearOutRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TabTearOutRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveTabTearOutRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1111,12 +1111,12 @@ impl WindowTabManager {
     }
     pub fn TabThumbnailRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<WindowTabManager, WindowTabThumbnailRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowTabManager, WindowTabThumbnailRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TabThumbnailRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TabThumbnailRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveTabThumbnailRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1258,10 +1258,10 @@ impl WindowTabThumbnailRequestedEventArgs {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetImage<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStreamReference>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetImage)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetImage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
         let this = self;

@@ -432,12 +432,12 @@ windows_core::imp::interface_hierarchy!(PrintWorkflowBackgroundSession, windows_
 impl PrintWorkflowBackgroundSession {
     pub fn SetupRequested<P0>(&self, setupeventhandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<PrintWorkflowBackgroundSession, PrintWorkflowBackgroundSetupRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowBackgroundSession, PrintWorkflowBackgroundSetupRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetupRequested)(windows_core::Interface::as_raw(this), setupeventhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SetupRequested)(windows_core::Interface::as_raw(this), setupeventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSetupRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -446,12 +446,12 @@ impl PrintWorkflowBackgroundSession {
     }
     pub fn Submitted<P0>(&self, submittedeventhandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<PrintWorkflowBackgroundSession, PrintWorkflowSubmittedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowBackgroundSession, PrintWorkflowSubmittedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Submitted)(windows_core::Interface::as_raw(this), submittedeventhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Submitted)(windows_core::Interface::as_raw(this), submittedeventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSubmitted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -576,12 +576,12 @@ windows_core::imp::interface_hierarchy!(PrintWorkflowForegroundSession, windows_
 impl PrintWorkflowForegroundSession {
     pub fn SetupRequested<P0>(&self, setupeventhandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<PrintWorkflowForegroundSession, PrintWorkflowForegroundSetupRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowForegroundSession, PrintWorkflowForegroundSetupRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetupRequested)(windows_core::Interface::as_raw(this), setupeventhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SetupRequested)(windows_core::Interface::as_raw(this), setupeventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSetupRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -590,12 +590,12 @@ impl PrintWorkflowForegroundSession {
     }
     pub fn XpsDataAvailable<P0>(&self, xpsdataavailableeventhandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<PrintWorkflowForegroundSession, PrintWorkflowXpsDataAvailableEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowForegroundSession, PrintWorkflowXpsDataAvailableEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).XpsDataAvailable)(windows_core::Interface::as_raw(this), xpsdataavailableeventhandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).XpsDataAvailable)(windows_core::Interface::as_raw(this), xpsdataavailableeventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveXpsDataAvailable(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -739,12 +739,12 @@ impl PrintWorkflowJobBackgroundSession {
     }
     pub fn JobStarting<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobBackgroundSession, PrintWorkflowJobStartingEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobBackgroundSession, PrintWorkflowJobStartingEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).JobStarting)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).JobStarting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveJobStarting(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -753,12 +753,12 @@ impl PrintWorkflowJobBackgroundSession {
     }
     pub fn PdlModificationRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobBackgroundSession, PrintWorkflowPdlModificationRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobBackgroundSession, PrintWorkflowPdlModificationRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PdlModificationRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PdlModificationRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePdlModificationRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -904,12 +904,12 @@ impl PrintWorkflowJobUISession {
     }
     pub fn PdlDataAvailable<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobUISession, PrintWorkflowPdlDataAvailableEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobUISession, PrintWorkflowPdlDataAvailableEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PdlDataAvailable)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PdlDataAvailable)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePdlDataAvailable(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -918,12 +918,12 @@ impl PrintWorkflowJobUISession {
     }
     pub fn JobNotification<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobUISession, PrintWorkflowJobNotificationEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobUISession, PrintWorkflowJobNotificationEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).JobNotification)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).JobNotification)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveJobNotification(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -955,11 +955,11 @@ impl PrintWorkflowObjectModelSourceFileContent {
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateInstance<P0>(xpsstream: P0) -> windows_core::Result<PrintWorkflowObjectModelSourceFileContent>
     where
-        P0: windows_core::IntoParam<super::super::super::Storage::Streams::IInputStream>,
+        P0: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
     {
         Self::IPrintWorkflowObjectModelSourceFileContentFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), xpsstream.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), xpsstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1005,27 +1005,27 @@ impl PrintWorkflowPdlConverter {
     #[cfg(all(feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams"))]
     pub fn ConvertPdlAsync<P0, P1, P2>(&self, printticket: P0, inputstream: P1, outputstream: P2) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::PrintTicket::WorkflowPrintTicket>,
-        P1: windows_core::IntoParam<super::super::super::Storage::Streams::IInputStream>,
-        P2: windows_core::IntoParam<super::super::super::Storage::Streams::IOutputStream>,
+        P0: windows_core::Param<super::PrintTicket::WorkflowPrintTicket>,
+        P1: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
+        P2: windows_core::Param<super::super::super::Storage::Streams::IOutputStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConvertPdlAsync)(windows_core::Interface::as_raw(this), printticket.into_param().abi(), inputstream.into_param().abi(), outputstream.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ConvertPdlAsync)(windows_core::Interface::as_raw(this), printticket.param().abi(), inputstream.param().abi(), outputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams"))]
     pub fn ConvertPdlAsync2<P0, P1, P2>(&self, printticket: P0, inputstream: P1, outputstream: P2, hostbasedprocessingoperations: PdlConversionHostBasedProcessingOperations) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::PrintTicket::WorkflowPrintTicket>,
-        P1: windows_core::IntoParam<super::super::super::Storage::Streams::IInputStream>,
-        P2: windows_core::IntoParam<super::super::super::Storage::Streams::IOutputStream>,
+        P0: windows_core::Param<super::PrintTicket::WorkflowPrintTicket>,
+        P1: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
+        P2: windows_core::Param<super::super::super::Storage::Streams::IOutputStream>,
     {
         let this = &windows_core::Interface::cast::<IPrintWorkflowPdlConverter2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConvertPdlAsync)(windows_core::Interface::as_raw(this), printticket.into_param().abi(), inputstream.into_param().abi(), outputstream.into_param().abi(), hostbasedprocessingoperations, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ConvertPdlAsync)(windows_core::Interface::as_raw(this), printticket.param().abi(), inputstream.param().abi(), outputstream.param().abi(), hostbasedprocessingoperations, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1130,23 +1130,23 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
     #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
     pub fn CreateJobOnPrinterWithAttributes<P0>(&self, jobattributes: P0, targetcontenttype: &windows_core::HSTRING) -> windows_core::Result<PrintWorkflowPdlTargetStream>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateJobOnPrinterWithAttributes)(windows_core::Interface::as_raw(this), jobattributes.into_param().abi(), core::mem::transmute_copy(targetcontenttype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateJobOnPrinterWithAttributes)(windows_core::Interface::as_raw(this), jobattributes.param().abi(), core::mem::transmute_copy(targetcontenttype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateJobOnPrinterWithAttributesBuffer<P0>(&self, jobattributesbuffer: P0, targetcontenttype: &windows_core::HSTRING) -> windows_core::Result<PrintWorkflowPdlTargetStream>
     where
-        P0: windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateJobOnPrinterWithAttributesBuffer)(windows_core::Interface::as_raw(this), jobattributesbuffer.into_param().abi(), core::mem::transmute_copy(targetcontenttype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateJobOnPrinterWithAttributesBuffer)(windows_core::Interface::as_raw(this), jobattributesbuffer.param().abi(), core::mem::transmute_copy(targetcontenttype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetPdlConverter(&self, conversiontype: PrintWorkflowPdlConversionType) -> windows_core::Result<PrintWorkflowPdlConverter> {
@@ -1166,25 +1166,25 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
     #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
     pub fn CreateJobOnPrinterWithAttributes2<P0, P1>(&self, jobattributes: P0, targetcontenttype: &windows_core::HSTRING, operationattributes: P1, jobattributesmergepolicy: PrintWorkflowAttributesMergePolicy, operationattributesmergepolicy: PrintWorkflowAttributesMergePolicy) -> windows_core::Result<PrintWorkflowPdlTargetStream>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>,
-        P1: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>,
+        P1: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>,
     {
         let this = &windows_core::Interface::cast::<IPrintWorkflowPdlModificationRequestedEventArgs2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateJobOnPrinterWithAttributes)(windows_core::Interface::as_raw(this), jobattributes.into_param().abi(), core::mem::transmute_copy(targetcontenttype), operationattributes.into_param().abi(), jobattributesmergepolicy, operationattributesmergepolicy, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateJobOnPrinterWithAttributes)(windows_core::Interface::as_raw(this), jobattributes.param().abi(), core::mem::transmute_copy(targetcontenttype), operationattributes.param().abi(), jobattributesmergepolicy, operationattributesmergepolicy, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateJobOnPrinterWithAttributesBuffer2<P0, P1>(&self, jobattributesbuffer: P0, targetcontenttype: &windows_core::HSTRING, operationattributesbuffer: P1, jobattributesmergepolicy: PrintWorkflowAttributesMergePolicy, operationattributesmergepolicy: PrintWorkflowAttributesMergePolicy) -> windows_core::Result<PrintWorkflowPdlTargetStream>
     where
-        P0: windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
-        P1: windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = &windows_core::Interface::cast::<IPrintWorkflowPdlModificationRequestedEventArgs2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateJobOnPrinterWithAttributesBuffer)(windows_core::Interface::as_raw(this), jobattributesbuffer.into_param().abi(), core::mem::transmute_copy(targetcontenttype), operationattributesbuffer.into_param().abi(), jobattributesmergepolicy, operationattributesmergepolicy, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateJobOnPrinterWithAttributesBuffer)(windows_core::Interface::as_raw(this), jobattributesbuffer.param().abi(), core::mem::transmute_copy(targetcontenttype), operationattributesbuffer.param().abi(), jobattributesmergepolicy, operationattributesmergepolicy, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1309,45 +1309,45 @@ impl PrintWorkflowPrinterJob {
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn GetJobAttributesAsBuffer<P0>(&self, attributenames: P0) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetJobAttributesAsBuffer)(windows_core::Interface::as_raw(this), attributenames.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetJobAttributesAsBuffer)(windows_core::Interface::as_raw(this), attributenames.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
     pub fn GetJobAttributes<P0>(&self, attributenames: P0) -> windows_core::Result<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetJobAttributes)(windows_core::Interface::as_raw(this), attributenames.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetJobAttributes)(windows_core::Interface::as_raw(this), attributenames.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Devices_Printers", feature = "Storage_Streams"))]
     pub fn SetJobAttributesFromBuffer<P0>(&self, jobattributesbuffer: P0) -> windows_core::Result<super::super::super::Devices::Printers::IppSetAttributesResult>
     where
-        P0: windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetJobAttributesFromBuffer)(windows_core::Interface::as_raw(this), jobattributesbuffer.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetJobAttributesFromBuffer)(windows_core::Interface::as_raw(this), jobattributesbuffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
     pub fn SetJobAttributes<P0>(&self, jobattributes: P0) -> windows_core::Result<super::super::super::Devices::Printers::IppSetAttributesResult>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetJobAttributes)(windows_core::Interface::as_raw(this), jobattributes.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetJobAttributes)(windows_core::Interface::as_raw(this), jobattributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1470,12 +1470,12 @@ impl PrintWorkflowSubmittedEventArgs {
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
     pub fn GetTarget<P0>(&self, jobprintticket: P0) -> windows_core::Result<PrintWorkflowTarget>
     where
-        P0: windows_core::IntoParam<super::PrintTicket::WorkflowPrintTicket>,
+        P0: windows_core::Param<super::PrintTicket::WorkflowPrintTicket>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetTarget)(windows_core::Interface::as_raw(this), jobprintticket.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetTarget)(windows_core::Interface::as_raw(this), jobprintticket.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {

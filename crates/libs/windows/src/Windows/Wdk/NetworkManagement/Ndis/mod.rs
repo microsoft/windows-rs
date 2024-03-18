@@ -1,10 +1,10 @@
 #[inline]
 pub unsafe fn NdisAcquireReadWriteLock<P0>(lock: *mut NDIS_RW_LOCK, fwrite: P0, lockstate: *mut LOCK_STATE)
 where
-    P0: windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ndis.sys" "system" fn NdisAcquireReadWriteLock(lock : *mut NDIS_RW_LOCK, fwrite : super::super::super::Win32::Foundation:: BOOLEAN, lockstate : *mut LOCK_STATE));
-    NdisAcquireReadWriteLock(lock, fwrite.into_param().abi(), lockstate)
+    NdisAcquireReadWriteLock(lock, fwrite.param().abi(), lockstate)
 }
 #[inline]
 pub unsafe fn NdisAllocateMemoryWithTag(virtualaddress: *mut *mut core::ffi::c_void, length: u32, tag: u32) -> i32 {
@@ -183,10 +183,10 @@ pub unsafe fn NdisCoGetTapiCallId(ndisvchandle: *const core::ffi::c_void, tapica
 #[inline]
 pub unsafe fn NdisCompleteDmaTransfer<P0>(status: *mut i32, ndisdmahandle: *mut core::ffi::c_void, buffer: *mut super::super::Foundation::MDL, offset: u32, length: u32, writetodevice: P0)
 where
-    P0: windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ndis.sys" "system" fn NdisCompleteDmaTransfer(status : *mut i32, ndisdmahandle : *mut core::ffi::c_void, buffer : *mut super::super::Foundation:: MDL, offset : u32, length : u32, writetodevice : super::super::super::Win32::Foundation:: BOOLEAN));
-    NdisCompleteDmaTransfer(status, ndisdmahandle, buffer, offset, length, writetodevice.into_param().abi())
+    NdisCompleteDmaTransfer(status, ndisdmahandle, buffer, offset, length, writetodevice.param().abi())
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
@@ -288,18 +288,18 @@ pub unsafe fn NdisInitializeTimer(timer: *mut NDIS_TIMER, timerfunction: PNDIS_T
 #[inline]
 pub unsafe fn NdisMAllocateSharedMemory<P0>(miniportadapterhandle: *const core::ffi::c_void, length: u32, cached: P0, virtualaddress: *mut *mut core::ffi::c_void, physicaladdress: *mut i64)
 where
-    P0: windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ndis.sys" "system" fn NdisMAllocateSharedMemory(miniportadapterhandle : *const core::ffi::c_void, length : u32, cached : super::super::super::Win32::Foundation:: BOOLEAN, virtualaddress : *mut *mut core::ffi::c_void, physicaladdress : *mut i64));
-    NdisMAllocateSharedMemory(miniportadapterhandle, length, cached.into_param().abi(), virtualaddress, physicaladdress)
+    NdisMAllocateSharedMemory(miniportadapterhandle, length, cached.param().abi(), virtualaddress, physicaladdress)
 }
 #[inline]
 pub unsafe fn NdisMAllocateSharedMemoryAsync<P0>(miniportadapterhandle: *const core::ffi::c_void, length: u32, cached: P0, context: *const core::ffi::c_void) -> i32
 where
-    P0: windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ndis.sys" "system" fn NdisMAllocateSharedMemoryAsync(miniportadapterhandle : *const core::ffi::c_void, length : u32, cached : super::super::super::Win32::Foundation:: BOOLEAN, context : *const core::ffi::c_void) -> i32);
-    NdisMAllocateSharedMemoryAsync(miniportadapterhandle, length, cached.into_param().abi(), context)
+    NdisMAllocateSharedMemoryAsync(miniportadapterhandle, length, cached.param().abi(), context)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 #[inline]
@@ -372,10 +372,10 @@ pub unsafe fn NdisMFlushLog(loghandle: *const core::ffi::c_void) {
 #[inline]
 pub unsafe fn NdisMFreeSharedMemory<P0>(miniportadapterhandle: *const core::ffi::c_void, length: u32, cached: P0, virtualaddress: *const core::ffi::c_void, physicaladdress: i64)
 where
-    P0: windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ndis.sys" "system" fn NdisMFreeSharedMemory(miniportadapterhandle : *const core::ffi::c_void, length : u32, cached : super::super::super::Win32::Foundation:: BOOLEAN, virtualaddress : *const core::ffi::c_void, physicaladdress : i64));
-    NdisMFreeSharedMemory(miniportadapterhandle, length, cached.into_param().abi(), virtualaddress, physicaladdress)
+    NdisMFreeSharedMemory(miniportadapterhandle, length, cached.param().abi(), virtualaddress, physicaladdress)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
@@ -413,10 +413,10 @@ pub unsafe fn NdisMReadDmaCounter(miniportdmahandle: *const core::ffi::c_void) -
 #[inline]
 pub unsafe fn NdisMRegisterDmaChannel<P0>(miniportdmahandle: *mut *mut core::ffi::c_void, miniportadapterhandle: *const core::ffi::c_void, dmachannel: u32, dma32bitaddresses: P0, dmadescription: *const NDIS_DMA_DESCRIPTION, maximumlength: u32) -> i32
 where
-    P0: windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ndis.sys" "system" fn NdisMRegisterDmaChannel(miniportdmahandle : *mut *mut core::ffi::c_void, miniportadapterhandle : *const core::ffi::c_void, dmachannel : u32, dma32bitaddresses : super::super::super::Win32::Foundation:: BOOLEAN, dmadescription : *const NDIS_DMA_DESCRIPTION, maximumlength : u32) -> i32);
-    NdisMRegisterDmaChannel(miniportdmahandle, miniportadapterhandle, dmachannel, dma32bitaddresses.into_param().abi(), dmadescription, maximumlength)
+    NdisMRegisterDmaChannel(miniportdmahandle, miniportadapterhandle, dmachannel, dma32bitaddresses.param().abi(), dmadescription, maximumlength)
 }
 #[inline]
 pub unsafe fn NdisMRegisterIoPortRange(portoffset: *mut *mut core::ffi::c_void, miniportadapterhandle: *const core::ffi::c_void, initialport: u32, numberofports: u32) -> i32 {
@@ -538,10 +538,10 @@ pub unsafe fn NdisSetTimerEx(ndistimer: *const NDIS_TIMER, millisecondstodelay: 
 #[inline]
 pub unsafe fn NdisSetupDmaTransfer<P0>(status: *mut i32, ndisdmahandle: *mut core::ffi::c_void, buffer: *mut super::super::Foundation::MDL, offset: u32, length: u32, writetodevice: P0)
 where
-    P0: windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ndis.sys" "system" fn NdisSetupDmaTransfer(status : *mut i32, ndisdmahandle : *mut core::ffi::c_void, buffer : *mut super::super::Foundation:: MDL, offset : u32, length : u32, writetodevice : super::super::super::Win32::Foundation:: BOOLEAN));
-    NdisSetupDmaTransfer(status, ndisdmahandle, buffer, offset, length, writetodevice.into_param().abi())
+    NdisSetupDmaTransfer(status, ndisdmahandle, buffer, offset, length, writetodevice.param().abi())
 }
 #[inline]
 pub unsafe fn NdisSystemProcessorCount() -> i8 {

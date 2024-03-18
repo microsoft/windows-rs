@@ -334,10 +334,10 @@ pub unsafe fn D3DKMTGetProcessDeviceRemovalSupport(param0: *mut D3DKMT_GETPROCES
 #[inline]
 pub unsafe fn D3DKMTGetProcessSchedulingPriorityClass<P0>(param0: P0, param1: *mut D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P0: windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetProcessSchedulingPriorityClass(param0 : super::super::super::Win32::Foundation:: HANDLE, param1 : *mut D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTGetProcessSchedulingPriorityClass(param0.into_param().abi(), param1)
+    D3DKMTGetProcessSchedulingPriorityClass(param0.param().abi(), param1)
 }
 #[inline]
 pub unsafe fn D3DKMTGetResourcePresentPrivateDriverData(param0: *mut D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -645,10 +645,10 @@ pub unsafe fn D3DKMTReleaseKeyedMutex2(param0: *mut D3DKMT_RELEASEKEYEDMUTEX2) -
 #[inline]
 pub unsafe fn D3DKMTReleaseProcessVidPnSourceOwners<P0>(param0: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P0: windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTReleaseProcessVidPnSourceOwners(param0 : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTReleaseProcessVidPnSourceOwners(param0.into_param().abi())
+    D3DKMTReleaseProcessVidPnSourceOwners(param0.param().abi())
 }
 #[inline]
 pub unsafe fn D3DKMTRender(param0: *mut D3DKMT_RENDER) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -708,10 +708,10 @@ pub unsafe fn D3DKMTSetMonitorColorSpaceTransform(param0: *const D3DKMT_SET_COLO
 #[inline]
 pub unsafe fn D3DKMTSetProcessSchedulingPriorityClass<P0>(param0: P0, param1: D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P0: windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetProcessSchedulingPriorityClass(param0 : super::super::super::Win32::Foundation:: HANDLE, param1 : D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSetProcessSchedulingPriorityClass(param0.into_param().abi(), param1)
+    D3DKMTSetProcessSchedulingPriorityClass(param0.param().abi(), param1)
 }
 #[inline]
 pub unsafe fn D3DKMTSetQueuedLimit(param0: *const D3DKMT_SETQUEUEDLIMIT) -> super::super::super::Win32::Foundation::NTSTATUS {

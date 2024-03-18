@@ -359,10 +359,10 @@ impl SelectableWordsSegmenter {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Tokenize<P0>(&self, text: &windows_core::HSTRING, startindex: u32, handler: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<SelectableWordSegmentsTokenizingHandler>,
+        P0: windows_core::Param<SelectableWordSegmentsTokenizingHandler>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Tokenize)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), startindex, handler.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Tokenize)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), startindex, handler.param().abi()).ok() }
     }
     pub fn CreateWithLanguage(language: &windows_core::HSTRING) -> windows_core::Result<SelectableWordsSegmenter> {
         Self::ISelectableWordsSegmenterFactory(|this| unsafe {
@@ -568,23 +568,23 @@ impl TextPredictionGenerator {
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCandidatesWithParametersAsync<P0>(&self, input: &windows_core::HSTRING, maxcandidates: u32, predictionoptions: TextPredictionOptions, previousstrings: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<ITextPredictionGenerator2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetCandidatesWithParametersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), maxcandidates, predictionoptions, previousstrings.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetCandidatesWithParametersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), maxcandidates, predictionoptions, previousstrings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetNextWordCandidatesAsync<P0>(&self, maxcandidates: u32, previousstrings: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<ITextPredictionGenerator2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetNextWordCandidatesAsync)(windows_core::Interface::as_raw(this), maxcandidates, previousstrings.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetNextWordCandidatesAsync)(windows_core::Interface::as_raw(this), maxcandidates, previousstrings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "UI_Text_Core")]
@@ -862,10 +862,10 @@ impl WordsSegmenter {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Tokenize<P0>(&self, text: &windows_core::HSTRING, startindex: u32, handler: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<WordSegmentsTokenizingHandler>,
+        P0: windows_core::Param<WordSegmentsTokenizingHandler>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Tokenize)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), startindex, handler.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Tokenize)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), startindex, handler.param().abi()).ok() }
     }
     pub fn CreateWithLanguage(language: &windows_core::HSTRING) -> windows_core::Result<WordsSegmenter> {
         Self::IWordsSegmenterFactory(|this| unsafe {
@@ -1074,11 +1074,11 @@ impl SelectableWordSegmentsTokenizingHandler {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Invoke<P0, P1>(&self, precedingwords: P0, words: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<SelectableWordSegment>>,
-        P1: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<SelectableWordSegment>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<SelectableWordSegment>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<SelectableWordSegment>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), precedingwords.into_param().abi(), words.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), precedingwords.param().abi(), words.param().abi()).ok() }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1145,11 +1145,11 @@ impl WordSegmentsTokenizingHandler {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Invoke<P0, P1>(&self, precedingwords: P0, words: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<WordSegment>>,
-        P1: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<WordSegment>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<WordSegment>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<WordSegment>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), precedingwords.into_param().abi(), words.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), precedingwords.param().abi(), words.param().abi()).ok() }
     }
 }
 #[cfg(feature = "Foundation_Collections")]

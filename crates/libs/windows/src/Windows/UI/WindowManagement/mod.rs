@@ -429,10 +429,10 @@ impl AppWindow {
     }
     pub fn RequestMoveToDisplayRegion<P0>(&self, displayregion: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<DisplayRegion>,
+        P0: windows_core::Param<DisplayRegion>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RequestMoveToDisplayRegion)(windows_core::Interface::as_raw(this), displayregion.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RequestMoveToDisplayRegion)(windows_core::Interface::as_raw(this), displayregion.param().abi()).ok() }
     }
     pub fn RequestMoveAdjacentToCurrentView(&self) -> windows_core::Result<()> {
         let this = self;
@@ -440,17 +440,17 @@ impl AppWindow {
     }
     pub fn RequestMoveAdjacentToWindow<P0>(&self, anchorwindow: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<AppWindow>,
+        P0: windows_core::Param<AppWindow>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RequestMoveAdjacentToWindow)(windows_core::Interface::as_raw(this), anchorwindow.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RequestMoveAdjacentToWindow)(windows_core::Interface::as_raw(this), anchorwindow.param().abi()).ok() }
     }
     pub fn RequestMoveRelativeToWindowContent<P0>(&self, anchorwindow: P0, contentoffset: super::super::Foundation::Point) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<AppWindow>,
+        P0: windows_core::Param<AppWindow>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RequestMoveRelativeToWindowContent)(windows_core::Interface::as_raw(this), anchorwindow.into_param().abi(), contentoffset).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RequestMoveRelativeToWindowContent)(windows_core::Interface::as_raw(this), anchorwindow.param().abi(), contentoffset).ok() }
     }
     pub fn RequestMoveRelativeToCurrentViewContent(&self, contentoffset: super::super::Foundation::Point) -> windows_core::Result<()> {
         let this = self;
@@ -458,10 +458,10 @@ impl AppWindow {
     }
     pub fn RequestMoveRelativeToDisplayRegion<P0>(&self, displayregion: P0, displayregionoffset: super::super::Foundation::Point) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<DisplayRegion>,
+        P0: windows_core::Param<DisplayRegion>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RequestMoveRelativeToDisplayRegion)(windows_core::Interface::as_raw(this), displayregion.into_param().abi(), displayregionoffset).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RequestMoveRelativeToDisplayRegion)(windows_core::Interface::as_raw(this), displayregion.param().abi(), displayregionoffset).ok() }
     }
     pub fn RequestSize(&self, framesize: super::super::Foundation::Size) -> windows_core::Result<()> {
         let this = self;
@@ -476,12 +476,12 @@ impl AppWindow {
     }
     pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppWindow, AppWindowChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppWindow, AppWindowChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -490,12 +490,12 @@ impl AppWindow {
     }
     pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppWindow, AppWindowClosedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppWindow, AppWindowClosedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -504,12 +504,12 @@ impl AppWindow {
     }
     pub fn CloseRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppWindow, AppWindowCloseRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppWindow, AppWindowCloseRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CloseRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CloseRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCloseRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -803,12 +803,12 @@ impl AppWindowPresenter {
     }
     pub fn RequestPresentation<P0>(&self, configuration: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<AppWindowPresentationConfiguration>,
+        P0: windows_core::Param<AppWindowPresentationConfiguration>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestPresentation)(windows_core::Interface::as_raw(this), configuration.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RequestPresentation)(windows_core::Interface::as_raw(this), configuration.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RequestPresentationByKind(&self, presentationkind: AppWindowPresentationKind) -> windows_core::Result<bool> {
@@ -845,10 +845,10 @@ impl AppWindowTitleBar {
     }
     pub fn SetBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBackgroundColor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBackgroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ButtonBackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -859,10 +859,10 @@ impl AppWindowTitleBar {
     }
     pub fn SetButtonBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetButtonBackgroundColor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetButtonBackgroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ButtonForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -873,10 +873,10 @@ impl AppWindowTitleBar {
     }
     pub fn SetButtonForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetButtonForegroundColor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetButtonForegroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ButtonHoverBackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -887,10 +887,10 @@ impl AppWindowTitleBar {
     }
     pub fn SetButtonHoverBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetButtonHoverBackgroundColor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetButtonHoverBackgroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ButtonHoverForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -901,10 +901,10 @@ impl AppWindowTitleBar {
     }
     pub fn SetButtonHoverForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetButtonHoverForegroundColor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetButtonHoverForegroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ButtonInactiveBackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -915,10 +915,10 @@ impl AppWindowTitleBar {
     }
     pub fn SetButtonInactiveBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetButtonInactiveBackgroundColor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetButtonInactiveBackgroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ButtonInactiveForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -929,10 +929,10 @@ impl AppWindowTitleBar {
     }
     pub fn SetButtonInactiveForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetButtonInactiveForegroundColor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetButtonInactiveForegroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ButtonPressedBackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -943,10 +943,10 @@ impl AppWindowTitleBar {
     }
     pub fn SetButtonPressedBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetButtonPressedBackgroundColor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetButtonPressedBackgroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ButtonPressedForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -957,10 +957,10 @@ impl AppWindowTitleBar {
     }
     pub fn SetButtonPressedForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetButtonPressedForegroundColor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetButtonPressedForegroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ExtendsContentIntoTitleBar(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -982,10 +982,10 @@ impl AppWindowTitleBar {
     }
     pub fn SetForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetForegroundColor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetForegroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn InactiveBackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -996,10 +996,10 @@ impl AppWindowTitleBar {
     }
     pub fn SetInactiveBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetInactiveBackgroundColor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetInactiveBackgroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn InactiveForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1010,10 +1010,10 @@ impl AppWindowTitleBar {
     }
     pub fn SetInactiveForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetInactiveForegroundColor)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetInactiveForegroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn IsVisible(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -1187,12 +1187,12 @@ impl DisplayRegion {
     }
     pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<DisplayRegion, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DisplayRegion, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1303,12 +1303,12 @@ impl WindowingEnvironment {
     }
     pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<WindowingEnvironment, WindowingEnvironmentChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowingEnvironment, WindowingEnvironmentChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {

@@ -678,11 +678,11 @@ impl ApplicationLanguages {
     #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
     pub fn GetLanguagesForUser<P0>(user: P0) -> windows_core::Result<super::Foundation::Collections::IVectorView<windows_core::HSTRING>>
     where
-        P0: windows_core::IntoParam<super::System::User>,
+        P0: windows_core::Param<super::System::User>,
     {
         Self::IApplicationLanguagesStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetLanguagesForUser)(windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetLanguagesForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1245,12 +1245,12 @@ impl Calendar {
     }
     pub fn Compare<P0>(&self, other: P0) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<Calendar>,
+        P0: windows_core::Param<Calendar>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Compare)(windows_core::Interface::as_raw(this), other.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Compare)(windows_core::Interface::as_raw(this), other.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn CompareDateTime(&self, other: super::Foundation::DateTime) -> windows_core::Result<i32> {
@@ -1262,10 +1262,10 @@ impl Calendar {
     }
     pub fn CopyTo<P0>(&self, other: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<Calendar>,
+        P0: windows_core::Param<Calendar>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).CopyTo)(windows_core::Interface::as_raw(this), other.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).CopyTo)(windows_core::Interface::as_raw(this), other.param().abi()).ok() }
     }
     pub fn FirstMinuteInThisHour(&self) -> windows_core::Result<i32> {
         let this = self;
@@ -1326,31 +1326,31 @@ impl Calendar {
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateCalendarDefaultCalendarAndClock<P0>(languages: P0) -> windows_core::Result<Calendar>
     where
-        P0: windows_core::IntoParam<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::ICalendarFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCalendarDefaultCalendarAndClock)(windows_core::Interface::as_raw(this), languages.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateCalendarDefaultCalendarAndClock)(windows_core::Interface::as_raw(this), languages.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateCalendar<P0>(languages: P0, calendar: &windows_core::HSTRING, clock: &windows_core::HSTRING) -> windows_core::Result<Calendar>
     where
-        P0: windows_core::IntoParam<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::ICalendarFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCalendar)(windows_core::Interface::as_raw(this), languages.into_param().abi(), core::mem::transmute_copy(calendar), core::mem::transmute_copy(clock), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateCalendar)(windows_core::Interface::as_raw(this), languages.param().abi(), core::mem::transmute_copy(calendar), core::mem::transmute_copy(clock), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateCalendarWithTimeZone<P0>(languages: P0, calendar: &windows_core::HSTRING, clock: &windows_core::HSTRING, timezoneid: &windows_core::HSTRING) -> windows_core::Result<Calendar>
     where
-        P0: windows_core::IntoParam<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::ICalendarFactory2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCalendarWithTimeZone)(windows_core::Interface::as_raw(this), languages.into_param().abi(), core::mem::transmute_copy(calendar), core::mem::transmute_copy(clock), core::mem::transmute_copy(timezoneid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateCalendarWithTimeZone)(windows_core::Interface::as_raw(this), languages.param().abi(), core::mem::transmute_copy(calendar), core::mem::transmute_copy(clock), core::mem::transmute_copy(timezoneid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetTimeZone(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -2812,11 +2812,11 @@ impl Language {
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMuiCompatibleLanguageListFromLanguageTags<P0>(languagetags: P0) -> windows_core::Result<super::Foundation::Collections::IVector<windows_core::HSTRING>>
     where
-        P0: windows_core::IntoParam<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::ILanguageStatics3(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetMuiCompatibleLanguageListFromLanguageTags)(windows_core::Interface::as_raw(this), languagetags.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetMuiCompatibleLanguageListFromLanguageTags)(windows_core::Interface::as_raw(this), languagetags.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

@@ -1,10 +1,10 @@
 #[inline]
 pub unsafe fn CloseCompressor<P0>(compressorhandle: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<COMPRESSOR_HANDLE>,
+    P0: windows_core::Param<COMPRESSOR_HANDLE>,
 {
     windows_targets::link!("cabinet.dll" "system" fn CloseCompressor(compressorhandle : COMPRESSOR_HANDLE) -> super::super::Foundation:: BOOL);
-    CloseCompressor(compressorhandle.into_param().abi()).ok()
+    CloseCompressor(compressorhandle.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn CloseDecompressor(decompressorhandle: isize) -> windows_core::Result<()> {
@@ -14,10 +14,10 @@ pub unsafe fn CloseDecompressor(decompressorhandle: isize) -> windows_core::Resu
 #[inline]
 pub unsafe fn Compress<P0>(compressorhandle: P0, uncompresseddata: Option<*const core::ffi::c_void>, uncompresseddatasize: usize, compressedbuffer: Option<*mut core::ffi::c_void>, compressedbuffersize: usize, compresseddatasize: *mut usize) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<COMPRESSOR_HANDLE>,
+    P0: windows_core::Param<COMPRESSOR_HANDLE>,
 {
     windows_targets::link!("cabinet.dll" "system" fn Compress(compressorhandle : COMPRESSOR_HANDLE, uncompresseddata : *const core::ffi::c_void, uncompresseddatasize : usize, compressedbuffer : *mut core::ffi::c_void, compressedbuffersize : usize, compresseddatasize : *mut usize) -> super::super::Foundation:: BOOL);
-    Compress(compressorhandle.into_param().abi(), core::mem::transmute(uncompresseddata.unwrap_or(std::ptr::null())), uncompresseddatasize, core::mem::transmute(compressedbuffer.unwrap_or(std::ptr::null_mut())), compressedbuffersize, compresseddatasize).ok()
+    Compress(compressorhandle.param().abi(), core::mem::transmute(uncompresseddata.unwrap_or(std::ptr::null())), uncompresseddatasize, core::mem::transmute(compressedbuffer.unwrap_or(std::ptr::null_mut())), compressedbuffersize, compresseddatasize).ok()
 }
 #[inline]
 pub unsafe fn CreateCompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: Option<*const COMPRESS_ALLOCATION_ROUTINES>, compressorhandle: *mut COMPRESSOR_HANDLE) -> windows_core::Result<()> {
@@ -37,10 +37,10 @@ pub unsafe fn Decompress(decompressorhandle: isize, compresseddata: Option<*cons
 #[inline]
 pub unsafe fn QueryCompressorInformation<P0>(compressorhandle: P0, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *mut core::ffi::c_void, compressinformationsize: usize) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<COMPRESSOR_HANDLE>,
+    P0: windows_core::Param<COMPRESSOR_HANDLE>,
 {
     windows_targets::link!("cabinet.dll" "system" fn QueryCompressorInformation(compressorhandle : COMPRESSOR_HANDLE, compressinformationclass : COMPRESS_INFORMATION_CLASS, compressinformation : *mut core::ffi::c_void, compressinformationsize : usize) -> super::super::Foundation:: BOOL);
-    QueryCompressorInformation(compressorhandle.into_param().abi(), compressinformationclass, compressinformation, compressinformationsize).ok()
+    QueryCompressorInformation(compressorhandle.param().abi(), compressinformationclass, compressinformation, compressinformationsize).ok()
 }
 #[inline]
 pub unsafe fn QueryDecompressorInformation(decompressorhandle: isize, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *mut core::ffi::c_void, compressinformationsize: usize) -> windows_core::Result<()> {
@@ -50,10 +50,10 @@ pub unsafe fn QueryDecompressorInformation(decompressorhandle: isize, compressin
 #[inline]
 pub unsafe fn ResetCompressor<P0>(compressorhandle: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<COMPRESSOR_HANDLE>,
+    P0: windows_core::Param<COMPRESSOR_HANDLE>,
 {
     windows_targets::link!("cabinet.dll" "system" fn ResetCompressor(compressorhandle : COMPRESSOR_HANDLE) -> super::super::Foundation:: BOOL);
-    ResetCompressor(compressorhandle.into_param().abi()).ok()
+    ResetCompressor(compressorhandle.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn ResetDecompressor(decompressorhandle: isize) -> windows_core::Result<()> {
@@ -63,10 +63,10 @@ pub unsafe fn ResetDecompressor(decompressorhandle: isize) -> windows_core::Resu
 #[inline]
 pub unsafe fn SetCompressorInformation<P0>(compressorhandle: P0, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *const core::ffi::c_void, compressinformationsize: usize) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<COMPRESSOR_HANDLE>,
+    P0: windows_core::Param<COMPRESSOR_HANDLE>,
 {
     windows_targets::link!("cabinet.dll" "system" fn SetCompressorInformation(compressorhandle : COMPRESSOR_HANDLE, compressinformationclass : COMPRESS_INFORMATION_CLASS, compressinformation : *const core::ffi::c_void, compressinformationsize : usize) -> super::super::Foundation:: BOOL);
-    SetCompressorInformation(compressorhandle.into_param().abi(), compressinformationclass, compressinformation, compressinformationsize).ok()
+    SetCompressorInformation(compressorhandle.param().abi(), compressinformationclass, compressinformation, compressinformationsize).ok()
 }
 #[inline]
 pub unsafe fn SetDecompressorInformation(decompressorhandle: isize, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *const core::ffi::c_void, compressinformationsize: usize) -> windows_core::Result<()> {

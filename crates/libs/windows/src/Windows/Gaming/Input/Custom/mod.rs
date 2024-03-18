@@ -3,27 +3,27 @@ windows_core::imp::interface_hierarchy!(ICustomGameControllerFactory, windows_co
 impl ICustomGameControllerFactory {
     pub fn CreateGameController<P0>(&self, provider: P0) -> windows_core::Result<windows_core::IInspectable>
     where
-        P0: windows_core::IntoParam<IGameControllerProvider>,
+        P0: windows_core::Param<IGameControllerProvider>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateGameController)(windows_core::Interface::as_raw(this), provider.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateGameController)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OnGameControllerAdded<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::IGameController>,
+        P0: windows_core::Param<super::IGameController>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).OnGameControllerAdded)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).OnGameControllerAdded)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn OnGameControllerRemoved<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::IGameController>,
+        P0: windows_core::Param<super::IGameController>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).OnGameControllerRemoved)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).OnGameControllerRemoved)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for ICustomGameControllerFactory {
@@ -259,30 +259,30 @@ pub struct GameControllerFactoryManager;
 impl GameControllerFactoryManager {
     pub fn RegisterCustomFactoryForGipInterface<P0>(factory: P0, interfaceid: windows_core::GUID) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ICustomGameControllerFactory>,
+        P0: windows_core::Param<ICustomGameControllerFactory>,
     {
-        Self::IGameControllerFactoryManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RegisterCustomFactoryForGipInterface)(windows_core::Interface::as_raw(this), factory.into_param().abi(), interfaceid).ok() })
+        Self::IGameControllerFactoryManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RegisterCustomFactoryForGipInterface)(windows_core::Interface::as_raw(this), factory.param().abi(), interfaceid).ok() })
     }
     pub fn RegisterCustomFactoryForHardwareId<P0>(factory: P0, hardwarevendorid: u16, hardwareproductid: u16) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ICustomGameControllerFactory>,
+        P0: windows_core::Param<ICustomGameControllerFactory>,
     {
-        Self::IGameControllerFactoryManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RegisterCustomFactoryForHardwareId)(windows_core::Interface::as_raw(this), factory.into_param().abi(), hardwarevendorid, hardwareproductid).ok() })
+        Self::IGameControllerFactoryManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RegisterCustomFactoryForHardwareId)(windows_core::Interface::as_raw(this), factory.param().abi(), hardwarevendorid, hardwareproductid).ok() })
     }
     pub fn RegisterCustomFactoryForXusbType<P0>(factory: P0, xusbtype: XusbDeviceType, xusbsubtype: XusbDeviceSubtype) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ICustomGameControllerFactory>,
+        P0: windows_core::Param<ICustomGameControllerFactory>,
     {
-        Self::IGameControllerFactoryManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RegisterCustomFactoryForXusbType)(windows_core::Interface::as_raw(this), factory.into_param().abi(), xusbtype, xusbsubtype).ok() })
+        Self::IGameControllerFactoryManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RegisterCustomFactoryForXusbType)(windows_core::Interface::as_raw(this), factory.param().abi(), xusbtype, xusbsubtype).ok() })
     }
     pub fn TryGetFactoryControllerFromGameController<P0, P1>(factory: P0, gamecontroller: P1) -> windows_core::Result<super::IGameController>
     where
-        P0: windows_core::IntoParam<ICustomGameControllerFactory>,
-        P1: windows_core::IntoParam<super::IGameController>,
+        P0: windows_core::Param<ICustomGameControllerFactory>,
+        P1: windows_core::Param<super::IGameController>,
     {
         Self::IGameControllerFactoryManagerStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetFactoryControllerFromGameController)(windows_core::Interface::as_raw(this), factory.into_param().abi(), gamecontroller.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetFactoryControllerFromGameController)(windows_core::Interface::as_raw(this), factory.param().abi(), gamecontroller.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -390,12 +390,12 @@ impl GipGameControllerProvider {
     #[cfg(feature = "Storage_Streams")]
     pub fn UpdateFirmwareAsync<P0>(&self, firmwareimage: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<GipFirmwareUpdateResult, GipFirmwareUpdateProgress>>
     where
-        P0: windows_core::IntoParam<super::super::super::Storage::Streams::IInputStream>,
+        P0: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdateFirmwareAsync)(windows_core::Interface::as_raw(this), firmwareimage.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UpdateFirmwareAsync)(windows_core::Interface::as_raw(this), firmwareimage.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }

@@ -1,19 +1,19 @@
 #[inline]
 pub unsafe fn CoGetInterceptor<P0>(iidintercepted: *const windows_core::GUID, punkouter: P0, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::IUnknown>,
+    P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("ole32.dll" "system" fn CoGetInterceptor(iidintercepted : *const windows_core::GUID, punkouter : * mut core::ffi::c_void, iid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    CoGetInterceptor(iidintercepted, punkouter.into_param().abi(), iid, ppv).ok()
+    CoGetInterceptor(iidintercepted, punkouter.param().abi(), iid, ppv).ok()
 }
 #[inline]
 pub unsafe fn CoGetInterceptorFromTypeInfo<P0, P1>(iidintercepted: *const windows_core::GUID, punkouter: P0, typeinfo: P1, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::IUnknown>,
-    P1: windows_core::IntoParam<super::ITypeInfo>,
+    P0: windows_core::Param<windows_core::IUnknown>,
+    P1: windows_core::Param<super::ITypeInfo>,
 {
     windows_targets::link!("ole32.dll" "system" fn CoGetInterceptorFromTypeInfo(iidintercepted : *const windows_core::GUID, punkouter : * mut core::ffi::c_void, typeinfo : * mut core::ffi::c_void, iid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    CoGetInterceptorFromTypeInfo(iidintercepted, punkouter.into_param().abi(), typeinfo.into_param().abi(), iid, ppv).ok()
+    CoGetInterceptorFromTypeInfo(iidintercepted, punkouter.param().abi(), typeinfo.param().abi(), iid, ppv).ok()
 }
 windows_core::imp::define_interface!(ICallFrame, ICallFrame_Vtbl, 0xd573b4b0_894e_11d2_b8b6_00c04fb9618a);
 windows_core::imp::interface_hierarchy!(ICallFrame, windows_core::IUnknown);
@@ -52,31 +52,31 @@ impl ICallFrame {
     }
     pub unsafe fn Copy<P0>(&self, copycontrol: CALLFRAME_COPY, pwalker: P0) -> windows_core::Result<ICallFrame>
     where
-        P0: windows_core::IntoParam<ICallFrameWalker>,
+        P0: windows_core::Param<ICallFrameWalker>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), copycontrol, pwalker.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), copycontrol, pwalker.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Free<P0, P1, P2, P3>(&self, pframeargsdest: P0, pwalkerdestfree: P1, pwalkercopy: P2, freeflags: u32, pwalkerfree: P3, nullflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ICallFrame>,
-        P1: windows_core::IntoParam<ICallFrameWalker>,
-        P2: windows_core::IntoParam<ICallFrameWalker>,
-        P3: windows_core::IntoParam<ICallFrameWalker>,
+        P0: windows_core::Param<ICallFrame>,
+        P1: windows_core::Param<ICallFrameWalker>,
+        P2: windows_core::Param<ICallFrameWalker>,
+        P3: windows_core::Param<ICallFrameWalker>,
     {
-        (windows_core::Interface::vtable(self).Free)(windows_core::Interface::as_raw(self), pframeargsdest.into_param().abi(), pwalkerdestfree.into_param().abi(), pwalkercopy.into_param().abi(), freeflags, pwalkerfree.into_param().abi(), nullflags).ok()
+        (windows_core::Interface::vtable(self).Free)(windows_core::Interface::as_raw(self), pframeargsdest.param().abi(), pwalkerdestfree.param().abi(), pwalkercopy.param().abi(), freeflags, pwalkerfree.param().abi(), nullflags).ok()
     }
     pub unsafe fn FreeParam<P0>(&self, iparam: u32, freeflags: u32, pwalkerfree: P0, nullflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ICallFrameWalker>,
+        P0: windows_core::Param<ICallFrameWalker>,
     {
-        (windows_core::Interface::vtable(self).FreeParam)(windows_core::Interface::as_raw(self), iparam, freeflags, pwalkerfree.into_param().abi(), nullflags).ok()
+        (windows_core::Interface::vtable(self).FreeParam)(windows_core::Interface::as_raw(self), iparam, freeflags, pwalkerfree.param().abi(), nullflags).ok()
     }
     pub unsafe fn WalkFrame<P0>(&self, walkwhat: u32, pwalker: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ICallFrameWalker>,
+        P0: windows_core::Param<ICallFrameWalker>,
     {
-        (windows_core::Interface::vtable(self).WalkFrame)(windows_core::Interface::as_raw(self), walkwhat, pwalker.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).WalkFrame)(windows_core::Interface::as_raw(self), walkwhat, pwalker.param().abi()).ok()
     }
     pub unsafe fn GetMarshalSizeMax(&self, pmshlcontext: *const CALLFRAME_MARSHALCONTEXT, mshlflags: super::MSHLFLAGS) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -124,9 +124,9 @@ windows_core::imp::interface_hierarchy!(ICallFrameEvents, windows_core::IUnknown
 impl ICallFrameEvents {
     pub unsafe fn OnCall<P0>(&self, pframe: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ICallFrame>,
+        P0: windows_core::Param<ICallFrame>,
     {
-        (windows_core::Interface::vtable(self).OnCall)(windows_core::Interface::as_raw(self), pframe.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnCall)(windows_core::Interface::as_raw(self), pframe.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -139,10 +139,10 @@ windows_core::imp::interface_hierarchy!(ICallFrameWalker, windows_core::IUnknown
 impl ICallFrameWalker {
     pub unsafe fn OnWalkInterface<P0, P1>(&self, iid: *const windows_core::GUID, ppvinterface: *const *const core::ffi::c_void, fin: P0, fout: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
-        P1: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
+        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).OnWalkInterface)(windows_core::Interface::as_raw(self), iid, ppvinterface, fin.into_param().abi(), fout.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnWalkInterface)(windows_core::Interface::as_raw(self), iid, ppvinterface, fin.param().abi(), fout.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -193,9 +193,9 @@ impl ICallInterceptor {
     }
     pub unsafe fn RegisterSink<P0>(&self, psink: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ICallFrameEvents>,
+        P0: windows_core::Param<ICallFrameEvents>,
     {
-        (windows_core::Interface::vtable(self).RegisterSink)(windows_core::Interface::as_raw(self), psink.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RegisterSink)(windows_core::Interface::as_raw(self), psink.param().abi()).ok()
     }
     pub unsafe fn GetRegisteredSink(&self) -> windows_core::Result<ICallFrameEvents> {
         let mut result__ = std::mem::zeroed();
@@ -213,9 +213,9 @@ windows_core::imp::interface_hierarchy!(ICallUnmarshal, windows_core::IUnknown);
 impl ICallUnmarshal {
     pub unsafe fn Unmarshal<P0>(&self, imethod: u32, pbuffer: &[u8], fforcebuffercopy: P0, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT, pcbunmarshalled: *mut u32, ppframe: *mut Option<ICallFrame>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).Unmarshal)(windows_core::Interface::as_raw(self), imethod, core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), fforcebuffercopy.into_param().abi(), datarep, pcontext, pcbunmarshalled, core::mem::transmute(ppframe)).ok()
+        (windows_core::Interface::vtable(self).Unmarshal)(windows_core::Interface::as_raw(self), imethod, core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), fforcebuffercopy.param().abi(), datarep, pcontext, pcbunmarshalled, core::mem::transmute(ppframe)).ok()
     }
     pub unsafe fn ReleaseMarshalData(&self, imethod: u32, pbuffer: &[u8], ibfirstrelease: u32, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ReleaseMarshalData)(windows_core::Interface::as_raw(self), imethod, core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), ibfirstrelease, datarep, pcontext).ok()

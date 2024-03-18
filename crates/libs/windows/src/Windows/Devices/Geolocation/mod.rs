@@ -534,31 +534,31 @@ impl GeoboundingBox {
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryCompute<P0>(positions: P0) -> windows_core::Result<GeoboundingBox>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<BasicGeoposition>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<BasicGeoposition>>,
     {
         Self::IGeoboundingBoxStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryCompute)(windows_core::Interface::as_raw(this), positions.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryCompute)(windows_core::Interface::as_raw(this), positions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryComputeWithAltitudeReference<P0>(positions: P0, altituderefsystem: AltitudeReferenceSystem) -> windows_core::Result<GeoboundingBox>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<BasicGeoposition>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<BasicGeoposition>>,
     {
         Self::IGeoboundingBoxStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryComputeWithAltitudeReference)(windows_core::Interface::as_raw(this), positions.into_param().abi(), altituderefsystem, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryComputeWithAltitudeReference)(windows_core::Interface::as_raw(this), positions.param().abi(), altituderefsystem, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryComputeWithAltitudeReferenceAndSpatialReference<P0>(positions: P0, altituderefsystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> windows_core::Result<GeoboundingBox>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<BasicGeoposition>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<BasicGeoposition>>,
     {
         Self::IGeoboundingBoxStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryComputeWithAltitudeReferenceAndSpatialReference)(windows_core::Interface::as_raw(this), positions.into_param().abi(), altituderefsystem, spatialreferenceid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryComputeWithAltitudeReferenceAndSpatialReference)(windows_core::Interface::as_raw(this), positions.param().abi(), altituderefsystem, spatialreferenceid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GeoshapeType(&self) -> windows_core::Result<GeoshapeType> {
@@ -915,12 +915,12 @@ impl Geolocator {
     }
     pub fn PositionChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<Geolocator, PositionChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Geolocator, PositionChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PositionChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PositionChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePositionChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -929,12 +929,12 @@ impl Geolocator {
     }
     pub fn StatusChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<Geolocator, StatusChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Geolocator, StatusChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -973,9 +973,9 @@ impl Geolocator {
     }
     pub fn SetDefaultGeoposition<P0>(value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<BasicGeoposition>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<BasicGeoposition>>,
     {
-        Self::IGeolocatorStatics2(|this| unsafe { (windows_core::Interface::vtable(this).SetDefaultGeoposition)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() })
+        Self::IGeolocatorStatics2(|this| unsafe { (windows_core::Interface::vtable(this).SetDefaultGeoposition)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
     }
     pub fn DefaultGeoposition() -> windows_core::Result<super::super::Foundation::IReference<BasicGeoposition>> {
         Self::IGeolocatorStatics2(|this| unsafe {
@@ -992,10 +992,10 @@ impl Geolocator {
     }
     pub fn SetDesiredAccuracyInMeters<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<u32>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<u32>>,
     {
         let this = &windows_core::Interface::cast::<IGeolocatorWithScalarAccuracy>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetDesiredAccuracyInMeters)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDesiredAccuracyInMeters)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[doc(hidden)]
     pub fn IGeolocatorStatics<R, F: FnOnce(&IGeolocatorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1037,31 +1037,31 @@ impl Geopath {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create<P0>(positions: P0) -> windows_core::Result<Geopath>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<BasicGeoposition>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<BasicGeoposition>>,
     {
         Self::IGeopathFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), positions.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), positions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithAltitudeReference<P0>(positions: P0, altitudereferencesystem: AltitudeReferenceSystem) -> windows_core::Result<Geopath>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<BasicGeoposition>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<BasicGeoposition>>,
     {
         Self::IGeopathFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithAltitudeReference)(windows_core::Interface::as_raw(this), positions.into_param().abi(), altitudereferencesystem, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithAltitudeReference)(windows_core::Interface::as_raw(this), positions.param().abi(), altitudereferencesystem, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithAltitudeReferenceAndSpatialReference<P0>(positions: P0, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> windows_core::Result<Geopath>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<BasicGeoposition>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<BasicGeoposition>>,
     {
         Self::IGeopathFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithAltitudeReferenceAndSpatialReference)(windows_core::Interface::as_raw(this), positions.into_param().abi(), altitudereferencesystem, spatialreferenceid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithAltitudeReferenceAndSpatialReference)(windows_core::Interface::as_raw(this), positions.param().abi(), altitudereferencesystem, spatialreferenceid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GeoshapeType(&self) -> windows_core::Result<GeoshapeType> {
@@ -1280,12 +1280,12 @@ impl GeovisitMonitor {
     }
     pub fn VisitStateChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<GeovisitMonitor, GeovisitStateChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GeovisitMonitor, GeovisitStateChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).VisitStateChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).VisitStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveVisitStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {

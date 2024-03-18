@@ -15,10 +15,10 @@ windows_core::imp::required_hierarchy!(DesktopWindowTarget, super::IAnimationObj
 impl DesktopWindowTarget {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::AnimationPropertyInfo>,
+        P0: windows_core::Param<super::AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -48,10 +48,10 @@ impl DesktopWindowTarget {
     }
     pub fn StartAnimation<P0>(&self, propertyname: &windows_core::HSTRING, animation: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::CompositionAnimation>,
+        P0: windows_core::Param<super::CompositionAnimation>,
     {
         let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StartAnimation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).StartAnimation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi()).ok() }
     }
     pub fn StopAnimation(&self, propertyname: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
@@ -77,24 +77,24 @@ impl DesktopWindowTarget {
     }
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::ImplicitAnimationCollection>,
+        P0: windows_core::Param<super::ImplicitAnimationCollection>,
     {
         let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetImplicitAnimations)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetImplicitAnimations)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn StartAnimationGroup<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::ICompositionAnimationBase>,
+        P0: windows_core::Param<super::ICompositionAnimationBase>,
     {
         let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StartAnimationGroup)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).StartAnimationGroup)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn StopAnimationGroup<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::ICompositionAnimationBase>,
+        P0: windows_core::Param<super::ICompositionAnimationBase>,
     {
         let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StopAnimationGroup)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).StopAnimationGroup)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> windows_core::Result<super::super::super::System::DispatcherQueue> {
@@ -113,11 +113,11 @@ impl DesktopWindowTarget {
     }
     pub fn StartAnimationWithController<P0, P1>(&self, propertyname: &windows_core::HSTRING, animation: P0, animationcontroller: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::CompositionAnimation>,
-        P1: windows_core::IntoParam<super::AnimationController>,
+        P0: windows_core::Param<super::CompositionAnimation>,
+        P1: windows_core::Param<super::AnimationController>,
     {
         let this = &windows_core::Interface::cast::<super::ICompositionObject5>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.into_param().abi(), animationcontroller.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
     pub fn Root(&self) -> windows_core::Result<super::Visual> {
         let this = &windows_core::Interface::cast::<super::ICompositionTarget>(self)?;
@@ -128,10 +128,10 @@ impl DesktopWindowTarget {
     }
     pub fn SetRoot<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::Visual>,
+        P0: windows_core::Param<super::Visual>,
     {
         let this = &windows_core::Interface::cast::<super::ICompositionTarget>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetRoot)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetRoot)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn IsTopmost(&self) -> windows_core::Result<bool> {
         let this = self;

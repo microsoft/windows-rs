@@ -83,42 +83,42 @@ impl HdmiDisplayInformation {
     }
     pub fn RequestSetCurrentDisplayModeAsync<P0>(&self, mode: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<HdmiDisplayMode>,
+        P0: windows_core::Param<HdmiDisplayMode>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestSetCurrentDisplayModeAsync)(windows_core::Interface::as_raw(this), mode.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestSetCurrentDisplayModeAsync)(windows_core::Interface::as_raw(this), mode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RequestSetCurrentDisplayModeWithHdrAsync<P0>(&self, mode: P0, hdroption: HdmiDisplayHdrOption) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<HdmiDisplayMode>,
+        P0: windows_core::Param<HdmiDisplayMode>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestSetCurrentDisplayModeWithHdrAsync)(windows_core::Interface::as_raw(this), mode.into_param().abi(), hdroption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestSetCurrentDisplayModeWithHdrAsync)(windows_core::Interface::as_raw(this), mode.param().abi(), hdroption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RequestSetCurrentDisplayModeWithHdrAndMetadataAsync<P0>(&self, mode: P0, hdroption: HdmiDisplayHdrOption, hdrmetadata: HdmiDisplayHdr2086Metadata) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<HdmiDisplayMode>,
+        P0: windows_core::Param<HdmiDisplayMode>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestSetCurrentDisplayModeWithHdrAndMetadataAsync)(windows_core::Interface::as_raw(this), mode.into_param().abi(), hdroption, hdrmetadata, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestSetCurrentDisplayModeWithHdrAndMetadataAsync)(windows_core::Interface::as_raw(this), mode.param().abi(), hdroption, hdrmetadata, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DisplayModesChanged<P0>(&self, value: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<HdmiDisplayInformation, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<HdmiDisplayInformation, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayModesChanged)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DisplayModesChanged)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDisplayModesChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -191,12 +191,12 @@ impl HdmiDisplayMode {
     }
     pub fn IsEqual<P0>(&self, mode: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<HdmiDisplayMode>,
+        P0: windows_core::Param<HdmiDisplayMode>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsEqual)(windows_core::Interface::as_raw(this), mode.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsEqual)(windows_core::Interface::as_raw(this), mode.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn ColorSpace(&self) -> windows_core::Result<HdmiDisplayColorSpace> {

@@ -313,10 +313,10 @@ impl UserActivity {
     }
     pub fn SetContentUri<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContentUri)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetContentUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ContentType(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -338,10 +338,10 @@ impl UserActivity {
     }
     pub fn SetFallbackUri<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetFallbackUri)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetFallbackUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ActivationUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -352,10 +352,10 @@ impl UserActivity {
     }
     pub fn SetActivationUri<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetActivationUri)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetActivationUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ContentInfo(&self) -> windows_core::Result<IUserActivityContentInfo> {
         let this = self;
@@ -366,10 +366,10 @@ impl UserActivity {
     }
     pub fn SetContentInfo<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IUserActivityContentInfo>,
+        P0: windows_core::Param<IUserActivityContentInfo>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContentInfo)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetContentInfo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn SaveAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -425,11 +425,11 @@ impl UserActivity {
     #[cfg(feature = "Foundation_Collections")]
     pub fn ToJsonArray<P0>(activities: P0) -> windows_core::Result<windows_core::HSTRING>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<UserActivity>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<UserActivity>>,
     {
         Self::IUserActivityStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ToJsonArray)(windows_core::Interface::as_raw(this), activities.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ToJsonArray)(windows_core::Interface::as_raw(this), activities.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -476,10 +476,10 @@ impl UserActivityAttribution {
     }
     pub fn SetIconUri<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIconUri)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetIconUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn AlternateText(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -505,11 +505,11 @@ impl UserActivityAttribution {
     }
     pub fn CreateWithUri<P0>(iconuri: P0) -> windows_core::Result<UserActivityAttribution>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         Self::IUserActivityAttributionFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithUri)(windows_core::Interface::as_raw(this), iconuri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithUri)(windows_core::Interface::as_raw(this), iconuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -584,21 +584,21 @@ impl UserActivityChannel {
     #[cfg(feature = "Security_Credentials")]
     pub fn TryGetForWebAccount<P0>(account: P0) -> windows_core::Result<UserActivityChannel>
     where
-        P0: windows_core::IntoParam<super::super::Security::Credentials::WebAccount>,
+        P0: windows_core::Param<super::super::Security::Credentials::WebAccount>,
     {
         Self::IUserActivityChannelStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetForWebAccount)(windows_core::Interface::as_raw(this), account.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetForWebAccount)(windows_core::Interface::as_raw(this), account.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
     pub fn GetForUser<P0>(user: P0) -> windows_core::Result<UserActivityChannel>
     where
-        P0: windows_core::IntoParam<super::super::System::User>,
+        P0: windows_core::Param<super::super::System::User>,
     {
         Self::IUserActivityChannelStatics3(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -673,10 +673,10 @@ windows_core::imp::interface_hierarchy!(UserActivityRequest, windows_core::IUnkn
 impl UserActivityRequest {
     pub fn SetUserActivity<P0>(&self, activity: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<UserActivity>,
+        P0: windows_core::Param<UserActivity>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetUserActivity)(windows_core::Interface::as_raw(this), activity.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetUserActivity)(windows_core::Interface::as_raw(this), activity.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for UserActivityRequest {
@@ -698,12 +698,12 @@ windows_core::imp::interface_hierarchy!(UserActivityRequestManager, windows_core
 impl UserActivityRequestManager {
     pub fn UserActivityRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<UserActivityRequestManager, UserActivityRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<UserActivityRequestManager, UserActivityRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).UserActivityRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).UserActivityRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveUserActivityRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -882,18 +882,18 @@ impl UserActivityVisualElements {
     }
     pub fn SetAttribution<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<UserActivityAttribution>,
+        P0: windows_core::Param<UserActivityAttribution>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAttribution)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAttribution)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "UI_Shell")]
     pub fn SetContent<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::UI::Shell::IAdaptiveCard>,
+        P0: windows_core::Param<super::super::UI::Shell::IAdaptiveCard>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContent)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetContent)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "UI_Shell")]
     pub fn Content(&self) -> windows_core::Result<super::super::UI::Shell::IAdaptiveCard> {

@@ -94,12 +94,12 @@ impl OfflineMapPackage {
     }
     pub fn StatusChanged<P0>(&self, value: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<OfflineMapPackage, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<OfflineMapPackage, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RequestStartDownloadAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageStartDownloadResult>> {
@@ -112,31 +112,31 @@ impl OfflineMapPackage {
     #[cfg(feature = "Devices_Geolocation")]
     pub fn FindPackagesAsync<P0>(querypoint: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>
     where
-        P0: windows_core::IntoParam<super::super::super::Devices::Geolocation::Geopoint>,
+        P0: windows_core::Param<super::super::super::Devices::Geolocation::Geopoint>,
     {
         Self::IOfflineMapPackageStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindPackagesAsync)(windows_core::Interface::as_raw(this), querypoint.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FindPackagesAsync)(windows_core::Interface::as_raw(this), querypoint.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
     pub fn FindPackagesInBoundingBoxAsync<P0>(queryboundingbox: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>
     where
-        P0: windows_core::IntoParam<super::super::super::Devices::Geolocation::GeoboundingBox>,
+        P0: windows_core::Param<super::super::super::Devices::Geolocation::GeoboundingBox>,
     {
         Self::IOfflineMapPackageStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindPackagesInBoundingBoxAsync)(windows_core::Interface::as_raw(this), queryboundingbox.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FindPackagesInBoundingBoxAsync)(windows_core::Interface::as_raw(this), queryboundingbox.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
     pub fn FindPackagesInGeocircleAsync<P0>(querycircle: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>
     where
-        P0: windows_core::IntoParam<super::super::super::Devices::Geolocation::Geocircle>,
+        P0: windows_core::Param<super::super::super::Devices::Geolocation::Geocircle>,
     {
         Self::IOfflineMapPackageStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindPackagesInGeocircleAsync)(windows_core::Interface::as_raw(this), querycircle.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FindPackagesInGeocircleAsync)(windows_core::Interface::as_raw(this), querycircle.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

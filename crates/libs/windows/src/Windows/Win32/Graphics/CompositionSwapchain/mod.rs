@@ -1,10 +1,10 @@
 #[inline]
 pub unsafe fn CreatePresentationFactory<P0>(d3ddevice: P0, riid: *const windows_core::GUID, presentationfactory: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::IUnknown>,
+    P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("dcomp.dll" "system" fn CreatePresentationFactory(d3ddevice : * mut core::ffi::c_void, riid : *const windows_core::GUID, presentationfactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    CreatePresentationFactory(d3ddevice.into_param().abi(), riid, presentationfactory).ok()
+    CreatePresentationFactory(d3ddevice.param().abi(), riid, presentationfactory).ok()
 }
 windows_core::imp::define_interface!(ICompositionFramePresentStatistics, ICompositionFramePresentStatistics_Vtbl, 0xab41d127_c101_4c0a_911d_f9f2e9d08e64);
 windows_core::imp::interface_hierarchy!(ICompositionFramePresentStatistics, windows_core::IUnknown, IPresentStatistics);
@@ -170,17 +170,17 @@ windows_core::imp::interface_hierarchy!(IPresentationManager, windows_core::IUnk
 impl IPresentationManager {
     pub unsafe fn AddBufferFromResource<P0>(&self, resource: P0) -> windows_core::Result<IPresentationBuffer>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddBufferFromResource)(windows_core::Interface::as_raw(self), resource.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).AddBufferFromResource)(windows_core::Interface::as_raw(self), resource.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreatePresentationSurface<P0>(&self, compositionsurfacehandle: P0) -> windows_core::Result<IPresentationSurface>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+        P0: windows_core::Param<super::super::Foundation::HANDLE>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreatePresentationSurface)(windows_core::Interface::as_raw(self), compositionsurfacehandle.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreatePresentationSurface)(windows_core::Interface::as_raw(self), compositionsurfacehandle.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetNextPresentId(&self) -> u64 {
         (windows_core::Interface::vtable(self).GetNextPresentId)(windows_core::Interface::as_raw(self))
@@ -245,9 +245,9 @@ impl IPresentationSurface {
     }
     pub unsafe fn SetBuffer<P0>(&self, presentationbuffer: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IPresentationBuffer>,
+        P0: windows_core::Param<IPresentationBuffer>,
     {
-        (windows_core::Interface::vtable(self).SetBuffer)(windows_core::Interface::as_raw(self), presentationbuffer.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetBuffer)(windows_core::Interface::as_raw(self), presentationbuffer.param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn SetColorSpace(&self, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> windows_core::Result<()> {
@@ -265,9 +265,9 @@ impl IPresentationSurface {
     }
     pub unsafe fn RestrictToOutput<P0>(&self, output: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).RestrictToOutput)(windows_core::Interface::as_raw(self), output.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RestrictToOutput)(windows_core::Interface::as_raw(self), output.param().abi()).ok()
     }
     pub unsafe fn SetDisableReadback(&self, value: u8) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetDisableReadback)(windows_core::Interface::as_raw(self), value).ok()

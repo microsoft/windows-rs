@@ -11,102 +11,102 @@ pub unsafe fn WSDAttachLinkedMemory(pparent: *mut core::ffi::c_void, pchild: *mu
 #[inline]
 pub unsafe fn WSDCreateDeviceHost<P0, P1>(pszlocalid: P0, pcontext: P1) -> windows_core::Result<IWSDDeviceHost>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<IWSDXMLContext>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<IWSDXMLContext>,
 {
     windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDeviceHost(pszlocalid : windows_core::PCWSTR, pcontext : * mut core::ffi::c_void, ppdevicehost : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    WSDCreateDeviceHost(pszlocalid.into_param().abi(), pcontext.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    WSDCreateDeviceHost(pszlocalid.param().abi(), pcontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn WSDCreateDeviceHost2<P0, P1>(pszlocalid: P0, pcontext: P1, pconfigparams: Option<&[WSD_CONFIG_PARAM]>) -> windows_core::Result<IWSDDeviceHost>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<IWSDXMLContext>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<IWSDXMLContext>,
 {
     windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDeviceHost2(pszlocalid : windows_core::PCWSTR, pcontext : * mut core::ffi::c_void, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : u32, ppdevicehost : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    WSDCreateDeviceHost2(pszlocalid.into_param().abi(), pcontext.into_param().abi(), core::mem::transmute(pconfigparams.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pconfigparams.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    WSDCreateDeviceHost2(pszlocalid.param().abi(), pcontext.param().abi(), core::mem::transmute(pconfigparams.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pconfigparams.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn WSDCreateDeviceHostAdvanced<P0, P1>(pszlocalid: P0, pcontext: P1, pphostaddresses: Option<&[Option<IWSDAddress>]>) -> windows_core::Result<IWSDDeviceHost>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<IWSDXMLContext>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<IWSDXMLContext>,
 {
     windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDeviceHostAdvanced(pszlocalid : windows_core::PCWSTR, pcontext : * mut core::ffi::c_void, pphostaddresses : *const * mut core::ffi::c_void, dwhostaddresscount : u32, ppdevicehost : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    WSDCreateDeviceHostAdvanced(pszlocalid.into_param().abi(), pcontext.into_param().abi(), core::mem::transmute(pphostaddresses.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pphostaddresses.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    WSDCreateDeviceHostAdvanced(pszlocalid.param().abi(), pcontext.param().abi(), core::mem::transmute(pphostaddresses.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pphostaddresses.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn WSDCreateDeviceProxy<P0, P1, P2>(pszdeviceid: P0, pszlocalid: P1, pcontext: P2) -> windows_core::Result<IWSDDeviceProxy>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
-    P2: windows_core::IntoParam<IWSDXMLContext>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<IWSDXMLContext>,
 {
     windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDeviceProxy(pszdeviceid : windows_core::PCWSTR, pszlocalid : windows_core::PCWSTR, pcontext : * mut core::ffi::c_void, ppdeviceproxy : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    WSDCreateDeviceProxy(pszdeviceid.into_param().abi(), pszlocalid.into_param().abi(), pcontext.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    WSDCreateDeviceProxy(pszdeviceid.param().abi(), pszlocalid.param().abi(), pcontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn WSDCreateDeviceProxy2<P0, P1, P2>(pszdeviceid: P0, pszlocalid: P1, pcontext: P2, pconfigparams: Option<&[WSD_CONFIG_PARAM]>) -> windows_core::Result<IWSDDeviceProxy>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
-    P2: windows_core::IntoParam<IWSDXMLContext>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<IWSDXMLContext>,
 {
     windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDeviceProxy2(pszdeviceid : windows_core::PCWSTR, pszlocalid : windows_core::PCWSTR, pcontext : * mut core::ffi::c_void, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : u32, ppdeviceproxy : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    WSDCreateDeviceProxy2(pszdeviceid.into_param().abi(), pszlocalid.into_param().abi(), pcontext.into_param().abi(), core::mem::transmute(pconfigparams.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pconfigparams.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    WSDCreateDeviceProxy2(pszdeviceid.param().abi(), pszlocalid.param().abi(), pcontext.param().abi(), core::mem::transmute(pconfigparams.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pconfigparams.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn WSDCreateDeviceProxyAdvanced<P0, P1, P2, P3>(pszdeviceid: P0, pdeviceaddress: P1, pszlocalid: P2, pcontext: P3) -> windows_core::Result<IWSDDeviceProxy>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<IWSDAddress>,
-    P2: windows_core::IntoParam<windows_core::PCWSTR>,
-    P3: windows_core::IntoParam<IWSDXMLContext>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<IWSDAddress>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<IWSDXMLContext>,
 {
     windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDeviceProxyAdvanced(pszdeviceid : windows_core::PCWSTR, pdeviceaddress : * mut core::ffi::c_void, pszlocalid : windows_core::PCWSTR, pcontext : * mut core::ffi::c_void, ppdeviceproxy : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    WSDCreateDeviceProxyAdvanced(pszdeviceid.into_param().abi(), pdeviceaddress.into_param().abi(), pszlocalid.into_param().abi(), pcontext.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    WSDCreateDeviceProxyAdvanced(pszdeviceid.param().abi(), pdeviceaddress.param().abi(), pszlocalid.param().abi(), pcontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn WSDCreateDiscoveryProvider<P0>(pcontext: P0) -> windows_core::Result<IWSDiscoveryProvider>
 where
-    P0: windows_core::IntoParam<IWSDXMLContext>,
+    P0: windows_core::Param<IWSDXMLContext>,
 {
     windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDiscoveryProvider(pcontext : * mut core::ffi::c_void, ppprovider : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    WSDCreateDiscoveryProvider(pcontext.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    WSDCreateDiscoveryProvider(pcontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn WSDCreateDiscoveryProvider2<P0>(pcontext: P0, pconfigparams: Option<&[WSD_CONFIG_PARAM]>) -> windows_core::Result<IWSDiscoveryProvider>
 where
-    P0: windows_core::IntoParam<IWSDXMLContext>,
+    P0: windows_core::Param<IWSDXMLContext>,
 {
     windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDiscoveryProvider2(pcontext : * mut core::ffi::c_void, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : u32, ppprovider : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    WSDCreateDiscoveryProvider2(pcontext.into_param().abi(), core::mem::transmute(pconfigparams.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pconfigparams.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    WSDCreateDiscoveryProvider2(pcontext.param().abi(), core::mem::transmute(pconfigparams.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pconfigparams.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn WSDCreateDiscoveryPublisher<P0>(pcontext: P0) -> windows_core::Result<IWSDiscoveryPublisher>
 where
-    P0: windows_core::IntoParam<IWSDXMLContext>,
+    P0: windows_core::Param<IWSDXMLContext>,
 {
     windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDiscoveryPublisher(pcontext : * mut core::ffi::c_void, pppublisher : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    WSDCreateDiscoveryPublisher(pcontext.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    WSDCreateDiscoveryPublisher(pcontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn WSDCreateDiscoveryPublisher2<P0>(pcontext: P0, pconfigparams: Option<&[WSD_CONFIG_PARAM]>) -> windows_core::Result<IWSDiscoveryPublisher>
 where
-    P0: windows_core::IntoParam<IWSDXMLContext>,
+    P0: windows_core::Param<IWSDXMLContext>,
 {
     windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDiscoveryPublisher2(pcontext : * mut core::ffi::c_void, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : u32, pppublisher : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    WSDCreateDiscoveryPublisher2(pcontext.into_param().abi(), core::mem::transmute(pconfigparams.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pconfigparams.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    WSDCreateDiscoveryPublisher2(pcontext.param().abi(), core::mem::transmute(pconfigparams.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pconfigparams.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn WSDCreateHttpAddress() -> windows_core::Result<IWSDHttpAddress> {
@@ -151,24 +151,24 @@ pub unsafe fn WSDFreeLinkedMemory(pvoid: *mut core::ffi::c_void) {
 #[inline]
 pub unsafe fn WSDGenerateFault<P0, P1, P2, P3, P4>(pszcode: P0, pszsubcode: P1, pszreason: P2, pszdetail: P3, pcontext: P4) -> windows_core::Result<*mut WSD_SOAP_FAULT>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
-    P2: windows_core::IntoParam<windows_core::PCWSTR>,
-    P3: windows_core::IntoParam<windows_core::PCWSTR>,
-    P4: windows_core::IntoParam<IWSDXMLContext>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
+    P4: windows_core::Param<IWSDXMLContext>,
 {
     windows_targets::link!("wsdapi.dll" "system" fn WSDGenerateFault(pszcode : windows_core::PCWSTR, pszsubcode : windows_core::PCWSTR, pszreason : windows_core::PCWSTR, pszdetail : windows_core::PCWSTR, pcontext : * mut core::ffi::c_void, ppfault : *mut *mut WSD_SOAP_FAULT) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    WSDGenerateFault(pszcode.into_param().abi(), pszsubcode.into_param().abi(), pszreason.into_param().abi(), pszdetail.into_param().abi(), pcontext.into_param().abi(), &mut result__).map(|| result__)
+    WSDGenerateFault(pszcode.param().abi(), pszsubcode.param().abi(), pszreason.param().abi(), pszdetail.param().abi(), pcontext.param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WSDGenerateFaultEx<P0>(pcode: *const WSDXML_NAME, psubcode: Option<*const WSDXML_NAME>, preasons: *const WSD_LOCALIZED_STRING_LIST, pszdetail: P0) -> windows_core::Result<*mut WSD_SOAP_FAULT>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wsdapi.dll" "system" fn WSDGenerateFaultEx(pcode : *const WSDXML_NAME, psubcode : *const WSDXML_NAME, preasons : *const WSD_LOCALIZED_STRING_LIST, pszdetail : windows_core::PCWSTR, ppfault : *mut *mut WSD_SOAP_FAULT) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    WSDGenerateFaultEx(pcode, core::mem::transmute(psubcode.unwrap_or(std::ptr::null())), preasons, pszdetail.into_param().abi(), &mut result__).map(|| result__)
+    WSDGenerateFaultEx(pcode, core::mem::transmute(psubcode.unwrap_or(std::ptr::null())), preasons, pszdetail.param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WSDGetConfigurationOption(dwoption: u32, pvoid: *mut core::ffi::c_void, cboutbuffer: u32) -> windows_core::Result<()> {
@@ -203,10 +203,10 @@ pub unsafe fn WSDXMLAddSibling(pfirst: *mut WSDXML_ELEMENT, psecond: *mut WSDXML
 #[inline]
 pub unsafe fn WSDXMLBuildAnyForSingleElement<P0>(pelementname: *mut WSDXML_NAME, psztext: P0, ppany: *mut *mut WSDXML_ELEMENT) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wsdapi.dll" "system" fn WSDXMLBuildAnyForSingleElement(pelementname : *mut WSDXML_NAME, psztext : windows_core::PCWSTR, ppany : *mut *mut WSDXML_ELEMENT) -> windows_core::HRESULT);
-    WSDXMLBuildAnyForSingleElement(pelementname, psztext.into_param().abi(), ppany).ok()
+    WSDXMLBuildAnyForSingleElement(pelementname, psztext.param().abi(), ppany).ok()
 }
 #[inline]
 pub unsafe fn WSDXMLCleanupElement(pany: *mut WSDXML_ELEMENT) -> windows_core::Result<()> {
@@ -222,36 +222,36 @@ pub unsafe fn WSDXMLCreateContext() -> windows_core::Result<IWSDXMLContext> {
 #[inline]
 pub unsafe fn WSDXMLGetNameFromBuiltinNamespace<P0, P1>(psznamespace: P0, pszname: P1) -> windows_core::Result<*mut WSDXML_NAME>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wsdapi.dll" "system" fn WSDXMLGetNameFromBuiltinNamespace(psznamespace : windows_core::PCWSTR, pszname : windows_core::PCWSTR, ppname : *mut *mut WSDXML_NAME) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    WSDXMLGetNameFromBuiltinNamespace(psznamespace.into_param().abi(), pszname.into_param().abi(), &mut result__).map(|| result__)
+    WSDXMLGetNameFromBuiltinNamespace(psznamespace.param().abi(), pszname.param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WSDXMLGetValueFromAny<P0, P1>(psznamespace: P0, pszname: P1, pany: *mut WSDXML_ELEMENT, ppszvalue: *mut windows_core::PCWSTR) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wsdapi.dll" "system" fn WSDXMLGetValueFromAny(psznamespace : windows_core::PCWSTR, pszname : windows_core::PCWSTR, pany : *mut WSDXML_ELEMENT, ppszvalue : *mut windows_core::PCWSTR) -> windows_core::HRESULT);
-    WSDXMLGetValueFromAny(psznamespace.into_param().abi(), pszname.into_param().abi(), pany, ppszvalue).ok()
+    WSDXMLGetValueFromAny(psznamespace.param().abi(), pszname.param().abi(), pany, ppszvalue).ok()
 }
 windows_core::imp::define_interface!(IWSDAddress, IWSDAddress_Vtbl, 0xb9574c6c_12a6_4f74_93a1_3318ff605759);
 windows_core::imp::interface_hierarchy!(IWSDAddress, windows_core::IUnknown);
 impl IWSDAddress {
     pub unsafe fn Serialize<P0>(&self, pszbuffer: &mut [u16], fsafe: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), core::mem::transmute(pszbuffer.as_ptr()), pszbuffer.len().try_into().unwrap(), fsafe.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), core::mem::transmute(pszbuffer.as_ptr()), pszbuffer.len().try_into().unwrap(), fsafe.param().abi()).ok()
     }
     pub unsafe fn Deserialize<P0>(&self, pszbuffer: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Deserialize)(windows_core::Interface::as_raw(self), pszbuffer.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Deserialize)(windows_core::Interface::as_raw(self), pszbuffer.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -265,10 +265,10 @@ windows_core::imp::interface_hierarchy!(IWSDAsyncCallback, windows_core::IUnknow
 impl IWSDAsyncCallback {
     pub unsafe fn AsyncOperationComplete<P0, P1>(&self, pasyncresult: P0, pasyncstate: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDAsyncResult>,
-        P1: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<IWSDAsyncResult>,
+        P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).AsyncOperationComplete)(windows_core::Interface::as_raw(self), pasyncresult.into_param().abi(), pasyncstate.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AsyncOperationComplete)(windows_core::Interface::as_raw(self), pasyncresult.param().abi(), pasyncstate.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -281,16 +281,16 @@ windows_core::imp::interface_hierarchy!(IWSDAsyncResult, windows_core::IUnknown)
 impl IWSDAsyncResult {
     pub unsafe fn SetCallback<P0, P1>(&self, pcallback: P0, pasyncstate: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDAsyncCallback>,
-        P1: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<IWSDAsyncCallback>,
+        P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).SetCallback)(windows_core::Interface::as_raw(self), pcallback.into_param().abi(), pasyncstate.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetCallback)(windows_core::Interface::as_raw(self), pcallback.param().abi(), pasyncstate.param().abi()).ok()
     }
     pub unsafe fn SetWaitHandle<P0>(&self, hwaithandle: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+        P0: windows_core::Param<super::super::Foundation::HANDLE>,
     {
-        (windows_core::Interface::vtable(self).SetWaitHandle)(windows_core::Interface::as_raw(self), hwaithandle.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetWaitHandle)(windows_core::Interface::as_raw(self), hwaithandle.param().abi()).ok()
     }
     pub unsafe fn HasCompleted(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).HasCompleted)(windows_core::Interface::as_raw(self)).ok()
@@ -333,16 +333,16 @@ windows_core::imp::interface_hierarchy!(IWSDDeviceHost, windows_core::IUnknown);
 impl IWSDDeviceHost {
     pub unsafe fn Init<P0, P1>(&self, pszlocalid: P0, pcontext: P1, pphostaddresses: Option<&[Option<IWSDAddress>]>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<IWSDXMLContext>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<IWSDXMLContext>,
     {
-        (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), pszlocalid.into_param().abi(), pcontext.into_param().abi(), core::mem::transmute(pphostaddresses.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pphostaddresses.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
+        (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), pszlocalid.param().abi(), pcontext.param().abi(), core::mem::transmute(pphostaddresses.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pphostaddresses.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
     }
     pub unsafe fn Start<P0>(&self, ullinstanceid: u64, pscopelist: *const WSD_URI_LIST, pnotificationsink: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDDeviceHostNotify>,
+        P0: windows_core::Param<IWSDDeviceHostNotify>,
     {
-        (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self), ullinstanceid, pscopelist, pnotificationsink.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self), ullinstanceid, pscopelist, pnotificationsink.param().abi()).ok()
     }
     pub unsafe fn Stop(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)).ok()
@@ -358,43 +358,43 @@ impl IWSDDeviceHost {
     }
     pub unsafe fn RegisterService<P0, P1>(&self, pszserviceid: P0, pservice: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).RegisterService)(windows_core::Interface::as_raw(self), pszserviceid.into_param().abi(), pservice.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RegisterService)(windows_core::Interface::as_raw(self), pszserviceid.param().abi(), pservice.param().abi()).ok()
     }
     pub unsafe fn RetireService<P0>(&self, pszserviceid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).RetireService)(windows_core::Interface::as_raw(self), pszserviceid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RetireService)(windows_core::Interface::as_raw(self), pszserviceid.param().abi()).ok()
     }
     pub unsafe fn AddDynamicService<P0, P1, P2>(&self, pszserviceid: P0, pszendpointaddress: P1, pporttype: Option<*const WSD_PORT_TYPE>, pportname: Option<*const WSDXML_NAME>, pany: Option<*const WSDXML_ELEMENT>, pservice: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).AddDynamicService)(windows_core::Interface::as_raw(self), pszserviceid.into_param().abi(), pszendpointaddress.into_param().abi(), core::mem::transmute(pporttype.unwrap_or(std::ptr::null())), core::mem::transmute(pportname.unwrap_or(std::ptr::null())), core::mem::transmute(pany.unwrap_or(std::ptr::null())), pservice.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AddDynamicService)(windows_core::Interface::as_raw(self), pszserviceid.param().abi(), pszendpointaddress.param().abi(), core::mem::transmute(pporttype.unwrap_or(std::ptr::null())), core::mem::transmute(pportname.unwrap_or(std::ptr::null())), core::mem::transmute(pany.unwrap_or(std::ptr::null())), pservice.param().abi()).ok()
     }
     pub unsafe fn RemoveDynamicService<P0>(&self, pszserviceid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).RemoveDynamicService)(windows_core::Interface::as_raw(self), pszserviceid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveDynamicService)(windows_core::Interface::as_raw(self), pszserviceid.param().abi()).ok()
     }
     pub unsafe fn SetServiceDiscoverable<P0, P1>(&self, pszserviceid: P0, fdiscoverable: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetServiceDiscoverable)(windows_core::Interface::as_raw(self), pszserviceid.into_param().abi(), fdiscoverable.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetServiceDiscoverable)(windows_core::Interface::as_raw(self), pszserviceid.param().abi(), fdiscoverable.param().abi()).ok()
     }
     pub unsafe fn SignalEvent<P0>(&self, pszserviceid: P0, pbody: Option<*const core::ffi::c_void>, poperation: *const WSD_OPERATION) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SignalEvent)(windows_core::Interface::as_raw(self), pszserviceid.into_param().abi(), core::mem::transmute(pbody.unwrap_or(std::ptr::null())), poperation).ok()
+        (windows_core::Interface::vtable(self).SignalEvent)(windows_core::Interface::as_raw(self), pszserviceid.param().abi(), core::mem::transmute(pbody.unwrap_or(std::ptr::null())), poperation).ok()
     }
 }
 #[repr(C)]
@@ -418,10 +418,10 @@ windows_core::imp::interface_hierarchy!(IWSDDeviceHostNotify, windows_core::IUnk
 impl IWSDDeviceHostNotify {
     pub unsafe fn GetService<P0>(&self, pszserviceid: P0) -> windows_core::Result<windows_core::IUnknown>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetService)(windows_core::Interface::as_raw(self), pszserviceid.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetService)(windows_core::Interface::as_raw(self), pszserviceid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -434,13 +434,13 @@ windows_core::imp::interface_hierarchy!(IWSDDeviceProxy, windows_core::IUnknown)
 impl IWSDDeviceProxy {
     pub unsafe fn Init<P0, P1, P2, P3, P4>(&self, pszdeviceid: P0, pdeviceaddress: P1, pszlocalid: P2, pcontext: P3, psponsor: P4) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<IWSDAddress>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
-        P3: windows_core::IntoParam<IWSDXMLContext>,
-        P4: windows_core::IntoParam<IWSDDeviceProxy>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<IWSDAddress>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<IWSDXMLContext>,
+        P4: windows_core::Param<IWSDDeviceProxy>,
     {
-        (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), pszdeviceid.into_param().abi(), pdeviceaddress.into_param().abi(), pszlocalid.into_param().abi(), pcontext.into_param().abi(), psponsor.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), pszdeviceid.param().abi(), pdeviceaddress.param().abi(), pszlocalid.param().abi(), pcontext.param().abi(), psponsor.param().abi()).ok()
     }
     pub unsafe fn BeginGetMetadata(&self) -> windows_core::Result<IWSDAsyncResult> {
         let mut result__ = std::mem::zeroed();
@@ -448,9 +448,9 @@ impl IWSDDeviceProxy {
     }
     pub unsafe fn EndGetMetadata<P0>(&self, presult: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDAsyncResult>,
+        P0: windows_core::Param<IWSDAsyncResult>,
     {
-        (windows_core::Interface::vtable(self).EndGetMetadata)(windows_core::Interface::as_raw(self), presult.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).EndGetMetadata)(windows_core::Interface::as_raw(self), presult.param().abi()).ok()
     }
     pub unsafe fn GetHostMetadata(&self) -> windows_core::Result<*mut WSD_HOST_METADATA> {
         let mut result__ = std::mem::zeroed();
@@ -470,10 +470,10 @@ impl IWSDDeviceProxy {
     }
     pub unsafe fn GetServiceProxyById<P0>(&self, pszserviceid: P0) -> windows_core::Result<IWSDServiceProxy>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetServiceProxyById)(windows_core::Interface::as_raw(self), pszserviceid.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetServiceProxyById)(windows_core::Interface::as_raw(self), pszserviceid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetServiceProxyByType(&self, ptype: *const WSDXML_NAME) -> windows_core::Result<IWSDServiceProxy> {
         let mut result__ = std::mem::zeroed();
@@ -509,17 +509,17 @@ impl IWSDEndpointProxy {
     }
     pub unsafe fn SendTwoWayRequestAsync<P0, P1>(&self, pbody: *const core::ffi::c_void, poperation: *const WSD_OPERATION, pasyncstate: P0, pcallback: P1) -> windows_core::Result<IWSDAsyncResult>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
-        P1: windows_core::IntoParam<IWSDAsyncCallback>,
+        P0: windows_core::Param<windows_core::IUnknown>,
+        P1: windows_core::Param<IWSDAsyncCallback>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).SendTwoWayRequestAsync)(windows_core::Interface::as_raw(self), pbody, poperation, pasyncstate.into_param().abi(), pcallback.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).SendTwoWayRequestAsync)(windows_core::Interface::as_raw(self), pbody, poperation, pasyncstate.param().abi(), pcallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AbortAsyncOperation<P0>(&self, pasyncresult: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDAsyncResult>,
+        P0: windows_core::Param<IWSDAsyncResult>,
     {
-        (windows_core::Interface::vtable(self).AbortAsyncOperation)(windows_core::Interface::as_raw(self), pasyncresult.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).AbortAsyncOperation)(windows_core::Interface::as_raw(self), pasyncresult.param().abi()).ok()
     }
     pub unsafe fn ProcessFault(&self, pfault: *const WSD_SOAP_FAULT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ProcessFault)(windows_core::Interface::as_raw(self), pfault).ok()
@@ -549,21 +549,21 @@ windows_core::imp::interface_hierarchy!(IWSDEventingStatus, windows_core::IUnkno
 impl IWSDEventingStatus {
     pub unsafe fn SubscriptionRenewed<P0>(&self, pszsubscriptionaction: P0)
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SubscriptionRenewed)(windows_core::Interface::as_raw(self), pszsubscriptionaction.into_param().abi())
+        (windows_core::Interface::vtable(self).SubscriptionRenewed)(windows_core::Interface::as_raw(self), pszsubscriptionaction.param().abi())
     }
     pub unsafe fn SubscriptionRenewalFailed<P0>(&self, pszsubscriptionaction: P0, hr: windows_core::HRESULT)
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SubscriptionRenewalFailed)(windows_core::Interface::as_raw(self), pszsubscriptionaction.into_param().abi(), hr)
+        (windows_core::Interface::vtable(self).SubscriptionRenewalFailed)(windows_core::Interface::as_raw(self), pszsubscriptionaction.param().abi(), hr)
     }
     pub unsafe fn SubscriptionEnded<P0>(&self, pszsubscriptionaction: P0)
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SubscriptionEnded)(windows_core::Interface::as_raw(self), pszsubscriptionaction.into_param().abi())
+        (windows_core::Interface::vtable(self).SubscriptionEnded)(windows_core::Interface::as_raw(self), pszsubscriptionaction.param().abi())
     }
 }
 #[repr(C)]
@@ -578,15 +578,15 @@ windows_core::imp::interface_hierarchy!(IWSDHttpAddress, windows_core::IUnknown,
 impl IWSDHttpAddress {
     pub unsafe fn Serialize<P0>(&self, pszbuffer: &mut [u16], fsafe: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.Serialize)(windows_core::Interface::as_raw(self), core::mem::transmute(pszbuffer.as_ptr()), pszbuffer.len().try_into().unwrap(), fsafe.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.Serialize)(windows_core::Interface::as_raw(self), core::mem::transmute(pszbuffer.as_ptr()), pszbuffer.len().try_into().unwrap(), fsafe.param().abi()).ok()
     }
     pub unsafe fn Deserialize<P0>(&self, pszbuffer: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.Deserialize)(windows_core::Interface::as_raw(self), pszbuffer.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.Deserialize)(windows_core::Interface::as_raw(self), pszbuffer.param().abi()).ok()
     }
     pub unsafe fn GetPort(&self) -> windows_core::Result<u16> {
         let mut result__ = std::mem::zeroed();
@@ -601,25 +601,25 @@ impl IWSDHttpAddress {
     }
     pub unsafe fn GetTransportAddressEx<P0>(&self, fsafe: P0) -> windows_core::Result<windows_core::PCWSTR>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetTransportAddressEx)(windows_core::Interface::as_raw(self), fsafe.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.GetTransportAddressEx)(windows_core::Interface::as_raw(self), fsafe.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn SetTransportAddress<P0>(&self, pszaddress: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetTransportAddress)(windows_core::Interface::as_raw(self), pszaddress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetTransportAddress)(windows_core::Interface::as_raw(self), pszaddress.param().abi()).ok()
     }
     pub unsafe fn GetSecure(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSecure)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn SetSecure<P0>(&self, fsecure: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetSecure)(windows_core::Interface::as_raw(self), fsecure.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSecure)(windows_core::Interface::as_raw(self), fsecure.param().abi()).ok()
     }
     pub unsafe fn GetPath(&self) -> windows_core::Result<windows_core::PCWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -627,9 +627,9 @@ impl IWSDHttpAddress {
     }
     pub unsafe fn SetPath<P0>(&self, pszpath: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetPath)(windows_core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetPath)(windows_core::Interface::as_raw(self), pszpath.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -667,9 +667,9 @@ impl IWSDHttpMessageParameters {
     }
     pub unsafe fn SetLocalAddress<P0>(&self, paddress: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDAddress>,
+        P0: windows_core::Param<IWSDAddress>,
     {
-        (windows_core::Interface::vtable(self).base__.SetLocalAddress)(windows_core::Interface::as_raw(self), paddress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetLocalAddress)(windows_core::Interface::as_raw(self), paddress.param().abi()).ok()
     }
     pub unsafe fn GetRemoteAddress(&self) -> windows_core::Result<IWSDAddress> {
         let mut result__ = std::mem::zeroed();
@@ -677,9 +677,9 @@ impl IWSDHttpMessageParameters {
     }
     pub unsafe fn SetRemoteAddress<P0>(&self, paddress: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDAddress>,
+        P0: windows_core::Param<IWSDAddress>,
     {
-        (windows_core::Interface::vtable(self).base__.SetRemoteAddress)(windows_core::Interface::as_raw(self), paddress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetRemoteAddress)(windows_core::Interface::as_raw(self), paddress.param().abi()).ok()
     }
     pub unsafe fn GetLowerParameters(&self) -> windows_core::Result<IWSDMessageParameters> {
         let mut result__ = std::mem::zeroed();
@@ -687,9 +687,9 @@ impl IWSDHttpMessageParameters {
     }
     pub unsafe fn SetInboundHttpHeaders<P0>(&self, pszheaders: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetInboundHttpHeaders)(windows_core::Interface::as_raw(self), pszheaders.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetInboundHttpHeaders)(windows_core::Interface::as_raw(self), pszheaders.param().abi()).ok()
     }
     pub unsafe fn GetInboundHttpHeaders(&self) -> windows_core::Result<windows_core::PCWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -697,9 +697,9 @@ impl IWSDHttpMessageParameters {
     }
     pub unsafe fn SetOutboundHttpHeaders<P0>(&self, pszheaders: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOutboundHttpHeaders)(windows_core::Interface::as_raw(self), pszheaders.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutboundHttpHeaders)(windows_core::Interface::as_raw(self), pszheaders.param().abi()).ok()
     }
     pub unsafe fn GetOutboundHttpHeaders(&self) -> windows_core::Result<windows_core::PCWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -707,9 +707,9 @@ impl IWSDHttpMessageParameters {
     }
     pub unsafe fn SetID<P0>(&self, pszid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetID)(windows_core::Interface::as_raw(self), pszid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetID)(windows_core::Interface::as_raw(self), pszid.param().abi()).ok()
     }
     pub unsafe fn GetID(&self) -> windows_core::Result<windows_core::PCWSTR> {
         let mut result__ = std::mem::zeroed();
@@ -717,9 +717,9 @@ impl IWSDHttpMessageParameters {
     }
     pub unsafe fn SetContext<P0>(&self, pcontext: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).SetContext)(windows_core::Interface::as_raw(self), pcontext.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetContext)(windows_core::Interface::as_raw(self), pcontext.param().abi()).ok()
     }
     pub unsafe fn GetContext(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -767,9 +767,9 @@ impl IWSDMessageParameters {
     }
     pub unsafe fn SetLocalAddress<P0>(&self, paddress: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDAddress>,
+        P0: windows_core::Param<IWSDAddress>,
     {
-        (windows_core::Interface::vtable(self).SetLocalAddress)(windows_core::Interface::as_raw(self), paddress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetLocalAddress)(windows_core::Interface::as_raw(self), paddress.param().abi()).ok()
     }
     pub unsafe fn GetRemoteAddress(&self) -> windows_core::Result<IWSDAddress> {
         let mut result__ = std::mem::zeroed();
@@ -777,9 +777,9 @@ impl IWSDMessageParameters {
     }
     pub unsafe fn SetRemoteAddress<P0>(&self, paddress: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDAddress>,
+        P0: windows_core::Param<IWSDAddress>,
     {
-        (windows_core::Interface::vtable(self).SetRemoteAddress)(windows_core::Interface::as_raw(self), paddress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetRemoteAddress)(windows_core::Interface::as_raw(self), paddress.param().abi()).ok()
     }
     pub unsafe fn GetLowerParameters(&self) -> windows_core::Result<IWSDMessageParameters> {
         let mut result__ = std::mem::zeroed();
@@ -860,11 +860,11 @@ impl IWSDScopeMatchingRule {
     }
     pub unsafe fn MatchScopes<P0, P1>(&self, pszscope1: P0, pszscope2: P1) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).MatchScopes)(windows_core::Interface::as_raw(self), pszscope1.into_param().abi(), pszscope2.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).MatchScopes)(windows_core::Interface::as_raw(self), pszscope1.param().abi(), pszscope2.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -878,15 +878,15 @@ windows_core::imp::interface_hierarchy!(IWSDServiceMessaging, windows_core::IUnk
 impl IWSDServiceMessaging {
     pub unsafe fn SendResponse<P0>(&self, pbody: Option<*const core::ffi::c_void>, poperation: *const WSD_OPERATION, pmessageparameters: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDMessageParameters>,
+        P0: windows_core::Param<IWSDMessageParameters>,
     {
-        (windows_core::Interface::vtable(self).SendResponse)(windows_core::Interface::as_raw(self), core::mem::transmute(pbody.unwrap_or(std::ptr::null())), poperation, pmessageparameters.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SendResponse)(windows_core::Interface::as_raw(self), core::mem::transmute(pbody.unwrap_or(std::ptr::null())), poperation, pmessageparameters.param().abi()).ok()
     }
     pub unsafe fn FaultRequest<P0>(&self, prequestheader: *const WSD_SOAP_HEADER, pmessageparameters: P0, pfault: Option<*const WSD_SOAP_FAULT>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDMessageParameters>,
+        P0: windows_core::Param<IWSDMessageParameters>,
     {
-        (windows_core::Interface::vtable(self).FaultRequest)(windows_core::Interface::as_raw(self), prequestheader, pmessageparameters.into_param().abi(), core::mem::transmute(pfault.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).FaultRequest)(windows_core::Interface::as_raw(self), prequestheader, pmessageparameters.param().abi(), core::mem::transmute(pfault.unwrap_or(std::ptr::null()))).ok()
     }
 }
 #[repr(C)]
@@ -908,10 +908,10 @@ impl IWSDServiceProxy {
     }
     pub unsafe fn EndGetMetadata<P0>(&self, presult: P0) -> windows_core::Result<*mut WSD_METADATA_SECTION_LIST>
     where
-        P0: windows_core::IntoParam<IWSDAsyncResult>,
+        P0: windows_core::Param<IWSDAsyncResult>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).EndGetMetadata)(windows_core::Interface::as_raw(self), presult.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).EndGetMetadata)(windows_core::Interface::as_raw(self), presult.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetServiceMetadata(&self) -> windows_core::Result<*mut WSD_SERVICE_METADATA> {
         let mut result__ = std::mem::zeroed();
@@ -919,18 +919,18 @@ impl IWSDServiceProxy {
     }
     pub unsafe fn SubscribeToOperation<P0>(&self, poperation: *const WSD_OPERATION, punknown: P0, pany: *const WSDXML_ELEMENT, ppany: Option<*mut *mut WSDXML_ELEMENT>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).SubscribeToOperation)(windows_core::Interface::as_raw(self), poperation, punknown.into_param().abi(), pany, core::mem::transmute(ppany.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).SubscribeToOperation)(windows_core::Interface::as_raw(self), poperation, punknown.param().abi(), pany, core::mem::transmute(ppany.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn UnsubscribeToOperation(&self, poperation: *const WSD_OPERATION) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UnsubscribeToOperation)(windows_core::Interface::as_raw(self), poperation).ok()
     }
     pub unsafe fn SetEventingStatusCallback<P0>(&self, pstatus: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDEventingStatus>,
+        P0: windows_core::Param<IWSDEventingStatus>,
     {
-        (windows_core::Interface::vtable(self).SetEventingStatusCallback)(windows_core::Interface::as_raw(self), pstatus.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventingStatusCallback)(windows_core::Interface::as_raw(self), pstatus.param().abi()).ok()
     }
     pub unsafe fn GetEndpointProxy(&self) -> windows_core::Result<IWSDEndpointProxy> {
         let mut result__ = std::mem::zeroed();
@@ -961,10 +961,10 @@ impl IWSDServiceProxyEventing {
     }
     pub unsafe fn EndGetMetadata<P0>(&self, presult: P0) -> windows_core::Result<*mut WSD_METADATA_SECTION_LIST>
     where
-        P0: windows_core::IntoParam<IWSDAsyncResult>,
+        P0: windows_core::Param<IWSDAsyncResult>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EndGetMetadata)(windows_core::Interface::as_raw(self), presult.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.EndGetMetadata)(windows_core::Interface::as_raw(self), presult.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetServiceMetadata(&self) -> windows_core::Result<*mut WSD_SERVICE_METADATA> {
         let mut result__ = std::mem::zeroed();
@@ -972,18 +972,18 @@ impl IWSDServiceProxyEventing {
     }
     pub unsafe fn SubscribeToOperation<P0>(&self, poperation: *const WSD_OPERATION, punknown: P0, pany: *const WSDXML_ELEMENT, ppany: Option<*mut *mut WSDXML_ELEMENT>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.SubscribeToOperation)(windows_core::Interface::as_raw(self), poperation, punknown.into_param().abi(), pany, core::mem::transmute(ppany.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).base__.SubscribeToOperation)(windows_core::Interface::as_raw(self), poperation, punknown.param().abi(), pany, core::mem::transmute(ppany.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn UnsubscribeToOperation(&self, poperation: *const WSD_OPERATION) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.UnsubscribeToOperation)(windows_core::Interface::as_raw(self), poperation).ok()
     }
     pub unsafe fn SetEventingStatusCallback<P0>(&self, pstatus: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDEventingStatus>,
+        P0: windows_core::Param<IWSDEventingStatus>,
     {
-        (windows_core::Interface::vtable(self).base__.SetEventingStatusCallback)(windows_core::Interface::as_raw(self), pstatus.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetEventingStatusCallback)(windows_core::Interface::as_raw(self), pstatus.param().abi()).ok()
     }
     pub unsafe fn GetEndpointProxy(&self) -> windows_core::Result<IWSDEndpointProxy> {
         let mut result__ = std::mem::zeroed();
@@ -991,75 +991,75 @@ impl IWSDServiceProxyEventing {
     }
     pub unsafe fn SubscribeToMultipleOperations<P0>(&self, poperations: &[WSD_OPERATION], punknown: P0, pexpires: Option<*const WSD_EVENTING_EXPIRES>, pany: Option<*const WSDXML_ELEMENT>, ppexpires: Option<*mut *mut WSD_EVENTING_EXPIRES>, ppany: Option<*mut *mut WSDXML_ELEMENT>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).SubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), punknown.into_param().abi(), core::mem::transmute(pexpires.unwrap_or(std::ptr::null())), core::mem::transmute(pany.unwrap_or(std::ptr::null())), core::mem::transmute(ppexpires.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppany.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).SubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), punknown.param().abi(), core::mem::transmute(pexpires.unwrap_or(std::ptr::null())), core::mem::transmute(pany.unwrap_or(std::ptr::null())), core::mem::transmute(ppexpires.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppany.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn BeginSubscribeToMultipleOperations<P0, P1, P2>(&self, poperations: &[WSD_OPERATION], punknown: P0, pexpires: Option<*const WSD_EVENTING_EXPIRES>, pany: Option<*const WSDXML_ELEMENT>, pasyncstate: P1, pasynccallback: P2) -> windows_core::Result<IWSDAsyncResult>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
-        P1: windows_core::IntoParam<windows_core::IUnknown>,
-        P2: windows_core::IntoParam<IWSDAsyncCallback>,
+        P0: windows_core::Param<windows_core::IUnknown>,
+        P1: windows_core::Param<windows_core::IUnknown>,
+        P2: windows_core::Param<IWSDAsyncCallback>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).BeginSubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), punknown.into_param().abi(), core::mem::transmute(pexpires.unwrap_or(std::ptr::null())), core::mem::transmute(pany.unwrap_or(std::ptr::null())), pasyncstate.into_param().abi(), pasynccallback.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).BeginSubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), punknown.param().abi(), core::mem::transmute(pexpires.unwrap_or(std::ptr::null())), core::mem::transmute(pany.unwrap_or(std::ptr::null())), pasyncstate.param().abi(), pasynccallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EndSubscribeToMultipleOperations<P0>(&self, poperations: &[WSD_OPERATION], presult: P0, ppexpires: Option<*mut *mut WSD_EVENTING_EXPIRES>, ppany: Option<*mut *mut WSDXML_ELEMENT>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDAsyncResult>,
+        P0: windows_core::Param<IWSDAsyncResult>,
     {
-        (windows_core::Interface::vtable(self).EndSubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), presult.into_param().abi(), core::mem::transmute(ppexpires.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppany.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).EndSubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), presult.param().abi(), core::mem::transmute(ppexpires.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppany.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn UnsubscribeToMultipleOperations(&self, poperations: &[WSD_OPERATION], pany: *const WSDXML_ELEMENT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UnsubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), pany).ok()
     }
     pub unsafe fn BeginUnsubscribeToMultipleOperations<P0, P1>(&self, poperations: &[WSD_OPERATION], pany: Option<*const WSDXML_ELEMENT>, pasyncstate: P0, pasynccallback: P1) -> windows_core::Result<IWSDAsyncResult>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
-        P1: windows_core::IntoParam<IWSDAsyncCallback>,
+        P0: windows_core::Param<windows_core::IUnknown>,
+        P1: windows_core::Param<IWSDAsyncCallback>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).BeginUnsubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), core::mem::transmute(pany.unwrap_or(std::ptr::null())), pasyncstate.into_param().abi(), pasynccallback.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).BeginUnsubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), core::mem::transmute(pany.unwrap_or(std::ptr::null())), pasyncstate.param().abi(), pasynccallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EndUnsubscribeToMultipleOperations<P0>(&self, poperations: &[WSD_OPERATION], presult: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDAsyncResult>,
+        P0: windows_core::Param<IWSDAsyncResult>,
     {
-        (windows_core::Interface::vtable(self).EndUnsubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), presult.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).EndUnsubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), presult.param().abi()).ok()
     }
     pub unsafe fn RenewMultipleOperations(&self, poperations: &[WSD_OPERATION], pexpires: Option<*const WSD_EVENTING_EXPIRES>, pany: Option<*const WSDXML_ELEMENT>, ppexpires: Option<*mut *mut WSD_EVENTING_EXPIRES>, ppany: Option<*mut *mut WSDXML_ELEMENT>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RenewMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), core::mem::transmute(pexpires.unwrap_or(std::ptr::null())), core::mem::transmute(pany.unwrap_or(std::ptr::null())), core::mem::transmute(ppexpires.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppany.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn BeginRenewMultipleOperations<P0, P1>(&self, poperations: &[WSD_OPERATION], pexpires: Option<*const WSD_EVENTING_EXPIRES>, pany: Option<*const WSDXML_ELEMENT>, pasyncstate: P0, pasynccallback: P1) -> windows_core::Result<IWSDAsyncResult>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
-        P1: windows_core::IntoParam<IWSDAsyncCallback>,
+        P0: windows_core::Param<windows_core::IUnknown>,
+        P1: windows_core::Param<IWSDAsyncCallback>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).BeginRenewMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), core::mem::transmute(pexpires.unwrap_or(std::ptr::null())), core::mem::transmute(pany.unwrap_or(std::ptr::null())), pasyncstate.into_param().abi(), pasynccallback.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).BeginRenewMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), core::mem::transmute(pexpires.unwrap_or(std::ptr::null())), core::mem::transmute(pany.unwrap_or(std::ptr::null())), pasyncstate.param().abi(), pasynccallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EndRenewMultipleOperations<P0>(&self, poperations: &[WSD_OPERATION], presult: P0, ppexpires: Option<*mut *mut WSD_EVENTING_EXPIRES>, ppany: Option<*mut *mut WSDXML_ELEMENT>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDAsyncResult>,
+        P0: windows_core::Param<IWSDAsyncResult>,
     {
-        (windows_core::Interface::vtable(self).EndRenewMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), presult.into_param().abi(), core::mem::transmute(ppexpires.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppany.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).EndRenewMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), presult.param().abi(), core::mem::transmute(ppexpires.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppany.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetStatusForMultipleOperations(&self, poperations: &[WSD_OPERATION], pany: Option<*const WSDXML_ELEMENT>, ppexpires: Option<*mut *mut WSD_EVENTING_EXPIRES>, ppany: Option<*mut *mut WSDXML_ELEMENT>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetStatusForMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), core::mem::transmute(pany.unwrap_or(std::ptr::null())), core::mem::transmute(ppexpires.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppany.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn BeginGetStatusForMultipleOperations<P0, P1>(&self, poperations: &[WSD_OPERATION], pany: Option<*const WSDXML_ELEMENT>, pasyncstate: P0, pasynccallback: P1) -> windows_core::Result<IWSDAsyncResult>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
-        P1: windows_core::IntoParam<IWSDAsyncCallback>,
+        P0: windows_core::Param<windows_core::IUnknown>,
+        P1: windows_core::Param<IWSDAsyncCallback>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).BeginGetStatusForMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), core::mem::transmute(pany.unwrap_or(std::ptr::null())), pasyncstate.into_param().abi(), pasynccallback.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).BeginGetStatusForMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), core::mem::transmute(pany.unwrap_or(std::ptr::null())), pasyncstate.param().abi(), pasynccallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EndGetStatusForMultipleOperations<P0>(&self, poperations: &[WSD_OPERATION], presult: P0, ppexpires: Option<*mut *mut WSD_EVENTING_EXPIRES>, ppany: Option<*mut *mut WSDXML_ELEMENT>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDAsyncResult>,
+        P0: windows_core::Param<IWSDAsyncResult>,
     {
-        (windows_core::Interface::vtable(self).EndGetStatusForMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), presult.into_param().abi(), core::mem::transmute(ppexpires.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppany.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).EndGetStatusForMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), presult.param().abi(), core::mem::transmute(ppexpires.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppany.unwrap_or(std::ptr::null_mut()))).ok()
     }
 }
 #[repr(C)]
@@ -1113,15 +1113,15 @@ windows_core::imp::interface_hierarchy!(IWSDTransportAddress, windows_core::IUnk
 impl IWSDTransportAddress {
     pub unsafe fn Serialize<P0>(&self, pszbuffer: &mut [u16], fsafe: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.Serialize)(windows_core::Interface::as_raw(self), core::mem::transmute(pszbuffer.as_ptr()), pszbuffer.len().try_into().unwrap(), fsafe.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Serialize)(windows_core::Interface::as_raw(self), core::mem::transmute(pszbuffer.as_ptr()), pszbuffer.len().try_into().unwrap(), fsafe.param().abi()).ok()
     }
     pub unsafe fn Deserialize<P0>(&self, pszbuffer: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.Deserialize)(windows_core::Interface::as_raw(self), pszbuffer.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Deserialize)(windows_core::Interface::as_raw(self), pszbuffer.param().abi()).ok()
     }
     pub unsafe fn GetPort(&self) -> windows_core::Result<u16> {
         let mut result__ = std::mem::zeroed();
@@ -1136,16 +1136,16 @@ impl IWSDTransportAddress {
     }
     pub unsafe fn GetTransportAddressEx<P0>(&self, fsafe: P0) -> windows_core::Result<windows_core::PCWSTR>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetTransportAddressEx)(windows_core::Interface::as_raw(self), fsafe.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetTransportAddressEx)(windows_core::Interface::as_raw(self), fsafe.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn SetTransportAddress<P0>(&self, pszaddress: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTransportAddress)(windows_core::Interface::as_raw(self), pszaddress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTransportAddress)(windows_core::Interface::as_raw(self), pszaddress.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -1162,15 +1162,15 @@ windows_core::imp::interface_hierarchy!(IWSDUdpAddress, windows_core::IUnknown, 
 impl IWSDUdpAddress {
     pub unsafe fn Serialize<P0>(&self, pszbuffer: &mut [u16], fsafe: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.Serialize)(windows_core::Interface::as_raw(self), core::mem::transmute(pszbuffer.as_ptr()), pszbuffer.len().try_into().unwrap(), fsafe.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.Serialize)(windows_core::Interface::as_raw(self), core::mem::transmute(pszbuffer.as_ptr()), pszbuffer.len().try_into().unwrap(), fsafe.param().abi()).ok()
     }
     pub unsafe fn Deserialize<P0>(&self, pszbuffer: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.Deserialize)(windows_core::Interface::as_raw(self), pszbuffer.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.Deserialize)(windows_core::Interface::as_raw(self), pszbuffer.param().abi()).ok()
     }
     pub unsafe fn GetPort(&self) -> windows_core::Result<u16> {
         let mut result__ = std::mem::zeroed();
@@ -1185,16 +1185,16 @@ impl IWSDUdpAddress {
     }
     pub unsafe fn GetTransportAddressEx<P0>(&self, fsafe: P0) -> windows_core::Result<windows_core::PCWSTR>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetTransportAddressEx)(windows_core::Interface::as_raw(self), fsafe.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.GetTransportAddressEx)(windows_core::Interface::as_raw(self), fsafe.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn SetTransportAddress<P0>(&self, pszaddress: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetTransportAddress)(windows_core::Interface::as_raw(self), pszaddress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetTransportAddress)(windows_core::Interface::as_raw(self), pszaddress.param().abi()).ok()
     }
     #[cfg(feature = "Win32_Networking_WinSock")]
     pub unsafe fn SetSockaddr(&self, psockaddr: *const super::super::Networking::WinSock::SOCKADDR_STORAGE) -> windows_core::Result<()> {
@@ -1206,9 +1206,9 @@ impl IWSDUdpAddress {
     }
     pub unsafe fn SetExclusive<P0>(&self, fexclusive: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetExclusive)(windows_core::Interface::as_raw(self), fexclusive.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExclusive)(windows_core::Interface::as_raw(self), fexclusive.param().abi()).ok()
     }
     pub unsafe fn GetExclusive(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetExclusive)(windows_core::Interface::as_raw(self)).ok()
@@ -1264,9 +1264,9 @@ impl IWSDUdpMessageParameters {
     }
     pub unsafe fn SetLocalAddress<P0>(&self, paddress: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDAddress>,
+        P0: windows_core::Param<IWSDAddress>,
     {
-        (windows_core::Interface::vtable(self).base__.SetLocalAddress)(windows_core::Interface::as_raw(self), paddress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetLocalAddress)(windows_core::Interface::as_raw(self), paddress.param().abi()).ok()
     }
     pub unsafe fn GetRemoteAddress(&self) -> windows_core::Result<IWSDAddress> {
         let mut result__ = std::mem::zeroed();
@@ -1274,9 +1274,9 @@ impl IWSDUdpMessageParameters {
     }
     pub unsafe fn SetRemoteAddress<P0>(&self, paddress: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDAddress>,
+        P0: windows_core::Param<IWSDAddress>,
     {
-        (windows_core::Interface::vtable(self).base__.SetRemoteAddress)(windows_core::Interface::as_raw(self), paddress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetRemoteAddress)(windows_core::Interface::as_raw(self), paddress.param().abi()).ok()
     }
     pub unsafe fn GetLowerParameters(&self) -> windows_core::Result<IWSDMessageParameters> {
         let mut result__ = std::mem::zeroed();
@@ -1300,17 +1300,17 @@ windows_core::imp::interface_hierarchy!(IWSDXMLContext, windows_core::IUnknown);
 impl IWSDXMLContext {
     pub unsafe fn AddNamespace<P0, P1>(&self, pszuri: P0, pszsuggestedprefix: P1, ppnamespace: Option<*mut *mut WSDXML_NAMESPACE>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddNamespace)(windows_core::Interface::as_raw(self), pszuri.into_param().abi(), pszsuggestedprefix.into_param().abi(), core::mem::transmute(ppnamespace.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).AddNamespace)(windows_core::Interface::as_raw(self), pszuri.param().abi(), pszsuggestedprefix.param().abi(), core::mem::transmute(ppnamespace.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn AddNameToNamespace<P0, P1>(&self, pszuri: P0, pszname: P1, ppname: Option<*mut *mut WSDXML_NAME>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).AddNameToNamespace)(windows_core::Interface::as_raw(self), pszuri.into_param().abi(), pszname.into_param().abi(), core::mem::transmute(ppname.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).AddNameToNamespace)(windows_core::Interface::as_raw(self), pszuri.param().abi(), pszname.param().abi(), core::mem::transmute(ppname.unwrap_or(std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetNamespaces(&self, pnamespaces: &[*const WSDXML_NAMESPACE], blayernumber: u8) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetNamespaces)(windows_core::Interface::as_raw(self), core::mem::transmute(pnamespaces.as_ptr()), pnamespaces.len().try_into().unwrap(), blayernumber).ok()
@@ -1397,33 +1397,33 @@ impl IWSDiscoveryProvider {
     }
     pub unsafe fn Attach<P0>(&self, psink: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDiscoveryProviderNotify>,
+        P0: windows_core::Param<IWSDiscoveryProviderNotify>,
     {
-        (windows_core::Interface::vtable(self).Attach)(windows_core::Interface::as_raw(self), psink.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Attach)(windows_core::Interface::as_raw(self), psink.param().abi()).ok()
     }
     pub unsafe fn Detach(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Detach)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn SearchById<P0, P1>(&self, pszid: P0, psztag: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SearchById)(windows_core::Interface::as_raw(self), pszid.into_param().abi(), psztag.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SearchById)(windows_core::Interface::as_raw(self), pszid.param().abi(), psztag.param().abi()).ok()
     }
     pub unsafe fn SearchByAddress<P0, P1>(&self, pszaddress: P0, psztag: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SearchByAddress)(windows_core::Interface::as_raw(self), pszaddress.into_param().abi(), psztag.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SearchByAddress)(windows_core::Interface::as_raw(self), pszaddress.param().abi(), psztag.param().abi()).ok()
     }
     pub unsafe fn SearchByType<P0, P1>(&self, ptypeslist: Option<*const WSD_NAME_LIST>, pscopeslist: Option<*const WSD_URI_LIST>, pszmatchby: P0, psztag: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SearchByType)(windows_core::Interface::as_raw(self), core::mem::transmute(ptypeslist.unwrap_or(std::ptr::null())), core::mem::transmute(pscopeslist.unwrap_or(std::ptr::null())), pszmatchby.into_param().abi(), psztag.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SearchByType)(windows_core::Interface::as_raw(self), core::mem::transmute(ptypeslist.unwrap_or(std::ptr::null())), core::mem::transmute(pscopeslist.unwrap_or(std::ptr::null())), pszmatchby.param().abi(), psztag.param().abi()).ok()
     }
     pub unsafe fn GetXMLContext(&self) -> windows_core::Result<IWSDXMLContext> {
         let mut result__ = std::mem::zeroed();
@@ -1446,27 +1446,27 @@ windows_core::imp::interface_hierarchy!(IWSDiscoveryProviderNotify, windows_core
 impl IWSDiscoveryProviderNotify {
     pub unsafe fn Add<P0>(&self, pservice: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDiscoveredService>,
+        P0: windows_core::Param<IWSDiscoveredService>,
     {
-        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), pservice.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), pservice.param().abi()).ok()
     }
     pub unsafe fn Remove<P0>(&self, pservice: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDiscoveredService>,
+        P0: windows_core::Param<IWSDiscoveredService>,
     {
-        (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), pservice.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), pservice.param().abi()).ok()
     }
     pub unsafe fn SearchFailed<P0>(&self, hr: windows_core::HRESULT, psztag: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SearchFailed)(windows_core::Interface::as_raw(self), hr, psztag.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SearchFailed)(windows_core::Interface::as_raw(self), hr, psztag.param().abi()).ok()
     }
     pub unsafe fn SearchComplete<P0>(&self, psztag: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SearchComplete)(windows_core::Interface::as_raw(self), psztag.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SearchComplete)(windows_core::Interface::as_raw(self), psztag.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -1485,58 +1485,58 @@ impl IWSDiscoveryPublisher {
     }
     pub unsafe fn RegisterNotificationSink<P0>(&self, psink: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDiscoveryPublisherNotify>,
+        P0: windows_core::Param<IWSDiscoveryPublisherNotify>,
     {
-        (windows_core::Interface::vtable(self).RegisterNotificationSink)(windows_core::Interface::as_raw(self), psink.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RegisterNotificationSink)(windows_core::Interface::as_raw(self), psink.param().abi()).ok()
     }
     pub unsafe fn UnRegisterNotificationSink<P0>(&self, psink: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDiscoveryPublisherNotify>,
+        P0: windows_core::Param<IWSDiscoveryPublisherNotify>,
     {
-        (windows_core::Interface::vtable(self).UnRegisterNotificationSink)(windows_core::Interface::as_raw(self), psink.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).UnRegisterNotificationSink)(windows_core::Interface::as_raw(self), psink.param().abi()).ok()
     }
     pub unsafe fn Publish<P0, P1>(&self, pszid: P0, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: P1, ptypeslist: Option<*const WSD_NAME_LIST>, pscopeslist: Option<*const WSD_URI_LIST>, pxaddrslist: Option<*const WSD_URI_LIST>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Publish)(windows_core::Interface::as_raw(self), pszid.into_param().abi(), ullmetadataversion, ullinstanceid, ullmessagenumber, pszsessionid.into_param().abi(), core::mem::transmute(ptypeslist.unwrap_or(std::ptr::null())), core::mem::transmute(pscopeslist.unwrap_or(std::ptr::null())), core::mem::transmute(pxaddrslist.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).Publish)(windows_core::Interface::as_raw(self), pszid.param().abi(), ullmetadataversion, ullinstanceid, ullmessagenumber, pszsessionid.param().abi(), core::mem::transmute(ptypeslist.unwrap_or(std::ptr::null())), core::mem::transmute(pscopeslist.unwrap_or(std::ptr::null())), core::mem::transmute(pxaddrslist.unwrap_or(std::ptr::null()))).ok()
     }
     pub unsafe fn UnPublish<P0, P1>(&self, pszid: P0, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: P1, pany: Option<*const WSDXML_ELEMENT>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).UnPublish)(windows_core::Interface::as_raw(self), pszid.into_param().abi(), ullinstanceid, ullmessagenumber, pszsessionid.into_param().abi(), core::mem::transmute(pany.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).UnPublish)(windows_core::Interface::as_raw(self), pszid.param().abi(), ullinstanceid, ullmessagenumber, pszsessionid.param().abi(), core::mem::transmute(pany.unwrap_or(std::ptr::null()))).ok()
     }
     pub unsafe fn MatchProbe<P0, P1, P2>(&self, pprobemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: P0, pszid: P1, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: P2, ptypeslist: Option<*const WSD_NAME_LIST>, pscopeslist: Option<*const WSD_URI_LIST>, pxaddrslist: Option<*const WSD_URI_LIST>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDMessageParameters>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<IWSDMessageParameters>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).MatchProbe)(windows_core::Interface::as_raw(self), pprobemessage, pmessageparameters.into_param().abi(), pszid.into_param().abi(), ullmetadataversion, ullinstanceid, ullmessagenumber, pszsessionid.into_param().abi(), core::mem::transmute(ptypeslist.unwrap_or(std::ptr::null())), core::mem::transmute(pscopeslist.unwrap_or(std::ptr::null())), core::mem::transmute(pxaddrslist.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).MatchProbe)(windows_core::Interface::as_raw(self), pprobemessage, pmessageparameters.param().abi(), pszid.param().abi(), ullmetadataversion, ullinstanceid, ullmessagenumber, pszsessionid.param().abi(), core::mem::transmute(ptypeslist.unwrap_or(std::ptr::null())), core::mem::transmute(pscopeslist.unwrap_or(std::ptr::null())), core::mem::transmute(pxaddrslist.unwrap_or(std::ptr::null()))).ok()
     }
     pub unsafe fn MatchResolve<P0, P1, P2>(&self, presolvemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: P0, pszid: P1, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: P2, ptypeslist: Option<*const WSD_NAME_LIST>, pscopeslist: Option<*const WSD_URI_LIST>, pxaddrslist: Option<*const WSD_URI_LIST>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDMessageParameters>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<IWSDMessageParameters>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).MatchResolve)(windows_core::Interface::as_raw(self), presolvemessage, pmessageparameters.into_param().abi(), pszid.into_param().abi(), ullmetadataversion, ullinstanceid, ullmessagenumber, pszsessionid.into_param().abi(), core::mem::transmute(ptypeslist.unwrap_or(std::ptr::null())), core::mem::transmute(pscopeslist.unwrap_or(std::ptr::null())), core::mem::transmute(pxaddrslist.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).MatchResolve)(windows_core::Interface::as_raw(self), presolvemessage, pmessageparameters.param().abi(), pszid.param().abi(), ullmetadataversion, ullinstanceid, ullmessagenumber, pszsessionid.param().abi(), core::mem::transmute(ptypeslist.unwrap_or(std::ptr::null())), core::mem::transmute(pscopeslist.unwrap_or(std::ptr::null())), core::mem::transmute(pxaddrslist.unwrap_or(std::ptr::null()))).ok()
     }
     pub unsafe fn PublishEx<P0, P1>(&self, pszid: P0, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: P1, ptypeslist: Option<*const WSD_NAME_LIST>, pscopeslist: Option<*const WSD_URI_LIST>, pxaddrslist: Option<*const WSD_URI_LIST>, pheaderany: Option<*const WSDXML_ELEMENT>, preferenceparameterany: Option<*const WSDXML_ELEMENT>, ppolicyany: Option<*const WSDXML_ELEMENT>, pendpointreferenceany: Option<*const WSDXML_ELEMENT>, pany: Option<*const WSDXML_ELEMENT>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).PublishEx)(
             windows_core::Interface::as_raw(self),
-            pszid.into_param().abi(),
+            pszid.param().abi(),
             ullmetadataversion,
             ullinstanceid,
             ullmessagenumber,
-            pszsessionid.into_param().abi(),
+            pszsessionid.param().abi(),
             core::mem::transmute(ptypeslist.unwrap_or(std::ptr::null())),
             core::mem::transmute(pscopeslist.unwrap_or(std::ptr::null())),
             core::mem::transmute(pxaddrslist.unwrap_or(std::ptr::null())),
@@ -1550,19 +1550,19 @@ impl IWSDiscoveryPublisher {
     }
     pub unsafe fn MatchProbeEx<P0, P1, P2>(&self, pprobemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: P0, pszid: P1, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: P2, ptypeslist: Option<*const WSD_NAME_LIST>, pscopeslist: Option<*const WSD_URI_LIST>, pxaddrslist: Option<*const WSD_URI_LIST>, pheaderany: Option<*const WSDXML_ELEMENT>, preferenceparameterany: Option<*const WSDXML_ELEMENT>, ppolicyany: Option<*const WSDXML_ELEMENT>, pendpointreferenceany: Option<*const WSDXML_ELEMENT>, pany: Option<*const WSDXML_ELEMENT>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDMessageParameters>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<IWSDMessageParameters>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).MatchProbeEx)(
             windows_core::Interface::as_raw(self),
             pprobemessage,
-            pmessageparameters.into_param().abi(),
-            pszid.into_param().abi(),
+            pmessageparameters.param().abi(),
+            pszid.param().abi(),
             ullmetadataversion,
             ullinstanceid,
             ullmessagenumber,
-            pszsessionid.into_param().abi(),
+            pszsessionid.param().abi(),
             core::mem::transmute(ptypeslist.unwrap_or(std::ptr::null())),
             core::mem::transmute(pscopeslist.unwrap_or(std::ptr::null())),
             core::mem::transmute(pxaddrslist.unwrap_or(std::ptr::null())),
@@ -1576,19 +1576,19 @@ impl IWSDiscoveryPublisher {
     }
     pub unsafe fn MatchResolveEx<P0, P1, P2>(&self, presolvemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: P0, pszid: P1, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: P2, ptypeslist: Option<*const WSD_NAME_LIST>, pscopeslist: Option<*const WSD_URI_LIST>, pxaddrslist: Option<*const WSD_URI_LIST>, pheaderany: Option<*const WSDXML_ELEMENT>, preferenceparameterany: Option<*const WSDXML_ELEMENT>, ppolicyany: Option<*const WSDXML_ELEMENT>, pendpointreferenceany: Option<*const WSDXML_ELEMENT>, pany: Option<*const WSDXML_ELEMENT>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDMessageParameters>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
-        P2: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<IWSDMessageParameters>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).MatchResolveEx)(
             windows_core::Interface::as_raw(self),
             presolvemessage,
-            pmessageparameters.into_param().abi(),
-            pszid.into_param().abi(),
+            pmessageparameters.param().abi(),
+            pszid.param().abi(),
             ullmetadataversion,
             ullinstanceid,
             ullmessagenumber,
-            pszsessionid.into_param().abi(),
+            pszsessionid.param().abi(),
             core::mem::transmute(ptypeslist.unwrap_or(std::ptr::null())),
             core::mem::transmute(pscopeslist.unwrap_or(std::ptr::null())),
             core::mem::transmute(pxaddrslist.unwrap_or(std::ptr::null())),
@@ -1602,15 +1602,15 @@ impl IWSDiscoveryPublisher {
     }
     pub unsafe fn RegisterScopeMatchingRule<P0>(&self, pscopematchingrule: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDScopeMatchingRule>,
+        P0: windows_core::Param<IWSDScopeMatchingRule>,
     {
-        (windows_core::Interface::vtable(self).RegisterScopeMatchingRule)(windows_core::Interface::as_raw(self), pscopematchingrule.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RegisterScopeMatchingRule)(windows_core::Interface::as_raw(self), pscopematchingrule.param().abi()).ok()
     }
     pub unsafe fn UnRegisterScopeMatchingRule<P0>(&self, pscopematchingrule: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDScopeMatchingRule>,
+        P0: windows_core::Param<IWSDScopeMatchingRule>,
     {
-        (windows_core::Interface::vtable(self).UnRegisterScopeMatchingRule)(windows_core::Interface::as_raw(self), pscopematchingrule.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).UnRegisterScopeMatchingRule)(windows_core::Interface::as_raw(self), pscopematchingrule.param().abi()).ok()
     }
     pub unsafe fn GetXMLContext(&self) -> windows_core::Result<IWSDXMLContext> {
         let mut result__ = std::mem::zeroed();
@@ -1639,15 +1639,15 @@ windows_core::imp::interface_hierarchy!(IWSDiscoveryPublisherNotify, windows_cor
 impl IWSDiscoveryPublisherNotify {
     pub unsafe fn ProbeHandler<P0>(&self, psoap: *const WSD_SOAP_MESSAGE, pmessageparameters: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDMessageParameters>,
+        P0: windows_core::Param<IWSDMessageParameters>,
     {
-        (windows_core::Interface::vtable(self).ProbeHandler)(windows_core::Interface::as_raw(self), psoap, pmessageparameters.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ProbeHandler)(windows_core::Interface::as_raw(self), psoap, pmessageparameters.param().abi()).ok()
     }
     pub unsafe fn ResolveHandler<P0>(&self, psoap: *const WSD_SOAP_MESSAGE, pmessageparameters: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IWSDMessageParameters>,
+        P0: windows_core::Param<IWSDMessageParameters>,
     {
-        (windows_core::Interface::vtable(self).ResolveHandler)(windows_core::Interface::as_raw(self), psoap, pmessageparameters.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ResolveHandler)(windows_core::Interface::as_raw(self), psoap, pmessageparameters.param().abi()).ok()
     }
 }
 #[repr(C)]

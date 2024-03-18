@@ -72,22 +72,22 @@ impl PhoneNumberFormatter {
     }
     pub fn Format<P0>(&self, number: P0) -> windows_core::Result<windows_core::HSTRING>
     where
-        P0: windows_core::IntoParam<PhoneNumberInfo>,
+        P0: windows_core::Param<PhoneNumberInfo>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Format)(windows_core::Interface::as_raw(this), number.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Format)(windows_core::Interface::as_raw(this), number.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn FormatWithOutputFormat<P0>(&self, number: P0, numberformat: PhoneNumberFormat) -> windows_core::Result<windows_core::HSTRING>
     where
-        P0: windows_core::IntoParam<PhoneNumberInfo>,
+        P0: windows_core::Param<PhoneNumberInfo>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).FormatWithOutputFormat)(windows_core::Interface::as_raw(this), number.into_param().abi(), numberformat, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FormatWithOutputFormat)(windows_core::Interface::as_raw(this), number.param().abi(), numberformat, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn FormatPartialString(&self, number: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
@@ -207,12 +207,12 @@ impl PhoneNumberInfo {
     }
     pub fn CheckNumberMatch<P0>(&self, othernumber: P0) -> windows_core::Result<PhoneNumberMatchResult>
     where
-        P0: windows_core::IntoParam<PhoneNumberInfo>,
+        P0: windows_core::Param<PhoneNumberInfo>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CheckNumberMatch)(windows_core::Interface::as_raw(this), othernumber.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CheckNumberMatch)(windows_core::Interface::as_raw(this), othernumber.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn Create(number: &windows_core::HSTRING) -> windows_core::Result<PhoneNumberInfo> {

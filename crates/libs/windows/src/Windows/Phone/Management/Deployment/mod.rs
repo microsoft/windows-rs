@@ -191,11 +191,11 @@ impl EnterpriseEnrollmentManager {
     }
     pub fn RequestUnenrollmentAsync<P0>(enterprise: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<Enterprise>,
+        P0: windows_core::Param<Enterprise>,
     {
         Self::IEnterpriseEnrollmentManager(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestUnenrollmentAsync)(windows_core::Interface::as_raw(this), enterprise.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestUnenrollmentAsync)(windows_core::Interface::as_raw(this), enterprise.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -241,21 +241,21 @@ pub struct InstallationManager;
 impl InstallationManager {
     pub fn AddPackageAsync<P0>(title: &windows_core::HSTRING, sourcelocation: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         Self::IInstallationManagerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AddPackageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), sourcelocation.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AddPackageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), sourcelocation.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn AddPackagePreloadedAsync<P0, P1>(title: &windows_core::HSTRING, sourcelocation: P0, instanceid: &windows_core::HSTRING, offerid: &windows_core::HSTRING, license: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Uri>,
-        P1: windows_core::IntoParam<super::super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::super::Foundation::Uri>,
+        P1: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         Self::IInstallationManagerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AddPackagePreloadedAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), sourcelocation.into_param().abi(), core::mem::transmute_copy(instanceid), core::mem::transmute_copy(offerid), license.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AddPackagePreloadedAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), sourcelocation.param().abi(), core::mem::transmute_copy(instanceid), core::mem::transmute_copy(offerid), license.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -289,12 +289,12 @@ impl InstallationManager {
     #[cfg(all(feature = "Foundation_Collections", feature = "Management_Deployment"))]
     pub fn RegisterPackageAsync<P0, P1>(manifesturi: P0, dependencypackageuris: P1, deploymentoptions: super::super::super::Management::Deployment::DeploymentOptions) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Uri>,
-        P1: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Uri>>,
+        P0: windows_core::Param<super::super::super::Foundation::Uri>,
+        P1: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Uri>>,
     {
         Self::IInstallationManagerStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RegisterPackageAsync)(windows_core::Interface::as_raw(this), manifesturi.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RegisterPackageAsync)(windows_core::Interface::as_raw(this), manifesturi.param().abi(), dependencypackageuris.param().abi(), deploymentoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]

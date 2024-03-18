@@ -96,15 +96,15 @@ windows_core::imp::interface_hierarchy!(IAudioEndpointVolume, windows_core::IUnk
 impl IAudioEndpointVolume {
     pub unsafe fn RegisterControlChangeNotify<P0>(&self, pnotify: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAudioEndpointVolumeCallback>,
+        P0: windows_core::Param<IAudioEndpointVolumeCallback>,
     {
-        (windows_core::Interface::vtable(self).RegisterControlChangeNotify)(windows_core::Interface::as_raw(self), pnotify.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RegisterControlChangeNotify)(windows_core::Interface::as_raw(self), pnotify.param().abi()).ok()
     }
     pub unsafe fn UnregisterControlChangeNotify<P0>(&self, pnotify: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAudioEndpointVolumeCallback>,
+        P0: windows_core::Param<IAudioEndpointVolumeCallback>,
     {
-        (windows_core::Interface::vtable(self).UnregisterControlChangeNotify)(windows_core::Interface::as_raw(self), pnotify.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).UnregisterControlChangeNotify)(windows_core::Interface::as_raw(self), pnotify.param().abi()).ok()
     }
     pub unsafe fn GetChannelCount(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -140,9 +140,9 @@ impl IAudioEndpointVolume {
     }
     pub unsafe fn SetMute<P0>(&self, bmute: P0, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetMute)(windows_core::Interface::as_raw(self), bmute.into_param().abi(), pguideventcontext).ok()
+        (windows_core::Interface::vtable(self).SetMute)(windows_core::Interface::as_raw(self), bmute.param().abi(), pguideventcontext).ok()
     }
     pub unsafe fn GetMute(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -204,15 +204,15 @@ windows_core::imp::interface_hierarchy!(IAudioEndpointVolumeEx, windows_core::IU
 impl IAudioEndpointVolumeEx {
     pub unsafe fn RegisterControlChangeNotify<P0>(&self, pnotify: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAudioEndpointVolumeCallback>,
+        P0: windows_core::Param<IAudioEndpointVolumeCallback>,
     {
-        (windows_core::Interface::vtable(self).base__.RegisterControlChangeNotify)(windows_core::Interface::as_raw(self), pnotify.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.RegisterControlChangeNotify)(windows_core::Interface::as_raw(self), pnotify.param().abi()).ok()
     }
     pub unsafe fn UnregisterControlChangeNotify<P0>(&self, pnotify: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IAudioEndpointVolumeCallback>,
+        P0: windows_core::Param<IAudioEndpointVolumeCallback>,
     {
-        (windows_core::Interface::vtable(self).base__.UnregisterControlChangeNotify)(windows_core::Interface::as_raw(self), pnotify.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.UnregisterControlChangeNotify)(windows_core::Interface::as_raw(self), pnotify.param().abi()).ok()
     }
     pub unsafe fn GetChannelCount(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -248,9 +248,9 @@ impl IAudioEndpointVolumeEx {
     }
     pub unsafe fn SetMute<P0>(&self, bmute: P0, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.SetMute)(windows_core::Interface::as_raw(self), bmute.into_param().abi(), pguideventcontext).ok()
+        (windows_core::Interface::vtable(self).base__.SetMute)(windows_core::Interface::as_raw(self), bmute.param().abi(), pguideventcontext).ok()
     }
     pub unsafe fn GetMute(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -286,9 +286,9 @@ windows_core::imp::interface_hierarchy!(IAudioLfxControl, windows_core::IUnknown
 impl IAudioLfxControl {
     pub unsafe fn SetLocalEffectsState<P0>(&self, benabled: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetLocalEffectsState)(windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetLocalEffectsState)(windows_core::Interface::as_raw(self), benabled.param().abi()).ok()
     }
     pub unsafe fn GetLocalEffectsState(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -333,37 +333,37 @@ windows_core::imp::interface_hierarchy!(IHardwareAudioEngineBase, windows_core::
 impl IHardwareAudioEngineBase {
     pub unsafe fn GetAvailableOffloadConnectorCount<P0>(&self, _pwstrdeviceid: P0, _uconnectorid: u32) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAvailableOffloadConnectorCount)(windows_core::Interface::as_raw(self), _pwstrdeviceid.into_param().abi(), _uconnectorid, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetAvailableOffloadConnectorCount)(windows_core::Interface::as_raw(self), _pwstrdeviceid.param().abi(), _uconnectorid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetEngineFormat<P0, P1>(&self, pdevice: P0, _brequestdeviceformat: P1, _ppwfxformat: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::IMMDevice>,
-        P1: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::IMMDevice>,
+        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).GetEngineFormat)(windows_core::Interface::as_raw(self), pdevice.into_param().abi(), _brequestdeviceformat.into_param().abi(), _ppwfxformat).ok()
+        (windows_core::Interface::vtable(self).GetEngineFormat)(windows_core::Interface::as_raw(self), pdevice.param().abi(), _brequestdeviceformat.param().abi(), _ppwfxformat).ok()
     }
     pub unsafe fn SetEngineDeviceFormat<P0>(&self, pdevice: P0, _pwfxformat: *mut super::WAVEFORMATEX) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::IMMDevice>,
+        P0: windows_core::Param<super::IMMDevice>,
     {
-        (windows_core::Interface::vtable(self).SetEngineDeviceFormat)(windows_core::Interface::as_raw(self), pdevice.into_param().abi(), _pwfxformat).ok()
+        (windows_core::Interface::vtable(self).SetEngineDeviceFormat)(windows_core::Interface::as_raw(self), pdevice.param().abi(), _pwfxformat).ok()
     }
     pub unsafe fn SetGfxState<P0, P1>(&self, pdevice: P0, _benable: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::IMMDevice>,
-        P1: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::IMMDevice>,
+        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetGfxState)(windows_core::Interface::as_raw(self), pdevice.into_param().abi(), _benable.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetGfxState)(windows_core::Interface::as_raw(self), pdevice.param().abi(), _benable.param().abi()).ok()
     }
     pub unsafe fn GetGfxState<P0>(&self, pdevice: P0) -> windows_core::Result<super::super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<super::IMMDevice>,
+        P0: windows_core::Param<super::IMMDevice>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetGfxState)(windows_core::Interface::as_raw(self), pdevice.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetGfxState)(windows_core::Interface::as_raw(self), pdevice.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]

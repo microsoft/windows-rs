@@ -58,11 +58,11 @@ impl GameService {
     }
     pub fn GetPartnerTokenAsync<P0>(audienceuri: P0) -> windows_core::Result<super::super::super::super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>
     where
-        P0: windows_core::IntoParam<super::super::super::super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::super::super::super::Foundation::Uri>,
     {
         Self::IGameService(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPartnerTokenAsync)(windows_core::Interface::as_raw(this), audienceuri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetPartnerTokenAsync)(windows_core::Interface::as_raw(this), audienceuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetPrivilegesAsync() -> windows_core::Result<super::super::super::super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
@@ -80,15 +80,15 @@ impl GameService {
     #[cfg(feature = "Storage_Streams")]
     pub fn PostResult<P0>(gamevariant: u32, scorekind: GameServiceScoreKind, scorevalue: i64, gameoutcome: GameServiceGameOutcome, buffer: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::super::super::super::Storage::Streams::IBuffer>,
     {
-        Self::IGameService(|this| unsafe { (windows_core::Interface::vtable(this).PostResult)(windows_core::Interface::as_raw(this), gamevariant, scorekind, scorevalue, gameoutcome, buffer.into_param().abi()).ok() })
+        Self::IGameService(|this| unsafe { (windows_core::Interface::vtable(this).PostResult)(windows_core::Interface::as_raw(this), gamevariant, scorekind, scorevalue, gameoutcome, buffer.param().abi()).ok() })
     }
     pub fn NotifyPartnerTokenExpired<P0>(audienceuri: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::super::super::super::Foundation::Uri>,
     {
-        Self::IGameService2(|this| unsafe { (windows_core::Interface::vtable(this).NotifyPartnerTokenExpired)(windows_core::Interface::as_raw(this), audienceuri.into_param().abi()).ok() })
+        Self::IGameService2(|this| unsafe { (windows_core::Interface::vtable(this).NotifyPartnerTokenExpired)(windows_core::Interface::as_raw(this), audienceuri.param().abi()).ok() })
     }
     pub fn GetAuthenticationStatus() -> windows_core::Result<u32> {
         Self::IGameService2(|this| unsafe {

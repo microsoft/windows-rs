@@ -2,11 +2,11 @@
 #[inline]
 pub unsafe fn PdfCreateRenderer<P0>(pdevice: P0) -> windows_core::Result<IPdfRendererNative>
 where
-    P0: windows_core::IntoParam<super::super::super::Graphics::Dxgi::IDXGIDevice>,
+    P0: windows_core::Param<super::super::super::Graphics::Dxgi::IDXGIDevice>,
 {
     windows_targets::link!("windows.data.pdf.dll" "system" fn PdfCreateRenderer(pdevice : * mut core::ffi::c_void, pprenderer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = std::mem::zeroed();
-    PdfCreateRenderer(pdevice.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    PdfCreateRenderer(pdevice.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 windows_core::imp::define_interface!(IPdfRendererNative, IPdfRendererNative_Vtbl, 0x7d9dcd91_d277_4947_8527_07a0daeda94a);
 windows_core::imp::interface_hierarchy!(IPdfRendererNative, windows_core::IUnknown);
@@ -14,18 +14,18 @@ impl IPdfRendererNative {
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi"))]
     pub unsafe fn RenderPageToSurface<P0, P1>(&self, pdfpage: P0, psurface: P1, offset: super::super::super::Foundation::POINT, prenderparams: Option<*const PDF_RENDER_PARAMS>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
-        P1: windows_core::IntoParam<super::super::super::Graphics::Dxgi::IDXGISurface>,
+        P0: windows_core::Param<windows_core::IUnknown>,
+        P1: windows_core::Param<super::super::super::Graphics::Dxgi::IDXGISurface>,
     {
-        (windows_core::Interface::vtable(self).RenderPageToSurface)(windows_core::Interface::as_raw(self), pdfpage.into_param().abi(), psurface.into_param().abi(), core::mem::transmute(offset), core::mem::transmute(prenderparams.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).RenderPageToSurface)(windows_core::Interface::as_raw(self), pdfpage.param().abi(), psurface.param().abi(), core::mem::transmute(offset), core::mem::transmute(prenderparams.unwrap_or(std::ptr::null()))).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn RenderPageToDeviceContext<P0, P1>(&self, pdfpage: P0, pd2ddevicecontext: P1, prenderparams: Option<*const PDF_RENDER_PARAMS>) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
-        P1: windows_core::IntoParam<super::super::super::Graphics::Direct2D::ID2D1DeviceContext>,
+        P0: windows_core::Param<windows_core::IUnknown>,
+        P1: windows_core::Param<super::super::super::Graphics::Direct2D::ID2D1DeviceContext>,
     {
-        (windows_core::Interface::vtable(self).RenderPageToDeviceContext)(windows_core::Interface::as_raw(self), pdfpage.into_param().abi(), pd2ddevicecontext.into_param().abi(), core::mem::transmute(prenderparams.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).RenderPageToDeviceContext)(windows_core::Interface::as_raw(self), pdfpage.param().abi(), pd2ddevicecontext.param().abi(), core::mem::transmute(prenderparams.unwrap_or(std::ptr::null()))).ok()
     }
 }
 #[repr(C)]

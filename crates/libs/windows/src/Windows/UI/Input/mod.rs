@@ -1066,12 +1066,12 @@ windows_core::imp::interface_hierarchy!(EdgeGesture, windows_core::IUnknown, win
 impl EdgeGesture {
     pub fn Starting<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Starting)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Starting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStarting(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1080,12 +1080,12 @@ impl EdgeGesture {
     }
     pub fn Completed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1094,12 +1094,12 @@ impl EdgeGesture {
     }
     pub fn Canceled<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCanceled(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1351,42 +1351,42 @@ impl GestureRecognizer {
     }
     pub fn CanBeDoubleTap<P0>(&self, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<PointerPoint>,
+        P0: windows_core::Param<PointerPoint>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CanBeDoubleTap)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CanBeDoubleTap)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn ProcessDownEvent<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<PointerPoint>,
+        P0: windows_core::Param<PointerPoint>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ProcessDownEvent)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ProcessDownEvent)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn ProcessMoveEvents<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IVector<PointerPoint>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IVector<PointerPoint>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ProcessMoveEvents)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ProcessMoveEvents)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ProcessUpEvent<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<PointerPoint>,
+        P0: windows_core::Param<PointerPoint>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ProcessUpEvent)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ProcessUpEvent)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ProcessMouseWheelEvent<P0>(&self, value: P0, isshiftkeydown: bool, iscontrolkeydown: bool) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<PointerPoint>,
+        P0: windows_core::Param<PointerPoint>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ProcessMouseWheelEvent)(windows_core::Interface::as_raw(this), value.into_param().abi(), isshiftkeydown, iscontrolkeydown).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ProcessMouseWheelEvent)(windows_core::Interface::as_raw(this), value.param().abi(), isshiftkeydown, iscontrolkeydown).ok() }
     }
     pub fn ProcessInertia(&self) -> windows_core::Result<()> {
         let this = self;
@@ -1398,12 +1398,12 @@ impl GestureRecognizer {
     }
     pub fn Tapped<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<GestureRecognizer, TappedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GestureRecognizer, TappedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Tapped)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Tapped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveTapped(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1412,12 +1412,12 @@ impl GestureRecognizer {
     }
     pub fn RightTapped<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<GestureRecognizer, RightTappedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GestureRecognizer, RightTappedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RightTapped)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RightTapped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRightTapped(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1426,12 +1426,12 @@ impl GestureRecognizer {
     }
     pub fn Holding<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<GestureRecognizer, HoldingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GestureRecognizer, HoldingEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Holding)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Holding)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveHolding(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1440,12 +1440,12 @@ impl GestureRecognizer {
     }
     pub fn Dragging<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<GestureRecognizer, DraggingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GestureRecognizer, DraggingEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Dragging)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Dragging)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDragging(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1454,12 +1454,12 @@ impl GestureRecognizer {
     }
     pub fn ManipulationStarted<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationStartedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationStartedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ManipulationStarted)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ManipulationStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveManipulationStarted(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1468,12 +1468,12 @@ impl GestureRecognizer {
     }
     pub fn ManipulationUpdated<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationUpdatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationUpdatedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ManipulationUpdated)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ManipulationUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveManipulationUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1482,12 +1482,12 @@ impl GestureRecognizer {
     }
     pub fn ManipulationInertiaStarting<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationInertiaStartingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationInertiaStartingEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ManipulationInertiaStarting)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ManipulationInertiaStarting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveManipulationInertiaStarting(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1496,12 +1496,12 @@ impl GestureRecognizer {
     }
     pub fn ManipulationCompleted<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationCompletedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationCompletedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ManipulationCompleted)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ManipulationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveManipulationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1510,12 +1510,12 @@ impl GestureRecognizer {
     }
     pub fn CrossSliding<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<GestureRecognizer, CrossSlidingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GestureRecognizer, CrossSlidingEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CrossSliding)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CrossSliding)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCrossSliding(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1692,12 +1692,12 @@ impl InputActivationListener {
     }
     pub fn InputActivationChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<InputActivationListener, InputActivationListenerActivationChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<InputActivationListener, InputActivationListenerActivationChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).InputActivationChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).InputActivationChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveInputActivationChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1761,12 +1761,12 @@ impl KeyboardDeliveryInterceptor {
     #[cfg(feature = "UI_Core")]
     pub fn KeyDown<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<KeyboardDeliveryInterceptor, super::Core::KeyEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<KeyboardDeliveryInterceptor, super::Core::KeyEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).KeyDown)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).KeyDown)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveKeyDown(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1776,12 +1776,12 @@ impl KeyboardDeliveryInterceptor {
     #[cfg(feature = "UI_Core")]
     pub fn KeyUp<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<KeyboardDeliveryInterceptor, super::Core::KeyEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<KeyboardDeliveryInterceptor, super::Core::KeyEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).KeyUp)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).KeyUp)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveKeyUp(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2178,21 +2178,21 @@ impl PointerPoint {
     }
     pub fn GetCurrentPointTransformed<P0>(pointerid: u32, transform: P0) -> windows_core::Result<PointerPoint>
     where
-        P0: windows_core::IntoParam<IPointerPointTransform>,
+        P0: windows_core::Param<IPointerPointTransform>,
     {
         Self::IPointerPointStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetCurrentPointTransformed)(windows_core::Interface::as_raw(this), pointerid, transform.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetCurrentPointTransformed)(windows_core::Interface::as_raw(this), pointerid, transform.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetIntermediatePointsTransformed<P0>(pointerid: u32, transform: P0) -> windows_core::Result<super::super::Foundation::Collections::IVector<PointerPoint>>
     where
-        P0: windows_core::IntoParam<IPointerPointTransform>,
+        P0: windows_core::Param<IPointerPointTransform>,
     {
         Self::IPointerPointStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetIntermediatePointsTransformed)(windows_core::Interface::as_raw(this), pointerid, transform.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetIntermediatePointsTransformed)(windows_core::Interface::as_raw(this), pointerid, transform.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -2489,12 +2489,12 @@ impl RadialController {
     }
     pub fn ScreenContactStarted<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerScreenContactStartedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerScreenContactStartedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ScreenContactStarted)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ScreenContactStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveScreenContactStarted(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2503,12 +2503,12 @@ impl RadialController {
     }
     pub fn ScreenContactEnded<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<RadialController, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ScreenContactEnded)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ScreenContactEnded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveScreenContactEnded(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2517,12 +2517,12 @@ impl RadialController {
     }
     pub fn ScreenContactContinued<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerScreenContactContinuedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerScreenContactContinuedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ScreenContactContinued)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ScreenContactContinued)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveScreenContactContinued(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2531,12 +2531,12 @@ impl RadialController {
     }
     pub fn ControlLost<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<RadialController, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ControlLost)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ControlLost)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveControlLost(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2545,12 +2545,12 @@ impl RadialController {
     }
     pub fn RotationChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerRotationChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerRotationChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RotationChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RotationChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRotationChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2559,12 +2559,12 @@ impl RadialController {
     }
     pub fn ButtonClicked<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonClickedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonClickedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ButtonClicked)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ButtonClicked)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveButtonClicked(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2573,12 +2573,12 @@ impl RadialController {
     }
     pub fn ControlAcquired<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerControlAcquiredEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerControlAcquiredEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ControlAcquired)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ControlAcquired)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveControlAcquired(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2587,12 +2587,12 @@ impl RadialController {
     }
     pub fn ButtonPressed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonPressedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonPressedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IRadialController2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ButtonPressed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ButtonPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveButtonPressed(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2601,12 +2601,12 @@ impl RadialController {
     }
     pub fn ButtonHolding<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonHoldingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonHoldingEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IRadialController2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ButtonHolding)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ButtonHolding)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveButtonHolding(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2615,12 +2615,12 @@ impl RadialController {
     }
     pub fn ButtonReleased<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonReleasedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonReleasedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IRadialController2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ButtonReleased)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ButtonReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveButtonReleased(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2797,10 +2797,10 @@ impl RadialControllerConfiguration {
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetDefaultMenuItems<P0>(&self, buttons: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<RadialControllerSystemMenuItemKind>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<RadialControllerSystemMenuItemKind>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDefaultMenuItems)(windows_core::Interface::as_raw(this), buttons.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDefaultMenuItems)(windows_core::Interface::as_raw(this), buttons.param().abi()).ok() }
     }
     pub fn ResetToDefaultMenuItems(&self) -> windows_core::Result<()> {
         let this = self;
@@ -2815,10 +2815,10 @@ impl RadialControllerConfiguration {
     }
     pub fn SetActiveControllerWhenMenuIsSuppressed<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<RadialController>,
+        P0: windows_core::Param<RadialController>,
     {
         let this = &windows_core::Interface::cast::<IRadialControllerConfiguration2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetActiveControllerWhenMenuIsSuppressed)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetActiveControllerWhenMenuIsSuppressed)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ActiveControllerWhenMenuIsSuppressed(&self) -> windows_core::Result<RadialController> {
         let this = &windows_core::Interface::cast::<IRadialControllerConfiguration2>(self)?;
@@ -2846,9 +2846,9 @@ impl RadialControllerConfiguration {
     }
     pub fn SetAppController<P0>(value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<RadialController>,
+        P0: windows_core::Param<RadialController>,
     {
-        Self::IRadialControllerConfigurationStatics2(|this| unsafe { (windows_core::Interface::vtable(this).SetAppController)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() })
+        Self::IRadialControllerConfigurationStatics2(|this| unsafe { (windows_core::Interface::vtable(this).SetAppController)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
     }
     pub fn AppController() -> windows_core::Result<RadialController> {
         Self::IRadialControllerConfigurationStatics2(|this| unsafe {
@@ -2961,10 +2961,10 @@ impl RadialControllerMenu {
     }
     pub fn SelectMenuItem<P0>(&self, menuitem: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<RadialControllerMenuItem>,
+        P0: windows_core::Param<RadialControllerMenuItem>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SelectMenuItem)(windows_core::Interface::as_raw(this), menuitem.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SelectMenuItem)(windows_core::Interface::as_raw(this), menuitem.param().abi()).ok() }
     }
     pub fn TrySelectPreviouslySelectedMenuItem(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -3007,19 +3007,19 @@ impl RadialControllerMenuItem {
     }
     pub fn SetTag<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTag)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetTag)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Invoked<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<RadialControllerMenuItem, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialControllerMenuItem, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Invoked)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Invoked)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveInvoked(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3029,11 +3029,11 @@ impl RadialControllerMenuItem {
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromIcon<P0>(displaytext: &windows_core::HSTRING, icon: P0) -> windows_core::Result<RadialControllerMenuItem>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::RandomAccessStreamReference>,
+        P0: windows_core::Param<super::super::Storage::Streams::RandomAccessStreamReference>,
     {
         Self::IRadialControllerMenuItemStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromIcon)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displaytext), icon.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromIcon)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displaytext), icon.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateFromKnownIcon(displaytext: &windows_core::HSTRING, value: RadialControllerMenuKnownIcon) -> windows_core::Result<RadialControllerMenuItem> {
@@ -3050,11 +3050,11 @@ impl RadialControllerMenuItem {
     }
     pub fn CreateFromFontGlyphWithUri<P0>(displaytext: &windows_core::HSTRING, glyph: &windows_core::HSTRING, fontfamily: &windows_core::HSTRING, fonturi: P0) -> windows_core::Result<RadialControllerMenuItem>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         Self::IRadialControllerMenuItemStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromFontGlyphWithUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displaytext), core::mem::transmute_copy(glyph), core::mem::transmute_copy(fontfamily), fonturi.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromFontGlyphWithUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displaytext), core::mem::transmute_copy(glyph), core::mem::transmute_copy(fontfamily), fonturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -3322,12 +3322,12 @@ impl SystemButtonEventController {
     }
     pub fn SystemFunctionButtonPressed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionButtonEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionButtonEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemFunctionButtonPressed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SystemFunctionButtonPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSystemFunctionButtonPressed(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3336,12 +3336,12 @@ impl SystemButtonEventController {
     }
     pub fn SystemFunctionButtonReleased<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionButtonEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionButtonEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemFunctionButtonReleased)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SystemFunctionButtonReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSystemFunctionButtonReleased(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3350,12 +3350,12 @@ impl SystemButtonEventController {
     }
     pub fn SystemFunctionLockChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionLockChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionLockChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemFunctionLockChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SystemFunctionLockChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSystemFunctionLockChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3364,12 +3364,12 @@ impl SystemButtonEventController {
     }
     pub fn SystemFunctionLockIndicatorChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionLockIndicatorChangedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionLockIndicatorChangedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemFunctionLockIndicatorChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SystemFunctionLockIndicatorChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSystemFunctionLockIndicatorChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3379,11 +3379,11 @@ impl SystemButtonEventController {
     #[cfg(feature = "System")]
     pub fn CreateForDispatcherQueue<P0>(queue: P0) -> windows_core::Result<SystemButtonEventController>
     where
-        P0: windows_core::IntoParam<super::super::System::DispatcherQueue>,
+        P0: windows_core::Param<super::super::System::DispatcherQueue>,
     {
         Self::ISystemButtonEventControllerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateForDispatcherQueue)(windows_core::Interface::as_raw(this), queue.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateForDispatcherQueue)(windows_core::Interface::as_raw(this), queue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

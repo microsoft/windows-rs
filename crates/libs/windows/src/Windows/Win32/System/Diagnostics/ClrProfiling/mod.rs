@@ -19,9 +19,9 @@ windows_core::imp::interface_hierarchy!(ICorProfilerCallback, windows_core::IUnk
 impl ICorProfilerCallback {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), picorprofilerinfounk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), picorprofilerinfounk.param().abi()).ok()
     }
     pub unsafe fn Shutdown(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Shutdown)(windows_core::Interface::as_raw(self)).ok()
@@ -82,15 +82,15 @@ impl ICorProfilerCallback {
     }
     pub unsafe fn JITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).JITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).JITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn JITCompilationFinished<P0>(&self, functionid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).JITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).JITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -120,24 +120,24 @@ impl ICorProfilerCallback {
     }
     pub unsafe fn RemotingClientSendingMessage<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).RemotingClientSendingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemotingClientSendingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingClientReceivingReply<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).RemotingClientReceivingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemotingClientReceivingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingClientInvocationFinished(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemotingClientInvocationFinished)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn RemotingServerReceivingMessage<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).RemotingServerReceivingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemotingServerReceivingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingServerInvocationStarted(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemotingServerInvocationStarted)(windows_core::Interface::as_raw(self)).ok()
@@ -147,9 +147,9 @@ impl ICorProfilerCallback {
     }
     pub unsafe fn RemotingServerSendingReply<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).RemotingServerSendingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemotingServerSendingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn UnmanagedToManagedTransition(&self, functionid: usize, reason: COR_PRF_TRANSITION_REASON) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UnmanagedToManagedTransition)(windows_core::Interface::as_raw(self), functionid, reason).ok()
@@ -326,9 +326,9 @@ windows_core::imp::interface_hierarchy!(ICorProfilerCallback10, windows_core::IU
 impl ICorProfilerCallback10 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.Initialize)(windows_core::Interface::as_raw(self), picorprofilerinfounk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.Initialize)(windows_core::Interface::as_raw(self), picorprofilerinfounk.param().abi()).ok()
     }
     pub unsafe fn Shutdown(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.Shutdown)(windows_core::Interface::as_raw(self)).ok()
@@ -389,15 +389,15 @@ impl ICorProfilerCallback10 {
     }
     pub unsafe fn JITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.JITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.JITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn JITCompilationFinished<P0>(&self, functionid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.JITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.JITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -427,24 +427,24 @@ impl ICorProfilerCallback10 {
     }
     pub unsafe fn RemotingClientSendingMessage<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingClientSendingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingClientSendingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingClientReceivingReply<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingClientReceivingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingClientReceivingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingClientInvocationFinished(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingClientInvocationFinished)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn RemotingServerReceivingMessage<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingServerReceivingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingServerReceivingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingServerInvocationStarted(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingServerInvocationStarted)(windows_core::Interface::as_raw(self)).ok()
@@ -454,9 +454,9 @@ impl ICorProfilerCallback10 {
     }
     pub unsafe fn RemotingServerSendingReply<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingServerSendingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingServerSendingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn UnmanagedToManagedTransition(&self, functionid: usize, reason: COR_PRF_TRANSITION_REASON) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.UnmanagedToManagedTransition)(windows_core::Interface::as_raw(self), functionid, reason).ok()
@@ -580,9 +580,9 @@ impl ICorProfilerCallback10 {
     }
     pub unsafe fn InitializeForAttach<P0>(&self, pcorprofilerinfounk: P0, pvclientdata: *const core::ffi::c_void, cbclientdata: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.InitializeForAttach)(windows_core::Interface::as_raw(self), pcorprofilerinfounk.into_param().abi(), pvclientdata, cbclientdata).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.InitializeForAttach)(windows_core::Interface::as_raw(self), pcorprofilerinfounk.param().abi(), pvclientdata, cbclientdata).ok()
     }
     pub unsafe fn ProfilerAttachComplete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.ProfilerAttachComplete)(windows_core::Interface::as_raw(self)).ok()
@@ -592,21 +592,21 @@ impl ICorProfilerCallback10 {
     }
     pub unsafe fn ReJITCompilationStarted<P0>(&self, functionid: usize, rejitid: usize, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.ReJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, rejitid, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.ReJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, rejitid, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn GetReJITParameters<P0>(&self, moduleid: usize, methodid: u32, pfunctioncontrol: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ICorProfilerFunctionControl>,
+        P0: windows_core::Param<ICorProfilerFunctionControl>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetReJITParameters)(windows_core::Interface::as_raw(self), moduleid, methodid, pfunctioncontrol.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetReJITParameters)(windows_core::Interface::as_raw(self), moduleid, methodid, pfunctioncontrol.param().abi()).ok()
     }
     pub unsafe fn ReJITCompilationFinished<P0>(&self, functionid: usize, rejitid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.ReJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, rejitid, hrstatus, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.ReJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, rejitid, hrstatus, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn ReJITError(&self, moduleid: usize, methodid: u32, functionid: usize, hrstatus: windows_core::HRESULT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.ReJITError)(windows_core::Interface::as_raw(self), moduleid, methodid, functionid, hrstatus).ok()
@@ -622,25 +622,25 @@ impl ICorProfilerCallback10 {
     }
     pub unsafe fn GetAssemblyReferences<P0, P1>(&self, wszassemblypath: P0, pasmrefprovider: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<ICorProfilerAssemblyReferenceProvider>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<ICorProfilerAssemblyReferenceProvider>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetAssemblyReferences)(windows_core::Interface::as_raw(self), wszassemblypath.into_param().abi(), pasmrefprovider.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetAssemblyReferences)(windows_core::Interface::as_raw(self), wszassemblypath.param().abi(), pasmrefprovider.param().abi()).ok()
     }
     pub unsafe fn ModuleInMemorySymbolsUpdated(&self, moduleid: usize) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.ModuleInMemorySymbolsUpdated)(windows_core::Interface::as_raw(self), moduleid).ok()
     }
     pub unsafe fn DynamicMethodJITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0, pilheader: *const u8, cbilheader: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.DynamicMethodJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi(), pilheader, cbilheader).ok()
+        (windows_core::Interface::vtable(self).base__.base__.DynamicMethodJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.param().abi(), pilheader, cbilheader).ok()
     }
     pub unsafe fn DynamicMethodJITCompilationFinished<P0>(&self, functionid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.DynamicMethodJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.DynamicMethodJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn DynamicMethodUnloaded(&self, functionid: usize) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.DynamicMethodUnloaded)(windows_core::Interface::as_raw(self), functionid).ok()
@@ -663,9 +663,9 @@ windows_core::imp::interface_hierarchy!(ICorProfilerCallback11, windows_core::IU
 impl ICorProfilerCallback11 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.Initialize)(windows_core::Interface::as_raw(self), picorprofilerinfounk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.Initialize)(windows_core::Interface::as_raw(self), picorprofilerinfounk.param().abi()).ok()
     }
     pub unsafe fn Shutdown(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.Shutdown)(windows_core::Interface::as_raw(self)).ok()
@@ -726,15 +726,15 @@ impl ICorProfilerCallback11 {
     }
     pub unsafe fn JITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.JITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.JITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn JITCompilationFinished<P0>(&self, functionid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.JITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.JITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -764,24 +764,24 @@ impl ICorProfilerCallback11 {
     }
     pub unsafe fn RemotingClientSendingMessage<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingClientSendingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingClientSendingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingClientReceivingReply<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingClientReceivingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingClientReceivingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingClientInvocationFinished(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingClientInvocationFinished)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn RemotingServerReceivingMessage<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingServerReceivingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingServerReceivingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingServerInvocationStarted(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingServerInvocationStarted)(windows_core::Interface::as_raw(self)).ok()
@@ -791,9 +791,9 @@ impl ICorProfilerCallback11 {
     }
     pub unsafe fn RemotingServerSendingReply<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingServerSendingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingServerSendingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn UnmanagedToManagedTransition(&self, functionid: usize, reason: COR_PRF_TRANSITION_REASON) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.UnmanagedToManagedTransition)(windows_core::Interface::as_raw(self), functionid, reason).ok()
@@ -917,9 +917,9 @@ impl ICorProfilerCallback11 {
     }
     pub unsafe fn InitializeForAttach<P0>(&self, pcorprofilerinfounk: P0, pvclientdata: *const core::ffi::c_void, cbclientdata: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.InitializeForAttach)(windows_core::Interface::as_raw(self), pcorprofilerinfounk.into_param().abi(), pvclientdata, cbclientdata).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.InitializeForAttach)(windows_core::Interface::as_raw(self), pcorprofilerinfounk.param().abi(), pvclientdata, cbclientdata).ok()
     }
     pub unsafe fn ProfilerAttachComplete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.ProfilerAttachComplete)(windows_core::Interface::as_raw(self)).ok()
@@ -929,21 +929,21 @@ impl ICorProfilerCallback11 {
     }
     pub unsafe fn ReJITCompilationStarted<P0>(&self, functionid: usize, rejitid: usize, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.ReJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, rejitid, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.ReJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, rejitid, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn GetReJITParameters<P0>(&self, moduleid: usize, methodid: u32, pfunctioncontrol: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ICorProfilerFunctionControl>,
+        P0: windows_core::Param<ICorProfilerFunctionControl>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetReJITParameters)(windows_core::Interface::as_raw(self), moduleid, methodid, pfunctioncontrol.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetReJITParameters)(windows_core::Interface::as_raw(self), moduleid, methodid, pfunctioncontrol.param().abi()).ok()
     }
     pub unsafe fn ReJITCompilationFinished<P0>(&self, functionid: usize, rejitid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.ReJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, rejitid, hrstatus, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.ReJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, rejitid, hrstatus, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn ReJITError(&self, moduleid: usize, methodid: u32, functionid: usize, hrstatus: windows_core::HRESULT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.ReJITError)(windows_core::Interface::as_raw(self), moduleid, methodid, functionid, hrstatus).ok()
@@ -959,25 +959,25 @@ impl ICorProfilerCallback11 {
     }
     pub unsafe fn GetAssemblyReferences<P0, P1>(&self, wszassemblypath: P0, pasmrefprovider: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<ICorProfilerAssemblyReferenceProvider>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<ICorProfilerAssemblyReferenceProvider>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetAssemblyReferences)(windows_core::Interface::as_raw(self), wszassemblypath.into_param().abi(), pasmrefprovider.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetAssemblyReferences)(windows_core::Interface::as_raw(self), wszassemblypath.param().abi(), pasmrefprovider.param().abi()).ok()
     }
     pub unsafe fn ModuleInMemorySymbolsUpdated(&self, moduleid: usize) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.ModuleInMemorySymbolsUpdated)(windows_core::Interface::as_raw(self), moduleid).ok()
     }
     pub unsafe fn DynamicMethodJITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0, pilheader: *const u8, cbilheader: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.DynamicMethodJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi(), pilheader, cbilheader).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.DynamicMethodJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.param().abi(), pilheader, cbilheader).ok()
     }
     pub unsafe fn DynamicMethodJITCompilationFinished<P0>(&self, functionid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.DynamicMethodJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.DynamicMethodJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn DynamicMethodUnloaded(&self, functionid: usize) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.DynamicMethodUnloaded)(windows_core::Interface::as_raw(self), functionid).ok()
@@ -1002,9 +1002,9 @@ windows_core::imp::interface_hierarchy!(ICorProfilerCallback2, windows_core::IUn
 impl ICorProfilerCallback2 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.Initialize)(windows_core::Interface::as_raw(self), picorprofilerinfounk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Initialize)(windows_core::Interface::as_raw(self), picorprofilerinfounk.param().abi()).ok()
     }
     pub unsafe fn Shutdown(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.Shutdown)(windows_core::Interface::as_raw(self)).ok()
@@ -1065,15 +1065,15 @@ impl ICorProfilerCallback2 {
     }
     pub unsafe fn JITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.JITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.JITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn JITCompilationFinished<P0>(&self, functionid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.JITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.JITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -1103,24 +1103,24 @@ impl ICorProfilerCallback2 {
     }
     pub unsafe fn RemotingClientSendingMessage<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.RemotingClientSendingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.RemotingClientSendingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingClientReceivingReply<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.RemotingClientReceivingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.RemotingClientReceivingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingClientInvocationFinished(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.RemotingClientInvocationFinished)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn RemotingServerReceivingMessage<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.RemotingServerReceivingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.RemotingServerReceivingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingServerInvocationStarted(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.RemotingServerInvocationStarted)(windows_core::Interface::as_raw(self)).ok()
@@ -1130,9 +1130,9 @@ impl ICorProfilerCallback2 {
     }
     pub unsafe fn RemotingServerSendingReply<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.RemotingServerSendingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.RemotingServerSendingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn UnmanagedToManagedTransition(&self, functionid: usize, reason: COR_PRF_TRANSITION_REASON) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.UnmanagedToManagedTransition)(windows_core::Interface::as_raw(self), functionid, reason).ok()
@@ -1272,9 +1272,9 @@ windows_core::imp::interface_hierarchy!(ICorProfilerCallback3, windows_core::IUn
 impl ICorProfilerCallback3 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.Initialize)(windows_core::Interface::as_raw(self), picorprofilerinfounk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.Initialize)(windows_core::Interface::as_raw(self), picorprofilerinfounk.param().abi()).ok()
     }
     pub unsafe fn Shutdown(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.Shutdown)(windows_core::Interface::as_raw(self)).ok()
@@ -1335,15 +1335,15 @@ impl ICorProfilerCallback3 {
     }
     pub unsafe fn JITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.JITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.JITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn JITCompilationFinished<P0>(&self, functionid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.JITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.JITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -1373,24 +1373,24 @@ impl ICorProfilerCallback3 {
     }
     pub unsafe fn RemotingClientSendingMessage<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.RemotingClientSendingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.RemotingClientSendingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingClientReceivingReply<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.RemotingClientReceivingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.RemotingClientReceivingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingClientInvocationFinished(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.RemotingClientInvocationFinished)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn RemotingServerReceivingMessage<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.RemotingServerReceivingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.RemotingServerReceivingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingServerInvocationStarted(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.RemotingServerInvocationStarted)(windows_core::Interface::as_raw(self)).ok()
@@ -1400,9 +1400,9 @@ impl ICorProfilerCallback3 {
     }
     pub unsafe fn RemotingServerSendingReply<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.RemotingServerSendingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.RemotingServerSendingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn UnmanagedToManagedTransition(&self, functionid: usize, reason: COR_PRF_TRANSITION_REASON) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.UnmanagedToManagedTransition)(windows_core::Interface::as_raw(self), functionid, reason).ok()
@@ -1526,9 +1526,9 @@ impl ICorProfilerCallback3 {
     }
     pub unsafe fn InitializeForAttach<P0>(&self, pcorprofilerinfounk: P0, pvclientdata: *const core::ffi::c_void, cbclientdata: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).InitializeForAttach)(windows_core::Interface::as_raw(self), pcorprofilerinfounk.into_param().abi(), pvclientdata, cbclientdata).ok()
+        (windows_core::Interface::vtable(self).InitializeForAttach)(windows_core::Interface::as_raw(self), pcorprofilerinfounk.param().abi(), pvclientdata, cbclientdata).ok()
     }
     pub unsafe fn ProfilerAttachComplete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ProfilerAttachComplete)(windows_core::Interface::as_raw(self)).ok()
@@ -1549,9 +1549,9 @@ windows_core::imp::interface_hierarchy!(ICorProfilerCallback4, windows_core::IUn
 impl ICorProfilerCallback4 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.Initialize)(windows_core::Interface::as_raw(self), picorprofilerinfounk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.Initialize)(windows_core::Interface::as_raw(self), picorprofilerinfounk.param().abi()).ok()
     }
     pub unsafe fn Shutdown(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.Shutdown)(windows_core::Interface::as_raw(self)).ok()
@@ -1612,15 +1612,15 @@ impl ICorProfilerCallback4 {
     }
     pub unsafe fn JITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.JITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.JITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn JITCompilationFinished<P0>(&self, functionid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.JITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.JITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -1650,24 +1650,24 @@ impl ICorProfilerCallback4 {
     }
     pub unsafe fn RemotingClientSendingMessage<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.RemotingClientSendingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.RemotingClientSendingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingClientReceivingReply<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.RemotingClientReceivingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.RemotingClientReceivingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingClientInvocationFinished(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.RemotingClientInvocationFinished)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn RemotingServerReceivingMessage<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.RemotingServerReceivingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.RemotingServerReceivingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingServerInvocationStarted(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.RemotingServerInvocationStarted)(windows_core::Interface::as_raw(self)).ok()
@@ -1677,9 +1677,9 @@ impl ICorProfilerCallback4 {
     }
     pub unsafe fn RemotingServerSendingReply<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.RemotingServerSendingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.RemotingServerSendingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn UnmanagedToManagedTransition(&self, functionid: usize, reason: COR_PRF_TRANSITION_REASON) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.UnmanagedToManagedTransition)(windows_core::Interface::as_raw(self), functionid, reason).ok()
@@ -1803,9 +1803,9 @@ impl ICorProfilerCallback4 {
     }
     pub unsafe fn InitializeForAttach<P0>(&self, pcorprofilerinfounk: P0, pvclientdata: *const core::ffi::c_void, cbclientdata: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.InitializeForAttach)(windows_core::Interface::as_raw(self), pcorprofilerinfounk.into_param().abi(), pvclientdata, cbclientdata).ok()
+        (windows_core::Interface::vtable(self).base__.InitializeForAttach)(windows_core::Interface::as_raw(self), pcorprofilerinfounk.param().abi(), pvclientdata, cbclientdata).ok()
     }
     pub unsafe fn ProfilerAttachComplete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.ProfilerAttachComplete)(windows_core::Interface::as_raw(self)).ok()
@@ -1815,21 +1815,21 @@ impl ICorProfilerCallback4 {
     }
     pub unsafe fn ReJITCompilationStarted<P0>(&self, functionid: usize, rejitid: usize, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).ReJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, rejitid, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ReJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, rejitid, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn GetReJITParameters<P0>(&self, moduleid: usize, methodid: u32, pfunctioncontrol: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ICorProfilerFunctionControl>,
+        P0: windows_core::Param<ICorProfilerFunctionControl>,
     {
-        (windows_core::Interface::vtable(self).GetReJITParameters)(windows_core::Interface::as_raw(self), moduleid, methodid, pfunctioncontrol.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).GetReJITParameters)(windows_core::Interface::as_raw(self), moduleid, methodid, pfunctioncontrol.param().abi()).ok()
     }
     pub unsafe fn ReJITCompilationFinished<P0>(&self, functionid: usize, rejitid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).ReJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, rejitid, hrstatus, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ReJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, rejitid, hrstatus, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn ReJITError(&self, moduleid: usize, methodid: u32, functionid: usize, hrstatus: windows_core::HRESULT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ReJITError)(windows_core::Interface::as_raw(self), moduleid, methodid, functionid, hrstatus).ok()
@@ -1856,9 +1856,9 @@ windows_core::imp::interface_hierarchy!(ICorProfilerCallback5, windows_core::IUn
 impl ICorProfilerCallback5 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.Initialize)(windows_core::Interface::as_raw(self), picorprofilerinfounk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.Initialize)(windows_core::Interface::as_raw(self), picorprofilerinfounk.param().abi()).ok()
     }
     pub unsafe fn Shutdown(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.Shutdown)(windows_core::Interface::as_raw(self)).ok()
@@ -1919,15 +1919,15 @@ impl ICorProfilerCallback5 {
     }
     pub unsafe fn JITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.JITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.JITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn JITCompilationFinished<P0>(&self, functionid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.JITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.JITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -1957,24 +1957,24 @@ impl ICorProfilerCallback5 {
     }
     pub unsafe fn RemotingClientSendingMessage<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.RemotingClientSendingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.RemotingClientSendingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingClientReceivingReply<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.RemotingClientReceivingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.RemotingClientReceivingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingClientInvocationFinished(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.RemotingClientInvocationFinished)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn RemotingServerReceivingMessage<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.RemotingServerReceivingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.RemotingServerReceivingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingServerInvocationStarted(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.RemotingServerInvocationStarted)(windows_core::Interface::as_raw(self)).ok()
@@ -1984,9 +1984,9 @@ impl ICorProfilerCallback5 {
     }
     pub unsafe fn RemotingServerSendingReply<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.RemotingServerSendingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.RemotingServerSendingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn UnmanagedToManagedTransition(&self, functionid: usize, reason: COR_PRF_TRANSITION_REASON) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.UnmanagedToManagedTransition)(windows_core::Interface::as_raw(self), functionid, reason).ok()
@@ -2110,9 +2110,9 @@ impl ICorProfilerCallback5 {
     }
     pub unsafe fn InitializeForAttach<P0>(&self, pcorprofilerinfounk: P0, pvclientdata: *const core::ffi::c_void, cbclientdata: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.InitializeForAttach)(windows_core::Interface::as_raw(self), pcorprofilerinfounk.into_param().abi(), pvclientdata, cbclientdata).ok()
+        (windows_core::Interface::vtable(self).base__.base__.InitializeForAttach)(windows_core::Interface::as_raw(self), pcorprofilerinfounk.param().abi(), pvclientdata, cbclientdata).ok()
     }
     pub unsafe fn ProfilerAttachComplete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.ProfilerAttachComplete)(windows_core::Interface::as_raw(self)).ok()
@@ -2122,21 +2122,21 @@ impl ICorProfilerCallback5 {
     }
     pub unsafe fn ReJITCompilationStarted<P0>(&self, functionid: usize, rejitid: usize, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.ReJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, rejitid, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.ReJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, rejitid, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn GetReJITParameters<P0>(&self, moduleid: usize, methodid: u32, pfunctioncontrol: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ICorProfilerFunctionControl>,
+        P0: windows_core::Param<ICorProfilerFunctionControl>,
     {
-        (windows_core::Interface::vtable(self).base__.GetReJITParameters)(windows_core::Interface::as_raw(self), moduleid, methodid, pfunctioncontrol.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.GetReJITParameters)(windows_core::Interface::as_raw(self), moduleid, methodid, pfunctioncontrol.param().abi()).ok()
     }
     pub unsafe fn ReJITCompilationFinished<P0>(&self, functionid: usize, rejitid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.ReJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, rejitid, hrstatus, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.ReJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, rejitid, hrstatus, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn ReJITError(&self, moduleid: usize, methodid: u32, functionid: usize, hrstatus: windows_core::HRESULT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.ReJITError)(windows_core::Interface::as_raw(self), moduleid, methodid, functionid, hrstatus).ok()
@@ -2161,9 +2161,9 @@ windows_core::imp::interface_hierarchy!(ICorProfilerCallback6, windows_core::IUn
 impl ICorProfilerCallback6 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.Initialize)(windows_core::Interface::as_raw(self), picorprofilerinfounk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.Initialize)(windows_core::Interface::as_raw(self), picorprofilerinfounk.param().abi()).ok()
     }
     pub unsafe fn Shutdown(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.Shutdown)(windows_core::Interface::as_raw(self)).ok()
@@ -2224,15 +2224,15 @@ impl ICorProfilerCallback6 {
     }
     pub unsafe fn JITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.JITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.JITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn JITCompilationFinished<P0>(&self, functionid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.JITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.JITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -2262,24 +2262,24 @@ impl ICorProfilerCallback6 {
     }
     pub unsafe fn RemotingClientSendingMessage<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RemotingClientSendingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RemotingClientSendingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingClientReceivingReply<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RemotingClientReceivingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RemotingClientReceivingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingClientInvocationFinished(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RemotingClientInvocationFinished)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn RemotingServerReceivingMessage<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RemotingServerReceivingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RemotingServerReceivingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingServerInvocationStarted(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RemotingServerInvocationStarted)(windows_core::Interface::as_raw(self)).ok()
@@ -2289,9 +2289,9 @@ impl ICorProfilerCallback6 {
     }
     pub unsafe fn RemotingServerSendingReply<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RemotingServerSendingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RemotingServerSendingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn UnmanagedToManagedTransition(&self, functionid: usize, reason: COR_PRF_TRANSITION_REASON) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.UnmanagedToManagedTransition)(windows_core::Interface::as_raw(self), functionid, reason).ok()
@@ -2415,9 +2415,9 @@ impl ICorProfilerCallback6 {
     }
     pub unsafe fn InitializeForAttach<P0>(&self, pcorprofilerinfounk: P0, pvclientdata: *const core::ffi::c_void, cbclientdata: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.InitializeForAttach)(windows_core::Interface::as_raw(self), pcorprofilerinfounk.into_param().abi(), pvclientdata, cbclientdata).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.InitializeForAttach)(windows_core::Interface::as_raw(self), pcorprofilerinfounk.param().abi(), pvclientdata, cbclientdata).ok()
     }
     pub unsafe fn ProfilerAttachComplete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.ProfilerAttachComplete)(windows_core::Interface::as_raw(self)).ok()
@@ -2427,21 +2427,21 @@ impl ICorProfilerCallback6 {
     }
     pub unsafe fn ReJITCompilationStarted<P0>(&self, functionid: usize, rejitid: usize, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.ReJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, rejitid, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.ReJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, rejitid, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn GetReJITParameters<P0>(&self, moduleid: usize, methodid: u32, pfunctioncontrol: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ICorProfilerFunctionControl>,
+        P0: windows_core::Param<ICorProfilerFunctionControl>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.GetReJITParameters)(windows_core::Interface::as_raw(self), moduleid, methodid, pfunctioncontrol.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.GetReJITParameters)(windows_core::Interface::as_raw(self), moduleid, methodid, pfunctioncontrol.param().abi()).ok()
     }
     pub unsafe fn ReJITCompilationFinished<P0>(&self, functionid: usize, rejitid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.ReJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, rejitid, hrstatus, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.ReJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, rejitid, hrstatus, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn ReJITError(&self, moduleid: usize, methodid: u32, functionid: usize, hrstatus: windows_core::HRESULT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.ReJITError)(windows_core::Interface::as_raw(self), moduleid, methodid, functionid, hrstatus).ok()
@@ -2457,10 +2457,10 @@ impl ICorProfilerCallback6 {
     }
     pub unsafe fn GetAssemblyReferences<P0, P1>(&self, wszassemblypath: P0, pasmrefprovider: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<ICorProfilerAssemblyReferenceProvider>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<ICorProfilerAssemblyReferenceProvider>,
     {
-        (windows_core::Interface::vtable(self).GetAssemblyReferences)(windows_core::Interface::as_raw(self), wszassemblypath.into_param().abi(), pasmrefprovider.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).GetAssemblyReferences)(windows_core::Interface::as_raw(self), wszassemblypath.param().abi(), pasmrefprovider.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -2473,9 +2473,9 @@ windows_core::imp::interface_hierarchy!(ICorProfilerCallback7, windows_core::IUn
 impl ICorProfilerCallback7 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.Initialize)(windows_core::Interface::as_raw(self), picorprofilerinfounk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.Initialize)(windows_core::Interface::as_raw(self), picorprofilerinfounk.param().abi()).ok()
     }
     pub unsafe fn Shutdown(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.Shutdown)(windows_core::Interface::as_raw(self)).ok()
@@ -2536,15 +2536,15 @@ impl ICorProfilerCallback7 {
     }
     pub unsafe fn JITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.JITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.JITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn JITCompilationFinished<P0>(&self, functionid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.JITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.JITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -2574,24 +2574,24 @@ impl ICorProfilerCallback7 {
     }
     pub unsafe fn RemotingClientSendingMessage<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.RemotingClientSendingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.RemotingClientSendingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingClientReceivingReply<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.RemotingClientReceivingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.RemotingClientReceivingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingClientInvocationFinished(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.RemotingClientInvocationFinished)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn RemotingServerReceivingMessage<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.RemotingServerReceivingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.RemotingServerReceivingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingServerInvocationStarted(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.RemotingServerInvocationStarted)(windows_core::Interface::as_raw(self)).ok()
@@ -2601,9 +2601,9 @@ impl ICorProfilerCallback7 {
     }
     pub unsafe fn RemotingServerSendingReply<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.RemotingServerSendingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.RemotingServerSendingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn UnmanagedToManagedTransition(&self, functionid: usize, reason: COR_PRF_TRANSITION_REASON) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.UnmanagedToManagedTransition)(windows_core::Interface::as_raw(self), functionid, reason).ok()
@@ -2727,9 +2727,9 @@ impl ICorProfilerCallback7 {
     }
     pub unsafe fn InitializeForAttach<P0>(&self, pcorprofilerinfounk: P0, pvclientdata: *const core::ffi::c_void, cbclientdata: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.InitializeForAttach)(windows_core::Interface::as_raw(self), pcorprofilerinfounk.into_param().abi(), pvclientdata, cbclientdata).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.InitializeForAttach)(windows_core::Interface::as_raw(self), pcorprofilerinfounk.param().abi(), pvclientdata, cbclientdata).ok()
     }
     pub unsafe fn ProfilerAttachComplete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.ProfilerAttachComplete)(windows_core::Interface::as_raw(self)).ok()
@@ -2739,21 +2739,21 @@ impl ICorProfilerCallback7 {
     }
     pub unsafe fn ReJITCompilationStarted<P0>(&self, functionid: usize, rejitid: usize, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.ReJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, rejitid, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.ReJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, rejitid, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn GetReJITParameters<P0>(&self, moduleid: usize, methodid: u32, pfunctioncontrol: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ICorProfilerFunctionControl>,
+        P0: windows_core::Param<ICorProfilerFunctionControl>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetReJITParameters)(windows_core::Interface::as_raw(self), moduleid, methodid, pfunctioncontrol.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.GetReJITParameters)(windows_core::Interface::as_raw(self), moduleid, methodid, pfunctioncontrol.param().abi()).ok()
     }
     pub unsafe fn ReJITCompilationFinished<P0>(&self, functionid: usize, rejitid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.ReJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, rejitid, hrstatus, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.ReJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, rejitid, hrstatus, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn ReJITError(&self, moduleid: usize, methodid: u32, functionid: usize, hrstatus: windows_core::HRESULT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.ReJITError)(windows_core::Interface::as_raw(self), moduleid, methodid, functionid, hrstatus).ok()
@@ -2769,10 +2769,10 @@ impl ICorProfilerCallback7 {
     }
     pub unsafe fn GetAssemblyReferences<P0, P1>(&self, wszassemblypath: P0, pasmrefprovider: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<ICorProfilerAssemblyReferenceProvider>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<ICorProfilerAssemblyReferenceProvider>,
     {
-        (windows_core::Interface::vtable(self).base__.GetAssemblyReferences)(windows_core::Interface::as_raw(self), wszassemblypath.into_param().abi(), pasmrefprovider.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.GetAssemblyReferences)(windows_core::Interface::as_raw(self), wszassemblypath.param().abi(), pasmrefprovider.param().abi()).ok()
     }
     pub unsafe fn ModuleInMemorySymbolsUpdated(&self, moduleid: usize) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ModuleInMemorySymbolsUpdated)(windows_core::Interface::as_raw(self), moduleid).ok()
@@ -2788,9 +2788,9 @@ windows_core::imp::interface_hierarchy!(ICorProfilerCallback8, windows_core::IUn
 impl ICorProfilerCallback8 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.Initialize)(windows_core::Interface::as_raw(self), picorprofilerinfounk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.Initialize)(windows_core::Interface::as_raw(self), picorprofilerinfounk.param().abi()).ok()
     }
     pub unsafe fn Shutdown(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.Shutdown)(windows_core::Interface::as_raw(self)).ok()
@@ -2851,15 +2851,15 @@ impl ICorProfilerCallback8 {
     }
     pub unsafe fn JITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.JITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.JITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn JITCompilationFinished<P0>(&self, functionid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.JITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.JITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -2889,24 +2889,24 @@ impl ICorProfilerCallback8 {
     }
     pub unsafe fn RemotingClientSendingMessage<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.RemotingClientSendingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.RemotingClientSendingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingClientReceivingReply<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.RemotingClientReceivingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.RemotingClientReceivingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingClientInvocationFinished(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.RemotingClientInvocationFinished)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn RemotingServerReceivingMessage<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.RemotingServerReceivingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.RemotingServerReceivingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingServerInvocationStarted(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.RemotingServerInvocationStarted)(windows_core::Interface::as_raw(self)).ok()
@@ -2916,9 +2916,9 @@ impl ICorProfilerCallback8 {
     }
     pub unsafe fn RemotingServerSendingReply<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.RemotingServerSendingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.RemotingServerSendingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn UnmanagedToManagedTransition(&self, functionid: usize, reason: COR_PRF_TRANSITION_REASON) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.UnmanagedToManagedTransition)(windows_core::Interface::as_raw(self), functionid, reason).ok()
@@ -3042,9 +3042,9 @@ impl ICorProfilerCallback8 {
     }
     pub unsafe fn InitializeForAttach<P0>(&self, pcorprofilerinfounk: P0, pvclientdata: *const core::ffi::c_void, cbclientdata: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.InitializeForAttach)(windows_core::Interface::as_raw(self), pcorprofilerinfounk.into_param().abi(), pvclientdata, cbclientdata).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.InitializeForAttach)(windows_core::Interface::as_raw(self), pcorprofilerinfounk.param().abi(), pvclientdata, cbclientdata).ok()
     }
     pub unsafe fn ProfilerAttachComplete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ProfilerAttachComplete)(windows_core::Interface::as_raw(self)).ok()
@@ -3054,21 +3054,21 @@ impl ICorProfilerCallback8 {
     }
     pub unsafe fn ReJITCompilationStarted<P0>(&self, functionid: usize, rejitid: usize, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ReJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, rejitid, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ReJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, rejitid, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn GetReJITParameters<P0>(&self, moduleid: usize, methodid: u32, pfunctioncontrol: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ICorProfilerFunctionControl>,
+        P0: windows_core::Param<ICorProfilerFunctionControl>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetReJITParameters)(windows_core::Interface::as_raw(self), moduleid, methodid, pfunctioncontrol.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetReJITParameters)(windows_core::Interface::as_raw(self), moduleid, methodid, pfunctioncontrol.param().abi()).ok()
     }
     pub unsafe fn ReJITCompilationFinished<P0>(&self, functionid: usize, rejitid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ReJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, rejitid, hrstatus, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ReJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, rejitid, hrstatus, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn ReJITError(&self, moduleid: usize, methodid: u32, functionid: usize, hrstatus: windows_core::HRESULT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.ReJITError)(windows_core::Interface::as_raw(self), moduleid, methodid, functionid, hrstatus).ok()
@@ -3084,25 +3084,25 @@ impl ICorProfilerCallback8 {
     }
     pub unsafe fn GetAssemblyReferences<P0, P1>(&self, wszassemblypath: P0, pasmrefprovider: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<ICorProfilerAssemblyReferenceProvider>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<ICorProfilerAssemblyReferenceProvider>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.GetAssemblyReferences)(windows_core::Interface::as_raw(self), wszassemblypath.into_param().abi(), pasmrefprovider.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.GetAssemblyReferences)(windows_core::Interface::as_raw(self), wszassemblypath.param().abi(), pasmrefprovider.param().abi()).ok()
     }
     pub unsafe fn ModuleInMemorySymbolsUpdated(&self, moduleid: usize) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.ModuleInMemorySymbolsUpdated)(windows_core::Interface::as_raw(self), moduleid).ok()
     }
     pub unsafe fn DynamicMethodJITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0, pilheader: *const u8, cbilheader: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).DynamicMethodJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi(), pilheader, cbilheader).ok()
+        (windows_core::Interface::vtable(self).DynamicMethodJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.param().abi(), pilheader, cbilheader).ok()
     }
     pub unsafe fn DynamicMethodJITCompilationFinished<P0>(&self, functionid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).DynamicMethodJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).DynamicMethodJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -3116,9 +3116,9 @@ windows_core::imp::interface_hierarchy!(ICorProfilerCallback9, windows_core::IUn
 impl ICorProfilerCallback9 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.Initialize)(windows_core::Interface::as_raw(self), picorprofilerinfounk.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.Initialize)(windows_core::Interface::as_raw(self), picorprofilerinfounk.param().abi()).ok()
     }
     pub unsafe fn Shutdown(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.Shutdown)(windows_core::Interface::as_raw(self)).ok()
@@ -3179,15 +3179,15 @@ impl ICorProfilerCallback9 {
     }
     pub unsafe fn JITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.JITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.JITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn JITCompilationFinished<P0>(&self, functionid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.JITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.JITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -3217,24 +3217,24 @@ impl ICorProfilerCallback9 {
     }
     pub unsafe fn RemotingClientSendingMessage<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.RemotingClientSendingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.RemotingClientSendingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingClientReceivingReply<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.RemotingClientReceivingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.RemotingClientReceivingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingClientInvocationFinished(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.RemotingClientInvocationFinished)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn RemotingServerReceivingMessage<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.RemotingServerReceivingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.RemotingServerReceivingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn RemotingServerInvocationStarted(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.RemotingServerInvocationStarted)(windows_core::Interface::as_raw(self)).ok()
@@ -3244,9 +3244,9 @@ impl ICorProfilerCallback9 {
     }
     pub unsafe fn RemotingServerSendingReply<P0>(&self, pcookie: *const windows_core::GUID, fisasync: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.RemotingServerSendingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.RemotingServerSendingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.param().abi()).ok()
     }
     pub unsafe fn UnmanagedToManagedTransition(&self, functionid: usize, reason: COR_PRF_TRANSITION_REASON) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.UnmanagedToManagedTransition)(windows_core::Interface::as_raw(self), functionid, reason).ok()
@@ -3370,9 +3370,9 @@ impl ICorProfilerCallback9 {
     }
     pub unsafe fn InitializeForAttach<P0>(&self, pcorprofilerinfounk: P0, pvclientdata: *const core::ffi::c_void, cbclientdata: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.InitializeForAttach)(windows_core::Interface::as_raw(self), pcorprofilerinfounk.into_param().abi(), pvclientdata, cbclientdata).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.InitializeForAttach)(windows_core::Interface::as_raw(self), pcorprofilerinfounk.param().abi(), pvclientdata, cbclientdata).ok()
     }
     pub unsafe fn ProfilerAttachComplete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.ProfilerAttachComplete)(windows_core::Interface::as_raw(self)).ok()
@@ -3382,21 +3382,21 @@ impl ICorProfilerCallback9 {
     }
     pub unsafe fn ReJITCompilationStarted<P0>(&self, functionid: usize, rejitid: usize, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ReJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, rejitid, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ReJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, rejitid, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn GetReJITParameters<P0>(&self, moduleid: usize, methodid: u32, pfunctioncontrol: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ICorProfilerFunctionControl>,
+        P0: windows_core::Param<ICorProfilerFunctionControl>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetReJITParameters)(windows_core::Interface::as_raw(self), moduleid, methodid, pfunctioncontrol.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetReJITParameters)(windows_core::Interface::as_raw(self), moduleid, methodid, pfunctioncontrol.param().abi()).ok()
     }
     pub unsafe fn ReJITCompilationFinished<P0>(&self, functionid: usize, rejitid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ReJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, rejitid, hrstatus, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ReJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, rejitid, hrstatus, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn ReJITError(&self, moduleid: usize, methodid: u32, functionid: usize, hrstatus: windows_core::HRESULT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ReJITError)(windows_core::Interface::as_raw(self), moduleid, methodid, functionid, hrstatus).ok()
@@ -3412,25 +3412,25 @@ impl ICorProfilerCallback9 {
     }
     pub unsafe fn GetAssemblyReferences<P0, P1>(&self, wszassemblypath: P0, pasmrefprovider: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<ICorProfilerAssemblyReferenceProvider>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<ICorProfilerAssemblyReferenceProvider>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetAssemblyReferences)(windows_core::Interface::as_raw(self), wszassemblypath.into_param().abi(), pasmrefprovider.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.GetAssemblyReferences)(windows_core::Interface::as_raw(self), wszassemblypath.param().abi(), pasmrefprovider.param().abi()).ok()
     }
     pub unsafe fn ModuleInMemorySymbolsUpdated(&self, moduleid: usize) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.ModuleInMemorySymbolsUpdated)(windows_core::Interface::as_raw(self), moduleid).ok()
     }
     pub unsafe fn DynamicMethodJITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0, pilheader: *const u8, cbilheader: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.DynamicMethodJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi(), pilheader, cbilheader).ok()
+        (windows_core::Interface::vtable(self).base__.DynamicMethodJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.param().abi(), pilheader, cbilheader).ok()
     }
     pub unsafe fn DynamicMethodJITCompilationFinished<P0>(&self, functionid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.DynamicMethodJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.DynamicMethodJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.param().abi()).ok()
     }
     pub unsafe fn DynamicMethodUnloaded(&self, functionid: usize) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DynamicMethodUnloaded)(windows_core::Interface::as_raw(self), functionid).ok()
@@ -3586,9 +3586,9 @@ impl ICorProfilerInfo {
     }
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.into_param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -3604,10 +3604,10 @@ impl ICorProfilerInfo {
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EndInprocDebugging)(windows_core::Interface::as_raw(self), dwprofilercontext).ok()
@@ -3751,9 +3751,9 @@ impl ICorProfilerInfo10 {
     }
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.into_param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -3769,10 +3769,10 @@ impl ICorProfilerInfo10 {
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.EndInprocDebugging)(windows_core::Interface::as_raw(self), dwprofilercontext).ok()
@@ -4092,9 +4092,9 @@ impl ICorProfilerInfo11 {
     }
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.into_param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -4110,10 +4110,10 @@ impl ICorProfilerInfo11 {
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.EndInprocDebugging)(windows_core::Interface::as_raw(self), dwprofilercontext).ok()
@@ -4329,16 +4329,16 @@ impl ICorProfilerInfo11 {
     }
     pub unsafe fn GetEnvironmentVariableA<P0>(&self, szname: P0, pcchvalue: *mut u32, szvalue: &mut [u16]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetEnvironmentVariableA)(windows_core::Interface::as_raw(self), szname.into_param().abi(), szvalue.len().try_into().unwrap(), pcchvalue, core::mem::transmute(szvalue.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).GetEnvironmentVariableA)(windows_core::Interface::as_raw(self), szname.param().abi(), szvalue.len().try_into().unwrap(), pcchvalue, core::mem::transmute(szvalue.as_ptr())).ok()
     }
     pub unsafe fn SetEnvironmentVariable<P0, P1>(&self, szname: P0, szvalue: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetEnvironmentVariable)(windows_core::Interface::as_raw(self), szname.into_param().abi(), szvalue.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEnvironmentVariable)(windows_core::Interface::as_raw(self), szname.param().abi(), szvalue.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -4442,9 +4442,9 @@ impl ICorProfilerInfo12 {
     }
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.into_param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -4460,10 +4460,10 @@ impl ICorProfilerInfo12 {
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.EndInprocDebugging)(windows_core::Interface::as_raw(self), dwprofilercontext).ok()
@@ -4679,23 +4679,23 @@ impl ICorProfilerInfo12 {
     }
     pub unsafe fn GetEnvironmentVariableA<P0>(&self, szname: P0, pcchvalue: *mut u32, szvalue: &mut [u16]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.GetEnvironmentVariableA)(windows_core::Interface::as_raw(self), szname.into_param().abi(), szvalue.len().try_into().unwrap(), pcchvalue, core::mem::transmute(szvalue.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).base__.GetEnvironmentVariableA)(windows_core::Interface::as_raw(self), szname.param().abi(), szvalue.len().try_into().unwrap(), pcchvalue, core::mem::transmute(szvalue.as_ptr())).ok()
     }
     pub unsafe fn SetEnvironmentVariable<P0, P1>(&self, szname: P0, szvalue: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetEnvironmentVariable)(windows_core::Interface::as_raw(self), szname.into_param().abi(), szvalue.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetEnvironmentVariable)(windows_core::Interface::as_raw(self), szname.param().abi(), szvalue.param().abi()).ok()
     }
     pub unsafe fn EventPipeStartSession<P0>(&self, pproviderconfigs: &[COR_PRF_EVENTPIPE_PROVIDER_CONFIG], requestrundown: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).EventPipeStartSession)(windows_core::Interface::as_raw(self), pproviderconfigs.len().try_into().unwrap(), core::mem::transmute(pproviderconfigs.as_ptr()), requestrundown.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).EventPipeStartSession)(windows_core::Interface::as_raw(self), pproviderconfigs.len().try_into().unwrap(), core::mem::transmute(pproviderconfigs.as_ptr()), requestrundown.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EventPipeAddProviderToSession(&self, session: u64, providerconfig: COR_PRF_EVENTPIPE_PROVIDER_CONFIG) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EventPipeAddProviderToSession)(windows_core::Interface::as_raw(self), session, core::mem::transmute(providerconfig)).ok()
@@ -4705,21 +4705,21 @@ impl ICorProfilerInfo12 {
     }
     pub unsafe fn EventPipeCreateProvider<P0>(&self, providername: P0) -> windows_core::Result<usize>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).EventPipeCreateProvider)(windows_core::Interface::as_raw(self), providername.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).EventPipeCreateProvider)(windows_core::Interface::as_raw(self), providername.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EventPipeGetProviderInfo(&self, provider: usize, pcchname: *mut u32, providername: &mut [u16]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EventPipeGetProviderInfo)(windows_core::Interface::as_raw(self), provider, providername.len().try_into().unwrap(), pcchname, core::mem::transmute(providername.as_ptr())).ok()
     }
     pub unsafe fn EventPipeDefineEvent<P0, P1>(&self, provider: usize, eventname: P0, eventid: u32, keywords: u64, eventversion: u32, level: u32, opcode: u8, needstack: P1, pparamdescs: &[COR_PRF_EVENTPIPE_PARAM_DESC]) -> windows_core::Result<usize>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).EventPipeDefineEvent)(windows_core::Interface::as_raw(self), provider, eventname.into_param().abi(), eventid, keywords, eventversion, level, opcode, needstack.into_param().abi(), pparamdescs.len().try_into().unwrap(), core::mem::transmute(pparamdescs.as_ptr()), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).EventPipeDefineEvent)(windows_core::Interface::as_raw(self), provider, eventname.param().abi(), eventid, keywords, eventversion, level, opcode, needstack.param().abi(), pparamdescs.len().try_into().unwrap(), core::mem::transmute(pparamdescs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn EventPipeWriteEvent(&self, event: usize, data: &[COR_PRF_EVENT_DATA], pactivityid: *const windows_core::GUID, prelatedactivityid: *const windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EventPipeWriteEvent)(windows_core::Interface::as_raw(self), event, data.len().try_into().unwrap(), core::mem::transmute(data.as_ptr()), pactivityid, prelatedactivityid).ok()
@@ -4831,9 +4831,9 @@ impl ICorProfilerInfo13 {
     }
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.into_param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -4849,10 +4849,10 @@ impl ICorProfilerInfo13 {
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.EndInprocDebugging)(windows_core::Interface::as_raw(self), dwprofilercontext).ok()
@@ -5068,23 +5068,23 @@ impl ICorProfilerInfo13 {
     }
     pub unsafe fn GetEnvironmentVariableA<P0>(&self, szname: P0, pcchvalue: *mut u32, szvalue: &mut [u16]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.GetEnvironmentVariableA)(windows_core::Interface::as_raw(self), szname.into_param().abi(), szvalue.len().try_into().unwrap(), pcchvalue, core::mem::transmute(szvalue.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).base__.base__.GetEnvironmentVariableA)(windows_core::Interface::as_raw(self), szname.param().abi(), szvalue.len().try_into().unwrap(), pcchvalue, core::mem::transmute(szvalue.as_ptr())).ok()
     }
     pub unsafe fn SetEnvironmentVariable<P0, P1>(&self, szname: P0, szvalue: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetEnvironmentVariable)(windows_core::Interface::as_raw(self), szname.into_param().abi(), szvalue.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetEnvironmentVariable)(windows_core::Interface::as_raw(self), szname.param().abi(), szvalue.param().abi()).ok()
     }
     pub unsafe fn EventPipeStartSession<P0>(&self, pproviderconfigs: &[COR_PRF_EVENTPIPE_PROVIDER_CONFIG], requestrundown: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EventPipeStartSession)(windows_core::Interface::as_raw(self), pproviderconfigs.len().try_into().unwrap(), core::mem::transmute(pproviderconfigs.as_ptr()), requestrundown.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.EventPipeStartSession)(windows_core::Interface::as_raw(self), pproviderconfigs.len().try_into().unwrap(), core::mem::transmute(pproviderconfigs.as_ptr()), requestrundown.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EventPipeAddProviderToSession(&self, session: u64, providerconfig: COR_PRF_EVENTPIPE_PROVIDER_CONFIG) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.EventPipeAddProviderToSession)(windows_core::Interface::as_raw(self), session, core::mem::transmute(providerconfig)).ok()
@@ -5094,21 +5094,21 @@ impl ICorProfilerInfo13 {
     }
     pub unsafe fn EventPipeCreateProvider<P0>(&self, providername: P0) -> windows_core::Result<usize>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EventPipeCreateProvider)(windows_core::Interface::as_raw(self), providername.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.EventPipeCreateProvider)(windows_core::Interface::as_raw(self), providername.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EventPipeGetProviderInfo(&self, provider: usize, pcchname: *mut u32, providername: &mut [u16]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.EventPipeGetProviderInfo)(windows_core::Interface::as_raw(self), provider, providername.len().try_into().unwrap(), pcchname, core::mem::transmute(providername.as_ptr())).ok()
     }
     pub unsafe fn EventPipeDefineEvent<P0, P1>(&self, provider: usize, eventname: P0, eventid: u32, keywords: u64, eventversion: u32, level: u32, opcode: u8, needstack: P1, pparamdescs: &[COR_PRF_EVENTPIPE_PARAM_DESC]) -> windows_core::Result<usize>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EventPipeDefineEvent)(windows_core::Interface::as_raw(self), provider, eventname.into_param().abi(), eventid, keywords, eventversion, level, opcode, needstack.into_param().abi(), pparamdescs.len().try_into().unwrap(), core::mem::transmute(pparamdescs.as_ptr()), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.EventPipeDefineEvent)(windows_core::Interface::as_raw(self), provider, eventname.param().abi(), eventid, keywords, eventversion, level, opcode, needstack.param().abi(), pparamdescs.len().try_into().unwrap(), core::mem::transmute(pparamdescs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn EventPipeWriteEvent(&self, event: usize, data: &[COR_PRF_EVENT_DATA], pactivityid: *const windows_core::GUID, prelatedactivityid: *const windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.EventPipeWriteEvent)(windows_core::Interface::as_raw(self), event, data.len().try_into().unwrap(), core::mem::transmute(data.as_ptr()), pactivityid, prelatedactivityid).ok()
@@ -5226,9 +5226,9 @@ impl ICorProfilerInfo14 {
     }
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.into_param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -5244,10 +5244,10 @@ impl ICorProfilerInfo14 {
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.EndInprocDebugging)(windows_core::Interface::as_raw(self), dwprofilercontext).ok()
@@ -5463,23 +5463,23 @@ impl ICorProfilerInfo14 {
     }
     pub unsafe fn GetEnvironmentVariableA<P0>(&self, szname: P0, pcchvalue: *mut u32, szvalue: &mut [u16]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetEnvironmentVariableA)(windows_core::Interface::as_raw(self), szname.into_param().abi(), szvalue.len().try_into().unwrap(), pcchvalue, core::mem::transmute(szvalue.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.GetEnvironmentVariableA)(windows_core::Interface::as_raw(self), szname.param().abi(), szvalue.len().try_into().unwrap(), pcchvalue, core::mem::transmute(szvalue.as_ptr())).ok()
     }
     pub unsafe fn SetEnvironmentVariable<P0, P1>(&self, szname: P0, szvalue: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetEnvironmentVariable)(windows_core::Interface::as_raw(self), szname.into_param().abi(), szvalue.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.SetEnvironmentVariable)(windows_core::Interface::as_raw(self), szname.param().abi(), szvalue.param().abi()).ok()
     }
     pub unsafe fn EventPipeStartSession<P0>(&self, pproviderconfigs: &[COR_PRF_EVENTPIPE_PROVIDER_CONFIG], requestrundown: P0) -> windows_core::Result<u64>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.EventPipeStartSession)(windows_core::Interface::as_raw(self), pproviderconfigs.len().try_into().unwrap(), core::mem::transmute(pproviderconfigs.as_ptr()), requestrundown.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.EventPipeStartSession)(windows_core::Interface::as_raw(self), pproviderconfigs.len().try_into().unwrap(), core::mem::transmute(pproviderconfigs.as_ptr()), requestrundown.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EventPipeAddProviderToSession(&self, session: u64, providerconfig: COR_PRF_EVENTPIPE_PROVIDER_CONFIG) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.EventPipeAddProviderToSession)(windows_core::Interface::as_raw(self), session, core::mem::transmute(providerconfig)).ok()
@@ -5489,21 +5489,21 @@ impl ICorProfilerInfo14 {
     }
     pub unsafe fn EventPipeCreateProvider<P0>(&self, providername: P0) -> windows_core::Result<usize>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.EventPipeCreateProvider)(windows_core::Interface::as_raw(self), providername.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.EventPipeCreateProvider)(windows_core::Interface::as_raw(self), providername.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EventPipeGetProviderInfo(&self, provider: usize, pcchname: *mut u32, providername: &mut [u16]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.EventPipeGetProviderInfo)(windows_core::Interface::as_raw(self), provider, providername.len().try_into().unwrap(), pcchname, core::mem::transmute(providername.as_ptr())).ok()
     }
     pub unsafe fn EventPipeDefineEvent<P0, P1>(&self, provider: usize, eventname: P0, eventid: u32, keywords: u64, eventversion: u32, level: u32, opcode: u8, needstack: P1, pparamdescs: &[COR_PRF_EVENTPIPE_PARAM_DESC]) -> windows_core::Result<usize>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.EventPipeDefineEvent)(windows_core::Interface::as_raw(self), provider, eventname.into_param().abi(), eventid, keywords, eventversion, level, opcode, needstack.into_param().abi(), pparamdescs.len().try_into().unwrap(), core::mem::transmute(pparamdescs.as_ptr()), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.EventPipeDefineEvent)(windows_core::Interface::as_raw(self), provider, eventname.param().abi(), eventid, keywords, eventversion, level, opcode, needstack.param().abi(), pparamdescs.len().try_into().unwrap(), core::mem::transmute(pparamdescs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn EventPipeWriteEvent(&self, event: usize, data: &[COR_PRF_EVENT_DATA], pactivityid: *const windows_core::GUID, prelatedactivityid: *const windows_core::GUID) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.EventPipeWriteEvent)(windows_core::Interface::as_raw(self), event, data.len().try_into().unwrap(), core::mem::transmute(data.as_ptr()), pactivityid, prelatedactivityid).ok()
@@ -5527,10 +5527,10 @@ impl ICorProfilerInfo14 {
     }
     pub unsafe fn EventPipeCreateProvider2<P0>(&self, providername: P0, pcallback: *const EventPipeProviderCallback) -> windows_core::Result<usize>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).EventPipeCreateProvider2)(windows_core::Interface::as_raw(self), providername.into_param().abi(), pcallback, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).EventPipeCreateProvider2)(windows_core::Interface::as_raw(self), providername.param().abi(), pcallback, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -5635,9 +5635,9 @@ impl ICorProfilerInfo2 {
     }
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.into_param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).base__.SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -5653,10 +5653,10 @@ impl ICorProfilerInfo2 {
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.EndInprocDebugging)(windows_core::Interface::as_raw(self), dwprofilercontext).ok()
@@ -5860,9 +5860,9 @@ impl ICorProfilerInfo3 {
     }
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.into_param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).base__.base__.SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -5878,10 +5878,10 @@ impl ICorProfilerInfo3 {
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.EndInprocDebugging)(windows_core::Interface::as_raw(self), dwprofilercontext).ok()
@@ -6120,9 +6120,9 @@ impl ICorProfilerInfo4 {
     }
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.into_param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -6138,10 +6138,10 @@ impl ICorProfilerInfo4 {
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.base__.BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.EndInprocDebugging)(windows_core::Interface::as_raw(self), dwprofilercontext).ok()
@@ -6409,9 +6409,9 @@ impl ICorProfilerInfo5 {
     }
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.into_param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -6427,10 +6427,10 @@ impl ICorProfilerInfo5 {
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.EndInprocDebugging)(windows_core::Interface::as_raw(self), dwprofilercontext).ok()
@@ -6696,9 +6696,9 @@ impl ICorProfilerInfo6 {
     }
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.into_param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -6714,10 +6714,10 @@ impl ICorProfilerInfo6 {
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.EndInprocDebugging)(windows_core::Interface::as_raw(self), dwprofilercontext).ok()
@@ -6985,9 +6985,9 @@ impl ICorProfilerInfo7 {
     }
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.into_param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -7003,10 +7003,10 @@ impl ICorProfilerInfo7 {
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.EndInprocDebugging)(windows_core::Interface::as_raw(self), dwprofilercontext).ok()
@@ -7286,9 +7286,9 @@ impl ICorProfilerInfo8 {
     }
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.into_param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -7304,10 +7304,10 @@ impl ICorProfilerInfo8 {
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.EndInprocDebugging)(windows_core::Interface::as_raw(self), dwprofilercontext).ok()
@@ -7597,9 +7597,9 @@ impl ICorProfilerInfo9 {
     }
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.into_param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.param().abi(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok()
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -7615,10 +7615,10 @@ impl ICorProfilerInfo9 {
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(windows_core::Interface::as_raw(self), fthisthreadonly.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.EndInprocDebugging)(windows_core::Interface::as_raw(self), dwprofilercontext).ok()

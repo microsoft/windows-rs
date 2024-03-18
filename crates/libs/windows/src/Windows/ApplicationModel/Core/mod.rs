@@ -105,12 +105,12 @@ windows_core::imp::interface_hierarchy!(ICoreApplicationUnhandledError, windows_
 impl ICoreApplicationUnhandledError {
     pub fn UnhandledErrorDetected<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::EventHandler<UnhandledErrorDetectedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::EventHandler<UnhandledErrorDetectedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).UnhandledErrorDetected)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).UnhandledErrorDetected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveUnhandledErrorDetected(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -259,18 +259,18 @@ windows_core::imp::interface_hierarchy!(IFrameworkView, windows_core::IUnknown, 
 impl IFrameworkView {
     pub fn Initialize<P0>(&self, applicationview: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<CoreApplicationView>,
+        P0: windows_core::Param<CoreApplicationView>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Initialize)(windows_core::Interface::as_raw(this), applicationview.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Initialize)(windows_core::Interface::as_raw(this), applicationview.param().abi()).ok() }
     }
     #[cfg(feature = "UI_Core")]
     pub fn SetWindow<P0>(&self, window: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::UI::Core::CoreWindow>,
+        P0: windows_core::Param<super::super::UI::Core::CoreWindow>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetWindow)(windows_core::Interface::as_raw(this), window.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetWindow)(windows_core::Interface::as_raw(this), window.param().abi()).ok() }
     }
     pub fn Load(&self, entrypoint: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
@@ -376,12 +376,12 @@ impl AppListEntry {
     #[cfg(feature = "System")]
     pub fn LaunchForUserAsync<P0>(&self, user: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: windows_core::IntoParam<super::super::System::User>,
+        P0: windows_core::Param<super::super::System::User>,
     {
         let this = &windows_core::Interface::cast::<IAppListEntry3>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchForUserAsync)(windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppInfo(&self) -> windows_core::Result<super::AppInfo> {
@@ -414,11 +414,11 @@ impl CoreApplication {
     }
     pub fn Suspending<P0>(handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::EventHandler<super::SuspendingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::EventHandler<super::SuspendingEventArgs>>,
     {
         Self::ICoreApplication(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Suspending)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Suspending)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveSuspending(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -426,11 +426,11 @@ impl CoreApplication {
     }
     pub fn Resuming<P0>(handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
         Self::ICoreApplication(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Resuming)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Resuming)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveResuming(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -451,24 +451,24 @@ impl CoreApplication {
     }
     pub fn Run<P0>(viewsource: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFrameworkViewSource>,
+        P0: windows_core::Param<IFrameworkViewSource>,
     {
-        Self::ICoreApplication(|this| unsafe { (windows_core::Interface::vtable(this).Run)(windows_core::Interface::as_raw(this), viewsource.into_param().abi()).ok() })
+        Self::ICoreApplication(|this| unsafe { (windows_core::Interface::vtable(this).Run)(windows_core::Interface::as_raw(this), viewsource.param().abi()).ok() })
     }
     pub fn RunWithActivationFactories<P0>(activationfactorycallback: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IGetActivationFactory>,
+        P0: windows_core::Param<super::super::Foundation::IGetActivationFactory>,
     {
-        Self::ICoreApplication(|this| unsafe { (windows_core::Interface::vtable(this).RunWithActivationFactories)(windows_core::Interface::as_raw(this), activationfactorycallback.into_param().abi()).ok() })
+        Self::ICoreApplication(|this| unsafe { (windows_core::Interface::vtable(this).RunWithActivationFactories)(windows_core::Interface::as_raw(this), activationfactorycallback.param().abi()).ok() })
     }
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn BackgroundActivated<P0>(handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::EventHandler<super::Activation::BackgroundActivatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::EventHandler<super::Activation::BackgroundActivatedEventArgs>>,
     {
         Self::ICoreApplication2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).BackgroundActivated)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).BackgroundActivated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveBackgroundActivated(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -476,11 +476,11 @@ impl CoreApplication {
     }
     pub fn LeavingBackground<P0>(handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::EventHandler<super::LeavingBackgroundEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::EventHandler<super::LeavingBackgroundEventArgs>>,
     {
         Self::ICoreApplication2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LeavingBackground)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).LeavingBackground)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveLeavingBackground(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -488,11 +488,11 @@ impl CoreApplication {
     }
     pub fn EnteredBackground<P0>(handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::EventHandler<super::EnteredBackgroundEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::EventHandler<super::EnteredBackgroundEventArgs>>,
     {
         Self::ICoreApplication2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).EnteredBackground)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).EnteredBackground)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveEnteredBackground(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -510,11 +510,11 @@ impl CoreApplication {
     #[cfg(feature = "System")]
     pub fn RequestRestartForUserAsync<P0>(user: P0, launcharguments: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<AppRestartFailureReason>>
     where
-        P0: windows_core::IntoParam<super::super::System::User>,
+        P0: windows_core::Param<super::super::System::User>,
     {
         Self::ICoreApplication3(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestRestartForUserAsync)(windows_core::Interface::as_raw(this), user.into_param().abi(), core::mem::transmute_copy(launcharguments), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestRestartForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(launcharguments), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn Exit() -> windows_core::Result<()> {
@@ -522,11 +522,11 @@ impl CoreApplication {
     }
     pub fn Exiting<P0>(handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
         Self::ICoreApplicationExit(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Exiting)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Exiting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveExiting(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -534,11 +534,11 @@ impl CoreApplication {
     }
     pub fn UnhandledErrorDetected<P0>(handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::EventHandler<UnhandledErrorDetectedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::EventHandler<UnhandledErrorDetectedEventArgs>>,
     {
         Self::ICoreApplicationUnhandledError(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).UnhandledErrorDetected)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).UnhandledErrorDetected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveUnhandledErrorDetected(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -577,11 +577,11 @@ impl CoreApplication {
     }
     pub fn CreateNewViewWithViewSource<P0>(viewsource: P0) -> windows_core::Result<CoreApplicationView>
     where
-        P0: windows_core::IntoParam<IFrameworkViewSource>,
+        P0: windows_core::Param<IFrameworkViewSource>,
     {
         Self::ICoreImmersiveApplication3(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateNewViewWithViewSource)(windows_core::Interface::as_raw(this), viewsource.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateNewViewWithViewSource)(windows_core::Interface::as_raw(this), viewsource.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -649,12 +649,12 @@ impl CoreApplicationView {
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Activated<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreApplicationView, super::Activation::IActivatedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreApplicationView, super::Activation::IActivatedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Activated)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Activated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveActivated(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -699,12 +699,12 @@ impl CoreApplicationView {
     }
     pub fn HostedViewClosing<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreApplicationView, HostedViewClosingEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreApplicationView, HostedViewClosingEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ICoreApplicationView3>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).HostedViewClosing)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).HostedViewClosing)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveHostedViewClosing(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -777,12 +777,12 @@ impl CoreApplicationViewTitleBar {
     }
     pub fn LayoutMetricsChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreApplicationViewTitleBar, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreApplicationViewTitleBar, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).LayoutMetricsChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).LayoutMetricsChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveLayoutMetricsChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -798,12 +798,12 @@ impl CoreApplicationViewTitleBar {
     }
     pub fn IsVisibleChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CoreApplicationViewTitleBar, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CoreApplicationViewTitleBar, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsVisibleChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsVisibleChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveIsVisibleChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {

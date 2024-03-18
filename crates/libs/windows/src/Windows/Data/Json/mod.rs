@@ -310,29 +310,29 @@ impl JsonArray {
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<IJsonValue>,
+        P0: windows_core::Param<IJsonValue>,
     {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.into_param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt<P0>(&self, index: u32, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IJsonValue>,
+        P0: windows_core::Param<IJsonValue>,
     {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt<P0>(&self, index: u32, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IJsonValue>,
+        P0: windows_core::Param<IJsonValue>,
     {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
@@ -342,10 +342,10 @@ impl JsonArray {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IJsonValue>,
+        P0: windows_core::Param<IJsonValue>,
     {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
@@ -452,10 +452,10 @@ impl JsonObject {
     }
     pub fn SetNamedValue<P0>(&self, name: &windows_core::HSTRING, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IJsonValue>,
+        P0: windows_core::Param<IJsonValue>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetNamedValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNamedValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.param().abi()).ok() }
     }
     pub fn GetNamedObject(&self, name: &windows_core::HSTRING) -> windows_core::Result<JsonObject> {
         let this = self;
@@ -506,22 +506,22 @@ impl JsonObject {
     }
     pub fn GetNamedValueOrDefault<P0>(&self, name: &windows_core::HSTRING, defaultvalue: P0) -> windows_core::Result<JsonValue>
     where
-        P0: windows_core::IntoParam<JsonValue>,
+        P0: windows_core::Param<JsonValue>,
     {
         let this = &windows_core::Interface::cast::<IJsonObjectWithDefaultValues>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetNamedValueOrDefault)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), defaultvalue.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetNamedValueOrDefault)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), defaultvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetNamedObjectOrDefault<P0>(&self, name: &windows_core::HSTRING, defaultvalue: P0) -> windows_core::Result<JsonObject>
     where
-        P0: windows_core::IntoParam<JsonObject>,
+        P0: windows_core::Param<JsonObject>,
     {
         let this = &windows_core::Interface::cast::<IJsonObjectWithDefaultValues>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetNamedObjectOrDefault)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), defaultvalue.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetNamedObjectOrDefault)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), defaultvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetNamedStringOrDefault(&self, name: &windows_core::HSTRING, defaultvalue: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
@@ -533,12 +533,12 @@ impl JsonObject {
     }
     pub fn GetNamedArrayOrDefault<P0>(&self, name: &windows_core::HSTRING, defaultvalue: P0) -> windows_core::Result<JsonArray>
     where
-        P0: windows_core::IntoParam<JsonArray>,
+        P0: windows_core::Param<JsonArray>,
     {
         let this = &windows_core::Interface::cast::<IJsonObjectWithDefaultValues>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetNamedArrayOrDefault)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), defaultvalue.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetNamedArrayOrDefault)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), defaultvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetNamedNumberOrDefault(&self, name: &windows_core::HSTRING, defaultvalue: f64) -> windows_core::Result<f64> {
@@ -639,12 +639,12 @@ impl JsonObject {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Insert<P0>(&self, key: &windows_core::HSTRING, value: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<IJsonValue>,
+        P0: windows_core::Param<IJsonValue>,
     {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMap<windows_core::HSTRING, IJsonValue>>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]

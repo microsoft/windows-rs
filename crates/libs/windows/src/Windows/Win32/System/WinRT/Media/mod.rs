@@ -20,12 +20,12 @@ impl IAudioFrameNativeFactory {
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn CreateFromMFSample<P0, P1, T>(&self, data: P0, forcereadonly: P1) -> windows_core::Result<T>
     where
-        P0: windows_core::IntoParam<super::super::super::Media::MediaFoundation::IMFSample>,
-        P1: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Media::MediaFoundation::IMFSample>,
+        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
         T: windows_core::Interface,
     {
         let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).CreateFromMFSample)(windows_core::Interface::as_raw(self), data.into_param().abi(), forcereadonly.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateFromMFSample)(windows_core::Interface::as_raw(self), data.param().abi(), forcereadonly.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -66,13 +66,13 @@ impl IVideoFrameNativeFactory {
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn CreateFromMFSample<P0, P1, P2, T>(&self, data: P0, subtype: *const windows_core::GUID, width: u32, height: u32, forcereadonly: P1, mindisplayaperture: Option<*const super::super::super::Media::MediaFoundation::MFVideoArea>, device: P2) -> windows_core::Result<T>
     where
-        P0: windows_core::IntoParam<super::super::super::Media::MediaFoundation::IMFSample>,
-        P1: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
-        P2: windows_core::IntoParam<super::super::super::Media::MediaFoundation::IMFDXGIDeviceManager>,
+        P0: windows_core::Param<super::super::super::Media::MediaFoundation::IMFSample>,
+        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::super::Media::MediaFoundation::IMFDXGIDeviceManager>,
         T: windows_core::Interface,
     {
         let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).CreateFromMFSample)(windows_core::Interface::as_raw(self), data.into_param().abi(), subtype, width, height, forcereadonly.into_param().abi(), core::mem::transmute(mindisplayaperture.unwrap_or(std::ptr::null())), device.into_param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateFromMFSample)(windows_core::Interface::as_raw(self), data.param().abi(), subtype, width, height, forcereadonly.param().abi(), core::mem::transmute(mindisplayaperture.unwrap_or(std::ptr::null())), device.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]

@@ -2,58 +2,45 @@
 #[inline]
 pub unsafe fn NtNotifyChangeMultipleKeys<P0, P1, P2, P3>(masterkeyhandle: P0, subordinateobjects: Option<&[super::super::Foundation::OBJECT_ATTRIBUTES]>, event: P1, apcroutine: super::super::super::Win32::System::IO::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, completionfilter: u32, watchtree: P2, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, asynchronous: P3) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P0: windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
-    P1: windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
-    P2: windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
-    P3: windows_core::IntoParam<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtNotifyChangeMultipleKeys(masterkeyhandle : super::super::super::Win32::Foundation:: HANDLE, count : u32, subordinateobjects : *const super::super::Foundation:: OBJECT_ATTRIBUTES, event : super::super::super::Win32::Foundation:: HANDLE, apcroutine : super::super::super::Win32::System::IO:: PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, completionfilter : u32, watchtree : super::super::super::Win32::Foundation:: BOOLEAN, buffer : *mut core::ffi::c_void, buffersize : u32, asynchronous : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtNotifyChangeMultipleKeys(
-        masterkeyhandle.into_param().abi(),
-        subordinateobjects.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-        core::mem::transmute(subordinateobjects.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-        event.into_param().abi(),
-        apcroutine,
-        core::mem::transmute(apccontext.unwrap_or(std::ptr::null())),
-        iostatusblock,
-        completionfilter,
-        watchtree.into_param().abi(),
-        core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())),
-        buffersize,
-        asynchronous.into_param().abi(),
-    )
+    NtNotifyChangeMultipleKeys(masterkeyhandle.param().abi(), subordinateobjects.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(subordinateobjects.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), event.param().abi(), apcroutine, core::mem::transmute(apccontext.unwrap_or(std::ptr::null())), iostatusblock, completionfilter, watchtree.param().abi(), core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), buffersize, asynchronous.param().abi())
 }
 #[inline]
 pub unsafe fn NtQueryMultipleValueKey<P0>(keyhandle: P0, valueentries: &mut [KEY_VALUE_ENTRY], valuebuffer: *mut core::ffi::c_void, bufferlength: *mut u32, requiredbufferlength: Option<*mut u32>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P0: windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtQueryMultipleValueKey(keyhandle : super::super::super::Win32::Foundation:: HANDLE, valueentries : *mut KEY_VALUE_ENTRY, entrycount : u32, valuebuffer : *mut core::ffi::c_void, bufferlength : *mut u32, requiredbufferlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtQueryMultipleValueKey(keyhandle.into_param().abi(), core::mem::transmute(valueentries.as_ptr()), valueentries.len().try_into().unwrap(), valuebuffer, bufferlength, core::mem::transmute(requiredbufferlength.unwrap_or(std::ptr::null_mut())))
+    NtQueryMultipleValueKey(keyhandle.param().abi(), core::mem::transmute(valueentries.as_ptr()), valueentries.len().try_into().unwrap(), valuebuffer, bufferlength, core::mem::transmute(requiredbufferlength.unwrap_or(std::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn NtRenameKey<P0>(keyhandle: P0, newname: *const super::super::super::Win32::Foundation::UNICODE_STRING) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P0: windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtRenameKey(keyhandle : super::super::super::Win32::Foundation:: HANDLE, newname : *const super::super::super::Win32::Foundation:: UNICODE_STRING) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtRenameKey(keyhandle.into_param().abi(), newname)
+    NtRenameKey(keyhandle.param().abi(), newname)
 }
 #[inline]
 pub unsafe fn NtSetInformationKey<P0>(keyhandle: P0, keysetinformationclass: KEY_SET_INFORMATION_CLASS, keysetinformation: *const core::ffi::c_void, keysetinformationlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P0: windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtSetInformationKey(keyhandle : super::super::super::Win32::Foundation:: HANDLE, keysetinformationclass : KEY_SET_INFORMATION_CLASS, keysetinformation : *const core::ffi::c_void, keysetinformationlength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtSetInformationKey(keyhandle.into_param().abi(), keysetinformationclass, keysetinformation, keysetinformationlength)
+    NtSetInformationKey(keyhandle.param().abi(), keysetinformationclass, keysetinformation, keysetinformationlength)
 }
 #[inline]
 pub unsafe fn ZwSetInformationKey<P0>(keyhandle: P0, keysetinformationclass: KEY_SET_INFORMATION_CLASS, keysetinformation: *const core::ffi::c_void, keysetinformationlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P0: windows_core::IntoParam<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwSetInformationKey(keyhandle : super::super::super::Win32::Foundation:: HANDLE, keysetinformationclass : KEY_SET_INFORMATION_CLASS, keysetinformation : *const core::ffi::c_void, keysetinformationlength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwSetInformationKey(keyhandle.into_param().abi(), keysetinformationclass, keysetinformation, keysetinformationlength)
+    ZwSetInformationKey(keyhandle.param().abi(), keysetinformationclass, keysetinformation, keysetinformationlength)
 }
 pub const KeyControlFlagsInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(2i32);
 pub const KeySetDebugInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(4i32);

@@ -297,12 +297,12 @@ impl LampArrayBitmapEffect {
     }
     pub fn BitmapRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<LampArrayBitmapEffect, LampArrayBitmapRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<LampArrayBitmapEffect, LampArrayBitmapRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).BitmapRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).BitmapRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveBitmapRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -311,11 +311,11 @@ impl LampArrayBitmapEffect {
     }
     pub fn CreateInstance<P0>(lamparray: P0, lampindexes: &[i32]) -> windows_core::Result<LampArrayBitmapEffect>
     where
-        P0: windows_core::IntoParam<super::LampArray>,
+        P0: windows_core::Param<super::LampArray>,
     {
         Self::ILampArrayBitmapEffectFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), lamparray.into_param().abi(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), lamparray.param().abi(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn ZIndex(&self) -> windows_core::Result<i32> {
@@ -362,10 +362,10 @@ impl LampArrayBitmapRequestedEventArgs {
     #[cfg(feature = "Graphics_Imaging")]
     pub fn UpdateBitmap<P0>(&self, bitmap: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Graphics::Imaging::SoftwareBitmap>,
+        P0: windows_core::Param<super::super::super::Graphics::Imaging::SoftwareBitmap>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).UpdateBitmap)(windows_core::Interface::as_raw(this), bitmap.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).UpdateBitmap)(windows_core::Interface::as_raw(this), bitmap.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for LampArrayBitmapRequestedEventArgs {
@@ -478,11 +478,11 @@ impl LampArrayBlinkEffect {
     }
     pub fn CreateInstance<P0>(lamparray: P0, lampindexes: &[i32]) -> windows_core::Result<LampArrayBlinkEffect>
     where
-        P0: windows_core::IntoParam<super::LampArray>,
+        P0: windows_core::Param<super::LampArray>,
     {
         Self::ILampArrayBlinkEffectFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), lamparray.into_param().abi(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), lamparray.param().abi(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn ZIndex(&self) -> windows_core::Result<i32> {
@@ -568,11 +568,11 @@ impl LampArrayColorRampEffect {
     }
     pub fn CreateInstance<P0>(lamparray: P0, lampindexes: &[i32]) -> windows_core::Result<LampArrayColorRampEffect>
     where
-        P0: windows_core::IntoParam<super::LampArray>,
+        P0: windows_core::Param<super::LampArray>,
     {
         Self::ILampArrayColorRampEffectFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), lamparray.into_param().abi(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), lamparray.param().abi(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn ZIndex(&self) -> windows_core::Result<i32> {
@@ -634,12 +634,12 @@ impl LampArrayCustomEffect {
     }
     pub fn UpdateRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<LampArrayCustomEffect, LampArrayUpdateRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<LampArrayCustomEffect, LampArrayUpdateRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdateRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).UpdateRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveUpdateRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -648,11 +648,11 @@ impl LampArrayCustomEffect {
     }
     pub fn CreateInstance<P0>(lamparray: P0, lampindexes: &[i32]) -> windows_core::Result<LampArrayCustomEffect>
     where
-        P0: windows_core::IntoParam<super::LampArray>,
+        P0: windows_core::Param<super::LampArray>,
     {
         Self::ILampArrayCustomEffectFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), lamparray.into_param().abi(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), lamparray.param().abi(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn ZIndex(&self) -> windows_core::Result<i32> {
@@ -708,10 +708,10 @@ impl LampArrayEffectPlaylist {
     }
     pub fn Append<P0>(&self, effect: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<ILampArrayEffect>,
+        P0: windows_core::Param<ILampArrayEffect>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), effect.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), effect.param().abi()).ok() }
     }
     pub fn OverrideZIndex(&self, zindex: i32) -> windows_core::Result<()> {
         let this = self;
@@ -765,23 +765,23 @@ impl LampArrayEffectPlaylist {
     #[cfg(feature = "Foundation_Collections")]
     pub fn StartAll<P0>(value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>,
     {
-        Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (windows_core::Interface::vtable(this).StartAll)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() })
+        Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (windows_core::Interface::vtable(this).StartAll)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn StopAll<P0>(value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>,
     {
-        Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (windows_core::Interface::vtable(this).StopAll)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() })
+        Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (windows_core::Interface::vtable(this).StopAll)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn PauseAll<P0>(value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>,
     {
-        Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (windows_core::Interface::vtable(this).PauseAll)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() })
+        Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (windows_core::Interface::vtable(this).PauseAll)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> windows_core::Result<ILampArrayEffect> {
@@ -802,12 +802,12 @@ impl LampArrayEffectPlaylist {
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<ILampArrayEffect>,
+        P0: windows_core::Param<ILampArrayEffect>,
     {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.into_param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -917,11 +917,11 @@ impl LampArraySolidEffect {
     }
     pub fn CreateInstance<P0>(lamparray: P0, lampindexes: &[i32]) -> windows_core::Result<LampArraySolidEffect>
     where
-        P0: windows_core::IntoParam<super::LampArray>,
+        P0: windows_core::Param<super::LampArray>,
     {
         Self::ILampArraySolidEffectFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), lamparray.into_param().abi(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), lamparray.param().abi(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

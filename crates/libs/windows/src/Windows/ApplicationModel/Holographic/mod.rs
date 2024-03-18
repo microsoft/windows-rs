@@ -32,18 +32,18 @@ impl HolographicKeyboard {
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn SetPlacementOverride<P0>(&self, coordinatesystem: P0, topcenterposition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPlacementOverride)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), topcenterposition, orientation).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPlacementOverride)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), topcenterposition, orientation).ok() }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn SetPlacementOverrideWithMaxSize<P0>(&self, coordinatesystem: P0, topcenterposition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion, maxsize: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPlacementOverrideWithMaxSize)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), topcenterposition, orientation, maxsize).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPlacementOverrideWithMaxSize)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), topcenterposition, orientation, maxsize).ok() }
     }
     pub fn ResetPlacementOverride(&self) -> windows_core::Result<()> {
         let this = self;

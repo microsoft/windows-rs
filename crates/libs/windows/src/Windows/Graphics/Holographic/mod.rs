@@ -737,12 +737,12 @@ impl HolographicCameraPose {
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn TryGetViewTransform<P0>(&self, coordinatesystem: P0) -> windows_core::Result<super::super::Foundation::IReference<HolographicStereoTransform>>
     where
-        P0: windows_core::IntoParam<super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetViewTransform)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetViewTransform)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -756,23 +756,23 @@ impl HolographicCameraPose {
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn TryGetCullingFrustum<P0>(&self, coordinatesystem: P0) -> windows_core::Result<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>>
     where
-        P0: windows_core::IntoParam<super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetCullingFrustum)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetCullingFrustum)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn TryGetVisibleFrustum<P0>(&self, coordinatesystem: P0) -> windows_core::Result<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>>
     where
-        P0: windows_core::IntoParam<super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetVisibleFrustum)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetVisibleFrustum)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn NearPlaneDistance(&self) -> windows_core::Result<f64> {
@@ -792,10 +792,10 @@ impl HolographicCameraPose {
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn OverrideViewTransform<P0>(&self, coordinatesystem: P0, coordinatesystemtoviewtransform: HolographicStereoTransform) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = &windows_core::Interface::cast::<IHolographicCameraPose2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).OverrideViewTransform)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), coordinatesystemtoviewtransform).ok() }
+        unsafe { (windows_core::Interface::vtable(this).OverrideViewTransform)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), coordinatesystemtoviewtransform).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub fn OverrideProjectionTransform(&self, projectiontransform: HolographicStereoTransform) -> windows_core::Result<()> {
@@ -827,26 +827,26 @@ impl HolographicCameraRenderingParameters {
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn SetFocusPoint<P0>(&self, coordinatesystem: P0, position: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetFocusPoint)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), position).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetFocusPoint)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), position).ok() }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn SetFocusPointWithNormal<P0>(&self, coordinatesystem: P0, position: super::super::Foundation::Numerics::Vector3, normal: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetFocusPointWithNormal)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), position, normal).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetFocusPointWithNormal)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), position, normal).ok() }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn SetFocusPointWithNormalLinearVelocity<P0>(&self, coordinatesystem: P0, position: super::super::Foundation::Numerics::Vector3, normal: super::super::Foundation::Numerics::Vector3, linearvelocity: super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetFocusPointWithNormalLinearVelocity)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), position, normal, linearvelocity).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetFocusPointWithNormalLinearVelocity)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), position, normal, linearvelocity).ok() }
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn Direct3D11Device(&self) -> windows_core::Result<super::DirectX::Direct3D11::IDirect3DDevice> {
@@ -878,10 +878,10 @@ impl HolographicCameraRenderingParameters {
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn CommitDirect3D11DepthBuffer<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::DirectX::Direct3D11::IDirect3DSurface>,
+        P0: windows_core::Param<super::DirectX::Direct3D11::IDirect3DSurface>,
     {
         let this = &windows_core::Interface::cast::<IHolographicCameraRenderingParameters2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).CommitDirect3D11DepthBuffer)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).CommitDirect3D11DepthBuffer)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn IsContentProtectionEnabled(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<IHolographicCameraRenderingParameters3>(self)?;
@@ -1061,12 +1061,12 @@ impl HolographicFrame {
     }
     pub fn GetRenderingParameters<P0>(&self, camerapose: P0) -> windows_core::Result<HolographicCameraRenderingParameters>
     where
-        P0: windows_core::IntoParam<HolographicCameraPose>,
+        P0: windows_core::Param<HolographicCameraPose>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetRenderingParameters)(windows_core::Interface::as_raw(this), camerapose.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetRenderingParameters)(windows_core::Interface::as_raw(this), camerapose.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
@@ -1107,12 +1107,12 @@ impl HolographicFrame {
     }
     pub fn GetQuadLayerUpdateParameters<P0>(&self, layer: P0) -> windows_core::Result<HolographicQuadLayerUpdateParameters>
     where
-        P0: windows_core::IntoParam<HolographicQuadLayer>,
+        P0: windows_core::Param<HolographicQuadLayer>,
     {
         let this = &windows_core::Interface::cast::<IHolographicFrame2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetQuadLayerUpdateParameters)(windows_core::Interface::as_raw(this), layer.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetQuadLayerUpdateParameters)(windows_core::Interface::as_raw(this), layer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Id(&self) -> windows_core::Result<HolographicFrameId> {
@@ -1497,10 +1497,10 @@ impl HolographicQuadLayerUpdateParameters {
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn UpdateLocationWithStationaryMode<P0>(&self, coordinatesystem: P0, position: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).UpdateLocationWithStationaryMode)(windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), position, orientation).ok() }
+        unsafe { (windows_core::Interface::vtable(this).UpdateLocationWithStationaryMode)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), position, orientation).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub fn UpdateLocationWithDisplayRelativeMode(&self, position: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> windows_core::Result<()> {
@@ -1550,19 +1550,19 @@ impl HolographicSpace {
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn SetDirect3D11Device<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::DirectX::Direct3D11::IDirect3DDevice>,
+        P0: windows_core::Param<super::DirectX::Direct3D11::IDirect3DDevice>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDirect3D11Device)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDirect3D11Device)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn CameraAdded<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<HolographicSpace, HolographicSpaceCameraAddedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<HolographicSpace, HolographicSpaceCameraAddedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CameraAdded)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CameraAdded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCameraAdded(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1571,12 +1571,12 @@ impl HolographicSpace {
     }
     pub fn CameraRemoved<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<HolographicSpace, HolographicSpaceCameraRemovedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<HolographicSpace, HolographicSpaceCameraRemovedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CameraRemoved)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CameraRemoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCameraRemoved(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1599,12 +1599,12 @@ impl HolographicSpace {
     }
     pub fn UserPresenceChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<HolographicSpace, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<HolographicSpace, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IHolographicSpace2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).UserPresenceChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).UserPresenceChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveUserPresenceChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1637,11 +1637,11 @@ impl HolographicSpace {
     #[cfg(feature = "UI_Core")]
     pub fn CreateForCoreWindow<P0>(window: P0) -> windows_core::Result<HolographicSpace>
     where
-        P0: windows_core::IntoParam<super::super::UI::Core::CoreWindow>,
+        P0: windows_core::Param<super::super::UI::Core::CoreWindow>,
     {
         Self::IHolographicSpaceStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateForCoreWindow)(windows_core::Interface::as_raw(this), window.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateForCoreWindow)(windows_core::Interface::as_raw(this), window.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn IsSupported() -> windows_core::Result<bool> {
@@ -1658,11 +1658,11 @@ impl HolographicSpace {
     }
     pub fn IsAvailableChanged<P0>(handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
         Self::IHolographicSpaceStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsAvailableChanged)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsAvailableChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveIsAvailableChanged(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {

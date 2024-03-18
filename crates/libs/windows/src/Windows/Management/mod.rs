@@ -217,12 +217,12 @@ impl MdmSession {
     #[cfg(feature = "Foundation_Collections")]
     pub fn StartWithAlertsAsync<P0>(&self, alerts: P0) -> windows_core::Result<super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::Foundation::Collections::IIterable<MdmAlert>>,
+        P0: windows_core::Param<super::Foundation::Collections::IIterable<MdmAlert>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartWithAlertsAsync)(windows_core::Interface::as_raw(this), alerts.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StartWithAlertsAsync)(windows_core::Interface::as_raw(this), alerts.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }

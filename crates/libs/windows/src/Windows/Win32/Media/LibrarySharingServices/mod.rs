@@ -51,10 +51,10 @@ impl IWindowsMediaLibrarySharingDeviceProperties {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetProperty<P0>(&self, name: P0) -> windows_core::Result<IWindowsMediaLibrarySharingDeviceProperty>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -111,10 +111,10 @@ impl IWindowsMediaLibrarySharingDevices {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDevice<P0>(&self, deviceid: P0) -> windows_core::Result<IWindowsMediaLibrarySharingDevice>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDevice)(windows_core::Interface::as_raw(self), deviceid.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetDevice)(windows_core::Interface::as_raw(self), deviceid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -139,9 +139,9 @@ windows_core::imp::interface_hierarchy!(IWindowsMediaLibrarySharingServices, win
 impl IWindowsMediaLibrarySharingServices {
     pub unsafe fn showShareMediaCPL<P0>(&self, device: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).showShareMediaCPL)(windows_core::Interface::as_raw(self), device.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).showShareMediaCPL)(windows_core::Interface::as_raw(self), device.param().abi()).ok()
     }
     pub unsafe fn userHomeMediaSharingState(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -149,9 +149,9 @@ impl IWindowsMediaLibrarySharingServices {
     }
     pub unsafe fn SetuserHomeMediaSharingState<P0>(&self, sharingenabled: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetuserHomeMediaSharingState)(windows_core::Interface::as_raw(self), sharingenabled.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetuserHomeMediaSharingState)(windows_core::Interface::as_raw(self), sharingenabled.param().abi()).ok()
     }
     pub unsafe fn userHomeMediaSharingLibraryName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -159,9 +159,9 @@ impl IWindowsMediaLibrarySharingServices {
     }
     pub unsafe fn SetuserHomeMediaSharingLibraryName<P0>(&self, libraryname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetuserHomeMediaSharingLibraryName)(windows_core::Interface::as_raw(self), libraryname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetuserHomeMediaSharingLibraryName)(windows_core::Interface::as_raw(self), libraryname.param().abi()).ok()
     }
     pub unsafe fn computerHomeMediaSharingAllowedState(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -169,9 +169,9 @@ impl IWindowsMediaLibrarySharingServices {
     }
     pub unsafe fn SetcomputerHomeMediaSharingAllowedState<P0>(&self, sharingallowed: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetcomputerHomeMediaSharingAllowedState)(windows_core::Interface::as_raw(self), sharingallowed.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetcomputerHomeMediaSharingAllowedState)(windows_core::Interface::as_raw(self), sharingallowed.param().abi()).ok()
     }
     pub unsafe fn userInternetMediaSharingState(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -179,9 +179,9 @@ impl IWindowsMediaLibrarySharingServices {
     }
     pub unsafe fn SetuserInternetMediaSharingState<P0>(&self, sharingenabled: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetuserInternetMediaSharingState)(windows_core::Interface::as_raw(self), sharingenabled.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetuserInternetMediaSharingState)(windows_core::Interface::as_raw(self), sharingenabled.param().abi()).ok()
     }
     pub unsafe fn computerInternetMediaSharingAllowedState(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -189,9 +189,9 @@ impl IWindowsMediaLibrarySharingServices {
     }
     pub unsafe fn SetcomputerInternetMediaSharingAllowedState<P0>(&self, sharingallowed: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetcomputerInternetMediaSharingAllowedState)(windows_core::Interface::as_raw(self), sharingallowed.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetcomputerInternetMediaSharingAllowedState)(windows_core::Interface::as_raw(self), sharingallowed.param().abi()).ok()
     }
     pub unsafe fn internetMediaSharingSecurityGroup(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -199,9 +199,9 @@ impl IWindowsMediaLibrarySharingServices {
     }
     pub unsafe fn SetinternetMediaSharingSecurityGroup<P0>(&self, securitygroup: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetinternetMediaSharingSecurityGroup)(windows_core::Interface::as_raw(self), securitygroup.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetinternetMediaSharingSecurityGroup)(windows_core::Interface::as_raw(self), securitygroup.param().abi()).ok()
     }
     pub unsafe fn allowSharingToAllDevices(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -209,24 +209,24 @@ impl IWindowsMediaLibrarySharingServices {
     }
     pub unsafe fn SetallowSharingToAllDevices<P0>(&self, sharingenabled: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetallowSharingToAllDevices)(windows_core::Interface::as_raw(self), sharingenabled.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetallowSharingToAllDevices)(windows_core::Interface::as_raw(self), sharingenabled.param().abi()).ok()
     }
     pub unsafe fn setDefaultAuthorization<P0, P1, P2>(&self, macaddresses: P0, friendlyname: P1, authorization: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).setDefaultAuthorization)(windows_core::Interface::as_raw(self), macaddresses.into_param().abi(), friendlyname.into_param().abi(), authorization.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).setDefaultAuthorization)(windows_core::Interface::as_raw(self), macaddresses.param().abi(), friendlyname.param().abi(), authorization.param().abi()).ok()
     }
     pub unsafe fn setAuthorizationState<P0, P1>(&self, macaddress: P0, authorizationstate: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).setAuthorizationState)(windows_core::Interface::as_raw(self), macaddress.into_param().abi(), authorizationstate.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).setAuthorizationState)(windows_core::Interface::as_raw(self), macaddress.param().abi(), authorizationstate.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn getAllDevices(&self) -> windows_core::Result<IWindowsMediaLibrarySharingDevices> {

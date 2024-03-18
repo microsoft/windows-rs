@@ -1,10 +1,10 @@
 #[inline]
 pub unsafe fn XInputEnable<P0>(enable: P0)
 where
-    P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::super::Foundation::BOOL>,
 {
     windows_targets::link!("xinput1_4.dll" "system" fn XInputEnable(enable : super::super::super::Foundation:: BOOL));
-    XInputEnable(enable.into_param().abi())
+    XInputEnable(enable.param().abi())
 }
 #[inline]
 pub unsafe fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: windows_core::PWSTR, prendercount: Option<*mut u32>, pcapturedeviceid: windows_core::PWSTR, pcapturecount: Option<*mut u32>) -> u32 {

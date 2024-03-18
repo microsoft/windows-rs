@@ -115,23 +115,23 @@ impl AppRecordingManager {
     #[cfg(feature = "Storage")]
     pub fn StartRecordingToFileAsync<P0>(&self, file: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<AppRecordingResult>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::StorageFile>,
+        P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartRecordingToFileAsync)(windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StartRecordingToFileAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage")]
     pub fn RecordTimeSpanToFileAsync<P0>(&self, starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, file: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<AppRecordingResult>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::StorageFile>,
+        P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RecordTimeSpanToFileAsync)(windows_core::Interface::as_raw(this), starttime, duration, file.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RecordTimeSpanToFileAsync)(windows_core::Interface::as_raw(this), starttime, duration, file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -145,13 +145,13 @@ impl AppRecordingManager {
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub fn SaveScreenshotToFilesAsync<P0, P1>(&self, folder: P0, filenameprefix: &windows_core::HSTRING, option: AppRecordingSaveScreenshotOption, requestedformats: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::StorageFolder>,
-        P1: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Storage::StorageFolder>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SaveScreenshotToFilesAsync)(windows_core::Interface::as_raw(this), folder.into_param().abi(), core::mem::transmute_copy(filenameprefix), option, requestedformats.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SaveScreenshotToFilesAsync)(windows_core::Interface::as_raw(this), folder.param().abi(), core::mem::transmute_copy(filenameprefix), option, requestedformats.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetDefault() -> windows_core::Result<AppRecordingManager> {

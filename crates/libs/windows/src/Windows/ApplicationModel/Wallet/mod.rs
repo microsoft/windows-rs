@@ -589,11 +589,11 @@ impl WalletBarcode {
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub fn CreateCustomWalletBarcode<P0>(streamtobarcodeimage: P0) -> windows_core::Result<WalletBarcode>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStreamReference>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         Self::IWalletBarcodeFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCustomWalletBarcode)(windows_core::Interface::as_raw(this), streamtobarcodeimage.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateCustomWalletBarcode)(windows_core::Interface::as_raw(this), streamtobarcodeimage.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -686,10 +686,10 @@ impl WalletItem {
     #[cfg(feature = "deprecated")]
     pub fn SetLastUpdated<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLastUpdated)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLastUpdated)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     pub fn Kind(&self) -> windows_core::Result<WalletItemKind> {
@@ -710,10 +710,10 @@ impl WalletItem {
     #[cfg(feature = "deprecated")]
     pub fn SetBarcode<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<WalletBarcode>,
+        P0: windows_core::Param<WalletBarcode>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBarcode)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBarcode)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     pub fn ExpirationDate(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
@@ -726,10 +726,10 @@ impl WalletItem {
     #[cfg(feature = "deprecated")]
     pub fn SetExpirationDate<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetExpirationDate)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetExpirationDate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub fn Logo159x159(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
@@ -742,10 +742,10 @@ impl WalletItem {
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub fn SetLogo159x159<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStreamReference>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLogo159x159)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLogo159x159)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub fn Logo336x336(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
@@ -758,10 +758,10 @@ impl WalletItem {
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub fn SetLogo336x336<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStreamReference>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLogo336x336)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLogo336x336)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub fn Logo99x99(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
@@ -774,10 +774,10 @@ impl WalletItem {
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub fn SetLogo99x99<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStreamReference>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLogo99x99)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLogo99x99)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     pub fn DisplayMessage(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -881,10 +881,10 @@ impl WalletItem {
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub fn SetHeaderBackgroundImage<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStreamReference>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetHeaderBackgroundImage)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetHeaderBackgroundImage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub fn BodyBackgroundImage(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
@@ -897,10 +897,10 @@ impl WalletItem {
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub fn SetBodyBackgroundImage<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStreamReference>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBodyBackgroundImage)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBodyBackgroundImage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub fn LogoImage(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
@@ -913,10 +913,10 @@ impl WalletItem {
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub fn SetLogoImage<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStreamReference>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLogoImage)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLogoImage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub fn PromotionalImage(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
@@ -929,10 +929,10 @@ impl WalletItem {
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub fn SetPromotionalImage<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStreamReference>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPromotionalImage)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPromotionalImage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     pub fn RelevantDate(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
@@ -945,10 +945,10 @@ impl WalletItem {
     #[cfg(feature = "deprecated")]
     pub fn SetRelevantDate<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetRelevantDate)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetRelevantDate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     pub fn RelevantDateDisplayMessage(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1154,12 +1154,12 @@ impl WalletItemStore {
     #[cfg(feature = "deprecated")]
     pub fn AddAsync<P0>(&self, id: &windows_core::HSTRING, item: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<WalletItem>,
+        P0: windows_core::Param<WalletItem>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AddAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), item.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AddAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), item.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "deprecated")]
@@ -1197,12 +1197,12 @@ impl WalletItemStore {
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub fn ImportItemAsync<P0>(&self, stream: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<WalletItem>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStreamReference>,
+        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImportItemAsync)(windows_core::Interface::as_raw(this), stream.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ImportItemAsync)(windows_core::Interface::as_raw(this), stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "deprecated")]
@@ -1232,12 +1232,12 @@ impl WalletItemStore {
     #[cfg(feature = "deprecated")]
     pub fn UpdateAsync<P0>(&self, item: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<WalletItem>,
+        P0: windows_core::Param<WalletItem>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdateAsync)(windows_core::Interface::as_raw(this), item.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UpdateAsync)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1417,10 +1417,10 @@ impl WalletTransaction {
     #[cfg(feature = "deprecated")]
     pub fn SetTransactionDate<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTransactionDate)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetTransactionDate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
     pub fn IsLaunchable(&self) -> windows_core::Result<bool> {

@@ -92,10 +92,10 @@ impl SceneLightingEffect {
     #[cfg(feature = "Graphics_Effects")]
     pub fn SetNormalMapSource<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Graphics::Effects::IGraphicsEffectSource>,
+        P0: windows_core::Param<super::super::super::Graphics::Effects::IGraphicsEffectSource>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetNormalMapSource)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNormalMapSource)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn SpecularAmount(&self) -> windows_core::Result<f32> {
         let this = self;

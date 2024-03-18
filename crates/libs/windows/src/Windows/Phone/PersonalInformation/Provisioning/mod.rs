@@ -40,30 +40,30 @@ pub struct ContactPartnerProvisioningManager;
 impl ContactPartnerProvisioningManager {
     pub fn AssociateNetworkAccountAsync<P0>(store: P0, networkname: &windows_core::HSTRING, networkaccountid: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::ContactStore>,
+        P0: windows_core::Param<super::ContactStore>,
     {
         Self::IContactPartnerProvisioningManagerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AssociateNetworkAccountAsync)(windows_core::Interface::as_raw(this), store.into_param().abi(), core::mem::transmute_copy(networkname), core::mem::transmute_copy(networkaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AssociateNetworkAccountAsync)(windows_core::Interface::as_raw(this), store.param().abi(), core::mem::transmute_copy(networkname), core::mem::transmute_copy(networkaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn ImportVcardToSystemAsync<P0>(stream: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::super::Storage::Streams::IInputStream>,
+        P0: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
     {
         Self::IContactPartnerProvisioningManagerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImportVcardToSystemAsync)(windows_core::Interface::as_raw(this), stream.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ImportVcardToSystemAsync)(windows_core::Interface::as_raw(this), stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn AssociateSocialNetworkAccountAsync<P0>(store: P0, networkname: &windows_core::HSTRING, networkaccountid: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::ContactStore>,
+        P0: windows_core::Param<super::ContactStore>,
     {
         Self::IContactPartnerProvisioningManagerStatics2(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AssociateSocialNetworkAccountAsync)(windows_core::Interface::as_raw(this), store.into_param().abi(), core::mem::transmute_copy(networkname), core::mem::transmute_copy(networkaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AssociateSocialNetworkAccountAsync)(windows_core::Interface::as_raw(this), store.param().abi(), core::mem::transmute_copy(networkname), core::mem::transmute_copy(networkaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -85,22 +85,22 @@ impl MessagePartnerProvisioningManager {
     #[cfg(feature = "Foundation_Collections")]
     pub fn ImportSmsToSystemAsync<P0>(incoming: bool, read: bool, body: &windows_core::HSTRING, sender: &windows_core::HSTRING, recipients: P0, deliverytime: super::super::super::Foundation::DateTime) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>,
     {
         Self::IMessagePartnerProvisioningManagerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImportSmsToSystemAsync)(windows_core::Interface::as_raw(this), incoming, read, core::mem::transmute_copy(body), core::mem::transmute_copy(sender), recipients.into_param().abi(), deliverytime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ImportSmsToSystemAsync)(windows_core::Interface::as_raw(this), incoming, read, core::mem::transmute_copy(body), core::mem::transmute_copy(sender), recipients.param().abi(), deliverytime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn ImportMmsToSystemAsync<P0, P1>(incoming: bool, read: bool, subject: &windows_core::HSTRING, sender: &windows_core::HSTRING, recipients: P0, deliverytime: super::super::super::Foundation::DateTime, attachments: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>,
-        P1: windows_core::IntoParam<super::super::super::Foundation::Collections::IVectorView<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>,
+        P1: windows_core::Param<super::super::super::Foundation::Collections::IVectorView<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>>,
     {
         Self::IMessagePartnerProvisioningManagerStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImportMmsToSystemAsync)(windows_core::Interface::as_raw(this), incoming, read, core::mem::transmute_copy(subject), core::mem::transmute_copy(sender), recipients.into_param().abi(), deliverytime, attachments.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ImportMmsToSystemAsync)(windows_core::Interface::as_raw(this), incoming, read, core::mem::transmute_copy(subject), core::mem::transmute_copy(sender), recipients.param().abi(), deliverytime, attachments.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

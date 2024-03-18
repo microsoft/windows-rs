@@ -39,9 +39,9 @@ impl IEventClass {
     }
     pub unsafe fn SetEventClassID<P0>(&self, bstreventclassid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetEventClassID)(windows_core::Interface::as_raw(self), bstreventclassid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventClassID)(windows_core::Interface::as_raw(self), bstreventclassid.param().abi()).ok()
     }
     pub unsafe fn EventClassName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -49,9 +49,9 @@ impl IEventClass {
     }
     pub unsafe fn SetEventClassName<P0>(&self, bstreventclassname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetEventClassName)(windows_core::Interface::as_raw(self), bstreventclassname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventClassName)(windows_core::Interface::as_raw(self), bstreventclassname.param().abi()).ok()
     }
     pub unsafe fn OwnerSID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -59,9 +59,9 @@ impl IEventClass {
     }
     pub unsafe fn SetOwnerSID<P0>(&self, bstrownersid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOwnerSID)(windows_core::Interface::as_raw(self), bstrownersid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOwnerSID)(windows_core::Interface::as_raw(self), bstrownersid.param().abi()).ok()
     }
     pub unsafe fn FiringInterfaceID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -69,9 +69,9 @@ impl IEventClass {
     }
     pub unsafe fn SetFiringInterfaceID<P0>(&self, bstrfiringinterfaceid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetFiringInterfaceID)(windows_core::Interface::as_raw(self), bstrfiringinterfaceid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetFiringInterfaceID)(windows_core::Interface::as_raw(self), bstrfiringinterfaceid.param().abi()).ok()
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -79,9 +79,9 @@ impl IEventClass {
     }
     pub unsafe fn SetDescription<P0>(&self, bstrdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.param().abi()).ok()
     }
     pub unsafe fn CustomConfigCLSID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -89,9 +89,9 @@ impl IEventClass {
     }
     pub unsafe fn SetCustomConfigCLSID<P0>(&self, bstrcustomconfigclsid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetCustomConfigCLSID)(windows_core::Interface::as_raw(self), bstrcustomconfigclsid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetCustomConfigCLSID)(windows_core::Interface::as_raw(self), bstrcustomconfigclsid.param().abi()).ok()
     }
     pub unsafe fn TypeLib(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -99,9 +99,9 @@ impl IEventClass {
     }
     pub unsafe fn SetTypeLib<P0>(&self, bstrtypelib: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTypeLib)(windows_core::Interface::as_raw(self), bstrtypelib.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTypeLib)(windows_core::Interface::as_raw(self), bstrtypelib.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -131,9 +131,9 @@ impl IEventClass2 {
     }
     pub unsafe fn SetEventClassID<P0>(&self, bstreventclassid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetEventClassID)(windows_core::Interface::as_raw(self), bstreventclassid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetEventClassID)(windows_core::Interface::as_raw(self), bstreventclassid.param().abi()).ok()
     }
     pub unsafe fn EventClassName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -141,9 +141,9 @@ impl IEventClass2 {
     }
     pub unsafe fn SetEventClassName<P0>(&self, bstreventclassname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetEventClassName)(windows_core::Interface::as_raw(self), bstreventclassname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetEventClassName)(windows_core::Interface::as_raw(self), bstreventclassname.param().abi()).ok()
     }
     pub unsafe fn OwnerSID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -151,9 +151,9 @@ impl IEventClass2 {
     }
     pub unsafe fn SetOwnerSID<P0>(&self, bstrownersid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetOwnerSID)(windows_core::Interface::as_raw(self), bstrownersid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetOwnerSID)(windows_core::Interface::as_raw(self), bstrownersid.param().abi()).ok()
     }
     pub unsafe fn FiringInterfaceID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -161,9 +161,9 @@ impl IEventClass2 {
     }
     pub unsafe fn SetFiringInterfaceID<P0>(&self, bstrfiringinterfaceid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetFiringInterfaceID)(windows_core::Interface::as_raw(self), bstrfiringinterfaceid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetFiringInterfaceID)(windows_core::Interface::as_raw(self), bstrfiringinterfaceid.param().abi()).ok()
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -171,9 +171,9 @@ impl IEventClass2 {
     }
     pub unsafe fn SetDescription<P0>(&self, bstrdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.param().abi()).ok()
     }
     pub unsafe fn CustomConfigCLSID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -181,9 +181,9 @@ impl IEventClass2 {
     }
     pub unsafe fn SetCustomConfigCLSID<P0>(&self, bstrcustomconfigclsid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetCustomConfigCLSID)(windows_core::Interface::as_raw(self), bstrcustomconfigclsid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetCustomConfigCLSID)(windows_core::Interface::as_raw(self), bstrcustomconfigclsid.param().abi()).ok()
     }
     pub unsafe fn TypeLib(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -191,9 +191,9 @@ impl IEventClass2 {
     }
     pub unsafe fn SetTypeLib<P0>(&self, bstrtypelib: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetTypeLib)(windows_core::Interface::as_raw(self), bstrtypelib.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetTypeLib)(windows_core::Interface::as_raw(self), bstrtypelib.param().abi()).ok()
     }
     pub unsafe fn PublisherID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -201,9 +201,9 @@ impl IEventClass2 {
     }
     pub unsafe fn SetPublisherID<P0>(&self, bstrpublisherid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetPublisherID)(windows_core::Interface::as_raw(self), bstrpublisherid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetPublisherID)(windows_core::Interface::as_raw(self), bstrpublisherid.param().abi()).ok()
     }
     pub unsafe fn MultiInterfacePublisherFilterCLSID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -211,9 +211,9 @@ impl IEventClass2 {
     }
     pub unsafe fn SetMultiInterfacePublisherFilterCLSID<P0>(&self, bstrpubfilclsid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetMultiInterfacePublisherFilterCLSID)(windows_core::Interface::as_raw(self), bstrpubfilclsid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetMultiInterfacePublisherFilterCLSID)(windows_core::Interface::as_raw(self), bstrpubfilclsid.param().abi()).ok()
     }
     pub unsafe fn AllowInprocActivation(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -221,9 +221,9 @@ impl IEventClass2 {
     }
     pub unsafe fn SetAllowInprocActivation<P0>(&self, fallowinprocactivation: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetAllowInprocActivation)(windows_core::Interface::as_raw(self), fallowinprocactivation.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAllowInprocActivation)(windows_core::Interface::as_raw(self), fallowinprocactivation.param().abi()).ok()
     }
     pub unsafe fn FireInParallel(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -231,9 +231,9 @@ impl IEventClass2 {
     }
     pub unsafe fn SetFireInParallel<P0>(&self, ffireinparallel: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetFireInParallel)(windows_core::Interface::as_raw(self), ffireinparallel.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetFireInParallel)(windows_core::Interface::as_raw(self), ffireinparallel.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -253,10 +253,10 @@ windows_core::imp::interface_hierarchy!(IEventControl, windows_core::IUnknown, s
 impl IEventControl {
     pub unsafe fn SetPublisherFilter<P0, P1>(&self, methodname: P0, ppublisherfilter: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<IPublisherFilter>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<IPublisherFilter>,
     {
-        (windows_core::Interface::vtable(self).SetPublisherFilter)(windows_core::Interface::as_raw(self), methodname.into_param().abi(), ppublisherfilter.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetPublisherFilter)(windows_core::Interface::as_raw(self), methodname.param().abi(), ppublisherfilter.param().abi()).ok()
     }
     pub unsafe fn AllowInprocActivation(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -264,25 +264,25 @@ impl IEventControl {
     }
     pub unsafe fn SetAllowInprocActivation<P0>(&self, fallowinprocactivation: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetAllowInprocActivation)(windows_core::Interface::as_raw(self), fallowinprocactivation.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAllowInprocActivation)(windows_core::Interface::as_raw(self), fallowinprocactivation.param().abi()).ok()
     }
     pub unsafe fn GetSubscriptions<P0, P1>(&self, methodname: P0, optionalcriteria: P1, optionalerrorindex: *const i32) -> windows_core::Result<IEventObjectCollection>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSubscriptions)(windows_core::Interface::as_raw(self), methodname.into_param().abi(), optionalcriteria.into_param().abi(), optionalerrorindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetSubscriptions)(windows_core::Interface::as_raw(self), methodname.param().abi(), optionalcriteria.param().abi(), optionalerrorindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDefaultQuery<P0, P1>(&self, methodname: P0, criteria: P1) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).SetDefaultQuery)(windows_core::Interface::as_raw(self), methodname.into_param().abi(), criteria.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).SetDefaultQuery)(windows_core::Interface::as_raw(self), methodname.param().abi(), criteria.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -299,21 +299,21 @@ windows_core::imp::interface_hierarchy!(IEventObjectChange, windows_core::IUnkno
 impl IEventObjectChange {
     pub unsafe fn ChangedSubscription<P0>(&self, changetype: EOC_ChangeType, bstrsubscriptionid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).ChangedSubscription)(windows_core::Interface::as_raw(self), changetype, bstrsubscriptionid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ChangedSubscription)(windows_core::Interface::as_raw(self), changetype, bstrsubscriptionid.param().abi()).ok()
     }
     pub unsafe fn ChangedEventClass<P0>(&self, changetype: EOC_ChangeType, bstreventclassid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).ChangedEventClass)(windows_core::Interface::as_raw(self), changetype, bstreventclassid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ChangedEventClass)(windows_core::Interface::as_raw(self), changetype, bstreventclassid.param().abi()).ok()
     }
     pub unsafe fn ChangedPublisher<P0>(&self, changetype: EOC_ChangeType, bstrpublisherid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).ChangedPublisher)(windows_core::Interface::as_raw(self), changetype, bstrpublisherid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).ChangedPublisher)(windows_core::Interface::as_raw(self), changetype, bstrpublisherid.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -348,10 +348,10 @@ impl IEventObjectCollection {
     }
     pub unsafe fn get_Item<P0>(&self, objectid: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), objectid.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), objectid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn NewEnum(&self) -> windows_core::Result<IEnumEventObject> {
         let mut result__ = std::mem::zeroed();
@@ -363,15 +363,15 @@ impl IEventObjectCollection {
     }
     pub unsafe fn Add<P0>(&self, item: *const windows_core::VARIANT, objectid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute(item), objectid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute(item), objectid.param().abi()).ok()
     }
     pub unsafe fn Remove<P0>(&self, objectid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), objectid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), objectid.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -393,9 +393,9 @@ impl IEventProperty {
     }
     pub unsafe fn SetName<P0>(&self, propertyname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), propertyname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), propertyname.param().abi()).ok()
     }
     pub unsafe fn Value(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
@@ -422,9 +422,9 @@ impl IEventPublisher {
     }
     pub unsafe fn SetPublisherID<P0>(&self, bstrpublisherid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetPublisherID)(windows_core::Interface::as_raw(self), bstrpublisherid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetPublisherID)(windows_core::Interface::as_raw(self), bstrpublisherid.param().abi()).ok()
     }
     pub unsafe fn PublisherName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -432,9 +432,9 @@ impl IEventPublisher {
     }
     pub unsafe fn SetPublisherName<P0>(&self, bstrpublishername: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetPublisherName)(windows_core::Interface::as_raw(self), bstrpublishername.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetPublisherName)(windows_core::Interface::as_raw(self), bstrpublishername.param().abi()).ok()
     }
     pub unsafe fn PublisherType(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -442,9 +442,9 @@ impl IEventPublisher {
     }
     pub unsafe fn SetPublisherType<P0>(&self, bstrpublishertype: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetPublisherType)(windows_core::Interface::as_raw(self), bstrpublishertype.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetPublisherType)(windows_core::Interface::as_raw(self), bstrpublishertype.param().abi()).ok()
     }
     pub unsafe fn OwnerSID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -452,9 +452,9 @@ impl IEventPublisher {
     }
     pub unsafe fn SetOwnerSID<P0>(&self, bstrownersid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOwnerSID)(windows_core::Interface::as_raw(self), bstrownersid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOwnerSID)(windows_core::Interface::as_raw(self), bstrownersid.param().abi()).ok()
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -462,28 +462,28 @@ impl IEventPublisher {
     }
     pub unsafe fn SetDescription<P0>(&self, bstrdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.param().abi()).ok()
     }
     pub unsafe fn GetDefaultProperty<P0>(&self, bstrpropertyname: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDefaultProperty)(windows_core::Interface::as_raw(self), bstrpropertyname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetDefaultProperty)(windows_core::Interface::as_raw(self), bstrpropertyname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn PutDefaultProperty<P0>(&self, bstrpropertyname: P0, propertyvalue: *const windows_core::VARIANT) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).PutDefaultProperty)(windows_core::Interface::as_raw(self), bstrpropertyname.into_param().abi(), core::mem::transmute(propertyvalue)).ok()
+        (windows_core::Interface::vtable(self).PutDefaultProperty)(windows_core::Interface::as_raw(self), bstrpropertyname.param().abi(), core::mem::transmute(propertyvalue)).ok()
     }
     pub unsafe fn RemoveDefaultProperty<P0>(&self, bstrpropertyname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).RemoveDefaultProperty)(windows_core::Interface::as_raw(self), bstrpropertyname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveDefaultProperty)(windows_core::Interface::as_raw(self), bstrpropertyname.param().abi()).ok()
     }
     pub unsafe fn GetDefaultPropertyCollection(&self) -> windows_core::Result<IEventObjectCollection> {
         let mut result__ = std::mem::zeroed();
@@ -517,9 +517,9 @@ impl IEventSubscription {
     }
     pub unsafe fn SetSubscriptionID<P0>(&self, bstrsubscriptionid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSubscriptionID)(windows_core::Interface::as_raw(self), bstrsubscriptionid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSubscriptionID)(windows_core::Interface::as_raw(self), bstrsubscriptionid.param().abi()).ok()
     }
     pub unsafe fn SubscriptionName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -527,9 +527,9 @@ impl IEventSubscription {
     }
     pub unsafe fn SetSubscriptionName<P0>(&self, bstrsubscriptionname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSubscriptionName)(windows_core::Interface::as_raw(self), bstrsubscriptionname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSubscriptionName)(windows_core::Interface::as_raw(self), bstrsubscriptionname.param().abi()).ok()
     }
     pub unsafe fn PublisherID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -537,9 +537,9 @@ impl IEventSubscription {
     }
     pub unsafe fn SetPublisherID<P0>(&self, bstrpublisherid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetPublisherID)(windows_core::Interface::as_raw(self), bstrpublisherid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetPublisherID)(windows_core::Interface::as_raw(self), bstrpublisherid.param().abi()).ok()
     }
     pub unsafe fn EventClassID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -547,9 +547,9 @@ impl IEventSubscription {
     }
     pub unsafe fn SetEventClassID<P0>(&self, bstreventclassid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetEventClassID)(windows_core::Interface::as_raw(self), bstreventclassid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEventClassID)(windows_core::Interface::as_raw(self), bstreventclassid.param().abi()).ok()
     }
     pub unsafe fn MethodName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -557,9 +557,9 @@ impl IEventSubscription {
     }
     pub unsafe fn SetMethodName<P0>(&self, bstrmethodname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetMethodName)(windows_core::Interface::as_raw(self), bstrmethodname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetMethodName)(windows_core::Interface::as_raw(self), bstrmethodname.param().abi()).ok()
     }
     pub unsafe fn SubscriberCLSID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -567,9 +567,9 @@ impl IEventSubscription {
     }
     pub unsafe fn SetSubscriberCLSID<P0>(&self, bstrsubscriberclsid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSubscriberCLSID)(windows_core::Interface::as_raw(self), bstrsubscriberclsid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSubscriberCLSID)(windows_core::Interface::as_raw(self), bstrsubscriberclsid.param().abi()).ok()
     }
     pub unsafe fn SubscriberInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
@@ -577,9 +577,9 @@ impl IEventSubscription {
     }
     pub unsafe fn SetSubscriberInterface<P0>(&self, psubscriberinterface: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).SetSubscriberInterface)(windows_core::Interface::as_raw(self), psubscriberinterface.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSubscriberInterface)(windows_core::Interface::as_raw(self), psubscriberinterface.param().abi()).ok()
     }
     pub unsafe fn PerUser(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -587,9 +587,9 @@ impl IEventSubscription {
     }
     pub unsafe fn SetPerUser<P0>(&self, fperuser: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetPerUser)(windows_core::Interface::as_raw(self), fperuser.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetPerUser)(windows_core::Interface::as_raw(self), fperuser.param().abi()).ok()
     }
     pub unsafe fn OwnerSID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -597,9 +597,9 @@ impl IEventSubscription {
     }
     pub unsafe fn SetOwnerSID<P0>(&self, bstrownersid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOwnerSID)(windows_core::Interface::as_raw(self), bstrownersid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOwnerSID)(windows_core::Interface::as_raw(self), bstrownersid.param().abi()).ok()
     }
     pub unsafe fn Enabled(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -607,9 +607,9 @@ impl IEventSubscription {
     }
     pub unsafe fn SetEnabled<P0>(&self, fenabled: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), fenabled.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), fenabled.param().abi()).ok()
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -617,9 +617,9 @@ impl IEventSubscription {
     }
     pub unsafe fn SetDescription<P0>(&self, bstrdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.param().abi()).ok()
     }
     pub unsafe fn MachineName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -627,28 +627,28 @@ impl IEventSubscription {
     }
     pub unsafe fn SetMachineName<P0>(&self, bstrmachinename: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetMachineName)(windows_core::Interface::as_raw(self), bstrmachinename.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetMachineName)(windows_core::Interface::as_raw(self), bstrmachinename.param().abi()).ok()
     }
     pub unsafe fn GetPublisherProperty<P0>(&self, bstrpropertyname: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetPublisherProperty)(windows_core::Interface::as_raw(self), bstrpropertyname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetPublisherProperty)(windows_core::Interface::as_raw(self), bstrpropertyname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn PutPublisherProperty<P0>(&self, bstrpropertyname: P0, propertyvalue: *const windows_core::VARIANT) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).PutPublisherProperty)(windows_core::Interface::as_raw(self), bstrpropertyname.into_param().abi(), core::mem::transmute(propertyvalue)).ok()
+        (windows_core::Interface::vtable(self).PutPublisherProperty)(windows_core::Interface::as_raw(self), bstrpropertyname.param().abi(), core::mem::transmute(propertyvalue)).ok()
     }
     pub unsafe fn RemovePublisherProperty<P0>(&self, bstrpropertyname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).RemovePublisherProperty)(windows_core::Interface::as_raw(self), bstrpropertyname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemovePublisherProperty)(windows_core::Interface::as_raw(self), bstrpropertyname.param().abi()).ok()
     }
     pub unsafe fn GetPublisherPropertyCollection(&self) -> windows_core::Result<IEventObjectCollection> {
         let mut result__ = std::mem::zeroed();
@@ -656,22 +656,22 @@ impl IEventSubscription {
     }
     pub unsafe fn GetSubscriberProperty<P0>(&self, bstrpropertyname: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSubscriberProperty)(windows_core::Interface::as_raw(self), bstrpropertyname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetSubscriberProperty)(windows_core::Interface::as_raw(self), bstrpropertyname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn PutSubscriberProperty<P0>(&self, bstrpropertyname: P0, propertyvalue: *const windows_core::VARIANT) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).PutSubscriberProperty)(windows_core::Interface::as_raw(self), bstrpropertyname.into_param().abi(), core::mem::transmute(propertyvalue)).ok()
+        (windows_core::Interface::vtable(self).PutSubscriberProperty)(windows_core::Interface::as_raw(self), bstrpropertyname.param().abi(), core::mem::transmute(propertyvalue)).ok()
     }
     pub unsafe fn RemoveSubscriberProperty<P0>(&self, bstrpropertyname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).RemoveSubscriberProperty)(windows_core::Interface::as_raw(self), bstrpropertyname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveSubscriberProperty)(windows_core::Interface::as_raw(self), bstrpropertyname.param().abi()).ok()
     }
     pub unsafe fn GetSubscriberPropertyCollection(&self) -> windows_core::Result<IEventObjectCollection> {
         let mut result__ = std::mem::zeroed();
@@ -683,9 +683,9 @@ impl IEventSubscription {
     }
     pub unsafe fn SetInterfaceID<P0>(&self, bstrinterfaceid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetInterfaceID)(windows_core::Interface::as_raw(self), bstrinterfaceid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetInterfaceID)(windows_core::Interface::as_raw(self), bstrinterfaceid.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -731,26 +731,26 @@ windows_core::imp::interface_hierarchy!(IEventSystem, windows_core::IUnknown, su
 impl IEventSystem {
     pub unsafe fn Query<P0, P1>(&self, progid: P0, querycriteria: P1, errorindex: *mut i32) -> windows_core::Result<windows_core::IUnknown>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Query)(windows_core::Interface::as_raw(self), progid.into_param().abi(), querycriteria.into_param().abi(), errorindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Query)(windows_core::Interface::as_raw(self), progid.param().abi(), querycriteria.param().abi(), errorindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Store<P0, P1>(&self, progid: P0, pinterface: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).Store)(windows_core::Interface::as_raw(self), progid.into_param().abi(), pinterface.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Store)(windows_core::Interface::as_raw(self), progid.param().abi(), pinterface.param().abi()).ok()
     }
     pub unsafe fn Remove<P0, P1>(&self, progid: P0, querycriteria: P1) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), progid.into_param().abi(), querycriteria.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), progid.param().abi(), querycriteria.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EventObjectChangeEventClassID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -758,18 +758,18 @@ impl IEventSystem {
     }
     pub unsafe fn QueryS<P0, P1>(&self, progid: P0, querycriteria: P1) -> windows_core::Result<windows_core::IUnknown>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).QueryS)(windows_core::Interface::as_raw(self), progid.into_param().abi(), querycriteria.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).QueryS)(windows_core::Interface::as_raw(self), progid.param().abi(), querycriteria.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RemoveS<P0, P1>(&self, progid: P0, querycriteria: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).RemoveS)(windows_core::Interface::as_raw(self), progid.into_param().abi(), querycriteria.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveS)(windows_core::Interface::as_raw(self), progid.param().abi(), querycriteria.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -787,9 +787,9 @@ windows_core::imp::interface_hierarchy!(IFiringControl, windows_core::IUnknown, 
 impl IFiringControl {
     pub unsafe fn FireSubscription<P0>(&self, subscription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IEventSubscription>,
+        P0: windows_core::Param<IEventSubscription>,
     {
-        (windows_core::Interface::vtable(self).FireSubscription)(windows_core::Interface::as_raw(self), subscription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).FireSubscription)(windows_core::Interface::as_raw(self), subscription.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -802,25 +802,25 @@ windows_core::imp::interface_hierarchy!(IMultiInterfaceEventControl, windows_cor
 impl IMultiInterfaceEventControl {
     pub unsafe fn SetMultiInterfacePublisherFilter<P0>(&self, classfilter: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMultiInterfacePublisherFilter>,
+        P0: windows_core::Param<IMultiInterfacePublisherFilter>,
     {
-        (windows_core::Interface::vtable(self).SetMultiInterfacePublisherFilter)(windows_core::Interface::as_raw(self), classfilter.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetMultiInterfacePublisherFilter)(windows_core::Interface::as_raw(self), classfilter.param().abi()).ok()
     }
     pub unsafe fn GetSubscriptions<P0, P1>(&self, eventiid: *const windows_core::GUID, bstrmethodname: P0, optionalcriteria: P1, optionalerrorindex: *const i32) -> windows_core::Result<IEventObjectCollection>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSubscriptions)(windows_core::Interface::as_raw(self), eventiid, bstrmethodname.into_param().abi(), optionalcriteria.into_param().abi(), optionalerrorindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetSubscriptions)(windows_core::Interface::as_raw(self), eventiid, bstrmethodname.param().abi(), optionalcriteria.param().abi(), optionalerrorindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDefaultQuery<P0, P1>(&self, eventiid: *const windows_core::GUID, bstrmethodname: P0, bstrcriteria: P1) -> windows_core::Result<i32>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).SetDefaultQuery)(windows_core::Interface::as_raw(self), eventiid, bstrmethodname.into_param().abi(), bstrcriteria.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).SetDefaultQuery)(windows_core::Interface::as_raw(self), eventiid, bstrmethodname.param().abi(), bstrcriteria.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn AllowInprocActivation(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -828,9 +828,9 @@ impl IMultiInterfaceEventControl {
     }
     pub unsafe fn SetAllowInprocActivation<P0>(&self, fallowinprocactivation: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetAllowInprocActivation)(windows_core::Interface::as_raw(self), fallowinprocactivation.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAllowInprocActivation)(windows_core::Interface::as_raw(self), fallowinprocactivation.param().abi()).ok()
     }
     pub unsafe fn FireInParallel(&self) -> windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -838,9 +838,9 @@ impl IMultiInterfaceEventControl {
     }
     pub unsafe fn SetFireInParallel<P0>(&self, ffireinparallel: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetFireInParallel)(windows_core::Interface::as_raw(self), ffireinparallel.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetFireInParallel)(windows_core::Interface::as_raw(self), ffireinparallel.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -859,16 +859,16 @@ windows_core::imp::interface_hierarchy!(IMultiInterfacePublisherFilter, windows_
 impl IMultiInterfacePublisherFilter {
     pub unsafe fn Initialize<P0>(&self, peic: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IMultiInterfaceEventControl>,
+        P0: windows_core::Param<IMultiInterfaceEventControl>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), peic.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), peic.param().abi()).ok()
     }
     pub unsafe fn PrepareToFire<P0, P1>(&self, iid: *const windows_core::GUID, methodname: P0, firingcontrol: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<IFiringControl>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<IFiringControl>,
     {
-        (windows_core::Interface::vtable(self).PrepareToFire)(windows_core::Interface::as_raw(self), iid, methodname.into_param().abi(), firingcontrol.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).PrepareToFire)(windows_core::Interface::as_raw(self), iid, methodname.param().abi(), firingcontrol.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -882,17 +882,17 @@ windows_core::imp::interface_hierarchy!(IPublisherFilter, windows_core::IUnknown
 impl IPublisherFilter {
     pub unsafe fn Initialize<P0, P1>(&self, methodname: P0, dispuserdefined: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<super::IDispatch>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<super::IDispatch>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), methodname.into_param().abi(), dispuserdefined.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), methodname.param().abi(), dispuserdefined.param().abi()).ok()
     }
     pub unsafe fn PrepareToFire<P0, P1>(&self, methodname: P0, firingcontrol: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<IFiringControl>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<IFiringControl>,
     {
-        (windows_core::Interface::vtable(self).PrepareToFire)(windows_core::Interface::as_raw(self), methodname.into_param().abi(), firingcontrol.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).PrepareToFire)(windows_core::Interface::as_raw(self), methodname.param().abi(), firingcontrol.param().abi()).ok()
     }
 }
 #[repr(C)]

@@ -66,11 +66,11 @@ impl RadialControllerIndependentInputSource {
     #[cfg(feature = "ApplicationModel_Core")]
     pub fn CreateForView<P0>(view: P0) -> windows_core::Result<RadialControllerIndependentInputSource>
     where
-        P0: windows_core::IntoParam<super::super::super::ApplicationModel::Core::CoreApplicationView>,
+        P0: windows_core::Param<super::super::super::ApplicationModel::Core::CoreApplicationView>,
     {
         Self::IRadialControllerIndependentInputSourceStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateForView)(windows_core::Interface::as_raw(this), view.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateForView)(windows_core::Interface::as_raw(this), view.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

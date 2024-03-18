@@ -38,12 +38,12 @@ impl AudioRoutingManager {
     }
     pub fn AudioEndpointChanged<P0>(&self, endpointchangehandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<AudioRoutingManager, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AudioRoutingManager, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AudioEndpointChanged)(windows_core::Interface::as_raw(this), endpointchangehandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AudioEndpointChanged)(windows_core::Interface::as_raw(this), endpointchangehandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAudioEndpointChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {

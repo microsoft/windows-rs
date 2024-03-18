@@ -515,17 +515,17 @@ windows_core::imp::interface_hierarchy!(GuidanceNavigator, windows_core::IUnknow
 impl GuidanceNavigator {
     pub fn StartNavigating<P0>(&self, route: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<GuidanceRoute>,
+        P0: windows_core::Param<GuidanceRoute>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).StartNavigating)(windows_core::Interface::as_raw(this), route.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).StartNavigating)(windows_core::Interface::as_raw(this), route.param().abi()).ok() }
     }
     pub fn StartSimulating<P0>(&self, route: P0, speedinmeterspersecond: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<GuidanceRoute>,
+        P0: windows_core::Param<GuidanceRoute>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).StartSimulating)(windows_core::Interface::as_raw(this), route.into_param().abi(), speedinmeterspersecond).ok() }
+        unsafe { (windows_core::Interface::vtable(this).StartSimulating)(windows_core::Interface::as_raw(this), route.param().abi(), speedinmeterspersecond).ok() }
     }
     pub fn StartTracking(&self) -> windows_core::Result<()> {
         let this = self;
@@ -571,12 +571,12 @@ impl GuidanceNavigator {
     }
     pub fn GuidanceUpdated<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, GuidanceUpdatedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, GuidanceUpdatedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GuidanceUpdated)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GuidanceUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveGuidanceUpdated(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -585,12 +585,12 @@ impl GuidanceNavigator {
     }
     pub fn DestinationReached<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).DestinationReached)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DestinationReached)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDestinationReached(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -599,12 +599,12 @@ impl GuidanceNavigator {
     }
     pub fn Rerouting<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Rerouting)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Rerouting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRerouting(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -613,12 +613,12 @@ impl GuidanceNavigator {
     }
     pub fn Rerouted<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, GuidanceReroutedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, GuidanceReroutedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Rerouted)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Rerouted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRerouted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -627,12 +627,12 @@ impl GuidanceNavigator {
     }
     pub fn RerouteFailed<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).RerouteFailed)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RerouteFailed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRerouteFailed(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -641,12 +641,12 @@ impl GuidanceNavigator {
     }
     pub fn UserLocationLost<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).UserLocationLost)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).UserLocationLost)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveUserLocationLost(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -655,12 +655,12 @@ impl GuidanceNavigator {
     }
     pub fn UserLocationRestored<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).UserLocationRestored)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).UserLocationRestored)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveUserLocationRestored(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -674,27 +674,27 @@ impl GuidanceNavigator {
     #[cfg(feature = "Devices_Geolocation")]
     pub fn UpdateUserLocation<P0>(&self, userlocation: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Devices::Geolocation::Geocoordinate>,
+        P0: windows_core::Param<super::super::super::Devices::Geolocation::Geocoordinate>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).UpdateUserLocation)(windows_core::Interface::as_raw(this), userlocation.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).UpdateUserLocation)(windows_core::Interface::as_raw(this), userlocation.param().abi()).ok() }
     }
     #[cfg(feature = "Devices_Geolocation")]
     pub fn UpdateUserLocationWithPositionOverride<P0>(&self, userlocation: P0, positionoverride: super::super::super::Devices::Geolocation::BasicGeoposition) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Devices::Geolocation::Geocoordinate>,
+        P0: windows_core::Param<super::super::super::Devices::Geolocation::Geocoordinate>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).UpdateUserLocationWithPositionOverride)(windows_core::Interface::as_raw(this), userlocation.into_param().abi(), positionoverride).ok() }
+        unsafe { (windows_core::Interface::vtable(this).UpdateUserLocationWithPositionOverride)(windows_core::Interface::as_raw(this), userlocation.param().abi(), positionoverride).ok() }
     }
     pub fn AudioNotificationRequested<P0>(&self, value: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, GuidanceAudioNotificationRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, GuidanceAudioNotificationRequestedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IGuidanceNavigator2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AudioNotificationRequested)(windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AudioNotificationRequested)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAudioNotificationRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -977,20 +977,20 @@ impl GuidanceRoute {
     }
     pub fn CanCreateFromMapRoute<P0>(maproute: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<super::MapRoute>,
+        P0: windows_core::Param<super::MapRoute>,
     {
         Self::IGuidanceRouteStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CanCreateFromMapRoute)(windows_core::Interface::as_raw(this), maproute.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CanCreateFromMapRoute)(windows_core::Interface::as_raw(this), maproute.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn TryCreateFromMapRoute<P0>(maproute: P0) -> windows_core::Result<GuidanceRoute>
     where
-        P0: windows_core::IntoParam<super::MapRoute>,
+        P0: windows_core::Param<super::MapRoute>,
     {
         Self::IGuidanceRouteStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryCreateFromMapRoute)(windows_core::Interface::as_raw(this), maproute.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryCreateFromMapRoute)(windows_core::Interface::as_raw(this), maproute.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

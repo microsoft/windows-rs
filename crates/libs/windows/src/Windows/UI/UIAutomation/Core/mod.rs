@@ -78,10 +78,10 @@ windows_core::imp::interface_hierarchy!(ICoreAutomationRemoteOperationExtensionP
 impl ICoreAutomationRemoteOperationExtensionProvider {
     pub fn CallExtension<P0>(&self, extensionid: windows_core::GUID, context: P0, operandids: &[AutomationRemoteOperationOperandId]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<CoreAutomationRemoteOperationContext>,
+        P0: windows_core::Param<CoreAutomationRemoteOperationContext>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).CallExtension)(windows_core::Interface::as_raw(this), extensionid, context.into_param().abi(), operandids.len().try_into().unwrap(), operandids.as_ptr()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).CallExtension)(windows_core::Interface::as_raw(this), extensionid, context.param().abi(), operandids.len().try_into().unwrap(), operandids.as_ptr()).ok() }
     }
     pub fn IsExtensionSupported(&self, extensionid: windows_core::GUID) -> windows_core::Result<bool> {
         let this = self;
@@ -258,17 +258,17 @@ impl CoreAutomationRemoteOperation {
     }
     pub fn ImportElement<P0>(&self, operandid: AutomationRemoteOperationOperandId, element: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::AutomationElement>,
+        P0: windows_core::Param<super::AutomationElement>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ImportElement)(windows_core::Interface::as_raw(this), operandid, element.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ImportElement)(windows_core::Interface::as_raw(this), operandid, element.param().abi()).ok() }
     }
     pub fn ImportTextRange<P0>(&self, operandid: AutomationRemoteOperationOperandId, textrange: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::AutomationTextRange>,
+        P0: windows_core::Param<super::AutomationTextRange>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ImportTextRange)(windows_core::Interface::as_raw(this), operandid, textrange.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ImportTextRange)(windows_core::Interface::as_raw(this), operandid, textrange.param().abi()).ok() }
     }
     pub fn AddToResults(&self, operandid: AutomationRemoteOperationOperandId) -> windows_core::Result<()> {
         let this = self;
@@ -283,10 +283,10 @@ impl CoreAutomationRemoteOperation {
     }
     pub fn ImportConnectionBoundObject<P0>(&self, operandid: AutomationRemoteOperationOperandId, connectionboundobject: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::AutomationConnectionBoundObject>,
+        P0: windows_core::Param<super::AutomationConnectionBoundObject>,
     {
         let this = &windows_core::Interface::cast::<ICoreAutomationRemoteOperation2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).ImportConnectionBoundObject)(windows_core::Interface::as_raw(this), operandid, connectionboundobject.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ImportConnectionBoundObject)(windows_core::Interface::as_raw(this), operandid, connectionboundobject.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for CoreAutomationRemoteOperation {
@@ -315,17 +315,17 @@ impl CoreAutomationRemoteOperationContext {
     }
     pub fn SetOperand<P0>(&self, id: AutomationRemoteOperationOperandId, operand: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetOperand)(windows_core::Interface::as_raw(this), id, operand.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetOperand)(windows_core::Interface::as_raw(this), id, operand.param().abi()).ok() }
     }
     pub fn SetOperand2<P0>(&self, id: AutomationRemoteOperationOperandId, operand: P0, operandinterfaceid: windows_core::GUID) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetOperand2)(windows_core::Interface::as_raw(this), id, operand.into_param().abi(), operandinterfaceid).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetOperand2)(windows_core::Interface::as_raw(this), id, operand.param().abi(), operandinterfaceid).ok() }
     }
 }
 impl windows_core::RuntimeType for CoreAutomationRemoteOperationContext {
@@ -355,12 +355,12 @@ impl RemoteAutomationClientSession {
     }
     pub fn CreateWindowAsync<P0>(&self, remotewindowid: u64, remoteprocessid: u32, parentautomationelement: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<RemoteAutomationWindow>>
     where
-        P0: windows_core::IntoParam<windows_core::IInspectable>,
+        P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWindowAsync)(windows_core::Interface::as_raw(this), remotewindowid, remoteprocessid, parentautomationelement.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWindowAsync)(windows_core::Interface::as_raw(this), remotewindowid, remoteprocessid, parentautomationelement.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SessionId(&self) -> windows_core::Result<windows_core::GUID> {
@@ -372,12 +372,12 @@ impl RemoteAutomationClientSession {
     }
     pub fn ConnectionRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<RemoteAutomationClientSession, RemoteAutomationConnectionRequestedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<RemoteAutomationClientSession, RemoteAutomationConnectionRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConnectionRequested)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ConnectionRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveConnectionRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -386,12 +386,12 @@ impl RemoteAutomationClientSession {
     }
     pub fn Disconnected<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<RemoteAutomationClientSession, RemoteAutomationDisconnectedEventArgs>>,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<RemoteAutomationClientSession, RemoteAutomationDisconnectedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Disconnected)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Disconnected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDisconnected(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {

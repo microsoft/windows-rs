@@ -6,26 +6,26 @@ pub unsafe fn CanSendToFaxRecipient() -> super::super::Foundation::BOOL {
 #[inline]
 pub unsafe fn FaxAbort<P0>(faxhandle: P0, jobid: u32) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxAbort(faxhandle : super::super::Foundation:: HANDLE, jobid : u32) -> super::super::Foundation:: BOOL);
-    FaxAbort(faxhandle.into_param().abi(), jobid)
+    FaxAbort(faxhandle.param().abi(), jobid)
 }
 #[inline]
 pub unsafe fn FaxAccessCheck<P0>(faxhandle: P0, accessmask: u32) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxAccessCheck(faxhandle : super::super::Foundation:: HANDLE, accessmask : u32) -> super::super::Foundation:: BOOL);
-    FaxAccessCheck(faxhandle.into_param().abi(), accessmask)
+    FaxAccessCheck(faxhandle.param().abi(), accessmask)
 }
 #[inline]
 pub unsafe fn FaxClose<P0>(faxhandle: P0) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxClose(faxhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    FaxClose(faxhandle.into_param().abi())
+    FaxClose(faxhandle.param().abi())
 }
 #[inline]
 pub unsafe fn FaxCompleteJobParamsA(jobparams: *mut *mut FAX_JOB_PARAMA, coverpageinfo: *mut *mut FAX_COVERPAGE_INFOA) -> super::super::Foundation::BOOL {
@@ -40,102 +40,102 @@ pub unsafe fn FaxCompleteJobParamsW(jobparams: *mut *mut FAX_JOB_PARAMW, coverpa
 #[inline]
 pub unsafe fn FaxConnectFaxServerA<P0>(machinename: P0, faxhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxConnectFaxServerA(machinename : windows_core::PCSTR, faxhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    FaxConnectFaxServerA(machinename.into_param().abi(), faxhandle).ok()
+    FaxConnectFaxServerA(machinename.param().abi(), faxhandle).ok()
 }
 #[inline]
 pub unsafe fn FaxConnectFaxServerW<P0>(machinename: P0, faxhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxConnectFaxServerW(machinename : windows_core::PCWSTR, faxhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    FaxConnectFaxServerW(machinename.into_param().abi(), faxhandle).ok()
+    FaxConnectFaxServerW(machinename.param().abi(), faxhandle).ok()
 }
 #[inline]
 pub unsafe fn FaxEnableRoutingMethodA<P0, P1, P2>(faxporthandle: P0, routingguid: P1, enabled: P2) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: windows_core::IntoParam<windows_core::PCSTR>,
-    P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxEnableRoutingMethodA(faxporthandle : super::super::Foundation:: HANDLE, routingguid : windows_core::PCSTR, enabled : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    FaxEnableRoutingMethodA(faxporthandle.into_param().abi(), routingguid.into_param().abi(), enabled.into_param().abi()).ok()
+    FaxEnableRoutingMethodA(faxporthandle.param().abi(), routingguid.param().abi(), enabled.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn FaxEnableRoutingMethodW<P0, P1, P2>(faxporthandle: P0, routingguid: P1, enabled: P2) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
-    P2: windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxEnableRoutingMethodW(faxporthandle : super::super::Foundation:: HANDLE, routingguid : windows_core::PCWSTR, enabled : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    FaxEnableRoutingMethodW(faxporthandle.into_param().abi(), routingguid.into_param().abi(), enabled.into_param().abi()).ok()
+    FaxEnableRoutingMethodW(faxporthandle.param().abi(), routingguid.param().abi(), enabled.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn FaxEnumGlobalRoutingInfoA<P0>(faxhandle: P0, routinginfo: *mut *mut FAX_GLOBAL_ROUTING_INFOA, methodsreturned: *mut u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxEnumGlobalRoutingInfoA(faxhandle : super::super::Foundation:: HANDLE, routinginfo : *mut *mut FAX_GLOBAL_ROUTING_INFOA, methodsreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    FaxEnumGlobalRoutingInfoA(faxhandle.into_param().abi(), routinginfo, methodsreturned).ok()
+    FaxEnumGlobalRoutingInfoA(faxhandle.param().abi(), routinginfo, methodsreturned).ok()
 }
 #[inline]
 pub unsafe fn FaxEnumGlobalRoutingInfoW<P0>(faxhandle: P0, routinginfo: *mut *mut FAX_GLOBAL_ROUTING_INFOW, methodsreturned: *mut u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxEnumGlobalRoutingInfoW(faxhandle : super::super::Foundation:: HANDLE, routinginfo : *mut *mut FAX_GLOBAL_ROUTING_INFOW, methodsreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    FaxEnumGlobalRoutingInfoW(faxhandle.into_param().abi(), routinginfo, methodsreturned).ok()
+    FaxEnumGlobalRoutingInfoW(faxhandle.param().abi(), routinginfo, methodsreturned).ok()
 }
 #[inline]
 pub unsafe fn FaxEnumJobsA<P0>(faxhandle: P0, jobentry: *mut *mut FAX_JOB_ENTRYA, jobsreturned: *mut u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxEnumJobsA(faxhandle : super::super::Foundation:: HANDLE, jobentry : *mut *mut FAX_JOB_ENTRYA, jobsreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    FaxEnumJobsA(faxhandle.into_param().abi(), jobentry, jobsreturned).ok()
+    FaxEnumJobsA(faxhandle.param().abi(), jobentry, jobsreturned).ok()
 }
 #[inline]
 pub unsafe fn FaxEnumJobsW<P0>(faxhandle: P0, jobentry: *mut *mut FAX_JOB_ENTRYW, jobsreturned: *mut u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxEnumJobsW(faxhandle : super::super::Foundation:: HANDLE, jobentry : *mut *mut FAX_JOB_ENTRYW, jobsreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    FaxEnumJobsW(faxhandle.into_param().abi(), jobentry, jobsreturned).ok()
+    FaxEnumJobsW(faxhandle.param().abi(), jobentry, jobsreturned).ok()
 }
 #[inline]
 pub unsafe fn FaxEnumPortsA<P0>(faxhandle: P0, portinfo: *mut *mut FAX_PORT_INFOA, portsreturned: *mut u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxEnumPortsA(faxhandle : super::super::Foundation:: HANDLE, portinfo : *mut *mut FAX_PORT_INFOA, portsreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    FaxEnumPortsA(faxhandle.into_param().abi(), portinfo, portsreturned).ok()
+    FaxEnumPortsA(faxhandle.param().abi(), portinfo, portsreturned).ok()
 }
 #[inline]
 pub unsafe fn FaxEnumPortsW<P0>(faxhandle: P0, portinfo: *mut *mut FAX_PORT_INFOW, portsreturned: *mut u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxEnumPortsW(faxhandle : super::super::Foundation:: HANDLE, portinfo : *mut *mut FAX_PORT_INFOW, portsreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    FaxEnumPortsW(faxhandle.into_param().abi(), portinfo, portsreturned).ok()
+    FaxEnumPortsW(faxhandle.param().abi(), portinfo, portsreturned).ok()
 }
 #[inline]
 pub unsafe fn FaxEnumRoutingMethodsA<P0>(faxporthandle: P0, routingmethod: *mut *mut FAX_ROUTING_METHODA, methodsreturned: *mut u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxEnumRoutingMethodsA(faxporthandle : super::super::Foundation:: HANDLE, routingmethod : *mut *mut FAX_ROUTING_METHODA, methodsreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    FaxEnumRoutingMethodsA(faxporthandle.into_param().abi(), routingmethod, methodsreturned).ok()
+    FaxEnumRoutingMethodsA(faxporthandle.param().abi(), routingmethod, methodsreturned).ok()
 }
 #[inline]
 pub unsafe fn FaxEnumRoutingMethodsW<P0>(faxporthandle: P0, routingmethod: *mut *mut FAX_ROUTING_METHODW, methodsreturned: *mut u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxEnumRoutingMethodsW(faxporthandle : super::super::Foundation:: HANDLE, routingmethod : *mut *mut FAX_ROUTING_METHODW, methodsreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    FaxEnumRoutingMethodsW(faxporthandle.into_param().abi(), routingmethod, methodsreturned).ok()
+    FaxEnumRoutingMethodsW(faxporthandle.param().abi(), routingmethod, methodsreturned).ok()
 }
 #[inline]
 pub unsafe fn FaxFreeBuffer(buffer: *mut core::ffi::c_void) {
@@ -145,126 +145,126 @@ pub unsafe fn FaxFreeBuffer(buffer: *mut core::ffi::c_void) {
 #[inline]
 pub unsafe fn FaxGetConfigurationA<P0>(faxhandle: P0, faxconfig: *mut *mut FAX_CONFIGURATIONA) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxGetConfigurationA(faxhandle : super::super::Foundation:: HANDLE, faxconfig : *mut *mut FAX_CONFIGURATIONA) -> super::super::Foundation:: BOOL);
-    FaxGetConfigurationA(faxhandle.into_param().abi(), faxconfig).ok()
+    FaxGetConfigurationA(faxhandle.param().abi(), faxconfig).ok()
 }
 #[inline]
 pub unsafe fn FaxGetConfigurationW<P0>(faxhandle: P0, faxconfig: *mut *mut FAX_CONFIGURATIONW) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxGetConfigurationW(faxhandle : super::super::Foundation:: HANDLE, faxconfig : *mut *mut FAX_CONFIGURATIONW) -> super::super::Foundation:: BOOL);
-    FaxGetConfigurationW(faxhandle.into_param().abi(), faxconfig).ok()
+    FaxGetConfigurationW(faxhandle.param().abi(), faxconfig).ok()
 }
 #[inline]
 pub unsafe fn FaxGetDeviceStatusA<P0>(faxporthandle: P0, devicestatus: *mut *mut FAX_DEVICE_STATUSA) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxGetDeviceStatusA(faxporthandle : super::super::Foundation:: HANDLE, devicestatus : *mut *mut FAX_DEVICE_STATUSA) -> super::super::Foundation:: BOOL);
-    FaxGetDeviceStatusA(faxporthandle.into_param().abi(), devicestatus).ok()
+    FaxGetDeviceStatusA(faxporthandle.param().abi(), devicestatus).ok()
 }
 #[inline]
 pub unsafe fn FaxGetDeviceStatusW<P0>(faxporthandle: P0, devicestatus: *mut *mut FAX_DEVICE_STATUSW) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxGetDeviceStatusW(faxporthandle : super::super::Foundation:: HANDLE, devicestatus : *mut *mut FAX_DEVICE_STATUSW) -> super::super::Foundation:: BOOL);
-    FaxGetDeviceStatusW(faxporthandle.into_param().abi(), devicestatus).ok()
+    FaxGetDeviceStatusW(faxporthandle.param().abi(), devicestatus).ok()
 }
 #[inline]
 pub unsafe fn FaxGetJobA<P0>(faxhandle: P0, jobid: u32, jobentry: *mut *mut FAX_JOB_ENTRYA) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxGetJobA(faxhandle : super::super::Foundation:: HANDLE, jobid : u32, jobentry : *mut *mut FAX_JOB_ENTRYA) -> super::super::Foundation:: BOOL);
-    FaxGetJobA(faxhandle.into_param().abi(), jobid, jobentry).ok()
+    FaxGetJobA(faxhandle.param().abi(), jobid, jobentry).ok()
 }
 #[inline]
 pub unsafe fn FaxGetJobW<P0>(faxhandle: P0, jobid: u32, jobentry: *mut *mut FAX_JOB_ENTRYW) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxGetJobW(faxhandle : super::super::Foundation:: HANDLE, jobid : u32, jobentry : *mut *mut FAX_JOB_ENTRYW) -> super::super::Foundation:: BOOL);
-    FaxGetJobW(faxhandle.into_param().abi(), jobid, jobentry).ok()
+    FaxGetJobW(faxhandle.param().abi(), jobid, jobentry).ok()
 }
 #[inline]
 pub unsafe fn FaxGetLoggingCategoriesA<P0>(faxhandle: P0, categories: *mut *mut FAX_LOG_CATEGORYA, numbercategories: *mut u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxGetLoggingCategoriesA(faxhandle : super::super::Foundation:: HANDLE, categories : *mut *mut FAX_LOG_CATEGORYA, numbercategories : *mut u32) -> super::super::Foundation:: BOOL);
-    FaxGetLoggingCategoriesA(faxhandle.into_param().abi(), categories, numbercategories).ok()
+    FaxGetLoggingCategoriesA(faxhandle.param().abi(), categories, numbercategories).ok()
 }
 #[inline]
 pub unsafe fn FaxGetLoggingCategoriesW<P0>(faxhandle: P0, categories: *mut *mut FAX_LOG_CATEGORYW, numbercategories: *mut u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxGetLoggingCategoriesW(faxhandle : super::super::Foundation:: HANDLE, categories : *mut *mut FAX_LOG_CATEGORYW, numbercategories : *mut u32) -> super::super::Foundation:: BOOL);
-    FaxGetLoggingCategoriesW(faxhandle.into_param().abi(), categories, numbercategories).ok()
+    FaxGetLoggingCategoriesW(faxhandle.param().abi(), categories, numbercategories).ok()
 }
 #[inline]
 pub unsafe fn FaxGetPageData<P0>(faxhandle: P0, jobid: u32, buffer: *mut *mut u8, buffersize: *mut u32, imagewidth: *mut u32, imageheight: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxGetPageData(faxhandle : super::super::Foundation:: HANDLE, jobid : u32, buffer : *mut *mut u8, buffersize : *mut u32, imagewidth : *mut u32, imageheight : *mut u32) -> super::super::Foundation:: BOOL);
-    FaxGetPageData(faxhandle.into_param().abi(), jobid, buffer, buffersize, imagewidth, imageheight)
+    FaxGetPageData(faxhandle.param().abi(), jobid, buffer, buffersize, imagewidth, imageheight)
 }
 #[inline]
 pub unsafe fn FaxGetPortA<P0>(faxporthandle: P0, portinfo: *mut *mut FAX_PORT_INFOA) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxGetPortA(faxporthandle : super::super::Foundation:: HANDLE, portinfo : *mut *mut FAX_PORT_INFOA) -> super::super::Foundation:: BOOL);
-    FaxGetPortA(faxporthandle.into_param().abi(), portinfo).ok()
+    FaxGetPortA(faxporthandle.param().abi(), portinfo).ok()
 }
 #[inline]
 pub unsafe fn FaxGetPortW<P0>(faxporthandle: P0, portinfo: *mut *mut FAX_PORT_INFOW) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxGetPortW(faxporthandle : super::super::Foundation:: HANDLE, portinfo : *mut *mut FAX_PORT_INFOW) -> super::super::Foundation:: BOOL);
-    FaxGetPortW(faxporthandle.into_param().abi(), portinfo).ok()
+    FaxGetPortW(faxporthandle.param().abi(), portinfo).ok()
 }
 #[inline]
 pub unsafe fn FaxGetRoutingInfoA<P0, P1>(faxporthandle: P0, routingguid: P1, routinginfobuffer: *mut *mut u8, routinginfobuffersize: *mut u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxGetRoutingInfoA(faxporthandle : super::super::Foundation:: HANDLE, routingguid : windows_core::PCSTR, routinginfobuffer : *mut *mut u8, routinginfobuffersize : *mut u32) -> super::super::Foundation:: BOOL);
-    FaxGetRoutingInfoA(faxporthandle.into_param().abi(), routingguid.into_param().abi(), routinginfobuffer, routinginfobuffersize).ok()
+    FaxGetRoutingInfoA(faxporthandle.param().abi(), routingguid.param().abi(), routinginfobuffer, routinginfobuffersize).ok()
 }
 #[inline]
 pub unsafe fn FaxGetRoutingInfoW<P0, P1>(faxporthandle: P0, routingguid: P1, routinginfobuffer: *mut *mut u8, routinginfobuffersize: *mut u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxGetRoutingInfoW(faxporthandle : super::super::Foundation:: HANDLE, routingguid : windows_core::PCWSTR, routinginfobuffer : *mut *mut u8, routinginfobuffersize : *mut u32) -> super::super::Foundation:: BOOL);
-    FaxGetRoutingInfoW(faxporthandle.into_param().abi(), routingguid.into_param().abi(), routinginfobuffer, routinginfobuffersize).ok()
+    FaxGetRoutingInfoW(faxporthandle.param().abi(), routingguid.param().abi(), routinginfobuffer, routinginfobuffersize).ok()
 }
 #[inline]
 pub unsafe fn FaxInitializeEventQueue<P0, P1, P2>(faxhandle: P0, completionport: P1, completionkey: usize, hwnd: P2, messagestart: u32) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P2: windows_core::IntoParam<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxInitializeEventQueue(faxhandle : super::super::Foundation:: HANDLE, completionport : super::super::Foundation:: HANDLE, completionkey : usize, hwnd : super::super::Foundation:: HWND, messagestart : u32) -> super::super::Foundation:: BOOL);
-    FaxInitializeEventQueue(faxhandle.into_param().abi(), completionport.into_param().abi(), completionkey, hwnd.into_param().abi(), messagestart)
+    FaxInitializeEventQueue(faxhandle.param().abi(), completionport.param().abi(), completionkey, hwnd.param().abi(), messagestart)
 }
 #[inline]
 pub unsafe fn FaxOpenPort<P0>(faxhandle: P0, deviceid: u32, flags: u32, faxporthandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxOpenPort(faxhandle : super::super::Foundation:: HANDLE, deviceid : u32, flags : u32, faxporthandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    FaxOpenPort(faxhandle.into_param().abi(), deviceid, flags, faxporthandle)
+    FaxOpenPort(faxhandle.param().abi(), deviceid, flags, faxporthandle)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -281,201 +281,201 @@ pub unsafe fn FaxPrintCoverPageW(faxcontextinfo: *const FAX_CONTEXT_INFOW, cover
 #[inline]
 pub unsafe fn FaxRegisterRoutingExtensionW<P0, P1, P2, P3>(faxhandle: P0, extensionname: P1, friendlyname: P2, imagename: P3, callback: PFAX_ROUTING_INSTALLATION_CALLBACKW, context: *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
-    P2: windows_core::IntoParam<windows_core::PCWSTR>,
-    P3: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxRegisterRoutingExtensionW(faxhandle : super::super::Foundation:: HANDLE, extensionname : windows_core::PCWSTR, friendlyname : windows_core::PCWSTR, imagename : windows_core::PCWSTR, callback : PFAX_ROUTING_INSTALLATION_CALLBACKW, context : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    FaxRegisterRoutingExtensionW(faxhandle.into_param().abi(), extensionname.into_param().abi(), friendlyname.into_param().abi(), imagename.into_param().abi(), callback, context).ok()
+    FaxRegisterRoutingExtensionW(faxhandle.param().abi(), extensionname.param().abi(), friendlyname.param().abi(), imagename.param().abi(), callback, context).ok()
 }
 #[inline]
 pub unsafe fn FaxRegisterServiceProviderW<P0, P1, P2, P3>(deviceprovider: P0, friendlyname: P1, imagename: P2, tspname: P3) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
-    P2: windows_core::IntoParam<windows_core::PCWSTR>,
-    P3: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxRegisterServiceProviderW(deviceprovider : windows_core::PCWSTR, friendlyname : windows_core::PCWSTR, imagename : windows_core::PCWSTR, tspname : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
-    FaxRegisterServiceProviderW(deviceprovider.into_param().abi(), friendlyname.into_param().abi(), imagename.into_param().abi(), tspname.into_param().abi()).ok()
+    FaxRegisterServiceProviderW(deviceprovider.param().abi(), friendlyname.param().abi(), imagename.param().abi(), tspname.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn FaxSendDocumentA<P0, P1>(faxhandle: P0, filename: P1, jobparams: *mut FAX_JOB_PARAMA, coverpageinfo: *const FAX_COVERPAGE_INFOA, faxjobid: *mut u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxSendDocumentA(faxhandle : super::super::Foundation:: HANDLE, filename : windows_core::PCSTR, jobparams : *mut FAX_JOB_PARAMA, coverpageinfo : *const FAX_COVERPAGE_INFOA, faxjobid : *mut u32) -> super::super::Foundation:: BOOL);
-    FaxSendDocumentA(faxhandle.into_param().abi(), filename.into_param().abi(), jobparams, coverpageinfo, faxjobid).ok()
+    FaxSendDocumentA(faxhandle.param().abi(), filename.param().abi(), jobparams, coverpageinfo, faxjobid).ok()
 }
 #[inline]
 pub unsafe fn FaxSendDocumentForBroadcastA<P0, P1>(faxhandle: P0, filename: P1, faxjobid: *mut u32, faxrecipientcallback: PFAX_RECIPIENT_CALLBACKA, context: *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxSendDocumentForBroadcastA(faxhandle : super::super::Foundation:: HANDLE, filename : windows_core::PCSTR, faxjobid : *mut u32, faxrecipientcallback : PFAX_RECIPIENT_CALLBACKA, context : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    FaxSendDocumentForBroadcastA(faxhandle.into_param().abi(), filename.into_param().abi(), faxjobid, faxrecipientcallback, context).ok()
+    FaxSendDocumentForBroadcastA(faxhandle.param().abi(), filename.param().abi(), faxjobid, faxrecipientcallback, context).ok()
 }
 #[inline]
 pub unsafe fn FaxSendDocumentForBroadcastW<P0, P1>(faxhandle: P0, filename: P1, faxjobid: *mut u32, faxrecipientcallback: PFAX_RECIPIENT_CALLBACKW, context: *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxSendDocumentForBroadcastW(faxhandle : super::super::Foundation:: HANDLE, filename : windows_core::PCWSTR, faxjobid : *mut u32, faxrecipientcallback : PFAX_RECIPIENT_CALLBACKW, context : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    FaxSendDocumentForBroadcastW(faxhandle.into_param().abi(), filename.into_param().abi(), faxjobid, faxrecipientcallback, context).ok()
+    FaxSendDocumentForBroadcastW(faxhandle.param().abi(), filename.param().abi(), faxjobid, faxrecipientcallback, context).ok()
 }
 #[inline]
 pub unsafe fn FaxSendDocumentW<P0, P1>(faxhandle: P0, filename: P1, jobparams: *mut FAX_JOB_PARAMW, coverpageinfo: *const FAX_COVERPAGE_INFOW, faxjobid: *mut u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxSendDocumentW(faxhandle : super::super::Foundation:: HANDLE, filename : windows_core::PCWSTR, jobparams : *mut FAX_JOB_PARAMW, coverpageinfo : *const FAX_COVERPAGE_INFOW, faxjobid : *mut u32) -> super::super::Foundation:: BOOL);
-    FaxSendDocumentW(faxhandle.into_param().abi(), filename.into_param().abi(), jobparams, coverpageinfo, faxjobid).ok()
+    FaxSendDocumentW(faxhandle.param().abi(), filename.param().abi(), jobparams, coverpageinfo, faxjobid).ok()
 }
 #[inline]
 pub unsafe fn FaxSetConfigurationA<P0>(faxhandle: P0, faxconfig: *const FAX_CONFIGURATIONA) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxSetConfigurationA(faxhandle : super::super::Foundation:: HANDLE, faxconfig : *const FAX_CONFIGURATIONA) -> super::super::Foundation:: BOOL);
-    FaxSetConfigurationA(faxhandle.into_param().abi(), faxconfig).ok()
+    FaxSetConfigurationA(faxhandle.param().abi(), faxconfig).ok()
 }
 #[inline]
 pub unsafe fn FaxSetConfigurationW<P0>(faxhandle: P0, faxconfig: *const FAX_CONFIGURATIONW) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxSetConfigurationW(faxhandle : super::super::Foundation:: HANDLE, faxconfig : *const FAX_CONFIGURATIONW) -> super::super::Foundation:: BOOL);
-    FaxSetConfigurationW(faxhandle.into_param().abi(), faxconfig).ok()
+    FaxSetConfigurationW(faxhandle.param().abi(), faxconfig).ok()
 }
 #[inline]
 pub unsafe fn FaxSetGlobalRoutingInfoA<P0>(faxhandle: P0, routinginfo: *const FAX_GLOBAL_ROUTING_INFOA) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxSetGlobalRoutingInfoA(faxhandle : super::super::Foundation:: HANDLE, routinginfo : *const FAX_GLOBAL_ROUTING_INFOA) -> super::super::Foundation:: BOOL);
-    FaxSetGlobalRoutingInfoA(faxhandle.into_param().abi(), routinginfo).ok()
+    FaxSetGlobalRoutingInfoA(faxhandle.param().abi(), routinginfo).ok()
 }
 #[inline]
 pub unsafe fn FaxSetGlobalRoutingInfoW<P0>(faxhandle: P0, routinginfo: *const FAX_GLOBAL_ROUTING_INFOW) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxSetGlobalRoutingInfoW(faxhandle : super::super::Foundation:: HANDLE, routinginfo : *const FAX_GLOBAL_ROUTING_INFOW) -> super::super::Foundation:: BOOL);
-    FaxSetGlobalRoutingInfoW(faxhandle.into_param().abi(), routinginfo).ok()
+    FaxSetGlobalRoutingInfoW(faxhandle.param().abi(), routinginfo).ok()
 }
 #[inline]
 pub unsafe fn FaxSetJobA<P0>(faxhandle: P0, jobid: u32, command: u32, jobentry: *const FAX_JOB_ENTRYA) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxSetJobA(faxhandle : super::super::Foundation:: HANDLE, jobid : u32, command : u32, jobentry : *const FAX_JOB_ENTRYA) -> super::super::Foundation:: BOOL);
-    FaxSetJobA(faxhandle.into_param().abi(), jobid, command, jobentry).ok()
+    FaxSetJobA(faxhandle.param().abi(), jobid, command, jobentry).ok()
 }
 #[inline]
 pub unsafe fn FaxSetJobW<P0>(faxhandle: P0, jobid: u32, command: u32, jobentry: *const FAX_JOB_ENTRYW) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxSetJobW(faxhandle : super::super::Foundation:: HANDLE, jobid : u32, command : u32, jobentry : *const FAX_JOB_ENTRYW) -> super::super::Foundation:: BOOL);
-    FaxSetJobW(faxhandle.into_param().abi(), jobid, command, jobentry).ok()
+    FaxSetJobW(faxhandle.param().abi(), jobid, command, jobentry).ok()
 }
 #[inline]
 pub unsafe fn FaxSetLoggingCategoriesA<P0>(faxhandle: P0, categories: *const FAX_LOG_CATEGORYA, numbercategories: u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxSetLoggingCategoriesA(faxhandle : super::super::Foundation:: HANDLE, categories : *const FAX_LOG_CATEGORYA, numbercategories : u32) -> super::super::Foundation:: BOOL);
-    FaxSetLoggingCategoriesA(faxhandle.into_param().abi(), categories, numbercategories).ok()
+    FaxSetLoggingCategoriesA(faxhandle.param().abi(), categories, numbercategories).ok()
 }
 #[inline]
 pub unsafe fn FaxSetLoggingCategoriesW<P0>(faxhandle: P0, categories: *const FAX_LOG_CATEGORYW, numbercategories: u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxSetLoggingCategoriesW(faxhandle : super::super::Foundation:: HANDLE, categories : *const FAX_LOG_CATEGORYW, numbercategories : u32) -> super::super::Foundation:: BOOL);
-    FaxSetLoggingCategoriesW(faxhandle.into_param().abi(), categories, numbercategories).ok()
+    FaxSetLoggingCategoriesW(faxhandle.param().abi(), categories, numbercategories).ok()
 }
 #[inline]
 pub unsafe fn FaxSetPortA<P0>(faxporthandle: P0, portinfo: *const FAX_PORT_INFOA) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxSetPortA(faxporthandle : super::super::Foundation:: HANDLE, portinfo : *const FAX_PORT_INFOA) -> super::super::Foundation:: BOOL);
-    FaxSetPortA(faxporthandle.into_param().abi(), portinfo).ok()
+    FaxSetPortA(faxporthandle.param().abi(), portinfo).ok()
 }
 #[inline]
 pub unsafe fn FaxSetPortW<P0>(faxporthandle: P0, portinfo: *const FAX_PORT_INFOW) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxSetPortW(faxporthandle : super::super::Foundation:: HANDLE, portinfo : *const FAX_PORT_INFOW) -> super::super::Foundation:: BOOL);
-    FaxSetPortW(faxporthandle.into_param().abi(), portinfo).ok()
+    FaxSetPortW(faxporthandle.param().abi(), portinfo).ok()
 }
 #[inline]
 pub unsafe fn FaxSetRoutingInfoA<P0, P1>(faxporthandle: P0, routingguid: P1, routinginfobuffer: *const u8, routinginfobuffersize: u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxSetRoutingInfoA(faxporthandle : super::super::Foundation:: HANDLE, routingguid : windows_core::PCSTR, routinginfobuffer : *const u8, routinginfobuffersize : u32) -> super::super::Foundation:: BOOL);
-    FaxSetRoutingInfoA(faxporthandle.into_param().abi(), routingguid.into_param().abi(), routinginfobuffer, routinginfobuffersize).ok()
+    FaxSetRoutingInfoA(faxporthandle.param().abi(), routingguid.param().abi(), routinginfobuffer, routinginfobuffersize).ok()
 }
 #[inline]
 pub unsafe fn FaxSetRoutingInfoW<P0, P1>(faxporthandle: P0, routingguid: P1, routinginfobuffer: *const u8, routinginfobuffersize: u32) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxSetRoutingInfoW(faxporthandle : super::super::Foundation:: HANDLE, routingguid : windows_core::PCWSTR, routinginfobuffer : *const u8, routinginfobuffersize : u32) -> super::super::Foundation:: BOOL);
-    FaxSetRoutingInfoW(faxporthandle.into_param().abi(), routingguid.into_param().abi(), routinginfobuffer, routinginfobuffersize).ok()
+    FaxSetRoutingInfoW(faxporthandle.param().abi(), routingguid.param().abi(), routinginfobuffer, routinginfobuffersize).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn FaxStartPrintJobA<P0>(printername: P0, printinfo: *const FAX_PRINT_INFOA, faxjobid: *mut u32, faxcontextinfo: *mut FAX_CONTEXT_INFOA) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxStartPrintJobA(printername : windows_core::PCSTR, printinfo : *const FAX_PRINT_INFOA, faxjobid : *mut u32, faxcontextinfo : *mut FAX_CONTEXT_INFOA) -> super::super::Foundation:: BOOL);
-    FaxStartPrintJobA(printername.into_param().abi(), printinfo, faxjobid, faxcontextinfo).ok()
+    FaxStartPrintJobA(printername.param().abi(), printinfo, faxjobid, faxcontextinfo).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn FaxStartPrintJobW<P0>(printername: P0, printinfo: *const FAX_PRINT_INFOW, faxjobid: *mut u32, faxcontextinfo: *mut FAX_CONTEXT_INFOW) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxStartPrintJobW(printername : windows_core::PCWSTR, printinfo : *const FAX_PRINT_INFOW, faxjobid : *mut u32, faxcontextinfo : *mut FAX_CONTEXT_INFOW) -> super::super::Foundation:: BOOL);
-    FaxStartPrintJobW(printername.into_param().abi(), printinfo, faxjobid, faxcontextinfo).ok()
+    FaxStartPrintJobW(printername.param().abi(), printinfo, faxjobid, faxcontextinfo).ok()
 }
 #[inline]
 pub unsafe fn FaxUnregisterServiceProviderW<P0>(deviceprovider: P0) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winfax.dll" "system" fn FaxUnregisterServiceProviderW(deviceprovider : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
-    FaxUnregisterServiceProviderW(deviceprovider.into_param().abi())
+    FaxUnregisterServiceProviderW(deviceprovider.param().abi())
 }
 #[inline]
 pub unsafe fn SendToFaxRecipient<P0>(sndmode: SendToMode, lpfilename: P0) -> u32
 where
-    P0: windows_core::IntoParam<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("fxsutility.dll" "system" fn SendToFaxRecipient(sndmode : SendToMode, lpfilename : windows_core::PCWSTR) -> u32);
-    SendToFaxRecipient(sndmode, lpfilename.into_param().abi())
+    SendToFaxRecipient(sndmode, lpfilename.param().abi())
 }
 #[inline]
 pub unsafe fn StiCreateInstanceW<P0, P1>(hinst: P0, dwver: u32, ppsti: *mut Option<IStillImageW>, punkouter: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
-    P1: windows_core::IntoParam<windows_core::IUnknown>,
+    P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
+    P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("sti.dll" "system" fn StiCreateInstanceW(hinst : super::super::Foundation:: HINSTANCE, dwver : u32, ppsti : *mut * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    StiCreateInstanceW(hinst.into_param().abi(), dwver, core::mem::transmute(ppsti), punkouter.into_param().abi()).ok()
+    StiCreateInstanceW(hinst.param().abi(), dwver, core::mem::transmute(ppsti), punkouter.param().abi()).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFaxAccount, IFaxAccount_Vtbl, 0x68535b33_5dc4_4086_be26_b76f9b711006);
@@ -585,10 +585,10 @@ impl IFaxAccountIncomingArchive {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMessage<P0>(&self, bstrmessageid: P0) -> windows_core::Result<IFaxIncomingMessage>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetMessage)(windows_core::Interface::as_raw(self), bstrmessageid.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetMessage)(windows_core::Interface::as_raw(self), bstrmessageid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -621,10 +621,10 @@ impl IFaxAccountIncomingQueue {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetJob<P0>(&self, bstrjobid: P0) -> windows_core::Result<IFaxIncomingJob>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetJob)(windows_core::Interface::as_raw(self), bstrjobid.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetJob)(windows_core::Interface::as_raw(self), bstrjobid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -649,93 +649,93 @@ impl IFaxAccountNotify {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnIncomingJobAdded<P0, P1>(&self, pfaxaccount: P0, bstrjobid: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxAccount>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<IFaxAccount>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).OnIncomingJobAdded)(windows_core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrjobid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnIncomingJobAdded)(windows_core::Interface::as_raw(self), pfaxaccount.param().abi(), bstrjobid.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnIncomingJobRemoved<P0, P1>(&self, pfaxaccount: P0, bstrjobid: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxAccount>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<IFaxAccount>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).OnIncomingJobRemoved)(windows_core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrjobid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnIncomingJobRemoved)(windows_core::Interface::as_raw(self), pfaxaccount.param().abi(), bstrjobid.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnIncomingJobChanged<P0, P1, P2>(&self, pfaxaccount: P0, bstrjobid: P1, pjobstatus: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxAccount>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<IFaxJobStatus>,
+        P0: windows_core::Param<IFaxAccount>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<IFaxJobStatus>,
     {
-        (windows_core::Interface::vtable(self).OnIncomingJobChanged)(windows_core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrjobid.into_param().abi(), pjobstatus.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnIncomingJobChanged)(windows_core::Interface::as_raw(self), pfaxaccount.param().abi(), bstrjobid.param().abi(), pjobstatus.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutgoingJobAdded<P0, P1>(&self, pfaxaccount: P0, bstrjobid: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxAccount>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<IFaxAccount>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).OnOutgoingJobAdded)(windows_core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrjobid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnOutgoingJobAdded)(windows_core::Interface::as_raw(self), pfaxaccount.param().abi(), bstrjobid.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutgoingJobRemoved<P0, P1>(&self, pfaxaccount: P0, bstrjobid: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxAccount>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<IFaxAccount>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).OnOutgoingJobRemoved)(windows_core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrjobid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnOutgoingJobRemoved)(windows_core::Interface::as_raw(self), pfaxaccount.param().abi(), bstrjobid.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutgoingJobChanged<P0, P1, P2>(&self, pfaxaccount: P0, bstrjobid: P1, pjobstatus: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxAccount>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<IFaxJobStatus>,
+        P0: windows_core::Param<IFaxAccount>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<IFaxJobStatus>,
     {
-        (windows_core::Interface::vtable(self).OnOutgoingJobChanged)(windows_core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrjobid.into_param().abi(), pjobstatus.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnOutgoingJobChanged)(windows_core::Interface::as_raw(self), pfaxaccount.param().abi(), bstrjobid.param().abi(), pjobstatus.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnIncomingMessageAdded<P0, P1, P2>(&self, pfaxaccount: P0, bstrmessageid: P1, faddedtoreceivefolder: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxAccount>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<IFaxAccount>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).OnIncomingMessageAdded)(windows_core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrmessageid.into_param().abi(), faddedtoreceivefolder.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnIncomingMessageAdded)(windows_core::Interface::as_raw(self), pfaxaccount.param().abi(), bstrmessageid.param().abi(), faddedtoreceivefolder.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnIncomingMessageRemoved<P0, P1, P2>(&self, pfaxaccount: P0, bstrmessageid: P1, fremovedfromreceivefolder: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxAccount>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<IFaxAccount>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).OnIncomingMessageRemoved)(windows_core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrmessageid.into_param().abi(), fremovedfromreceivefolder.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnIncomingMessageRemoved)(windows_core::Interface::as_raw(self), pfaxaccount.param().abi(), bstrmessageid.param().abi(), fremovedfromreceivefolder.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutgoingMessageAdded<P0, P1>(&self, pfaxaccount: P0, bstrmessageid: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxAccount>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<IFaxAccount>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).OnOutgoingMessageAdded)(windows_core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrmessageid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnOutgoingMessageAdded)(windows_core::Interface::as_raw(self), pfaxaccount.param().abi(), bstrmessageid.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutgoingMessageRemoved<P0, P1>(&self, pfaxaccount: P0, bstrmessageid: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxAccount>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<IFaxAccount>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).OnOutgoingMessageRemoved)(windows_core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrmessageid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnOutgoingMessageRemoved)(windows_core::Interface::as_raw(self), pfaxaccount.param().abi(), bstrmessageid.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnServerShutDown<P0>(&self, pfaxserver: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer2>,
+        P0: windows_core::Param<IFaxServer2>,
     {
-        (windows_core::Interface::vtable(self).OnServerShutDown)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnServerShutDown)(windows_core::Interface::as_raw(self), pfaxserver.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -812,10 +812,10 @@ impl IFaxAccountOutgoingArchive {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMessage<P0>(&self, bstrmessageid: P0) -> windows_core::Result<IFaxOutgoingMessage>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetMessage)(windows_core::Interface::as_raw(self), bstrmessageid.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetMessage)(windows_core::Interface::as_raw(self), bstrmessageid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -848,10 +848,10 @@ impl IFaxAccountOutgoingQueue {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetJob<P0>(&self, bstrjobid: P0) -> windows_core::Result<IFaxOutgoingJob>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetJob)(windows_core::Interface::as_raw(self), bstrjobid.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetJob)(windows_core::Interface::as_raw(self), bstrjobid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -881,24 +881,24 @@ impl IFaxAccountSet {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAccount<P0>(&self, bstraccountname: P0) -> windows_core::Result<IFaxAccount>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAccount)(windows_core::Interface::as_raw(self), bstraccountname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAccount)(windows_core::Interface::as_raw(self), bstraccountname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddAccount<P0>(&self, bstraccountname: P0) -> windows_core::Result<IFaxAccount>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).AddAccount)(windows_core::Interface::as_raw(self), bstraccountname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).AddAccount)(windows_core::Interface::as_raw(self), bstraccountname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RemoveAccount<P0>(&self, bstraccountname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).RemoveAccount)(windows_core::Interface::as_raw(self), bstraccountname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RemoveAccount)(windows_core::Interface::as_raw(self), bstraccountname.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -932,10 +932,10 @@ impl IFaxAccounts {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, vindex: P0) -> windows_core::Result<IFaxAccount>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), vindex.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), vindex.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -1001,9 +1001,9 @@ impl IFaxActivityLogging {
     }
     pub unsafe fn SetLogIncoming<P0>(&self, blogincoming: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetLogIncoming)(windows_core::Interface::as_raw(self), blogincoming.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetLogIncoming)(windows_core::Interface::as_raw(self), blogincoming.param().abi()).ok()
     }
     pub unsafe fn LogOutgoing(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -1011,9 +1011,9 @@ impl IFaxActivityLogging {
     }
     pub unsafe fn SetLogOutgoing<P0>(&self, blogoutgoing: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetLogOutgoing)(windows_core::Interface::as_raw(self), blogoutgoing.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetLogOutgoing)(windows_core::Interface::as_raw(self), blogoutgoing.param().abi()).ok()
     }
     pub unsafe fn DatabasePath(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1021,9 +1021,9 @@ impl IFaxActivityLogging {
     }
     pub unsafe fn SetDatabasePath<P0>(&self, bstrdatabasepath: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDatabasePath)(windows_core::Interface::as_raw(self), bstrdatabasepath.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDatabasePath)(windows_core::Interface::as_raw(self), bstrdatabasepath.param().abi()).ok()
     }
     pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok()
@@ -1057,9 +1057,9 @@ impl IFaxConfiguration {
     }
     pub unsafe fn SetUseArchive<P0>(&self, busearchive: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetUseArchive)(windows_core::Interface::as_raw(self), busearchive.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetUseArchive)(windows_core::Interface::as_raw(self), busearchive.param().abi()).ok()
     }
     pub unsafe fn ArchiveLocation(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1067,9 +1067,9 @@ impl IFaxConfiguration {
     }
     pub unsafe fn SetArchiveLocation<P0>(&self, bstrarchivelocation: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetArchiveLocation)(windows_core::Interface::as_raw(self), bstrarchivelocation.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetArchiveLocation)(windows_core::Interface::as_raw(self), bstrarchivelocation.param().abi()).ok()
     }
     pub unsafe fn SizeQuotaWarning(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -1077,9 +1077,9 @@ impl IFaxConfiguration {
     }
     pub unsafe fn SetSizeQuotaWarning<P0>(&self, bsizequotawarning: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetSizeQuotaWarning)(windows_core::Interface::as_raw(self), bsizequotawarning.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSizeQuotaWarning)(windows_core::Interface::as_raw(self), bsizequotawarning.param().abi()).ok()
     }
     pub unsafe fn HighQuotaWaterMark(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -1116,9 +1116,9 @@ impl IFaxConfiguration {
     }
     pub unsafe fn SetOutgoingQueueBlocked<P0>(&self, boutgoingblocked: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetOutgoingQueueBlocked)(windows_core::Interface::as_raw(self), boutgoingblocked.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutgoingQueueBlocked)(windows_core::Interface::as_raw(self), boutgoingblocked.param().abi()).ok()
     }
     pub unsafe fn OutgoingQueuePaused(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -1126,9 +1126,9 @@ impl IFaxConfiguration {
     }
     pub unsafe fn SetOutgoingQueuePaused<P0>(&self, boutgoingpaused: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetOutgoingQueuePaused)(windows_core::Interface::as_raw(self), boutgoingpaused.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOutgoingQueuePaused)(windows_core::Interface::as_raw(self), boutgoingpaused.param().abi()).ok()
     }
     pub unsafe fn AllowPersonalCoverPages(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -1136,9 +1136,9 @@ impl IFaxConfiguration {
     }
     pub unsafe fn SetAllowPersonalCoverPages<P0>(&self, ballowpersonalcoverpages: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetAllowPersonalCoverPages)(windows_core::Interface::as_raw(self), ballowpersonalcoverpages.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAllowPersonalCoverPages)(windows_core::Interface::as_raw(self), ballowpersonalcoverpages.param().abi()).ok()
     }
     pub unsafe fn UseDeviceTSID(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -1146,9 +1146,9 @@ impl IFaxConfiguration {
     }
     pub unsafe fn SetUseDeviceTSID<P0>(&self, busedevicetsid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetUseDeviceTSID)(windows_core::Interface::as_raw(self), busedevicetsid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetUseDeviceTSID)(windows_core::Interface::as_raw(self), busedevicetsid.param().abi()).ok()
     }
     pub unsafe fn Retries(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -1191,9 +1191,9 @@ impl IFaxConfiguration {
     }
     pub unsafe fn SetBranding<P0>(&self, bbranding: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetBranding)(windows_core::Interface::as_raw(self), bbranding.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetBranding)(windows_core::Interface::as_raw(self), bbranding.param().abi()).ok()
     }
     pub unsafe fn IncomingQueueBlocked(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -1201,9 +1201,9 @@ impl IFaxConfiguration {
     }
     pub unsafe fn SetIncomingQueueBlocked<P0>(&self, bincomingblocked: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetIncomingQueueBlocked)(windows_core::Interface::as_raw(self), bincomingblocked.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetIncomingQueueBlocked)(windows_core::Interface::as_raw(self), bincomingblocked.param().abi()).ok()
     }
     pub unsafe fn AutoCreateAccountOnConnect(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -1211,9 +1211,9 @@ impl IFaxConfiguration {
     }
     pub unsafe fn SetAutoCreateAccountOnConnect<P0>(&self, bautocreateaccountonconnect: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetAutoCreateAccountOnConnect)(windows_core::Interface::as_raw(self), bautocreateaccountonconnect.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAutoCreateAccountOnConnect)(windows_core::Interface::as_raw(self), bautocreateaccountonconnect.param().abi()).ok()
     }
     pub unsafe fn IncomingFaxesArePublic(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -1221,9 +1221,9 @@ impl IFaxConfiguration {
     }
     pub unsafe fn SetIncomingFaxesArePublic<P0>(&self, bincomingfaxesarepublic: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetIncomingFaxesArePublic)(windows_core::Interface::as_raw(self), bincomingfaxesarepublic.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetIncomingFaxesArePublic)(windows_core::Interface::as_raw(self), bincomingfaxesarepublic.param().abi()).ok()
     }
     pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok()
@@ -1319,9 +1319,9 @@ impl IFaxDevice {
     }
     pub unsafe fn SetDescription<P0>(&self, bstrdescription: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.param().abi()).ok()
     }
     pub unsafe fn SendEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -1329,9 +1329,9 @@ impl IFaxDevice {
     }
     pub unsafe fn SetSendEnabled<P0>(&self, bsendenabled: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetSendEnabled)(windows_core::Interface::as_raw(self), bsendenabled.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSendEnabled)(windows_core::Interface::as_raw(self), bsendenabled.param().abi()).ok()
     }
     pub unsafe fn ReceiveMode(&self) -> windows_core::Result<FAX_DEVICE_RECEIVE_MODE_ENUM> {
         let mut result__ = std::mem::zeroed();
@@ -1353,9 +1353,9 @@ impl IFaxDevice {
     }
     pub unsafe fn SetCSID<P0>(&self, bstrcsid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetCSID)(windows_core::Interface::as_raw(self), bstrcsid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetCSID)(windows_core::Interface::as_raw(self), bstrcsid.param().abi()).ok()
     }
     pub unsafe fn TSID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1363,9 +1363,9 @@ impl IFaxDevice {
     }
     pub unsafe fn SetTSID<P0>(&self, bstrtsid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTSID)(windows_core::Interface::as_raw(self), bstrtsid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTSID)(windows_core::Interface::as_raw(self), bstrtsid.param().abi()).ok()
     }
     pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok()
@@ -1375,24 +1375,24 @@ impl IFaxDevice {
     }
     pub unsafe fn GetExtensionProperty<P0>(&self, bstrguid: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetExtensionProperty)(windows_core::Interface::as_raw(self), bstrguid.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetExtensionProperty)(windows_core::Interface::as_raw(self), bstrguid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetExtensionProperty<P0, P1>(&self, bstrguid: P0, vproperty: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetExtensionProperty)(windows_core::Interface::as_raw(self), bstrguid.into_param().abi(), vproperty.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExtensionProperty)(windows_core::Interface::as_raw(self), bstrguid.param().abi(), vproperty.param().abi()).ok()
     }
     pub unsafe fn UseRoutingMethod<P0, P1>(&self, bstrmethodguid: P0, buse: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).UseRoutingMethod)(windows_core::Interface::as_raw(self), bstrmethodguid.into_param().abi(), buse.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).UseRoutingMethod)(windows_core::Interface::as_raw(self), bstrmethodguid.param().abi(), buse.param().abi()).ok()
     }
     pub unsafe fn RingingNow(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -1557,10 +1557,10 @@ impl IFaxDeviceProviders {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, vindex: P0) -> windows_core::Result<IFaxDeviceProvider>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), vindex.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), vindex.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -1591,10 +1591,10 @@ impl IFaxDevices {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, vindex: P0) -> windows_core::Result<IFaxDevice>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), vindex.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), vindex.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -1633,9 +1633,9 @@ impl IFaxDocument {
     }
     pub unsafe fn SetBody<P0>(&self, bstrbody: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetBody)(windows_core::Interface::as_raw(self), bstrbody.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetBody)(windows_core::Interface::as_raw(self), bstrbody.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Sender(&self) -> windows_core::Result<IFaxSender> {
@@ -1653,9 +1653,9 @@ impl IFaxDocument {
     }
     pub unsafe fn SetCoverPage<P0>(&self, bstrcoverpage: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetCoverPage)(windows_core::Interface::as_raw(self), bstrcoverpage.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetCoverPage)(windows_core::Interface::as_raw(self), bstrcoverpage.param().abi()).ok()
     }
     pub unsafe fn Subject(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1663,9 +1663,9 @@ impl IFaxDocument {
     }
     pub unsafe fn SetSubject<P0>(&self, bstrsubject: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSubject)(windows_core::Interface::as_raw(self), bstrsubject.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSubject)(windows_core::Interface::as_raw(self), bstrsubject.param().abi()).ok()
     }
     pub unsafe fn Note(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1673,9 +1673,9 @@ impl IFaxDocument {
     }
     pub unsafe fn SetNote<P0>(&self, bstrnote: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetNote)(windows_core::Interface::as_raw(self), bstrnote.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetNote)(windows_core::Interface::as_raw(self), bstrnote.param().abi()).ok()
     }
     pub unsafe fn ScheduleTime(&self) -> windows_core::Result<f64> {
         let mut result__ = std::mem::zeroed();
@@ -1690,9 +1690,9 @@ impl IFaxDocument {
     }
     pub unsafe fn SetReceiptAddress<P0>(&self, bstrreceiptaddress: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetReceiptAddress)(windows_core::Interface::as_raw(self), bstrreceiptaddress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetReceiptAddress)(windows_core::Interface::as_raw(self), bstrreceiptaddress.param().abi()).ok()
     }
     pub unsafe fn DocumentName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1700,9 +1700,9 @@ impl IFaxDocument {
     }
     pub unsafe fn SetDocumentName<P0>(&self, bstrdocumentname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDocumentName)(windows_core::Interface::as_raw(self), bstrdocumentname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDocumentName)(windows_core::Interface::as_raw(self), bstrdocumentname.param().abi()).ok()
     }
     pub unsafe fn CallHandle(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -1738,9 +1738,9 @@ impl IFaxDocument {
     }
     pub unsafe fn SetGroupBroadcastReceipts<P0>(&self, busegrouping: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetGroupBroadcastReceipts)(windows_core::Interface::as_raw(self), busegrouping.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetGroupBroadcastReceipts)(windows_core::Interface::as_raw(self), busegrouping.param().abi()).ok()
     }
     pub unsafe fn Priority(&self) -> windows_core::Result<FAX_PRIORITY_TYPE_ENUM> {
         let mut result__ = std::mem::zeroed();
@@ -1757,24 +1757,24 @@ impl IFaxDocument {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_TapiConnection<P0>(&self, ptapiconnection: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::System::Com::IDispatch>,
+        P0: windows_core::Param<super::super::System::Com::IDispatch>,
     {
-        (windows_core::Interface::vtable(self).putref_TapiConnection)(windows_core::Interface::as_raw(self), ptapiconnection.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).putref_TapiConnection)(windows_core::Interface::as_raw(self), ptapiconnection.param().abi()).ok()
     }
     pub unsafe fn Submit<P0>(&self, bstrfaxservername: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), bstrfaxservername.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Submit)(windows_core::Interface::as_raw(self), bstrfaxservername.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ConnectedSubmit<P0>(&self, pfaxserver: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<IFaxServer>,
+        P0: windows_core::Param<IFaxServer>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).ConnectedSubmit)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ConnectedSubmit)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AttachFaxToReceipt(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -1782,9 +1782,9 @@ impl IFaxDocument {
     }
     pub unsafe fn SetAttachFaxToReceipt<P0>(&self, battachfax: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetAttachFaxToReceipt)(windows_core::Interface::as_raw(self), battachfax.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAttachFaxToReceipt)(windows_core::Interface::as_raw(self), battachfax.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1853,9 +1853,9 @@ impl IFaxDocument2 {
     }
     pub unsafe fn SetBody<P0>(&self, bstrbody: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetBody)(windows_core::Interface::as_raw(self), bstrbody.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetBody)(windows_core::Interface::as_raw(self), bstrbody.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Sender(&self) -> windows_core::Result<IFaxSender> {
@@ -1873,9 +1873,9 @@ impl IFaxDocument2 {
     }
     pub unsafe fn SetCoverPage<P0>(&self, bstrcoverpage: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetCoverPage)(windows_core::Interface::as_raw(self), bstrcoverpage.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetCoverPage)(windows_core::Interface::as_raw(self), bstrcoverpage.param().abi()).ok()
     }
     pub unsafe fn Subject(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1883,9 +1883,9 @@ impl IFaxDocument2 {
     }
     pub unsafe fn SetSubject<P0>(&self, bstrsubject: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetSubject)(windows_core::Interface::as_raw(self), bstrsubject.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetSubject)(windows_core::Interface::as_raw(self), bstrsubject.param().abi()).ok()
     }
     pub unsafe fn Note(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1893,9 +1893,9 @@ impl IFaxDocument2 {
     }
     pub unsafe fn SetNote<P0>(&self, bstrnote: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetNote)(windows_core::Interface::as_raw(self), bstrnote.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetNote)(windows_core::Interface::as_raw(self), bstrnote.param().abi()).ok()
     }
     pub unsafe fn ScheduleTime(&self) -> windows_core::Result<f64> {
         let mut result__ = std::mem::zeroed();
@@ -1910,9 +1910,9 @@ impl IFaxDocument2 {
     }
     pub unsafe fn SetReceiptAddress<P0>(&self, bstrreceiptaddress: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetReceiptAddress)(windows_core::Interface::as_raw(self), bstrreceiptaddress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetReceiptAddress)(windows_core::Interface::as_raw(self), bstrreceiptaddress.param().abi()).ok()
     }
     pub unsafe fn DocumentName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -1920,9 +1920,9 @@ impl IFaxDocument2 {
     }
     pub unsafe fn SetDocumentName<P0>(&self, bstrdocumentname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.SetDocumentName)(windows_core::Interface::as_raw(self), bstrdocumentname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetDocumentName)(windows_core::Interface::as_raw(self), bstrdocumentname.param().abi()).ok()
     }
     pub unsafe fn CallHandle(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -1958,9 +1958,9 @@ impl IFaxDocument2 {
     }
     pub unsafe fn SetGroupBroadcastReceipts<P0>(&self, busegrouping: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.SetGroupBroadcastReceipts)(windows_core::Interface::as_raw(self), busegrouping.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetGroupBroadcastReceipts)(windows_core::Interface::as_raw(self), busegrouping.param().abi()).ok()
     }
     pub unsafe fn Priority(&self) -> windows_core::Result<FAX_PRIORITY_TYPE_ENUM> {
         let mut result__ = std::mem::zeroed();
@@ -1977,24 +1977,24 @@ impl IFaxDocument2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_TapiConnection<P0>(&self, ptapiconnection: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::System::Com::IDispatch>,
+        P0: windows_core::Param<super::super::System::Com::IDispatch>,
     {
-        (windows_core::Interface::vtable(self).base__.putref_TapiConnection)(windows_core::Interface::as_raw(self), ptapiconnection.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.putref_TapiConnection)(windows_core::Interface::as_raw(self), ptapiconnection.param().abi()).ok()
     }
     pub unsafe fn Submit<P0>(&self, bstrfaxservername: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Submit)(windows_core::Interface::as_raw(self), bstrfaxservername.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.Submit)(windows_core::Interface::as_raw(self), bstrfaxservername.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ConnectedSubmit<P0>(&self, pfaxserver: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<IFaxServer>,
+        P0: windows_core::Param<IFaxServer>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ConnectedSubmit)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.ConnectedSubmit)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AttachFaxToReceipt(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -2002,9 +2002,9 @@ impl IFaxDocument2 {
     }
     pub unsafe fn SetAttachFaxToReceipt<P0>(&self, battachfax: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).base__.SetAttachFaxToReceipt)(windows_core::Interface::as_raw(self), battachfax.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetAttachFaxToReceipt)(windows_core::Interface::as_raw(self), battachfax.param().abi()).ok()
     }
     pub unsafe fn SubmissionId(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -2016,22 +2016,22 @@ impl IFaxDocument2 {
     }
     pub unsafe fn SetBodies<P0>(&self, vbodies: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetBodies)(windows_core::Interface::as_raw(self), vbodies.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetBodies)(windows_core::Interface::as_raw(self), vbodies.param().abi()).ok()
     }
     pub unsafe fn Submit2<P0>(&self, bstrfaxservername: P0, pvfaxoutgoingjobids: *mut windows_core::VARIANT, plerrorbodyfile: *mut i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).Submit2)(windows_core::Interface::as_raw(self), bstrfaxservername.into_param().abi(), core::mem::transmute(pvfaxoutgoingjobids), plerrorbodyfile).ok()
+        (windows_core::Interface::vtable(self).Submit2)(windows_core::Interface::as_raw(self), bstrfaxservername.param().abi(), core::mem::transmute(pvfaxoutgoingjobids), plerrorbodyfile).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ConnectedSubmit2<P0>(&self, pfaxserver: P0, pvfaxoutgoingjobids: *mut windows_core::VARIANT, plerrorbodyfile: *mut i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer>,
+        P0: windows_core::Param<IFaxServer>,
     {
-        (windows_core::Interface::vtable(self).ConnectedSubmit2)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), core::mem::transmute(pvfaxoutgoingjobids), plerrorbodyfile).ok()
+        (windows_core::Interface::vtable(self).ConnectedSubmit2)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), core::mem::transmute(pvfaxoutgoingjobids), plerrorbodyfile).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2261,10 +2261,10 @@ impl IFaxInboundRoutingExtensions {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, vindex: P0) -> windows_core::Result<IFaxInboundRoutingExtension>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), vindex.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), vindex.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -2349,10 +2349,10 @@ impl IFaxInboundRoutingMethods {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, vindex: P0) -> windows_core::Result<IFaxInboundRoutingMethod>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), vindex.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), vindex.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -2382,9 +2382,9 @@ impl IFaxIncomingArchive {
     }
     pub unsafe fn SetUseArchive<P0>(&self, busearchive: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetUseArchive)(windows_core::Interface::as_raw(self), busearchive.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetUseArchive)(windows_core::Interface::as_raw(self), busearchive.param().abi()).ok()
     }
     pub unsafe fn ArchiveFolder(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -2392,9 +2392,9 @@ impl IFaxIncomingArchive {
     }
     pub unsafe fn SetArchiveFolder<P0>(&self, bstrarchivefolder: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetArchiveFolder)(windows_core::Interface::as_raw(self), bstrarchivefolder.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetArchiveFolder)(windows_core::Interface::as_raw(self), bstrarchivefolder.param().abi()).ok()
     }
     pub unsafe fn SizeQuotaWarning(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -2402,9 +2402,9 @@ impl IFaxIncomingArchive {
     }
     pub unsafe fn SetSizeQuotaWarning<P0>(&self, bsizequotawarning: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetSizeQuotaWarning)(windows_core::Interface::as_raw(self), bsizequotawarning.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSizeQuotaWarning)(windows_core::Interface::as_raw(self), bsizequotawarning.param().abi()).ok()
     }
     pub unsafe fn HighQuotaWaterMark(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -2449,10 +2449,10 @@ impl IFaxIncomingArchive {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMessage<P0>(&self, bstrmessageid: P0) -> windows_core::Result<IFaxIncomingMessage>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetMessage)(windows_core::Interface::as_raw(self), bstrmessageid.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetMessage)(windows_core::Interface::as_raw(self), bstrmessageid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2562,9 +2562,9 @@ impl IFaxIncomingJob {
     }
     pub unsafe fn CopyTiff<P0>(&self, bstrtiffpath: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).CopyTiff)(windows_core::Interface::as_raw(self), bstrtiffpath.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CopyTiff)(windows_core::Interface::as_raw(self), bstrtiffpath.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2604,10 +2604,10 @@ impl IFaxIncomingJobs {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, vindex: P0) -> windows_core::Result<IFaxIncomingJob>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), vindex.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), vindex.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -2677,9 +2677,9 @@ impl IFaxIncomingMessage {
     }
     pub unsafe fn CopyTiff<P0>(&self, bstrtiffpath: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).CopyTiff)(windows_core::Interface::as_raw(self), bstrtiffpath.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CopyTiff)(windows_core::Interface::as_raw(self), bstrtiffpath.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -2755,9 +2755,9 @@ impl IFaxIncomingMessage2 {
     }
     pub unsafe fn CopyTiff<P0>(&self, bstrtiffpath: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.CopyTiff)(windows_core::Interface::as_raw(self), bstrtiffpath.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.CopyTiff)(windows_core::Interface::as_raw(self), bstrtiffpath.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -2768,9 +2768,9 @@ impl IFaxIncomingMessage2 {
     }
     pub unsafe fn SetSubject<P0>(&self, bstrsubject: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSubject)(windows_core::Interface::as_raw(self), bstrsubject.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSubject)(windows_core::Interface::as_raw(self), bstrsubject.param().abi()).ok()
     }
     pub unsafe fn SenderName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -2778,9 +2778,9 @@ impl IFaxIncomingMessage2 {
     }
     pub unsafe fn SetSenderName<P0>(&self, bstrsendername: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSenderName)(windows_core::Interface::as_raw(self), bstrsendername.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSenderName)(windows_core::Interface::as_raw(self), bstrsendername.param().abi()).ok()
     }
     pub unsafe fn SenderFaxNumber(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -2788,9 +2788,9 @@ impl IFaxIncomingMessage2 {
     }
     pub unsafe fn SetSenderFaxNumber<P0>(&self, bstrsenderfaxnumber: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSenderFaxNumber)(windows_core::Interface::as_raw(self), bstrsenderfaxnumber.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSenderFaxNumber)(windows_core::Interface::as_raw(self), bstrsenderfaxnumber.param().abi()).ok()
     }
     pub unsafe fn HasCoverPage(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -2798,9 +2798,9 @@ impl IFaxIncomingMessage2 {
     }
     pub unsafe fn SetHasCoverPage<P0>(&self, bhascoverpage: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetHasCoverPage)(windows_core::Interface::as_raw(self), bhascoverpage.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetHasCoverPage)(windows_core::Interface::as_raw(self), bhascoverpage.param().abi()).ok()
     }
     pub unsafe fn Recipients(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -2808,9 +2808,9 @@ impl IFaxIncomingMessage2 {
     }
     pub unsafe fn SetRecipients<P0>(&self, bstrrecipients: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetRecipients)(windows_core::Interface::as_raw(self), bstrrecipients.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetRecipients)(windows_core::Interface::as_raw(self), bstrrecipients.param().abi()).ok()
     }
     pub unsafe fn WasReAssigned(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -2822,9 +2822,9 @@ impl IFaxIncomingMessage2 {
     }
     pub unsafe fn SetRead<P0>(&self, bread: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetRead)(windows_core::Interface::as_raw(self), bread.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetRead)(windows_core::Interface::as_raw(self), bread.param().abi()).ok()
     }
     pub unsafe fn ReAssign(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ReAssign)(windows_core::Interface::as_raw(self)).ok()
@@ -2912,9 +2912,9 @@ impl IFaxIncomingQueue {
     }
     pub unsafe fn SetBlocked<P0>(&self, bblocked: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetBlocked)(windows_core::Interface::as_raw(self), bblocked.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetBlocked)(windows_core::Interface::as_raw(self), bblocked.param().abi()).ok()
     }
     pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok()
@@ -2930,10 +2930,10 @@ impl IFaxIncomingQueue {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetJob<P0>(&self, bstrjobid: P0) -> windows_core::Result<IFaxIncomingJob>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetJob)(windows_core::Interface::as_raw(self), bstrjobid.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetJob)(windows_core::Interface::as_raw(self), bstrjobid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3154,10 +3154,10 @@ impl IFaxOutboundRoutingGroups {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, vindex: P0) -> windows_core::Result<IFaxOutboundRoutingGroup>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), vindex.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), vindex.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -3166,16 +3166,16 @@ impl IFaxOutboundRoutingGroups {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, bstrname: P0) -> windows_core::Result<IFaxOutboundRoutingGroup>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), bstrname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), bstrname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Remove<P0>(&self, vindex: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), vindex.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), vindex.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3218,9 +3218,9 @@ impl IFaxOutboundRoutingRule {
     }
     pub unsafe fn SetUseDevice<P0>(&self, busedevice: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetUseDevice)(windows_core::Interface::as_raw(self), busedevice.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetUseDevice)(windows_core::Interface::as_raw(self), busedevice.param().abi()).ok()
     }
     pub unsafe fn DeviceId(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -3235,9 +3235,9 @@ impl IFaxOutboundRoutingRule {
     }
     pub unsafe fn SetGroupName<P0>(&self, bstrgroupname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetGroupName)(windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetGroupName)(windows_core::Interface::as_raw(self), bstrgroupname.param().abi()).ok()
     }
     pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok()
@@ -3295,11 +3295,11 @@ impl IFaxOutboundRoutingRules {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0, P1>(&self, lcountrycode: i32, lareacode: i32, busedevice: P0, bstrgroupname: P1, ldeviceid: i32) -> windows_core::Result<IFaxOutboundRoutingRule>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), lcountrycode, lareacode, busedevice.into_param().abi(), bstrgroupname.into_param().abi(), ldeviceid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), lcountrycode, lareacode, busedevice.param().abi(), bstrgroupname.param().abi(), ldeviceid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3335,9 +3335,9 @@ impl IFaxOutgoingArchive {
     }
     pub unsafe fn SetUseArchive<P0>(&self, busearchive: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetUseArchive)(windows_core::Interface::as_raw(self), busearchive.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetUseArchive)(windows_core::Interface::as_raw(self), busearchive.param().abi()).ok()
     }
     pub unsafe fn ArchiveFolder(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -3345,9 +3345,9 @@ impl IFaxOutgoingArchive {
     }
     pub unsafe fn SetArchiveFolder<P0>(&self, bstrarchivefolder: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetArchiveFolder)(windows_core::Interface::as_raw(self), bstrarchivefolder.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetArchiveFolder)(windows_core::Interface::as_raw(self), bstrarchivefolder.param().abi()).ok()
     }
     pub unsafe fn SizeQuotaWarning(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -3355,9 +3355,9 @@ impl IFaxOutgoingArchive {
     }
     pub unsafe fn SetSizeQuotaWarning<P0>(&self, bsizequotawarning: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetSizeQuotaWarning)(windows_core::Interface::as_raw(self), bsizequotawarning.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSizeQuotaWarning)(windows_core::Interface::as_raw(self), bsizequotawarning.param().abi()).ok()
     }
     pub unsafe fn HighQuotaWaterMark(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -3402,10 +3402,10 @@ impl IFaxOutgoingArchive {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMessage<P0>(&self, bstrmessageid: P0) -> windows_core::Result<IFaxOutgoingMessage>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetMessage)(windows_core::Interface::as_raw(self), bstrmessageid.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetMessage)(windows_core::Interface::as_raw(self), bstrmessageid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3556,9 +3556,9 @@ impl IFaxOutgoingJob {
     }
     pub unsafe fn CopyTiff<P0>(&self, bstrtiffpath: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).CopyTiff)(windows_core::Interface::as_raw(self), bstrtiffpath.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CopyTiff)(windows_core::Interface::as_raw(self), bstrtiffpath.param().abi()).ok()
     }
     pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok()
@@ -3728,9 +3728,9 @@ impl IFaxOutgoingJob2 {
     }
     pub unsafe fn CopyTiff<P0>(&self, bstrtiffpath: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.CopyTiff)(windows_core::Interface::as_raw(self), bstrtiffpath.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.CopyTiff)(windows_core::Interface::as_raw(self), bstrtiffpath.param().abi()).ok()
     }
     pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.Refresh)(windows_core::Interface::as_raw(self)).ok()
@@ -3772,10 +3772,10 @@ impl IFaxOutgoingJobs {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, vindex: P0) -> windows_core::Result<IFaxOutgoingJob>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), vindex.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), vindex.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -3871,9 +3871,9 @@ impl IFaxOutgoingMessage {
     }
     pub unsafe fn CopyTiff<P0>(&self, bstrtiffpath: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).CopyTiff)(windows_core::Interface::as_raw(self), bstrtiffpath.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CopyTiff)(windows_core::Interface::as_raw(self), bstrtiffpath.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -3987,9 +3987,9 @@ impl IFaxOutgoingMessage2 {
     }
     pub unsafe fn CopyTiff<P0>(&self, bstrtiffpath: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.CopyTiff)(windows_core::Interface::as_raw(self), bstrtiffpath.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.CopyTiff)(windows_core::Interface::as_raw(self), bstrtiffpath.param().abi()).ok()
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.Delete)(windows_core::Interface::as_raw(self)).ok()
@@ -4012,9 +4012,9 @@ impl IFaxOutgoingMessage2 {
     }
     pub unsafe fn SetRead<P0>(&self, bread: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetRead)(windows_core::Interface::as_raw(self), bread.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetRead)(windows_core::Interface::as_raw(self), bread.param().abi()).ok()
     }
     pub unsafe fn Save(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self)).ok()
@@ -4090,9 +4090,9 @@ impl IFaxOutgoingQueue {
     }
     pub unsafe fn SetBlocked<P0>(&self, bblocked: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetBlocked)(windows_core::Interface::as_raw(self), bblocked.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetBlocked)(windows_core::Interface::as_raw(self), bblocked.param().abi()).ok()
     }
     pub unsafe fn Paused(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -4100,9 +4100,9 @@ impl IFaxOutgoingQueue {
     }
     pub unsafe fn SetPaused<P0>(&self, bpaused: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetPaused)(windows_core::Interface::as_raw(self), bpaused.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetPaused)(windows_core::Interface::as_raw(self), bpaused.param().abi()).ok()
     }
     pub unsafe fn AllowPersonalCoverPages(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -4110,9 +4110,9 @@ impl IFaxOutgoingQueue {
     }
     pub unsafe fn SetAllowPersonalCoverPages<P0>(&self, ballowpersonalcoverpages: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetAllowPersonalCoverPages)(windows_core::Interface::as_raw(self), ballowpersonalcoverpages.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAllowPersonalCoverPages)(windows_core::Interface::as_raw(self), ballowpersonalcoverpages.param().abi()).ok()
     }
     pub unsafe fn UseDeviceTSID(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
@@ -4120,9 +4120,9 @@ impl IFaxOutgoingQueue {
     }
     pub unsafe fn SetUseDeviceTSID<P0>(&self, busedevicetsid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetUseDeviceTSID)(windows_core::Interface::as_raw(self), busedevicetsid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetUseDeviceTSID)(windows_core::Interface::as_raw(self), busedevicetsid.param().abi()).ok()
     }
     pub unsafe fn Retries(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -4165,9 +4165,9 @@ impl IFaxOutgoingQueue {
     }
     pub unsafe fn SetBranding<P0>(&self, bbranding: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetBranding)(windows_core::Interface::as_raw(self), bbranding.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetBranding)(windows_core::Interface::as_raw(self), bbranding.param().abi()).ok()
     }
     pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok()
@@ -4183,10 +4183,10 @@ impl IFaxOutgoingQueue {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetJob<P0>(&self, bstrjobid: P0) -> windows_core::Result<IFaxOutgoingJob>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetJob)(windows_core::Interface::as_raw(self), bstrjobid.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetJob)(windows_core::Interface::as_raw(self), bstrjobid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4243,9 +4243,9 @@ impl IFaxReceiptOptions {
     }
     pub unsafe fn SetSMTPServer<P0>(&self, bstrsmtpserver: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSMTPServer)(windows_core::Interface::as_raw(self), bstrsmtpserver.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSMTPServer)(windows_core::Interface::as_raw(self), bstrsmtpserver.param().abi()).ok()
     }
     pub unsafe fn SMTPPort(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -4260,9 +4260,9 @@ impl IFaxReceiptOptions {
     }
     pub unsafe fn SetSMTPSender<P0>(&self, bstrsmtpsender: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSMTPSender)(windows_core::Interface::as_raw(self), bstrsmtpsender.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSMTPSender)(windows_core::Interface::as_raw(self), bstrsmtpsender.param().abi()).ok()
     }
     pub unsafe fn SMTPUser(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4270,9 +4270,9 @@ impl IFaxReceiptOptions {
     }
     pub unsafe fn SetSMTPUser<P0>(&self, bstrsmtpuser: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSMTPUser)(windows_core::Interface::as_raw(self), bstrsmtpuser.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSMTPUser)(windows_core::Interface::as_raw(self), bstrsmtpuser.param().abi()).ok()
     }
     pub unsafe fn AllowedReceipts(&self) -> windows_core::Result<FAX_RECEIPT_TYPE_ENUM> {
         let mut result__ = std::mem::zeroed();
@@ -4287,9 +4287,9 @@ impl IFaxReceiptOptions {
     }
     pub unsafe fn SetSMTPPassword<P0>(&self, bstrsmtppassword: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetSMTPPassword)(windows_core::Interface::as_raw(self), bstrsmtppassword.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetSMTPPassword)(windows_core::Interface::as_raw(self), bstrsmtppassword.param().abi()).ok()
     }
     pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok()
@@ -4303,9 +4303,9 @@ impl IFaxReceiptOptions {
     }
     pub unsafe fn SetUseForInboundRouting<P0>(&self, buseforinboundrouting: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetUseForInboundRouting)(windows_core::Interface::as_raw(self), buseforinboundrouting.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetUseForInboundRouting)(windows_core::Interface::as_raw(self), buseforinboundrouting.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4343,9 +4343,9 @@ impl IFaxRecipient {
     }
     pub unsafe fn SetFaxNumber<P0>(&self, bstrfaxnumber: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetFaxNumber)(windows_core::Interface::as_raw(self), bstrfaxnumber.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetFaxNumber)(windows_core::Interface::as_raw(self), bstrfaxnumber.param().abi()).ok()
     }
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4353,9 +4353,9 @@ impl IFaxRecipient {
     }
     pub unsafe fn SetName<P0>(&self, bstrname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), bstrname.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4389,11 +4389,11 @@ impl IFaxRecipients {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0, P1>(&self, bstrfaxnumber: P0, bstrrecipientname: P1) -> windows_core::Result<IFaxRecipient>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), bstrfaxnumber.into_param().abi(), bstrrecipientname.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), bstrfaxnumber.param().abi(), bstrrecipientname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Remove(&self, lindex: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), lindex).ok()
@@ -4427,9 +4427,9 @@ impl IFaxSecurity {
     }
     pub unsafe fn SetDescriptor<P0>(&self, vdescriptor: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetDescriptor)(windows_core::Interface::as_raw(self), vdescriptor.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDescriptor)(windows_core::Interface::as_raw(self), vdescriptor.param().abi()).ok()
     }
     pub unsafe fn GrantedRights(&self) -> windows_core::Result<FAX_ACCESS_RIGHTS_ENUM> {
         let mut result__ = std::mem::zeroed();
@@ -4473,9 +4473,9 @@ impl IFaxSecurity2 {
     }
     pub unsafe fn SetDescriptor<P0>(&self, vdescriptor: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetDescriptor)(windows_core::Interface::as_raw(self), vdescriptor.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDescriptor)(windows_core::Interface::as_raw(self), vdescriptor.param().abi()).ok()
     }
     pub unsafe fn GrantedRights(&self) -> windows_core::Result<FAX_ACCESS_RIGHTS_ENUM_2> {
         let mut result__ = std::mem::zeroed();
@@ -4519,9 +4519,9 @@ impl IFaxSender {
     }
     pub unsafe fn SetBillingCode<P0>(&self, bstrbillingcode: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetBillingCode)(windows_core::Interface::as_raw(self), bstrbillingcode.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetBillingCode)(windows_core::Interface::as_raw(self), bstrbillingcode.param().abi()).ok()
     }
     pub unsafe fn City(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4529,9 +4529,9 @@ impl IFaxSender {
     }
     pub unsafe fn SetCity<P0>(&self, bstrcity: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetCity)(windows_core::Interface::as_raw(self), bstrcity.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetCity)(windows_core::Interface::as_raw(self), bstrcity.param().abi()).ok()
     }
     pub unsafe fn Company(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4539,9 +4539,9 @@ impl IFaxSender {
     }
     pub unsafe fn SetCompany<P0>(&self, bstrcompany: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetCompany)(windows_core::Interface::as_raw(self), bstrcompany.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetCompany)(windows_core::Interface::as_raw(self), bstrcompany.param().abi()).ok()
     }
     pub unsafe fn Country(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4549,9 +4549,9 @@ impl IFaxSender {
     }
     pub unsafe fn SetCountry<P0>(&self, bstrcountry: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetCountry)(windows_core::Interface::as_raw(self), bstrcountry.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetCountry)(windows_core::Interface::as_raw(self), bstrcountry.param().abi()).ok()
     }
     pub unsafe fn Department(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4559,9 +4559,9 @@ impl IFaxSender {
     }
     pub unsafe fn SetDepartment<P0>(&self, bstrdepartment: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDepartment)(windows_core::Interface::as_raw(self), bstrdepartment.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetDepartment)(windows_core::Interface::as_raw(self), bstrdepartment.param().abi()).ok()
     }
     pub unsafe fn Email(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4569,9 +4569,9 @@ impl IFaxSender {
     }
     pub unsafe fn SetEmail<P0>(&self, bstremail: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetEmail)(windows_core::Interface::as_raw(self), bstremail.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetEmail)(windows_core::Interface::as_raw(self), bstremail.param().abi()).ok()
     }
     pub unsafe fn FaxNumber(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4579,9 +4579,9 @@ impl IFaxSender {
     }
     pub unsafe fn SetFaxNumber<P0>(&self, bstrfaxnumber: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetFaxNumber)(windows_core::Interface::as_raw(self), bstrfaxnumber.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetFaxNumber)(windows_core::Interface::as_raw(self), bstrfaxnumber.param().abi()).ok()
     }
     pub unsafe fn HomePhone(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4589,9 +4589,9 @@ impl IFaxSender {
     }
     pub unsafe fn SetHomePhone<P0>(&self, bstrhomephone: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetHomePhone)(windows_core::Interface::as_raw(self), bstrhomephone.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetHomePhone)(windows_core::Interface::as_raw(self), bstrhomephone.param().abi()).ok()
     }
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4599,9 +4599,9 @@ impl IFaxSender {
     }
     pub unsafe fn SetName<P0>(&self, bstrname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), bstrname.param().abi()).ok()
     }
     pub unsafe fn TSID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4609,9 +4609,9 @@ impl IFaxSender {
     }
     pub unsafe fn SetTSID<P0>(&self, bstrtsid: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTSID)(windows_core::Interface::as_raw(self), bstrtsid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTSID)(windows_core::Interface::as_raw(self), bstrtsid.param().abi()).ok()
     }
     pub unsafe fn OfficePhone(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4619,9 +4619,9 @@ impl IFaxSender {
     }
     pub unsafe fn SetOfficePhone<P0>(&self, bstrofficephone: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOfficePhone)(windows_core::Interface::as_raw(self), bstrofficephone.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOfficePhone)(windows_core::Interface::as_raw(self), bstrofficephone.param().abi()).ok()
     }
     pub unsafe fn OfficeLocation(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4629,9 +4629,9 @@ impl IFaxSender {
     }
     pub unsafe fn SetOfficeLocation<P0>(&self, bstrofficelocation: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetOfficeLocation)(windows_core::Interface::as_raw(self), bstrofficelocation.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetOfficeLocation)(windows_core::Interface::as_raw(self), bstrofficelocation.param().abi()).ok()
     }
     pub unsafe fn State(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4639,9 +4639,9 @@ impl IFaxSender {
     }
     pub unsafe fn SetState<P0>(&self, bstrstate: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetState)(windows_core::Interface::as_raw(self), bstrstate.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetState)(windows_core::Interface::as_raw(self), bstrstate.param().abi()).ok()
     }
     pub unsafe fn StreetAddress(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4649,9 +4649,9 @@ impl IFaxSender {
     }
     pub unsafe fn SetStreetAddress<P0>(&self, bstrstreetaddress: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetStreetAddress)(windows_core::Interface::as_raw(self), bstrstreetaddress.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetStreetAddress)(windows_core::Interface::as_raw(self), bstrstreetaddress.param().abi()).ok()
     }
     pub unsafe fn Title(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4659,9 +4659,9 @@ impl IFaxSender {
     }
     pub unsafe fn SetTitle<P0>(&self, bstrtitle: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetTitle)(windows_core::Interface::as_raw(self), bstrtitle.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetTitle)(windows_core::Interface::as_raw(self), bstrtitle.param().abi()).ok()
     }
     pub unsafe fn ZipCode(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4669,9 +4669,9 @@ impl IFaxSender {
     }
     pub unsafe fn SetZipCode<P0>(&self, bstrzipcode: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).SetZipCode)(windows_core::Interface::as_raw(self), bstrzipcode.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetZipCode)(windows_core::Interface::as_raw(self), bstrzipcode.param().abi()).ok()
     }
     pub unsafe fn LoadDefaultSender(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).LoadDefaultSender)(windows_core::Interface::as_raw(self)).ok()
@@ -4727,9 +4727,9 @@ windows_core::imp::interface_hierarchy!(IFaxServer, windows_core::IUnknown, supe
 impl IFaxServer {
     pub unsafe fn Connect<P0>(&self, bstrservername: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), bstrservername.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), bstrservername.param().abi()).ok()
     }
     pub unsafe fn ServerName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -4805,50 +4805,50 @@ impl IFaxServer {
     }
     pub unsafe fn GetExtensionProperty<P0>(&self, bstrguid: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetExtensionProperty)(windows_core::Interface::as_raw(self), bstrguid.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetExtensionProperty)(windows_core::Interface::as_raw(self), bstrguid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetExtensionProperty<P0, P1>(&self, bstrguid: P0, vproperty: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetExtensionProperty)(windows_core::Interface::as_raw(self), bstrguid.into_param().abi(), vproperty.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetExtensionProperty)(windows_core::Interface::as_raw(self), bstrguid.param().abi(), vproperty.param().abi()).ok()
     }
     pub unsafe fn ListenToServerEvents(&self, eventtypes: FAX_SERVER_EVENTS_TYPE_ENUM) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ListenToServerEvents)(windows_core::Interface::as_raw(self), eventtypes).ok()
     }
     pub unsafe fn RegisterDeviceProvider<P0, P1, P2, P3>(&self, bstrguid: P0, bstrfriendlyname: P1, bstrimagename: P2, tspname: P3, lfspiversion: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::BSTR>,
-        P3: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::BSTR>,
+        P3: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).RegisterDeviceProvider)(windows_core::Interface::as_raw(self), bstrguid.into_param().abi(), bstrfriendlyname.into_param().abi(), bstrimagename.into_param().abi(), tspname.into_param().abi(), lfspiversion).ok()
+        (windows_core::Interface::vtable(self).RegisterDeviceProvider)(windows_core::Interface::as_raw(self), bstrguid.param().abi(), bstrfriendlyname.param().abi(), bstrimagename.param().abi(), tspname.param().abi(), lfspiversion).ok()
     }
     pub unsafe fn UnregisterDeviceProvider<P0>(&self, bstruniquename: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).UnregisterDeviceProvider)(windows_core::Interface::as_raw(self), bstruniquename.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).UnregisterDeviceProvider)(windows_core::Interface::as_raw(self), bstruniquename.param().abi()).ok()
     }
     pub unsafe fn RegisterInboundRoutingExtension<P0, P1, P2, P3>(&self, bstrextensionname: P0, bstrfriendlyname: P1, bstrimagename: P2, vmethods: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::BSTR>,
-        P3: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::BSTR>,
+        P3: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).RegisterInboundRoutingExtension)(windows_core::Interface::as_raw(self), bstrextensionname.into_param().abi(), bstrfriendlyname.into_param().abi(), bstrimagename.into_param().abi(), vmethods.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RegisterInboundRoutingExtension)(windows_core::Interface::as_raw(self), bstrextensionname.param().abi(), bstrfriendlyname.param().abi(), bstrimagename.param().abi(), vmethods.param().abi()).ok()
     }
     pub unsafe fn UnregisterInboundRoutingExtension<P0>(&self, bstrextensionuniquename: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).UnregisterInboundRoutingExtension)(windows_core::Interface::as_raw(self), bstrextensionuniquename.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).UnregisterInboundRoutingExtension)(windows_core::Interface::as_raw(self), bstrextensionuniquename.param().abi()).ok()
     }
     pub unsafe fn RegisteredEvents(&self) -> windows_core::Result<FAX_SERVER_EVENTS_TYPE_ENUM> {
         let mut result__ = std::mem::zeroed();
@@ -4925,9 +4925,9 @@ windows_core::imp::interface_hierarchy!(IFaxServer2, windows_core::IUnknown, sup
 impl IFaxServer2 {
     pub unsafe fn Connect<P0>(&self, bstrservername: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.Connect)(windows_core::Interface::as_raw(self), bstrservername.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.Connect)(windows_core::Interface::as_raw(self), bstrservername.param().abi()).ok()
     }
     pub unsafe fn ServerName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -5003,50 +5003,50 @@ impl IFaxServer2 {
     }
     pub unsafe fn GetExtensionProperty<P0>(&self, bstrguid: P0) -> windows_core::Result<windows_core::VARIANT>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetExtensionProperty)(windows_core::Interface::as_raw(self), bstrguid.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).base__.GetExtensionProperty)(windows_core::Interface::as_raw(self), bstrguid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetExtensionProperty<P0, P1>(&self, bstrguid: P0, vproperty: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.SetExtensionProperty)(windows_core::Interface::as_raw(self), bstrguid.into_param().abi(), vproperty.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.SetExtensionProperty)(windows_core::Interface::as_raw(self), bstrguid.param().abi(), vproperty.param().abi()).ok()
     }
     pub unsafe fn ListenToServerEvents(&self, eventtypes: FAX_SERVER_EVENTS_TYPE_ENUM) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).base__.ListenToServerEvents)(windows_core::Interface::as_raw(self), eventtypes).ok()
     }
     pub unsafe fn RegisterDeviceProvider<P0, P1, P2, P3>(&self, bstrguid: P0, bstrfriendlyname: P1, bstrimagename: P2, tspname: P3, lfspiversion: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::BSTR>,
-        P3: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::BSTR>,
+        P3: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.RegisterDeviceProvider)(windows_core::Interface::as_raw(self), bstrguid.into_param().abi(), bstrfriendlyname.into_param().abi(), bstrimagename.into_param().abi(), tspname.into_param().abi(), lfspiversion).ok()
+        (windows_core::Interface::vtable(self).base__.RegisterDeviceProvider)(windows_core::Interface::as_raw(self), bstrguid.param().abi(), bstrfriendlyname.param().abi(), bstrimagename.param().abi(), tspname.param().abi(), lfspiversion).ok()
     }
     pub unsafe fn UnregisterDeviceProvider<P0>(&self, bstruniquename: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.UnregisterDeviceProvider)(windows_core::Interface::as_raw(self), bstruniquename.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.UnregisterDeviceProvider)(windows_core::Interface::as_raw(self), bstruniquename.param().abi()).ok()
     }
     pub unsafe fn RegisterInboundRoutingExtension<P0, P1, P2, P3>(&self, bstrextensionname: P0, bstrfriendlyname: P1, bstrimagename: P2, vmethods: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<windows_core::BSTR>,
-        P3: windows_core::IntoParam<windows_core::VARIANT>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::BSTR>,
+        P3: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).base__.RegisterInboundRoutingExtension)(windows_core::Interface::as_raw(self), bstrextensionname.into_param().abi(), bstrfriendlyname.into_param().abi(), bstrimagename.into_param().abi(), vmethods.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.RegisterInboundRoutingExtension)(windows_core::Interface::as_raw(self), bstrextensionname.param().abi(), bstrfriendlyname.param().abi(), bstrimagename.param().abi(), vmethods.param().abi()).ok()
     }
     pub unsafe fn UnregisterInboundRoutingExtension<P0>(&self, bstrextensionuniquename: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).base__.UnregisterInboundRoutingExtension)(windows_core::Interface::as_raw(self), bstrextensionuniquename.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.UnregisterInboundRoutingExtension)(windows_core::Interface::as_raw(self), bstrextensionuniquename.param().abi()).ok()
     }
     pub unsafe fn RegisteredEvents(&self) -> windows_core::Result<FAX_SERVER_EVENTS_TYPE_ENUM> {
         let mut result__ = std::mem::zeroed();
@@ -5118,204 +5118,204 @@ impl IFaxServerNotify2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnIncomingJobAdded<P0, P1>(&self, pfaxserver: P0, bstrjobid: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer2>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<IFaxServer2>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).OnIncomingJobAdded)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrjobid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnIncomingJobAdded)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), bstrjobid.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnIncomingJobRemoved<P0, P1>(&self, pfaxserver: P0, bstrjobid: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer2>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<IFaxServer2>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).OnIncomingJobRemoved)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrjobid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnIncomingJobRemoved)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), bstrjobid.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnIncomingJobChanged<P0, P1, P2>(&self, pfaxserver: P0, bstrjobid: P1, pjobstatus: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer2>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<IFaxJobStatus>,
+        P0: windows_core::Param<IFaxServer2>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<IFaxJobStatus>,
     {
-        (windows_core::Interface::vtable(self).OnIncomingJobChanged)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrjobid.into_param().abi(), pjobstatus.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnIncomingJobChanged)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), bstrjobid.param().abi(), pjobstatus.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutgoingJobAdded<P0, P1>(&self, pfaxserver: P0, bstrjobid: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer2>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<IFaxServer2>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).OnOutgoingJobAdded)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrjobid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnOutgoingJobAdded)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), bstrjobid.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutgoingJobRemoved<P0, P1>(&self, pfaxserver: P0, bstrjobid: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer2>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<IFaxServer2>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).OnOutgoingJobRemoved)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrjobid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnOutgoingJobRemoved)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), bstrjobid.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutgoingJobChanged<P0, P1, P2>(&self, pfaxserver: P0, bstrjobid: P1, pjobstatus: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer2>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
-        P2: windows_core::IntoParam<IFaxJobStatus>,
+        P0: windows_core::Param<IFaxServer2>,
+        P1: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<IFaxJobStatus>,
     {
-        (windows_core::Interface::vtable(self).OnOutgoingJobChanged)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrjobid.into_param().abi(), pjobstatus.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnOutgoingJobChanged)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), bstrjobid.param().abi(), pjobstatus.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnIncomingMessageAdded<P0, P1>(&self, pfaxserver: P0, bstrmessageid: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer2>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<IFaxServer2>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).OnIncomingMessageAdded)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrmessageid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnIncomingMessageAdded)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), bstrmessageid.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnIncomingMessageRemoved<P0, P1>(&self, pfaxserver: P0, bstrmessageid: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer2>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<IFaxServer2>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).OnIncomingMessageRemoved)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrmessageid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnIncomingMessageRemoved)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), bstrmessageid.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutgoingMessageAdded<P0, P1>(&self, pfaxserver: P0, bstrmessageid: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer2>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<IFaxServer2>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).OnOutgoingMessageAdded)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrmessageid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnOutgoingMessageAdded)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), bstrmessageid.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutgoingMessageRemoved<P0, P1>(&self, pfaxserver: P0, bstrmessageid: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer2>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<IFaxServer2>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).OnOutgoingMessageRemoved)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrmessageid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnOutgoingMessageRemoved)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), bstrmessageid.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnReceiptOptionsChange<P0>(&self, pfaxserver: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer2>,
+        P0: windows_core::Param<IFaxServer2>,
     {
-        (windows_core::Interface::vtable(self).OnReceiptOptionsChange)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnReceiptOptionsChange)(windows_core::Interface::as_raw(self), pfaxserver.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnActivityLoggingConfigChange<P0>(&self, pfaxserver: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer2>,
+        P0: windows_core::Param<IFaxServer2>,
     {
-        (windows_core::Interface::vtable(self).OnActivityLoggingConfigChange)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnActivityLoggingConfigChange)(windows_core::Interface::as_raw(self), pfaxserver.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnSecurityConfigChange<P0>(&self, pfaxserver: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer2>,
+        P0: windows_core::Param<IFaxServer2>,
     {
-        (windows_core::Interface::vtable(self).OnSecurityConfigChange)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnSecurityConfigChange)(windows_core::Interface::as_raw(self), pfaxserver.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnEventLoggingConfigChange<P0>(&self, pfaxserver: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer2>,
+        P0: windows_core::Param<IFaxServer2>,
     {
-        (windows_core::Interface::vtable(self).OnEventLoggingConfigChange)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnEventLoggingConfigChange)(windows_core::Interface::as_raw(self), pfaxserver.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutgoingQueueConfigChange<P0>(&self, pfaxserver: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer2>,
+        P0: windows_core::Param<IFaxServer2>,
     {
-        (windows_core::Interface::vtable(self).OnOutgoingQueueConfigChange)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnOutgoingQueueConfigChange)(windows_core::Interface::as_raw(self), pfaxserver.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutgoingArchiveConfigChange<P0>(&self, pfaxserver: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer2>,
+        P0: windows_core::Param<IFaxServer2>,
     {
-        (windows_core::Interface::vtable(self).OnOutgoingArchiveConfigChange)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnOutgoingArchiveConfigChange)(windows_core::Interface::as_raw(self), pfaxserver.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnIncomingArchiveConfigChange<P0>(&self, pfaxserver: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer2>,
+        P0: windows_core::Param<IFaxServer2>,
     {
-        (windows_core::Interface::vtable(self).OnIncomingArchiveConfigChange)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnIncomingArchiveConfigChange)(windows_core::Interface::as_raw(self), pfaxserver.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnDevicesConfigChange<P0>(&self, pfaxserver: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer2>,
+        P0: windows_core::Param<IFaxServer2>,
     {
-        (windows_core::Interface::vtable(self).OnDevicesConfigChange)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnDevicesConfigChange)(windows_core::Interface::as_raw(self), pfaxserver.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutboundRoutingGroupsConfigChange<P0>(&self, pfaxserver: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer2>,
+        P0: windows_core::Param<IFaxServer2>,
     {
-        (windows_core::Interface::vtable(self).OnOutboundRoutingGroupsConfigChange)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnOutboundRoutingGroupsConfigChange)(windows_core::Interface::as_raw(self), pfaxserver.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutboundRoutingRulesConfigChange<P0>(&self, pfaxserver: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer2>,
+        P0: windows_core::Param<IFaxServer2>,
     {
-        (windows_core::Interface::vtable(self).OnOutboundRoutingRulesConfigChange)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnOutboundRoutingRulesConfigChange)(windows_core::Interface::as_raw(self), pfaxserver.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnServerActivityChange<P0>(&self, pfaxserver: P0, lincomingmessages: i32, lroutingmessages: i32, loutgoingmessages: i32, lqueuedmessages: i32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer2>,
+        P0: windows_core::Param<IFaxServer2>,
     {
-        (windows_core::Interface::vtable(self).OnServerActivityChange)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), lincomingmessages, lroutingmessages, loutgoingmessages, lqueuedmessages).ok()
+        (windows_core::Interface::vtable(self).OnServerActivityChange)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), lincomingmessages, lroutingmessages, loutgoingmessages, lqueuedmessages).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnQueuesStatusChange<P0, P1, P2, P3>(&self, pfaxserver: P0, boutgoingqueueblocked: P1, boutgoingqueuepaused: P2, bincomingqueueblocked: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer2>,
-        P1: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
-        P3: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<IFaxServer2>,
+        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
+        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
+        P3: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).OnQueuesStatusChange)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), boutgoingqueueblocked.into_param().abi(), boutgoingqueuepaused.into_param().abi(), bincomingqueueblocked.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnQueuesStatusChange)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), boutgoingqueueblocked.param().abi(), boutgoingqueuepaused.param().abi(), bincomingqueueblocked.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnNewCall<P0, P1>(&self, pfaxserver: P0, lcallid: i32, ldeviceid: i32, bstrcallerid: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer2>,
-        P1: windows_core::IntoParam<windows_core::BSTR>,
+        P0: windows_core::Param<IFaxServer2>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).OnNewCall)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), lcallid, ldeviceid, bstrcallerid.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnNewCall)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), lcallid, ldeviceid, bstrcallerid.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnServerShutDown<P0>(&self, pfaxserver: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer2>,
+        P0: windows_core::Param<IFaxServer2>,
     {
-        (windows_core::Interface::vtable(self).OnServerShutDown)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnServerShutDown)(windows_core::Interface::as_raw(self), pfaxserver.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnDeviceStatusChange<P0, P1, P2, P3, P4>(&self, pfaxserver: P0, ldeviceid: i32, bpoweredoff: P1, bsending: P2, breceiving: P3, bringing: P4) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer2>,
-        P1: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
-        P2: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
-        P3: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
-        P4: windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
+        P0: windows_core::Param<IFaxServer2>,
+        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
+        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
+        P3: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
+        P4: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
-        (windows_core::Interface::vtable(self).OnDeviceStatusChange)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), ldeviceid, bpoweredoff.into_param().abi(), bsending.into_param().abi(), breceiving.into_param().abi(), bringing.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnDeviceStatusChange)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), ldeviceid, bpoweredoff.param().abi(), bsending.param().abi(), breceiving.param().abi(), bringing.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnGeneralServerConfigChanged<P0>(&self, pfaxserver: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IFaxServer2>,
+        P0: windows_core::Param<IFaxServer2>,
     {
-        (windows_core::Interface::vtable(self).OnGeneralServerConfigChanged)(windows_core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).OnGeneralServerConfigChanged)(windows_core::Interface::as_raw(self), pfaxserver.param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5432,10 +5432,10 @@ windows_core::imp::interface_hierarchy!(IStiDevice, windows_core::IUnknown);
 impl IStiDevice {
     pub unsafe fn Initialize<P0, P1>(&self, hinst: P0, pwszdevicename: P1, dwversion: u32, dwmode: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), hinst.into_param().abi(), pwszdevicename.into_param().abi(), dwversion, dwmode).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), hinst.param().abi(), pwszdevicename.param().abi(), dwversion, dwmode).ok()
     }
     pub unsafe fn GetCapabilities(&self, pdevcaps: *mut STI_DEV_CAPS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetCapabilities)(windows_core::Interface::as_raw(self), pdevcaps).ok()
@@ -5529,9 +5529,9 @@ windows_core::imp::interface_hierarchy!(IStiDeviceControl, windows_core::IUnknow
 impl IStiDeviceControl {
     pub unsafe fn Initialize<P0>(&self, dwdevicetype: u32, dwmode: u32, pwszportname: P0, dwflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), dwdevicetype, dwmode, pwszportname.into_param().abi(), dwflags).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), dwdevicetype, dwmode, pwszportname.param().abi(), dwflags).ok()
     }
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn RawReadData(&self, lpbuffer: *mut core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_core::Result<()> {
@@ -5566,9 +5566,9 @@ impl IStiDeviceControl {
     }
     pub unsafe fn WriteToErrorLog<P0>(&self, dwmessagetype: u32, pszmessage: P0, dwerrorcode: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).WriteToErrorLog)(windows_core::Interface::as_raw(self), dwmessagetype, pszmessage.into_param().abi(), dwerrorcode).ok()
+        (windows_core::Interface::vtable(self).WriteToErrorLog)(windows_core::Interface::as_raw(self), dwmessagetype, pszmessage.param().abi(), dwerrorcode).ok()
     }
 }
 #[repr(C)]
@@ -5604,10 +5604,10 @@ impl IStiUSD {
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn Initialize<P0, P1>(&self, pheldcb: P0, dwstiversion: u32, hparameterskey: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IStiDeviceControl>,
-        P1: windows_core::IntoParam<super::super::System::Registry::HKEY>,
+        P0: windows_core::Param<IStiDeviceControl>,
+        P1: windows_core::Param<super::super::System::Registry::HKEY>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pheldcb.into_param().abi(), dwstiversion, hparameterskey.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pheldcb.param().abi(), dwstiversion, hparameterskey.param().abi()).ok()
     }
     pub unsafe fn GetCapabilities(&self) -> windows_core::Result<STI_USD_CAPS> {
         let mut result__ = std::mem::zeroed();
@@ -5653,9 +5653,9 @@ impl IStiUSD {
     }
     pub unsafe fn SetNotificationHandle<P0>(&self, hevent: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HANDLE>,
+        P0: windows_core::Param<super::super::Foundation::HANDLE>,
     {
-        (windows_core::Interface::vtable(self).SetNotificationHandle)(windows_core::Interface::as_raw(self), hevent.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetNotificationHandle)(windows_core::Interface::as_raw(self), hevent.param().abi()).ok()
     }
     pub unsafe fn GetNotificationData(&self, lpnotify: *mut STINOTIFY) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetNotificationData)(windows_core::Interface::as_raw(self), lpnotify).ok()
@@ -5704,91 +5704,91 @@ windows_core::imp::interface_hierarchy!(IStillImageW, windows_core::IUnknown);
 impl IStillImageW {
     pub unsafe fn Initialize<P0>(&self, hinst: P0, dwversion: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
+        P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), hinst.into_param().abi(), dwversion).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), hinst.param().abi(), dwversion).ok()
     }
     pub unsafe fn GetDeviceList(&self, dwtype: u32, dwflags: u32, pdwitemsreturned: *mut u32, ppbuffer: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetDeviceList)(windows_core::Interface::as_raw(self), dwtype, dwflags, pdwitemsreturned, ppbuffer).ok()
     }
     pub unsafe fn GetDeviceInfo<P0>(&self, pwszdevicename: P0, ppbuffer: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetDeviceInfo)(windows_core::Interface::as_raw(self), pwszdevicename.into_param().abi(), ppbuffer).ok()
+        (windows_core::Interface::vtable(self).GetDeviceInfo)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), ppbuffer).ok()
     }
     pub unsafe fn CreateDevice<P0, P1>(&self, pwszdevicename: P0, dwmode: u32, pdevice: *mut Option<IStiDevice>, punkouter: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), pwszdevicename.into_param().abi(), dwmode, core::mem::transmute(pdevice), punkouter.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), dwmode, core::mem::transmute(pdevice), punkouter.param().abi()).ok()
     }
     pub unsafe fn GetDeviceValue<P0, P1>(&self, pwszdevicename: P0, pvaluename: P1, ptype: *mut u32, pdata: *mut u8, cbdata: *mut u32) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetDeviceValue)(windows_core::Interface::as_raw(self), pwszdevicename.into_param().abi(), pvaluename.into_param().abi(), ptype, pdata, cbdata).ok()
+        (windows_core::Interface::vtable(self).GetDeviceValue)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), pvaluename.param().abi(), ptype, pdata, cbdata).ok()
     }
     pub unsafe fn SetDeviceValue<P0, P1>(&self, pwszdevicename: P0, pvaluename: P1, r#type: u32, pdata: &[u8]) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetDeviceValue)(windows_core::Interface::as_raw(self), pwszdevicename.into_param().abi(), pvaluename.into_param().abi(), r#type, core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap()).ok()
+        (windows_core::Interface::vtable(self).SetDeviceValue)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), pvaluename.param().abi(), r#type, core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetSTILaunchInformation(&self, pwszdevicename: &mut [u16; 128], pdweventcode: Option<*mut u32>, pwszeventname: &mut [u16; 128]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSTILaunchInformation)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszdevicename.as_ptr()), core::mem::transmute(pdweventcode.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pwszeventname.as_ptr())).ok()
     }
     pub unsafe fn RegisterLaunchApplication<P0, P1>(&self, pwszappname: P0, pwszcommandline: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).RegisterLaunchApplication)(windows_core::Interface::as_raw(self), pwszappname.into_param().abi(), pwszcommandline.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RegisterLaunchApplication)(windows_core::Interface::as_raw(self), pwszappname.param().abi(), pwszcommandline.param().abi()).ok()
     }
     pub unsafe fn UnregisterLaunchApplication<P0>(&self, pwszappname: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).UnregisterLaunchApplication)(windows_core::Interface::as_raw(self), pwszappname.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).UnregisterLaunchApplication)(windows_core::Interface::as_raw(self), pwszappname.param().abi()).ok()
     }
     pub unsafe fn EnableHwNotifications<P0, P1>(&self, pwszdevicename: P0, bnewstate: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).EnableHwNotifications)(windows_core::Interface::as_raw(self), pwszdevicename.into_param().abi(), bnewstate.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).EnableHwNotifications)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), bnewstate.param().abi()).ok()
     }
     pub unsafe fn GetHwNotificationState<P0>(&self, pwszdevicename: P0) -> windows_core::Result<super::super::Foundation::BOOL>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetHwNotificationState)(windows_core::Interface::as_raw(self), pwszdevicename.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetHwNotificationState)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn RefreshDeviceBus<P0>(&self, pwszdevicename: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).RefreshDeviceBus)(windows_core::Interface::as_raw(self), pwszdevicename.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).RefreshDeviceBus)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi()).ok()
     }
     pub unsafe fn LaunchApplicationForDevice<P0, P1>(&self, pwszdevicename: P0, pwszappname: P1, pstinotify: *const STINOTIFY) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
-        P1: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).LaunchApplicationForDevice)(windows_core::Interface::as_raw(self), pwszdevicename.into_param().abi(), pwszappname.into_param().abi(), pstinotify).ok()
+        (windows_core::Interface::vtable(self).LaunchApplicationForDevice)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), pwszappname.param().abi(), pstinotify).ok()
     }
     pub unsafe fn SetupDeviceParameters(&self, param0: *mut STI_DEVICE_INFORMATIONW) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetupDeviceParameters)(windows_core::Interface::as_raw(self), param0).ok()
     }
     pub unsafe fn WriteToErrorLog<P0>(&self, dwmessagetype: u32, pszmessage: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).WriteToErrorLog)(windows_core::Interface::as_raw(self), dwmessagetype, pszmessage.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).WriteToErrorLog)(windows_core::Interface::as_raw(self), dwmessagetype, pszmessage.param().abi()).ok()
     }
 }
 #[repr(C)]

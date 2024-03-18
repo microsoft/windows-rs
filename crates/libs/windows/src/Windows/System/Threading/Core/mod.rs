@@ -54,29 +54,29 @@ impl PreallocatedWorkItem {
     }
     pub fn CreateWorkItem<P0>(handler: P0) -> windows_core::Result<PreallocatedWorkItem>
     where
-        P0: windows_core::IntoParam<super::WorkItemHandler>,
+        P0: windows_core::Param<super::WorkItemHandler>,
     {
         Self::IPreallocatedWorkItemFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWorkItem)(windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWorkItem)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWorkItemWithPriority<P0>(handler: P0, priority: super::WorkItemPriority) -> windows_core::Result<PreallocatedWorkItem>
     where
-        P0: windows_core::IntoParam<super::WorkItemHandler>,
+        P0: windows_core::Param<super::WorkItemHandler>,
     {
         Self::IPreallocatedWorkItemFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWorkItemWithPriority)(windows_core::Interface::as_raw(this), handler.into_param().abi(), priority, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWorkItemWithPriority)(windows_core::Interface::as_raw(this), handler.param().abi(), priority, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWorkItemWithPriorityAndOptions<P0>(handler: P0, priority: super::WorkItemPriority, options: super::WorkItemOptions) -> windows_core::Result<PreallocatedWorkItem>
     where
-        P0: windows_core::IntoParam<super::WorkItemHandler>,
+        P0: windows_core::Param<super::WorkItemHandler>,
     {
         Self::IPreallocatedWorkItemFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWorkItemWithPriorityAndOptions)(windows_core::Interface::as_raw(this), handler.into_param().abi(), priority, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWorkItemWithPriorityAndOptions)(windows_core::Interface::as_raw(this), handler.param().abi(), priority, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -112,38 +112,38 @@ impl SignalNotifier {
     }
     pub fn AttachToEvent<P0>(name: &windows_core::HSTRING, handler: P0) -> windows_core::Result<SignalNotifier>
     where
-        P0: windows_core::IntoParam<SignalHandler>,
+        P0: windows_core::Param<SignalHandler>,
     {
         Self::ISignalNotifierStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AttachToEvent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), handler.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AttachToEvent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), handler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn AttachToEventWithTimeout<P0>(name: &windows_core::HSTRING, handler: P0, timeout: super::super::super::Foundation::TimeSpan) -> windows_core::Result<SignalNotifier>
     where
-        P0: windows_core::IntoParam<SignalHandler>,
+        P0: windows_core::Param<SignalHandler>,
     {
         Self::ISignalNotifierStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AttachToEventWithTimeout)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), handler.into_param().abi(), timeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AttachToEventWithTimeout)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), handler.param().abi(), timeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn AttachToSemaphore<P0>(name: &windows_core::HSTRING, handler: P0) -> windows_core::Result<SignalNotifier>
     where
-        P0: windows_core::IntoParam<SignalHandler>,
+        P0: windows_core::Param<SignalHandler>,
     {
         Self::ISignalNotifierStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AttachToSemaphore)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), handler.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AttachToSemaphore)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), handler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn AttachToSemaphoreWithTimeout<P0>(name: &windows_core::HSTRING, handler: P0, timeout: super::super::super::Foundation::TimeSpan) -> windows_core::Result<SignalNotifier>
     where
-        P0: windows_core::IntoParam<SignalHandler>,
+        P0: windows_core::Param<SignalHandler>,
     {
         Self::ISignalNotifierStatics(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).AttachToSemaphoreWithTimeout)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), handler.into_param().abi(), timeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AttachToSemaphoreWithTimeout)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), handler.param().abi(), timeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -172,10 +172,10 @@ impl SignalHandler {
     }
     pub fn Invoke<P0>(&self, signalnotifier: P0, timedout: bool) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<SignalNotifier>,
+        P0: windows_core::Param<SignalNotifier>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), signalnotifier.into_param().abi(), timedout).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), signalnotifier.param().abi(), timedout).ok() }
     }
 }
 #[repr(C)]

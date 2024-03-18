@@ -188,10 +188,10 @@ impl IEnumEnhancedStorageACT {
     }
     pub unsafe fn GetMatchingACT<P0>(&self, szvolume: P0) -> windows_core::Result<IEnhancedStorageACT>
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetMatchingACT)(windows_core::Interface::as_raw(self), szvolume.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetMatchingACT)(windows_core::Interface::as_raw(self), szvolume.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]

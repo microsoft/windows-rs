@@ -15,11 +15,11 @@ windows_core::imp::interface_hierarchy!(IInkD2DRenderer, windows_core::IUnknown)
 impl IInkD2DRenderer {
     pub unsafe fn Draw<P0, P1, P2>(&self, pd2d1devicecontext: P0, pinkstrokeiterable: P1, fhighcontrast: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
-        P1: windows_core::IntoParam<windows_core::IUnknown>,
-        P2: windows_core::IntoParam<super::super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::IUnknown>,
+        P1: windows_core::Param<windows_core::IUnknown>,
+        P2: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), pd2d1devicecontext.into_param().abi(), pinkstrokeiterable.into_param().abi(), fhighcontrast.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), pd2d1devicecontext.param().abi(), pinkstrokeiterable.param().abi(), fhighcontrast.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -32,10 +32,10 @@ windows_core::imp::interface_hierarchy!(IInkD2DRenderer2, windows_core::IUnknown
 impl IInkD2DRenderer2 {
     pub unsafe fn Draw<P0, P1>(&self, pd2d1devicecontext: P0, pinkstrokeiterable: P1, highcontrastadjustment: INK_HIGH_CONTRAST_ADJUSTMENT) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
-        P1: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
+        P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), pd2d1devicecontext.into_param().abi(), pinkstrokeiterable.into_param().abi(), highcontrastadjustment).ok()
+        (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), pd2d1devicecontext.param().abi(), pinkstrokeiterable.param().abi(), highcontrastadjustment).ok()
     }
 }
 #[repr(C)]
@@ -48,9 +48,9 @@ windows_core::imp::interface_hierarchy!(IInkDesktopHost, windows_core::IUnknown)
 impl IInkDesktopHost {
     pub unsafe fn QueueWorkItem<P0>(&self, workitem: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IInkHostWorkItem>,
+        P0: windows_core::Param<IInkHostWorkItem>,
     {
-        (windows_core::Interface::vtable(self).QueueWorkItem)(windows_core::Interface::as_raw(self), workitem.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).QueueWorkItem)(windows_core::Interface::as_raw(self), workitem.param().abi()).ok()
     }
     pub unsafe fn CreateInkPresenter<T>(&self) -> windows_core::Result<T>
     where
@@ -61,11 +61,11 @@ impl IInkDesktopHost {
     }
     pub unsafe fn CreateAndInitializeInkPresenter<P0, T>(&self, rootvisual: P0, width: f32, height: f32) -> windows_core::Result<T>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
     {
         let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).CreateAndInitializeInkPresenter)(windows_core::Interface::as_raw(self), rootvisual.into_param().abi(), width, height, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateAndInitializeInkPresenter)(windows_core::Interface::as_raw(self), rootvisual.param().abi(), width, height, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -92,16 +92,16 @@ windows_core::imp::interface_hierarchy!(IInkPresenterDesktop, windows_core::IUnk
 impl IInkPresenterDesktop {
     pub unsafe fn SetRootVisual<P0, P1>(&self, rootvisual: P0, device: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
-        P1: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
+        P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).SetRootVisual)(windows_core::Interface::as_raw(self), rootvisual.into_param().abi(), device.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetRootVisual)(windows_core::Interface::as_raw(self), rootvisual.param().abi(), device.param().abi()).ok()
     }
     pub unsafe fn SetCommitRequestHandler<P0>(&self, handler: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IInkCommitRequestHandler>,
+        P0: windows_core::Param<IInkCommitRequestHandler>,
     {
-        (windows_core::Interface::vtable(self).SetCommitRequestHandler)(windows_core::Interface::as_raw(self), handler.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetCommitRequestHandler)(windows_core::Interface::as_raw(self), handler.param().abi()).ok()
     }
     pub unsafe fn GetSize(&self, width: *mut f32, height: *mut f32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self), width, height).ok()

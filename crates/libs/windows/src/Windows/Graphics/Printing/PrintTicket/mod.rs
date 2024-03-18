@@ -386,10 +386,10 @@ impl PrintTicketFeature {
     }
     pub fn SetSelectedOption<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<PrintTicketOption>,
+        P0: windows_core::Param<PrintTicketOption>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSelectedOption)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSelectedOption)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn SelectionType(&self) -> windows_core::Result<PrintTicketFeatureSelectionType> {
         let this = self;
@@ -585,10 +585,10 @@ impl PrintTicketParameterInitializer {
     }
     pub fn SetValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<PrintTicketValue>,
+        P0: windows_core::Param<PrintTicketValue>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Value(&self) -> windows_core::Result<PrintTicketValue> {
         let this = self;
@@ -832,12 +832,12 @@ impl WorkflowPrintTicket {
     }
     pub fn MergeAndValidateTicket<P0>(&self, deltashematicket: P0) -> windows_core::Result<WorkflowPrintTicket>
     where
-        P0: windows_core::IntoParam<WorkflowPrintTicket>,
+        P0: windows_core::Param<WorkflowPrintTicket>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).MergeAndValidateTicket)(windows_core::Interface::as_raw(this), deltashematicket.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).MergeAndValidateTicket)(windows_core::Interface::as_raw(this), deltashematicket.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }

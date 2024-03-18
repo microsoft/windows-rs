@@ -491,22 +491,22 @@ impl HidDevice {
     }
     pub fn SendOutputReportAsync<P0>(&self, outputreport: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>
     where
-        P0: windows_core::IntoParam<HidOutputReport>,
+        P0: windows_core::Param<HidOutputReport>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SendOutputReportAsync)(windows_core::Interface::as_raw(this), outputreport.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SendOutputReportAsync)(windows_core::Interface::as_raw(this), outputreport.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SendFeatureReportAsync<P0>(&self, featurereport: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>
     where
-        P0: windows_core::IntoParam<HidFeatureReport>,
+        P0: windows_core::Param<HidFeatureReport>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SendFeatureReportAsync)(windows_core::Interface::as_raw(this), featurereport.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SendFeatureReportAsync)(windows_core::Interface::as_raw(this), featurereport.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -527,12 +527,12 @@ impl HidDevice {
     }
     pub fn InputReportReceived<P0>(&self, reporthandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::TypedEventHandler<HidDevice, HidInputReportReceivedEventArgs>>,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<HidDevice, HidInputReportReceivedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).InputReportReceived)(windows_core::Interface::as_raw(this), reporthandler.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).InputReportReceived)(windows_core::Interface::as_raw(this), reporthandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveInputReportReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -599,10 +599,10 @@ impl HidFeatureReport {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetData<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetData)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetData)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn GetBooleanControl(&self, usagepage: u16, usageid: u16) -> windows_core::Result<HidBooleanControl> {
         let this = self;
@@ -613,12 +613,12 @@ impl HidFeatureReport {
     }
     pub fn GetBooleanControlByDescription<P0>(&self, controldescription: P0) -> windows_core::Result<HidBooleanControl>
     where
-        P0: windows_core::IntoParam<HidBooleanControlDescription>,
+        P0: windows_core::Param<HidBooleanControlDescription>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetBooleanControlByDescription)(windows_core::Interface::as_raw(this), controldescription.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetBooleanControlByDescription)(windows_core::Interface::as_raw(this), controldescription.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetNumericControl(&self, usagepage: u16, usageid: u16) -> windows_core::Result<HidNumericControl> {
@@ -630,12 +630,12 @@ impl HidFeatureReport {
     }
     pub fn GetNumericControlByDescription<P0>(&self, controldescription: P0) -> windows_core::Result<HidNumericControl>
     where
-        P0: windows_core::IntoParam<HidNumericControlDescription>,
+        P0: windows_core::Param<HidNumericControlDescription>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetNumericControlByDescription)(windows_core::Interface::as_raw(this), controldescription.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetNumericControlByDescription)(windows_core::Interface::as_raw(this), controldescription.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -696,12 +696,12 @@ impl HidInputReport {
     }
     pub fn GetBooleanControlByDescription<P0>(&self, controldescription: P0) -> windows_core::Result<HidBooleanControl>
     where
-        P0: windows_core::IntoParam<HidBooleanControlDescription>,
+        P0: windows_core::Param<HidBooleanControlDescription>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetBooleanControlByDescription)(windows_core::Interface::as_raw(this), controldescription.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetBooleanControlByDescription)(windows_core::Interface::as_raw(this), controldescription.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetNumericControl(&self, usagepage: u16, usageid: u16) -> windows_core::Result<HidNumericControl> {
@@ -713,12 +713,12 @@ impl HidInputReport {
     }
     pub fn GetNumericControlByDescription<P0>(&self, controldescription: P0) -> windows_core::Result<HidNumericControl>
     where
-        P0: windows_core::IntoParam<HidNumericControlDescription>,
+        P0: windows_core::Param<HidNumericControlDescription>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetNumericControlByDescription)(windows_core::Interface::as_raw(this), controldescription.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetNumericControlByDescription)(windows_core::Interface::as_raw(this), controldescription.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -988,10 +988,10 @@ impl HidOutputReport {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetData<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetData)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetData)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn GetBooleanControl(&self, usagepage: u16, usageid: u16) -> windows_core::Result<HidBooleanControl> {
         let this = self;
@@ -1002,12 +1002,12 @@ impl HidOutputReport {
     }
     pub fn GetBooleanControlByDescription<P0>(&self, controldescription: P0) -> windows_core::Result<HidBooleanControl>
     where
-        P0: windows_core::IntoParam<HidBooleanControlDescription>,
+        P0: windows_core::Param<HidBooleanControlDescription>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetBooleanControlByDescription)(windows_core::Interface::as_raw(this), controldescription.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetBooleanControlByDescription)(windows_core::Interface::as_raw(this), controldescription.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetNumericControl(&self, usagepage: u16, usageid: u16) -> windows_core::Result<HidNumericControl> {
@@ -1019,12 +1019,12 @@ impl HidOutputReport {
     }
     pub fn GetNumericControlByDescription<P0>(&self, controldescription: P0) -> windows_core::Result<HidNumericControl>
     where
-        P0: windows_core::IntoParam<HidNumericControlDescription>,
+        P0: windows_core::Param<HidNumericControlDescription>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetNumericControlByDescription)(windows_core::Interface::as_raw(this), controldescription.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetNumericControlByDescription)(windows_core::Interface::as_raw(this), controldescription.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }

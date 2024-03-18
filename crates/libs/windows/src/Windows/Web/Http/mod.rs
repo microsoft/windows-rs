@@ -140,12 +140,12 @@ impl IHttpContent {
     #[cfg(feature = "Storage_Streams")]
     pub fn WriteToStreamAsync<P0>(&self, outputstream: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IOutputStream>,
+        P0: windows_core::Param<super::super::Storage::Streams::IOutputStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteToStreamAsync)(windows_core::Interface::as_raw(this), outputstream.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteToStreamAsync)(windows_core::Interface::as_raw(this), outputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
@@ -506,21 +506,21 @@ impl HttpBufferContent {
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromBuffer<P0>(content: P0) -> windows_core::Result<HttpBufferContent>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::IHttpBufferContentFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), content.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), content.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromBufferWithOffset<P0>(content: P0, offset: u32, count: u32) -> windows_core::Result<HttpBufferContent>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::IHttpBufferContentFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromBufferWithOffset)(windows_core::Interface::as_raw(this), content.into_param().abi(), offset, count, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromBufferWithOffset)(windows_core::Interface::as_raw(this), content.param().abi(), offset, count, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Web_Http_Headers")]
@@ -571,12 +571,12 @@ impl HttpBufferContent {
     #[cfg(feature = "Storage_Streams")]
     pub fn WriteToStreamAsync<P0>(&self, outputstream: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IOutputStream>,
+        P0: windows_core::Param<super::super::Storage::Streams::IOutputStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteToStreamAsync)(windows_core::Interface::as_raw(this), outputstream.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteToStreamAsync)(windows_core::Interface::as_raw(this), outputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -623,106 +623,106 @@ impl HttpClient {
     }
     pub fn DeleteAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeleteAsync)(windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DeleteAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetAsync)(windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetWithOptionAsync<P0>(&self, uri: P0, completionoption: HttpCompletionOption) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetWithOptionAsync)(windows_core::Interface::as_raw(this), uri.into_param().abi(), completionoption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetWithOptionAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), completionoption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn GetBufferAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, HttpProgress>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetBufferAsync)(windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetBufferAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn GetInputStreamAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, HttpProgress>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetInputStreamAsync)(windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetInputStreamAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetStringAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<windows_core::HSTRING, HttpProgress>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetStringAsync)(windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetStringAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn PostAsync<P0, P1>(&self, uri: P0, content: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
-        P1: windows_core::IntoParam<IHttpContent>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
+        P1: windows_core::Param<IHttpContent>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PostAsync)(windows_core::Interface::as_raw(this), uri.into_param().abi(), content.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PostAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), content.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn PutAsync<P0, P1>(&self, uri: P0, content: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
-        P1: windows_core::IntoParam<IHttpContent>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
+        P1: windows_core::Param<IHttpContent>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).PutAsync)(windows_core::Interface::as_raw(this), uri.into_param().abi(), content.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PutAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), content.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SendRequestAsync<P0>(&self, request: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
     where
-        P0: windows_core::IntoParam<HttpRequestMessage>,
+        P0: windows_core::Param<HttpRequestMessage>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SendRequestAsync)(windows_core::Interface::as_raw(this), request.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SendRequestAsync)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SendRequestWithOptionAsync<P0>(&self, request: P0, completionoption: HttpCompletionOption) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
     where
-        P0: windows_core::IntoParam<HttpRequestMessage>,
+        P0: windows_core::Param<HttpRequestMessage>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SendRequestWithOptionAsync)(windows_core::Interface::as_raw(this), request.into_param().abi(), completionoption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SendRequestWithOptionAsync)(windows_core::Interface::as_raw(this), request.param().abi(), completionoption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Web_Http_Headers")]
@@ -735,104 +735,104 @@ impl HttpClient {
     }
     pub fn TryDeleteAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryDeleteAsync)(windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryDeleteAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryGetAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetAsync)(windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryGetAsync2<P0>(&self, uri: P0, completionoption: HttpCompletionOption) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetAsync2)(windows_core::Interface::as_raw(this), uri.into_param().abi(), completionoption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetAsync2)(windows_core::Interface::as_raw(this), uri.param().abi(), completionoption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryGetBufferAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpGetBufferResult, HttpProgress>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetBufferAsync)(windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetBufferAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryGetInputStreamAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpGetInputStreamResult, HttpProgress>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetInputStreamAsync)(windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetInputStreamAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryGetStringAsync<P0>(&self, uri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpGetStringResult, HttpProgress>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetStringAsync)(windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetStringAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryPostAsync<P0, P1>(&self, uri: P0, content: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
-        P1: windows_core::IntoParam<IHttpContent>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
+        P1: windows_core::Param<IHttpContent>,
     {
         let this = &windows_core::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryPostAsync)(windows_core::Interface::as_raw(this), uri.into_param().abi(), content.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryPostAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), content.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryPutAsync<P0, P1>(&self, uri: P0, content: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
-        P1: windows_core::IntoParam<IHttpContent>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
+        P1: windows_core::Param<IHttpContent>,
     {
         let this = &windows_core::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryPutAsync)(windows_core::Interface::as_raw(this), uri.into_param().abi(), content.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryPutAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), content.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TrySendRequestAsync<P0>(&self, request: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
     where
-        P0: windows_core::IntoParam<HttpRequestMessage>,
+        P0: windows_core::Param<HttpRequestMessage>,
     {
         let this = &windows_core::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySendRequestAsync)(windows_core::Interface::as_raw(this), request.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TrySendRequestAsync)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TrySendRequestAsync2<P0>(&self, request: P0, completionoption: HttpCompletionOption) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
     where
-        P0: windows_core::IntoParam<HttpRequestMessage>,
+        P0: windows_core::Param<HttpRequestMessage>,
     {
         let this = &windows_core::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySendRequestAsync2)(windows_core::Interface::as_raw(this), request.into_param().abi(), completionoption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TrySendRequestAsync2)(windows_core::Interface::as_raw(this), request.param().abi(), completionoption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DefaultPrivacyAnnotation(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -849,11 +849,11 @@ impl HttpClient {
     #[cfg(feature = "Web_Http_Filters")]
     pub fn Create<P0>(filter: P0) -> windows_core::Result<HttpClient>
     where
-        P0: windows_core::IntoParam<Filters::IHttpFilter>,
+        P0: windows_core::Param<Filters::IHttpFilter>,
     {
         Self::IHttpClientFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), filter.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), filter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -917,10 +917,10 @@ impl HttpCookie {
     }
     pub fn SetExpires<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
+        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetExpires)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetExpires)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn HttpOnly(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -1023,12 +1023,12 @@ impl HttpCookieCollection {
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<HttpCookie>,
+        P0: windows_core::Param<HttpCookie>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.into_param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1080,40 +1080,40 @@ windows_core::imp::interface_hierarchy!(HttpCookieManager, windows_core::IUnknow
 impl HttpCookieManager {
     pub fn SetCookie<P0>(&self, cookie: P0) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<HttpCookie>,
+        P0: windows_core::Param<HttpCookie>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetCookie)(windows_core::Interface::as_raw(this), cookie.into_param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SetCookie)(windows_core::Interface::as_raw(this), cookie.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn SetCookieWithThirdParty<P0>(&self, cookie: P0, thirdparty: bool) -> windows_core::Result<bool>
     where
-        P0: windows_core::IntoParam<HttpCookie>,
+        P0: windows_core::Param<HttpCookie>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetCookieWithThirdParty)(windows_core::Interface::as_raw(this), cookie.into_param().abi(), thirdparty, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SetCookieWithThirdParty)(windows_core::Interface::as_raw(this), cookie.param().abi(), thirdparty, &mut result__).map(|| result__)
         }
     }
     pub fn DeleteCookie<P0>(&self, cookie: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<HttpCookie>,
+        P0: windows_core::Param<HttpCookie>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).DeleteCookie)(windows_core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).DeleteCookie)(windows_core::Interface::as_raw(this), cookie.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCookies<P0>(&self, uri: P0) -> windows_core::Result<HttpCookieCollection>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetCookies)(windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetCookies)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1187,22 +1187,22 @@ impl HttpFormUrlEncodedContent {
     #[cfg(feature = "Storage_Streams")]
     pub fn WriteToStreamAsync<P0>(&self, outputstream: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IOutputStream>,
+        P0: windows_core::Param<super::super::Storage::Streams::IOutputStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteToStreamAsync)(windows_core::Interface::as_raw(this), outputstream.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteToStreamAsync)(windows_core::Interface::as_raw(this), outputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create<P0>(content: P0) -> windows_core::Result<HttpFormUrlEncodedContent>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
     {
         Self::IHttpFormUrlEncodedContentFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), content.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), content.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1584,20 +1584,20 @@ impl HttpMultipartContent {
     #[cfg(feature = "Storage_Streams")]
     pub fn WriteToStreamAsync<P0>(&self, outputstream: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IOutputStream>,
+        P0: windows_core::Param<super::super::Storage::Streams::IOutputStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteToStreamAsync)(windows_core::Interface::as_raw(this), outputstream.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteToStreamAsync)(windows_core::Interface::as_raw(this), outputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Add<P0>(&self, content: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IHttpContent>,
+        P0: windows_core::Param<IHttpContent>,
     {
         let this = &windows_core::Interface::cast::<IHttpMultipartContent>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Add)(windows_core::Interface::as_raw(this), content.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Add)(windows_core::Interface::as_raw(this), content.param().abi()).ok() }
     }
     pub fn CreateWithSubtype(subtype: &windows_core::HSTRING) -> windows_core::Result<HttpMultipartContent> {
         Self::IHttpMultipartContentFactory(|this| unsafe {
@@ -1726,34 +1726,34 @@ impl HttpMultipartFormDataContent {
     #[cfg(feature = "Storage_Streams")]
     pub fn WriteToStreamAsync<P0>(&self, outputstream: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IOutputStream>,
+        P0: windows_core::Param<super::super::Storage::Streams::IOutputStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteToStreamAsync)(windows_core::Interface::as_raw(this), outputstream.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteToStreamAsync)(windows_core::Interface::as_raw(this), outputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Add<P0>(&self, content: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IHttpContent>,
+        P0: windows_core::Param<IHttpContent>,
     {
         let this = &windows_core::Interface::cast::<IHttpMultipartFormDataContent>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Add)(windows_core::Interface::as_raw(this), content.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Add)(windows_core::Interface::as_raw(this), content.param().abi()).ok() }
     }
     pub fn AddWithName<P0>(&self, content: P0, name: &windows_core::HSTRING) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IHttpContent>,
+        P0: windows_core::Param<IHttpContent>,
     {
         let this = &windows_core::Interface::cast::<IHttpMultipartFormDataContent>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).AddWithName)(windows_core::Interface::as_raw(this), content.into_param().abi(), core::mem::transmute_copy(name)).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddWithName)(windows_core::Interface::as_raw(this), content.param().abi(), core::mem::transmute_copy(name)).ok() }
     }
     pub fn AddWithNameAndFileName<P0>(&self, content: P0, name: &windows_core::HSTRING, filename: &windows_core::HSTRING) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IHttpContent>,
+        P0: windows_core::Param<IHttpContent>,
     {
         let this = &windows_core::Interface::cast::<IHttpMultipartFormDataContent>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).AddWithNameAndFileName)(windows_core::Interface::as_raw(this), content.into_param().abi(), core::mem::transmute_copy(name), core::mem::transmute_copy(filename)).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddWithNameAndFileName)(windows_core::Interface::as_raw(this), content.param().abi(), core::mem::transmute_copy(name), core::mem::transmute_copy(filename)).ok() }
     }
     pub fn CreateWithBoundary(boundary: &windows_core::HSTRING) -> windows_core::Result<HttpMultipartFormDataContent> {
         Self::IHttpMultipartFormDataContentFactory(|this| unsafe {
@@ -1836,10 +1836,10 @@ impl HttpRequestMessage {
     }
     pub fn SetContent<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IHttpContent>,
+        P0: windows_core::Param<IHttpContent>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContent)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetContent)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Web_Http_Headers")]
     pub fn Headers(&self) -> windows_core::Result<Headers::HttpRequestHeaderCollection> {
@@ -1858,10 +1858,10 @@ impl HttpRequestMessage {
     }
     pub fn SetMethod<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<HttpMethod>,
+        P0: windows_core::Param<HttpMethod>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMethod)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMethod)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::IInspectable>> {
@@ -1880,10 +1880,10 @@ impl HttpRequestMessage {
     }
     pub fn SetRequestUri<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetRequestUri)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetRequestUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn TransportInformation(&self) -> windows_core::Result<HttpTransportInformation> {
         let this = self;
@@ -1905,12 +1905,12 @@ impl HttpRequestMessage {
     }
     pub fn Create<P0, P1>(method: P0, uri: P1) -> windows_core::Result<HttpRequestMessage>
     where
-        P0: windows_core::IntoParam<HttpMethod>,
-        P1: windows_core::IntoParam<super::super::Foundation::Uri>,
+        P0: windows_core::Param<HttpMethod>,
+        P1: windows_core::Param<super::super::Foundation::Uri>,
     {
         Self::IHttpRequestMessageFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), method.into_param().abi(), uri.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), method.param().abi(), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -2022,10 +2022,10 @@ impl HttpResponseMessage {
     }
     pub fn SetContent<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<IHttpContent>,
+        P0: windows_core::Param<IHttpContent>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContent)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetContent)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Web_Http_Headers")]
     pub fn Headers(&self) -> windows_core::Result<Headers::HttpResponseHeaderCollection> {
@@ -2062,10 +2062,10 @@ impl HttpResponseMessage {
     }
     pub fn SetRequestMessage<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<HttpRequestMessage>,
+        P0: windows_core::Param<HttpRequestMessage>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetRequestMessage)(windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetRequestMessage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Source(&self) -> windows_core::Result<HttpResponseMessageSource> {
         let this = self;
@@ -2196,22 +2196,22 @@ impl HttpStreamContent {
     #[cfg(feature = "Storage_Streams")]
     pub fn WriteToStreamAsync<P0>(&self, outputstream: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IOutputStream>,
+        P0: windows_core::Param<super::super::Storage::Streams::IOutputStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteToStreamAsync)(windows_core::Interface::as_raw(this), outputstream.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteToStreamAsync)(windows_core::Interface::as_raw(this), outputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromInputStream<P0>(content: P0) -> windows_core::Result<HttpStreamContent>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IInputStream>,
+        P0: windows_core::Param<super::super::Storage::Streams::IInputStream>,
     {
         Self::IHttpStreamContentFactory(|this| unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromInputStream)(windows_core::Interface::as_raw(this), content.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromInputStream)(windows_core::Interface::as_raw(this), content.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -2297,12 +2297,12 @@ impl HttpStringContent {
     #[cfg(feature = "Storage_Streams")]
     pub fn WriteToStreamAsync<P0>(&self, outputstream: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
     where
-        P0: windows_core::IntoParam<super::super::Storage::Streams::IOutputStream>,
+        P0: windows_core::Param<super::super::Storage::Streams::IOutputStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = std::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteToStreamAsync)(windows_core::Interface::as_raw(this), outputstream.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteToStreamAsync)(windows_core::Interface::as_raw(this), outputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateFromString(content: &windows_core::HSTRING) -> windows_core::Result<HttpStringContent> {
@@ -2592,7 +2592,7 @@ impl core::fmt::Debug for HttpProgress {
     }
 }
 impl windows_core::TypeKind for HttpProgress {
-    type TypeKind = windows_core::ValueType;
+    type TypeKind = windows_core::CloneType;
 }
 impl windows_core::RuntimeType for HttpProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Web.Http.HttpProgress;enum(Windows.Web.Http.HttpProgressStage;i4);u8;pinterface({61c17706-2d65-11e0-9ae8-d48564015472};u8);u8;pinterface({61c17706-2d65-11e0-9ae8-d48564015472};u8);u4)");

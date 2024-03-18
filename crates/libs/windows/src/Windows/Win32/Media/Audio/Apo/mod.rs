@@ -16,10 +16,10 @@ impl IApoAuxiliaryInputConfiguration {
     }
     pub unsafe fn IsInputFormatSupported<P0>(&self, prequestedinputformat: P0) -> windows_core::Result<IAudioMediaType>
     where
-        P0: windows_core::IntoParam<IAudioMediaType>,
+        P0: windows_core::Param<IAudioMediaType>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).IsInputFormatSupported)(windows_core::Interface::as_raw(self), prequestedinputformat.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).IsInputFormatSupported)(windows_core::Interface::as_raw(self), prequestedinputformat.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -46,9 +46,9 @@ windows_core::imp::interface_hierarchy!(IAudioDeviceModulesClient, windows_core:
 impl IAudioDeviceModulesClient {
     pub unsafe fn SetAudioDeviceModulesManager<P0>(&self, paudiodevicemodulesmanager: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<windows_core::IUnknown>,
+        P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).SetAudioDeviceModulesManager)(windows_core::Interface::as_raw(self), paudiodevicemodulesmanager.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetAudioDeviceModulesManager)(windows_core::Interface::as_raw(self), paudiodevicemodulesmanager.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -65,10 +65,10 @@ impl IAudioMediaType {
     }
     pub unsafe fn IsEqual<P0>(&self, piaudiotype: P0) -> windows_core::Result<u32>
     where
-        P0: windows_core::IntoParam<IAudioMediaType>,
+        P0: windows_core::Param<IAudioMediaType>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).IsEqual)(windows_core::Interface::as_raw(self), piaudiotype.into_param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).IsEqual)(windows_core::Interface::as_raw(self), piaudiotype.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetAudioFormat(&self) -> *mut super::WAVEFORMATEX {
         (windows_core::Interface::vtable(self).GetAudioFormat)(windows_core::Interface::as_raw(self))
@@ -104,19 +104,19 @@ impl IAudioProcessingObject {
     }
     pub unsafe fn IsInputFormatSupported<P0, P1>(&self, poppositeformat: P0, prequestedinputformat: P1) -> windows_core::Result<IAudioMediaType>
     where
-        P0: windows_core::IntoParam<IAudioMediaType>,
-        P1: windows_core::IntoParam<IAudioMediaType>,
+        P0: windows_core::Param<IAudioMediaType>,
+        P1: windows_core::Param<IAudioMediaType>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).IsInputFormatSupported)(windows_core::Interface::as_raw(self), poppositeformat.into_param().abi(), prequestedinputformat.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).IsInputFormatSupported)(windows_core::Interface::as_raw(self), poppositeformat.param().abi(), prequestedinputformat.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn IsOutputFormatSupported<P0, P1>(&self, poppositeformat: P0, prequestedoutputformat: P1) -> windows_core::Result<IAudioMediaType>
     where
-        P0: windows_core::IntoParam<IAudioMediaType>,
-        P1: windows_core::IntoParam<IAudioMediaType>,
+        P0: windows_core::Param<IAudioMediaType>,
+        P1: windows_core::Param<IAudioMediaType>,
     {
         let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).IsOutputFormatSupported)(windows_core::Interface::as_raw(self), poppositeformat.into_param().abi(), prequestedoutputformat.into_param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).IsOutputFormatSupported)(windows_core::Interface::as_raw(self), poppositeformat.param().abi(), prequestedoutputformat.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetInputChannelCount(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
@@ -155,9 +155,9 @@ windows_core::imp::interface_hierarchy!(IAudioProcessingObjectLoggingService, wi
 impl IAudioProcessingObjectLoggingService {
     pub unsafe fn ApoLog<P0>(&self, level: APO_LOG_LEVEL, format: P0)
     where
-        P0: windows_core::IntoParam<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ApoLog)(windows_core::Interface::as_raw(self), level, format.into_param().abi())
+        (windows_core::Interface::vtable(self).ApoLog)(windows_core::Interface::as_raw(self), level, format.param().abi())
     }
 }
 #[repr(C)]
@@ -267,9 +267,9 @@ windows_core::imp::interface_hierarchy!(IAudioSystemEffects2, windows_core::IUnk
 impl IAudioSystemEffects2 {
     pub unsafe fn GetEffectsList<P0>(&self, ppeffectsids: *mut *mut windows_core::GUID, pceffects: *mut u32, event: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
+        P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
     {
-        (windows_core::Interface::vtable(self).GetEffectsList)(windows_core::Interface::as_raw(self), ppeffectsids, pceffects, event.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).GetEffectsList)(windows_core::Interface::as_raw(self), ppeffectsids, pceffects, event.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -282,15 +282,15 @@ windows_core::imp::interface_hierarchy!(IAudioSystemEffects3, windows_core::IUnk
 impl IAudioSystemEffects3 {
     pub unsafe fn GetEffectsList<P0>(&self, ppeffectsids: *mut *mut windows_core::GUID, pceffects: *mut u32, event: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
+        P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
     {
-        (windows_core::Interface::vtable(self).base__.GetEffectsList)(windows_core::Interface::as_raw(self), ppeffectsids, pceffects, event.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).base__.GetEffectsList)(windows_core::Interface::as_raw(self), ppeffectsids, pceffects, event.param().abi()).ok()
     }
     pub unsafe fn GetControllableSystemEffectsList<P0>(&self, effects: *mut *mut AUDIO_SYSTEMEFFECT, numeffects: *mut u32, event: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
+        P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
     {
-        (windows_core::Interface::vtable(self).GetControllableSystemEffectsList)(windows_core::Interface::as_raw(self), effects, numeffects, event.into_param().abi()).ok()
+        (windows_core::Interface::vtable(self).GetControllableSystemEffectsList)(windows_core::Interface::as_raw(self), effects, numeffects, event.param().abi()).ok()
     }
     pub unsafe fn SetAudioSystemEffectState(&self, effectid: windows_core::GUID, state: AUDIO_SYSTEMEFFECT_STATE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetAudioSystemEffectState)(windows_core::Interface::as_raw(self), core::mem::transmute(effectid), state).ok()
