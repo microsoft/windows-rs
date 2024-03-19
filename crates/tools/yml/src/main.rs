@@ -43,8 +43,8 @@ jobs:
         run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.target }}
       - name: Add toolchain target
         run: rustup target add ${{ matrix.target }}
-      - name: Install clippy
-        run: rustup component add clippy
+      - name: Install fmt
+        run: rustup component add rustfmt
       - name: Fix environment
         uses: ./.github/actions/fix-environment
       - name: Test
@@ -65,6 +65,19 @@ jobs:
     }
 
     yml.truncate(yml.len() - 3);
+
+    write!(
+        &mut yml,
+        r"
+      - name: Check diff
+        shell: bash
+        run: |
+          git add -N .
+          git diff --exit-code || (echo 'Tests changed code in the repo.'; exit 1)
+"
+    )
+    .unwrap();
+
     std::fs::write(".github/workflows/test.yml", yml.as_bytes()).unwrap();
 }
 
