@@ -28,3 +28,7 @@ path = "../result"
 [dependencies]
 windows-implement = { path = "../implement",  version = "0.53" }
 windows-interface = { path = "../interface",  version = "0.53" }
+
+[dev-dependencies.windows-bindgen]
+version = "0.55"
+path = "../bindgen"
