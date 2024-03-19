@@ -141,7 +141,6 @@ jobs:
           cargo clippy -p test_win32_arrays &&
           cargo clippy -p test_window_long &&
           cargo clippy -p test_winrt &&
-          cargo clippy -p tool_core &&
           cargo clippy -p tool_gnu &&
           cargo clippy -p tool_lib &&
           cargo clippy -p tool_license &&
