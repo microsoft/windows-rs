@@ -1,5 +1,3 @@
-// Test to see if yml diff check works...
-
 #![allow(
     non_snake_case,
     non_upper_case_globals,
