@@ -65,6 +65,15 @@ jobs:
     }
 
     yml.truncate(yml.len() - 3);
+
+    write!(&mut yml, r"
+      - name: Check diff
+        shell: bash
+        run: |
+          git add -N .
+          git diff --exit-code || (echo 'Tests changed code in the repo.'; exit 1)
+").unwrap();
+
     std::fs::write(".github/workflows/test.yml", yml.as_bytes()).unwrap();
 }
 

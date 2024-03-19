@@ -176,3 +176,8 @@ jobs:
           cargo test -p windows_x86_64_gnu &&
           cargo test -p windows_x86_64_gnullvm &&
           cargo test -p windows_x86_64_msvc
+      - name: Check diff
+        shell: bash
+        run: |
+          git add -N .
+          git diff --exit-code || (echo 'Tests changed code in the repo.'; exit 1)
