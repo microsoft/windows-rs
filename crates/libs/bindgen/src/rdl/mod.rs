@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 use super::*;
 mod fmt;
 mod from_reader;
