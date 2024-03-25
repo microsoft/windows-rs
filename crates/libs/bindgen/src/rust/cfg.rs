@@ -6,7 +6,6 @@ pub struct Cfg {
     pub types: std::collections::BTreeMap<&'static str, std::collections::BTreeSet<metadata::TypeDef>>,
     pub core_types: std::collections::BTreeSet<metadata::Type>,
     pub arches: std::collections::BTreeSet<&'static str>,
-    pub implement: bool,
 }
 
 impl Cfg {
@@ -47,7 +46,7 @@ pub fn type_def_cfg(writer: &Writer, row: metadata::TypeDef, generics: &[metadat
     cfg
 }
 pub fn type_def_cfg_impl(writer: &Writer, def: metadata::TypeDef, generics: &[metadata::Type]) -> Cfg {
-    let mut cfg = Cfg { implement: true, ..Default::default() };
+    let mut cfg = Cfg::default();
 
     fn combine(writer: &Writer, def: metadata::TypeDef, generics: &[metadata::Type], cfg: &mut Cfg) {
         type_def_cfg_combine(writer, def, generics, cfg);
