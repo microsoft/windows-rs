@@ -3,7 +3,7 @@ use metadata::HasAttributes;
 
 pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     let type_name = def.type_name();
-    let ident = to_ident(type_name.name);
+    let ident = to_ident(type_name.name());
     let underlying_type = def.underlying_type();
     let underlying_type = writer.type_name(&underlying_type);
 
@@ -72,7 +72,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     }
 
     if !writer.sys {
-        let name = type_name.name;
+        let name = type_name.name();
         tokens.combine(&quote! {
             #features
             impl windows_core::TypeKind for #ident {

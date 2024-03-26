@@ -56,11 +56,11 @@ impl Writer {
     pub fn type_def_name_imp(&self, def: metadata::TypeDef, generics: &[metadata::Type], suffix: &str) -> TokenStream {
         let type_name = def.type_name();
 
-        if type_name.namespace.is_empty() {
+        if type_name.namespace().is_empty() {
             to_ident(&self.scoped_name(def))
         } else {
-            let mut namespace = self.namespace(type_name.namespace);
-            let mut name = to_ident(type_name.name);
+            let mut namespace = self.namespace(type_name.namespace());
+            let mut name = to_ident(type_name.name());
             name.push_str(suffix);
 
             if generics.is_empty() || self.sys {
@@ -106,7 +106,7 @@ impl Writer {
         } else {
             let kind = self.type_name(ty);
 
-            if ty.is_generic() {
+            if matches!(ty, metadata::Type::GenericParam(_)) {
                 quote! { <#kind as windows_core::Type<#kind>>::Default }
             } else if metadata::type_is_nullable(ty) && !self.sys {
                 quote! { Option<#kind> }

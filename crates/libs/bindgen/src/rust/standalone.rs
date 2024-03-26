@@ -154,8 +154,8 @@ fn type_collect_standalone(writer: &Writer, ty: &metadata::Type, set: &mut std::
     // Note this is a bit overeager as we can collect a typedef that is used
     // by one architecture but not by another
     let type_name = def.type_name();
-    if !type_name.namespace.is_empty() {
-        for row in def.reader().get_type_def(type_name.namespace, type_name.name) {
+    if !type_name.namespace().is_empty() {
+        for row in def.reader().get_type_def(type_name.namespace(), type_name.name()) {
             if def != row {
                 type_collect_standalone(writer, &metadata::Type::TypeDef(row, Vec::new()), set);
             }

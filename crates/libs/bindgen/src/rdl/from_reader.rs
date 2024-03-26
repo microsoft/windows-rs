@@ -169,12 +169,12 @@ impl Writer {
 
     fn type_def(&self, def: metadata::TypeDef) -> TokenStream {
         if let Some(extends) = def.extends() {
-            if extends.namespace == "System" {
-                if extends.name == "Enum" {
+            if extends.namespace() == "System" {
+                if extends.name() == "Enum" {
                     self.enum_def(def)
-                } else if extends.name == "ValueType" {
+                } else if extends.name() == "ValueType" {
                     self.struct_def(def)
-                } else if extends.name == "MulticastDelegate" {
+                } else if extends.name() == "MulticastDelegate" {
                     self.delegate_def(def)
                 } else {
                     self.class_def(def)
@@ -294,8 +294,8 @@ impl Writer {
 
         if let Some(type_name) = def.extends() {
             if type_name != metadata::TypeName::Object {
-                let namespace = self.namespace(type_name.namespace);
-                let name = to_ident(type_name.name);
+                let namespace = self.namespace(type_name.namespace());
+                let name = to_ident(type_name.name());
                 // TODO: ideally the "class" contextual keyword wouldn't be needed here
                 // but currently there's no way to tell the base class apart from a required interface.
                 types.insert(0, quote! { class #namespace #name });
@@ -356,8 +356,8 @@ impl Writer {
             }
 
             metadata::Type::TypeRef(type_name) => {
-                let namespace = self.namespace(type_name.namespace);
-                let name = to_ident(type_name.name);
+                let namespace = self.namespace(type_name.namespace());
+                let name = to_ident(type_name.name());
                 quote! { #namespace #name }
             }
 
