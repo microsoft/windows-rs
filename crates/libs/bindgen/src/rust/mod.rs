@@ -186,13 +186,13 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
         match item {
             metadata::Item::Type(def) => {
                 let type_name = def.type_name();
-                if writer.reader.remap_types().any(|(x, _)| x == &type_name) {
+                if writer.reader.remap_type(&type_name).is_some() {
                     continue;
                 }
-                if writer.reader.core_types().any(|(x, _)| x == &type_name) {
+                if writer.reader.core_type(&type_name).is_some() {
                     continue;
                 }
-                types.entry(def.kind()).or_default().entry(type_name.name).or_default().combine(&writer.type_def(def));
+                types.entry(def.kind()).or_default().entry(type_name.name()).or_default().combine(&writer.type_def(def));
             }
             metadata::Item::Fn(def, namespace) => {
                 let name = def.name();
@@ -230,7 +230,7 @@ fn namespace_impl(writer: &Writer, tree: &Tree) -> String {
     for item in writer.reader.namespace_items(tree.namespace) {
         if let metadata::Item::Type(def) = item {
             let type_name = def.type_name();
-            if writer.reader.core_types().any(|(x, _)| x == &type_name) {
+            if writer.reader.core_type(&type_name).is_some() {
                 continue;
             }
             if def.kind() != metadata::TypeKind::Interface {
@@ -239,7 +239,7 @@ fn namespace_impl(writer: &Writer, tree: &Tree) -> String {
             let tokens = implements::writer(writer, def);
 
             if !tokens.is_empty() {
-                types.insert(type_name.name, tokens);
+                types.insert(type_name.name(), tokens);
             }
         }
     }

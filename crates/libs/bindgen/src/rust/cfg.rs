@@ -80,7 +80,7 @@ pub fn type_def_cfg_combine(writer: &Writer, row: metadata::TypeDef, generics: &
         type_cfg_combine(writer, generic, cfg);
     }
 
-    if cfg.types.entry(type_name.namespace).or_default().insert(row) {
+    if cfg.types.entry(type_name.namespace()).or_default().insert(row) {
         match type_kind {
             metadata::TypeKind::Class => {
                 if let Some(default_interface) = metadata::type_def_default_interface(row) {
@@ -98,8 +98,8 @@ pub fn type_def_cfg_combine(writer: &Writer, row: metadata::TypeDef, generics: &
             }
             metadata::TypeKind::Struct => {
                 row.fields().for_each(|field| field_cfg_combine(writer, field, Some(row), cfg));
-                if !type_name.namespace.is_empty() {
-                    for def in row.reader().get_type_def(type_name.namespace, type_name.name) {
+                if !type_name.namespace().is_empty() {
+                    for def in row.reader().get_type_def(type_name.namespace(), type_name.name()) {
                         if def != row {
                             type_def_cfg_combine(writer, def, &[], cfg);
                         }

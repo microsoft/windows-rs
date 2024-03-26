@@ -418,10 +418,10 @@ pub fn type_def_has_callback(row: TypeDef) -> bool {
         false
     }
     let type_name = row.type_name();
-    if type_name.namespace.is_empty() {
+    if type_name.namespace().is_empty() {
         check(row)
     } else {
-        for row in row.reader().get_type_def(type_name.namespace, type_name.name) {
+        for row in row.reader().get_type_def(type_name.namespace(), type_name.name()) {
             if check(row) {
                 return true;
             }
@@ -473,7 +473,7 @@ pub fn type_interfaces(ty: &Type) -> Vec<Interface> {
                     "StaticAttribute" | "ActivatableAttribute" => {
                         for (_, arg) in attribute.args() {
                             if let Value::TypeName(type_name) = arg {
-                                let def = row.reader().get_type_def(type_name.namespace, type_name.name).next().expect("Type not found");
+                                let def = row.reader().get_type_def(type_name.namespace(), type_name.name()).next().expect("Type not found");
                                 result.push(Interface { ty: Type::TypeDef(def, Vec::new()), kind: InterfaceKind::Static });
                                 break;
                             }
@@ -601,10 +601,10 @@ pub fn type_def_has_explicit_layout(row: TypeDef) -> bool {
         false
     }
     let type_name = row.type_name();
-    if type_name.namespace.is_empty() {
+    if type_name.namespace().is_empty() {
         check(row)
     } else {
-        for row in row.reader().get_type_def(type_name.namespace, type_name.name) {
+        for row in row.reader().get_type_def(type_name.namespace(), type_name.name()) {
             if check(row) {
                 return true;
             }
@@ -635,10 +635,10 @@ pub fn type_def_has_packing(row: TypeDef) -> bool {
         false
     }
     let type_name = row.type_name();
-    if type_name.namespace.is_empty() {
+    if type_name.namespace().is_empty() {
         check(row)
     } else {
-        for row in row.reader().get_type_def(type_name.namespace, type_name.name) {
+        for row in row.reader().get_type_def(type_name.namespace(), type_name.name()) {
             if check(row) {
                 return true;
             }
@@ -741,7 +741,7 @@ pub fn type_def_bases(mut row: TypeDef) -> Vec<TypeDef> {
     loop {
         match row.extends() {
             Some(base) if base != TypeName::Object => {
-                row = row.reader().get_type_def(base.namespace, base.name).next().expect("Type not found");
+                row = row.reader().get_type_def(base.namespace(), base.name()).next().expect("Type not found");
                 bases.push(row);
             }
             _ => break,

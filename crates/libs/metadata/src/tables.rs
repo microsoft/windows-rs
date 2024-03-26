@@ -109,7 +109,7 @@ impl Attribute {
                 0x50 => Value::TypeName(TypeName::parse(values.read_str())),
                 0x55 => {
                     let type_name = TypeName::parse(name);
-                    let def = reader.get_type_def(type_name.namespace, type_name.name).next().expect("Type not found");
+                    let def = reader.get_type_def(type_name.namespace(), type_name.name()).next().expect("Type not found");
                     name = values.read_str();
                     Value::EnumDef(def, Box::new(values.read_integer(def.underlying_type())))
                 }

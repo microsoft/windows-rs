@@ -23,7 +23,7 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
 
         let generics = &metadata::type_def_generics(def);
 
-        let extends = if let Some(extends) = def.extends() { writer.insert_type_ref(extends.namespace, extends.name) } else { TypeDefOrRef::none() };
+        let extends = if let Some(extends) = def.extends() { writer.insert_type_ref(extends.namespace(), extends.name()) } else { TypeDefOrRef::none() };
 
         writer.tables.TypeDef.push(TypeDef {
             Extends: extends,

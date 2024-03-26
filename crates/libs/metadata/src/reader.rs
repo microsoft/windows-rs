@@ -140,19 +140,19 @@ impl Reader {
         self.nested.get(&type_def).map(|map| map.values().copied()).into_iter().flatten()
     }
 
-    pub fn remap_types(&self) -> impl Iterator<Item = &(TypeName, TypeName)> + '_ {
+    pub fn remap_type(&self, type_name: &TypeName) -> Option<TypeName> {
         if self.sys {
-            [].iter()
+            None
         } else {
-            REMAP_TYPES.iter()
+            REMAP_TYPES.iter().find_map(|(key, value)| (type_name == key).then(|| value.clone()))
         }
     }
 
-    pub fn core_types(&self) -> impl Iterator<Item = &(TypeName, Type)> + '_ {
+    pub fn core_type(&self, type_name: &TypeName) -> Option<Type> {
         if self.sys {
-            SYS_CORE_TYPES.iter()
+            SYS_CORE_TYPES.iter().find_map(|(key, value)| (type_name == key).then(|| value.clone()))
         } else {
-            CORE_TYPES.iter()
+            CORE_TYPES.iter().find_map(|(key, value)| (type_name == key).then(|| value.clone()))
         }
     }
 
@@ -164,30 +164,27 @@ impl Reader {
 
         let mut full_name = code.type_name();
 
-        for (known_name, kind) in self.core_types() {
-            if full_name == *known_name {
-                return kind.clone();
-            }
+        if let Some(to) = self.remap_type(&full_name) {
+            full_name = to.clone();
         }
 
-        for (from, to) in self.remap_types() {
-            if full_name == *from {
-                full_name = *to;
-                break;
-            }
+        if let Some(kind) = self.core_type(&full_name) {
+            return kind;
         }
 
+        // TODO: this needs to be deferred via a TypeName's optional nested type name?
         if let Some(outer) = enclosing {
-            if full_name.namespace.is_empty() {
+            if full_name.namespace().is_empty() {
                 let nested = &self.nested[&outer];
-                let Some(inner) = nested.get(full_name.name) else {
-                    panic!("Nested type not found: {}.{}", outer.type_name(), full_name.name);
+                let Some(inner) = nested.get(full_name.name()) else {
+                    panic!("Nested type not found: {}.{}", outer.type_name(), full_name.name());
                 };
                 return Type::TypeDef(*inner, Vec::new());
             }
         }
 
-        if let Some(def) = self.get_type_def(full_name.namespace, full_name.name).next() {
+        // TODO: this needs to just return a TypeRef and avoid resolving as its too early to bake in the type
+        if let Some(def) = self.get_type_def(full_name.namespace(), full_name.name()).next() {
             Type::TypeDef(def, Vec::new())
         } else {
             Type::TypeRef(full_name)
@@ -252,7 +249,7 @@ impl Reader {
                 blob.read_usize(); // ELEMENT_TYPE_VALUETYPE or ELEMENT_TYPE_CLASS
 
                 let type_name = TypeDefOrRef::decode(blob.file, blob.read_usize()).type_name();
-                let def = self.get_type_def(type_name.namespace, type_name.name).next().unwrap_or_else(|| panic!("Type not found: {}", type_name));
+                let def = self.get_type_def(type_name.namespace(), type_name.name()).next().unwrap_or_else(|| panic!("Type not found: {}", type_name));
                 let mut args = Vec::with_capacity(blob.read_usize());
 
                 for _ in 0..args.capacity() {

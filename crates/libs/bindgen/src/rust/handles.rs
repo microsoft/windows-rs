@@ -92,8 +92,8 @@ pub fn gen_win_handle(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
 
     if let Some(dependency) = type_def_usable_for(def) {
         let type_name = dependency.type_name();
-        let mut dependency = writer.namespace(type_name.namespace);
-        dependency.push_str(type_name.name);
+        let mut dependency = writer.namespace(type_name.namespace());
+        dependency.push_str(type_name.name());
 
         tokens.combine(&quote! {
             impl windows_core::CanInto<#dependency> for #ident {}

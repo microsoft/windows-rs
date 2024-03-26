@@ -84,7 +84,7 @@ mod tests {
 
     fn includes_type_name(filter: &Filter, full_name: &'static str) -> bool {
         let type_name = crate::TypeName::parse(full_name);
-        filter.includes_type_name(type_name.namespace, type_name.name)
+        filter.includes_type_name(type_name.namespace(), type_name.name())
     }
 
     #[test]

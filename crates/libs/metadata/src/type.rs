@@ -144,11 +144,6 @@ impl Type {
         matches!(self, Type::ConstRef(_))
     }
 
-    /// Returns `true` if the `Type` is a generic parameter.
-    pub fn is_generic(&self) -> bool {
-        matches!(self, Type::GenericParam(_))
-    }
-
     /// Returns `true` if the `Type` is a pointer.
     pub fn is_pointer(&self) -> bool {
         matches!(self, Type::ConstPtr(_, _) | Type::MutPtr(_, _))
