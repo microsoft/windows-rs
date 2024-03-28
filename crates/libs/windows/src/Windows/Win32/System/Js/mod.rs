@@ -53,7 +53,7 @@ pub unsafe fn JsCreateArray(length: u32, result: *mut *mut core::ffi::c_void) ->
     windows_targets::link!("chakra.dll" "system" fn JsCreateArray(length : u32, result : *mut *mut core::ffi::c_void) -> JsErrorCode);
     JsCreateArray(length, result)
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
 #[inline]
 pub unsafe fn JsCreateContext<P0>(runtime: *const core::ffi::c_void, debugapplication: P0, newcontext: *mut *mut core::ffi::c_void) -> JsErrorCode
@@ -426,7 +426,7 @@ pub unsafe fn JsSetRuntimeMemoryLimit(runtime: *const core::ffi::c_void, memoryl
     windows_targets::link!("chakra.dll" "system" fn JsSetRuntimeMemoryLimit(runtime : *const core::ffi::c_void, memorylimit : usize) -> JsErrorCode);
     JsSetRuntimeMemoryLimit(runtime, memorylimit)
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
 #[inline]
 pub unsafe fn JsStartDebugging<P0>(debugapplication: P0) -> JsErrorCode
