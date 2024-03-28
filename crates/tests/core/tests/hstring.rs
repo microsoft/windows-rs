@@ -124,7 +124,8 @@ fn hstring_to_os_string() {
 #[test]
 fn hstring_hashing_equal_strings() {
     // Checks if two strings of identical contents have the same hash
-    use std::hash::{DefaultHasher, Hash, Hasher};
+    use std::collections::hash_map::DefaultHasher;
+    use std::hash::{Hash, Hasher};
 
     let hstring_1 = HSTRING::from("Hello World");
     let hstring_2 = HSTRING::from("Hello World");
@@ -146,7 +147,8 @@ fn hstring_hashing_equal_strings() {
 #[test]
 fn hstring_hashing_different_strings() {
     // Checks if two strings of different contents have the same hash
-    use std::hash::{DefaultHasher, Hash, Hasher};
+    use std::collections::hash_map::DefaultHasher;
+    use std::hash::{Hash, Hasher};
 
     let hstring_1 = HSTRING::from("Hello World");
     let hstring_2 = HSTRING::from("Hello World 2");
