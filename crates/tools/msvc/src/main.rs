@@ -9,6 +9,7 @@ fn main() {
             "x86" => "i686_msvc",
             "x64" => "x86_64_msvc",
             "arm64" => "aarch64_msvc",
+            "arm64ec" => "arm64ec_msvc",
             _ => {
                 println!("Unknown platform");
                 return;
@@ -340,6 +341,7 @@ fn make_reproducible(lib: &std::path::Path) {
 
 #[test]
 fn test_make_reproducible() {
+    // Arm64EC's lib format is significantly different, so exclude it from this test.
     for (machine, offset) in [("x86", 0), ("x64", 12), ("arm64", 12)] {
         let mut def = std::fs::File::create("test.def").unwrap();
         def.write_all(

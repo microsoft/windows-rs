@@ -333,7 +333,7 @@ pub const AppxPackageEditor: windows_sys::core::GUID = windows_sys::core::GUID::
 pub const AppxPackagingDiagnosticEventSinkManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x50ca0a46_1588_4161_8ed2_ef9e469ced5d);
 pub type PACKAGEDEPENDENCY_CONTEXT = isize;
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub struct PACKAGE_ID {
     pub reserved: u32,
     pub processorArchitecture: u32,
@@ -343,9 +343,9 @@ pub struct PACKAGE_ID {
     pub resourceId: windows_sys::core::PWSTR,
     pub publisherId: windows_sys::core::PWSTR,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for PACKAGE_ID {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for PACKAGE_ID {
     fn clone(&self) -> Self {
         *self
@@ -371,7 +371,7 @@ impl Clone for PACKAGE_ID {
     }
 }
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub struct PACKAGE_INFO {
     pub reserved: u32,
     pub flags: u32,
@@ -380,9 +380,9 @@ pub struct PACKAGE_INFO {
     pub packageFamilyName: windows_sys::core::PWSTR,
     pub packageId: PACKAGE_ID,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for PACKAGE_INFO {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for PACKAGE_INFO {
     fn clone(&self) -> Self {
         *self

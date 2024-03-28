@@ -228,7 +228,7 @@ impl Default for EXCEPTION_REGISTRATION_RECORD {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub struct FLOATING_SAVE_AREA {
     pub ControlWord: u32,
     pub StatusWord: u32,
@@ -240,33 +240,33 @@ pub struct FLOATING_SAVE_AREA {
     pub RegisterArea: [u8; 80],
     pub Cr0NpxState: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for FLOATING_SAVE_AREA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for FLOATING_SAVE_AREA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl core::fmt::Debug for FLOATING_SAVE_AREA {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("FLOATING_SAVE_AREA").field("ControlWord", &self.ControlWord).field("StatusWord", &self.StatusWord).field("TagWord", &self.TagWord).field("ErrorOffset", &self.ErrorOffset).field("ErrorSelector", &self.ErrorSelector).field("DataOffset", &self.DataOffset).field("DataSelector", &self.DataSelector).field("RegisterArea", &self.RegisterArea).field("Cr0NpxState", &self.Cr0NpxState).finish()
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for FLOATING_SAVE_AREA {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl PartialEq for FLOATING_SAVE_AREA {
     fn eq(&self, other: &Self) -> bool {
         self.ControlWord == other.ControlWord && self.StatusWord == other.StatusWord && self.TagWord == other.TagWord && self.ErrorOffset == other.ErrorOffset && self.ErrorSelector == other.ErrorSelector && self.DataOffset == other.DataOffset && self.DataSelector == other.DataSelector && self.RegisterArea == other.RegisterArea && self.Cr0NpxState == other.Cr0NpxState
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Eq for FLOATING_SAVE_AREA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for FLOATING_SAVE_AREA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -833,100 +833,100 @@ impl Default for SLIST_HEADER_1 {
     }
 }
 #[repr(C)]
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub union SLIST_HEADER {
     pub Anonymous: SLIST_HEADER_0,
     pub HeaderX64: SLIST_HEADER_1,
 }
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for SLIST_HEADER {}
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for SLIST_HEADER {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for SLIST_HEADER {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SLIST_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub struct SLIST_HEADER_0 {
     pub Alignment: u64,
     pub Region: u64,
 }
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for SLIST_HEADER_0 {}
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for SLIST_HEADER_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl core::fmt::Debug for SLIST_HEADER_0 {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("SLIST_HEADER_0").field("Alignment", &self.Alignment).field("Region", &self.Region).finish()
     }
 }
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for SLIST_HEADER_0 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl PartialEq for SLIST_HEADER_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Alignment == other.Alignment && self.Region == other.Region
     }
 }
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Eq for SLIST_HEADER_0 {}
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SLIST_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub struct SLIST_HEADER_1 {
     pub _bitfield1: u64,
     pub _bitfield2: u64,
 }
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for SLIST_HEADER_1 {}
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for SLIST_HEADER_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl core::fmt::Debug for SLIST_HEADER_1 {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("SLIST_HEADER_1").field("_bitfield1", &self._bitfield1).field("_bitfield2", &self._bitfield2).finish()
     }
 }
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for SLIST_HEADER_1 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl PartialEq for SLIST_HEADER_1 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield1 == other._bitfield1 && self._bitfield2 == other._bitfield2
     }
 }
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Eq for SLIST_HEADER_1 {}
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SLIST_HEADER_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
