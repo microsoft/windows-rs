@@ -33180,7 +33180,7 @@ impl Default for D3D12_VIDEO_SIZE_RANGE {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub struct D3DCONTENTPROTECTIONCAPS {
     pub Caps: u32,
     pub KeyExchangeType: windows_core::GUID,
@@ -33188,19 +33188,19 @@ pub struct D3DCONTENTPROTECTIONCAPS {
     pub BlockAlignmentSize: u32,
     pub ProtectedMemorySize: u64,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for D3DCONTENTPROTECTIONCAPS {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for D3DCONTENTPROTECTIONCAPS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for D3DCONTENTPROTECTIONCAPS {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for D3DCONTENTPROTECTIONCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -35645,7 +35645,7 @@ impl Default for DXVA_DeinterlaceBltEx {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub struct DXVA_DeinterlaceBltEx32 {
     pub Size: u32,
     pub BackgroundColor: DXVA_AYUVsample2,
@@ -35657,33 +35657,33 @@ pub struct DXVA_DeinterlaceBltEx32 {
     pub DestinationFormat: u32,
     pub DestinationFlags: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for DXVA_DeinterlaceBltEx32 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for DXVA_DeinterlaceBltEx32 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl core::fmt::Debug for DXVA_DeinterlaceBltEx32 {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("DXVA_DeinterlaceBltEx32").field("Size", &self.Size).field("BackgroundColor", &self.BackgroundColor).field("rcTarget", &self.rcTarget).field("rtTarget", &self.rtTarget).field("NumSourceSurfaces", &self.NumSourceSurfaces).field("Alpha", &self.Alpha).field("Source", &self.Source).field("DestinationFormat", &self.DestinationFormat).field("DestinationFlags", &self.DestinationFlags).finish()
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for DXVA_DeinterlaceBltEx32 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl PartialEq for DXVA_DeinterlaceBltEx32 {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.BackgroundColor == other.BackgroundColor && self.rcTarget == other.rcTarget && self.rtTarget == other.rtTarget && self.NumSourceSurfaces == other.NumSourceSurfaces && self.Alpha == other.Alpha && self.Source == other.Source && self.DestinationFormat == other.DestinationFormat && self.DestinationFlags == other.DestinationFlags
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Eq for DXVA_DeinterlaceBltEx32 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for DXVA_DeinterlaceBltEx32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -36139,7 +36139,7 @@ impl Default for DXVA_VideoSample {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub struct DXVA_VideoSample2 {
     pub Size: u32,
     pub Reserved: u32,
@@ -36152,33 +36152,33 @@ pub struct DXVA_VideoSample2 {
     pub rcDst: super::super::Foundation::RECT,
     pub Palette: [DXVA_AYUVsample2; 16],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for DXVA_VideoSample2 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for DXVA_VideoSample2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl core::fmt::Debug for DXVA_VideoSample2 {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("DXVA_VideoSample2").field("Size", &self.Size).field("Reserved", &self.Reserved).field("rtStart", &self.rtStart).field("rtEnd", &self.rtEnd).field("SampleFormat", &self.SampleFormat).field("SampleFlags", &self.SampleFlags).field("lpDDSSrcSurface", &self.lpDDSSrcSurface).field("rcSrc", &self.rcSrc).field("rcDst", &self.rcDst).field("Palette", &self.Palette).finish()
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for DXVA_VideoSample2 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl PartialEq for DXVA_VideoSample2 {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.Reserved == other.Reserved && self.rtStart == other.rtStart && self.rtEnd == other.rtEnd && self.SampleFormat == other.SampleFormat && self.SampleFlags == other.SampleFlags && self.lpDDSSrcSurface == other.lpDDSSrcSurface && self.rcSrc == other.rcSrc && self.rcDst == other.rcDst && self.Palette == other.Palette
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Eq for DXVA_VideoSample2 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for DXVA_VideoSample2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -36229,7 +36229,7 @@ impl Default for DXVA_VideoSample2 {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub struct DXVA_VideoSample32 {
     pub rtStart: i64,
     pub rtEnd: i64,
@@ -36240,33 +36240,33 @@ pub struct DXVA_VideoSample32 {
     pub rcDst: super::super::Foundation::RECT,
     pub Palette: [DXVA_AYUVsample2; 16],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for DXVA_VideoSample32 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for DXVA_VideoSample32 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl core::fmt::Debug for DXVA_VideoSample32 {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("DXVA_VideoSample32").field("rtStart", &self.rtStart).field("rtEnd", &self.rtEnd).field("SampleFormat", &self.SampleFormat).field("SampleFlags", &self.SampleFlags).field("lpDDSSrcSurface", &self.lpDDSSrcSurface).field("rcSrc", &self.rcSrc).field("rcDst", &self.rcDst).field("Palette", &self.Palette).finish()
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for DXVA_VideoSample32 {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl PartialEq for DXVA_VideoSample32 {
     fn eq(&self, other: &Self) -> bool {
         self.rtStart == other.rtStart && self.rtEnd == other.rtEnd && self.SampleFormat == other.SampleFormat && self.SampleFlags == other.SampleFlags && self.lpDDSSrcSurface == other.lpDDSSrcSurface && self.rcSrc == other.rcSrc && self.rcDst == other.rcDst && self.Palette == other.Palette
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Eq for DXVA_VideoSample32 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for DXVA_VideoSample32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -204,13 +204,13 @@ impl Clone for DFS_INFO_150 {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub struct DFS_INFO_1_32 {
     pub EntryPath: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for DFS_INFO_1_32 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for DFS_INFO_1_32 {
     fn clone(&self) -> Self {
         *self
@@ -240,16 +240,16 @@ impl Clone for DFS_INFO_200 {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub struct DFS_INFO_2_32 {
     pub EntryPath: u32,
     pub Comment: u32,
     pub State: u32,
     pub NumberOfStorages: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for DFS_INFO_2_32 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for DFS_INFO_2_32 {
     fn clone(&self) -> Self {
         *self
@@ -281,7 +281,7 @@ impl Clone for DFS_INFO_300 {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub struct DFS_INFO_3_32 {
     pub EntryPath: u32,
     pub Comment: u32,
@@ -289,9 +289,9 @@ pub struct DFS_INFO_3_32 {
     pub NumberOfStorages: u32,
     pub Storage: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for DFS_INFO_3_32 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for DFS_INFO_3_32 {
     fn clone(&self) -> Self {
         *self
@@ -314,7 +314,7 @@ impl Clone for DFS_INFO_4 {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub struct DFS_INFO_4_32 {
     pub EntryPath: u32,
     pub Comment: u32,
@@ -324,9 +324,9 @@ pub struct DFS_INFO_4_32 {
     pub NumberOfStorages: u32,
     pub Storage: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for DFS_INFO_4_32 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for DFS_INFO_4_32 {
     fn clone(&self) -> Self {
         *self
@@ -469,15 +469,15 @@ impl Clone for DFS_STORAGE_INFO {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub struct DFS_STORAGE_INFO_0_32 {
     pub State: u32,
     pub ServerName: u32,
     pub ShareName: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for DFS_STORAGE_INFO_0_32 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for DFS_STORAGE_INFO_0_32 {
     fn clone(&self) -> Self {
         *self

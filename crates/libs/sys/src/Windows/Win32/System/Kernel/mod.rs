@@ -93,7 +93,7 @@ impl Clone for EXCEPTION_REGISTRATION_RECORD {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub struct FLOATING_SAVE_AREA {
     pub ControlWord: u32,
     pub StatusWord: u32,
@@ -105,9 +105,9 @@ pub struct FLOATING_SAVE_AREA {
     pub RegisterArea: [u8; 80],
     pub Cr0NpxState: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for FLOATING_SAVE_AREA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for FLOATING_SAVE_AREA {
     fn clone(&self) -> Self {
         *self
@@ -361,42 +361,42 @@ impl Clone for SLIST_HEADER_1 {
     }
 }
 #[repr(C)]
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub union SLIST_HEADER {
     pub Anonymous: SLIST_HEADER_0,
     pub HeaderX64: SLIST_HEADER_1,
 }
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for SLIST_HEADER {}
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for SLIST_HEADER {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub struct SLIST_HEADER_0 {
     pub Alignment: u64,
     pub Region: u64,
 }
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for SLIST_HEADER_0 {}
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for SLIST_HEADER_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub struct SLIST_HEADER_1 {
     pub _bitfield1: u64,
     pub _bitfield2: u64,
 }
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for SLIST_HEADER_1 {}
-#[cfg(target_arch = "x86_64")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for SLIST_HEADER_1 {
     fn clone(&self) -> Self {
         *self

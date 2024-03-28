@@ -5,13 +5,21 @@
     dead_code,
     clippy::all
 )]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(
+    target_arch = "aarch64",
+    target_arch = "arm64ec",
+    target_arch = "x86_64"
+))]
 windows_targets::link!("user32.dll" "system" fn GetWindowLongPtrW(hwnd : HWND, nindex : WINDOW_LONG_PTR_INDEX) -> isize);
 pub type HWND = isize;
 pub type PSTR = *mut u8;
 pub type WINDOW_LONG_PTR_INDEX = i32;
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(
+    target_arch = "aarch64",
+    target_arch = "arm64ec",
+    target_arch = "x86_64"
+))]
 pub struct WSADATA {
     pub wVersion: u16,
     pub wHighVersion: u16,
@@ -21,9 +29,17 @@ pub struct WSADATA {
     pub szDescription: [i8; 257],
     pub szSystemStatus: [i8; 129],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(
+    target_arch = "aarch64",
+    target_arch = "arm64ec",
+    target_arch = "x86_64"
+))]
 impl Copy for WSADATA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(
+    target_arch = "aarch64",
+    target_arch = "arm64ec",
+    target_arch = "x86_64"
+))]
 impl Clone for WSADATA {
     fn clone(&self) -> Self {
         *self
