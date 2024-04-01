@@ -163,6 +163,7 @@ jobs:
           cargo clippy -p windows_aarch64_gnullvm &&
           cargo clippy -p windows_aarch64_msvc &&
           cargo clippy -p windows_i686_gnu &&
+          cargo clippy -p windows_i686_gnullvm &&
           cargo clippy -p windows_i686_msvc &&
           cargo clippy -p windows_x86_64_gnu &&
           cargo clippy -p windows_x86_64_gnullvm &&
