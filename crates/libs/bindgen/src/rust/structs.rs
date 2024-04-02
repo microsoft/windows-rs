@@ -47,7 +47,7 @@ fn gen_struct_with_name(writer: &Writer, def: metadata::TypeDef, struct_name: &s
     }
 
     let flags = def.flags();
-    let cfg = cfg.union(&cfg::type_def_cfg(writer, def, &[]));
+    let cfg = cfg.union(cfg::type_def_cfg(writer, def, &[]));
 
     let repr = if let Some(layout) = def.class_layout() {
         let packing = Literal::usize_unsuffixed(layout.packing_size());

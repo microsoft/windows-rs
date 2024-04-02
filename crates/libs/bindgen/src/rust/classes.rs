@@ -149,14 +149,14 @@ fn gen_conversions(writer: &Writer, def: metadata::TypeDef, ident: &TokenStream,
 
         let into = writer.type_name(&interface.ty);
         write!(&mut hierarchy, ", {into}").unwrap();
-        hierarchy_cfg = hierarchy_cfg.union(&cfg::type_cfg(writer, &interface.ty));
+        hierarchy_cfg = hierarchy_cfg.union(cfg::type_cfg(writer, &interface.ty));
         hierarchy_added = true;
     }
 
     for def in metadata::type_def_bases(def) {
         let into = writer.type_def_name(def, &[]);
         write!(&mut hierarchy, ", {into}").unwrap();
-        hierarchy_cfg = hierarchy_cfg.union(&cfg::type_def_cfg(writer, def, &[]));
+        hierarchy_cfg = hierarchy_cfg.union(cfg::type_def_cfg(writer, def, &[]));
         hierarchy_added = true;
     }
 
