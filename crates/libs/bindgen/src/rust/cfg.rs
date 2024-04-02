@@ -12,20 +12,11 @@ impl Cfg {
     pub fn add_feature(&mut self, feature: &'static str) {
         self.types.entry(feature).or_default();
     }
-    pub fn union(&self, other: &Self) -> Self {
-        let mut union = Self::default();
-        self.types.keys().for_each(|feature| {
-            union.types.entry(feature).or_default();
-        });
-        other.types.keys().for_each(|feature| {
-            union.types.entry(feature).or_default();
-        });
-        self.arches.iter().for_each(|arch| {
-            union.arches.insert(arch);
-        });
-        other.arches.iter().for_each(|arch| {
-            union.arches.insert(arch);
-        });
+    pub fn union(&self, mut other: Self) -> Self {
+        let mut union = self.clone();
+        union.types.append(&mut other.types);
+        union.core_types.append(&mut other.core_types);
+        union.arches.append(&mut other.arches);
         union
     }
 }
