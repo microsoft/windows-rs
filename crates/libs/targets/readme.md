@@ -13,7 +13,7 @@ Start by adding the following to your Cargo.toml file:
 version = "0.52"
 ```
 
-Use the `link`` macro to define the external functions you wish to call:
+Use the `link` macro to define the external functions you wish to call:
 
 ```rust,no_run
 windows_targets::link!("kernel32.dll" "system" fn SetLastError(code: u32));
