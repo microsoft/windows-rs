@@ -141,11 +141,7 @@ impl Reader {
     }
 
     pub fn remap_type(&self, type_name: &TypeName) -> Option<TypeName> {
-        if self.sys {
-            None
-        } else {
-            REMAP_TYPES.iter().find_map(|(key, value)| (type_name == key).then(|| value.clone()))
-        }
+        REMAP_TYPES.iter().find_map(|(key, value)| (type_name == key).then(|| value.clone()))
     }
 
     pub fn core_type(&self, type_name: &TypeName) -> Option<Type> {
@@ -264,8 +260,8 @@ impl Reader {
 }
 
 // TODO: this should be in riddle's Rust generator if at all - perhaps as convertible types rather than remapped types since there's already some precedent for that.
-const REMAP_TYPES: [(TypeName, TypeName); 2] = [(TypeName::D2D_MATRIX_3X2_F, TypeName::Matrix3x2), (TypeName::D3DMATRIX, TypeName::Matrix4x4)];
+const REMAP_TYPES: [(TypeName, TypeName); 3] = [(TypeName::D2D_MATRIX_3X2_F, TypeName::Matrix3x2), (TypeName::D3DMATRIX, TypeName::Matrix4x4), (TypeName::HRESULT, TypeName::HResult)];
 
 // TODO: get rid of at least the second tuple if not the whole thing.
-const CORE_TYPES: [(TypeName, Type); 13] = [(TypeName::GUID, Type::GUID), (TypeName::IUnknown, Type::IUnknown), (TypeName::HResult, Type::HRESULT), (TypeName::HRESULT, Type::HRESULT), (TypeName::HSTRING, Type::String), (TypeName::BSTR, Type::BSTR), (TypeName::IInspectable, Type::IInspectable), (TypeName::PSTR, Type::PSTR), (TypeName::PWSTR, Type::PWSTR), (TypeName::Type, Type::Type), (TypeName::CHAR, Type::I8), (TypeName::VARIANT, Type::VARIANT), (TypeName::PROPVARIANT, Type::PROPVARIANT)];
-const SYS_CORE_TYPES: [(TypeName, Type); 11] = [(TypeName::GUID, Type::GUID), (TypeName::IUnknown, Type::IUnknown), (TypeName::HResult, Type::HRESULT), (TypeName::HRESULT, Type::HRESULT), (TypeName::HSTRING, Type::String), (TypeName::BSTR, Type::BSTR), (TypeName::IInspectable, Type::IInspectable), (TypeName::PSTR, Type::PSTR), (TypeName::PWSTR, Type::PWSTR), (TypeName::Type, Type::Type), (TypeName::CHAR, Type::I8)];
+const CORE_TYPES: [(TypeName, Type); 12] = [(TypeName::GUID, Type::GUID), (TypeName::IUnknown, Type::IUnknown), (TypeName::HResult, Type::HRESULT), (TypeName::HSTRING, Type::String), (TypeName::BSTR, Type::BSTR), (TypeName::IInspectable, Type::IInspectable), (TypeName::PSTR, Type::PSTR), (TypeName::PWSTR, Type::PWSTR), (TypeName::Type, Type::Type), (TypeName::CHAR, Type::I8), (TypeName::VARIANT, Type::VARIANT), (TypeName::PROPVARIANT, Type::PROPVARIANT)];
+const SYS_CORE_TYPES: [(TypeName, Type); 10] = [(TypeName::GUID, Type::GUID), (TypeName::IUnknown, Type::IUnknown), (TypeName::HResult, Type::HRESULT), (TypeName::HSTRING, Type::String), (TypeName::BSTR, Type::BSTR), (TypeName::IInspectable, Type::IInspectable), (TypeName::PSTR, Type::PSTR), (TypeName::PWSTR, Type::PWSTR), (TypeName::Type, Type::Type), (TypeName::CHAR, Type::I8)];
