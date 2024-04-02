@@ -4479,14 +4479,14 @@ impl Clone for D3DHAL_DP2LINESTRIP {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 pub struct D3DHAL_DP2MULTIPLYTRANSFORM {
     pub xfrmType: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMSTATETYPE,
-    pub matrix: super::super::super::Win32::Graphics::Direct3D::D3DMATRIX,
+    pub matrix: super::super::super::Foundation::Numerics::Matrix4x4,
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 impl Copy for D3DHAL_DP2MULTIPLYTRANSFORM {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 impl Clone for D3DHAL_DP2MULTIPLYTRANSFORM {
     fn clone(&self) -> Self {
         *self
@@ -4735,14 +4735,14 @@ impl Clone for D3DHAL_DP2SETTEXLOD {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 pub struct D3DHAL_DP2SETTRANSFORM {
     pub xfrmType: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMSTATETYPE,
-    pub matrix: super::super::super::Win32::Graphics::Direct3D::D3DMATRIX,
+    pub matrix: super::super::super::Foundation::Numerics::Matrix4x4,
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 impl Copy for D3DHAL_DP2SETTRANSFORM {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 impl Clone for D3DHAL_DP2SETTRANSFORM {
     fn clone(&self) -> Self {
         *self
@@ -13247,14 +13247,14 @@ impl Clone for D3DNTHAL_DP2LINESTRIP {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 pub struct D3DNTHAL_DP2MULTIPLYTRANSFORM {
     pub xfrmType: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMSTATETYPE,
-    pub matrix: super::super::super::Win32::Graphics::Direct3D::D3DMATRIX,
+    pub matrix: super::super::super::Foundation::Numerics::Matrix4x4,
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 impl Copy for D3DNTHAL_DP2MULTIPLYTRANSFORM {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 impl Clone for D3DNTHAL_DP2MULTIPLYTRANSFORM {
     fn clone(&self) -> Self {
         *self
@@ -13514,14 +13514,14 @@ impl Clone for D3DNTHAL_DP2SETTEXLOD {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 pub struct D3DNTHAL_DP2SETTRANSFORM {
     pub xfrmType: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMSTATETYPE,
-    pub matrix: super::super::super::Win32::Graphics::Direct3D::D3DMATRIX,
+    pub matrix: super::super::super::Foundation::Numerics::Matrix4x4,
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 impl Copy for D3DNTHAL_DP2SETTRANSFORM {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 impl Clone for D3DNTHAL_DP2SETTRANSFORM {
     fn clone(&self) -> Self {
         *self
