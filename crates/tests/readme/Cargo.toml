@@ -28,3 +28,12 @@ path = "../../libs/targets"
 
 [dependencies.windows-metadata]
 path = "../../libs/metadata"
+
+[dev-dependencies.windows-result]
+path = "../../libs/result"
+
+[dev-dependencies.windows-registry]
+path = "../../libs/registry"
+
+[dev-dependencies.windows-version]
+path = "../../libs/version"

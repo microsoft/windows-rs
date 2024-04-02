@@ -27,6 +27,6 @@ fn main() -> Result<()> {
     let e = Error::new(E_CANCELLED, "test message");
     assert_eq!(e.code(), E_CANCELLED);
     assert_eq!(e.message(), "test message");
-    Err(e)
+    Ok(())
 }
 ```
