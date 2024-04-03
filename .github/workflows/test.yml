@@ -107,8 +107,8 @@ jobs:
           cargo test -p test_dispatch &&
           cargo test -p test_does_not_return &&
           cargo test -p test_enums &&
-          cargo clean &&
           cargo test -p test_error &&
+          cargo clean &&
           cargo test -p test_event &&
           cargo test -p test_extensions &&
           cargo test -p test_handles &&
@@ -171,6 +171,7 @@ jobs:
           cargo test -p windows_aarch64_gnullvm &&
           cargo test -p windows_aarch64_msvc &&
           cargo test -p windows_i686_gnu &&
+          cargo test -p windows_i686_gnullvm &&
           cargo test -p windows_i686_msvc &&
           cargo test -p windows_x86_64_gnu &&
           cargo test -p windows_x86_64_gnullvm &&
