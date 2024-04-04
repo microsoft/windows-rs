@@ -166,7 +166,7 @@ pub fn gen_upcall(writer: &Writer, sig: &metadata::Signature, inner: TokenStream
             let result = writer.param_name(sig.params[sig.params.len() - 1].def);
 
             quote! {
-                match #inner(#(#invoke_args,)*) {
+                match #inner(this, #(#invoke_args,)*) {
                     Ok(ok__) => {
                         // use `core::ptr::write` since the result could be uninitialized
                         core::ptr::write(#result, core::mem::transmute(ok__));
@@ -180,21 +180,21 @@ pub fn gen_upcall(writer: &Writer, sig: &metadata::Signature, inner: TokenStream
             let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(writer, param));
 
             quote! {
-                #inner(#(#invoke_args,)*).into()
+                #inner(this, #(#invoke_args,)*).into()
             }
         }
         metadata::SignatureKind::ReturnStruct => {
             let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(writer, param));
 
             quote! {
-                *result__ = #inner(#(#invoke_args,)*)
+                *result__ = #inner(this, #(#invoke_args,)*)
             }
         }
         _ => {
             let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(writer, param));
 
             quote! {
-                #inner(#(#invoke_args,)*)
+                #inner(this, #(#invoke_args,)*)
             }
         }
     }

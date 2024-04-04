@@ -56,7 +56,6 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     let runtime_name = writer.runtime_name_trait(def, generics, &type_ident, &constraints, &features);
 
     let mut method_names = MethodNames::new();
-    method_names.add_vtable_types(def);
 
     let method_traits = def.methods().map(|method| {
         let name = method_names.add(method);
@@ -68,14 +67,14 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     });
 
     let mut method_names = MethodNames::new();
-    method_names.add_vtable_types(def);
 
     let method_impls = def.methods().map(|method| {
         let name = method_names.add(method);
         let signature = metadata::method_def_signature(def.namespace(), method, generics);
         let vtbl_signature = writer.vtbl_signature(def, true, &signature);
+        let call = quote! { #impl_ident::#name };
 
-        let invoke_upcall = if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) { winrt_methods::gen_upcall(writer, &signature, quote! { this.#name }) } else { com_methods::gen_upcall(writer, &signature, quote! { this.#name }) };
+        let invoke_upcall = if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) { winrt_methods::gen_upcall(writer, &signature, call, true) } else { com_methods::gen_upcall(writer, &signature, call) };
 
         if has_unknown_base {
             quote! {
@@ -114,7 +113,6 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     }
 
     let mut method_names = MethodNames::new();
-    method_names.add_vtable_types(def);
 
     for method in def.methods() {
         let name = method_names.add(method);

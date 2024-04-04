@@ -773,7 +773,6 @@ impl Writer {
         let vtbl = self.type_def_vtbl_name(def, generics);
         let mut methods = quote! {};
         let mut method_names = MethodNames::new();
-        method_names.add_vtable_types(def);
         let phantoms = self.generic_named_phantoms(generics);
         let crate_name = self.crate_name();
 

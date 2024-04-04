@@ -87,24 +87,23 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
                 }
             }
         } else {
-            let mut bases = vtables.len();
-            for ty in &vtables {
-                match ty {
-                    metadata::Type::IUnknown | metadata::Type::IInspectable => {}
-                    metadata::Type::TypeDef(def, _) => {
-                        let kind = if def.type_name() == metadata::TypeName::IDispatch { metadata::InterfaceKind::None } else { metadata::InterfaceKind::Default };
-                        for method in def.methods() {
-                            methods.combine(&com_methods::writer(writer, *def, kind, method, method_names, virtual_names, bases));
-                        }
-                    }
-                    rest => unimplemented!("{rest:?}"),
-                }
-
-                bases -= 1;
-            }
             for method in def.methods() {
                 methods.combine(&com_methods::writer(writer, def, metadata::InterfaceKind::Default, method, method_names, virtual_names, 0));
             }
+        }
+
+        if let Some(base) = vtables.last() {
+            let base = writer.type_name(base);
+
+            tokens.combine(&quote! {
+                #features
+                impl<#constraints> std::ops::Deref for #ident {
+                    type Target = #base;
+                    fn deref(&self) -> &Self::Target {
+                        unsafe { std::mem::transmute(self) }
+                    }
+                }
+            });
         }
 
         if !vtables.is_empty() && generics.is_empty() {
