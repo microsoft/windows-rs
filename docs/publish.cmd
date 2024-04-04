@@ -1,7 +1,6 @@
 :: cargo publish -p windows_aarch64_gnullvm
 :: cargo publish -p windows_aarch64_msvc
 :: cargo publish -p windows_i686_gnu
-:: cargo publish -p windows_i686_gnullvm
 :: cargo publish -p windows_i686_msvc
 :: cargo publish -p windows_x86_64_gnu
 :: cargo publish -p windows_x86_64_gnullvm

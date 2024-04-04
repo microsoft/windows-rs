@@ -4,7 +4,7 @@
 #[test]
 fn test() {
     let targets = tool_lib::crates("../../targets");
-    assert_eq!(8, targets.len());
+    assert_eq!(7, targets.len());
     assert!(targets.iter().all(|(_, version)| version == "0.52.4"));
 
     // The lib names can't change for minor (semver) updates as that breaks linker search.
@@ -12,7 +12,6 @@ fn test() {
     std::include_bytes!("../../../targets/aarch64_gnullvm/lib/libwindows.0.52.0.a");
     std::include_bytes!("../../../targets/aarch64_msvc/lib/windows.0.52.0.lib");
     std::include_bytes!("../../../targets/i686_gnu/lib/libwindows.0.52.0.a");
-    std::include_bytes!("../../../targets/i686_gnullvm/lib/libwindows.0.52.0.a");
     std::include_bytes!("../../../targets/i686_msvc/lib/windows.0.52.0.lib");
     std::include_bytes!("../../../targets/x86_64_gnu/lib/libwindows.0.52.0.a");
     std::include_bytes!("../../../targets/x86_64_gnullvm/lib/libwindows.0.52.0.a");

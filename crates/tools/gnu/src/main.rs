@@ -3,12 +3,11 @@ use std::io::prelude::*;
 use std::process::{Command, Stdio};
 
 fn main() {
-    const ALL_PLATFORMS: [&str; 5] = [
+    const ALL_PLATFORMS: [&str; 4] = [
         "x86_64_gnu",
         "i686_gnu",
         "x86_64_gnullvm",
         "aarch64_gnullvm",
-        "i686_gnullvm",
     ];
     let mut platforms = BTreeSet::new();
     for platform in std::env::args().skip(1) {
@@ -94,7 +93,7 @@ EXPORTS
 
     for (function, calling_convention) in functions {
         match calling_convention {
-            lib::CallingConvention::Stdcall(params) if platform.starts_with("i686_gnu") => def
+            lib::CallingConvention::Stdcall(params) if platform.eq("i686_gnu") => def
                 .write_all(format!("{function}@{params} @ 0\n").as_bytes())
                 .unwrap(),
             _ => def
@@ -108,7 +107,7 @@ EXPORTS
     let mut cmd = Command::new(dlltool);
     cmd.current_dir(output);
 
-    if platform.starts_with("i686_gnu") {
+    if platform.eq("i686_gnu") {
         cmd.arg("-k");
     }
 
@@ -118,7 +117,7 @@ EXPORTS
     cmd.arg(format!("lib{library}.a"));
     cmd.arg("-m");
     cmd.arg(match platform {
-        "i686_gnu" | "i686_gnullvm" => "i386",
+        "i686_gnu" => "i386",
         "x86_64_gnu" | "x86_64_gnullvm" => "i386:x86-64",
         "aarch64_gnullvm" => "arm64",
         _ => unreachable!(),
