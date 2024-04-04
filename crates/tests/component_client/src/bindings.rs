@@ -11,6 +11,12 @@ pub mod Nested {
         IThing_Vtbl,
         0x5448be22_9873_5ae6_9106_f6e8455d2fdd
     );
+    impl std::ops::Deref for IThing {
+        type Target = windows_core::IInspectable;
+        fn deref(&self) -> &Self::Target {
+            unsafe { std::mem::transmute(self) }
+        }
+    }
     windows_core::imp::interface_hierarchy!(
         IThing,
         windows_core::IUnknown,
@@ -346,8 +352,8 @@ impl<F: FnMut(i32) -> windows_core::Result<i32> + Send + 'static> CallbackBox<F>
         a: i32,
         result__: *mut i32,
     ) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        match ((*this).invoke)(a) {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        match (this.invoke)(a) {
             Ok(ok__) => {
                 core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                 windows_core::HRESULT(0)
