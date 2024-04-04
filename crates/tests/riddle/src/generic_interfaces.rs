@@ -10,6 +10,12 @@
 pub struct IIterable<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
+impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IIterable<T> {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown>
     for IIterable<T>
 {
@@ -63,6 +69,12 @@ where
 pub struct IIterator<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
+impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IIterator<T> {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown>
     for IIterator<T>
 {
@@ -147,6 +159,14 @@ pub struct IKeyValuePair<K, V>(
 where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static;
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> std::ops::Deref
+    for IKeyValuePair<K, V>
+{
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
     windows_core::CanInto<windows_core::IUnknown> for IKeyValuePair<K, V>
 {
@@ -230,6 +250,14 @@ pub struct IMapView<K, V>(
 where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static;
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> std::ops::Deref
+    for IMapView<K, V>
+{
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
     windows_core::CanInto<windows_core::IUnknown> for IMapView<K, V>
 {

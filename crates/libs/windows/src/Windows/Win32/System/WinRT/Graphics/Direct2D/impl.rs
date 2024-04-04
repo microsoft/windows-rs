@@ -11,7 +11,7 @@ impl IGeometrySource2DInterop_Vtbl {
         unsafe extern "system" fn GetGeometry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGeometrySource2DInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetGeometry() {
+            match IGeometrySource2DInterop_Impl::GetGeometry(this) {
                 Ok(ok__) => {
                     core::ptr::write(value, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -22,7 +22,7 @@ impl IGeometrySource2DInterop_Vtbl {
         unsafe extern "system" fn TryGetGeometryUsingFactory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGeometrySource2DInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, factory: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TryGetGeometryUsingFactory(windows_core::from_raw_borrowed(&factory)) {
+            match IGeometrySource2DInterop_Impl::TryGetGeometryUsingFactory(this, windows_core::from_raw_borrowed(&factory)) {
                 Ok(ok__) => {
                     core::ptr::write(value, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -57,7 +57,7 @@ impl IGraphicsEffectD2D1Interop_Vtbl {
         unsafe extern "system" fn GetEffectId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGraphicsEffectD2D1Interop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetEffectId() {
+            match IGraphicsEffectD2D1Interop_Impl::GetEffectId(this) {
                 Ok(ok__) => {
                     core::ptr::write(id, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -68,12 +68,12 @@ impl IGraphicsEffectD2D1Interop_Vtbl {
         unsafe extern "system" fn GetNamedPropertyMapping<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGraphicsEffectD2D1Interop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, index: *mut u32, mapping: *mut GRAPHICS_EFFECT_PROPERTY_MAPPING) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetNamedPropertyMapping(core::mem::transmute(&name), core::mem::transmute_copy(&index), core::mem::transmute_copy(&mapping)).into()
+            IGraphicsEffectD2D1Interop_Impl::GetNamedPropertyMapping(this, core::mem::transmute(&name), core::mem::transmute_copy(&index), core::mem::transmute_copy(&mapping)).into()
         }
         unsafe extern "system" fn GetPropertyCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGraphicsEffectD2D1Interop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPropertyCount() {
+            match IGraphicsEffectD2D1Interop_Impl::GetPropertyCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -84,7 +84,7 @@ impl IGraphicsEffectD2D1Interop_Vtbl {
         unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGraphicsEffectD2D1Interop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProperty(core::mem::transmute_copy(&index)) {
+            match IGraphicsEffectD2D1Interop_Impl::GetProperty(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(value, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -95,7 +95,7 @@ impl IGraphicsEffectD2D1Interop_Vtbl {
         unsafe extern "system" fn GetSource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGraphicsEffectD2D1Interop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, source: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSource(core::mem::transmute_copy(&index)) {
+            match IGraphicsEffectD2D1Interop_Impl::GetSource(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(source, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -106,7 +106,7 @@ impl IGraphicsEffectD2D1Interop_Vtbl {
         unsafe extern "system" fn GetSourceCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGraphicsEffectD2D1Interop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSourceCount() {
+            match IGraphicsEffectD2D1Interop_Impl::GetSourceCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

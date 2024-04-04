@@ -31,6 +31,12 @@ pub struct IContactChangeRecord_Vtbl {
     pub RemoteId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactInformation, IContactInformation_Vtbl, 0xe2b51ffc_e792_4ab7_b15b_f2e078664dea);
+impl std::ops::Deref for IContactInformation {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IContactInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl IContactInformation {
     pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -182,6 +188,12 @@ pub struct IContactInformation_Vtbl {
     ToVcardWithOptionsAsync: usize,
 }
 windows_core::imp::define_interface!(IContactInformation2, IContactInformation2_Vtbl, 0x3198b20c_621e_4668_ac38_d667b87d06d5);
+impl std::ops::Deref for IContactInformation2 {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IContactInformation2, windows_core::IUnknown, windows_core::IInspectable);
 impl IContactInformation2 {
     pub fn DisplayPictureDate(&self) -> windows_core::Result<super::super::Foundation::DateTime> {

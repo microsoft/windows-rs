@@ -1,4 +1,10 @@
 windows_core::imp::define_interface!(AsyncIAssociatedIdentityProvider, AsyncIAssociatedIdentityProvider_Vtbl, 0x2834d6ed_297e_4e72_8a51_961e86f05152);
+impl std::ops::Deref for AsyncIAssociatedIdentityProvider {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(AsyncIAssociatedIdentityProvider, windows_core::IUnknown);
 impl AsyncIAssociatedIdentityProvider {
     pub unsafe fn Begin_AssociateIdentity<P0>(&self, hwndparent: P0) -> windows_core::Result<()>
@@ -47,6 +53,12 @@ pub struct AsyncIAssociatedIdentityProvider_Vtbl {
     pub Finish_ChangeCredential: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(AsyncIConnectedIdentityProvider, AsyncIConnectedIdentityProvider_Vtbl, 0x9ce55141_bce9_4e15_824d_43d79f512f93);
+impl std::ops::Deref for AsyncIConnectedIdentityProvider {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(AsyncIConnectedIdentityProvider, windows_core::IUnknown);
 impl AsyncIConnectedIdentityProvider {
     pub unsafe fn Begin_ConnectIdentity(&self, authbuffer: &[u8]) -> windows_core::Result<()> {
@@ -104,6 +116,12 @@ pub struct AsyncIConnectedIdentityProvider_Vtbl {
     pub Finish_GetAccountState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ACCOUNT_STATE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(AsyncIIdentityAdvise, AsyncIIdentityAdvise_Vtbl, 0x3ab4c8da_d038_4830_8dd9_3253c55a127f);
+impl std::ops::Deref for AsyncIIdentityAdvise {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(AsyncIIdentityAdvise, windows_core::IUnknown);
 impl AsyncIIdentityAdvise {
     pub unsafe fn Begin_IdentityUpdated<P0>(&self, dwidentityupdateevents: u32, lpszuniqueid: P0) -> windows_core::Result<()>
@@ -123,6 +141,12 @@ pub struct AsyncIIdentityAdvise_Vtbl {
     pub Finish_IdentityUpdated: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(AsyncIIdentityAuthentication, AsyncIIdentityAuthentication_Vtbl, 0xf9a2f918_feca_4e9c_9633_61cbf13ed34d);
+impl std::ops::Deref for AsyncIIdentityAuthentication {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(AsyncIIdentityAuthentication, windows_core::IUnknown);
 impl AsyncIIdentityAuthentication {
     pub unsafe fn Begin_SetIdentityCredential(&self, credbuffer: Option<&[u8]>) -> windows_core::Result<()> {
@@ -155,6 +179,12 @@ pub struct AsyncIIdentityAuthentication_Vtbl {
     Finish_ValidateIdentityCredential: usize,
 }
 windows_core::imp::define_interface!(AsyncIIdentityProvider, AsyncIIdentityProvider_Vtbl, 0xc6fc9901_c433_4646_8f48_4e4687aae2a0);
+impl std::ops::Deref for AsyncIIdentityProvider {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(AsyncIIdentityProvider, windows_core::IUnknown);
 impl AsyncIIdentityProvider {
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -271,6 +301,12 @@ pub struct AsyncIIdentityProvider_Vtbl {
     pub Finish_UnAdvise: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(AsyncIIdentityStore, AsyncIIdentityStore_Vtbl, 0xeefa1616_48de_4872_aa64_6e6206535a51);
+impl std::ops::Deref for AsyncIIdentityStore {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(AsyncIIdentityStore, windows_core::IUnknown);
 impl AsyncIIdentityStore {
     pub unsafe fn Begin_GetCount(&self) -> windows_core::Result<()> {
@@ -343,6 +379,12 @@ pub struct AsyncIIdentityStore_Vtbl {
     pub Finish_Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(AsyncIIdentityStoreEx, AsyncIIdentityStoreEx_Vtbl, 0xfca3af9a_8a07_4eae_8632_ec3de658a36a);
+impl std::ops::Deref for AsyncIIdentityStoreEx {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(AsyncIIdentityStoreEx, windows_core::IUnknown);
 impl AsyncIIdentityStoreEx {
     pub unsafe fn Begin_CreateConnectedIdentity<P0, P1>(&self, localname: P0, connectedname: P1, providerguid: *const windows_core::GUID) -> windows_core::Result<()>
@@ -374,6 +416,12 @@ pub struct AsyncIIdentityStoreEx_Vtbl {
     pub Finish_DeleteConnectedIdentity: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAssociatedIdentityProvider, IAssociatedIdentityProvider_Vtbl, 0x2af066b3_4cbb_4cba_a798_204b6af68cc0);
+impl std::ops::Deref for IAssociatedIdentityProvider {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAssociatedIdentityProvider, windows_core::IUnknown);
 impl IAssociatedIdentityProvider {
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -410,6 +458,12 @@ pub struct IAssociatedIdentityProvider_Vtbl {
     pub ChangeCredential: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::super::Foundation::HWND, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IConnectedIdentityProvider, IConnectedIdentityProvider_Vtbl, 0xb7417b54_e08c_429b_96c8_678d1369ecb1);
+impl std::ops::Deref for IConnectedIdentityProvider {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IConnectedIdentityProvider, windows_core::IUnknown);
 impl IConnectedIdentityProvider {
     pub unsafe fn ConnectIdentity(&self, authbuffer: &[u8]) -> windows_core::Result<()> {
@@ -447,6 +501,12 @@ pub struct IConnectedIdentityProvider_Vtbl {
     pub GetAccountState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ACCOUNT_STATE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IIdentityAdvise, IIdentityAdvise_Vtbl, 0x4e982fed_d14b_440c_b8d6_bb386453d386);
+impl std::ops::Deref for IIdentityAdvise {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IIdentityAdvise, windows_core::IUnknown);
 impl IIdentityAdvise {
     pub unsafe fn IdentityUpdated<P0>(&self, dwidentityupdateevents: IdentityUpdateEvent, lpszuniqueid: P0) -> windows_core::Result<()>
@@ -462,6 +522,12 @@ pub struct IIdentityAdvise_Vtbl {
     pub IdentityUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IIdentityAuthentication, IIdentityAuthentication_Vtbl, 0x5e7ef254_979f_43b5_b74e_06e4eb7df0f9);
+impl std::ops::Deref for IIdentityAuthentication {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IIdentityAuthentication, windows_core::IUnknown);
 impl IIdentityAuthentication {
     pub unsafe fn SetIdentityCredential(&self, credbuffer: Option<&[u8]>) -> windows_core::Result<()> {
@@ -482,6 +548,12 @@ pub struct IIdentityAuthentication_Vtbl {
     ValidateIdentityCredential: usize,
 }
 windows_core::imp::define_interface!(IIdentityProvider, IIdentityProvider_Vtbl, 0x0d1b9e0c_e8ba_4f55_a81b_bce934b948f5);
+impl std::ops::Deref for IIdentityProvider {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IIdentityProvider, windows_core::IUnknown);
 impl IIdentityProvider {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -561,6 +633,12 @@ pub struct IIdentityProvider_Vtbl {
     pub UnAdvise: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IIdentityStore, IIdentityStore_Vtbl, 0xdf586fa5_6f35_44f1_b209_b38e169772eb);
+impl std::ops::Deref for IIdentityStore {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IIdentityStore, windows_core::IUnknown);
 impl IIdentityStore {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -605,6 +683,12 @@ pub struct IIdentityStore_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IIdentityStoreEx, IIdentityStoreEx_Vtbl, 0xf9f9eb98_8f7f_4e38_9577_6980114ce32b);
+impl std::ops::Deref for IIdentityStoreEx {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IIdentityStoreEx, windows_core::IUnknown);
 impl IIdentityStoreEx {
     pub unsafe fn CreateConnectedIdentity<P0, P1>(&self, localname: P0, connectedname: P1, providerguid: *const windows_core::GUID) -> windows_core::Result<()>

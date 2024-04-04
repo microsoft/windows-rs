@@ -10,7 +10,7 @@ impl IAccessibleWinSAT_Vtbl {
         unsafe extern "system" fn SetAccessiblityData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessibleWinSAT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wsname: windows_core::PCWSTR, wsvalue: windows_core::PCWSTR, wsdesc: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAccessiblityData(core::mem::transmute(&wsname), core::mem::transmute(&wsvalue), core::mem::transmute(&wsdesc)).into()
+            IAccessibleWinSAT_Impl::SetAccessiblityData(this, core::mem::transmute(&wsname), core::mem::transmute(&wsvalue), core::mem::transmute(&wsdesc)).into()
         }
         Self {
             base__: super::super::UI::Accessibility::IAccessible_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -32,17 +32,17 @@ impl IInitiateWinSATAssessment_Vtbl {
         unsafe extern "system" fn InitiateAssessment<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IInitiateWinSATAssessment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cmdline: windows_core::PCWSTR, pcallbacks: *mut core::ffi::c_void, callerhwnd: super::super::Foundation::HWND) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InitiateAssessment(core::mem::transmute(&cmdline), windows_core::from_raw_borrowed(&pcallbacks), core::mem::transmute_copy(&callerhwnd)).into()
+            IInitiateWinSATAssessment_Impl::InitiateAssessment(this, core::mem::transmute(&cmdline), windows_core::from_raw_borrowed(&pcallbacks), core::mem::transmute_copy(&callerhwnd)).into()
         }
         unsafe extern "system" fn InitiateFormalAssessment<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IInitiateWinSATAssessment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallbacks: *mut core::ffi::c_void, callerhwnd: super::super::Foundation::HWND) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InitiateFormalAssessment(windows_core::from_raw_borrowed(&pcallbacks), core::mem::transmute_copy(&callerhwnd)).into()
+            IInitiateWinSATAssessment_Impl::InitiateFormalAssessment(this, windows_core::from_raw_borrowed(&pcallbacks), core::mem::transmute_copy(&callerhwnd)).into()
         }
         unsafe extern "system" fn CancelAssessment<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IInitiateWinSATAssessment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CancelAssessment().into()
+            IInitiateWinSATAssessment_Impl::CancelAssessment(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -69,7 +69,7 @@ impl IProvideWinSATAssessmentInfo_Vtbl {
         unsafe extern "system" fn Score<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProvideWinSATAssessmentInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, score: *mut f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Score() {
+            match IProvideWinSATAssessmentInfo_Impl::Score(this) {
                 Ok(ok__) => {
                     core::ptr::write(score, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -80,7 +80,7 @@ impl IProvideWinSATAssessmentInfo_Vtbl {
         unsafe extern "system" fn Title<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProvideWinSATAssessmentInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, title: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Title() {
+            match IProvideWinSATAssessmentInfo_Impl::Title(this) {
                 Ok(ok__) => {
                     core::ptr::write(title, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -91,7 +91,7 @@ impl IProvideWinSATAssessmentInfo_Vtbl {
         unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProvideWinSATAssessmentInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Description() {
+            match IProvideWinSATAssessmentInfo_Impl::Description(this) {
                 Ok(ok__) => {
                     core::ptr::write(description, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -126,7 +126,7 @@ impl IProvideWinSATResultsInfo_Vtbl {
         unsafe extern "system" fn GetAssessmentInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProvideWinSATResultsInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, assessment: WINSAT_ASSESSMENT_TYPE, ppinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAssessmentInfo(core::mem::transmute_copy(&assessment)) {
+            match IProvideWinSATResultsInfo_Impl::GetAssessmentInfo(this, core::mem::transmute_copy(&assessment)) {
                 Ok(ok__) => {
                     core::ptr::write(ppinfo, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -137,7 +137,7 @@ impl IProvideWinSATResultsInfo_Vtbl {
         unsafe extern "system" fn AssessmentState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProvideWinSATResultsInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: *mut WINSAT_ASSESSMENT_STATE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AssessmentState() {
+            match IProvideWinSATResultsInfo_Impl::AssessmentState(this) {
                 Ok(ok__) => {
                     core::ptr::write(state, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -148,7 +148,7 @@ impl IProvideWinSATResultsInfo_Vtbl {
         unsafe extern "system" fn AssessmentDateTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProvideWinSATResultsInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filetime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AssessmentDateTime() {
+            match IProvideWinSATResultsInfo_Impl::AssessmentDateTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(filetime, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -159,7 +159,7 @@ impl IProvideWinSATResultsInfo_Vtbl {
         unsafe extern "system" fn SystemRating<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProvideWinSATResultsInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, level: *mut f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SystemRating() {
+            match IProvideWinSATResultsInfo_Impl::SystemRating(this) {
                 Ok(ok__) => {
                     core::ptr::write(level, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -170,7 +170,7 @@ impl IProvideWinSATResultsInfo_Vtbl {
         unsafe extern "system" fn RatingStateDesc<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProvideWinSATResultsInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RatingStateDesc() {
+            match IProvideWinSATResultsInfo_Impl::RatingStateDesc(this) {
                 Ok(ok__) => {
                     core::ptr::write(description, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -203,7 +203,7 @@ impl IProvideWinSATVisuals_Vtbl {
         unsafe extern "system" fn get_Bitmap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProvideWinSATVisuals_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmapsize: WINSAT_BITMAP_SIZE, state: WINSAT_ASSESSMENT_STATE, rating: f32, pbitmap: *mut super::super::Graphics::Gdi::HBITMAP) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Bitmap(core::mem::transmute_copy(&bitmapsize), core::mem::transmute_copy(&state), core::mem::transmute_copy(&rating)) {
+            match IProvideWinSATVisuals_Impl::get_Bitmap(this, core::mem::transmute_copy(&bitmapsize), core::mem::transmute_copy(&state), core::mem::transmute_copy(&rating)) {
                 Ok(ok__) => {
                     core::ptr::write(pbitmap, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -229,7 +229,7 @@ impl IQueryAllWinSATAssessments_Vtbl {
         unsafe extern "system" fn get_AllXML<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IQueryAllWinSATAssessments_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xpath: std::mem::MaybeUninit<windows_core::BSTR>, namespaces: std::mem::MaybeUninit<windows_core::BSTR>, ppdomnodelist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_AllXML(core::mem::transmute(&xpath), core::mem::transmute(&namespaces)) {
+            match IQueryAllWinSATAssessments_Impl::get_AllXML(this, core::mem::transmute(&xpath), core::mem::transmute(&namespaces)) {
                 Ok(ok__) => {
                     core::ptr::write(ppdomnodelist, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -252,7 +252,7 @@ impl IQueryOEMWinSATCustomization_Vtbl {
         unsafe extern "system" fn GetOEMPrePopulationInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IQueryOEMWinSATCustomization_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: *mut WINSAT_OEM_CUSTOMIZATION_STATE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetOEMPrePopulationInfo() {
+            match IQueryOEMWinSATCustomization_Impl::GetOEMPrePopulationInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(state, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -279,7 +279,7 @@ impl IQueryRecentWinSATAssessment_Vtbl {
         unsafe extern "system" fn get_XML<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IQueryRecentWinSATAssessment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xpath: std::mem::MaybeUninit<windows_core::BSTR>, namespaces: std::mem::MaybeUninit<windows_core::BSTR>, ppdomnodelist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_XML(core::mem::transmute(&xpath), core::mem::transmute(&namespaces)) {
+            match IQueryRecentWinSATAssessment_Impl::get_XML(this, core::mem::transmute(&xpath), core::mem::transmute(&namespaces)) {
                 Ok(ok__) => {
                     core::ptr::write(ppdomnodelist, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -290,7 +290,7 @@ impl IQueryRecentWinSATAssessment_Vtbl {
         unsafe extern "system" fn Info<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IQueryRecentWinSATAssessment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwinsatassessmentinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Info() {
+            match IQueryRecentWinSATAssessment_Impl::Info(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppwinsatassessmentinfo, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -318,12 +318,12 @@ impl IWinSATInitiateEvents_Vtbl {
         unsafe extern "system" fn WinSATComplete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWinSATInitiateEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hresult: windows_core::HRESULT, strdescription: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.WinSATComplete(core::mem::transmute_copy(&hresult), core::mem::transmute(&strdescription)).into()
+            IWinSATInitiateEvents_Impl::WinSATComplete(this, core::mem::transmute_copy(&hresult), core::mem::transmute(&strdescription)).into()
         }
         unsafe extern "system" fn WinSATUpdate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWinSATInitiateEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ucurrenttick: u32, uticktotal: u32, strcurrentstate: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.WinSATUpdate(core::mem::transmute_copy(&ucurrenttick), core::mem::transmute_copy(&uticktotal), core::mem::transmute(&strcurrentstate)).into()
+            IWinSATInitiateEvents_Impl::WinSATUpdate(this, core::mem::transmute_copy(&ucurrenttick), core::mem::transmute_copy(&uticktotal), core::mem::transmute(&strcurrentstate)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

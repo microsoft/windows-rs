@@ -7,7 +7,7 @@ impl IIsolatedEnvironmentInterop_Vtbl {
         unsafe extern "system" fn GetHostHwndInterop<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IIsolatedEnvironmentInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, containerhwnd: super::super::super::Foundation::HWND, hosthwnd: *mut super::super::super::Foundation::HWND) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetHostHwndInterop(core::mem::transmute_copy(&containerhwnd)) {
+            match IIsolatedEnvironmentInterop_Impl::GetHostHwndInterop(this, core::mem::transmute_copy(&containerhwnd)) {
                 Ok(ok__) => {
                     core::ptr::write(hosthwnd, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

@@ -1,4 +1,10 @@
 windows_core::imp::define_interface!(IDontSupportEventSubscription, IDontSupportEventSubscription_Vtbl, 0x784121f1_62a6_4b89_855f_d65f296de83a);
+impl std::ops::Deref for IDontSupportEventSubscription {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDontSupportEventSubscription, windows_core::IUnknown);
 impl IDontSupportEventSubscription {}
 #[repr(C)]
@@ -6,6 +12,12 @@ pub struct IDontSupportEventSubscription_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
 windows_core::imp::define_interface!(IEnumEventObject, IEnumEventObject_Vtbl, 0xf4a07d63_2e25_11d1_9964_00c04fbbb345);
+impl std::ops::Deref for IEnumEventObject {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumEventObject, windows_core::IUnknown);
 impl IEnumEventObject {
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumEventObject> {
@@ -31,6 +43,12 @@ pub struct IEnumEventObject_Vtbl {
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEventClass, IEventClass_Vtbl, 0xfb2b72a0_7a68_11d1_88f9_0080c7d771bf);
+impl std::ops::Deref for IEventClass {
+    type Target = super::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEventClass, windows_core::IUnknown, super::IDispatch);
 impl IEventClass {
     pub unsafe fn EventClassID(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -123,78 +141,14 @@ pub struct IEventClass_Vtbl {
     pub SetTypeLib: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEventClass2, IEventClass2_Vtbl, 0xfb2b72a1_7a68_11d1_88f9_0080c7d771bf);
+impl std::ops::Deref for IEventClass2 {
+    type Target = IEventClass;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEventClass2, windows_core::IUnknown, super::IDispatch, IEventClass);
 impl IEventClass2 {
-    pub unsafe fn EventClassID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EventClassID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetEventClassID<P0>(&self, bstreventclassid: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetEventClassID)(windows_core::Interface::as_raw(self), bstreventclassid.param().abi()).ok()
-    }
-    pub unsafe fn EventClassName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EventClassName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetEventClassName<P0>(&self, bstreventclassname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetEventClassName)(windows_core::Interface::as_raw(self), bstreventclassname.param().abi()).ok()
-    }
-    pub unsafe fn OwnerSID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.OwnerSID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetOwnerSID<P0>(&self, bstrownersid: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetOwnerSID)(windows_core::Interface::as_raw(self), bstrownersid.param().abi()).ok()
-    }
-    pub unsafe fn FiringInterfaceID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FiringInterfaceID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetFiringInterfaceID<P0>(&self, bstrfiringinterfaceid: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFiringInterfaceID)(windows_core::Interface::as_raw(self), bstrfiringinterfaceid.param().abi()).ok()
-    }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Description)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetDescription<P0>(&self, bstrdescription: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), bstrdescription.param().abi()).ok()
-    }
-    pub unsafe fn CustomConfigCLSID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CustomConfigCLSID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetCustomConfigCLSID<P0>(&self, bstrcustomconfigclsid: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetCustomConfigCLSID)(windows_core::Interface::as_raw(self), bstrcustomconfigclsid.param().abi()).ok()
-    }
-    pub unsafe fn TypeLib(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.TypeLib)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetTypeLib<P0>(&self, bstrtypelib: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetTypeLib)(windows_core::Interface::as_raw(self), bstrtypelib.param().abi()).ok()
-    }
     pub unsafe fn PublisherID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).PublisherID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -249,6 +203,12 @@ pub struct IEventClass2_Vtbl {
     pub SetFireInParallel: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEventControl, IEventControl_Vtbl, 0x0343e2f4_86f6_11d1_b760_00c04fb926af);
+impl std::ops::Deref for IEventControl {
+    type Target = super::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEventControl, windows_core::IUnknown, super::IDispatch);
 impl IEventControl {
     pub unsafe fn SetPublisherFilter<P0, P1>(&self, methodname: P0, ppublisherfilter: P1) -> windows_core::Result<()>
@@ -295,6 +255,12 @@ pub struct IEventControl_Vtbl {
     pub SetDefaultQuery: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEventObjectChange, IEventObjectChange_Vtbl, 0xf4a07d70_2e25_11d1_9964_00c04fbbb345);
+impl std::ops::Deref for IEventObjectChange {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEventObjectChange, windows_core::IUnknown);
 impl IEventObjectChange {
     pub unsafe fn ChangedSubscription<P0>(&self, changetype: EOC_ChangeType, bstrsubscriptionid: P0) -> windows_core::Result<()>
@@ -324,6 +290,12 @@ pub struct IEventObjectChange_Vtbl {
     pub ChangedPublisher: unsafe extern "system" fn(*mut core::ffi::c_void, EOC_ChangeType, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEventObjectChange2, IEventObjectChange2_Vtbl, 0x7701a9c3_bd68_438f_83e0_67bf4f53a422);
+impl std::ops::Deref for IEventObjectChange2 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEventObjectChange2, windows_core::IUnknown);
 impl IEventObjectChange2 {
     pub unsafe fn ChangedSubscription(&self, pinfo: *const COMEVENTSYSCHANGEINFO) -> windows_core::Result<()> {
@@ -340,6 +312,12 @@ pub struct IEventObjectChange2_Vtbl {
     pub ChangedEventClass: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMEVENTSYSCHANGEINFO) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEventObjectCollection, IEventObjectCollection_Vtbl, 0xf89ac270_d4eb_11d1_b682_00805fc79216);
+impl std::ops::Deref for IEventObjectCollection {
+    type Target = super::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEventObjectCollection, windows_core::IUnknown, super::IDispatch);
 impl IEventObjectCollection {
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
@@ -385,6 +363,12 @@ pub struct IEventObjectCollection_Vtbl {
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEventProperty, IEventProperty_Vtbl, 0xda538ee2_f4de_11d1_b6bb_00805fc79216);
+impl std::ops::Deref for IEventProperty {
+    type Target = super::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEventProperty, windows_core::IUnknown, super::IDispatch);
 impl IEventProperty {
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -414,6 +398,12 @@ pub struct IEventProperty_Vtbl {
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEventPublisher, IEventPublisher_Vtbl, 0xe341516b_2e32_11d1_9964_00c04fbbb345);
+impl std::ops::Deref for IEventPublisher {
+    type Target = super::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEventPublisher, windows_core::IUnknown, super::IDispatch);
 impl IEventPublisher {
     pub unsafe fn PublisherID(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -509,6 +499,12 @@ pub struct IEventPublisher_Vtbl {
     pub GetDefaultPropertyCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEventSubscription, IEventSubscription_Vtbl, 0x4a6b0e15_2e38_11d1_9965_00c04fbbb345);
+impl std::ops::Deref for IEventSubscription {
+    type Target = super::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEventSubscription, windows_core::IUnknown, super::IDispatch);
 impl IEventSubscription {
     pub unsafe fn SubscriptionID(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -727,6 +723,12 @@ pub struct IEventSubscription_Vtbl {
     pub SetInterfaceID: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEventSystem, IEventSystem_Vtbl, 0x4e14fb9f_2e22_11d1_9964_00c04fbbb345);
+impl std::ops::Deref for IEventSystem {
+    type Target = super::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEventSystem, windows_core::IUnknown, super::IDispatch);
 impl IEventSystem {
     pub unsafe fn Query<P0, P1>(&self, progid: P0, querycriteria: P1, errorindex: *mut i32) -> windows_core::Result<windows_core::IUnknown>
@@ -783,6 +785,12 @@ pub struct IEventSystem_Vtbl {
     pub RemoveS: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFiringControl, IFiringControl_Vtbl, 0xe0498c93_4efe_11d1_9971_00c04fbbb345);
+impl std::ops::Deref for IFiringControl {
+    type Target = super::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFiringControl, windows_core::IUnknown, super::IDispatch);
 impl IFiringControl {
     pub unsafe fn FireSubscription<P0>(&self, subscription: P0) -> windows_core::Result<()>
@@ -798,6 +806,12 @@ pub struct IFiringControl_Vtbl {
     pub FireSubscription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMultiInterfaceEventControl, IMultiInterfaceEventControl_Vtbl, 0x0343e2f5_86f6_11d1_b760_00c04fb926af);
+impl std::ops::Deref for IMultiInterfaceEventControl {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMultiInterfaceEventControl, windows_core::IUnknown);
 impl IMultiInterfaceEventControl {
     pub unsafe fn SetMultiInterfacePublisherFilter<P0>(&self, classfilter: P0) -> windows_core::Result<()>
@@ -855,6 +869,12 @@ pub struct IMultiInterfaceEventControl_Vtbl {
     pub SetFireInParallel: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMultiInterfacePublisherFilter, IMultiInterfacePublisherFilter_Vtbl, 0x465e5cc1_7b26_11d1_88fb_0080c7d771bf);
+impl std::ops::Deref for IMultiInterfacePublisherFilter {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMultiInterfacePublisherFilter, windows_core::IUnknown);
 impl IMultiInterfacePublisherFilter {
     pub unsafe fn Initialize<P0>(&self, peic: P0) -> windows_core::Result<()>
@@ -878,6 +898,12 @@ pub struct IMultiInterfacePublisherFilter_Vtbl {
     pub PrepareToFire: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, std::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPublisherFilter, IPublisherFilter_Vtbl, 0x465e5cc0_7b26_11d1_88fb_0080c7d771bf);
+impl std::ops::Deref for IPublisherFilter {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPublisherFilter, windows_core::IUnknown);
 impl IPublisherFilter {
     pub unsafe fn Initialize<P0, P1>(&self, methodname: P0, dispuserdefined: P1) -> windows_core::Result<()>

@@ -13,7 +13,7 @@ impl IIOControlCode_Vtbl {
         unsafe extern "system" fn AccessMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IIOControlCode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut IOControlAccessMode) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AccessMode() {
+            match IIOControlCode_Impl::AccessMode(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -24,7 +24,7 @@ impl IIOControlCode_Vtbl {
         unsafe extern "system" fn BufferingMethod<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IIOControlCode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut IOControlBufferingMethod) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BufferingMethod() {
+            match IIOControlCode_Impl::BufferingMethod(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -35,7 +35,7 @@ impl IIOControlCode_Vtbl {
         unsafe extern "system" fn Function<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IIOControlCode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Function() {
+            match IIOControlCode_Impl::Function(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -46,7 +46,7 @@ impl IIOControlCode_Vtbl {
         unsafe extern "system" fn DeviceType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IIOControlCode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DeviceType() {
+            match IIOControlCode_Impl::DeviceType(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -57,7 +57,7 @@ impl IIOControlCode_Vtbl {
         unsafe extern "system" fn ControlCode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IIOControlCode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ControlCode() {
+            match IIOControlCode_Impl::ControlCode(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)

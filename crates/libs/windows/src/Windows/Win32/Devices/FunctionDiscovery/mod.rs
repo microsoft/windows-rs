@@ -1,4 +1,10 @@
 windows_core::imp::define_interface!(IFunctionDiscovery, IFunctionDiscovery_Vtbl, 0x4df99b70_e148_4432_b004_4c9eeb535a5e);
+impl std::ops::Deref for IFunctionDiscovery {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFunctionDiscovery, windows_core::IUnknown);
 impl IFunctionDiscovery {
     pub unsafe fn GetInstanceCollection<P0, P1, P2>(&self, pszcategory: P0, pszsubcategory: P1, fincludeallsubcategories: P2) -> windows_core::Result<IFunctionInstanceCollection>
@@ -72,6 +78,12 @@ pub struct IFunctionDiscovery_Vtbl {
     pub RemoveInstance: unsafe extern "system" fn(*mut core::ffi::c_void, SystemVisibilityFlags, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFunctionDiscoveryNotification, IFunctionDiscoveryNotification_Vtbl, 0x5f6c1ba8_5330_422e_a368_572b244d3f87);
+impl std::ops::Deref for IFunctionDiscoveryNotification {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFunctionDiscoveryNotification, windows_core::IUnknown);
 impl IFunctionDiscoveryNotification {
     #[cfg(feature = "Win32_System_Com")]
@@ -105,6 +117,12 @@ pub struct IFunctionDiscoveryNotification_Vtbl {
     pub OnEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFunctionDiscoveryProvider, IFunctionDiscoveryProvider_Vtbl, 0xdcde394f_1478_4813_a402_f6fb10657222);
+impl std::ops::Deref for IFunctionDiscoveryProvider {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFunctionDiscoveryProvider, windows_core::IUnknown);
 impl IFunctionDiscoveryProvider {
     pub unsafe fn Initialize<P0, P1>(&self, pifunctiondiscoveryproviderfactory: P0, pifunctiondiscoverynotification: P1, lciduserdefault: u32) -> windows_core::Result<u32>
@@ -191,6 +209,12 @@ pub struct IFunctionDiscoveryProvider_Vtbl {
     InstanceReleased: usize,
 }
 windows_core::imp::define_interface!(IFunctionDiscoveryProviderFactory, IFunctionDiscoveryProviderFactory_Vtbl, 0x86443ff0_1ad5_4e68_a45a_40c2c329de3b);
+impl std::ops::Deref for IFunctionDiscoveryProviderFactory {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFunctionDiscoveryProviderFactory, windows_core::IUnknown);
 impl IFunctionDiscoveryProviderFactory {
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -228,6 +252,12 @@ pub struct IFunctionDiscoveryProviderFactory_Vtbl {
     pub CreateFunctionInstanceCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFunctionDiscoveryProviderQuery, IFunctionDiscoveryProviderQuery_Vtbl, 0x6876ea98_baec_46db_bc20_75a76e267a3a);
+impl std::ops::Deref for IFunctionDiscoveryProviderQuery {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFunctionDiscoveryProviderQuery, windows_core::IUnknown);
 impl IFunctionDiscoveryProviderQuery {
     pub unsafe fn IsInstanceQuery(&self, pisinstancequery: *mut super::super::Foundation::BOOL, ppszconstraintvalue: *mut *mut u16) -> windows_core::Result<()> {
@@ -254,6 +284,12 @@ pub struct IFunctionDiscoveryProviderQuery_Vtbl {
     pub GetPropertyConstraints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFunctionDiscoveryServiceProvider, IFunctionDiscoveryServiceProvider_Vtbl, 0x4c81ed02_1b04_43f2_a451_69966cbcd1c2);
+impl std::ops::Deref for IFunctionDiscoveryServiceProvider {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFunctionDiscoveryServiceProvider, windows_core::IUnknown);
 impl IFunctionDiscoveryServiceProvider {
     #[cfg(feature = "Win32_System_Com")]
@@ -277,17 +313,16 @@ pub struct IFunctionDiscoveryServiceProvider_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFunctionInstance, IFunctionInstance_Vtbl, 0x33591c10_0bed_4f02_b0ab_1530d5533ee9);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IFunctionInstance {
+    type Target = super::super::System::Com::IServiceProvider;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IFunctionInstance, windows_core::IUnknown, super::super::System::Com::IServiceProvider);
 #[cfg(feature = "Win32_System_Com")]
 impl IFunctionInstance {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn QueryService<T>(&self, guidservice: *const windows_core::GUID) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).base__.QueryService)(windows_core::Interface::as_raw(self), guidservice, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn GetID(&self) -> windows_core::Result<*mut u16> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -318,6 +353,12 @@ pub struct IFunctionInstance_Vtbl {
     pub GetCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u16, *mut *mut u16) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFunctionInstanceCollection, IFunctionInstanceCollection_Vtbl, 0xf0a3d895_855c_42a2_948d_2f97d450ecb1);
+impl std::ops::Deref for IFunctionInstanceCollection {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFunctionInstanceCollection, windows_core::IUnknown);
 impl IFunctionInstanceCollection {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -380,6 +421,12 @@ pub struct IFunctionInstanceCollection_Vtbl {
     pub DeleteAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFunctionInstanceCollectionQuery, IFunctionInstanceCollectionQuery_Vtbl, 0x57cc6fd2_c09a_4289_bb72_25f04142058e);
+impl std::ops::Deref for IFunctionInstanceCollectionQuery {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFunctionInstanceCollectionQuery, windows_core::IUnknown);
 impl IFunctionInstanceCollectionQuery {
     pub unsafe fn AddQueryConstraint<P0, P1>(&self, pszconstraintname: P0, pszconstraintvalue: P1) -> windows_core::Result<()>
@@ -409,6 +456,12 @@ pub struct IFunctionInstanceCollectionQuery_Vtbl {
     pub Execute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFunctionInstanceQuery, IFunctionInstanceQuery_Vtbl, 0x6242bc6b_90ec_4b37_bb46_e229fd84ed95);
+impl std::ops::Deref for IFunctionInstanceQuery {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFunctionInstanceQuery, windows_core::IUnknown);
 impl IFunctionInstanceQuery {
     #[cfg(feature = "Win32_System_Com")]
@@ -426,6 +479,12 @@ pub struct IFunctionInstanceQuery_Vtbl {
     Execute: usize,
 }
 windows_core::imp::define_interface!(IPNPXAssociation, IPNPXAssociation_Vtbl, 0x0bd7e521_4da6_42d5_81ba_1981b6b94075);
+impl std::ops::Deref for IPNPXAssociation {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPNPXAssociation, windows_core::IUnknown);
 impl IPNPXAssociation {
     pub unsafe fn Associate<P0>(&self, pszsubcategory: P0) -> windows_core::Result<()>
@@ -455,6 +514,12 @@ pub struct IPNPXAssociation_Vtbl {
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPNPXDeviceAssociation, IPNPXDeviceAssociation_Vtbl, 0xeed366d0_35b8_4fc5_8d20_7e5bd31f6ded);
+impl std::ops::Deref for IPNPXDeviceAssociation {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPNPXDeviceAssociation, windows_core::IUnknown);
 impl IPNPXDeviceAssociation {
     pub unsafe fn Associate<P0, P1>(&self, pszsubcategory: P0, pifunctiondiscoverynotification: P1) -> windows_core::Result<()>
@@ -487,6 +552,12 @@ pub struct IPNPXDeviceAssociation_Vtbl {
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPropertyStoreCollection, IPropertyStoreCollection_Vtbl, 0xd14d9c30_12d2_42d8_bce4_c60c2bb226fa);
+impl std::ops::Deref for IPropertyStoreCollection {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPropertyStoreCollection, windows_core::IUnknown);
 impl IPropertyStoreCollection {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -549,6 +620,12 @@ pub struct IPropertyStoreCollection_Vtbl {
     pub DeleteAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProviderProperties, IProviderProperties_Vtbl, 0xcf986ea6_3b5f_4c5f_b88a_2f8b20ceef17);
+impl std::ops::Deref for IProviderProperties {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IProviderProperties, windows_core::IUnknown);
 impl IProviderProperties {
     #[cfg(feature = "Win32_System_Com")]
@@ -603,6 +680,12 @@ pub struct IProviderProperties_Vtbl {
     SetValue: usize,
 }
 windows_core::imp::define_interface!(IProviderPropertyConstraintCollection, IProviderPropertyConstraintCollection_Vtbl, 0xf4fae42f_5778_4a13_8540_b5fd8c1398dd);
+impl std::ops::Deref for IProviderPropertyConstraintCollection {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IProviderPropertyConstraintCollection, windows_core::IUnknown);
 impl IProviderPropertyConstraintCollection {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -648,6 +731,12 @@ pub struct IProviderPropertyConstraintCollection_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProviderPublishing, IProviderPublishing_Vtbl, 0xcd1b9a04_206c_4a05_a0c8_1635a21a2b7c);
+impl std::ops::Deref for IProviderPublishing {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IProviderPublishing, windows_core::IUnknown);
 impl IProviderPublishing {
     #[cfg(feature = "Win32_System_Com")]
@@ -677,6 +766,12 @@ pub struct IProviderPublishing_Vtbl {
     pub RemoveInstance: unsafe extern "system" fn(*mut core::ffi::c_void, SystemVisibilityFlags, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProviderQueryConstraintCollection, IProviderQueryConstraintCollection_Vtbl, 0x9c243e11_3261_4bcd_b922_84a873d460ae);
+impl std::ops::Deref for IProviderQueryConstraintCollection {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IProviderQueryConstraintCollection, windows_core::IUnknown);
 impl IProviderQueryConstraintCollection {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {

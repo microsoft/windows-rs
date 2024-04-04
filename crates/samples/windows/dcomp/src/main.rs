@@ -145,7 +145,7 @@ impl Window {
                 None,
             )?;
 
-            let bitmap = dc.CreateBitmapFromWicBitmap2(&self.image, None)?;
+            let bitmap = dc.CreateBitmapFromWicBitmap(&self.image, None)?;
             let width = logical_to_physical(CARD_WIDTH, self.dpi.0);
             let height = logical_to_physical(CARD_HEIGHT, self.dpi.1);
 
@@ -732,13 +732,14 @@ fn draw_card_back(
             bitmap,
             None,
             1.0,
-            D2D1_BITMAP_INTERPOLATION_MODE_LINEAR,
+            D2D1_INTERPOLATION_MODE_LINEAR,
             Some(&D2D_RECT_F {
                 left,
                 top,
                 right: left + CARD_WIDTH,
                 bottom: top + CARD_HEIGHT,
             }),
+            None,
         );
 
         surface.EndDraw()

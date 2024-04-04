@@ -47,6 +47,12 @@ pub struct IPopupMenu_Vtbl {
     pub ShowAsyncWithRectAndPlacement: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect, Placement, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUICommand, IUICommand_Vtbl, 0x4ff93a75_4145_47ff_ac7f_dff1c1fa5b0f);
+impl std::ops::Deref for IUICommand {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IUICommand, windows_core::IUnknown, windows_core::IInspectable);
 impl IUICommand {
     pub fn Label(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -548,8 +554,8 @@ impl<F: FnMut(Option<&IUICommand>) -> windows_core::Result<()> + Send + 'static>
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, command: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&command)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&command)).into()
     }
 }
 impl windows_core::RuntimeType for UICommandInvokedHandler {

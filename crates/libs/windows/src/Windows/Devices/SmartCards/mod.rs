@@ -3514,8 +3514,8 @@ impl<F: FnMut(Option<&SmartCardProvisioning>, Option<&SmartCardPinResetRequest>)
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, request: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&request)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&request)).into()
     }
 }
 impl windows_core::RuntimeType for SmartCardPinResetHandler {

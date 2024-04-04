@@ -11,6 +11,12 @@ pub mod Nested {
         IThing_Vtbl,
         0x5448be22_9873_5ae6_9106_f6e8455d2fdd
     );
+    impl std::ops::Deref for IThing {
+        type Target = windows_core::IInspectable;
+        fn deref(&self) -> &Self::Target {
+            unsafe { std::mem::transmute(self) }
+        }
+    }
     windows_core::imp::interface_hierarchy!(
         IThing,
         windows_core::IUnknown,
@@ -57,7 +63,7 @@ pub mod Nested {
             ) -> windows_core::HRESULT {
                 let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
                 let this = (*this).get_impl();
-                this.Method().into()
+                IThing_Impl::Method(this).into()
             }
             Self {
                 base__: windows_core::IInspectable_Vtbl::new::<Identity, IThing, OFFSET>(),
@@ -378,8 +384,8 @@ impl<F: FnMut(i32) -> windows_core::Result<i32> + Send + 'static> CallbackBox<F>
         a: i32,
         result__: *mut i32,
     ) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        match ((*this).invoke)(a) {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        match (this.invoke)(a) {
             Ok(ok__) => {
                 core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                 windows_core::HRESULT(0)
@@ -441,7 +447,7 @@ impl IClass_Vtbl {
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Property() {
+            match IClass_Impl::Property(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -459,7 +465,7 @@ impl IClass_Vtbl {
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetProperty(value).into()
+            IClass_Impl::SetProperty(this, value).into()
         }
         unsafe extern "system" fn Flags<
             Identity: windows_core::IUnknownImpl<Impl = Impl>,
@@ -471,7 +477,7 @@ impl IClass_Vtbl {
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Flags() {
+            match IClass_Impl::Flags(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -496,7 +502,8 @@ impl IClass_Vtbl {
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Int32Array(
+            match IClass_Impl::Int32Array(
+                this,
                 core::slice::from_raw_parts(core::mem::transmute_copy(&a), a_array_size as usize),
                 core::slice::from_raw_parts_mut(
                     core::mem::transmute_copy(&b),
@@ -534,7 +541,8 @@ impl IClass_Vtbl {
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.StringArray(
+            match IClass_Impl::StringArray(
+                this,
                 core::slice::from_raw_parts(core::mem::transmute_copy(&a), a_array_size as usize),
                 core::slice::from_raw_parts_mut(
                     core::mem::transmute_copy(&b),
@@ -568,7 +576,8 @@ impl IClass_Vtbl {
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Input(
+            IClass_Impl::Input(
+                this,
                 windows_core::from_raw_borrowed(&a),
                 windows_core::from_raw_borrowed(&b),
                 windows_core::from_raw_borrowed(&c),

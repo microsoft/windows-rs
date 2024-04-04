@@ -1886,8 +1886,8 @@ impl<F: FnMut(&windows_core::GUID, Option<&super::super::Foundation::Collections
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, receiverid: windows_core::GUID, message: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(core::mem::transmute(&receiverid), windows_core::from_raw_borrowed(&message)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(core::mem::transmute(&receiverid), windows_core::from_raw_borrowed(&message)).into()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1956,8 +1956,8 @@ impl<F: FnMut(&windows_core::GUID, Option<&super::super::Foundation::Collections
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, receiverid: windows_core::GUID, message: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(core::mem::transmute(&receiverid), windows_core::from_raw_borrowed(&message)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(core::mem::transmute(&receiverid), windows_core::from_raw_borrowed(&message)).into()
     }
 }
 #[cfg(feature = "Foundation_Collections")]

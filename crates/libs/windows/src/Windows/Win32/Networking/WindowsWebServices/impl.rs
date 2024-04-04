@@ -8,12 +8,12 @@ impl IContentPrefetcherTaskTrigger_Vtbl {
         unsafe extern "system" fn TriggerContentPrefetcherTask<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContentPrefetcherTaskTrigger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagefullname: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.TriggerContentPrefetcherTask(core::mem::transmute(&packagefullname)).into()
+            IContentPrefetcherTaskTrigger_Impl::TriggerContentPrefetcherTask(this, core::mem::transmute(&packagefullname)).into()
         }
         unsafe extern "system" fn IsRegisteredForContentPrefetch<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContentPrefetcherTaskTrigger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagefullname: windows_core::PCWSTR, isregistered: *mut u8) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsRegisteredForContentPrefetch(core::mem::transmute(&packagefullname)) {
+            match IContentPrefetcherTaskTrigger_Impl::IsRegisteredForContentPrefetch(this, core::mem::transmute(&packagefullname)) {
                 Ok(ok__) => {
                     core::ptr::write(isregistered, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

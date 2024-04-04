@@ -11,7 +11,7 @@ impl IGeoshape_Vtbl {
         unsafe extern "system" fn GeoshapeType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGeoshape_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut GeoshapeType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GeoshapeType() {
+            match IGeoshape_Impl::GeoshapeType(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -22,7 +22,7 @@ impl IGeoshape_Vtbl {
         unsafe extern "system" fn SpatialReferenceId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGeoshape_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SpatialReferenceId() {
+            match IGeoshape_Impl::SpatialReferenceId(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -33,7 +33,7 @@ impl IGeoshape_Vtbl {
         unsafe extern "system" fn AltitudeReferenceSystem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGeoshape_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut AltitudeReferenceSystem) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AltitudeReferenceSystem() {
+            match IGeoshape_Impl::AltitudeReferenceSystem(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)

@@ -6,6 +6,12 @@
     clippy::all
 )]
 windows_core::imp::define_interface!(IParams, IParams_Vtbl, 0);
+impl std::ops::Deref for IParams {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(
     IParams,
     windows_core::IUnknown,

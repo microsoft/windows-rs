@@ -9,7 +9,7 @@ impl ICashDrawerEventSourceEventArgs_Vtbl {
         unsafe extern "system" fn CashDrawer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICashDrawerEventSourceEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CashDrawer() {
+            match ICashDrawerEventSourceEventArgs_Impl::CashDrawer(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -56,12 +56,12 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
         unsafe extern "system" fn SetCharactersPerLine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCharactersPerLine(value).into()
+            ICommonClaimedPosPrinterStation_Impl::SetCharactersPerLine(this, value).into()
         }
         unsafe extern "system" fn CharactersPerLine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CharactersPerLine() {
+            match ICommonClaimedPosPrinterStation_Impl::CharactersPerLine(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -72,12 +72,12 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
         unsafe extern "system" fn SetLineHeight<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLineHeight(value).into()
+            ICommonClaimedPosPrinterStation_Impl::SetLineHeight(this, value).into()
         }
         unsafe extern "system" fn LineHeight<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LineHeight() {
+            match ICommonClaimedPosPrinterStation_Impl::LineHeight(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -88,12 +88,12 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
         unsafe extern "system" fn SetLineSpacing<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLineSpacing(value).into()
+            ICommonClaimedPosPrinterStation_Impl::SetLineSpacing(this, value).into()
         }
         unsafe extern "system" fn LineSpacing<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LineSpacing() {
+            match ICommonClaimedPosPrinterStation_Impl::LineSpacing(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -104,7 +104,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
         unsafe extern "system" fn LineWidth<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LineWidth() {
+            match ICommonClaimedPosPrinterStation_Impl::LineWidth(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -115,12 +115,12 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
         unsafe extern "system" fn SetIsLetterQuality<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetIsLetterQuality(value).into()
+            ICommonClaimedPosPrinterStation_Impl::SetIsLetterQuality(this, value).into()
         }
         unsafe extern "system" fn IsLetterQuality<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsLetterQuality() {
+            match ICommonClaimedPosPrinterStation_Impl::IsLetterQuality(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -131,7 +131,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
         unsafe extern "system" fn IsPaperNearEnd<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsPaperNearEnd() {
+            match ICommonClaimedPosPrinterStation_Impl::IsPaperNearEnd(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -142,12 +142,12 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
         unsafe extern "system" fn SetColorCartridge<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: PosPrinterColorCartridge) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetColorCartridge(value).into()
+            ICommonClaimedPosPrinterStation_Impl::SetColorCartridge(this, value).into()
         }
         unsafe extern "system" fn ColorCartridge<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut PosPrinterColorCartridge) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ColorCartridge() {
+            match ICommonClaimedPosPrinterStation_Impl::ColorCartridge(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -158,7 +158,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
         unsafe extern "system" fn IsCoverOpen<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsCoverOpen() {
+            match ICommonClaimedPosPrinterStation_Impl::IsCoverOpen(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -169,7 +169,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
         unsafe extern "system" fn IsCartridgeRemoved<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsCartridgeRemoved() {
+            match ICommonClaimedPosPrinterStation_Impl::IsCartridgeRemoved(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -180,7 +180,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
         unsafe extern "system" fn IsCartridgeEmpty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsCartridgeEmpty() {
+            match ICommonClaimedPosPrinterStation_Impl::IsCartridgeEmpty(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -191,7 +191,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
         unsafe extern "system" fn IsHeadCleaning<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsHeadCleaning() {
+            match ICommonClaimedPosPrinterStation_Impl::IsHeadCleaning(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -202,7 +202,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
         unsafe extern "system" fn IsPaperEmpty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsPaperEmpty() {
+            match ICommonClaimedPosPrinterStation_Impl::IsPaperEmpty(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -213,7 +213,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
         unsafe extern "system" fn IsReadyToPrint<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsReadyToPrint() {
+            match ICommonClaimedPosPrinterStation_Impl::IsReadyToPrint(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -224,7 +224,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
         unsafe extern "system" fn ValidateData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: std::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ValidateData(core::mem::transmute(&data)) {
+            match ICommonClaimedPosPrinterStation_Impl::ValidateData(this, core::mem::transmute(&data)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -285,7 +285,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
         unsafe extern "system" fn IsPrinterPresent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsPrinterPresent() {
+            match ICommonPosPrintStationCapabilities_Impl::IsPrinterPresent(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -296,7 +296,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
         unsafe extern "system" fn IsDualColorSupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsDualColorSupported() {
+            match ICommonPosPrintStationCapabilities_Impl::IsDualColorSupported(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -307,7 +307,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
         unsafe extern "system" fn ColorCartridgeCapabilities<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut PosPrinterColorCapabilities) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ColorCartridgeCapabilities() {
+            match ICommonPosPrintStationCapabilities_Impl::ColorCartridgeCapabilities(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -318,7 +318,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
         unsafe extern "system" fn CartridgeSensors<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut PosPrinterCartridgeSensors) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CartridgeSensors() {
+            match ICommonPosPrintStationCapabilities_Impl::CartridgeSensors(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -329,7 +329,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
         unsafe extern "system" fn IsBoldSupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsBoldSupported() {
+            match ICommonPosPrintStationCapabilities_Impl::IsBoldSupported(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -340,7 +340,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
         unsafe extern "system" fn IsItalicSupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsItalicSupported() {
+            match ICommonPosPrintStationCapabilities_Impl::IsItalicSupported(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -351,7 +351,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
         unsafe extern "system" fn IsUnderlineSupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsUnderlineSupported() {
+            match ICommonPosPrintStationCapabilities_Impl::IsUnderlineSupported(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -362,7 +362,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
         unsafe extern "system" fn IsDoubleHighPrintSupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsDoubleHighPrintSupported() {
+            match ICommonPosPrintStationCapabilities_Impl::IsDoubleHighPrintSupported(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -373,7 +373,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
         unsafe extern "system" fn IsDoubleWidePrintSupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsDoubleWidePrintSupported() {
+            match ICommonPosPrintStationCapabilities_Impl::IsDoubleWidePrintSupported(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -384,7 +384,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
         unsafe extern "system" fn IsDoubleHighDoubleWidePrintSupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsDoubleHighDoubleWidePrintSupported() {
+            match ICommonPosPrintStationCapabilities_Impl::IsDoubleHighDoubleWidePrintSupported(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -395,7 +395,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
         unsafe extern "system" fn IsPaperEmptySensorSupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsPaperEmptySensorSupported() {
+            match ICommonPosPrintStationCapabilities_Impl::IsPaperEmptySensorSupported(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -406,7 +406,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
         unsafe extern "system" fn IsPaperNearEndSensorSupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsPaperNearEndSensorSupported() {
+            match ICommonPosPrintStationCapabilities_Impl::IsPaperNearEndSensorSupported(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -417,7 +417,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
         unsafe extern "system" fn SupportedCharactersPerLine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SupportedCharactersPerLine() {
+            match ICommonPosPrintStationCapabilities_Impl::SupportedCharactersPerLine(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -469,7 +469,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
         unsafe extern "system" fn IsBarcodeSupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonReceiptSlipCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsBarcodeSupported() {
+            match ICommonReceiptSlipCapabilities_Impl::IsBarcodeSupported(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -480,7 +480,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
         unsafe extern "system" fn IsBitmapSupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonReceiptSlipCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsBitmapSupported() {
+            match ICommonReceiptSlipCapabilities_Impl::IsBitmapSupported(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -491,7 +491,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
         unsafe extern "system" fn IsLeft90RotationSupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonReceiptSlipCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsLeft90RotationSupported() {
+            match ICommonReceiptSlipCapabilities_Impl::IsLeft90RotationSupported(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -502,7 +502,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
         unsafe extern "system" fn IsRight90RotationSupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonReceiptSlipCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsRight90RotationSupported() {
+            match ICommonReceiptSlipCapabilities_Impl::IsRight90RotationSupported(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -513,7 +513,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
         unsafe extern "system" fn Is180RotationSupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonReceiptSlipCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Is180RotationSupported() {
+            match ICommonReceiptSlipCapabilities_Impl::Is180RotationSupported(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -524,7 +524,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
         unsafe extern "system" fn IsPrintAreaSupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonReceiptSlipCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsPrintAreaSupported() {
+            match ICommonReceiptSlipCapabilities_Impl::IsPrintAreaSupported(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -535,7 +535,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
         unsafe extern "system" fn RuledLineCapabilities<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonReceiptSlipCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut PosPrinterRuledLineCapabilities) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RuledLineCapabilities() {
+            match ICommonReceiptSlipCapabilities_Impl::RuledLineCapabilities(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -546,7 +546,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
         unsafe extern "system" fn SupportedBarcodeRotations<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonReceiptSlipCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SupportedBarcodeRotations() {
+            match ICommonReceiptSlipCapabilities_Impl::SupportedBarcodeRotations(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -558,7 +558,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
         unsafe extern "system" fn SupportedBitmapRotations<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommonReceiptSlipCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SupportedBitmapRotations() {
+            match ICommonReceiptSlipCapabilities_Impl::SupportedBitmapRotations(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -598,22 +598,22 @@ impl IPosPrinterJob_Vtbl {
         unsafe extern "system" fn Print<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPosPrinterJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Print(core::mem::transmute(&data)).into()
+            IPosPrinterJob_Impl::Print(this, core::mem::transmute(&data)).into()
         }
         unsafe extern "system" fn PrintLine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPosPrinterJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PrintLine(core::mem::transmute(&data)).into()
+            IPosPrinterJob_Impl::PrintLine(this, core::mem::transmute(&data)).into()
         }
         unsafe extern "system" fn PrintNewline<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPosPrinterJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PrintNewline().into()
+            IPosPrinterJob_Impl::PrintNewline(this).into()
         }
         unsafe extern "system" fn ExecuteAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPosPrinterJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ExecuteAsync() {
+            match IPosPrinterJob_Impl::ExecuteAsync(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -662,77 +662,77 @@ impl IReceiptOrSlipJob_Vtbl {
         unsafe extern "system" fn SetBarcodeRotation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: PosPrinterRotation) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBarcodeRotation(value).into()
+            IReceiptOrSlipJob_Impl::SetBarcodeRotation(this, value).into()
         }
         unsafe extern "system" fn SetPrintRotation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: PosPrinterRotation, includebitmaps: bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPrintRotation(value, includebitmaps).into()
+            IReceiptOrSlipJob_Impl::SetPrintRotation(this, value, includebitmaps).into()
         }
         unsafe extern "system" fn SetPrintArea<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::super::Foundation::Rect) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPrintArea(core::mem::transmute(&value)).into()
+            IReceiptOrSlipJob_Impl::SetPrintArea(this, core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn SetBitmap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmapnumber: u32, bitmap: *mut core::ffi::c_void, alignment: PosPrinterAlignment) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBitmap(bitmapnumber, windows_core::from_raw_borrowed(&bitmap), alignment).into()
+            IReceiptOrSlipJob_Impl::SetBitmap(this, bitmapnumber, windows_core::from_raw_borrowed(&bitmap), alignment).into()
         }
         unsafe extern "system" fn SetBitmapCustomWidthStandardAlign<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmapnumber: u32, bitmap: *mut core::ffi::c_void, alignment: PosPrinterAlignment, width: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBitmapCustomWidthStandardAlign(bitmapnumber, windows_core::from_raw_borrowed(&bitmap), alignment, width).into()
+            IReceiptOrSlipJob_Impl::SetBitmapCustomWidthStandardAlign(this, bitmapnumber, windows_core::from_raw_borrowed(&bitmap), alignment, width).into()
         }
         unsafe extern "system" fn SetCustomAlignedBitmap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmapnumber: u32, bitmap: *mut core::ffi::c_void, alignmentdistance: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCustomAlignedBitmap(bitmapnumber, windows_core::from_raw_borrowed(&bitmap), alignmentdistance).into()
+            IReceiptOrSlipJob_Impl::SetCustomAlignedBitmap(this, bitmapnumber, windows_core::from_raw_borrowed(&bitmap), alignmentdistance).into()
         }
         unsafe extern "system" fn SetBitmapCustomWidthCustomAlign<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmapnumber: u32, bitmap: *mut core::ffi::c_void, alignmentdistance: u32, width: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBitmapCustomWidthCustomAlign(bitmapnumber, windows_core::from_raw_borrowed(&bitmap), alignmentdistance, width).into()
+            IReceiptOrSlipJob_Impl::SetBitmapCustomWidthCustomAlign(this, bitmapnumber, windows_core::from_raw_borrowed(&bitmap), alignmentdistance, width).into()
         }
         unsafe extern "system" fn PrintSavedBitmap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmapnumber: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PrintSavedBitmap(bitmapnumber).into()
+            IReceiptOrSlipJob_Impl::PrintSavedBitmap(this, bitmapnumber).into()
         }
         unsafe extern "system" fn DrawRuledLine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, positionlist: std::mem::MaybeUninit<windows_core::HSTRING>, linedirection: PosPrinterLineDirection, linewidth: u32, linestyle: PosPrinterLineStyle, linecolor: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawRuledLine(core::mem::transmute(&positionlist), linedirection, linewidth, linestyle, linecolor).into()
+            IReceiptOrSlipJob_Impl::DrawRuledLine(this, core::mem::transmute(&positionlist), linedirection, linewidth, linestyle, linecolor).into()
         }
         unsafe extern "system" fn PrintBarcode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: std::mem::MaybeUninit<windows_core::HSTRING>, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PrintBarcode(core::mem::transmute(&data), symbology, height, width, textposition, alignment).into()
+            IReceiptOrSlipJob_Impl::PrintBarcode(this, core::mem::transmute(&data), symbology, height, width, textposition, alignment).into()
         }
         unsafe extern "system" fn PrintBarcodeCustomAlign<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: std::mem::MaybeUninit<windows_core::HSTRING>, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignmentdistance: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PrintBarcodeCustomAlign(core::mem::transmute(&data), symbology, height, width, textposition, alignmentdistance).into()
+            IReceiptOrSlipJob_Impl::PrintBarcodeCustomAlign(this, core::mem::transmute(&data), symbology, height, width, textposition, alignmentdistance).into()
         }
         unsafe extern "system" fn PrintBitmap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmap: *mut core::ffi::c_void, alignment: PosPrinterAlignment) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PrintBitmap(windows_core::from_raw_borrowed(&bitmap), alignment).into()
+            IReceiptOrSlipJob_Impl::PrintBitmap(this, windows_core::from_raw_borrowed(&bitmap), alignment).into()
         }
         unsafe extern "system" fn PrintBitmapCustomWidthStandardAlign<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmap: *mut core::ffi::c_void, alignment: PosPrinterAlignment, width: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PrintBitmapCustomWidthStandardAlign(windows_core::from_raw_borrowed(&bitmap), alignment, width).into()
+            IReceiptOrSlipJob_Impl::PrintBitmapCustomWidthStandardAlign(this, windows_core::from_raw_borrowed(&bitmap), alignment, width).into()
         }
         unsafe extern "system" fn PrintCustomAlignedBitmap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmap: *mut core::ffi::c_void, alignmentdistance: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PrintCustomAlignedBitmap(windows_core::from_raw_borrowed(&bitmap), alignmentdistance).into()
+            IReceiptOrSlipJob_Impl::PrintCustomAlignedBitmap(this, windows_core::from_raw_borrowed(&bitmap), alignmentdistance).into()
         }
         unsafe extern "system" fn PrintBitmapCustomWidthCustomAlign<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmap: *mut core::ffi::c_void, alignmentdistance: u32, width: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PrintBitmapCustomWidthCustomAlign(windows_core::from_raw_borrowed(&bitmap), alignmentdistance, width).into()
+            IReceiptOrSlipJob_Impl::PrintBitmapCustomWidthCustomAlign(this, windows_core::from_raw_borrowed(&bitmap), alignmentdistance, width).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IReceiptOrSlipJob, OFFSET>(),

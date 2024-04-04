@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::InterfaceKind, method: metadata::MethodDef, method_names: &mut MethodNames, virtual_names: &mut MethodNames, base_count: usize) -> TokenStream {
+pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::InterfaceKind, method: metadata::MethodDef, method_names: &mut MethodNames, virtual_names: &mut MethodNames) -> TokenStream {
     let signature = metadata::method_def_signature(def.namespace(), method, &[]);
 
     let name = method_names.add(method);
@@ -15,12 +15,6 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
         return quote! {};
     }
 
-    let mut bases = quote! {};
-
-    for _ in 0..base_count {
-        bases.combine(&quote! { .base__ });
-    }
-
     let kind = signature.kind();
     match kind {
         metadata::SignatureKind::Query(_) => {
@@ -33,7 +27,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<T> #where_clause {
                     let mut result__ = std::ptr::null_mut();
-                    (windows_core::Interface::vtable(self)#bases.#vname)(windows_core::Interface::as_raw(self), #args).and_then(||windows_core::Type::from_abi(result__))
+                    (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args).and_then(||windows_core::Type::from_abi(result__))
                 }
             }
         }
@@ -46,7 +40,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
             quote! {
                 #features
                 pub unsafe fn #name<#generics>(&self, #params result__: *mut Option<T>) -> windows_core::Result<()> #where_clause {
-                    (windows_core::Interface::vtable(self)#bases.#vname)(windows_core::Interface::as_raw(self), #args).ok()
+                    (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args).ok()
                 }
             }
         }
@@ -67,7 +61,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<#return_type> #where_clause {
                     let mut result__ = std::mem::zeroed();
-                    (windows_core::Interface::vtable(self)#bases.#vname)(windows_core::Interface::as_raw(self), #args).#map
+                    (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args).#map
                 }
             }
         }
@@ -78,7 +72,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
             quote! {
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<()> #where_clause {
-                    (windows_core::Interface::vtable(self)#bases.#vname)(windows_core::Interface::as_raw(self), #args).ok()
+                    (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args).ok()
                 }
             }
         }
@@ -95,7 +89,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
                     #features
                     pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<#return_type> #where_clause {
                         let mut result__ = std::mem::zeroed();
-                        (windows_core::Interface::vtable(self)#bases.#vname)(windows_core::Interface::as_raw(self), #args);
+                        (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args);
                         windows_core::Type::from_abi(result__)
                     }
                 }
@@ -112,7 +106,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
                     #features
                     pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
                         let mut result__ = std::mem::zeroed();
-                        (windows_core::Interface::vtable(self)#bases.#vname)(windows_core::Interface::as_raw(self), #args);
+                        (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args);
                         #map
                     }
                 }
@@ -127,7 +121,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
                     let mut result__: #return_type = core::mem::zeroed();
-                    (windows_core::Interface::vtable(self)#bases.#vname)(windows_core::Interface::as_raw(self), &mut result__, #args);
+                    (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), &mut result__, #args);
                     result__
                 }
             }
@@ -140,7 +134,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
             quote! {
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) #return_type #where_clause {
-                    (windows_core::Interface::vtable(self)#bases.#vname)(windows_core::Interface::as_raw(self), #args)
+                    (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args)
                 }
             }
         }
@@ -151,7 +145,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
             quote! {
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) #where_clause {
-                    (windows_core::Interface::vtable(self)#bases.#vname)(windows_core::Interface::as_raw(self), #args)
+                    (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args)
                 }
             }
         }
@@ -166,7 +160,7 @@ pub fn gen_upcall(writer: &Writer, sig: &metadata::Signature, inner: TokenStream
             let result = writer.param_name(sig.params[sig.params.len() - 1].def);
 
             quote! {
-                match #inner(#(#invoke_args,)*) {
+                match #inner(this, #(#invoke_args,)*) {
                     Ok(ok__) => {
                         // use `core::ptr::write` since the result could be uninitialized
                         core::ptr::write(#result, core::mem::transmute(ok__));
@@ -180,21 +174,21 @@ pub fn gen_upcall(writer: &Writer, sig: &metadata::Signature, inner: TokenStream
             let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(writer, param));
 
             quote! {
-                #inner(#(#invoke_args,)*).into()
+                #inner(this, #(#invoke_args,)*).into()
             }
         }
         metadata::SignatureKind::ReturnStruct => {
             let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(writer, param));
 
             quote! {
-                *result__ = #inner(#(#invoke_args,)*)
+                *result__ = #inner(this, #(#invoke_args,)*)
             }
         }
         _ => {
             let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(writer, param));
 
             quote! {
-                #inner(#(#invoke_args,)*)
+                #inner(this, #(#invoke_args,)*)
             }
         }
     }

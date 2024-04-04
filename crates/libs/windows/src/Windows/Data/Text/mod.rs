@@ -1117,8 +1117,8 @@ impl<F: FnMut(Option<&super::super::Foundation::Collections::IIterable<Selectabl
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, precedingwords: *mut core::ffi::c_void, words: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&precedingwords), windows_core::from_raw_borrowed(&words)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&precedingwords), windows_core::from_raw_borrowed(&words)).into()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1188,8 +1188,8 @@ impl<F: FnMut(Option<&super::super::Foundation::Collections::IIterable<WordSegme
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, precedingwords: *mut core::ffi::c_void, words: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&precedingwords), windows_core::from_raw_borrowed(&words)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&precedingwords), windows_core::from_raw_borrowed(&words)).into()
     }
 }
 #[cfg(feature = "Foundation_Collections")]

@@ -10,7 +10,7 @@ impl ILearningModelDeviceFactoryNative_Vtbl {
         unsafe extern "system" fn CreateFromD3D12CommandQueue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILearningModelDeviceFactoryNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateFromD3D12CommandQueue(windows_core::from_raw_borrowed(&value)) {
+            match ILearningModelDeviceFactoryNative_Impl::CreateFromD3D12CommandQueue(this, windows_core::from_raw_borrowed(&value)) {
                 Ok(ok__) => {
                     core::ptr::write(result, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -39,7 +39,7 @@ impl ILearningModelOperatorProviderNative_Vtbl {
         unsafe extern "system" fn GetRegistry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILearningModelOperatorProviderNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppoperatorregistry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRegistry() {
+            match ILearningModelOperatorProviderNative_Impl::GetRegistry(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppoperatorregistry, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -62,7 +62,7 @@ impl ILearningModelSessionOptionsNative_Vtbl {
         unsafe extern "system" fn SetIntraOpNumThreadsOverride<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILearningModelSessionOptionsNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, intraopnumthreads: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetIntraOpNumThreadsOverride(core::mem::transmute_copy(&intraopnumthreads)).into()
+            ILearningModelSessionOptionsNative_Impl::SetIntraOpNumThreadsOverride(this, core::mem::transmute_copy(&intraopnumthreads)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -82,7 +82,7 @@ impl ILearningModelSessionOptionsNative1_Vtbl {
         unsafe extern "system" fn SetIntraOpThreadSpinning<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILearningModelSessionOptionsNative1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allowspinning: u8) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetIntraOpThreadSpinning(core::mem::transmute_copy(&allowspinning)).into()
+            ILearningModelSessionOptionsNative1_Impl::SetIntraOpThreadSpinning(this, core::mem::transmute_copy(&allowspinning)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetIntraOpThreadSpinning: SetIntraOpThreadSpinning::<Identity, Impl, OFFSET> }
     }
@@ -103,12 +103,12 @@ impl ITensorNative_Vtbl {
         unsafe extern "system" fn GetBuffer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITensorNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut *mut u8, capacity: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetBuffer(core::mem::transmute_copy(&value), core::mem::transmute_copy(&capacity)).into()
+            ITensorNative_Impl::GetBuffer(this, core::mem::transmute_copy(&value), core::mem::transmute_copy(&capacity)).into()
         }
         unsafe extern "system" fn GetD3D12Resource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITensorNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetD3D12Resource() {
+            match ITensorNative_Impl::GetD3D12Resource(this) {
                 Ok(ok__) => {
                     core::ptr::write(result, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -138,7 +138,7 @@ impl ITensorStaticsNative_Vtbl {
         unsafe extern "system" fn CreateFromD3D12Resource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITensorStaticsNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, shape: *mut i64, shapecount: i32, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateFromD3D12Resource(windows_core::from_raw_borrowed(&value), core::mem::transmute_copy(&shape), core::mem::transmute_copy(&shapecount), core::mem::transmute_copy(&result)).into()
+            ITensorStaticsNative_Impl::CreateFromD3D12Resource(this, windows_core::from_raw_borrowed(&value), core::mem::transmute_copy(&shape), core::mem::transmute_copy(&shapecount), core::mem::transmute_copy(&result)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateFromD3D12Resource: CreateFromD3D12Resource::<Identity, Impl, OFFSET> }
     }

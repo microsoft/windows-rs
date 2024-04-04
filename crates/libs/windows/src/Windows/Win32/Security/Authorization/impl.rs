@@ -70,7 +70,7 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IAzApplication_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -81,12 +81,12 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetName(core::mem::transmute(&bstrname)).into()
+            IAzApplication_Impl::SetName(this, core::mem::transmute(&bstrname)).into()
         }
         unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdescription: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Description() {
+            match IAzApplication_Impl::Description(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrdescription, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -97,12 +97,12 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdescription: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDescription(core::mem::transmute(&bstrdescription)).into()
+            IAzApplication_Impl::SetDescription(this, core::mem::transmute(&bstrdescription)).into()
         }
         unsafe extern "system" fn ApplicationData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrapplicationdata: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ApplicationData() {
+            match IAzApplication_Impl::ApplicationData(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrapplicationdata, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -113,12 +113,12 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn SetApplicationData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationdata: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetApplicationData(core::mem::transmute(&bstrapplicationdata)).into()
+            IAzApplication_Impl::SetApplicationData(this, core::mem::transmute(&bstrapplicationdata)).into()
         }
         unsafe extern "system" fn AuthzInterfaceClsid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrprop: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AuthzInterfaceClsid() {
+            match IAzApplication_Impl::AuthzInterfaceClsid(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -129,12 +129,12 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn SetAuthzInterfaceClsid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAuthzInterfaceClsid(core::mem::transmute(&bstrprop)).into()
+            IAzApplication_Impl::SetAuthzInterfaceClsid(this, core::mem::transmute(&bstrprop)).into()
         }
         unsafe extern "system" fn Version<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrprop: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Version() {
+            match IAzApplication_Impl::Version(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -145,12 +145,12 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn SetVersion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetVersion(core::mem::transmute(&bstrprop)).into()
+            IAzApplication_Impl::SetVersion(this, core::mem::transmute(&bstrprop)).into()
         }
         unsafe extern "system" fn GenerateAudits<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbprop: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GenerateAudits() {
+            match IAzApplication_Impl::GenerateAudits(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -161,12 +161,12 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn SetGenerateAudits<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bprop: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetGenerateAudits(core::mem::transmute_copy(&bprop)).into()
+            IAzApplication_Impl::SetGenerateAudits(this, core::mem::transmute_copy(&bprop)).into()
         }
         unsafe extern "system" fn ApplyStoreSacl<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbprop: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ApplyStoreSacl() {
+            match IAzApplication_Impl::ApplyStoreSacl(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -177,12 +177,12 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn SetApplyStoreSacl<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bprop: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetApplyStoreSacl(core::mem::transmute_copy(&bprop)).into()
+            IAzApplication_Impl::SetApplyStoreSacl(this, core::mem::transmute_copy(&bprop)).into()
         }
         unsafe extern "system" fn Writable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Writable() {
+            match IAzApplication_Impl::Writable(this) {
                 Ok(ok__) => {
                     core::ptr::write(pfprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -193,7 +193,7 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpropid: i32, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, pvarprop: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProperty(core::mem::transmute_copy(&lpropid), core::mem::transmute(&varreserved)) {
+            match IAzApplication_Impl::GetProperty(this, core::mem::transmute_copy(&lpropid), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(pvarprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -204,12 +204,12 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn SetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpropid: i32, varprop: std::mem::MaybeUninit<windows_core::VARIANT>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetProperty(core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
+            IAzApplication_Impl::SetProperty(this, core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn PolicyAdministrators<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvaradmins: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PolicyAdministrators() {
+            match IAzApplication_Impl::PolicyAdministrators(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvaradmins, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -220,7 +220,7 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn PolicyReaders<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarreaders: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PolicyReaders() {
+            match IAzApplication_Impl::PolicyReaders(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarreaders, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -231,27 +231,27 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn AddPolicyAdministrator<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstradmin: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddPolicyAdministrator(core::mem::transmute(&bstradmin), core::mem::transmute(&varreserved)).into()
+            IAzApplication_Impl::AddPolicyAdministrator(this, core::mem::transmute(&bstradmin), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePolicyAdministrator<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstradmin: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeletePolicyAdministrator(core::mem::transmute(&bstradmin), core::mem::transmute(&varreserved)).into()
+            IAzApplication_Impl::DeletePolicyAdministrator(this, core::mem::transmute(&bstradmin), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddPolicyReader<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrreader: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddPolicyReader(core::mem::transmute(&bstrreader), core::mem::transmute(&varreserved)).into()
+            IAzApplication_Impl::AddPolicyReader(this, core::mem::transmute(&bstrreader), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePolicyReader<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrreader: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeletePolicyReader(core::mem::transmute(&bstrreader), core::mem::transmute(&varreserved)).into()
+            IAzApplication_Impl::DeletePolicyReader(this, core::mem::transmute(&bstrreader), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Scopes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppscopecollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Scopes() {
+            match IAzApplication_Impl::Scopes(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppscopecollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -262,7 +262,7 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn OpenScope<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrscopename: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, ppscope: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OpenScope(core::mem::transmute(&bstrscopename), core::mem::transmute(&varreserved)) {
+            match IAzApplication_Impl::OpenScope(this, core::mem::transmute(&bstrscopename), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(ppscope, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -273,7 +273,7 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn CreateScope<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrscopename: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, ppscope: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateScope(core::mem::transmute(&bstrscopename), core::mem::transmute(&varreserved)) {
+            match IAzApplication_Impl::CreateScope(this, core::mem::transmute(&bstrscopename), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(ppscope, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -284,12 +284,12 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn DeleteScope<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrscopename: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteScope(core::mem::transmute(&bstrscopename), core::mem::transmute(&varreserved)).into()
+            IAzApplication_Impl::DeleteScope(this, core::mem::transmute(&bstrscopename), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Operations<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppoperationcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Operations() {
+            match IAzApplication_Impl::Operations(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppoperationcollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -300,7 +300,7 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn OpenOperation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstroperationname: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, ppoperation: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OpenOperation(core::mem::transmute(&bstroperationname), core::mem::transmute(&varreserved)) {
+            match IAzApplication_Impl::OpenOperation(this, core::mem::transmute(&bstroperationname), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(ppoperation, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -311,7 +311,7 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn CreateOperation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstroperationname: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, ppoperation: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateOperation(core::mem::transmute(&bstroperationname), core::mem::transmute(&varreserved)) {
+            match IAzApplication_Impl::CreateOperation(this, core::mem::transmute(&bstroperationname), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(ppoperation, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -322,12 +322,12 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn DeleteOperation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstroperationname: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteOperation(core::mem::transmute(&bstroperationname), core::mem::transmute(&varreserved)).into()
+            IAzApplication_Impl::DeleteOperation(this, core::mem::transmute(&bstroperationname), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Tasks<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptaskcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Tasks() {
+            match IAzApplication_Impl::Tasks(this) {
                 Ok(ok__) => {
                     core::ptr::write(pptaskcollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -338,7 +338,7 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn OpenTask<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtaskname: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, pptask: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OpenTask(core::mem::transmute(&bstrtaskname), core::mem::transmute(&varreserved)) {
+            match IAzApplication_Impl::OpenTask(this, core::mem::transmute(&bstrtaskname), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(pptask, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -349,7 +349,7 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn CreateTask<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtaskname: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, pptask: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateTask(core::mem::transmute(&bstrtaskname), core::mem::transmute(&varreserved)) {
+            match IAzApplication_Impl::CreateTask(this, core::mem::transmute(&bstrtaskname), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(pptask, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -360,12 +360,12 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn DeleteTask<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtaskname: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteTask(core::mem::transmute(&bstrtaskname), core::mem::transmute(&varreserved)).into()
+            IAzApplication_Impl::DeleteTask(this, core::mem::transmute(&bstrtaskname), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn ApplicationGroups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppgroupcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ApplicationGroups() {
+            match IAzApplication_Impl::ApplicationGroups(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppgroupcollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -376,7 +376,7 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn OpenApplicationGroup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgroupname: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, ppgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OpenApplicationGroup(core::mem::transmute(&bstrgroupname), core::mem::transmute(&varreserved)) {
+            match IAzApplication_Impl::OpenApplicationGroup(this, core::mem::transmute(&bstrgroupname), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(ppgroup, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -387,7 +387,7 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn CreateApplicationGroup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgroupname: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, ppgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateApplicationGroup(core::mem::transmute(&bstrgroupname), core::mem::transmute(&varreserved)) {
+            match IAzApplication_Impl::CreateApplicationGroup(this, core::mem::transmute(&bstrgroupname), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(ppgroup, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -398,12 +398,12 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn DeleteApplicationGroup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgroupname: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteApplicationGroup(core::mem::transmute(&bstrgroupname), core::mem::transmute(&varreserved)).into()
+            IAzApplication_Impl::DeleteApplicationGroup(this, core::mem::transmute(&bstrgroupname), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Roles<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprolecollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Roles() {
+            match IAzApplication_Impl::Roles(this) {
                 Ok(ok__) => {
                     core::ptr::write(pprolecollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -414,7 +414,7 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn OpenRole<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrrolename: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, pprole: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OpenRole(core::mem::transmute(&bstrrolename), core::mem::transmute(&varreserved)) {
+            match IAzApplication_Impl::OpenRole(this, core::mem::transmute(&bstrrolename), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(pprole, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -425,7 +425,7 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn CreateRole<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrrolename: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, pprole: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateRole(core::mem::transmute(&bstrrolename), core::mem::transmute(&varreserved)) {
+            match IAzApplication_Impl::CreateRole(this, core::mem::transmute(&bstrrolename), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(pprole, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -436,12 +436,12 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn DeleteRole<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrrolename: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteRole(core::mem::transmute(&bstrrolename), core::mem::transmute(&varreserved)).into()
+            IAzApplication_Impl::DeleteRole(this, core::mem::transmute(&bstrrolename), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn InitializeClientContextFromToken<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulltokenhandle: u64, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, ppclientcontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.InitializeClientContextFromToken(core::mem::transmute_copy(&ulltokenhandle), core::mem::transmute(&varreserved)) {
+            match IAzApplication_Impl::InitializeClientContextFromToken(this, core::mem::transmute_copy(&ulltokenhandle), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(ppclientcontext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -452,22 +452,22 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn AddPropertyItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpropid: i32, varprop: std::mem::MaybeUninit<windows_core::VARIANT>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddPropertyItem(core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
+            IAzApplication_Impl::AddPropertyItem(this, core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePropertyItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpropid: i32, varprop: std::mem::MaybeUninit<windows_core::VARIANT>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeletePropertyItem(core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
+            IAzApplication_Impl::DeletePropertyItem(this, core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Submit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Submit(core::mem::transmute_copy(&lflags), core::mem::transmute(&varreserved)).into()
+            IAzApplication_Impl::Submit(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn InitializeClientContextFromName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientname: std::mem::MaybeUninit<windows_core::BSTR>, domainname: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, ppclientcontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.InitializeClientContextFromName(core::mem::transmute(&clientname), core::mem::transmute(&domainname), core::mem::transmute(&varreserved)) {
+            match IAzApplication_Impl::InitializeClientContextFromName(this, core::mem::transmute(&clientname), core::mem::transmute(&domainname), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(ppclientcontext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -478,7 +478,7 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn DelegatedPolicyUsers<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvardelegatedpolicyusers: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DelegatedPolicyUsers() {
+            match IAzApplication_Impl::DelegatedPolicyUsers(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvardelegatedpolicyusers, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -489,17 +489,17 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn AddDelegatedPolicyUser<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdelegatedpolicyuser: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddDelegatedPolicyUser(core::mem::transmute(&bstrdelegatedpolicyuser), core::mem::transmute(&varreserved)).into()
+            IAzApplication_Impl::AddDelegatedPolicyUser(this, core::mem::transmute(&bstrdelegatedpolicyuser), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteDelegatedPolicyUser<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdelegatedpolicyuser: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteDelegatedPolicyUser(core::mem::transmute(&bstrdelegatedpolicyuser), core::mem::transmute(&varreserved)).into()
+            IAzApplication_Impl::DeleteDelegatedPolicyUser(this, core::mem::transmute(&bstrdelegatedpolicyuser), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn InitializeClientContextFromStringSid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sidstring: std::mem::MaybeUninit<windows_core::BSTR>, loptions: i32, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, ppclientcontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.InitializeClientContextFromStringSid(core::mem::transmute(&sidstring), core::mem::transmute_copy(&loptions), core::mem::transmute(&varreserved)) {
+            match IAzApplication_Impl::InitializeClientContextFromStringSid(this, core::mem::transmute(&sidstring), core::mem::transmute_copy(&loptions), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(ppclientcontext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -510,7 +510,7 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn PolicyAdministratorsName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvaradmins: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PolicyAdministratorsName() {
+            match IAzApplication_Impl::PolicyAdministratorsName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvaradmins, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -521,7 +521,7 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn PolicyReadersName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarreaders: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PolicyReadersName() {
+            match IAzApplication_Impl::PolicyReadersName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarreaders, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -532,27 +532,27 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn AddPolicyAdministratorName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstradmin: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddPolicyAdministratorName(core::mem::transmute(&bstradmin), core::mem::transmute(&varreserved)).into()
+            IAzApplication_Impl::AddPolicyAdministratorName(this, core::mem::transmute(&bstradmin), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePolicyAdministratorName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstradmin: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeletePolicyAdministratorName(core::mem::transmute(&bstradmin), core::mem::transmute(&varreserved)).into()
+            IAzApplication_Impl::DeletePolicyAdministratorName(this, core::mem::transmute(&bstradmin), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddPolicyReaderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrreader: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddPolicyReaderName(core::mem::transmute(&bstrreader), core::mem::transmute(&varreserved)).into()
+            IAzApplication_Impl::AddPolicyReaderName(this, core::mem::transmute(&bstrreader), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePolicyReaderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrreader: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeletePolicyReaderName(core::mem::transmute(&bstrreader), core::mem::transmute(&varreserved)).into()
+            IAzApplication_Impl::DeletePolicyReaderName(this, core::mem::transmute(&bstrreader), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DelegatedPolicyUsersName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvardelegatedpolicyusers: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DelegatedPolicyUsersName() {
+            match IAzApplication_Impl::DelegatedPolicyUsersName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvardelegatedpolicyusers, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -563,12 +563,12 @@ impl IAzApplication_Vtbl {
         unsafe extern "system" fn AddDelegatedPolicyUserName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdelegatedpolicyuser: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddDelegatedPolicyUserName(core::mem::transmute(&bstrdelegatedpolicyuser), core::mem::transmute(&varreserved)).into()
+            IAzApplication_Impl::AddDelegatedPolicyUserName(this, core::mem::transmute(&bstrdelegatedpolicyuser), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteDelegatedPolicyUserName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdelegatedpolicyuser: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteDelegatedPolicyUserName(core::mem::transmute(&bstrdelegatedpolicyuser), core::mem::transmute(&varreserved)).into()
+            IAzApplication_Impl::DeleteDelegatedPolicyUserName(this, core::mem::transmute(&bstrdelegatedpolicyuser), core::mem::transmute(&varreserved)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -652,7 +652,7 @@ impl IAzApplication2_Vtbl {
         unsafe extern "system" fn InitializeClientContextFromToken2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ultokenhandlelowpart: u32, ultokenhandlehighpart: u32, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, ppclientcontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.InitializeClientContextFromToken2(core::mem::transmute_copy(&ultokenhandlelowpart), core::mem::transmute_copy(&ultokenhandlehighpart), core::mem::transmute(&varreserved)) {
+            match IAzApplication2_Impl::InitializeClientContextFromToken2(this, core::mem::transmute_copy(&ultokenhandlelowpart), core::mem::transmute_copy(&ultokenhandlehighpart), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(ppclientcontext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -663,7 +663,7 @@ impl IAzApplication2_Vtbl {
         unsafe extern "system" fn InitializeClientContext2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, identifyingstring: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, ppclientcontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.InitializeClientContext2(core::mem::transmute(&identifyingstring), core::mem::transmute(&varreserved)) {
+            match IAzApplication2_Impl::InitializeClientContext2(this, core::mem::transmute(&identifyingstring), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(ppclientcontext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -706,7 +706,7 @@ impl IAzApplication3_Vtbl {
         unsafe extern "system" fn ScopeExists<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrscopename: std::mem::MaybeUninit<windows_core::BSTR>, pbexist: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ScopeExists(core::mem::transmute(&bstrscopename)) {
+            match IAzApplication3_Impl::ScopeExists(this, core::mem::transmute(&bstrscopename)) {
                 Ok(ok__) => {
                     core::ptr::write(pbexist, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -717,7 +717,7 @@ impl IAzApplication3_Vtbl {
         unsafe extern "system" fn OpenScope2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrscopename: std::mem::MaybeUninit<windows_core::BSTR>, ppscope2: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OpenScope2(core::mem::transmute(&bstrscopename)) {
+            match IAzApplication3_Impl::OpenScope2(this, core::mem::transmute(&bstrscopename)) {
                 Ok(ok__) => {
                     core::ptr::write(ppscope2, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -728,7 +728,7 @@ impl IAzApplication3_Vtbl {
         unsafe extern "system" fn CreateScope2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrscopename: std::mem::MaybeUninit<windows_core::BSTR>, ppscope2: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateScope2(core::mem::transmute(&bstrscopename)) {
+            match IAzApplication3_Impl::CreateScope2(this, core::mem::transmute(&bstrscopename)) {
                 Ok(ok__) => {
                     core::ptr::write(ppscope2, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -739,12 +739,12 @@ impl IAzApplication3_Vtbl {
         unsafe extern "system" fn DeleteScope2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrscopename: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteScope2(core::mem::transmute(&bstrscopename)).into()
+            IAzApplication3_Impl::DeleteScope2(this, core::mem::transmute(&bstrscopename)).into()
         }
         unsafe extern "system" fn RoleDefinitions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pproledefinitions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RoleDefinitions() {
+            match IAzApplication3_Impl::RoleDefinitions(this) {
                 Ok(ok__) => {
                     core::ptr::write(pproledefinitions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -755,7 +755,7 @@ impl IAzApplication3_Vtbl {
         unsafe extern "system" fn CreateRoleDefinition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrroledefinitionname: std::mem::MaybeUninit<windows_core::BSTR>, pproledefinitions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateRoleDefinition(core::mem::transmute(&bstrroledefinitionname)) {
+            match IAzApplication3_Impl::CreateRoleDefinition(this, core::mem::transmute(&bstrroledefinitionname)) {
                 Ok(ok__) => {
                     core::ptr::write(pproledefinitions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -766,7 +766,7 @@ impl IAzApplication3_Vtbl {
         unsafe extern "system" fn OpenRoleDefinition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrroledefinitionname: std::mem::MaybeUninit<windows_core::BSTR>, pproledefinitions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OpenRoleDefinition(core::mem::transmute(&bstrroledefinitionname)) {
+            match IAzApplication3_Impl::OpenRoleDefinition(this, core::mem::transmute(&bstrroledefinitionname)) {
                 Ok(ok__) => {
                     core::ptr::write(pproledefinitions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -777,12 +777,12 @@ impl IAzApplication3_Vtbl {
         unsafe extern "system" fn DeleteRoleDefinition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrroledefinitionname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteRoleDefinition(core::mem::transmute(&bstrroledefinitionname)).into()
+            IAzApplication3_Impl::DeleteRoleDefinition(this, core::mem::transmute(&bstrroledefinitionname)).into()
         }
         unsafe extern "system" fn RoleAssignments<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pproleassignments: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RoleAssignments() {
+            match IAzApplication3_Impl::RoleAssignments(this) {
                 Ok(ok__) => {
                     core::ptr::write(pproleassignments, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -793,7 +793,7 @@ impl IAzApplication3_Vtbl {
         unsafe extern "system" fn CreateRoleAssignment<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrroleassignmentname: std::mem::MaybeUninit<windows_core::BSTR>, pproleassignment: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateRoleAssignment(core::mem::transmute(&bstrroleassignmentname)) {
+            match IAzApplication3_Impl::CreateRoleAssignment(this, core::mem::transmute(&bstrroleassignmentname)) {
                 Ok(ok__) => {
                     core::ptr::write(pproleassignment, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -804,7 +804,7 @@ impl IAzApplication3_Vtbl {
         unsafe extern "system" fn OpenRoleAssignment<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrroleassignmentname: std::mem::MaybeUninit<windows_core::BSTR>, pproleassignment: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OpenRoleAssignment(core::mem::transmute(&bstrroleassignmentname)) {
+            match IAzApplication3_Impl::OpenRoleAssignment(this, core::mem::transmute(&bstrroleassignmentname)) {
                 Ok(ok__) => {
                     core::ptr::write(pproleassignment, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -815,12 +815,12 @@ impl IAzApplication3_Vtbl {
         unsafe extern "system" fn DeleteRoleAssignment<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrroleassignmentname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteRoleAssignment(core::mem::transmute(&bstrroleassignmentname)).into()
+            IAzApplication3_Impl::DeleteRoleAssignment(this, core::mem::transmute(&bstrroleassignmentname)).into()
         }
         unsafe extern "system" fn BizRulesEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BizRulesEnabled() {
+            match IAzApplication3_Impl::BizRulesEnabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbenabled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -831,7 +831,7 @@ impl IAzApplication3_Vtbl {
         unsafe extern "system" fn SetBizRulesEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBizRulesEnabled(core::mem::transmute_copy(&benabled)).into()
+            IAzApplication3_Impl::SetBizRulesEnabled(this, core::mem::transmute_copy(&benabled)).into()
         }
         Self {
             base__: IAzApplication2_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -898,7 +898,7 @@ impl IAzApplicationGroup_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IAzApplicationGroup_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -909,12 +909,12 @@ impl IAzApplicationGroup_Vtbl {
         unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetName(core::mem::transmute(&bstrname)).into()
+            IAzApplicationGroup_Impl::SetName(this, core::mem::transmute(&bstrname)).into()
         }
         unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plprop: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Type() {
+            match IAzApplicationGroup_Impl::Type(this) {
                 Ok(ok__) => {
                     core::ptr::write(plprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -925,12 +925,12 @@ impl IAzApplicationGroup_Vtbl {
         unsafe extern "system" fn SetType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lprop: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetType(core::mem::transmute_copy(&lprop)).into()
+            IAzApplicationGroup_Impl::SetType(this, core::mem::transmute_copy(&lprop)).into()
         }
         unsafe extern "system" fn LdapQuery<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrprop: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LdapQuery() {
+            match IAzApplicationGroup_Impl::LdapQuery(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -941,12 +941,12 @@ impl IAzApplicationGroup_Vtbl {
         unsafe extern "system" fn SetLdapQuery<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLdapQuery(core::mem::transmute(&bstrprop)).into()
+            IAzApplicationGroup_Impl::SetLdapQuery(this, core::mem::transmute(&bstrprop)).into()
         }
         unsafe extern "system" fn AppMembers<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarprop: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AppMembers() {
+            match IAzApplicationGroup_Impl::AppMembers(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -957,7 +957,7 @@ impl IAzApplicationGroup_Vtbl {
         unsafe extern "system" fn AppNonMembers<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarprop: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AppNonMembers() {
+            match IAzApplicationGroup_Impl::AppNonMembers(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -968,7 +968,7 @@ impl IAzApplicationGroup_Vtbl {
         unsafe extern "system" fn Members<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarprop: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Members() {
+            match IAzApplicationGroup_Impl::Members(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -979,7 +979,7 @@ impl IAzApplicationGroup_Vtbl {
         unsafe extern "system" fn NonMembers<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarprop: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.NonMembers() {
+            match IAzApplicationGroup_Impl::NonMembers(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -990,7 +990,7 @@ impl IAzApplicationGroup_Vtbl {
         unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdescription: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Description() {
+            match IAzApplicationGroup_Impl::Description(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrdescription, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1001,52 +1001,52 @@ impl IAzApplicationGroup_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdescription: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDescription(core::mem::transmute(&bstrdescription)).into()
+            IAzApplicationGroup_Impl::SetDescription(this, core::mem::transmute(&bstrdescription)).into()
         }
         unsafe extern "system" fn AddAppMember<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddAppMember(core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
+            IAzApplicationGroup_Impl::AddAppMember(this, core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteAppMember<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteAppMember(core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
+            IAzApplicationGroup_Impl::DeleteAppMember(this, core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddAppNonMember<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddAppNonMember(core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
+            IAzApplicationGroup_Impl::AddAppNonMember(this, core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteAppNonMember<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteAppNonMember(core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
+            IAzApplicationGroup_Impl::DeleteAppNonMember(this, core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddMember<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddMember(core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
+            IAzApplicationGroup_Impl::AddMember(this, core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteMember<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteMember(core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
+            IAzApplicationGroup_Impl::DeleteMember(this, core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddNonMember<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddNonMember(core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
+            IAzApplicationGroup_Impl::AddNonMember(this, core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteNonMember<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteNonMember(core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
+            IAzApplicationGroup_Impl::DeleteNonMember(this, core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Writable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Writable() {
+            match IAzApplicationGroup_Impl::Writable(this) {
                 Ok(ok__) => {
                     core::ptr::write(pfprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1057,7 +1057,7 @@ impl IAzApplicationGroup_Vtbl {
         unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpropid: i32, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, pvarprop: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProperty(core::mem::transmute_copy(&lpropid), core::mem::transmute(&varreserved)) {
+            match IAzApplicationGroup_Impl::GetProperty(this, core::mem::transmute_copy(&lpropid), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(pvarprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1068,47 +1068,47 @@ impl IAzApplicationGroup_Vtbl {
         unsafe extern "system" fn SetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpropid: i32, varprop: std::mem::MaybeUninit<windows_core::VARIANT>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetProperty(core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
+            IAzApplicationGroup_Impl::SetProperty(this, core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddPropertyItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpropid: i32, varprop: std::mem::MaybeUninit<windows_core::VARIANT>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddPropertyItem(core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
+            IAzApplicationGroup_Impl::AddPropertyItem(this, core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePropertyItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpropid: i32, varprop: std::mem::MaybeUninit<windows_core::VARIANT>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeletePropertyItem(core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
+            IAzApplicationGroup_Impl::DeletePropertyItem(this, core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Submit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Submit(core::mem::transmute_copy(&lflags), core::mem::transmute(&varreserved)).into()
+            IAzApplicationGroup_Impl::Submit(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddMemberName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddMemberName(core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
+            IAzApplicationGroup_Impl::AddMemberName(this, core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteMemberName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteMemberName(core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
+            IAzApplicationGroup_Impl::DeleteMemberName(this, core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddNonMemberName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddNonMemberName(core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
+            IAzApplicationGroup_Impl::AddNonMemberName(this, core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteNonMemberName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteNonMemberName(core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
+            IAzApplicationGroup_Impl::DeleteNonMemberName(this, core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn MembersName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarprop: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MembersName() {
+            match IAzApplicationGroup_Impl::MembersName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1119,7 +1119,7 @@ impl IAzApplicationGroup_Vtbl {
         unsafe extern "system" fn NonMembersName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarprop: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.NonMembersName() {
+            match IAzApplicationGroup_Impl::NonMembersName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1185,7 +1185,7 @@ impl IAzApplicationGroup2_Vtbl {
         unsafe extern "system" fn BizRule<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrprop: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BizRule() {
+            match IAzApplicationGroup2_Impl::BizRule(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1196,12 +1196,12 @@ impl IAzApplicationGroup2_Vtbl {
         unsafe extern "system" fn SetBizRule<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBizRule(core::mem::transmute(&bstrprop)).into()
+            IAzApplicationGroup2_Impl::SetBizRule(this, core::mem::transmute(&bstrprop)).into()
         }
         unsafe extern "system" fn BizRuleLanguage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrprop: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BizRuleLanguage() {
+            match IAzApplicationGroup2_Impl::BizRuleLanguage(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1212,12 +1212,12 @@ impl IAzApplicationGroup2_Vtbl {
         unsafe extern "system" fn SetBizRuleLanguage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBizRuleLanguage(core::mem::transmute(&bstrprop)).into()
+            IAzApplicationGroup2_Impl::SetBizRuleLanguage(this, core::mem::transmute(&bstrprop)).into()
         }
         unsafe extern "system" fn BizRuleImportedPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrprop: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BizRuleImportedPath() {
+            match IAzApplicationGroup2_Impl::BizRuleImportedPath(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1228,12 +1228,12 @@ impl IAzApplicationGroup2_Vtbl {
         unsafe extern "system" fn SetBizRuleImportedPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBizRuleImportedPath(core::mem::transmute(&bstrprop)).into()
+            IAzApplicationGroup2_Impl::SetBizRuleImportedPath(this, core::mem::transmute(&bstrprop)).into()
         }
         unsafe extern "system" fn RoleAssignments<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrscopename: std::mem::MaybeUninit<windows_core::BSTR>, brecursive: super::super::Foundation::VARIANT_BOOL, pproleassignments: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RoleAssignments(core::mem::transmute(&bstrscopename), core::mem::transmute_copy(&brecursive)) {
+            match IAzApplicationGroup2_Impl::RoleAssignments(this, core::mem::transmute(&bstrscopename), core::mem::transmute_copy(&brecursive)) {
                 Ok(ok__) => {
                     core::ptr::write(pproleassignments, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1270,7 +1270,7 @@ impl IAzApplicationGroups_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroups_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pvarobtptr: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute_copy(&index)) {
+            match IAzApplicationGroups_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(pvarobtptr, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1281,7 +1281,7 @@ impl IAzApplicationGroups_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroups_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IAzApplicationGroups_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(plcount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1292,7 +1292,7 @@ impl IAzApplicationGroups_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroups_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumptr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IAzApplicationGroups_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppenumptr, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1325,7 +1325,7 @@ impl IAzApplications_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplications_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pvarobtptr: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute_copy(&index)) {
+            match IAzApplications_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(pvarobtptr, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1336,7 +1336,7 @@ impl IAzApplications_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplications_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IAzApplications_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(plcount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1347,7 +1347,7 @@ impl IAzApplications_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzApplications_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumptr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IAzApplications_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppenumptr, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1428,7 +1428,7 @@ impl IAzAuthorizationStore_Vtbl {
         unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdescription: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Description() {
+            match IAzAuthorizationStore_Impl::Description(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrdescription, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1439,12 +1439,12 @@ impl IAzAuthorizationStore_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdescription: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDescription(core::mem::transmute(&bstrdescription)).into()
+            IAzAuthorizationStore_Impl::SetDescription(this, core::mem::transmute(&bstrdescription)).into()
         }
         unsafe extern "system" fn ApplicationData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrapplicationdata: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ApplicationData() {
+            match IAzAuthorizationStore_Impl::ApplicationData(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrapplicationdata, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1455,12 +1455,12 @@ impl IAzAuthorizationStore_Vtbl {
         unsafe extern "system" fn SetApplicationData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationdata: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetApplicationData(core::mem::transmute(&bstrapplicationdata)).into()
+            IAzAuthorizationStore_Impl::SetApplicationData(this, core::mem::transmute(&bstrapplicationdata)).into()
         }
         unsafe extern "system" fn DomainTimeout<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plprop: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DomainTimeout() {
+            match IAzAuthorizationStore_Impl::DomainTimeout(this) {
                 Ok(ok__) => {
                     core::ptr::write(plprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1471,12 +1471,12 @@ impl IAzAuthorizationStore_Vtbl {
         unsafe extern "system" fn SetDomainTimeout<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lprop: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDomainTimeout(core::mem::transmute_copy(&lprop)).into()
+            IAzAuthorizationStore_Impl::SetDomainTimeout(this, core::mem::transmute_copy(&lprop)).into()
         }
         unsafe extern "system" fn ScriptEngineTimeout<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plprop: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ScriptEngineTimeout() {
+            match IAzAuthorizationStore_Impl::ScriptEngineTimeout(this) {
                 Ok(ok__) => {
                     core::ptr::write(plprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1487,12 +1487,12 @@ impl IAzAuthorizationStore_Vtbl {
         unsafe extern "system" fn SetScriptEngineTimeout<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lprop: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetScriptEngineTimeout(core::mem::transmute_copy(&lprop)).into()
+            IAzAuthorizationStore_Impl::SetScriptEngineTimeout(this, core::mem::transmute_copy(&lprop)).into()
         }
         unsafe extern "system" fn MaxScriptEngines<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plprop: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MaxScriptEngines() {
+            match IAzAuthorizationStore_Impl::MaxScriptEngines(this) {
                 Ok(ok__) => {
                     core::ptr::write(plprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1503,12 +1503,12 @@ impl IAzAuthorizationStore_Vtbl {
         unsafe extern "system" fn SetMaxScriptEngines<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lprop: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMaxScriptEngines(core::mem::transmute_copy(&lprop)).into()
+            IAzAuthorizationStore_Impl::SetMaxScriptEngines(this, core::mem::transmute_copy(&lprop)).into()
         }
         unsafe extern "system" fn GenerateAudits<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbprop: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GenerateAudits() {
+            match IAzAuthorizationStore_Impl::GenerateAudits(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1519,12 +1519,12 @@ impl IAzAuthorizationStore_Vtbl {
         unsafe extern "system" fn SetGenerateAudits<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bprop: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetGenerateAudits(core::mem::transmute_copy(&bprop)).into()
+            IAzAuthorizationStore_Impl::SetGenerateAudits(this, core::mem::transmute_copy(&bprop)).into()
         }
         unsafe extern "system" fn Writable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Writable() {
+            match IAzAuthorizationStore_Impl::Writable(this) {
                 Ok(ok__) => {
                     core::ptr::write(pfprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1535,7 +1535,7 @@ impl IAzAuthorizationStore_Vtbl {
         unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpropid: i32, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, pvarprop: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProperty(core::mem::transmute_copy(&lpropid), core::mem::transmute(&varreserved)) {
+            match IAzAuthorizationStore_Impl::GetProperty(this, core::mem::transmute_copy(&lpropid), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(pvarprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1546,22 +1546,22 @@ impl IAzAuthorizationStore_Vtbl {
         unsafe extern "system" fn SetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpropid: i32, varprop: std::mem::MaybeUninit<windows_core::VARIANT>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetProperty(core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
+            IAzAuthorizationStore_Impl::SetProperty(this, core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddPropertyItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpropid: AZ_PROP_CONSTANTS, varprop: std::mem::MaybeUninit<windows_core::VARIANT>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddPropertyItem(core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
+            IAzAuthorizationStore_Impl::AddPropertyItem(this, core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePropertyItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpropid: i32, varprop: std::mem::MaybeUninit<windows_core::VARIANT>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeletePropertyItem(core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
+            IAzAuthorizationStore_Impl::DeletePropertyItem(this, core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn PolicyAdministrators<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvaradmins: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PolicyAdministrators() {
+            match IAzAuthorizationStore_Impl::PolicyAdministrators(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvaradmins, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1572,7 +1572,7 @@ impl IAzAuthorizationStore_Vtbl {
         unsafe extern "system" fn PolicyReaders<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarreaders: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PolicyReaders() {
+            match IAzAuthorizationStore_Impl::PolicyReaders(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarreaders, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1583,42 +1583,42 @@ impl IAzAuthorizationStore_Vtbl {
         unsafe extern "system" fn AddPolicyAdministrator<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstradmin: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddPolicyAdministrator(core::mem::transmute(&bstradmin), core::mem::transmute(&varreserved)).into()
+            IAzAuthorizationStore_Impl::AddPolicyAdministrator(this, core::mem::transmute(&bstradmin), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePolicyAdministrator<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstradmin: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeletePolicyAdministrator(core::mem::transmute(&bstradmin), core::mem::transmute(&varreserved)).into()
+            IAzAuthorizationStore_Impl::DeletePolicyAdministrator(this, core::mem::transmute(&bstradmin), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddPolicyReader<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrreader: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddPolicyReader(core::mem::transmute(&bstrreader), core::mem::transmute(&varreserved)).into()
+            IAzAuthorizationStore_Impl::AddPolicyReader(this, core::mem::transmute(&bstrreader), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePolicyReader<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrreader: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeletePolicyReader(core::mem::transmute(&bstrreader), core::mem::transmute(&varreserved)).into()
+            IAzAuthorizationStore_Impl::DeletePolicyReader(this, core::mem::transmute(&bstrreader), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: AZ_PROP_CONSTANTS, bstrpolicyurl: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(core::mem::transmute_copy(&lflags), core::mem::transmute(&bstrpolicyurl), core::mem::transmute(&varreserved)).into()
+            IAzAuthorizationStore_Impl::Initialize(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&bstrpolicyurl), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn UpdateCache<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.UpdateCache(core::mem::transmute(&varreserved)).into()
+            IAzAuthorizationStore_Impl::UpdateCache(this, core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Delete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Delete(core::mem::transmute(&varreserved)).into()
+            IAzAuthorizationStore_Impl::Delete(this, core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Applications<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppappcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Applications() {
+            match IAzAuthorizationStore_Impl::Applications(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppappcollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1629,7 +1629,7 @@ impl IAzAuthorizationStore_Vtbl {
         unsafe extern "system" fn OpenApplication<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationname: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, ppapplication: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OpenApplication(core::mem::transmute(&bstrapplicationname), core::mem::transmute(&varreserved)) {
+            match IAzAuthorizationStore_Impl::OpenApplication(this, core::mem::transmute(&bstrapplicationname), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(ppapplication, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1640,7 +1640,7 @@ impl IAzAuthorizationStore_Vtbl {
         unsafe extern "system" fn CreateApplication<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationname: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, ppapplication: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateApplication(core::mem::transmute(&bstrapplicationname), core::mem::transmute(&varreserved)) {
+            match IAzAuthorizationStore_Impl::CreateApplication(this, core::mem::transmute(&bstrapplicationname), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(ppapplication, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1651,12 +1651,12 @@ impl IAzAuthorizationStore_Vtbl {
         unsafe extern "system" fn DeleteApplication<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationname: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteApplication(core::mem::transmute(&bstrapplicationname), core::mem::transmute(&varreserved)).into()
+            IAzAuthorizationStore_Impl::DeleteApplication(this, core::mem::transmute(&bstrapplicationname), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn ApplicationGroups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppgroupcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ApplicationGroups() {
+            match IAzAuthorizationStore_Impl::ApplicationGroups(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppgroupcollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1667,7 +1667,7 @@ impl IAzAuthorizationStore_Vtbl {
         unsafe extern "system" fn CreateApplicationGroup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgroupname: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, ppgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateApplicationGroup(core::mem::transmute(&bstrgroupname), core::mem::transmute(&varreserved)) {
+            match IAzAuthorizationStore_Impl::CreateApplicationGroup(this, core::mem::transmute(&bstrgroupname), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(ppgroup, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1678,7 +1678,7 @@ impl IAzAuthorizationStore_Vtbl {
         unsafe extern "system" fn OpenApplicationGroup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgroupname: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, ppgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OpenApplicationGroup(core::mem::transmute(&bstrgroupname), core::mem::transmute(&varreserved)) {
+            match IAzAuthorizationStore_Impl::OpenApplicationGroup(this, core::mem::transmute(&bstrgroupname), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(ppgroup, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1689,17 +1689,17 @@ impl IAzAuthorizationStore_Vtbl {
         unsafe extern "system" fn DeleteApplicationGroup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgroupname: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteApplicationGroup(core::mem::transmute(&bstrgroupname), core::mem::transmute(&varreserved)).into()
+            IAzAuthorizationStore_Impl::DeleteApplicationGroup(this, core::mem::transmute(&bstrgroupname), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Submit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Submit(core::mem::transmute_copy(&lflags), core::mem::transmute(&varreserved)).into()
+            IAzAuthorizationStore_Impl::Submit(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DelegatedPolicyUsers<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvardelegatedpolicyusers: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DelegatedPolicyUsers() {
+            match IAzAuthorizationStore_Impl::DelegatedPolicyUsers(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvardelegatedpolicyusers, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1710,17 +1710,17 @@ impl IAzAuthorizationStore_Vtbl {
         unsafe extern "system" fn AddDelegatedPolicyUser<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdelegatedpolicyuser: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddDelegatedPolicyUser(core::mem::transmute(&bstrdelegatedpolicyuser), core::mem::transmute(&varreserved)).into()
+            IAzAuthorizationStore_Impl::AddDelegatedPolicyUser(this, core::mem::transmute(&bstrdelegatedpolicyuser), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteDelegatedPolicyUser<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdelegatedpolicyuser: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteDelegatedPolicyUser(core::mem::transmute(&bstrdelegatedpolicyuser), core::mem::transmute(&varreserved)).into()
+            IAzAuthorizationStore_Impl::DeleteDelegatedPolicyUser(this, core::mem::transmute(&bstrdelegatedpolicyuser), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn TargetMachine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtargetmachine: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TargetMachine() {
+            match IAzAuthorizationStore_Impl::TargetMachine(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrtargetmachine, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1731,7 +1731,7 @@ impl IAzAuthorizationStore_Vtbl {
         unsafe extern "system" fn ApplyStoreSacl<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbapplystoresacl: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ApplyStoreSacl() {
+            match IAzAuthorizationStore_Impl::ApplyStoreSacl(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbapplystoresacl, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1742,12 +1742,12 @@ impl IAzAuthorizationStore_Vtbl {
         unsafe extern "system" fn SetApplyStoreSacl<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bapplystoresacl: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetApplyStoreSacl(core::mem::transmute_copy(&bapplystoresacl)).into()
+            IAzAuthorizationStore_Impl::SetApplyStoreSacl(this, core::mem::transmute_copy(&bapplystoresacl)).into()
         }
         unsafe extern "system" fn PolicyAdministratorsName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvaradmins: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PolicyAdministratorsName() {
+            match IAzAuthorizationStore_Impl::PolicyAdministratorsName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvaradmins, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1758,7 +1758,7 @@ impl IAzAuthorizationStore_Vtbl {
         unsafe extern "system" fn PolicyReadersName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarreaders: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PolicyReadersName() {
+            match IAzAuthorizationStore_Impl::PolicyReadersName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarreaders, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1769,27 +1769,27 @@ impl IAzAuthorizationStore_Vtbl {
         unsafe extern "system" fn AddPolicyAdministratorName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstradmin: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddPolicyAdministratorName(core::mem::transmute(&bstradmin), core::mem::transmute(&varreserved)).into()
+            IAzAuthorizationStore_Impl::AddPolicyAdministratorName(this, core::mem::transmute(&bstradmin), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePolicyAdministratorName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstradmin: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeletePolicyAdministratorName(core::mem::transmute(&bstradmin), core::mem::transmute(&varreserved)).into()
+            IAzAuthorizationStore_Impl::DeletePolicyAdministratorName(this, core::mem::transmute(&bstradmin), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddPolicyReaderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrreader: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddPolicyReaderName(core::mem::transmute(&bstrreader), core::mem::transmute(&varreserved)).into()
+            IAzAuthorizationStore_Impl::AddPolicyReaderName(this, core::mem::transmute(&bstrreader), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePolicyReaderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrreader: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeletePolicyReaderName(core::mem::transmute(&bstrreader), core::mem::transmute(&varreserved)).into()
+            IAzAuthorizationStore_Impl::DeletePolicyReaderName(this, core::mem::transmute(&bstrreader), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DelegatedPolicyUsersName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvardelegatedpolicyusers: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DelegatedPolicyUsersName() {
+            match IAzAuthorizationStore_Impl::DelegatedPolicyUsersName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvardelegatedpolicyusers, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1800,17 +1800,17 @@ impl IAzAuthorizationStore_Vtbl {
         unsafe extern "system" fn AddDelegatedPolicyUserName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdelegatedpolicyuser: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddDelegatedPolicyUserName(core::mem::transmute(&bstrdelegatedpolicyuser), core::mem::transmute(&varreserved)).into()
+            IAzAuthorizationStore_Impl::AddDelegatedPolicyUserName(this, core::mem::transmute(&bstrdelegatedpolicyuser), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteDelegatedPolicyUserName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdelegatedpolicyuser: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteDelegatedPolicyUserName(core::mem::transmute(&bstrdelegatedpolicyuser), core::mem::transmute(&varreserved)).into()
+            IAzAuthorizationStore_Impl::DeleteDelegatedPolicyUserName(this, core::mem::transmute(&bstrdelegatedpolicyuser), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn CloseApplication<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationname: std::mem::MaybeUninit<windows_core::BSTR>, lflag: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CloseApplication(core::mem::transmute(&bstrapplicationname), core::mem::transmute_copy(&lflag)).into()
+            IAzAuthorizationStore_Impl::CloseApplication(this, core::mem::transmute(&bstrapplicationname), core::mem::transmute_copy(&lflag)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1884,7 +1884,7 @@ impl IAzAuthorizationStore2_Vtbl {
         unsafe extern "system" fn OpenApplication2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationname: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, ppapplication: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OpenApplication2(core::mem::transmute(&bstrapplicationname), core::mem::transmute(&varreserved)) {
+            match IAzAuthorizationStore2_Impl::OpenApplication2(this, core::mem::transmute(&bstrapplicationname), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(ppapplication, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1895,7 +1895,7 @@ impl IAzAuthorizationStore2_Vtbl {
         unsafe extern "system" fn CreateApplication2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationname: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, ppapplication: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateApplication2(core::mem::transmute(&bstrapplicationname), core::mem::transmute(&varreserved)) {
+            match IAzAuthorizationStore2_Impl::CreateApplication2(this, core::mem::transmute(&bstrapplicationname), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(ppapplication, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1929,7 +1929,7 @@ impl IAzAuthorizationStore3_Vtbl {
         unsafe extern "system" fn IsUpdateNeeded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbisupdateneeded: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsUpdateNeeded() {
+            match IAzAuthorizationStore3_Impl::IsUpdateNeeded(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbisupdateneeded, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1940,7 +1940,7 @@ impl IAzAuthorizationStore3_Vtbl {
         unsafe extern "system" fn BizruleGroupSupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbsupported: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BizruleGroupSupported() {
+            match IAzAuthorizationStore3_Impl::BizruleGroupSupported(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbsupported, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1951,12 +1951,12 @@ impl IAzAuthorizationStore3_Vtbl {
         unsafe extern "system" fn UpgradeStoresFunctionalLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lfunctionallevel: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.UpgradeStoresFunctionalLevel(core::mem::transmute_copy(&lfunctionallevel)).into()
+            IAzAuthorizationStore3_Impl::UpgradeStoresFunctionalLevel(this, core::mem::transmute_copy(&lfunctionallevel)).into()
         }
         unsafe extern "system" fn IsFunctionalLevelUpgradeSupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lfunctionallevel: i32, pbsupported: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsFunctionalLevelUpgradeSupported(core::mem::transmute_copy(&lfunctionallevel)) {
+            match IAzAuthorizationStore3_Impl::IsFunctionalLevelUpgradeSupported(this, core::mem::transmute_copy(&lfunctionallevel)) {
                 Ok(ok__) => {
                     core::ptr::write(pbsupported, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1967,7 +1967,7 @@ impl IAzAuthorizationStore3_Vtbl {
         unsafe extern "system" fn GetSchemaVersion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmajorversion: *mut i32, plminorversion: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSchemaVersion(core::mem::transmute_copy(&plmajorversion), core::mem::transmute_copy(&plminorversion)).into()
+            IAzAuthorizationStore3_Impl::GetSchemaVersion(this, core::mem::transmute_copy(&plmajorversion), core::mem::transmute_copy(&plminorversion)).into()
         }
         Self {
             base__: IAzAuthorizationStore2_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1997,17 +1997,17 @@ impl IAzBizRuleContext_Vtbl {
         unsafe extern "system" fn SetBusinessRuleResult<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bresult: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBusinessRuleResult(core::mem::transmute_copy(&bresult)).into()
+            IAzBizRuleContext_Impl::SetBusinessRuleResult(this, core::mem::transmute_copy(&bresult)).into()
         }
         unsafe extern "system" fn SetBusinessRuleString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrbusinessrulestring: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBusinessRuleString(core::mem::transmute(&bstrbusinessrulestring)).into()
+            IAzBizRuleContext_Impl::SetBusinessRuleString(this, core::mem::transmute(&bstrbusinessrulestring)).into()
         }
         unsafe extern "system" fn BusinessRuleString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrbusinessrulestring: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BusinessRuleString() {
+            match IAzBizRuleContext_Impl::BusinessRuleString(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrbusinessrulestring, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2018,7 +2018,7 @@ impl IAzBizRuleContext_Vtbl {
         unsafe extern "system" fn GetParameter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrparametername: std::mem::MaybeUninit<windows_core::BSTR>, pvarparametervalue: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetParameter(core::mem::transmute(&bstrparametername)) {
+            match IAzBizRuleContext_Impl::GetParameter(this, core::mem::transmute(&bstrparametername)) {
                 Ok(ok__) => {
                     core::ptr::write(pvarparametervalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2055,32 +2055,32 @@ impl IAzBizRuleInterfaces_Vtbl {
         unsafe extern "system" fn AddInterface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleInterfaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrinterfacename: std::mem::MaybeUninit<windows_core::BSTR>, linterfaceflag: i32, varinterface: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddInterface(core::mem::transmute(&bstrinterfacename), core::mem::transmute_copy(&linterfaceflag), core::mem::transmute(&varinterface)).into()
+            IAzBizRuleInterfaces_Impl::AddInterface(this, core::mem::transmute(&bstrinterfacename), core::mem::transmute_copy(&linterfaceflag), core::mem::transmute(&varinterface)).into()
         }
         unsafe extern "system" fn AddInterfaces<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleInterfaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varinterfacenames: std::mem::MaybeUninit<windows_core::VARIANT>, varinterfaceflags: std::mem::MaybeUninit<windows_core::VARIANT>, varinterfaces: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddInterfaces(core::mem::transmute(&varinterfacenames), core::mem::transmute(&varinterfaceflags), core::mem::transmute(&varinterfaces)).into()
+            IAzBizRuleInterfaces_Impl::AddInterfaces(this, core::mem::transmute(&varinterfacenames), core::mem::transmute(&varinterfaceflags), core::mem::transmute(&varinterfaces)).into()
         }
         unsafe extern "system" fn GetInterfaceValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleInterfaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrinterfacename: std::mem::MaybeUninit<windows_core::BSTR>, linterfaceflag: *mut i32, varinterface: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetInterfaceValue(core::mem::transmute(&bstrinterfacename), core::mem::transmute_copy(&linterfaceflag), core::mem::transmute_copy(&varinterface)).into()
+            IAzBizRuleInterfaces_Impl::GetInterfaceValue(this, core::mem::transmute(&bstrinterfacename), core::mem::transmute_copy(&linterfaceflag), core::mem::transmute_copy(&varinterface)).into()
         }
         unsafe extern "system" fn Remove<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleInterfaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrinterfacename: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Remove(core::mem::transmute(&bstrinterfacename)).into()
+            IAzBizRuleInterfaces_Impl::Remove(this, core::mem::transmute(&bstrinterfacename)).into()
         }
         unsafe extern "system" fn RemoveAll<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleInterfaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAll().into()
+            IAzBizRuleInterfaces_Impl::RemoveAll(this).into()
         }
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleInterfaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IAzBizRuleInterfaces_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(plcount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2119,17 +2119,17 @@ impl IAzBizRuleParameters_Vtbl {
         unsafe extern "system" fn AddParameter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrparametername: std::mem::MaybeUninit<windows_core::BSTR>, varparametervalue: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddParameter(core::mem::transmute(&bstrparametername), core::mem::transmute(&varparametervalue)).into()
+            IAzBizRuleParameters_Impl::AddParameter(this, core::mem::transmute(&bstrparametername), core::mem::transmute(&varparametervalue)).into()
         }
         unsafe extern "system" fn AddParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varparameternames: std::mem::MaybeUninit<windows_core::VARIANT>, varparametervalues: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddParameters(core::mem::transmute(&varparameternames), core::mem::transmute(&varparametervalues)).into()
+            IAzBizRuleParameters_Impl::AddParameters(this, core::mem::transmute(&varparameternames), core::mem::transmute(&varparametervalues)).into()
         }
         unsafe extern "system" fn GetParameterValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrparametername: std::mem::MaybeUninit<windows_core::BSTR>, pvarparametervalue: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetParameterValue(core::mem::transmute(&bstrparametername)) {
+            match IAzBizRuleParameters_Impl::GetParameterValue(this, core::mem::transmute(&bstrparametername)) {
                 Ok(ok__) => {
                     core::ptr::write(pvarparametervalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2140,17 +2140,17 @@ impl IAzBizRuleParameters_Vtbl {
         unsafe extern "system" fn Remove<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varparametername: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Remove(core::mem::transmute(&varparametername)).into()
+            IAzBizRuleParameters_Impl::Remove(this, core::mem::transmute(&varparametername)).into()
         }
         unsafe extern "system" fn RemoveAll<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAll().into()
+            IAzBizRuleParameters_Impl::RemoveAll(this).into()
         }
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IAzBizRuleParameters_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(plcount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2196,7 +2196,7 @@ impl IAzClientContext_Vtbl {
         unsafe extern "system" fn AccessCheck<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrobjectname: std::mem::MaybeUninit<windows_core::BSTR>, varscopenames: std::mem::MaybeUninit<windows_core::VARIANT>, varoperations: std::mem::MaybeUninit<windows_core::VARIANT>, varparameternames: std::mem::MaybeUninit<windows_core::VARIANT>, varparametervalues: std::mem::MaybeUninit<windows_core::VARIANT>, varinterfacenames: std::mem::MaybeUninit<windows_core::VARIANT>, varinterfaceflags: std::mem::MaybeUninit<windows_core::VARIANT>, varinterfaces: std::mem::MaybeUninit<windows_core::VARIANT>, pvarresults: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AccessCheck(core::mem::transmute(&bstrobjectname), core::mem::transmute(&varscopenames), core::mem::transmute(&varoperations), core::mem::transmute(&varparameternames), core::mem::transmute(&varparametervalues), core::mem::transmute(&varinterfacenames), core::mem::transmute(&varinterfaceflags), core::mem::transmute(&varinterfaces)) {
+            match IAzClientContext_Impl::AccessCheck(this, core::mem::transmute(&bstrobjectname), core::mem::transmute(&varscopenames), core::mem::transmute(&varoperations), core::mem::transmute(&varparameternames), core::mem::transmute(&varparametervalues), core::mem::transmute(&varinterfacenames), core::mem::transmute(&varinterfaceflags), core::mem::transmute(&varinterfaces)) {
                 Ok(ok__) => {
                     core::ptr::write(pvarresults, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2207,7 +2207,7 @@ impl IAzClientContext_Vtbl {
         unsafe extern "system" fn GetBusinessRuleString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrbusinessrulestring: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetBusinessRuleString() {
+            match IAzClientContext_Impl::GetBusinessRuleString(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrbusinessrulestring, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2218,7 +2218,7 @@ impl IAzClientContext_Vtbl {
         unsafe extern "system" fn UserDn<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrprop: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UserDn() {
+            match IAzClientContext_Impl::UserDn(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2229,7 +2229,7 @@ impl IAzClientContext_Vtbl {
         unsafe extern "system" fn UserSamCompat<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrprop: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UserSamCompat() {
+            match IAzClientContext_Impl::UserSamCompat(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2240,7 +2240,7 @@ impl IAzClientContext_Vtbl {
         unsafe extern "system" fn UserDisplay<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrprop: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UserDisplay() {
+            match IAzClientContext_Impl::UserDisplay(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2251,7 +2251,7 @@ impl IAzClientContext_Vtbl {
         unsafe extern "system" fn UserGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrprop: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UserGuid() {
+            match IAzClientContext_Impl::UserGuid(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2262,7 +2262,7 @@ impl IAzClientContext_Vtbl {
         unsafe extern "system" fn UserCanonical<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrprop: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UserCanonical() {
+            match IAzClientContext_Impl::UserCanonical(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2273,7 +2273,7 @@ impl IAzClientContext_Vtbl {
         unsafe extern "system" fn UserUpn<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrprop: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UserUpn() {
+            match IAzClientContext_Impl::UserUpn(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2284,7 +2284,7 @@ impl IAzClientContext_Vtbl {
         unsafe extern "system" fn UserDnsSamCompat<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrprop: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UserDnsSamCompat() {
+            match IAzClientContext_Impl::UserDnsSamCompat(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2295,7 +2295,7 @@ impl IAzClientContext_Vtbl {
         unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpropid: i32, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, pvarprop: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProperty(core::mem::transmute_copy(&lpropid), core::mem::transmute(&varreserved)) {
+            match IAzClientContext_Impl::GetProperty(this, core::mem::transmute_copy(&lpropid), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(pvarprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2306,7 +2306,7 @@ impl IAzClientContext_Vtbl {
         unsafe extern "system" fn GetRoles<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrscopename: std::mem::MaybeUninit<windows_core::BSTR>, pvarrolenames: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRoles(core::mem::transmute(&bstrscopename)) {
+            match IAzClientContext_Impl::GetRoles(this, core::mem::transmute(&bstrscopename)) {
                 Ok(ok__) => {
                     core::ptr::write(pvarrolenames, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2317,7 +2317,7 @@ impl IAzClientContext_Vtbl {
         unsafe extern "system" fn RoleForAccessCheck<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrprop: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RoleForAccessCheck() {
+            match IAzClientContext_Impl::RoleForAccessCheck(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2328,7 +2328,7 @@ impl IAzClientContext_Vtbl {
         unsafe extern "system" fn SetRoleForAccessCheck<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRoleForAccessCheck(core::mem::transmute(&bstrprop)).into()
+            IAzClientContext_Impl::SetRoleForAccessCheck(this, core::mem::transmute(&bstrprop)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2368,32 +2368,32 @@ impl IAzClientContext2_Vtbl {
         unsafe extern "system" fn GetAssignedScopesPage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, loptions: i32, pagesize: i32, pvarcursor: *mut std::mem::MaybeUninit<windows_core::VARIANT>, pvarscopenames: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetAssignedScopesPage(core::mem::transmute_copy(&loptions), core::mem::transmute_copy(&pagesize), core::mem::transmute_copy(&pvarcursor), core::mem::transmute_copy(&pvarscopenames)).into()
+            IAzClientContext2_Impl::GetAssignedScopesPage(this, core::mem::transmute_copy(&loptions), core::mem::transmute_copy(&pagesize), core::mem::transmute_copy(&pvarcursor), core::mem::transmute_copy(&pvarscopenames)).into()
         }
         unsafe extern "system" fn AddRoles<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varroles: std::mem::MaybeUninit<windows_core::VARIANT>, bstrscopename: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddRoles(core::mem::transmute(&varroles), core::mem::transmute(&bstrscopename)).into()
+            IAzClientContext2_Impl::AddRoles(this, core::mem::transmute(&varroles), core::mem::transmute(&bstrscopename)).into()
         }
         unsafe extern "system" fn AddApplicationGroups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varapplicationgroups: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddApplicationGroups(core::mem::transmute(&varapplicationgroups)).into()
+            IAzClientContext2_Impl::AddApplicationGroups(this, core::mem::transmute(&varapplicationgroups)).into()
         }
         unsafe extern "system" fn AddStringSids<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varstringsids: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddStringSids(core::mem::transmute(&varstringsids)).into()
+            IAzClientContext2_Impl::AddStringSids(this, core::mem::transmute(&varstringsids)).into()
         }
         unsafe extern "system" fn SetLDAPQueryDN<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrldapquerydn: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLDAPQueryDN(core::mem::transmute(&bstrldapquerydn)).into()
+            IAzClientContext2_Impl::SetLDAPQueryDN(this, core::mem::transmute(&bstrldapquerydn)).into()
         }
         unsafe extern "system" fn LDAPQueryDN<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrldapquerydn: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LDAPQueryDN() {
+            match IAzClientContext2_Impl::LDAPQueryDN(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrldapquerydn, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2434,7 +2434,7 @@ impl IAzClientContext3_Vtbl {
         unsafe extern "system" fn AccessCheck2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrobjectname: std::mem::MaybeUninit<windows_core::BSTR>, bstrscopename: std::mem::MaybeUninit<windows_core::BSTR>, loperation: i32, plresult: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AccessCheck2(core::mem::transmute(&bstrobjectname), core::mem::transmute(&bstrscopename), core::mem::transmute_copy(&loperation)) {
+            match IAzClientContext3_Impl::AccessCheck2(this, core::mem::transmute(&bstrobjectname), core::mem::transmute(&bstrscopename), core::mem::transmute_copy(&loperation)) {
                 Ok(ok__) => {
                     core::ptr::write(plresult, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2445,7 +2445,7 @@ impl IAzClientContext3_Vtbl {
         unsafe extern "system" fn IsInRoleAssignment<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrscopename: std::mem::MaybeUninit<windows_core::BSTR>, bstrrolename: std::mem::MaybeUninit<windows_core::BSTR>, pbisinrole: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsInRoleAssignment(core::mem::transmute(&bstrscopename), core::mem::transmute(&bstrrolename)) {
+            match IAzClientContext3_Impl::IsInRoleAssignment(this, core::mem::transmute(&bstrscopename), core::mem::transmute(&bstrrolename)) {
                 Ok(ok__) => {
                     core::ptr::write(pbisinrole, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2456,7 +2456,7 @@ impl IAzClientContext3_Vtbl {
         unsafe extern "system" fn GetOperations<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrscopename: std::mem::MaybeUninit<windows_core::BSTR>, ppoperationcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetOperations(core::mem::transmute(&bstrscopename)) {
+            match IAzClientContext3_Impl::GetOperations(this, core::mem::transmute(&bstrscopename)) {
                 Ok(ok__) => {
                     core::ptr::write(ppoperationcollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2467,7 +2467,7 @@ impl IAzClientContext3_Vtbl {
         unsafe extern "system" fn GetTasks<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrscopename: std::mem::MaybeUninit<windows_core::BSTR>, pptaskcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetTasks(core::mem::transmute(&bstrscopename)) {
+            match IAzClientContext3_Impl::GetTasks(this, core::mem::transmute(&bstrscopename)) {
                 Ok(ok__) => {
                     core::ptr::write(pptaskcollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2478,7 +2478,7 @@ impl IAzClientContext3_Vtbl {
         unsafe extern "system" fn BizRuleParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppbizruleparam: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BizRuleParameters() {
+            match IAzClientContext3_Impl::BizRuleParameters(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppbizruleparam, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2489,7 +2489,7 @@ impl IAzClientContext3_Vtbl {
         unsafe extern "system" fn BizRuleInterfaces<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppbizruleinterfaces: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BizRuleInterfaces() {
+            match IAzClientContext3_Impl::BizRuleInterfaces(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppbizruleinterfaces, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2500,7 +2500,7 @@ impl IAzClientContext3_Vtbl {
         unsafe extern "system" fn GetGroups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrscopename: std::mem::MaybeUninit<windows_core::BSTR>, uloptions: u32, pgrouparray: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetGroups(core::mem::transmute(&bstrscopename), core::mem::transmute(&uloptions)) {
+            match IAzClientContext3_Impl::GetGroups(this, core::mem::transmute(&bstrscopename), core::mem::transmute(&uloptions)) {
                 Ok(ok__) => {
                     core::ptr::write(pgrouparray, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2511,7 +2511,7 @@ impl IAzClientContext3_Vtbl {
         unsafe extern "system" fn Sids<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstringsidarray: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Sids() {
+            match IAzClientContext3_Impl::Sids(this) {
                 Ok(ok__) => {
                     core::ptr::write(pstringsidarray, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2548,12 +2548,12 @@ impl IAzNameResolver_Vtbl {
         unsafe extern "system" fn NameFromSid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzNameResolver_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsid: std::mem::MaybeUninit<windows_core::BSTR>, psidtype: *mut i32, pbstrname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.NameFromSid(core::mem::transmute(&bstrsid), core::mem::transmute_copy(&psidtype), core::mem::transmute_copy(&pbstrname)).into()
+            IAzNameResolver_Impl::NameFromSid(this, core::mem::transmute(&bstrsid), core::mem::transmute_copy(&psidtype), core::mem::transmute_copy(&pbstrname)).into()
         }
         unsafe extern "system" fn NamesFromSids<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzNameResolver_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vsids: std::mem::MaybeUninit<windows_core::VARIANT>, pvsidtypes: *mut std::mem::MaybeUninit<windows_core::VARIANT>, pvnames: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.NamesFromSids(core::mem::transmute(&vsids), core::mem::transmute_copy(&pvsidtypes), core::mem::transmute_copy(&pvnames)).into()
+            IAzNameResolver_Impl::NamesFromSids(this, core::mem::transmute(&vsids), core::mem::transmute_copy(&pvsidtypes), core::mem::transmute_copy(&pvnames)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2578,12 +2578,12 @@ impl IAzObjectPicker_Vtbl {
         unsafe extern "system" fn GetPrincipals<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzObjectPicker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hparentwnd: super::super::Foundation::HWND, bstrtitle: std::mem::MaybeUninit<windows_core::BSTR>, pvsidtypes: *mut std::mem::MaybeUninit<windows_core::VARIANT>, pvnames: *mut std::mem::MaybeUninit<windows_core::VARIANT>, pvsids: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPrincipals(core::mem::transmute_copy(&hparentwnd), core::mem::transmute(&bstrtitle), core::mem::transmute_copy(&pvsidtypes), core::mem::transmute_copy(&pvnames), core::mem::transmute_copy(&pvsids)).into()
+            IAzObjectPicker_Impl::GetPrincipals(this, core::mem::transmute_copy(&hparentwnd), core::mem::transmute(&bstrtitle), core::mem::transmute_copy(&pvsidtypes), core::mem::transmute_copy(&pvnames), core::mem::transmute_copy(&pvsids)).into()
         }
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzObjectPicker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IAzObjectPicker_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2624,7 +2624,7 @@ impl IAzOperation_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IAzOperation_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2635,12 +2635,12 @@ impl IAzOperation_Vtbl {
         unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetName(core::mem::transmute(&bstrname)).into()
+            IAzOperation_Impl::SetName(this, core::mem::transmute(&bstrname)).into()
         }
         unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdescription: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Description() {
+            match IAzOperation_Impl::Description(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrdescription, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2651,12 +2651,12 @@ impl IAzOperation_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdescription: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDescription(core::mem::transmute(&bstrdescription)).into()
+            IAzOperation_Impl::SetDescription(this, core::mem::transmute(&bstrdescription)).into()
         }
         unsafe extern "system" fn ApplicationData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrapplicationdata: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ApplicationData() {
+            match IAzOperation_Impl::ApplicationData(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrapplicationdata, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2667,12 +2667,12 @@ impl IAzOperation_Vtbl {
         unsafe extern "system" fn SetApplicationData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationdata: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetApplicationData(core::mem::transmute(&bstrapplicationdata)).into()
+            IAzOperation_Impl::SetApplicationData(this, core::mem::transmute(&bstrapplicationdata)).into()
         }
         unsafe extern "system" fn OperationID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plprop: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OperationID() {
+            match IAzOperation_Impl::OperationID(this) {
                 Ok(ok__) => {
                     core::ptr::write(plprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2683,12 +2683,12 @@ impl IAzOperation_Vtbl {
         unsafe extern "system" fn SetOperationID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lprop: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetOperationID(core::mem::transmute_copy(&lprop)).into()
+            IAzOperation_Impl::SetOperationID(this, core::mem::transmute_copy(&lprop)).into()
         }
         unsafe extern "system" fn Writable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Writable() {
+            match IAzOperation_Impl::Writable(this) {
                 Ok(ok__) => {
                     core::ptr::write(pfprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2699,7 +2699,7 @@ impl IAzOperation_Vtbl {
         unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpropid: i32, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, pvarprop: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProperty(core::mem::transmute_copy(&lpropid), core::mem::transmute(&varreserved)) {
+            match IAzOperation_Impl::GetProperty(this, core::mem::transmute_copy(&lpropid), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(pvarprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2710,12 +2710,12 @@ impl IAzOperation_Vtbl {
         unsafe extern "system" fn SetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpropid: i32, varprop: std::mem::MaybeUninit<windows_core::VARIANT>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetProperty(core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
+            IAzOperation_Impl::SetProperty(this, core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Submit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Submit(core::mem::transmute_copy(&lflags), core::mem::transmute(&varreserved)).into()
+            IAzOperation_Impl::Submit(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&varreserved)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2749,7 +2749,7 @@ impl IAzOperation2_Vtbl {
         unsafe extern "system" fn RoleAssignments<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrscopename: std::mem::MaybeUninit<windows_core::BSTR>, brecursive: super::super::Foundation::VARIANT_BOOL, pproleassignments: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RoleAssignments(core::mem::transmute(&bstrscopename), core::mem::transmute_copy(&brecursive)) {
+            match IAzOperation2_Impl::RoleAssignments(this, core::mem::transmute(&bstrscopename), core::mem::transmute_copy(&brecursive)) {
                 Ok(ok__) => {
                     core::ptr::write(pproleassignments, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2777,7 +2777,7 @@ impl IAzOperations_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pvarobtptr: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute_copy(&index)) {
+            match IAzOperations_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(pvarobtptr, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2788,7 +2788,7 @@ impl IAzOperations_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IAzOperations_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(plcount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2799,7 +2799,7 @@ impl IAzOperations_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumptr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IAzOperations_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppenumptr, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2831,7 +2831,7 @@ impl IAzPrincipalLocator_Vtbl {
         unsafe extern "system" fn NameResolver<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzPrincipalLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppnameresolver: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.NameResolver() {
+            match IAzPrincipalLocator_Impl::NameResolver(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppnameresolver, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2842,7 +2842,7 @@ impl IAzPrincipalLocator_Vtbl {
         unsafe extern "system" fn ObjectPicker<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzPrincipalLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppobjectpicker: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ObjectPicker() {
+            match IAzPrincipalLocator_Impl::ObjectPicker(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppobjectpicker, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2898,7 +2898,7 @@ impl IAzRole_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IAzRole_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2909,12 +2909,12 @@ impl IAzRole_Vtbl {
         unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetName(core::mem::transmute(&bstrname)).into()
+            IAzRole_Impl::SetName(this, core::mem::transmute(&bstrname)).into()
         }
         unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdescription: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Description() {
+            match IAzRole_Impl::Description(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrdescription, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2925,12 +2925,12 @@ impl IAzRole_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdescription: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDescription(core::mem::transmute(&bstrdescription)).into()
+            IAzRole_Impl::SetDescription(this, core::mem::transmute(&bstrdescription)).into()
         }
         unsafe extern "system" fn ApplicationData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrapplicationdata: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ApplicationData() {
+            match IAzRole_Impl::ApplicationData(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrapplicationdata, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2941,52 +2941,52 @@ impl IAzRole_Vtbl {
         unsafe extern "system" fn SetApplicationData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationdata: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetApplicationData(core::mem::transmute(&bstrapplicationdata)).into()
+            IAzRole_Impl::SetApplicationData(this, core::mem::transmute(&bstrapplicationdata)).into()
         }
         unsafe extern "system" fn AddAppMember<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddAppMember(core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
+            IAzRole_Impl::AddAppMember(this, core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteAppMember<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteAppMember(core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
+            IAzRole_Impl::DeleteAppMember(this, core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddTask<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddTask(core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
+            IAzRole_Impl::AddTask(this, core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteTask<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteTask(core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
+            IAzRole_Impl::DeleteTask(this, core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddOperation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddOperation(core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
+            IAzRole_Impl::AddOperation(this, core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteOperation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteOperation(core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
+            IAzRole_Impl::DeleteOperation(this, core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddMember<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddMember(core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
+            IAzRole_Impl::AddMember(this, core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteMember<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteMember(core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
+            IAzRole_Impl::DeleteMember(this, core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Writable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Writable() {
+            match IAzRole_Impl::Writable(this) {
                 Ok(ok__) => {
                     core::ptr::write(pfprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2997,7 +2997,7 @@ impl IAzRole_Vtbl {
         unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpropid: i32, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, pvarprop: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProperty(core::mem::transmute_copy(&lpropid), core::mem::transmute(&varreserved)) {
+            match IAzRole_Impl::GetProperty(this, core::mem::transmute_copy(&lpropid), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(pvarprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3008,12 +3008,12 @@ impl IAzRole_Vtbl {
         unsafe extern "system" fn SetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpropid: i32, varprop: std::mem::MaybeUninit<windows_core::VARIANT>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetProperty(core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
+            IAzRole_Impl::SetProperty(this, core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AppMembers<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarprop: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AppMembers() {
+            match IAzRole_Impl::AppMembers(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3024,7 +3024,7 @@ impl IAzRole_Vtbl {
         unsafe extern "system" fn Members<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarprop: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Members() {
+            match IAzRole_Impl::Members(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3035,7 +3035,7 @@ impl IAzRole_Vtbl {
         unsafe extern "system" fn Operations<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarprop: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Operations() {
+            match IAzRole_Impl::Operations(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3046,7 +3046,7 @@ impl IAzRole_Vtbl {
         unsafe extern "system" fn Tasks<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarprop: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Tasks() {
+            match IAzRole_Impl::Tasks(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3057,32 +3057,32 @@ impl IAzRole_Vtbl {
         unsafe extern "system" fn AddPropertyItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpropid: i32, varprop: std::mem::MaybeUninit<windows_core::VARIANT>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddPropertyItem(core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
+            IAzRole_Impl::AddPropertyItem(this, core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePropertyItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpropid: i32, varprop: std::mem::MaybeUninit<windows_core::VARIANT>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeletePropertyItem(core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
+            IAzRole_Impl::DeletePropertyItem(this, core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Submit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Submit(core::mem::transmute_copy(&lflags), core::mem::transmute(&varreserved)).into()
+            IAzRole_Impl::Submit(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddMemberName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddMemberName(core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
+            IAzRole_Impl::AddMemberName(this, core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteMemberName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteMemberName(core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
+            IAzRole_Impl::DeleteMemberName(this, core::mem::transmute(&bstrprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn MembersName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarprop: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MembersName() {
+            match IAzRole_Impl::MembersName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3140,17 +3140,17 @@ impl IAzRoleAssignment_Vtbl {
         unsafe extern "system" fn AddRoleDefinition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleAssignment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrroledefinition: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddRoleDefinition(core::mem::transmute(&bstrroledefinition)).into()
+            IAzRoleAssignment_Impl::AddRoleDefinition(this, core::mem::transmute(&bstrroledefinition)).into()
         }
         unsafe extern "system" fn DeleteRoleDefinition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleAssignment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrroledefinition: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteRoleDefinition(core::mem::transmute(&bstrroledefinition)).into()
+            IAzRoleAssignment_Impl::DeleteRoleDefinition(this, core::mem::transmute(&bstrroledefinition)).into()
         }
         unsafe extern "system" fn RoleDefinitions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleAssignment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pproledefinitions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RoleDefinitions() {
+            match IAzRoleAssignment_Impl::RoleDefinitions(this) {
                 Ok(ok__) => {
                     core::ptr::write(pproledefinitions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3161,7 +3161,7 @@ impl IAzRoleAssignment_Vtbl {
         unsafe extern "system" fn Scope<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleAssignment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppscope: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Scope() {
+            match IAzRoleAssignment_Impl::Scope(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppscope, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3195,7 +3195,7 @@ impl IAzRoleAssignments_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleAssignments_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pvarobtptr: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute_copy(&index)) {
+            match IAzRoleAssignments_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(pvarobtptr, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3206,7 +3206,7 @@ impl IAzRoleAssignments_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleAssignments_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IAzRoleAssignments_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(plcount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3217,7 +3217,7 @@ impl IAzRoleAssignments_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleAssignments_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumptr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IAzRoleAssignments_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppenumptr, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3251,7 +3251,7 @@ impl IAzRoleDefinition_Vtbl {
         unsafe extern "system" fn RoleAssignments<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrscopename: std::mem::MaybeUninit<windows_core::BSTR>, brecursive: super::super::Foundation::VARIANT_BOOL, pproleassignments: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RoleAssignments(core::mem::transmute(&bstrscopename), core::mem::transmute_copy(&brecursive)) {
+            match IAzRoleDefinition_Impl::RoleAssignments(this, core::mem::transmute(&bstrscopename), core::mem::transmute_copy(&brecursive)) {
                 Ok(ok__) => {
                     core::ptr::write(pproleassignments, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3262,17 +3262,17 @@ impl IAzRoleDefinition_Vtbl {
         unsafe extern "system" fn AddRoleDefinition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrroledefinition: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddRoleDefinition(core::mem::transmute(&bstrroledefinition)).into()
+            IAzRoleDefinition_Impl::AddRoleDefinition(this, core::mem::transmute(&bstrroledefinition)).into()
         }
         unsafe extern "system" fn DeleteRoleDefinition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrroledefinition: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteRoleDefinition(core::mem::transmute(&bstrroledefinition)).into()
+            IAzRoleDefinition_Impl::DeleteRoleDefinition(this, core::mem::transmute(&bstrroledefinition)).into()
         }
         unsafe extern "system" fn RoleDefinitions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pproledefinitions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RoleDefinitions() {
+            match IAzRoleDefinition_Impl::RoleDefinitions(this) {
                 Ok(ok__) => {
                     core::ptr::write(pproledefinitions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3306,7 +3306,7 @@ impl IAzRoleDefinitions_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleDefinitions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pvarobtptr: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute_copy(&index)) {
+            match IAzRoleDefinitions_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(pvarobtptr, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3317,7 +3317,7 @@ impl IAzRoleDefinitions_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleDefinitions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IAzRoleDefinitions_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(plcount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3328,7 +3328,7 @@ impl IAzRoleDefinitions_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleDefinitions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumptr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IAzRoleDefinitions_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppenumptr, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3361,7 +3361,7 @@ impl IAzRoles_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRoles_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pvarobtptr: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute_copy(&index)) {
+            match IAzRoles_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(pvarobtptr, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3372,7 +3372,7 @@ impl IAzRoles_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRoles_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IAzRoles_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(plcount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3383,7 +3383,7 @@ impl IAzRoles_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzRoles_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumptr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IAzRoles_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppenumptr, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3451,7 +3451,7 @@ impl IAzScope_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IAzScope_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3462,12 +3462,12 @@ impl IAzScope_Vtbl {
         unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetName(core::mem::transmute(&bstrname)).into()
+            IAzScope_Impl::SetName(this, core::mem::transmute(&bstrname)).into()
         }
         unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdescription: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Description() {
+            match IAzScope_Impl::Description(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrdescription, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3478,12 +3478,12 @@ impl IAzScope_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdescription: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDescription(core::mem::transmute(&bstrdescription)).into()
+            IAzScope_Impl::SetDescription(this, core::mem::transmute(&bstrdescription)).into()
         }
         unsafe extern "system" fn ApplicationData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrapplicationdata: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ApplicationData() {
+            match IAzScope_Impl::ApplicationData(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrapplicationdata, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3494,12 +3494,12 @@ impl IAzScope_Vtbl {
         unsafe extern "system" fn SetApplicationData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationdata: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetApplicationData(core::mem::transmute(&bstrapplicationdata)).into()
+            IAzScope_Impl::SetApplicationData(this, core::mem::transmute(&bstrapplicationdata)).into()
         }
         unsafe extern "system" fn Writable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Writable() {
+            match IAzScope_Impl::Writable(this) {
                 Ok(ok__) => {
                     core::ptr::write(pfprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3510,7 +3510,7 @@ impl IAzScope_Vtbl {
         unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpropid: i32, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, pvarprop: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProperty(core::mem::transmute_copy(&lpropid), core::mem::transmute(&varreserved)) {
+            match IAzScope_Impl::GetProperty(this, core::mem::transmute_copy(&lpropid), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(pvarprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3521,22 +3521,22 @@ impl IAzScope_Vtbl {
         unsafe extern "system" fn SetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpropid: i32, varprop: std::mem::MaybeUninit<windows_core::VARIANT>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetProperty(core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
+            IAzScope_Impl::SetProperty(this, core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddPropertyItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpropid: i32, varprop: std::mem::MaybeUninit<windows_core::VARIANT>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddPropertyItem(core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
+            IAzScope_Impl::AddPropertyItem(this, core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePropertyItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpropid: i32, varprop: std::mem::MaybeUninit<windows_core::VARIANT>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeletePropertyItem(core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
+            IAzScope_Impl::DeletePropertyItem(this, core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn PolicyAdministrators<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvaradmins: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PolicyAdministrators() {
+            match IAzScope_Impl::PolicyAdministrators(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvaradmins, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3547,7 +3547,7 @@ impl IAzScope_Vtbl {
         unsafe extern "system" fn PolicyReaders<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarreaders: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PolicyReaders() {
+            match IAzScope_Impl::PolicyReaders(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarreaders, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3558,27 +3558,27 @@ impl IAzScope_Vtbl {
         unsafe extern "system" fn AddPolicyAdministrator<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstradmin: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddPolicyAdministrator(core::mem::transmute(&bstradmin), core::mem::transmute(&varreserved)).into()
+            IAzScope_Impl::AddPolicyAdministrator(this, core::mem::transmute(&bstradmin), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePolicyAdministrator<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstradmin: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeletePolicyAdministrator(core::mem::transmute(&bstradmin), core::mem::transmute(&varreserved)).into()
+            IAzScope_Impl::DeletePolicyAdministrator(this, core::mem::transmute(&bstradmin), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddPolicyReader<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrreader: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddPolicyReader(core::mem::transmute(&bstrreader), core::mem::transmute(&varreserved)).into()
+            IAzScope_Impl::AddPolicyReader(this, core::mem::transmute(&bstrreader), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePolicyReader<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrreader: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeletePolicyReader(core::mem::transmute(&bstrreader), core::mem::transmute(&varreserved)).into()
+            IAzScope_Impl::DeletePolicyReader(this, core::mem::transmute(&bstrreader), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn ApplicationGroups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppgroupcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ApplicationGroups() {
+            match IAzScope_Impl::ApplicationGroups(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppgroupcollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3589,7 +3589,7 @@ impl IAzScope_Vtbl {
         unsafe extern "system" fn OpenApplicationGroup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgroupname: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, ppgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OpenApplicationGroup(core::mem::transmute(&bstrgroupname), core::mem::transmute(&varreserved)) {
+            match IAzScope_Impl::OpenApplicationGroup(this, core::mem::transmute(&bstrgroupname), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(ppgroup, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3600,7 +3600,7 @@ impl IAzScope_Vtbl {
         unsafe extern "system" fn CreateApplicationGroup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgroupname: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, ppgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateApplicationGroup(core::mem::transmute(&bstrgroupname), core::mem::transmute(&varreserved)) {
+            match IAzScope_Impl::CreateApplicationGroup(this, core::mem::transmute(&bstrgroupname), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(ppgroup, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3611,12 +3611,12 @@ impl IAzScope_Vtbl {
         unsafe extern "system" fn DeleteApplicationGroup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgroupname: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteApplicationGroup(core::mem::transmute(&bstrgroupname), core::mem::transmute(&varreserved)).into()
+            IAzScope_Impl::DeleteApplicationGroup(this, core::mem::transmute(&bstrgroupname), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Roles<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprolecollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Roles() {
+            match IAzScope_Impl::Roles(this) {
                 Ok(ok__) => {
                     core::ptr::write(pprolecollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3627,7 +3627,7 @@ impl IAzScope_Vtbl {
         unsafe extern "system" fn OpenRole<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrrolename: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, pprole: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OpenRole(core::mem::transmute(&bstrrolename), core::mem::transmute(&varreserved)) {
+            match IAzScope_Impl::OpenRole(this, core::mem::transmute(&bstrrolename), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(pprole, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3638,7 +3638,7 @@ impl IAzScope_Vtbl {
         unsafe extern "system" fn CreateRole<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrrolename: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, pprole: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateRole(core::mem::transmute(&bstrrolename), core::mem::transmute(&varreserved)) {
+            match IAzScope_Impl::CreateRole(this, core::mem::transmute(&bstrrolename), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(pprole, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3649,12 +3649,12 @@ impl IAzScope_Vtbl {
         unsafe extern "system" fn DeleteRole<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrrolename: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteRole(core::mem::transmute(&bstrrolename), core::mem::transmute(&varreserved)).into()
+            IAzScope_Impl::DeleteRole(this, core::mem::transmute(&bstrrolename), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Tasks<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptaskcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Tasks() {
+            match IAzScope_Impl::Tasks(this) {
                 Ok(ok__) => {
                     core::ptr::write(pptaskcollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3665,7 +3665,7 @@ impl IAzScope_Vtbl {
         unsafe extern "system" fn OpenTask<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtaskname: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, pptask: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OpenTask(core::mem::transmute(&bstrtaskname), core::mem::transmute(&varreserved)) {
+            match IAzScope_Impl::OpenTask(this, core::mem::transmute(&bstrtaskname), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(pptask, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3676,7 +3676,7 @@ impl IAzScope_Vtbl {
         unsafe extern "system" fn CreateTask<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtaskname: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, pptask: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateTask(core::mem::transmute(&bstrtaskname), core::mem::transmute(&varreserved)) {
+            match IAzScope_Impl::CreateTask(this, core::mem::transmute(&bstrtaskname), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(pptask, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3687,17 +3687,17 @@ impl IAzScope_Vtbl {
         unsafe extern "system" fn DeleteTask<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtaskname: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteTask(core::mem::transmute(&bstrtaskname), core::mem::transmute(&varreserved)).into()
+            IAzScope_Impl::DeleteTask(this, core::mem::transmute(&bstrtaskname), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Submit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Submit(core::mem::transmute_copy(&lflags), core::mem::transmute(&varreserved)).into()
+            IAzScope_Impl::Submit(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn CanBeDelegated<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CanBeDelegated() {
+            match IAzScope_Impl::CanBeDelegated(this) {
                 Ok(ok__) => {
                     core::ptr::write(pfprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3708,7 +3708,7 @@ impl IAzScope_Vtbl {
         unsafe extern "system" fn BizrulesWritable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BizrulesWritable() {
+            match IAzScope_Impl::BizrulesWritable(this) {
                 Ok(ok__) => {
                     core::ptr::write(pfprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3719,7 +3719,7 @@ impl IAzScope_Vtbl {
         unsafe extern "system" fn PolicyAdministratorsName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvaradmins: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PolicyAdministratorsName() {
+            match IAzScope_Impl::PolicyAdministratorsName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvaradmins, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3730,7 +3730,7 @@ impl IAzScope_Vtbl {
         unsafe extern "system" fn PolicyReadersName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarreaders: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PolicyReadersName() {
+            match IAzScope_Impl::PolicyReadersName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarreaders, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3741,22 +3741,22 @@ impl IAzScope_Vtbl {
         unsafe extern "system" fn AddPolicyAdministratorName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstradmin: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddPolicyAdministratorName(core::mem::transmute(&bstradmin), core::mem::transmute(&varreserved)).into()
+            IAzScope_Impl::AddPolicyAdministratorName(this, core::mem::transmute(&bstradmin), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePolicyAdministratorName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstradmin: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeletePolicyAdministratorName(core::mem::transmute(&bstradmin), core::mem::transmute(&varreserved)).into()
+            IAzScope_Impl::DeletePolicyAdministratorName(this, core::mem::transmute(&bstradmin), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddPolicyReaderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrreader: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddPolicyReaderName(core::mem::transmute(&bstrreader), core::mem::transmute(&varreserved)).into()
+            IAzScope_Impl::AddPolicyReaderName(this, core::mem::transmute(&bstrreader), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePolicyReaderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrreader: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeletePolicyReaderName(core::mem::transmute(&bstrreader), core::mem::transmute(&varreserved)).into()
+            IAzScope_Impl::DeletePolicyReaderName(this, core::mem::transmute(&bstrreader), core::mem::transmute(&varreserved)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3823,7 +3823,7 @@ impl IAzScope2_Vtbl {
         unsafe extern "system" fn RoleDefinitions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pproledefinitions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RoleDefinitions() {
+            match IAzScope2_Impl::RoleDefinitions(this) {
                 Ok(ok__) => {
                     core::ptr::write(pproledefinitions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3834,7 +3834,7 @@ impl IAzScope2_Vtbl {
         unsafe extern "system" fn CreateRoleDefinition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrroledefinitionname: std::mem::MaybeUninit<windows_core::BSTR>, pproledefinitions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateRoleDefinition(core::mem::transmute(&bstrroledefinitionname)) {
+            match IAzScope2_Impl::CreateRoleDefinition(this, core::mem::transmute(&bstrroledefinitionname)) {
                 Ok(ok__) => {
                     core::ptr::write(pproledefinitions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3845,7 +3845,7 @@ impl IAzScope2_Vtbl {
         unsafe extern "system" fn OpenRoleDefinition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrroledefinitionname: std::mem::MaybeUninit<windows_core::BSTR>, pproledefinitions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OpenRoleDefinition(core::mem::transmute(&bstrroledefinitionname)) {
+            match IAzScope2_Impl::OpenRoleDefinition(this, core::mem::transmute(&bstrroledefinitionname)) {
                 Ok(ok__) => {
                     core::ptr::write(pproledefinitions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3856,12 +3856,12 @@ impl IAzScope2_Vtbl {
         unsafe extern "system" fn DeleteRoleDefinition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrroledefinitionname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteRoleDefinition(core::mem::transmute(&bstrroledefinitionname)).into()
+            IAzScope2_Impl::DeleteRoleDefinition(this, core::mem::transmute(&bstrroledefinitionname)).into()
         }
         unsafe extern "system" fn RoleAssignments<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pproleassignments: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RoleAssignments() {
+            match IAzScope2_Impl::RoleAssignments(this) {
                 Ok(ok__) => {
                     core::ptr::write(pproleassignments, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3872,7 +3872,7 @@ impl IAzScope2_Vtbl {
         unsafe extern "system" fn CreateRoleAssignment<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrroleassignmentname: std::mem::MaybeUninit<windows_core::BSTR>, pproleassignment: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateRoleAssignment(core::mem::transmute(&bstrroleassignmentname)) {
+            match IAzScope2_Impl::CreateRoleAssignment(this, core::mem::transmute(&bstrroleassignmentname)) {
                 Ok(ok__) => {
                     core::ptr::write(pproleassignment, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3883,7 +3883,7 @@ impl IAzScope2_Vtbl {
         unsafe extern "system" fn OpenRoleAssignment<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrroleassignmentname: std::mem::MaybeUninit<windows_core::BSTR>, pproleassignment: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OpenRoleAssignment(core::mem::transmute(&bstrroleassignmentname)) {
+            match IAzScope2_Impl::OpenRoleAssignment(this, core::mem::transmute(&bstrroleassignmentname)) {
                 Ok(ok__) => {
                     core::ptr::write(pproleassignment, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3894,7 +3894,7 @@ impl IAzScope2_Vtbl {
         unsafe extern "system" fn DeleteRoleAssignment<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScope2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrroleassignmentname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteRoleAssignment(core::mem::transmute(&bstrroleassignmentname)).into()
+            IAzScope2_Impl::DeleteRoleAssignment(this, core::mem::transmute(&bstrroleassignmentname)).into()
         }
         Self {
             base__: IAzScope_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3926,7 +3926,7 @@ impl IAzScopes_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScopes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pvarobtptr: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute_copy(&index)) {
+            match IAzScopes_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(pvarobtptr, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3937,7 +3937,7 @@ impl IAzScopes_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScopes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IAzScopes_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(plcount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3948,7 +3948,7 @@ impl IAzScopes_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzScopes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumptr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IAzScopes_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppenumptr, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4004,7 +4004,7 @@ impl IAzTask_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IAzTask_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4015,12 +4015,12 @@ impl IAzTask_Vtbl {
         unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetName(core::mem::transmute(&bstrname)).into()
+            IAzTask_Impl::SetName(this, core::mem::transmute(&bstrname)).into()
         }
         unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdescription: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Description() {
+            match IAzTask_Impl::Description(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrdescription, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4031,12 +4031,12 @@ impl IAzTask_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdescription: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDescription(core::mem::transmute(&bstrdescription)).into()
+            IAzTask_Impl::SetDescription(this, core::mem::transmute(&bstrdescription)).into()
         }
         unsafe extern "system" fn ApplicationData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrapplicationdata: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ApplicationData() {
+            match IAzTask_Impl::ApplicationData(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrapplicationdata, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4047,12 +4047,12 @@ impl IAzTask_Vtbl {
         unsafe extern "system" fn SetApplicationData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrapplicationdata: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetApplicationData(core::mem::transmute(&bstrapplicationdata)).into()
+            IAzTask_Impl::SetApplicationData(this, core::mem::transmute(&bstrapplicationdata)).into()
         }
         unsafe extern "system" fn BizRule<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrprop: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BizRule() {
+            match IAzTask_Impl::BizRule(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4063,12 +4063,12 @@ impl IAzTask_Vtbl {
         unsafe extern "system" fn SetBizRule<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBizRule(core::mem::transmute(&bstrprop)).into()
+            IAzTask_Impl::SetBizRule(this, core::mem::transmute(&bstrprop)).into()
         }
         unsafe extern "system" fn BizRuleLanguage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrprop: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BizRuleLanguage() {
+            match IAzTask_Impl::BizRuleLanguage(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4079,12 +4079,12 @@ impl IAzTask_Vtbl {
         unsafe extern "system" fn SetBizRuleLanguage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBizRuleLanguage(core::mem::transmute(&bstrprop)).into()
+            IAzTask_Impl::SetBizRuleLanguage(this, core::mem::transmute(&bstrprop)).into()
         }
         unsafe extern "system" fn BizRuleImportedPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrprop: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BizRuleImportedPath() {
+            match IAzTask_Impl::BizRuleImportedPath(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4095,12 +4095,12 @@ impl IAzTask_Vtbl {
         unsafe extern "system" fn SetBizRuleImportedPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprop: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBizRuleImportedPath(core::mem::transmute(&bstrprop)).into()
+            IAzTask_Impl::SetBizRuleImportedPath(this, core::mem::transmute(&bstrprop)).into()
         }
         unsafe extern "system" fn IsRoleDefinition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsRoleDefinition() {
+            match IAzTask_Impl::IsRoleDefinition(this) {
                 Ok(ok__) => {
                     core::ptr::write(pfprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4111,12 +4111,12 @@ impl IAzTask_Vtbl {
         unsafe extern "system" fn SetIsRoleDefinition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fprop: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetIsRoleDefinition(core::mem::transmute_copy(&fprop)).into()
+            IAzTask_Impl::SetIsRoleDefinition(this, core::mem::transmute_copy(&fprop)).into()
         }
         unsafe extern "system" fn Operations<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarprop: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Operations() {
+            match IAzTask_Impl::Operations(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4127,7 +4127,7 @@ impl IAzTask_Vtbl {
         unsafe extern "system" fn Tasks<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarprop: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Tasks() {
+            match IAzTask_Impl::Tasks(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4138,27 +4138,27 @@ impl IAzTask_Vtbl {
         unsafe extern "system" fn AddOperation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrop: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddOperation(core::mem::transmute(&bstrop), core::mem::transmute(&varreserved)).into()
+            IAzTask_Impl::AddOperation(this, core::mem::transmute(&bstrop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteOperation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrop: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteOperation(core::mem::transmute(&bstrop), core::mem::transmute(&varreserved)).into()
+            IAzTask_Impl::DeleteOperation(this, core::mem::transmute(&bstrop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddTask<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtask: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddTask(core::mem::transmute(&bstrtask), core::mem::transmute(&varreserved)).into()
+            IAzTask_Impl::AddTask(this, core::mem::transmute(&bstrtask), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteTask<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtask: std::mem::MaybeUninit<windows_core::BSTR>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteTask(core::mem::transmute(&bstrtask), core::mem::transmute(&varreserved)).into()
+            IAzTask_Impl::DeleteTask(this, core::mem::transmute(&bstrtask), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Writable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Writable() {
+            match IAzTask_Impl::Writable(this) {
                 Ok(ok__) => {
                     core::ptr::write(pfprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4169,7 +4169,7 @@ impl IAzTask_Vtbl {
         unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpropid: i32, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>, pvarprop: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProperty(core::mem::transmute_copy(&lpropid), core::mem::transmute(&varreserved)) {
+            match IAzTask_Impl::GetProperty(this, core::mem::transmute_copy(&lpropid), core::mem::transmute(&varreserved)) {
                 Ok(ok__) => {
                     core::ptr::write(pvarprop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4180,22 +4180,22 @@ impl IAzTask_Vtbl {
         unsafe extern "system" fn SetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpropid: i32, varprop: std::mem::MaybeUninit<windows_core::VARIANT>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetProperty(core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
+            IAzTask_Impl::SetProperty(this, core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddPropertyItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpropid: i32, varprop: std::mem::MaybeUninit<windows_core::VARIANT>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddPropertyItem(core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
+            IAzTask_Impl::AddPropertyItem(this, core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePropertyItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpropid: i32, varprop: std::mem::MaybeUninit<windows_core::VARIANT>, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeletePropertyItem(core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
+            IAzTask_Impl::DeletePropertyItem(this, core::mem::transmute_copy(&lpropid), core::mem::transmute(&varprop), core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Submit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, varreserved: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Submit(core::mem::transmute_copy(&lflags), core::mem::transmute(&varreserved)).into()
+            IAzTask_Impl::Submit(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&varreserved)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -4243,7 +4243,7 @@ impl IAzTask2_Vtbl {
         unsafe extern "system" fn RoleAssignments<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTask2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrscopename: std::mem::MaybeUninit<windows_core::BSTR>, brecursive: super::super::Foundation::VARIANT_BOOL, pproleassignments: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RoleAssignments(core::mem::transmute(&bstrscopename), core::mem::transmute_copy(&brecursive)) {
+            match IAzTask2_Impl::RoleAssignments(this, core::mem::transmute(&bstrscopename), core::mem::transmute_copy(&brecursive)) {
                 Ok(ok__) => {
                     core::ptr::write(pproleassignments, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4271,7 +4271,7 @@ impl IAzTasks_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTasks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pvarobtptr: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute_copy(&index)) {
+            match IAzTasks_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(pvarobtptr, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4282,7 +4282,7 @@ impl IAzTasks_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTasks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IAzTasks_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(plcount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4293,7 +4293,7 @@ impl IAzTasks_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAzTasks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumptr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IAzTasks_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppenumptr, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

@@ -12,7 +12,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterable_Vtbl<T> {
         unsafe extern "system" fn First<T: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IIterable_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.First() {
+            match IIterable_Impl::First(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -48,7 +48,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
         unsafe extern "system" fn Current<T: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IIterator_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::AbiType<T>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Current() {
+            match IIterator_Impl::Current(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -60,7 +60,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
         unsafe extern "system" fn HasCurrent<T: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IIterator_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.HasCurrent() {
+            match IIterator_Impl::HasCurrent(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -71,7 +71,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
         unsafe extern "system" fn MoveNext<T: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IIterator_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MoveNext() {
+            match IIterator_Impl::MoveNext(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -82,7 +82,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
         unsafe extern "system" fn GetMany<T: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IIterator_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, items_array_size: u32, items: *mut windows_core::AbiType<T>, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetMany(core::slice::from_raw_parts_mut(core::mem::transmute_copy(&items), items_array_size as usize)) {
+            match IIterator_Impl::GetMany(this, core::slice::from_raw_parts_mut(core::mem::transmute_copy(&items), items_array_size as usize)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -119,7 +119,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         unsafe extern "system" fn Key<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IKeyValuePair_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::AbiType<K>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Key() {
+            match IKeyValuePair_Impl::Key(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -131,7 +131,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         unsafe extern "system" fn Value<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IKeyValuePair_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::AbiType<V>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Value() {
+            match IKeyValuePair_Impl::Value(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -173,7 +173,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         unsafe extern "system" fn Lookup<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::AbiType<K>, result__: *mut windows_core::AbiType<V>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Lookup(core::mem::transmute(&key)) {
+            match IMap_Impl::Lookup(this, core::mem::transmute(&key)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -185,7 +185,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         unsafe extern "system" fn Size<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Size() {
+            match IMap_Impl::Size(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -196,7 +196,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         unsafe extern "system" fn HasKey<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::AbiType<K>, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.HasKey(core::mem::transmute(&key)) {
+            match IMap_Impl::HasKey(this, core::mem::transmute(&key)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -207,7 +207,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         unsafe extern "system" fn GetView<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetView() {
+            match IMap_Impl::GetView(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -219,7 +219,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         unsafe extern "system" fn Insert<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::AbiType<K>, value: windows_core::AbiType<V>, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Insert(core::mem::transmute(&key), core::mem::transmute(&value)) {
+            match IMap_Impl::Insert(this, core::mem::transmute(&key), core::mem::transmute(&value)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -230,12 +230,12 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         unsafe extern "system" fn Remove<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::AbiType<K>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Remove(core::mem::transmute(&key)).into()
+            IMap_Impl::Remove(this, core::mem::transmute(&key)).into()
         }
         unsafe extern "system" fn Clear<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Clear().into()
+            IMap_Impl::Clear(this).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IMap<K, V>, OFFSET>(),
@@ -269,7 +269,7 @@ impl<K: windows_core::RuntimeType + 'static> IMapChangedEventArgs_Vtbl<K> {
         unsafe extern "system" fn CollectionChange<K: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMapChangedEventArgs_Impl<K>, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut CollectionChange) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CollectionChange() {
+            match IMapChangedEventArgs_Impl::CollectionChange(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -280,7 +280,7 @@ impl<K: windows_core::RuntimeType + 'static> IMapChangedEventArgs_Vtbl<K> {
         unsafe extern "system" fn Key<K: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMapChangedEventArgs_Impl<K>, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::AbiType<K>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Key() {
+            match IMapChangedEventArgs_Impl::Key(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -318,7 +318,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         unsafe extern "system" fn Lookup<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMapView_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::AbiType<K>, result__: *mut windows_core::AbiType<V>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Lookup(core::mem::transmute(&key)) {
+            match IMapView_Impl::Lookup(this, core::mem::transmute(&key)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -330,7 +330,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         unsafe extern "system" fn Size<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMapView_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Size() {
+            match IMapView_Impl::Size(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -341,7 +341,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         unsafe extern "system" fn HasKey<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMapView_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::AbiType<K>, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.HasKey(core::mem::transmute(&key)) {
+            match IMapView_Impl::HasKey(this, core::mem::transmute(&key)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -352,7 +352,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         unsafe extern "system" fn Split<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMapView_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, first: *mut *mut core::ffi::c_void, second: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Split(core::mem::transmute_copy(&first), core::mem::transmute_copy(&second)).into()
+            IMapView_Impl::Split(this, core::mem::transmute_copy(&first), core::mem::transmute_copy(&second)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IMapView<K, V>, OFFSET>(),
@@ -384,7 +384,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         unsafe extern "system" fn MapChanged<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IObservableMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, vhnd: *mut core::ffi::c_void, result__: *mut super::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MapChanged(windows_core::from_raw_borrowed(&vhnd)) {
+            match IObservableMap_Impl::MapChanged(this, windows_core::from_raw_borrowed(&vhnd)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -395,7 +395,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         unsafe extern "system" fn RemoveMapChanged<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IObservableMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveMapChanged(core::mem::transmute(&token)).into()
+            IObservableMap_Impl::RemoveMapChanged(this, core::mem::transmute(&token)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IObservableMap<K, V>, OFFSET>(),
@@ -424,7 +424,7 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector_Vtbl<T> {
         unsafe extern "system" fn VectorChanged<T: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IObservableVector_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, vhnd: *mut core::ffi::c_void, result__: *mut super::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.VectorChanged(windows_core::from_raw_borrowed(&vhnd)) {
+            match IObservableVector_Impl::VectorChanged(this, windows_core::from_raw_borrowed(&vhnd)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -435,7 +435,7 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector_Vtbl<T> {
         unsafe extern "system" fn RemoveVectorChanged<T: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IObservableVector_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveVectorChanged(core::mem::transmute(&token)).into()
+            IObservableVector_Impl::RemoveVectorChanged(this, core::mem::transmute(&token)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IObservableVector<T>, OFFSET>(),
@@ -485,7 +485,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
         unsafe extern "system" fn GetAt<T: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, result__: *mut windows_core::AbiType<T>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAt(index) {
+            match IVector_Impl::GetAt(this, index) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -497,7 +497,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
         unsafe extern "system" fn Size<T: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Size() {
+            match IVector_Impl::Size(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -508,7 +508,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
         unsafe extern "system" fn GetView<T: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetView() {
+            match IVector_Impl::GetView(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -520,7 +520,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
         unsafe extern "system" fn IndexOf<T: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, value: windows_core::AbiType<T>, index: *mut u32, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IndexOf(core::mem::transmute(&value), core::mem::transmute_copy(&index)) {
+            match IVector_Impl::IndexOf(this, core::mem::transmute(&value), core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -531,37 +531,37 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
         unsafe extern "system" fn SetAt<T: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, value: windows_core::AbiType<T>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAt(index, core::mem::transmute(&value)).into()
+            IVector_Impl::SetAt(this, index, core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn InsertAt<T: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, value: windows_core::AbiType<T>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InsertAt(index, core::mem::transmute(&value)).into()
+            IVector_Impl::InsertAt(this, index, core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn RemoveAt<T: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAt(index).into()
+            IVector_Impl::RemoveAt(this, index).into()
         }
         unsafe extern "system" fn Append<T: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, value: windows_core::AbiType<T>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Append(core::mem::transmute(&value)).into()
+            IVector_Impl::Append(this, core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn RemoveAtEnd<T: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAtEnd().into()
+            IVector_Impl::RemoveAtEnd(this).into()
         }
         unsafe extern "system" fn Clear<T: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Clear().into()
+            IVector_Impl::Clear(this).into()
         }
         unsafe extern "system" fn GetMany<T: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, startindex: u32, items_array_size: u32, items: *mut windows_core::AbiType<T>, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetMany(startindex, core::slice::from_raw_parts_mut(core::mem::transmute_copy(&items), items_array_size as usize)) {
+            match IVector_Impl::GetMany(this, startindex, core::slice::from_raw_parts_mut(core::mem::transmute_copy(&items), items_array_size as usize)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -572,7 +572,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
         unsafe extern "system" fn ReplaceAll<T: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, items_array_size: u32, items: *const windows_core::AbiType<T>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ReplaceAll(core::slice::from_raw_parts(core::mem::transmute_copy(&items), items_array_size as usize)).into()
+            IVector_Impl::ReplaceAll(this, core::slice::from_raw_parts(core::mem::transmute_copy(&items), items_array_size as usize)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IVector<T>, OFFSET>(),
@@ -607,7 +607,7 @@ impl IVectorChangedEventArgs_Vtbl {
         unsafe extern "system" fn CollectionChange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVectorChangedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut CollectionChange) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CollectionChange() {
+            match IVectorChangedEventArgs_Impl::CollectionChange(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -618,7 +618,7 @@ impl IVectorChangedEventArgs_Vtbl {
         unsafe extern "system" fn Index<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVectorChangedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Index() {
+            match IVectorChangedEventArgs_Impl::Index(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -653,7 +653,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
         unsafe extern "system" fn GetAt<T: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVectorView_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, result__: *mut windows_core::AbiType<T>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAt(index) {
+            match IVectorView_Impl::GetAt(this, index) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -665,7 +665,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
         unsafe extern "system" fn Size<T: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVectorView_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Size() {
+            match IVectorView_Impl::Size(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -676,7 +676,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
         unsafe extern "system" fn IndexOf<T: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVectorView_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, value: windows_core::AbiType<T>, index: *mut u32, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IndexOf(core::mem::transmute(&value), core::mem::transmute_copy(&index)) {
+            match IVectorView_Impl::IndexOf(this, core::mem::transmute(&value), core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -687,7 +687,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
         unsafe extern "system" fn GetMany<T: windows_core::RuntimeType + 'static, Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVectorView_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, startindex: u32, items_array_size: u32, items: *mut windows_core::AbiType<T>, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetMany(startindex, core::slice::from_raw_parts_mut(core::mem::transmute_copy(&items), items_array_size as usize)) {
+            match IVectorView_Impl::GetMany(this, startindex, core::slice::from_raw_parts_mut(core::mem::transmute_copy(&items), items_array_size as usize)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)

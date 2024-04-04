@@ -357,6 +357,12 @@ pub struct ICashDrawerEventSource_Vtbl {
     pub RemoveDrawerOpened: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICashDrawerEventSourceEventArgs, ICashDrawerEventSourceEventArgs_Vtbl, 0x69cb3bc1_147f_421c_9c23_090123bb786c);
+impl std::ops::Deref for ICashDrawerEventSourceEventArgs {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICashDrawerEventSourceEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ICashDrawerEventSourceEventArgs {
     pub fn CashDrawer(&self) -> windows_core::Result<CashDrawer> {
@@ -805,6 +811,12 @@ pub struct IClaimedSlipPrinter_Vtbl {
     pub CreateJob: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICommonClaimedPosPrinterStation, ICommonClaimedPosPrinterStation_Vtbl, 0xb7eb66a8_fe8a_4cfb_8b42_e35b280cb27c);
+impl std::ops::Deref for ICommonClaimedPosPrinterStation {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICommonClaimedPosPrinterStation, windows_core::IUnknown, windows_core::IInspectable);
 impl ICommonClaimedPosPrinterStation {
     pub fn SetCharactersPerLine(&self, value: u32) -> windows_core::Result<()> {
@@ -953,6 +965,12 @@ pub struct ICommonClaimedPosPrinterStation_Vtbl {
     pub ValidateData: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICommonPosPrintStationCapabilities, ICommonPosPrintStationCapabilities_Vtbl, 0xde5b52ca_e02e_40e9_9e5e_1b488e6aacfc);
+impl std::ops::Deref for ICommonPosPrintStationCapabilities {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICommonPosPrintStationCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 impl ICommonPosPrintStationCapabilities {
     pub fn IsPrinterPresent(&self) -> windows_core::Result<bool> {
@@ -1072,6 +1090,12 @@ pub struct ICommonPosPrintStationCapabilities_Vtbl {
     SupportedCharactersPerLine: usize,
 }
 windows_core::imp::define_interface!(ICommonReceiptSlipCapabilities, ICommonReceiptSlipCapabilities_Vtbl, 0x09286b8b_9873_4d05_bfbe_4727a6038f69);
+impl std::ops::Deref for ICommonReceiptSlipCapabilities {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICommonReceiptSlipCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ICommonReceiptSlipCapabilities, ICommonPosPrintStationCapabilities);
 impl ICommonReceiptSlipCapabilities {
@@ -1817,6 +1841,12 @@ pub struct IPosPrinterFontProperty_Vtbl {
     CharacterSizes: usize,
 }
 windows_core::imp::define_interface!(IPosPrinterJob, IPosPrinterJob_Vtbl, 0x9a94005c_0615_4591_a58f_30f87edfe2e4);
+impl std::ops::Deref for IPosPrinterJob {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPosPrinterJob, windows_core::IUnknown, windows_core::IInspectable);
 impl IPosPrinterJob {
     pub fn Print(&self, data: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -1932,6 +1962,12 @@ pub struct IPosPrinterStatusUpdatedEventArgs_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IReceiptOrSlipJob, IReceiptOrSlipJob_Vtbl, 0x532199be_c8c3_4dc2_89e9_5c4a37b34ddc);
+impl std::ops::Deref for IReceiptOrSlipJob {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IReceiptOrSlipJob, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IReceiptOrSlipJob, IPosPrinterJob);
 impl IReceiptOrSlipJob {

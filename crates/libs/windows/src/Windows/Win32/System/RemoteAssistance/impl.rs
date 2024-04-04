@@ -20,7 +20,7 @@ impl IRendezvousApplication_Vtbl {
         unsafe extern "system" fn SetRendezvousSession<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRendezvousApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prendezvoussession: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRendezvousSession(windows_core::from_raw_borrowed(&prendezvoussession)).into()
+            IRendezvousApplication_Impl::SetRendezvousSession(this, windows_core::from_raw_borrowed(&prendezvoussession)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetRendezvousSession: SetRendezvousSession::<Identity, Impl, OFFSET> }
     }
@@ -41,7 +41,7 @@ impl IRendezvousSession_Vtbl {
         unsafe extern "system" fn State<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRendezvousSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psessionstate: *mut RENDEZVOUS_SESSION_STATE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.State() {
+            match IRendezvousSession_Impl::State(this) {
                 Ok(ok__) => {
                     core::ptr::write(psessionstate, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -52,7 +52,7 @@ impl IRendezvousSession_Vtbl {
         unsafe extern "system" fn RemoteUser<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRendezvousSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RemoteUser() {
+            match IRendezvousSession_Impl::RemoteUser(this) {
                 Ok(ok__) => {
                     core::ptr::write(bstrusername, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -63,7 +63,7 @@ impl IRendezvousSession_Vtbl {
         unsafe extern "system" fn Flags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRendezvousSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Flags() {
+            match IRendezvousSession_Impl::Flags(this) {
                 Ok(ok__) => {
                     core::ptr::write(pflags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -74,12 +74,12 @@ impl IRendezvousSession_Vtbl {
         unsafe extern "system" fn SendContextData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRendezvousSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdata: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SendContextData(core::mem::transmute(&bstrdata)).into()
+            IRendezvousSession_Impl::SendContextData(this, core::mem::transmute(&bstrdata)).into()
         }
         unsafe extern "system" fn Terminate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRendezvousSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hr: windows_core::HRESULT, bstrappdata: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Terminate(core::mem::transmute_copy(&hr), core::mem::transmute(&bstrappdata)).into()
+            IRendezvousSession_Impl::Terminate(this, core::mem::transmute_copy(&hr), core::mem::transmute(&bstrappdata)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

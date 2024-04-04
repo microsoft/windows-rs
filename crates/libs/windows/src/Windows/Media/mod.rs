@@ -246,6 +246,12 @@ pub struct IMediaControl_Vtbl {
     AlbumArt: usize,
 }
 windows_core::imp::define_interface!(IMediaExtension, IMediaExtension_Vtbl, 0x07915118_45df_442b_8a3f_f7826a6370ab);
+impl std::ops::Deref for IMediaExtension {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMediaExtension, windows_core::IUnknown, windows_core::IInspectable);
 impl IMediaExtension {
     #[cfg(feature = "Foundation_Collections")]
@@ -319,6 +325,12 @@ pub struct IMediaExtensionManager2_Vtbl {
     RegisterMediaExtensionForAppService: usize,
 }
 windows_core::imp::define_interface!(IMediaFrame, IMediaFrame_Vtbl, 0xbfb52f8c_5943_47d8_8e10_05308aa5fbd0);
+impl std::ops::Deref for IMediaFrame {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMediaFrame, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IMediaFrame, super::Foundation::IClosable);
 impl IMediaFrame {
@@ -424,6 +436,12 @@ pub struct IMediaFrame_Vtbl {
     ExtendedProperties: usize,
 }
 windows_core::imp::define_interface!(IMediaMarker, IMediaMarker_Vtbl, 0x1803def8_dca5_4b6f_9c20_e3d3c0643625);
+impl std::ops::Deref for IMediaMarker {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMediaMarker, windows_core::IUnknown, windows_core::IInspectable);
 impl IMediaMarker {
     pub fn Time(&self) -> windows_core::Result<super::Foundation::TimeSpan> {
@@ -468,6 +486,12 @@ pub struct IMediaMarkerTypesStatics_Vtbl {
     pub Bookmark: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaMarkers, IMediaMarkers_Vtbl, 0xafeab189_f8dd_466e_aa10_920b52353fdf);
+impl std::ops::Deref for IMediaMarkers {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMediaMarkers, windows_core::IUnknown, windows_core::IInspectable);
 impl IMediaMarkers {
     #[cfg(feature = "Foundation_Collections")]

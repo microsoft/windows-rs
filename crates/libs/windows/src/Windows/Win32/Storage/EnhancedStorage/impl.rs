@@ -12,17 +12,17 @@ impl IEnhancedStorageACT_Vtbl {
         unsafe extern "system" fn Authorize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnhancedStorageACT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: u32, dwflags: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Authorize(core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&dwflags)).into()
+            IEnhancedStorageACT_Impl::Authorize(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&dwflags)).into()
         }
         unsafe extern "system" fn Unauthorize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnhancedStorageACT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Unauthorize().into()
+            IEnhancedStorageACT_Impl::Unauthorize(this).into()
         }
         unsafe extern "system" fn GetAuthorizationState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnhancedStorageACT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstate: *mut ACT_AUTHORIZATION_STATE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAuthorizationState() {
+            match IEnhancedStorageACT_Impl::GetAuthorizationState(this) {
                 Ok(ok__) => {
                     core::ptr::write(pstate, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -33,7 +33,7 @@ impl IEnhancedStorageACT_Vtbl {
         unsafe extern "system" fn GetMatchingVolume<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnhancedStorageACT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwszvolume: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetMatchingVolume() {
+            match IEnhancedStorageACT_Impl::GetMatchingVolume(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppwszvolume, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -44,7 +44,7 @@ impl IEnhancedStorageACT_Vtbl {
         unsafe extern "system" fn GetUniqueIdentity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnhancedStorageACT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwszidentity: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetUniqueIdentity() {
+            match IEnhancedStorageACT_Impl::GetUniqueIdentity(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppwszidentity, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -55,7 +55,7 @@ impl IEnhancedStorageACT_Vtbl {
         unsafe extern "system" fn GetSilos<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnhancedStorageACT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppienhancedstoragesilos: *mut *mut Option<IEnhancedStorageSilo>, pcenhancedstoragesilos: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSilos(core::mem::transmute_copy(&pppienhancedstoragesilos), core::mem::transmute_copy(&pcenhancedstoragesilos)).into()
+            IEnhancedStorageACT_Impl::GetSilos(this, core::mem::transmute_copy(&pppienhancedstoragesilos), core::mem::transmute_copy(&pcenhancedstoragesilos)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -81,7 +81,7 @@ impl IEnhancedStorageACT2_Vtbl {
         unsafe extern "system" fn GetDeviceName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnhancedStorageACT2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwszdevicename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDeviceName() {
+            match IEnhancedStorageACT2_Impl::GetDeviceName(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppwszdevicename, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -92,7 +92,7 @@ impl IEnhancedStorageACT2_Vtbl {
         unsafe extern "system" fn IsDeviceRemovable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnhancedStorageACT2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisdeviceremovable: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsDeviceRemovable() {
+            match IEnhancedStorageACT2_Impl::IsDeviceRemovable(this) {
                 Ok(ok__) => {
                     core::ptr::write(pisdeviceremovable, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -121,12 +121,12 @@ impl IEnhancedStorageACT3_Vtbl {
         unsafe extern "system" fn UnauthorizeEx<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnhancedStorageACT3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.UnauthorizeEx(core::mem::transmute_copy(&dwflags)).into()
+            IEnhancedStorageACT3_Impl::UnauthorizeEx(this, core::mem::transmute_copy(&dwflags)).into()
         }
         unsafe extern "system" fn IsQueueFrozen<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnhancedStorageACT3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisqueuefrozen: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsQueueFrozen() {
+            match IEnhancedStorageACT3_Impl::IsQueueFrozen(this) {
                 Ok(ok__) => {
                     core::ptr::write(pisqueuefrozen, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -137,7 +137,7 @@ impl IEnhancedStorageACT3_Vtbl {
         unsafe extern "system" fn GetShellExtSupport<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnhancedStorageACT3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pshellextsupport: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetShellExtSupport() {
+            match IEnhancedStorageACT3_Impl::GetShellExtSupport(this) {
                 Ok(ok__) => {
                     core::ptr::write(pshellextsupport, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -172,7 +172,7 @@ impl IEnhancedStorageSilo_Vtbl {
         unsafe extern "system" fn GetInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnhancedStorageSilo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psiloinfo: *mut SILO_INFO) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetInfo() {
+            match IEnhancedStorageSilo_Impl::GetInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(psiloinfo, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -183,17 +183,17 @@ impl IEnhancedStorageSilo_Vtbl {
         unsafe extern "system" fn GetActions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnhancedStorageSilo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppienhancedstoragesiloactions: *mut *mut Option<IEnhancedStorageSiloAction>, pcenhancedstoragesiloactions: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetActions(core::mem::transmute_copy(&pppienhancedstoragesiloactions), core::mem::transmute_copy(&pcenhancedstoragesiloactions)).into()
+            IEnhancedStorageSilo_Impl::GetActions(this, core::mem::transmute_copy(&pppienhancedstoragesiloactions), core::mem::transmute_copy(&pcenhancedstoragesiloactions)).into()
         }
         unsafe extern "system" fn SendCommand<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnhancedStorageSilo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, command: u8, pbcommandbuffer: *const u8, cbcommandbuffer: u32, pbresponsebuffer: *mut u8, pcbresponsebuffer: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SendCommand(core::mem::transmute_copy(&command), core::mem::transmute_copy(&pbcommandbuffer), core::mem::transmute_copy(&cbcommandbuffer), core::mem::transmute_copy(&pbresponsebuffer), core::mem::transmute_copy(&pcbresponsebuffer)).into()
+            IEnhancedStorageSilo_Impl::SendCommand(this, core::mem::transmute_copy(&command), core::mem::transmute_copy(&pbcommandbuffer), core::mem::transmute_copy(&cbcommandbuffer), core::mem::transmute_copy(&pbresponsebuffer), core::mem::transmute_copy(&pcbresponsebuffer)).into()
         }
         unsafe extern "system" fn GetPortableDevice<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnhancedStorageSilo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppiportabledevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPortableDevice() {
+            match IEnhancedStorageSilo_Impl::GetPortableDevice(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppiportabledevice, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -204,7 +204,7 @@ impl IEnhancedStorageSilo_Vtbl {
         unsafe extern "system" fn GetDevicePath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnhancedStorageSilo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwszsilodevicepath: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDevicePath() {
+            match IEnhancedStorageSilo_Impl::GetDevicePath(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppwszsilodevicepath, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -236,7 +236,7 @@ impl IEnhancedStorageSiloAction_Vtbl {
         unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnhancedStorageSiloAction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwszactionname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetName() {
+            match IEnhancedStorageSiloAction_Impl::GetName(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppwszactionname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -247,7 +247,7 @@ impl IEnhancedStorageSiloAction_Vtbl {
         unsafe extern "system" fn GetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnhancedStorageSiloAction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwszactiondescription: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDescription() {
+            match IEnhancedStorageSiloAction_Impl::GetDescription(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppwszactiondescription, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -258,7 +258,7 @@ impl IEnhancedStorageSiloAction_Vtbl {
         unsafe extern "system" fn Invoke<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnhancedStorageSiloAction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Invoke().into()
+            IEnhancedStorageSiloAction_Impl::Invoke(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -281,12 +281,12 @@ impl IEnumEnhancedStorageACT_Vtbl {
         unsafe extern "system" fn GetACTs<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumEnhancedStorageACT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppienhancedstorageacts: *mut *mut Option<IEnhancedStorageACT>, pcenhancedstorageacts: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetACTs(core::mem::transmute_copy(&pppienhancedstorageacts), core::mem::transmute_copy(&pcenhancedstorageacts)).into()
+            IEnumEnhancedStorageACT_Impl::GetACTs(this, core::mem::transmute_copy(&pppienhancedstorageacts), core::mem::transmute_copy(&pcenhancedstorageacts)).into()
         }
         unsafe extern "system" fn GetMatchingACT<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumEnhancedStorageACT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szvolume: windows_core::PCWSTR, ppienhancedstorageact: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetMatchingACT(core::mem::transmute(&szvolume)) {
+            match IEnumEnhancedStorageACT_Impl::GetMatchingACT(this, core::mem::transmute(&szvolume)) {
                 Ok(ok__) => {
                     core::ptr::write(ppienhancedstorageact, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

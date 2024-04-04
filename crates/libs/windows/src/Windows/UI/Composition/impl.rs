@@ -9,7 +9,7 @@ impl IAnimationObject_Vtbl {
         unsafe extern "system" fn PopulatePropertyInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAnimationObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyname: std::mem::MaybeUninit<windows_core::HSTRING>, propertyinfo: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PopulatePropertyInfo(core::mem::transmute(&propertyname), windows_core::from_raw_borrowed(&propertyinfo)).into()
+            IAnimationObject_Impl::PopulatePropertyInfo(this, core::mem::transmute(&propertyname), windows_core::from_raw_borrowed(&propertyinfo)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IAnimationObject, OFFSET>(),
@@ -44,7 +44,7 @@ impl ICompositionSupportsSystemBackdrop_Vtbl {
         unsafe extern "system" fn SystemBackdrop<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICompositionSupportsSystemBackdrop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SystemBackdrop() {
+            match ICompositionSupportsSystemBackdrop_Impl::SystemBackdrop(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -56,7 +56,7 @@ impl ICompositionSupportsSystemBackdrop_Vtbl {
         unsafe extern "system" fn SetSystemBackdrop<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICompositionSupportsSystemBackdrop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSystemBackdrop(windows_core::from_raw_borrowed(&value)).into()
+            ICompositionSupportsSystemBackdrop_Impl::SetSystemBackdrop(this, windows_core::from_raw_borrowed(&value)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, ICompositionSupportsSystemBackdrop, OFFSET>(),
@@ -91,7 +91,7 @@ impl ICompositionSurfaceFacade_Vtbl {
         unsafe extern "system" fn GetRealSurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICompositionSurfaceFacade_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRealSurface() {
+            match ICompositionSurfaceFacade_Impl::GetRealSurface(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -132,7 +132,7 @@ impl IVisualElement2_Vtbl {
         unsafe extern "system" fn GetVisualInternal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVisualElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetVisualInternal() {
+            match IVisualElement2_Impl::GetVisualInternal(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);

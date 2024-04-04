@@ -3,6 +3,12 @@
 pub struct IIterable<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
+impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IIterable<T> {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IIterable<T> {}
 impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IIterable<T> {}
 impl<T: windows_core::RuntimeType + 'static> IIterable<T> {
@@ -49,6 +55,12 @@ where
 pub struct IIterator<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
+impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IIterator<T> {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IIterator<T> {}
 impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IIterator<T> {}
 impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
@@ -116,6 +128,12 @@ pub struct IKeyValuePair<K, V>(windows_core::IUnknown, core::marker::PhantomData
 where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static;
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> std::ops::Deref for IKeyValuePair<K, V> {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IKeyValuePair<K, V> {}
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IKeyValuePair<K, V> {}
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IKeyValuePair<K, V> {
@@ -159,6 +177,12 @@ pub struct IMap<K, V>(windows_core::IUnknown, core::marker::PhantomData<K>, core
 where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static;
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> std::ops::Deref for IMap<K, V> {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IMap<K, V> {}
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IMap<K, V> {}
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::CanInto<IIterable<IKeyValuePair<K, V>>> for IMap<K, V> {
@@ -272,6 +296,12 @@ where
 pub struct IMapChangedEventArgs<K>(windows_core::IUnknown, core::marker::PhantomData<K>)
 where
     K: windows_core::RuntimeType + 'static;
+impl<K: windows_core::RuntimeType + 'static> std::ops::Deref for IMapChangedEventArgs<K> {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 impl<K: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IMapChangedEventArgs<K> {}
 impl<K: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IMapChangedEventArgs<K> {}
 impl<K: windows_core::RuntimeType + 'static> IMapChangedEventArgs<K> {
@@ -313,6 +343,12 @@ pub struct IMapView<K, V>(windows_core::IUnknown, core::marker::PhantomData<K>, 
 where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static;
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> std::ops::Deref for IMapView<K, V> {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IMapView<K, V> {}
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IMapView<K, V> {}
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::CanInto<IIterable<IKeyValuePair<K, V>>> for IMapView<K, V> {
@@ -399,6 +435,12 @@ pub struct IObservableMap<K, V>(windows_core::IUnknown, core::marker::PhantomDat
 where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static;
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> std::ops::Deref for IObservableMap<K, V> {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IObservableMap<K, V> {}
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IObservableMap<K, V> {}
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::CanInto<IIterable<IKeyValuePair<K, V>>> for IObservableMap<K, V> {
@@ -524,6 +566,12 @@ where
 pub struct IObservableVector<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
+impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IObservableVector<T> {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IObservableVector<T> {}
 impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IObservableVector<T> {}
 impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<IIterable<T>> for IObservableVector<T> {
@@ -662,6 +710,12 @@ where
     pub T: core::marker::PhantomData<T>,
 }
 windows_core::imp::define_interface!(IPropertySet, IPropertySet_Vtbl, 0x8a43ed9f_f4e6_4421_acf9_1dab2986820c);
+impl std::ops::Deref for IPropertySet {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPropertySet, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IPropertySet, IIterable < IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > >, IMap < windows_core::HSTRING , windows_core::IInspectable >, IObservableMap < windows_core::HSTRING , windows_core::IInspectable >);
 impl IPropertySet {
@@ -759,6 +813,12 @@ pub struct IPropertySet_Vtbl {
 pub struct IVector<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
+impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IVector<T> {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IVector<T> {}
 impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IVector<T> {}
 impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<IIterable<T>> for IVector<T> {
@@ -908,6 +968,12 @@ where
     pub T: core::marker::PhantomData<T>,
 }
 windows_core::imp::define_interface!(IVectorChangedEventArgs, IVectorChangedEventArgs_Vtbl, 0x575933df_34fe_4480_af15_07691f3d5d9b);
+impl std::ops::Deref for IVectorChangedEventArgs {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IVectorChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl IVectorChangedEventArgs {
     pub fn CollectionChange(&self) -> windows_core::Result<CollectionChange> {
@@ -939,6 +1005,12 @@ pub struct IVectorChangedEventArgs_Vtbl {
 pub struct IVectorView<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
+impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IVectorView<T> {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IVectorView<T> {}
 impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IVectorView<T> {}
 impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<IIterable<T>> for IVectorView<T> {
@@ -1436,8 +1508,8 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, event: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&event)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&event)).into()
     }
 }
 unsafe impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::Interface for MapChangedEventHandler<K, V> {
@@ -1518,8 +1590,8 @@ impl<T: windows_core::RuntimeType + 'static, F: FnMut(Option<&IObservableVector<
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, event: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&event)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&event)).into()
     }
 }
 unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for VectorChangedEventHandler<T> {

@@ -14,7 +14,7 @@ impl INDClosedCaptionDataReceivedEventArgs_Vtbl {
         unsafe extern "system" fn ClosedCaptionDataFormat<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDClosedCaptionDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut NDClosedCaptionFormat) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ClosedCaptionDataFormat() {
+            match INDClosedCaptionDataReceivedEventArgs_Impl::ClosedCaptionDataFormat(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -25,7 +25,7 @@ impl INDClosedCaptionDataReceivedEventArgs_Vtbl {
         unsafe extern "system" fn PresentationTimestamp<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDClosedCaptionDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PresentationTimestamp() {
+            match INDClosedCaptionDataReceivedEventArgs_Impl::PresentationTimestamp(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -36,7 +36,7 @@ impl INDClosedCaptionDataReceivedEventArgs_Vtbl {
         unsafe extern "system" fn ClosedCaptionData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDClosedCaptionDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ClosedCaptionData() {
+            match INDClosedCaptionDataReceivedEventArgs_Impl::ClosedCaptionData(this) {
                 Ok(ok__) => {
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
                     core::ptr::write(result__, ok_data__);
@@ -72,7 +72,7 @@ impl INDCustomData_Vtbl {
         unsafe extern "system" fn CustomDataTypeID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDCustomData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CustomDataTypeID() {
+            match INDCustomData_Impl::CustomDataTypeID(this) {
                 Ok(ok__) => {
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
                     core::ptr::write(result__, ok_data__);
@@ -85,7 +85,7 @@ impl INDCustomData_Vtbl {
         unsafe extern "system" fn CustomData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDCustomData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CustomData() {
+            match INDCustomData_Impl::CustomData(this) {
                 Ok(ok__) => {
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
                     core::ptr::write(result__, ok_data__);
@@ -127,32 +127,32 @@ impl INDDownloadEngine_Vtbl {
         unsafe extern "system" fn Open<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: *mut core::ffi::c_void, sessionIDBytes_array_size: u32, sessionidbytes: *const u8) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Open(windows_core::from_raw_borrowed(&uri), core::slice::from_raw_parts(core::mem::transmute_copy(&sessionidbytes), sessionIDBytes_array_size as usize)).into()
+            INDDownloadEngine_Impl::Open(this, windows_core::from_raw_borrowed(&uri), core::slice::from_raw_parts(core::mem::transmute_copy(&sessionidbytes), sessionIDBytes_array_size as usize)).into()
         }
         unsafe extern "system" fn Pause<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Pause().into()
+            INDDownloadEngine_Impl::Pause(this).into()
         }
         unsafe extern "system" fn Resume<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Resume().into()
+            INDDownloadEngine_Impl::Resume(this).into()
         }
         unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Close().into()
+            INDDownloadEngine_Impl::Close(this).into()
         }
         unsafe extern "system" fn Seek<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startposition: super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Seek(core::mem::transmute(&startposition)).into()
+            INDDownloadEngine_Impl::Seek(this, core::mem::transmute(&startposition)).into()
         }
         unsafe extern "system" fn CanSeek<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CanSeek() {
+            match INDDownloadEngine_Impl::CanSeek(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -163,7 +163,7 @@ impl INDDownloadEngine_Vtbl {
         unsafe extern "system" fn BufferFullMinThresholdInSamples<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BufferFullMinThresholdInSamples() {
+            match INDDownloadEngine_Impl::BufferFullMinThresholdInSamples(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -174,7 +174,7 @@ impl INDDownloadEngine_Vtbl {
         unsafe extern "system" fn BufferFullMaxThresholdInSamples<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BufferFullMaxThresholdInSamples() {
+            match INDDownloadEngine_Impl::BufferFullMaxThresholdInSamples(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -185,7 +185,7 @@ impl INDDownloadEngine_Vtbl {
         unsafe extern "system" fn Notifier<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Notifier() {
+            match INDDownloadEngine_Impl::Notifier(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -230,32 +230,32 @@ impl INDDownloadEngineNotifier_Vtbl {
         unsafe extern "system" fn OnStreamOpened<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngineNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnStreamOpened().into()
+            INDDownloadEngineNotifier_Impl::OnStreamOpened(this).into()
         }
         unsafe extern "system" fn OnPlayReadyObjectReceived<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngineNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dataBytes_array_size: u32, databytes: *const u8) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnPlayReadyObjectReceived(core::slice::from_raw_parts(core::mem::transmute_copy(&databytes), dataBytes_array_size as usize)).into()
+            INDDownloadEngineNotifier_Impl::OnPlayReadyObjectReceived(this, core::slice::from_raw_parts(core::mem::transmute_copy(&databytes), dataBytes_array_size as usize)).into()
         }
         unsafe extern "system" fn OnContentIDReceived<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngineNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, licensefetchdescriptor: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnContentIDReceived(windows_core::from_raw_borrowed(&licensefetchdescriptor)).into()
+            INDDownloadEngineNotifier_Impl::OnContentIDReceived(this, windows_core::from_raw_borrowed(&licensefetchdescriptor)).into()
         }
         unsafe extern "system" fn OnDataReceived<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngineNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dataBytes_array_size: u32, databytes: *const u8, bytesreceived: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnDataReceived(core::slice::from_raw_parts(core::mem::transmute_copy(&databytes), dataBytes_array_size as usize), bytesreceived).into()
+            INDDownloadEngineNotifier_Impl::OnDataReceived(this, core::slice::from_raw_parts(core::mem::transmute_copy(&databytes), dataBytes_array_size as usize), bytesreceived).into()
         }
         unsafe extern "system" fn OnEndOfStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngineNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnEndOfStream().into()
+            INDDownloadEngineNotifier_Impl::OnEndOfStream(this).into()
         }
         unsafe extern "system" fn OnNetworkError<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngineNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnNetworkError().into()
+            INDDownloadEngineNotifier_Impl::OnNetworkError(this).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, INDDownloadEngineNotifier, OFFSET>(),
@@ -285,7 +285,7 @@ impl INDLicenseFetchCompletedEventArgs_Vtbl {
         unsafe extern "system" fn ResponseCustomData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDLicenseFetchCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ResponseCustomData() {
+            match INDLicenseFetchCompletedEventArgs_Impl::ResponseCustomData(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -320,7 +320,7 @@ impl INDLicenseFetchDescriptor_Vtbl {
         unsafe extern "system" fn ContentIDType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDLicenseFetchDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut NDContentIDType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ContentIDType() {
+            match INDLicenseFetchDescriptor_Impl::ContentIDType(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -331,7 +331,7 @@ impl INDLicenseFetchDescriptor_Vtbl {
         unsafe extern "system" fn ContentID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDLicenseFetchDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ContentID() {
+            match INDLicenseFetchDescriptor_Impl::ContentID(this) {
                 Ok(ok__) => {
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
                     core::ptr::write(result__, ok_data__);
@@ -344,7 +344,7 @@ impl INDLicenseFetchDescriptor_Vtbl {
         unsafe extern "system" fn LicenseFetchChallengeCustomData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDLicenseFetchDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LicenseFetchChallengeCustomData() {
+            match INDLicenseFetchDescriptor_Impl::LicenseFetchChallengeCustomData(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -356,7 +356,7 @@ impl INDLicenseFetchDescriptor_Vtbl {
         unsafe extern "system" fn SetLicenseFetchChallengeCustomData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDLicenseFetchDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, licensefetchchallengecustomdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLicenseFetchChallengeCustomData(windows_core::from_raw_borrowed(&licensefetchchallengecustomdata)).into()
+            INDLicenseFetchDescriptor_Impl::SetLicenseFetchChallengeCustomData(this, windows_core::from_raw_borrowed(&licensefetchchallengecustomdata)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, INDLicenseFetchDescriptor, OFFSET>(),
@@ -384,7 +384,7 @@ impl INDLicenseFetchResult_Vtbl {
         unsafe extern "system" fn ResponseCustomData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDLicenseFetchResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ResponseCustomData() {
+            match INDLicenseFetchResult_Impl::ResponseCustomData(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -419,7 +419,7 @@ impl INDMessenger_Vtbl {
         unsafe extern "system" fn SendRegistrationRequestAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDMessenger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sessionIDBytes_array_size: u32, sessionidbytes: *const u8, challengeDataBytes_array_size: u32, challengedatabytes: *const u8, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SendRegistrationRequestAsync(core::slice::from_raw_parts(core::mem::transmute_copy(&sessionidbytes), sessionIDBytes_array_size as usize), core::slice::from_raw_parts(core::mem::transmute_copy(&challengedatabytes), challengeDataBytes_array_size as usize)) {
+            match INDMessenger_Impl::SendRegistrationRequestAsync(this, core::slice::from_raw_parts(core::mem::transmute_copy(&sessionidbytes), sessionIDBytes_array_size as usize), core::slice::from_raw_parts(core::mem::transmute_copy(&challengedatabytes), challengeDataBytes_array_size as usize)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -431,7 +431,7 @@ impl INDMessenger_Vtbl {
         unsafe extern "system" fn SendProximityDetectionStartAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDMessenger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdtype: NDProximityDetectionType, transmitterChannelBytes_array_size: u32, transmitterchannelbytes: *const u8, sessionIDBytes_array_size: u32, sessionidbytes: *const u8, challengeDataBytes_array_size: u32, challengedatabytes: *const u8, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SendProximityDetectionStartAsync(pdtype, core::slice::from_raw_parts(core::mem::transmute_copy(&transmitterchannelbytes), transmitterChannelBytes_array_size as usize), core::slice::from_raw_parts(core::mem::transmute_copy(&sessionidbytes), sessionIDBytes_array_size as usize), core::slice::from_raw_parts(core::mem::transmute_copy(&challengedatabytes), challengeDataBytes_array_size as usize)) {
+            match INDMessenger_Impl::SendProximityDetectionStartAsync(this, pdtype, core::slice::from_raw_parts(core::mem::transmute_copy(&transmitterchannelbytes), transmitterChannelBytes_array_size as usize), core::slice::from_raw_parts(core::mem::transmute_copy(&sessionidbytes), sessionIDBytes_array_size as usize), core::slice::from_raw_parts(core::mem::transmute_copy(&challengedatabytes), challengeDataBytes_array_size as usize)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -443,7 +443,7 @@ impl INDMessenger_Vtbl {
         unsafe extern "system" fn SendProximityDetectionResponseAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDMessenger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdtype: NDProximityDetectionType, transmitterChannelBytes_array_size: u32, transmitterchannelbytes: *const u8, sessionIDBytes_array_size: u32, sessionidbytes: *const u8, responseDataBytes_array_size: u32, responsedatabytes: *const u8, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SendProximityDetectionResponseAsync(pdtype, core::slice::from_raw_parts(core::mem::transmute_copy(&transmitterchannelbytes), transmitterChannelBytes_array_size as usize), core::slice::from_raw_parts(core::mem::transmute_copy(&sessionidbytes), sessionIDBytes_array_size as usize), core::slice::from_raw_parts(core::mem::transmute_copy(&responsedatabytes), responseDataBytes_array_size as usize)) {
+            match INDMessenger_Impl::SendProximityDetectionResponseAsync(this, pdtype, core::slice::from_raw_parts(core::mem::transmute_copy(&transmitterchannelbytes), transmitterChannelBytes_array_size as usize), core::slice::from_raw_parts(core::mem::transmute_copy(&sessionidbytes), sessionIDBytes_array_size as usize), core::slice::from_raw_parts(core::mem::transmute_copy(&responsedatabytes), responseDataBytes_array_size as usize)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -455,7 +455,7 @@ impl INDMessenger_Vtbl {
         unsafe extern "system" fn SendLicenseFetchRequestAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDMessenger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sessionIDBytes_array_size: u32, sessionidbytes: *const u8, challengeDataBytes_array_size: u32, challengedatabytes: *const u8, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SendLicenseFetchRequestAsync(core::slice::from_raw_parts(core::mem::transmute_copy(&sessionidbytes), sessionIDBytes_array_size as usize), core::slice::from_raw_parts(core::mem::transmute_copy(&challengedatabytes), challengeDataBytes_array_size as usize)) {
+            match INDMessenger_Impl::SendLicenseFetchRequestAsync(this, core::slice::from_raw_parts(core::mem::transmute_copy(&sessionidbytes), sessionIDBytes_array_size as usize), core::slice::from_raw_parts(core::mem::transmute_copy(&challengedatabytes), challengeDataBytes_array_size as usize)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -490,7 +490,7 @@ impl INDProximityDetectionCompletedEventArgs_Vtbl {
         unsafe extern "system" fn ProximityDetectionRetryCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDProximityDetectionCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ProximityDetectionRetryCount() {
+            match INDProximityDetectionCompletedEventArgs_Impl::ProximityDetectionRetryCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -524,7 +524,7 @@ impl INDRegistrationCompletedEventArgs_Vtbl {
         unsafe extern "system" fn ResponseCustomData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDRegistrationCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ResponseCustomData() {
+            match INDRegistrationCompletedEventArgs_Impl::ResponseCustomData(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -536,7 +536,7 @@ impl INDRegistrationCompletedEventArgs_Vtbl {
         unsafe extern "system" fn TransmitterProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDRegistrationCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TransmitterProperties() {
+            match INDRegistrationCompletedEventArgs_Impl::TransmitterProperties(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -548,7 +548,7 @@ impl INDRegistrationCompletedEventArgs_Vtbl {
         unsafe extern "system" fn TransmitterCertificateAccepted<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDRegistrationCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TransmitterCertificateAccepted() {
+            match INDRegistrationCompletedEventArgs_Impl::TransmitterCertificateAccepted(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -559,7 +559,7 @@ impl INDRegistrationCompletedEventArgs_Vtbl {
         unsafe extern "system" fn SetTransmitterCertificateAccepted<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDRegistrationCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, accept: bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTransmitterCertificateAccepted(accept).into()
+            INDRegistrationCompletedEventArgs_Impl::SetTransmitterCertificateAccepted(this, accept).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, INDRegistrationCompletedEventArgs, OFFSET>(),
@@ -587,7 +587,7 @@ impl INDSendResult_Vtbl {
         unsafe extern "system" fn Response<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDSendResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Response() {
+            match INDSendResult_Impl::Response(this) {
                 Ok(ok__) => {
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
                     core::ptr::write(result__, ok_data__);
@@ -617,7 +617,7 @@ impl INDStartResult_Vtbl {
         unsafe extern "system" fn MediaStreamSource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDStartResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MediaStreamSource() {
+            match INDStartResult_Impl::MediaStreamSource(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -649,7 +649,7 @@ impl INDStorageFileHelper_Vtbl {
         unsafe extern "system" fn GetFileURLs<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDStorageFileHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFileURLs(windows_core::from_raw_borrowed(&file)) {
+            match INDStorageFileHelper_Impl::GetFileURLs(this, windows_core::from_raw_borrowed(&file)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -682,12 +682,12 @@ impl INDStreamParser_Vtbl {
         unsafe extern "system" fn ParseData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDStreamParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dataBytes_array_size: u32, databytes: *const u8) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ParseData(core::slice::from_raw_parts(core::mem::transmute_copy(&databytes), dataBytes_array_size as usize)).into()
+            INDStreamParser_Impl::ParseData(this, core::slice::from_raw_parts(core::mem::transmute_copy(&databytes), dataBytes_array_size as usize)).into()
         }
         unsafe extern "system" fn GetStreamInformation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDStreamParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, descriptor: *mut core::ffi::c_void, streamtype: *mut NDMediaStreamType, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStreamInformation(windows_core::from_raw_borrowed(&descriptor), core::mem::transmute_copy(&streamtype)) {
+            match INDStreamParser_Impl::GetStreamInformation(this, windows_core::from_raw_borrowed(&descriptor), core::mem::transmute_copy(&streamtype)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -698,17 +698,17 @@ impl INDStreamParser_Vtbl {
         unsafe extern "system" fn BeginOfStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDStreamParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.BeginOfStream().into()
+            INDStreamParser_Impl::BeginOfStream(this).into()
         }
         unsafe extern "system" fn EndOfStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDStreamParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EndOfStream().into()
+            INDStreamParser_Impl::EndOfStream(this).into()
         }
         unsafe extern "system" fn Notifier<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDStreamParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Notifier() {
+            match INDStreamParser_Impl::Notifier(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -747,22 +747,22 @@ impl INDStreamParserNotifier_Vtbl {
         unsafe extern "system" fn OnContentIDReceived<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDStreamParserNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, licensefetchdescriptor: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnContentIDReceived(windows_core::from_raw_borrowed(&licensefetchdescriptor)).into()
+            INDStreamParserNotifier_Impl::OnContentIDReceived(this, windows_core::from_raw_borrowed(&licensefetchdescriptor)).into()
         }
         unsafe extern "system" fn OnMediaStreamDescriptorCreated<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDStreamParserNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, audiostreamdescriptors: *mut core::ffi::c_void, videostreamdescriptors: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnMediaStreamDescriptorCreated(windows_core::from_raw_borrowed(&audiostreamdescriptors), windows_core::from_raw_borrowed(&videostreamdescriptors)).into()
+            INDStreamParserNotifier_Impl::OnMediaStreamDescriptorCreated(this, windows_core::from_raw_borrowed(&audiostreamdescriptors), windows_core::from_raw_borrowed(&videostreamdescriptors)).into()
         }
         unsafe extern "system" fn OnSampleParsed<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDStreamParserNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, streamid: u32, streamtype: NDMediaStreamType, streamsample: *mut core::ffi::c_void, pts: i64, ccformat: NDClosedCaptionFormat, ccDataBytes_array_size: u32, ccdatabytes: *const u8) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnSampleParsed(streamid, streamtype, windows_core::from_raw_borrowed(&streamsample), pts, ccformat, core::slice::from_raw_parts(core::mem::transmute_copy(&ccdatabytes), ccDataBytes_array_size as usize)).into()
+            INDStreamParserNotifier_Impl::OnSampleParsed(this, streamid, streamtype, windows_core::from_raw_borrowed(&streamsample), pts, ccformat, core::slice::from_raw_parts(core::mem::transmute_copy(&ccdatabytes), ccDataBytes_array_size as usize)).into()
         }
         unsafe extern "system" fn OnBeginSetupDecryptor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDStreamParserNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, descriptor: *mut core::ffi::c_void, keyid: windows_core::GUID, proBytes_array_size: u32, probytes: *const u8) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnBeginSetupDecryptor(windows_core::from_raw_borrowed(&descriptor), core::mem::transmute(&keyid), core::slice::from_raw_parts(core::mem::transmute_copy(&probytes), proBytes_array_size as usize)).into()
+            INDStreamParserNotifier_Impl::OnBeginSetupDecryptor(this, windows_core::from_raw_borrowed(&descriptor), core::mem::transmute(&keyid), core::slice::from_raw_parts(core::mem::transmute_copy(&probytes), proBytes_array_size as usize)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, INDStreamParserNotifier, OFFSET>(),
@@ -800,7 +800,7 @@ impl INDTransmitterProperties_Vtbl {
         unsafe extern "system" fn CertificateType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut NDCertificateType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CertificateType() {
+            match INDTransmitterProperties_Impl::CertificateType(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -811,7 +811,7 @@ impl INDTransmitterProperties_Vtbl {
         unsafe extern "system" fn PlatformIdentifier<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut NDCertificatePlatformID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PlatformIdentifier() {
+            match INDTransmitterProperties_Impl::PlatformIdentifier(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -822,7 +822,7 @@ impl INDTransmitterProperties_Vtbl {
         unsafe extern "system" fn SupportedFeatures<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut NDCertificateFeature) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SupportedFeatures() {
+            match INDTransmitterProperties_Impl::SupportedFeatures(this) {
                 Ok(ok__) => {
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
                     core::ptr::write(result__, ok_data__);
@@ -835,7 +835,7 @@ impl INDTransmitterProperties_Vtbl {
         unsafe extern "system" fn SecurityLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SecurityLevel() {
+            match INDTransmitterProperties_Impl::SecurityLevel(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -846,7 +846,7 @@ impl INDTransmitterProperties_Vtbl {
         unsafe extern "system" fn SecurityVersion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SecurityVersion() {
+            match INDTransmitterProperties_Impl::SecurityVersion(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -857,7 +857,7 @@ impl INDTransmitterProperties_Vtbl {
         unsafe extern "system" fn ExpirationDate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ExpirationDate() {
+            match INDTransmitterProperties_Impl::ExpirationDate(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -868,7 +868,7 @@ impl INDTransmitterProperties_Vtbl {
         unsafe extern "system" fn ClientID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ClientID() {
+            match INDTransmitterProperties_Impl::ClientID(this) {
                 Ok(ok__) => {
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
                     core::ptr::write(result__, ok_data__);
@@ -881,7 +881,7 @@ impl INDTransmitterProperties_Vtbl {
         unsafe extern "system" fn ModelDigest<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ModelDigest() {
+            match INDTransmitterProperties_Impl::ModelDigest(this) {
                 Ok(ok__) => {
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
                     core::ptr::write(result__, ok_data__);
@@ -894,7 +894,7 @@ impl INDTransmitterProperties_Vtbl {
         unsafe extern "system" fn ModelManufacturerName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ModelManufacturerName() {
+            match INDTransmitterProperties_Impl::ModelManufacturerName(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -906,7 +906,7 @@ impl INDTransmitterProperties_Vtbl {
         unsafe extern "system" fn ModelName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ModelName() {
+            match INDTransmitterProperties_Impl::ModelName(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -918,7 +918,7 @@ impl INDTransmitterProperties_Vtbl {
         unsafe extern "system" fn ModelNumber<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ModelNumber() {
+            match INDTransmitterProperties_Impl::ModelNumber(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -961,7 +961,7 @@ impl IPlayReadyDomain_Vtbl {
         unsafe extern "system" fn AccountId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AccountId() {
+            match IPlayReadyDomain_Impl::AccountId(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -972,7 +972,7 @@ impl IPlayReadyDomain_Vtbl {
         unsafe extern "system" fn ServiceId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ServiceId() {
+            match IPlayReadyDomain_Impl::ServiceId(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -983,7 +983,7 @@ impl IPlayReadyDomain_Vtbl {
         unsafe extern "system" fn Revision<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Revision() {
+            match IPlayReadyDomain_Impl::Revision(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -994,7 +994,7 @@ impl IPlayReadyDomain_Vtbl {
         unsafe extern "system" fn FriendlyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FriendlyName() {
+            match IPlayReadyDomain_Impl::FriendlyName(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1006,7 +1006,7 @@ impl IPlayReadyDomain_Vtbl {
         unsafe extern "system" fn DomainJoinUrl<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DomainJoinUrl() {
+            match IPlayReadyDomain_Impl::DomainJoinUrl(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1045,7 +1045,7 @@ impl IPlayReadyLicense_Vtbl {
         unsafe extern "system" fn FullyEvaluated<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicense_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FullyEvaluated() {
+            match IPlayReadyLicense_Impl::FullyEvaluated(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -1056,7 +1056,7 @@ impl IPlayReadyLicense_Vtbl {
         unsafe extern "system" fn UsableForPlay<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicense_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UsableForPlay() {
+            match IPlayReadyLicense_Impl::UsableForPlay(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -1067,7 +1067,7 @@ impl IPlayReadyLicense_Vtbl {
         unsafe extern "system" fn ExpirationDate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicense_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ExpirationDate() {
+            match IPlayReadyLicense_Impl::ExpirationDate(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1079,7 +1079,7 @@ impl IPlayReadyLicense_Vtbl {
         unsafe extern "system" fn ExpireAfterFirstPlay<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicense_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ExpireAfterFirstPlay() {
+            match IPlayReadyLicense_Impl::ExpireAfterFirstPlay(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -1090,7 +1090,7 @@ impl IPlayReadyLicense_Vtbl {
         unsafe extern "system" fn DomainAccountID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicense_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DomainAccountID() {
+            match IPlayReadyLicense_Impl::DomainAccountID(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -1101,7 +1101,7 @@ impl IPlayReadyLicense_Vtbl {
         unsafe extern "system" fn ChainDepth<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicense_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ChainDepth() {
+            match IPlayReadyLicense_Impl::ChainDepth(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -1112,7 +1112,7 @@ impl IPlayReadyLicense_Vtbl {
         unsafe extern "system" fn GetKIDAtChainDepth<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicense_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, chaindepth: u32, result__: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetKIDAtChainDepth(chaindepth) {
+            match IPlayReadyLicense_Impl::GetKIDAtChainDepth(this, chaindepth) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -1149,7 +1149,7 @@ impl IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
         unsafe extern "system" fn ContentHeader<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicenseAcquisitionServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ContentHeader() {
+            match IPlayReadyLicenseAcquisitionServiceRequest_Impl::ContentHeader(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1161,12 +1161,12 @@ impl IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
         unsafe extern "system" fn SetContentHeader<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicenseAcquisitionServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetContentHeader(windows_core::from_raw_borrowed(&value)).into()
+            IPlayReadyLicenseAcquisitionServiceRequest_Impl::SetContentHeader(this, windows_core::from_raw_borrowed(&value)).into()
         }
         unsafe extern "system" fn DomainServiceId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicenseAcquisitionServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DomainServiceId() {
+            match IPlayReadyLicenseAcquisitionServiceRequest_Impl::DomainServiceId(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -1177,7 +1177,7 @@ impl IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
         unsafe extern "system" fn SetDomainServiceId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicenseAcquisitionServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDomainServiceId(core::mem::transmute(&value)).into()
+            IPlayReadyLicenseAcquisitionServiceRequest_Impl::SetDomainServiceId(this, core::mem::transmute(&value)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IPlayReadyLicenseAcquisitionServiceRequest, OFFSET>(),
@@ -1203,7 +1203,7 @@ impl IPlayReadyLicenseSession_Vtbl {
         unsafe extern "system" fn CreateLAServiceRequest<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicenseSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateLAServiceRequest() {
+            match IPlayReadyLicenseSession_Impl::CreateLAServiceRequest(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1215,7 +1215,7 @@ impl IPlayReadyLicenseSession_Vtbl {
         unsafe extern "system" fn ConfigureMediaProtectionManager<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicenseSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mpm: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ConfigureMediaProtectionManager(windows_core::from_raw_borrowed(&mpm)).into()
+            IPlayReadyLicenseSession_Impl::ConfigureMediaProtectionManager(this, windows_core::from_raw_borrowed(&mpm)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IPlayReadyLicenseSession, OFFSET>(),
@@ -1241,7 +1241,7 @@ impl IPlayReadyLicenseSession2_Vtbl {
         unsafe extern "system" fn CreateLicenseIterable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicenseSession2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contentheader: *mut core::ffi::c_void, fullyevaluated: bool, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateLicenseIterable(windows_core::from_raw_borrowed(&contentheader), fullyevaluated) {
+            match IPlayReadyLicenseSession2_Impl::CreateLicenseIterable(this, windows_core::from_raw_borrowed(&contentheader), fullyevaluated) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1274,7 +1274,7 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
         unsafe extern "system" fn SessionID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadySecureStopServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SessionID() {
+            match IPlayReadySecureStopServiceRequest_Impl::SessionID(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -1285,7 +1285,7 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
         unsafe extern "system" fn StartTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadySecureStopServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.StartTime() {
+            match IPlayReadySecureStopServiceRequest_Impl::StartTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -1296,7 +1296,7 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
         unsafe extern "system" fn UpdateTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadySecureStopServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UpdateTime() {
+            match IPlayReadySecureStopServiceRequest_Impl::UpdateTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -1307,7 +1307,7 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
         unsafe extern "system" fn Stopped<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadySecureStopServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Stopped() {
+            match IPlayReadySecureStopServiceRequest_Impl::Stopped(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -1318,7 +1318,7 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
         unsafe extern "system" fn PublisherCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadySecureStopServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PublisherCertificate() {
+            match IPlayReadySecureStopServiceRequest_Impl::PublisherCertificate(this) {
                 Ok(ok__) => {
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
                     core::ptr::write(result__, ok_data__);
@@ -1360,7 +1360,7 @@ impl IPlayReadyServiceRequest_Vtbl {
         unsafe extern "system" fn Uri<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Uri() {
+            match IPlayReadyServiceRequest_Impl::Uri(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1372,12 +1372,12 @@ impl IPlayReadyServiceRequest_Vtbl {
         unsafe extern "system" fn SetUri<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetUri(windows_core::from_raw_borrowed(&value)).into()
+            IPlayReadyServiceRequest_Impl::SetUri(this, windows_core::from_raw_borrowed(&value)).into()
         }
         unsafe extern "system" fn ResponseCustomData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ResponseCustomData() {
+            match IPlayReadyServiceRequest_Impl::ResponseCustomData(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1389,7 +1389,7 @@ impl IPlayReadyServiceRequest_Vtbl {
         unsafe extern "system" fn ChallengeCustomData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ChallengeCustomData() {
+            match IPlayReadyServiceRequest_Impl::ChallengeCustomData(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1401,12 +1401,12 @@ impl IPlayReadyServiceRequest_Vtbl {
         unsafe extern "system" fn SetChallengeCustomData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetChallengeCustomData(core::mem::transmute(&value)).into()
+            IPlayReadyServiceRequest_Impl::SetChallengeCustomData(this, core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn BeginServiceRequest<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BeginServiceRequest() {
+            match IPlayReadyServiceRequest_Impl::BeginServiceRequest(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1418,7 +1418,7 @@ impl IPlayReadyServiceRequest_Vtbl {
         unsafe extern "system" fn NextServiceRequest<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.NextServiceRequest() {
+            match IPlayReadyServiceRequest_Impl::NextServiceRequest(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1430,7 +1430,7 @@ impl IPlayReadyServiceRequest_Vtbl {
         unsafe extern "system" fn GenerateManualEnablingChallenge<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GenerateManualEnablingChallenge() {
+            match IPlayReadyServiceRequest_Impl::GenerateManualEnablingChallenge(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1442,7 +1442,7 @@ impl IPlayReadyServiceRequest_Vtbl {
         unsafe extern "system" fn ProcessManualEnablingResponse<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, responseBytes_array_size: u32, responsebytes: *const u8, result__: *mut windows_core::HRESULT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ProcessManualEnablingResponse(core::slice::from_raw_parts(core::mem::transmute_copy(&responsebytes), responseBytes_array_size as usize)) {
+            match IPlayReadyServiceRequest_Impl::ProcessManualEnablingResponse(this, core::slice::from_raw_parts(core::mem::transmute_copy(&responsebytes), responseBytes_array_size as usize)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)

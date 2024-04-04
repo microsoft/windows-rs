@@ -709,6 +709,12 @@ pub struct ILauncherUIOptions_Vtbl {
     SetPreferredPlacement: usize,
 }
 windows_core::imp::define_interface!(ILauncherViewOptions, ILauncherViewOptions_Vtbl, 0x8a9b29f1_7ca7_49de_9bd3_3c5b7184f616);
+impl std::ops::Deref for ILauncherViewOptions {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ILauncherViewOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl ILauncherViewOptions {
     #[cfg(feature = "UI_ViewManagement")]
@@ -4687,8 +4693,8 @@ impl<F: FnMut() -> windows_core::Result<()> + Send + 'static> DispatcherQueueHan
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)().into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)().into()
     }
 }
 impl windows_core::RuntimeType for DispatcherQueueHandler {

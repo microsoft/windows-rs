@@ -16,7 +16,7 @@ impl ILowLevelDevicesAggregateProvider_Vtbl {
         unsafe extern "system" fn AdcControllerProvider<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILowLevelDevicesAggregateProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AdcControllerProvider() {
+            match ILowLevelDevicesAggregateProvider_Impl::AdcControllerProvider(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -28,7 +28,7 @@ impl ILowLevelDevicesAggregateProvider_Vtbl {
         unsafe extern "system" fn PwmControllerProvider<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILowLevelDevicesAggregateProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PwmControllerProvider() {
+            match ILowLevelDevicesAggregateProvider_Impl::PwmControllerProvider(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -40,7 +40,7 @@ impl ILowLevelDevicesAggregateProvider_Vtbl {
         unsafe extern "system" fn GpioControllerProvider<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILowLevelDevicesAggregateProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GpioControllerProvider() {
+            match ILowLevelDevicesAggregateProvider_Impl::GpioControllerProvider(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -52,7 +52,7 @@ impl ILowLevelDevicesAggregateProvider_Vtbl {
         unsafe extern "system" fn I2cControllerProvider<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILowLevelDevicesAggregateProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.I2cControllerProvider() {
+            match ILowLevelDevicesAggregateProvider_Impl::I2cControllerProvider(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -64,7 +64,7 @@ impl ILowLevelDevicesAggregateProvider_Vtbl {
         unsafe extern "system" fn SpiControllerProvider<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILowLevelDevicesAggregateProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SpiControllerProvider() {
+            match ILowLevelDevicesAggregateProvider_Impl::SpiControllerProvider(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);

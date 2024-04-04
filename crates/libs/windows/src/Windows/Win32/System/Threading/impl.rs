@@ -8,12 +8,12 @@ impl IRtwqAsyncCallback_Vtbl {
         unsafe extern "system" fn GetParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRtwqAsyncCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwflags: *mut u32, pdwqueue: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetParameters(core::mem::transmute_copy(&pdwflags), core::mem::transmute_copy(&pdwqueue)).into()
+            IRtwqAsyncCallback_Impl::GetParameters(this, core::mem::transmute_copy(&pdwflags), core::mem::transmute_copy(&pdwqueue)).into()
         }
         unsafe extern "system" fn Invoke<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRtwqAsyncCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pasyncresult: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Invoke(windows_core::from_raw_borrowed(&pasyncresult)).into()
+            IRtwqAsyncCallback_Impl::Invoke(this, windows_core::from_raw_borrowed(&pasyncresult)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -38,7 +38,7 @@ impl IRtwqAsyncResult_Vtbl {
         unsafe extern "system" fn GetState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRtwqAsyncResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunkstate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetState() {
+            match IRtwqAsyncResult_Impl::GetState(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppunkstate, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -49,17 +49,17 @@ impl IRtwqAsyncResult_Vtbl {
         unsafe extern "system" fn GetStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRtwqAsyncResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetStatus().into()
+            IRtwqAsyncResult_Impl::GetStatus(this).into()
         }
         unsafe extern "system" fn SetStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRtwqAsyncResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrstatus: windows_core::HRESULT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetStatus(core::mem::transmute_copy(&hrstatus)).into()
+            IRtwqAsyncResult_Impl::SetStatus(this, core::mem::transmute_copy(&hrstatus)).into()
         }
         unsafe extern "system" fn GetObject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRtwqAsyncResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetObject() {
+            match IRtwqAsyncResult_Impl::GetObject(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppobject, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -70,7 +70,7 @@ impl IRtwqAsyncResult_Vtbl {
         unsafe extern "system" fn GetStateNoAddRef<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRtwqAsyncResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> Option<windows_core::IUnknown> {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetStateNoAddRef()
+            IRtwqAsyncResult_Impl::GetStateNoAddRef(this)
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -96,17 +96,17 @@ impl IRtwqPlatformEvents_Vtbl {
         unsafe extern "system" fn InitializationComplete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRtwqPlatformEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InitializationComplete().into()
+            IRtwqPlatformEvents_Impl::InitializationComplete(this).into()
         }
         unsafe extern "system" fn ShutdownStart<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRtwqPlatformEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ShutdownStart().into()
+            IRtwqPlatformEvents_Impl::ShutdownStart(this).into()
         }
         unsafe extern "system" fn ShutdownComplete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRtwqPlatformEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ShutdownComplete().into()
+            IRtwqPlatformEvents_Impl::ShutdownComplete(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

@@ -13,7 +13,7 @@ impl ILauncherViewOptions_Vtbl {
         unsafe extern "system" fn DesiredRemainingView<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILauncherViewOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::UI::ViewManagement::ViewSizePreference) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DesiredRemainingView() {
+            match ILauncherViewOptions_Impl::DesiredRemainingView(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -24,7 +24,7 @@ impl ILauncherViewOptions_Vtbl {
         unsafe extern "system" fn SetDesiredRemainingView<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILauncherViewOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::UI::ViewManagement::ViewSizePreference) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDesiredRemainingView(value).into()
+            ILauncherViewOptions_Impl::SetDesiredRemainingView(this, value).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, ILauncherViewOptions, OFFSET>(),

@@ -10,7 +10,7 @@ impl IDefaultAudioDeviceChangedEventArgs_Vtbl {
         unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDefaultAudioDeviceChangedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Id() {
+            match IDefaultAudioDeviceChangedEventArgs_Impl::Id(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -22,7 +22,7 @@ impl IDefaultAudioDeviceChangedEventArgs_Vtbl {
         unsafe extern "system" fn Role<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDefaultAudioDeviceChangedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut AudioDeviceRole) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Role() {
+            match IDefaultAudioDeviceChangedEventArgs_Impl::Role(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -56,7 +56,7 @@ impl IMediaDeviceController_Vtbl {
         unsafe extern "system" fn GetAvailableMediaStreamProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaDeviceController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediastreamtype: super::Capture::MediaStreamType, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAvailableMediaStreamProperties(mediastreamtype) {
+            match IMediaDeviceController_Impl::GetAvailableMediaStreamProperties(this, mediastreamtype) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -68,7 +68,7 @@ impl IMediaDeviceController_Vtbl {
         unsafe extern "system" fn GetMediaStreamProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaDeviceController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediastreamtype: super::Capture::MediaStreamType, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetMediaStreamProperties(mediastreamtype) {
+            match IMediaDeviceController_Impl::GetMediaStreamProperties(this, mediastreamtype) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -80,7 +80,7 @@ impl IMediaDeviceController_Vtbl {
         unsafe extern "system" fn SetMediaStreamPropertiesAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaDeviceController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SetMediaStreamPropertiesAsync(mediastreamtype, windows_core::from_raw_borrowed(&mediaencodingproperties)) {
+            match IMediaDeviceController_Impl::SetMediaStreamPropertiesAsync(this, mediastreamtype, windows_core::from_raw_borrowed(&mediaencodingproperties)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);

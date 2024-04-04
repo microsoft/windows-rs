@@ -65,6 +65,12 @@ pub struct IWebUICommandBarConfirmationButton_Vtbl {
     pub RemoveItemInvoked: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebUICommandBarElement, IWebUICommandBarElement_Vtbl, 0xc9069ec2_284a_4633_8aad_637a27e282c3);
+impl std::ops::Deref for IWebUICommandBarElement {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWebUICommandBarElement, windows_core::IUnknown, windows_core::IInspectable);
 impl IWebUICommandBarElement {}
 impl windows_core::RuntimeType for IWebUICommandBarElement {
@@ -75,6 +81,12 @@ pub struct IWebUICommandBarElement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IWebUICommandBarIcon, IWebUICommandBarIcon_Vtbl, 0xd587655d_2014_42be_969a_7d14ca6c8a49);
+impl std::ops::Deref for IWebUICommandBarIcon {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWebUICommandBarIcon, windows_core::IUnknown, windows_core::IInspectable);
 impl IWebUICommandBarIcon {}
 impl windows_core::RuntimeType for IWebUICommandBarIcon {
@@ -675,8 +687,8 @@ impl<F: FnMut() -> windows_core::Result<()> + Send + 'static> MenuClosedEventHan
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)().into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)().into()
     }
 }
 impl windows_core::RuntimeType for MenuClosedEventHandler {
@@ -732,8 +744,8 @@ impl<F: FnMut() -> windows_core::Result<()> + Send + 'static> MenuOpenedEventHan
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)().into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)().into()
     }
 }
 impl windows_core::RuntimeType for MenuOpenedEventHandler {
@@ -792,8 +804,8 @@ impl<F: FnMut(Option<&WebUICommandBarSizeChangedEventArgs>) -> windows_core::Res
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, eventargs: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&eventargs)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&eventargs)).into()
     }
 }
 impl windows_core::RuntimeType for SizeChangedEventHandler {

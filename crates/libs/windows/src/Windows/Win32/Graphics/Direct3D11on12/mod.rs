@@ -20,6 +20,12 @@ where
     .ok()
 }
 windows_core::imp::define_interface!(ID3D11On12Device, ID3D11On12Device_Vtbl, 0x85611e73_70a9_490e_9614_a9e302777904);
+impl std::ops::Deref for ID3D11On12Device {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ID3D11On12Device, windows_core::IUnknown);
 impl ID3D11On12Device {
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -58,24 +64,14 @@ pub struct ID3D11On12Device_Vtbl {
     AcquireWrappedResources: usize,
 }
 windows_core::imp::define_interface!(ID3D11On12Device1, ID3D11On12Device1_Vtbl, 0xbdb64df4_ea2f_4c70_b861_aaab1258bb5d);
+impl std::ops::Deref for ID3D11On12Device1 {
+    type Target = ID3D11On12Device;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ID3D11On12Device1, windows_core::IUnknown, ID3D11On12Device);
 impl ID3D11On12Device1 {
-    #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn CreateWrappedResource<P0, T>(&self, presource12: P0, pflags11: *const D3D11_RESOURCE_FLAGS, instate: super::Direct3D12::D3D12_RESOURCE_STATES, outstate: super::Direct3D12::D3D12_RESOURCE_STATES, result__: *mut Option<T>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-        T: windows_core::Interface,
-    {
-        (windows_core::Interface::vtable(self).base__.CreateWrappedResource)(windows_core::Interface::as_raw(self), presource12.param().abi(), pflags11, instate, outstate, &T::IID, result__ as *mut _ as *mut _).ok()
-    }
-    #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    pub unsafe fn ReleaseWrappedResources(&self, ppresources: &[Option<super::Direct3D11::ID3D11Resource>]) {
-        (windows_core::Interface::vtable(self).base__.ReleaseWrappedResources)(windows_core::Interface::as_raw(self), core::mem::transmute(ppresources.as_ptr()), ppresources.len().try_into().unwrap())
-    }
-    #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    pub unsafe fn AcquireWrappedResources(&self, ppresources: &[Option<super::Direct3D11::ID3D11Resource>]) {
-        (windows_core::Interface::vtable(self).base__.AcquireWrappedResources)(windows_core::Interface::as_raw(self), core::mem::transmute(ppresources.as_ptr()), ppresources.len().try_into().unwrap())
-    }
     pub unsafe fn GetD3D12Device<T>(&self) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -92,31 +88,14 @@ pub struct ID3D11On12Device1_Vtbl {
     pub GetD3D12Device: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ID3D11On12Device2, ID3D11On12Device2_Vtbl, 0xdc90f331_4740_43fa_866e_67f12cb58223);
+impl std::ops::Deref for ID3D11On12Device2 {
+    type Target = ID3D11On12Device1;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ID3D11On12Device2, windows_core::IUnknown, ID3D11On12Device, ID3D11On12Device1);
 impl ID3D11On12Device2 {
-    #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn CreateWrappedResource<P0, T>(&self, presource12: P0, pflags11: *const D3D11_RESOURCE_FLAGS, instate: super::Direct3D12::D3D12_RESOURCE_STATES, outstate: super::Direct3D12::D3D12_RESOURCE_STATES, result__: *mut Option<T>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-        T: windows_core::Interface,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.CreateWrappedResource)(windows_core::Interface::as_raw(self), presource12.param().abi(), pflags11, instate, outstate, &T::IID, result__ as *mut _ as *mut _).ok()
-    }
-    #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    pub unsafe fn ReleaseWrappedResources(&self, ppresources: &[Option<super::Direct3D11::ID3D11Resource>]) {
-        (windows_core::Interface::vtable(self).base__.base__.ReleaseWrappedResources)(windows_core::Interface::as_raw(self), core::mem::transmute(ppresources.as_ptr()), ppresources.len().try_into().unwrap())
-    }
-    #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    pub unsafe fn AcquireWrappedResources(&self, ppresources: &[Option<super::Direct3D11::ID3D11Resource>]) {
-        (windows_core::Interface::vtable(self).base__.base__.AcquireWrappedResources)(windows_core::Interface::as_raw(self), core::mem::transmute(ppresources.as_ptr()), ppresources.len().try_into().unwrap())
-    }
-    pub unsafe fn GetD3D12Device<T>(&self) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).base__.GetD3D12Device)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn UnwrapUnderlyingResource<P0, P1, T>(&self, presource11: P0, pcommandqueue: P1) -> windows_core::Result<T>
     where

@@ -1,4 +1,10 @@
 windows_core::imp::define_interface!(ILearningModelDeviceFactoryNative, ILearningModelDeviceFactoryNative_Vtbl, 0x1e9b31a1_662e_4ae0_af67_f63bb337e634);
+impl std::ops::Deref for ILearningModelDeviceFactoryNative {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ILearningModelDeviceFactoryNative, windows_core::IUnknown);
 impl ILearningModelDeviceFactoryNative {
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -19,6 +25,12 @@ pub struct ILearningModelDeviceFactoryNative_Vtbl {
     CreateFromD3D12CommandQueue: usize,
 }
 windows_core::imp::define_interface!(ILearningModelOperatorProviderNative, ILearningModelOperatorProviderNative_Vtbl, 0x1adaa23a_eb67_41f3_aad8_5d984e9bacd4);
+impl std::ops::Deref for ILearningModelOperatorProviderNative {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ILearningModelOperatorProviderNative, windows_core::IUnknown);
 impl ILearningModelOperatorProviderNative {
     #[cfg(feature = "Win32_AI_MachineLearning_WinML")]
@@ -36,6 +48,12 @@ pub struct ILearningModelOperatorProviderNative_Vtbl {
     GetRegistry: usize,
 }
 windows_core::imp::define_interface!(ILearningModelSessionOptionsNative, ILearningModelSessionOptionsNative_Vtbl, 0xc71e953f_37b4_4564_8658_d8396866db0d);
+impl std::ops::Deref for ILearningModelSessionOptionsNative {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ILearningModelSessionOptionsNative, windows_core::IUnknown);
 impl ILearningModelSessionOptionsNative {
     pub unsafe fn SetIntraOpNumThreadsOverride(&self, intraopnumthreads: u32) -> windows_core::Result<()> {
@@ -48,6 +66,12 @@ pub struct ILearningModelSessionOptionsNative_Vtbl {
     pub SetIntraOpNumThreadsOverride: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILearningModelSessionOptionsNative1, ILearningModelSessionOptionsNative1_Vtbl, 0x5da37a26_0526_414b_91e4_2a0fa3ddba40);
+impl std::ops::Deref for ILearningModelSessionOptionsNative1 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ILearningModelSessionOptionsNative1, windows_core::IUnknown);
 impl ILearningModelSessionOptionsNative1 {
     pub unsafe fn SetIntraOpThreadSpinning(&self, allowspinning: u8) -> windows_core::Result<()> {
@@ -60,6 +84,12 @@ pub struct ILearningModelSessionOptionsNative1_Vtbl {
     pub SetIntraOpThreadSpinning: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITensorNative, ITensorNative_Vtbl, 0x52f547ef_5b03_49b5_82d6_565f1ee0dd49);
+impl std::ops::Deref for ITensorNative {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITensorNative, windows_core::IUnknown);
 impl ITensorNative {
     pub unsafe fn GetBuffer(&self, value: *mut *mut u8, capacity: *mut u32) -> windows_core::Result<()> {
@@ -81,6 +111,12 @@ pub struct ITensorNative_Vtbl {
     GetD3D12Resource: usize,
 }
 windows_core::imp::define_interface!(ITensorStaticsNative, ITensorStaticsNative_Vtbl, 0x39d055a4_66f6_4ebc_95d9_7a29ebe7690a);
+impl std::ops::Deref for ITensorStaticsNative {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITensorStaticsNative, windows_core::IUnknown);
 impl ITensorStaticsNative {
     #[cfg(feature = "Win32_Graphics_Direct3D12")]

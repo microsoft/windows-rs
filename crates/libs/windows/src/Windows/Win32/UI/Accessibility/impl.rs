@@ -7,7 +7,7 @@ impl IAccIdentity_Vtbl {
         unsafe extern "system" fn GetIdentityString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccIdentity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwidchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetIdentityString(core::mem::transmute_copy(&dwidchild), core::mem::transmute_copy(&ppidstring), core::mem::transmute_copy(&pdwidstringlen)).into()
+            IAccIdentity_Impl::GetIdentityString(this, core::mem::transmute_copy(&dwidchild), core::mem::transmute_copy(&ppidstring), core::mem::transmute_copy(&pdwidstringlen)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetIdentityString: GetIdentityString::<Identity, Impl, OFFSET> }
     }
@@ -24,7 +24,7 @@ impl IAccPropServer_Vtbl {
         unsafe extern "system" fn GetPropValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccPropServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, idprop: windows_core::GUID, pvarvalue: *mut std::mem::MaybeUninit<windows_core::VARIANT>, pfhasprop: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPropValue(core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute(&idprop), core::mem::transmute_copy(&pvarvalue), core::mem::transmute_copy(&pfhasprop)).into()
+            IAccPropServer_Impl::GetPropValue(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute(&idprop), core::mem::transmute_copy(&pvarvalue), core::mem::transmute_copy(&pfhasprop)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetPropValue: GetPropValue::<Identity, Impl, OFFSET> }
     }
@@ -58,77 +58,77 @@ impl IAccPropServices_Vtbl {
         unsafe extern "system" fn SetPropValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, idprop: windows_core::GUID, var: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPropValue(core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute(&idprop), core::mem::transmute(&var)).into()
+            IAccPropServices_Impl::SetPropValue(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute(&idprop), core::mem::transmute(&var)).into()
         }
         unsafe extern "system" fn SetPropServer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, paprops: *const windows_core::GUID, cprops: i32, pserver: *mut core::ffi::c_void, annoscope: AnnoScope) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPropServer(core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops), windows_core::from_raw_borrowed(&pserver), core::mem::transmute_copy(&annoscope)).into()
+            IAccPropServices_Impl::SetPropServer(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops), windows_core::from_raw_borrowed(&pserver), core::mem::transmute_copy(&annoscope)).into()
         }
         unsafe extern "system" fn ClearProps<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, paprops: *const windows_core::GUID, cprops: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ClearProps(core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops)).into()
+            IAccPropServices_Impl::ClearProps(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops)).into()
         }
         unsafe extern "system" fn SetHwndProp<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: windows_core::GUID, var: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetHwndProp(core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute(&idprop), core::mem::transmute(&var)).into()
+            IAccPropServices_Impl::SetHwndProp(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute(&idprop), core::mem::transmute(&var)).into()
         }
         unsafe extern "system" fn SetHwndPropStr<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: windows_core::GUID, str: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetHwndPropStr(core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute(&idprop), core::mem::transmute(&str)).into()
+            IAccPropServices_Impl::SetHwndPropStr(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute(&idprop), core::mem::transmute(&str)).into()
         }
         unsafe extern "system" fn SetHwndPropServer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: *const windows_core::GUID, cprops: i32, pserver: *mut core::ffi::c_void, annoscope: AnnoScope) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetHwndPropServer(core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops), windows_core::from_raw_borrowed(&pserver), core::mem::transmute_copy(&annoscope)).into()
+            IAccPropServices_Impl::SetHwndPropServer(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops), windows_core::from_raw_borrowed(&pserver), core::mem::transmute_copy(&annoscope)).into()
         }
         unsafe extern "system" fn ClearHwndProps<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: *const windows_core::GUID, cprops: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ClearHwndProps(core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops)).into()
+            IAccPropServices_Impl::ClearHwndProps(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops)).into()
         }
         unsafe extern "system" fn ComposeHwndIdentityString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ComposeHwndIdentityString(core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&ppidstring), core::mem::transmute_copy(&pdwidstringlen)).into()
+            IAccPropServices_Impl::ComposeHwndIdentityString(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&ppidstring), core::mem::transmute_copy(&pdwidstringlen)).into()
         }
         unsafe extern "system" fn DecomposeHwndIdentityString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, phwnd: *mut super::super::Foundation::HWND, pidobject: *mut u32, pidchild: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DecomposeHwndIdentityString(core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute_copy(&phwnd), core::mem::transmute_copy(&pidobject), core::mem::transmute_copy(&pidchild)).into()
+            IAccPropServices_Impl::DecomposeHwndIdentityString(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute_copy(&phwnd), core::mem::transmute_copy(&pidobject), core::mem::transmute_copy(&pidchild)).into()
         }
         unsafe extern "system" fn SetHmenuProp<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: windows_core::GUID, var: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetHmenuProp(core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute(&idprop), core::mem::transmute(&var)).into()
+            IAccPropServices_Impl::SetHmenuProp(this, core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute(&idprop), core::mem::transmute(&var)).into()
         }
         unsafe extern "system" fn SetHmenuPropStr<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: windows_core::GUID, str: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetHmenuPropStr(core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute(&idprop), core::mem::transmute(&str)).into()
+            IAccPropServices_Impl::SetHmenuPropStr(this, core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute(&idprop), core::mem::transmute(&str)).into()
         }
         unsafe extern "system" fn SetHmenuPropServer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: *const windows_core::GUID, cprops: i32, pserver: *mut core::ffi::c_void, annoscope: AnnoScope) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetHmenuPropServer(core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops), windows_core::from_raw_borrowed(&pserver), core::mem::transmute_copy(&annoscope)).into()
+            IAccPropServices_Impl::SetHmenuPropServer(this, core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops), windows_core::from_raw_borrowed(&pserver), core::mem::transmute_copy(&annoscope)).into()
         }
         unsafe extern "system" fn ClearHmenuProps<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: *const windows_core::GUID, cprops: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ClearHmenuProps(core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops)).into()
+            IAccPropServices_Impl::ClearHmenuProps(this, core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops)).into()
         }
         unsafe extern "system" fn ComposeHmenuIdentityString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ComposeHmenuIdentityString(core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&ppidstring), core::mem::transmute_copy(&pdwidstringlen)).into()
+            IAccPropServices_Impl::ComposeHmenuIdentityString(this, core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&ppidstring), core::mem::transmute_copy(&pdwidstringlen)).into()
         }
         unsafe extern "system" fn DecomposeHmenuIdentityString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, phmenu: *mut super::WindowsAndMessaging::HMENU, pidchild: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DecomposeHmenuIdentityString(core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute_copy(&phmenu), core::mem::transmute_copy(&pidchild)).into()
+            IAccPropServices_Impl::DecomposeHmenuIdentityString(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute_copy(&phmenu), core::mem::transmute_copy(&pidchild)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -185,7 +185,7 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn accParent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdispparent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.accParent() {
+            match IAccessible_Impl::accParent(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppdispparent, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -196,7 +196,7 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn accChildCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcountchildren: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.accChildCount() {
+            match IAccessible_Impl::accChildCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(pcountchildren, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -207,7 +207,7 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn get_accChild<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: std::mem::MaybeUninit<windows_core::VARIANT>, ppdispchild: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_accChild(core::mem::transmute(&varchild)) {
+            match IAccessible_Impl::get_accChild(this, core::mem::transmute(&varchild)) {
                 Ok(ok__) => {
                     core::ptr::write(ppdispchild, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -218,7 +218,7 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn get_accName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: std::mem::MaybeUninit<windows_core::VARIANT>, pszname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_accName(core::mem::transmute(&varchild)) {
+            match IAccessible_Impl::get_accName(this, core::mem::transmute(&varchild)) {
                 Ok(ok__) => {
                     core::ptr::write(pszname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -229,7 +229,7 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn get_accValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: std::mem::MaybeUninit<windows_core::VARIANT>, pszvalue: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_accValue(core::mem::transmute(&varchild)) {
+            match IAccessible_Impl::get_accValue(this, core::mem::transmute(&varchild)) {
                 Ok(ok__) => {
                     core::ptr::write(pszvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -240,7 +240,7 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn get_accDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: std::mem::MaybeUninit<windows_core::VARIANT>, pszdescription: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_accDescription(core::mem::transmute(&varchild)) {
+            match IAccessible_Impl::get_accDescription(this, core::mem::transmute(&varchild)) {
                 Ok(ok__) => {
                     core::ptr::write(pszdescription, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -251,7 +251,7 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn get_accRole<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: std::mem::MaybeUninit<windows_core::VARIANT>, pvarrole: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_accRole(core::mem::transmute(&varchild)) {
+            match IAccessible_Impl::get_accRole(this, core::mem::transmute(&varchild)) {
                 Ok(ok__) => {
                     core::ptr::write(pvarrole, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -262,7 +262,7 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn get_accState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: std::mem::MaybeUninit<windows_core::VARIANT>, pvarstate: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_accState(core::mem::transmute(&varchild)) {
+            match IAccessible_Impl::get_accState(this, core::mem::transmute(&varchild)) {
                 Ok(ok__) => {
                     core::ptr::write(pvarstate, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -273,7 +273,7 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn get_accHelp<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: std::mem::MaybeUninit<windows_core::VARIANT>, pszhelp: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_accHelp(core::mem::transmute(&varchild)) {
+            match IAccessible_Impl::get_accHelp(this, core::mem::transmute(&varchild)) {
                 Ok(ok__) => {
                     core::ptr::write(pszhelp, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -284,7 +284,7 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn get_accHelpTopic<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszhelpfile: *mut std::mem::MaybeUninit<windows_core::BSTR>, varchild: std::mem::MaybeUninit<windows_core::VARIANT>, pidtopic: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_accHelpTopic(core::mem::transmute_copy(&pszhelpfile), core::mem::transmute(&varchild)) {
+            match IAccessible_Impl::get_accHelpTopic(this, core::mem::transmute_copy(&pszhelpfile), core::mem::transmute(&varchild)) {
                 Ok(ok__) => {
                     core::ptr::write(pidtopic, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -295,7 +295,7 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn get_accKeyboardShortcut<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: std::mem::MaybeUninit<windows_core::VARIANT>, pszkeyboardshortcut: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_accKeyboardShortcut(core::mem::transmute(&varchild)) {
+            match IAccessible_Impl::get_accKeyboardShortcut(this, core::mem::transmute(&varchild)) {
                 Ok(ok__) => {
                     core::ptr::write(pszkeyboardshortcut, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -306,7 +306,7 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn accFocus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarchild: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.accFocus() {
+            match IAccessible_Impl::accFocus(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarchild, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -317,7 +317,7 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn accSelection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarchildren: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.accSelection() {
+            match IAccessible_Impl::accSelection(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarchildren, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -328,7 +328,7 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn get_accDefaultAction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: std::mem::MaybeUninit<windows_core::VARIANT>, pszdefaultaction: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_accDefaultAction(core::mem::transmute(&varchild)) {
+            match IAccessible_Impl::get_accDefaultAction(this, core::mem::transmute(&varchild)) {
                 Ok(ok__) => {
                     core::ptr::write(pszdefaultaction, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -339,17 +339,17 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn accSelect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flagsselect: i32, varchild: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.accSelect(core::mem::transmute_copy(&flagsselect), core::mem::transmute(&varchild)).into()
+            IAccessible_Impl::accSelect(this, core::mem::transmute_copy(&flagsselect), core::mem::transmute(&varchild)).into()
         }
         unsafe extern "system" fn accLocation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.accLocation(core::mem::transmute_copy(&pxleft), core::mem::transmute_copy(&pytop), core::mem::transmute_copy(&pcxwidth), core::mem::transmute_copy(&pcyheight), core::mem::transmute(&varchild)).into()
+            IAccessible_Impl::accLocation(this, core::mem::transmute_copy(&pxleft), core::mem::transmute_copy(&pytop), core::mem::transmute_copy(&pcxwidth), core::mem::transmute_copy(&pcyheight), core::mem::transmute(&varchild)).into()
         }
         unsafe extern "system" fn accNavigate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, navdir: i32, varstart: std::mem::MaybeUninit<windows_core::VARIANT>, pvarendupat: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.accNavigate(core::mem::transmute_copy(&navdir), core::mem::transmute(&varstart)) {
+            match IAccessible_Impl::accNavigate(this, core::mem::transmute_copy(&navdir), core::mem::transmute(&varstart)) {
                 Ok(ok__) => {
                     core::ptr::write(pvarendupat, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -360,7 +360,7 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn accHitTest<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xleft: i32, ytop: i32, pvarchild: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.accHitTest(core::mem::transmute_copy(&xleft), core::mem::transmute_copy(&ytop)) {
+            match IAccessible_Impl::accHitTest(this, core::mem::transmute_copy(&xleft), core::mem::transmute_copy(&ytop)) {
                 Ok(ok__) => {
                     core::ptr::write(pvarchild, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -371,17 +371,17 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn accDoDefaultAction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.accDoDefaultAction(core::mem::transmute(&varchild)).into()
+            IAccessible_Impl::accDoDefaultAction(this, core::mem::transmute(&varchild)).into()
         }
         unsafe extern "system" fn put_accName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: std::mem::MaybeUninit<windows_core::VARIANT>, szname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.put_accName(core::mem::transmute(&varchild), core::mem::transmute(&szname)).into()
+            IAccessible_Impl::put_accName(this, core::mem::transmute(&varchild), core::mem::transmute(&szname)).into()
         }
         unsafe extern "system" fn put_accValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varchild: std::mem::MaybeUninit<windows_core::VARIANT>, szvalue: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.put_accValue(core::mem::transmute(&varchild), core::mem::transmute(&szvalue)).into()
+            IAccessible_Impl::put_accValue(this, core::mem::transmute(&varchild), core::mem::transmute(&szvalue)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -427,7 +427,7 @@ impl IAccessibleEx_Vtbl {
         unsafe extern "system" fn GetObjectForChild<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessibleEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, idchild: i32, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetObjectForChild(core::mem::transmute_copy(&idchild)) {
+            match IAccessibleEx_Impl::GetObjectForChild(this, core::mem::transmute_copy(&idchild)) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -438,12 +438,12 @@ impl IAccessibleEx_Vtbl {
         unsafe extern "system" fn GetIAccessiblePair<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessibleEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppacc: *mut *mut core::ffi::c_void, pidchild: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetIAccessiblePair(core::mem::transmute_copy(&ppacc), core::mem::transmute_copy(&pidchild)).into()
+            IAccessibleEx_Impl::GetIAccessiblePair(this, core::mem::transmute_copy(&ppacc), core::mem::transmute_copy(&pidchild)).into()
         }
         unsafe extern "system" fn GetRuntimeId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessibleEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRuntimeId() {
+            match IAccessibleEx_Impl::GetRuntimeId(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -454,7 +454,7 @@ impl IAccessibleEx_Vtbl {
         unsafe extern "system" fn ConvertReturnedElement<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessibleEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pin: *mut core::ffi::c_void, ppretvalout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ConvertReturnedElement(windows_core::from_raw_borrowed(&pin)) {
+            match IAccessibleEx_Impl::ConvertReturnedElement(this, windows_core::from_raw_borrowed(&pin)) {
                 Ok(ok__) => {
                     core::ptr::write(ppretvalout, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -486,7 +486,7 @@ impl IAccessibleHandler_Vtbl {
         unsafe extern "system" fn AccessibleObjectFromID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessibleHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: i32, lobjectid: i32, piaccessible: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AccessibleObjectFromID(core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&lobjectid)) {
+            match IAccessibleHandler_Impl::AccessibleObjectFromID(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&lobjectid)) {
                 Ok(ok__) => {
                     core::ptr::write(piaccessible, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -513,7 +513,7 @@ impl IAccessibleHostingElementProviders_Vtbl {
         unsafe extern "system" fn GetEmbeddedFragmentRoots<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessibleHostingElementProviders_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetEmbeddedFragmentRoots() {
+            match IAccessibleHostingElementProviders_Impl::GetEmbeddedFragmentRoots(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -524,7 +524,7 @@ impl IAccessibleHostingElementProviders_Vtbl {
         unsafe extern "system" fn GetObjectIdForProvider<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessibleHostingElementProviders_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprovider: *mut core::ffi::c_void, pidobject: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetObjectIdForProvider(windows_core::from_raw_borrowed(&pprovider)) {
+            match IAccessibleHostingElementProviders_Impl::GetObjectIdForProvider(this, windows_core::from_raw_borrowed(&pprovider)) {
                 Ok(ok__) => {
                     core::ptr::write(pidobject, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -557,7 +557,7 @@ impl IAccessibleWindowlessSite_Vtbl {
         unsafe extern "system" fn AcquireObjectIdRange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessibleWindowlessSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rangesize: i32, prangeowner: *mut core::ffi::c_void, prangebase: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AcquireObjectIdRange(core::mem::transmute_copy(&rangesize), windows_core::from_raw_borrowed(&prangeowner)) {
+            match IAccessibleWindowlessSite_Impl::AcquireObjectIdRange(this, core::mem::transmute_copy(&rangesize), windows_core::from_raw_borrowed(&prangeowner)) {
                 Ok(ok__) => {
                     core::ptr::write(prangebase, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -568,12 +568,12 @@ impl IAccessibleWindowlessSite_Vtbl {
         unsafe extern "system" fn ReleaseObjectIdRange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessibleWindowlessSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rangebase: i32, prangeowner: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ReleaseObjectIdRange(core::mem::transmute_copy(&rangebase), windows_core::from_raw_borrowed(&prangeowner)).into()
+            IAccessibleWindowlessSite_Impl::ReleaseObjectIdRange(this, core::mem::transmute_copy(&rangebase), windows_core::from_raw_borrowed(&prangeowner)).into()
         }
         unsafe extern "system" fn QueryObjectIdRanges<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessibleWindowlessSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prangesowner: *mut core::ffi::c_void, psaranges: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.QueryObjectIdRanges(windows_core::from_raw_borrowed(&prangesowner)) {
+            match IAccessibleWindowlessSite_Impl::QueryObjectIdRanges(this, windows_core::from_raw_borrowed(&prangesowner)) {
                 Ok(ok__) => {
                     core::ptr::write(psaranges, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -584,7 +584,7 @@ impl IAccessibleWindowlessSite_Vtbl {
         unsafe extern "system" fn GetParentAccessible<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessibleWindowlessSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppparent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetParentAccessible() {
+            match IAccessibleWindowlessSite_Impl::GetParentAccessible(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppparent, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -617,7 +617,7 @@ impl IAnnotationProvider_Vtbl {
         unsafe extern "system" fn AnnotationTypeId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAnnotationProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut UIA_ANNOTATIONTYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AnnotationTypeId() {
+            match IAnnotationProvider_Impl::AnnotationTypeId(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -628,7 +628,7 @@ impl IAnnotationProvider_Vtbl {
         unsafe extern "system" fn AnnotationTypeName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAnnotationProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AnnotationTypeName() {
+            match IAnnotationProvider_Impl::AnnotationTypeName(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -639,7 +639,7 @@ impl IAnnotationProvider_Vtbl {
         unsafe extern "system" fn Author<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAnnotationProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Author() {
+            match IAnnotationProvider_Impl::Author(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -650,7 +650,7 @@ impl IAnnotationProvider_Vtbl {
         unsafe extern "system" fn DateTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAnnotationProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DateTime() {
+            match IAnnotationProvider_Impl::DateTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -661,7 +661,7 @@ impl IAnnotationProvider_Vtbl {
         unsafe extern "system" fn Target<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAnnotationProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Target() {
+            match IAnnotationProvider_Impl::Target(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -691,7 +691,7 @@ impl ICustomNavigationProvider_Vtbl {
         unsafe extern "system" fn Navigate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICustomNavigationProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, direction: NavigateDirection, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Navigate(core::mem::transmute_copy(&direction)) {
+            match ICustomNavigationProvider_Impl::Navigate(this, core::mem::transmute_copy(&direction)) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -715,12 +715,12 @@ impl IDockProvider_Vtbl {
         unsafe extern "system" fn SetDockPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDockProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dockposition: DockPosition) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDockPosition(core::mem::transmute_copy(&dockposition)).into()
+            IDockProvider_Impl::SetDockPosition(this, core::mem::transmute_copy(&dockposition)).into()
         }
         unsafe extern "system" fn DockPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDockProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut DockPosition) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DockPosition() {
+            match IDockProvider_Impl::DockPosition(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -753,7 +753,7 @@ impl IDragProvider_Vtbl {
         unsafe extern "system" fn IsGrabbed<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDragProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsGrabbed() {
+            match IDragProvider_Impl::IsGrabbed(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -764,7 +764,7 @@ impl IDragProvider_Vtbl {
         unsafe extern "system" fn DropEffect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDragProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DropEffect() {
+            match IDragProvider_Impl::DropEffect(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -775,7 +775,7 @@ impl IDragProvider_Vtbl {
         unsafe extern "system" fn DropEffects<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDragProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DropEffects() {
+            match IDragProvider_Impl::DropEffects(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -786,7 +786,7 @@ impl IDragProvider_Vtbl {
         unsafe extern "system" fn GetGrabbedItems<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDragProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetGrabbedItems() {
+            match IDragProvider_Impl::GetGrabbedItems(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -819,7 +819,7 @@ impl IDropTargetProvider_Vtbl {
         unsafe extern "system" fn DropTargetEffect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDropTargetProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DropTargetEffect() {
+            match IDropTargetProvider_Impl::DropTargetEffect(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -830,7 +830,7 @@ impl IDropTargetProvider_Vtbl {
         unsafe extern "system" fn DropTargetEffects<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDropTargetProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DropTargetEffects() {
+            match IDropTargetProvider_Impl::DropTargetEffects(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -859,17 +859,17 @@ impl IExpandCollapseProvider_Vtbl {
         unsafe extern "system" fn Expand<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IExpandCollapseProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Expand().into()
+            IExpandCollapseProvider_Impl::Expand(this).into()
         }
         unsafe extern "system" fn Collapse<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IExpandCollapseProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Collapse().into()
+            IExpandCollapseProvider_Impl::Collapse(this).into()
         }
         unsafe extern "system" fn ExpandCollapseState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IExpandCollapseProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut ExpandCollapseState) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ExpandCollapseState() {
+            match IExpandCollapseProvider_Impl::ExpandCollapseState(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -901,7 +901,7 @@ impl IGridItemProvider_Vtbl {
         unsafe extern "system" fn Row<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGridItemProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Row() {
+            match IGridItemProvider_Impl::Row(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -912,7 +912,7 @@ impl IGridItemProvider_Vtbl {
         unsafe extern "system" fn Column<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGridItemProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Column() {
+            match IGridItemProvider_Impl::Column(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -923,7 +923,7 @@ impl IGridItemProvider_Vtbl {
         unsafe extern "system" fn RowSpan<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGridItemProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RowSpan() {
+            match IGridItemProvider_Impl::RowSpan(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -934,7 +934,7 @@ impl IGridItemProvider_Vtbl {
         unsafe extern "system" fn ColumnSpan<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGridItemProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ColumnSpan() {
+            match IGridItemProvider_Impl::ColumnSpan(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -945,7 +945,7 @@ impl IGridItemProvider_Vtbl {
         unsafe extern "system" fn ContainingGrid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGridItemProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ContainingGrid() {
+            match IGridItemProvider_Impl::ContainingGrid(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -977,7 +977,7 @@ impl IGridProvider_Vtbl {
         unsafe extern "system" fn GetItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGridProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, row: i32, column: i32, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetItem(core::mem::transmute_copy(&row), core::mem::transmute_copy(&column)) {
+            match IGridProvider_Impl::GetItem(this, core::mem::transmute_copy(&row), core::mem::transmute_copy(&column)) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -988,7 +988,7 @@ impl IGridProvider_Vtbl {
         unsafe extern "system" fn RowCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGridProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RowCount() {
+            match IGridProvider_Impl::RowCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -999,7 +999,7 @@ impl IGridProvider_Vtbl {
         unsafe extern "system" fn ColumnCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGridProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ColumnCount() {
+            match IGridProvider_Impl::ColumnCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1027,7 +1027,7 @@ impl IInvokeProvider_Vtbl {
         unsafe extern "system" fn Invoke<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IInvokeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Invoke().into()
+            IInvokeProvider_Impl::Invoke(this).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
@@ -1044,7 +1044,7 @@ impl IItemContainerProvider_Vtbl {
         unsafe extern "system" fn FindItemByProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IItemContainerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstartafter: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: std::mem::MaybeUninit<windows_core::VARIANT>, pfound: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FindItemByProperty(windows_core::from_raw_borrowed(&pstartafter), core::mem::transmute_copy(&propertyid), core::mem::transmute(&value)) {
+            match IItemContainerProvider_Impl::FindItemByProperty(this, windows_core::from_raw_borrowed(&pstartafter), core::mem::transmute_copy(&propertyid), core::mem::transmute(&value)) {
                 Ok(ok__) => {
                     core::ptr::write(pfound, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1083,22 +1083,22 @@ impl ILegacyIAccessibleProvider_Vtbl {
         unsafe extern "system" fn Select<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flagsselect: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Select(core::mem::transmute_copy(&flagsselect)).into()
+            ILegacyIAccessibleProvider_Impl::Select(this, core::mem::transmute_copy(&flagsselect)).into()
         }
         unsafe extern "system" fn DoDefaultAction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DoDefaultAction().into()
+            ILegacyIAccessibleProvider_Impl::DoDefaultAction(this).into()
         }
         unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szvalue: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetValue(core::mem::transmute(&szvalue)).into()
+            ILegacyIAccessibleProvider_Impl::SetValue(this, core::mem::transmute(&szvalue)).into()
         }
         unsafe extern "system" fn GetIAccessible<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppaccessible: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetIAccessible() {
+            match ILegacyIAccessibleProvider_Impl::GetIAccessible(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppaccessible, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1109,7 +1109,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
         unsafe extern "system" fn ChildId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ChildId() {
+            match ILegacyIAccessibleProvider_Impl::ChildId(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1120,7 +1120,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match ILegacyIAccessibleProvider_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(pszname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1131,7 +1131,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
         unsafe extern "system" fn Value<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvalue: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Value() {
+            match ILegacyIAccessibleProvider_Impl::Value(this) {
                 Ok(ok__) => {
                     core::ptr::write(pszvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1142,7 +1142,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
         unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszdescription: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Description() {
+            match ILegacyIAccessibleProvider_Impl::Description(this) {
                 Ok(ok__) => {
                     core::ptr::write(pszdescription, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1153,7 +1153,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
         unsafe extern "system" fn Role<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwrole: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Role() {
+            match ILegacyIAccessibleProvider_Impl::Role(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdwrole, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1164,7 +1164,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
         unsafe extern "system" fn State<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstate: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.State() {
+            match ILegacyIAccessibleProvider_Impl::State(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdwstate, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1175,7 +1175,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
         unsafe extern "system" fn Help<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszhelp: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Help() {
+            match ILegacyIAccessibleProvider_Impl::Help(this) {
                 Ok(ok__) => {
                     core::ptr::write(pszhelp, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1186,7 +1186,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
         unsafe extern "system" fn KeyboardShortcut<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszkeyboardshortcut: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.KeyboardShortcut() {
+            match ILegacyIAccessibleProvider_Impl::KeyboardShortcut(this) {
                 Ok(ok__) => {
                     core::ptr::write(pszkeyboardshortcut, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1197,7 +1197,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
         unsafe extern "system" fn GetSelection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarselectedchildren: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSelection() {
+            match ILegacyIAccessibleProvider_Impl::GetSelection(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarselectedchildren, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1208,7 +1208,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
         unsafe extern "system" fn DefaultAction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszdefaultaction: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DefaultAction() {
+            match ILegacyIAccessibleProvider_Impl::DefaultAction(this) {
                 Ok(ok__) => {
                     core::ptr::write(pszdefaultaction, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1253,7 +1253,7 @@ impl IMultipleViewProvider_Vtbl {
         unsafe extern "system" fn GetViewName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMultipleViewProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, viewid: i32, pretval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetViewName(core::mem::transmute_copy(&viewid)) {
+            match IMultipleViewProvider_Impl::GetViewName(this, core::mem::transmute_copy(&viewid)) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1264,12 +1264,12 @@ impl IMultipleViewProvider_Vtbl {
         unsafe extern "system" fn SetCurrentView<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMultipleViewProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, viewid: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCurrentView(core::mem::transmute_copy(&viewid)).into()
+            IMultipleViewProvider_Impl::SetCurrentView(this, core::mem::transmute_copy(&viewid)).into()
         }
         unsafe extern "system" fn CurrentView<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMultipleViewProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentView() {
+            match IMultipleViewProvider_Impl::CurrentView(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1280,7 +1280,7 @@ impl IMultipleViewProvider_Vtbl {
         unsafe extern "system" fn GetSupportedViews<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMultipleViewProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSupportedViews() {
+            match IMultipleViewProvider_Impl::GetSupportedViews(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1309,7 +1309,7 @@ impl IObjectModelProvider_Vtbl {
         unsafe extern "system" fn GetUnderlyingObjectModel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IObjectModelProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunknown: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetUnderlyingObjectModel() {
+            match IObjectModelProvider_Impl::GetUnderlyingObjectModel(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppunknown, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1332,7 +1332,7 @@ impl IProxyProviderWinEventHandler_Vtbl {
         unsafe extern "system" fn RespondToWinEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProxyProviderWinEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, idwinevent: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, psink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RespondToWinEvent(core::mem::transmute_copy(&idwinevent), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), windows_core::from_raw_borrowed(&psink)).into()
+            IProxyProviderWinEventHandler_Impl::RespondToWinEvent(this, core::mem::transmute_copy(&idwinevent), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), windows_core::from_raw_borrowed(&psink)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), RespondToWinEvent: RespondToWinEvent::<Identity, Impl, OFFSET> }
     }
@@ -1354,17 +1354,17 @@ impl IProxyProviderWinEventSink_Vtbl {
         unsafe extern "system" fn AddAutomationPropertyChangedEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProxyProviderWinEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprovider: *mut core::ffi::c_void, id: UIA_PROPERTY_ID, newvalue: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddAutomationPropertyChangedEvent(windows_core::from_raw_borrowed(&pprovider), core::mem::transmute_copy(&id), core::mem::transmute(&newvalue)).into()
+            IProxyProviderWinEventSink_Impl::AddAutomationPropertyChangedEvent(this, windows_core::from_raw_borrowed(&pprovider), core::mem::transmute_copy(&id), core::mem::transmute(&newvalue)).into()
         }
         unsafe extern "system" fn AddAutomationEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProxyProviderWinEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprovider: *mut core::ffi::c_void, id: UIA_EVENT_ID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddAutomationEvent(windows_core::from_raw_borrowed(&pprovider), core::mem::transmute_copy(&id)).into()
+            IProxyProviderWinEventSink_Impl::AddAutomationEvent(this, windows_core::from_raw_borrowed(&pprovider), core::mem::transmute_copy(&id)).into()
         }
         unsafe extern "system" fn AddStructureChangedEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProxyProviderWinEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprovider: *mut core::ffi::c_void, structurechangetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddStructureChangedEvent(windows_core::from_raw_borrowed(&pprovider), core::mem::transmute_copy(&structurechangetype), core::mem::transmute_copy(&runtimeid)).into()
+            IProxyProviderWinEventSink_Impl::AddStructureChangedEvent(this, windows_core::from_raw_borrowed(&pprovider), core::mem::transmute_copy(&structurechangetype), core::mem::transmute_copy(&runtimeid)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1392,12 +1392,12 @@ impl IRangeValueProvider_Vtbl {
         unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRangeValueProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, val: f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetValue(core::mem::transmute_copy(&val)).into()
+            IRangeValueProvider_Impl::SetValue(this, core::mem::transmute_copy(&val)).into()
         }
         unsafe extern "system" fn Value<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRangeValueProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Value() {
+            match IRangeValueProvider_Impl::Value(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1408,7 +1408,7 @@ impl IRangeValueProvider_Vtbl {
         unsafe extern "system" fn IsReadOnly<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRangeValueProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsReadOnly() {
+            match IRangeValueProvider_Impl::IsReadOnly(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1419,7 +1419,7 @@ impl IRangeValueProvider_Vtbl {
         unsafe extern "system" fn Maximum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRangeValueProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Maximum() {
+            match IRangeValueProvider_Impl::Maximum(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1430,7 +1430,7 @@ impl IRangeValueProvider_Vtbl {
         unsafe extern "system" fn Minimum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRangeValueProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Minimum() {
+            match IRangeValueProvider_Impl::Minimum(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1441,7 +1441,7 @@ impl IRangeValueProvider_Vtbl {
         unsafe extern "system" fn LargeChange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRangeValueProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LargeChange() {
+            match IRangeValueProvider_Impl::LargeChange(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1452,7 +1452,7 @@ impl IRangeValueProvider_Vtbl {
         unsafe extern "system" fn SmallChange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRangeValueProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SmallChange() {
+            match IRangeValueProvider_Impl::SmallChange(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1488,12 +1488,12 @@ impl IRawElementProviderAdviseEvents_Vtbl {
         unsafe extern "system" fn AdviseEventAdded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderAdviseEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventid: UIA_EVENT_ID, propertyids: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AdviseEventAdded(core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&propertyids)).into()
+            IRawElementProviderAdviseEvents_Impl::AdviseEventAdded(this, core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&propertyids)).into()
         }
         unsafe extern "system" fn AdviseEventRemoved<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderAdviseEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventid: UIA_EVENT_ID, propertyids: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AdviseEventRemoved(core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&propertyids)).into()
+            IRawElementProviderAdviseEvents_Impl::AdviseEventRemoved(this, core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&propertyids)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1522,7 +1522,7 @@ impl IRawElementProviderFragment_Vtbl {
         unsafe extern "system" fn Navigate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderFragment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, direction: NavigateDirection, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Navigate(core::mem::transmute_copy(&direction)) {
+            match IRawElementProviderFragment_Impl::Navigate(this, core::mem::transmute_copy(&direction)) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1533,7 +1533,7 @@ impl IRawElementProviderFragment_Vtbl {
         unsafe extern "system" fn GetRuntimeId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderFragment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRuntimeId() {
+            match IRawElementProviderFragment_Impl::GetRuntimeId(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1544,7 +1544,7 @@ impl IRawElementProviderFragment_Vtbl {
         unsafe extern "system" fn BoundingRectangle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderFragment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut UiaRect) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BoundingRectangle() {
+            match IRawElementProviderFragment_Impl::BoundingRectangle(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1555,7 +1555,7 @@ impl IRawElementProviderFragment_Vtbl {
         unsafe extern "system" fn GetEmbeddedFragmentRoots<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderFragment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetEmbeddedFragmentRoots() {
+            match IRawElementProviderFragment_Impl::GetEmbeddedFragmentRoots(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1566,12 +1566,12 @@ impl IRawElementProviderFragment_Vtbl {
         unsafe extern "system" fn SetFocus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderFragment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFocus().into()
+            IRawElementProviderFragment_Impl::SetFocus(this).into()
         }
         unsafe extern "system" fn FragmentRoot<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderFragment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FragmentRoot() {
+            match IRawElementProviderFragment_Impl::FragmentRoot(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1603,7 +1603,7 @@ impl IRawElementProviderFragmentRoot_Vtbl {
         unsafe extern "system" fn ElementProviderFromPoint<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderFragmentRoot_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, x: f64, y: f64, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ElementProviderFromPoint(core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)) {
+            match IRawElementProviderFragmentRoot_Impl::ElementProviderFromPoint(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1614,7 +1614,7 @@ impl IRawElementProviderFragmentRoot_Vtbl {
         unsafe extern "system" fn GetFocus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderFragmentRoot_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFocus() {
+            match IRawElementProviderFragmentRoot_Impl::GetFocus(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1644,7 +1644,7 @@ impl IRawElementProviderHostingAccessibles_Vtbl {
         unsafe extern "system" fn GetEmbeddedAccessibles<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderHostingAccessibles_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetEmbeddedAccessibles() {
+            match IRawElementProviderHostingAccessibles_Impl::GetEmbeddedAccessibles(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1667,7 +1667,7 @@ impl IRawElementProviderHwndOverride_Vtbl {
         unsafe extern "system" fn GetOverrideProviderForHwnd<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderHwndOverride_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetOverrideProviderForHwnd(core::mem::transmute_copy(&hwnd)) {
+            match IRawElementProviderHwndOverride_Impl::GetOverrideProviderForHwnd(this, core::mem::transmute_copy(&hwnd)) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1693,7 +1693,7 @@ impl IRawElementProviderSimple_Vtbl {
         unsafe extern "system" fn ProviderOptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderSimple_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut ProviderOptions) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ProviderOptions() {
+            match IRawElementProviderSimple_Impl::ProviderOptions(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1704,7 +1704,7 @@ impl IRawElementProviderSimple_Vtbl {
         unsafe extern "system" fn GetPatternProvider<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderSimple_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, patternid: UIA_PATTERN_ID, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPatternProvider(core::mem::transmute_copy(&patternid)) {
+            match IRawElementProviderSimple_Impl::GetPatternProvider(this, core::mem::transmute_copy(&patternid)) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1715,7 +1715,7 @@ impl IRawElementProviderSimple_Vtbl {
         unsafe extern "system" fn GetPropertyValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderSimple_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, pretval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPropertyValue(core::mem::transmute_copy(&propertyid)) {
+            match IRawElementProviderSimple_Impl::GetPropertyValue(this, core::mem::transmute_copy(&propertyid)) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1726,7 +1726,7 @@ impl IRawElementProviderSimple_Vtbl {
         unsafe extern "system" fn HostRawElementProvider<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderSimple_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.HostRawElementProvider() {
+            match IRawElementProviderSimple_Impl::HostRawElementProvider(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1755,7 +1755,7 @@ impl IRawElementProviderSimple2_Vtbl {
         unsafe extern "system" fn ShowContextMenu<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderSimple2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ShowContextMenu().into()
+            IRawElementProviderSimple2_Impl::ShowContextMenu(this).into()
         }
         Self { base__: IRawElementProviderSimple_Vtbl::new::<Identity, Impl, OFFSET>(), ShowContextMenu: ShowContextMenu::<Identity, Impl, OFFSET> }
     }
@@ -1772,7 +1772,7 @@ impl IRawElementProviderSimple3_Vtbl {
         unsafe extern "system" fn GetMetadataValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderSimple3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetid: i32, metadataid: UIA_METADATA_ID, returnval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetMetadataValue(core::mem::transmute_copy(&targetid), core::mem::transmute_copy(&metadataid)) {
+            match IRawElementProviderSimple3_Impl::GetMetadataValue(this, core::mem::transmute_copy(&targetid), core::mem::transmute_copy(&metadataid)) {
                 Ok(ok__) => {
                     core::ptr::write(returnval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1799,7 +1799,7 @@ impl IRawElementProviderWindowlessSite_Vtbl {
         unsafe extern "system" fn GetAdjacentFragment<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderWindowlessSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, direction: NavigateDirection, ppparent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAdjacentFragment(core::mem::transmute_copy(&direction)) {
+            match IRawElementProviderWindowlessSite_Impl::GetAdjacentFragment(this, core::mem::transmute_copy(&direction)) {
                 Ok(ok__) => {
                     core::ptr::write(ppparent, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1810,7 +1810,7 @@ impl IRawElementProviderWindowlessSite_Vtbl {
         unsafe extern "system" fn GetRuntimeIdPrefix<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRawElementProviderWindowlessSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRuntimeIdPrefix() {
+            match IRawElementProviderWindowlessSite_Impl::GetRuntimeIdPrefix(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1838,12 +1838,12 @@ impl IRichEditUiaInformation_Vtbl {
         unsafe extern "system" fn GetBoundaryRectangle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRichEditUiaInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puiarect: *mut UiaRect) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetBoundaryRectangle(core::mem::transmute_copy(&puiarect)).into()
+            IRichEditUiaInformation_Impl::GetBoundaryRectangle(this, core::mem::transmute_copy(&puiarect)).into()
         }
         unsafe extern "system" fn IsVisible<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRichEditUiaInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsVisible().into()
+            IRichEditUiaInformation_Impl::IsVisible(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1864,7 +1864,7 @@ impl IRicheditWindowlessAccessibility_Vtbl {
         unsafe extern "system" fn CreateProvider<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRicheditWindowlessAccessibility_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psite: *mut core::ffi::c_void, ppprovider: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateProvider(windows_core::from_raw_borrowed(&psite)) {
+            match IRicheditWindowlessAccessibility_Impl::CreateProvider(this, windows_core::from_raw_borrowed(&psite)) {
                 Ok(ok__) => {
                     core::ptr::write(ppprovider, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1887,7 +1887,7 @@ impl IScrollItemProvider_Vtbl {
         unsafe extern "system" fn ScrollIntoView<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IScrollItemProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ScrollIntoView().into()
+            IScrollItemProvider_Impl::ScrollIntoView(this).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ScrollIntoView: ScrollIntoView::<Identity, Impl, OFFSET> }
     }
@@ -1911,17 +1911,17 @@ impl IScrollProvider_Vtbl {
         unsafe extern "system" fn Scroll<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IScrollProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Scroll(core::mem::transmute_copy(&horizontalamount), core::mem::transmute_copy(&verticalamount)).into()
+            IScrollProvider_Impl::Scroll(this, core::mem::transmute_copy(&horizontalamount), core::mem::transmute_copy(&verticalamount)).into()
         }
         unsafe extern "system" fn SetScrollPercent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IScrollProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, horizontalpercent: f64, verticalpercent: f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetScrollPercent(core::mem::transmute_copy(&horizontalpercent), core::mem::transmute_copy(&verticalpercent)).into()
+            IScrollProvider_Impl::SetScrollPercent(this, core::mem::transmute_copy(&horizontalpercent), core::mem::transmute_copy(&verticalpercent)).into()
         }
         unsafe extern "system" fn HorizontalScrollPercent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IScrollProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.HorizontalScrollPercent() {
+            match IScrollProvider_Impl::HorizontalScrollPercent(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1932,7 +1932,7 @@ impl IScrollProvider_Vtbl {
         unsafe extern "system" fn VerticalScrollPercent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IScrollProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.VerticalScrollPercent() {
+            match IScrollProvider_Impl::VerticalScrollPercent(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1943,7 +1943,7 @@ impl IScrollProvider_Vtbl {
         unsafe extern "system" fn HorizontalViewSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IScrollProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.HorizontalViewSize() {
+            match IScrollProvider_Impl::HorizontalViewSize(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1954,7 +1954,7 @@ impl IScrollProvider_Vtbl {
         unsafe extern "system" fn VerticalViewSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IScrollProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.VerticalViewSize() {
+            match IScrollProvider_Impl::VerticalViewSize(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1965,7 +1965,7 @@ impl IScrollProvider_Vtbl {
         unsafe extern "system" fn HorizontallyScrollable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IScrollProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.HorizontallyScrollable() {
+            match IScrollProvider_Impl::HorizontallyScrollable(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1976,7 +1976,7 @@ impl IScrollProvider_Vtbl {
         unsafe extern "system" fn VerticallyScrollable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IScrollProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.VerticallyScrollable() {
+            match IScrollProvider_Impl::VerticallyScrollable(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2013,22 +2013,22 @@ impl ISelectionItemProvider_Vtbl {
         unsafe extern "system" fn Select<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISelectionItemProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Select().into()
+            ISelectionItemProvider_Impl::Select(this).into()
         }
         unsafe extern "system" fn AddToSelection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISelectionItemProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddToSelection().into()
+            ISelectionItemProvider_Impl::AddToSelection(this).into()
         }
         unsafe extern "system" fn RemoveFromSelection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISelectionItemProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveFromSelection().into()
+            ISelectionItemProvider_Impl::RemoveFromSelection(this).into()
         }
         unsafe extern "system" fn IsSelected<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISelectionItemProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsSelected() {
+            match ISelectionItemProvider_Impl::IsSelected(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2039,7 +2039,7 @@ impl ISelectionItemProvider_Vtbl {
         unsafe extern "system" fn SelectionContainer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISelectionItemProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SelectionContainer() {
+            match ISelectionItemProvider_Impl::SelectionContainer(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2074,7 +2074,7 @@ impl ISelectionProvider_Vtbl {
         unsafe extern "system" fn GetSelection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISelectionProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSelection() {
+            match ISelectionProvider_Impl::GetSelection(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2085,7 +2085,7 @@ impl ISelectionProvider_Vtbl {
         unsafe extern "system" fn CanSelectMultiple<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISelectionProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CanSelectMultiple() {
+            match ISelectionProvider_Impl::CanSelectMultiple(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2096,7 +2096,7 @@ impl ISelectionProvider_Vtbl {
         unsafe extern "system" fn IsSelectionRequired<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISelectionProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsSelectionRequired() {
+            match ISelectionProvider_Impl::IsSelectionRequired(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2130,7 +2130,7 @@ impl ISelectionProvider2_Vtbl {
         unsafe extern "system" fn FirstSelectedItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISelectionProvider2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FirstSelectedItem() {
+            match ISelectionProvider2_Impl::FirstSelectedItem(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2141,7 +2141,7 @@ impl ISelectionProvider2_Vtbl {
         unsafe extern "system" fn LastSelectedItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISelectionProvider2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LastSelectedItem() {
+            match ISelectionProvider2_Impl::LastSelectedItem(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2152,7 +2152,7 @@ impl ISelectionProvider2_Vtbl {
         unsafe extern "system" fn CurrentSelectedItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISelectionProvider2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentSelectedItem() {
+            match ISelectionProvider2_Impl::CurrentSelectedItem(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2163,7 +2163,7 @@ impl ISelectionProvider2_Vtbl {
         unsafe extern "system" fn ItemCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISelectionProvider2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ItemCount() {
+            match ISelectionProvider2_Impl::ItemCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2197,7 +2197,7 @@ impl ISpreadsheetItemProvider_Vtbl {
         unsafe extern "system" fn Formula<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpreadsheetItemProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Formula() {
+            match ISpreadsheetItemProvider_Impl::Formula(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2208,7 +2208,7 @@ impl ISpreadsheetItemProvider_Vtbl {
         unsafe extern "system" fn GetAnnotationObjects<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpreadsheetItemProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAnnotationObjects() {
+            match ISpreadsheetItemProvider_Impl::GetAnnotationObjects(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2219,7 +2219,7 @@ impl ISpreadsheetItemProvider_Vtbl {
         unsafe extern "system" fn GetAnnotationTypes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpreadsheetItemProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAnnotationTypes() {
+            match ISpreadsheetItemProvider_Impl::GetAnnotationTypes(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2247,7 +2247,7 @@ impl ISpreadsheetProvider_Vtbl {
         unsafe extern "system" fn GetItemByName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISpreadsheetProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetItemByName(core::mem::transmute(&name)) {
+            match ISpreadsheetProvider_Impl::GetItemByName(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2276,7 +2276,7 @@ impl IStylesProvider_Vtbl {
         unsafe extern "system" fn StyleId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStylesProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut UIA_STYLE_ID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.StyleId() {
+            match IStylesProvider_Impl::StyleId(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2287,7 +2287,7 @@ impl IStylesProvider_Vtbl {
         unsafe extern "system" fn StyleName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStylesProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.StyleName() {
+            match IStylesProvider_Impl::StyleName(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2298,7 +2298,7 @@ impl IStylesProvider_Vtbl {
         unsafe extern "system" fn FillColor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStylesProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FillColor() {
+            match IStylesProvider_Impl::FillColor(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2309,7 +2309,7 @@ impl IStylesProvider_Vtbl {
         unsafe extern "system" fn FillPatternStyle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStylesProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FillPatternStyle() {
+            match IStylesProvider_Impl::FillPatternStyle(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2320,7 +2320,7 @@ impl IStylesProvider_Vtbl {
         unsafe extern "system" fn Shape<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStylesProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Shape() {
+            match IStylesProvider_Impl::Shape(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2331,7 +2331,7 @@ impl IStylesProvider_Vtbl {
         unsafe extern "system" fn FillPatternColor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStylesProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FillPatternColor() {
+            match IStylesProvider_Impl::FillPatternColor(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2342,7 +2342,7 @@ impl IStylesProvider_Vtbl {
         unsafe extern "system" fn ExtendedProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStylesProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ExtendedProperties() {
+            match IStylesProvider_Impl::ExtendedProperties(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2375,12 +2375,12 @@ impl ISynchronizedInputProvider_Vtbl {
         unsafe extern "system" fn StartListening<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISynchronizedInputProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputtype: SynchronizedInputType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.StartListening(core::mem::transmute_copy(&inputtype)).into()
+            ISynchronizedInputProvider_Impl::StartListening(this, core::mem::transmute_copy(&inputtype)).into()
         }
         unsafe extern "system" fn Cancel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISynchronizedInputProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Cancel().into()
+            ISynchronizedInputProvider_Impl::Cancel(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -2405,7 +2405,7 @@ impl ITableItemProvider_Vtbl {
         unsafe extern "system" fn GetRowHeaderItems<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITableItemProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRowHeaderItems() {
+            match ITableItemProvider_Impl::GetRowHeaderItems(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2416,7 +2416,7 @@ impl ITableItemProvider_Vtbl {
         unsafe extern "system" fn GetColumnHeaderItems<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITableItemProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetColumnHeaderItems() {
+            match ITableItemProvider_Impl::GetColumnHeaderItems(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2448,7 +2448,7 @@ impl ITableProvider_Vtbl {
         unsafe extern "system" fn GetRowHeaders<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITableProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRowHeaders() {
+            match ITableProvider_Impl::GetRowHeaders(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2459,7 +2459,7 @@ impl ITableProvider_Vtbl {
         unsafe extern "system" fn GetColumnHeaders<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITableProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetColumnHeaders() {
+            match ITableProvider_Impl::GetColumnHeaders(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2470,7 +2470,7 @@ impl ITableProvider_Vtbl {
         unsafe extern "system" fn RowOrColumnMajor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITableProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut RowOrColumnMajor) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RowOrColumnMajor() {
+            match ITableProvider_Impl::RowOrColumnMajor(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2499,7 +2499,7 @@ impl ITextChildProvider_Vtbl {
         unsafe extern "system" fn TextContainer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextChildProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TextContainer() {
+            match ITextChildProvider_Impl::TextContainer(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2510,7 +2510,7 @@ impl ITextChildProvider_Vtbl {
         unsafe extern "system" fn TextRange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextChildProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TextRange() {
+            match ITextChildProvider_Impl::TextRange(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2541,7 +2541,7 @@ impl ITextEditProvider_Vtbl {
         unsafe extern "system" fn GetActiveComposition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextEditProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetActiveComposition() {
+            match ITextEditProvider_Impl::GetActiveComposition(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2552,7 +2552,7 @@ impl ITextEditProvider_Vtbl {
         unsafe extern "system" fn GetConversionTarget<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextEditProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetConversionTarget() {
+            match ITextEditProvider_Impl::GetConversionTarget(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2587,7 +2587,7 @@ impl ITextProvider_Vtbl {
         unsafe extern "system" fn GetSelection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSelection() {
+            match ITextProvider_Impl::GetSelection(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2598,7 +2598,7 @@ impl ITextProvider_Vtbl {
         unsafe extern "system" fn GetVisibleRanges<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetVisibleRanges() {
+            match ITextProvider_Impl::GetVisibleRanges(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2609,7 +2609,7 @@ impl ITextProvider_Vtbl {
         unsafe extern "system" fn RangeFromChild<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, childelement: *mut core::ffi::c_void, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RangeFromChild(windows_core::from_raw_borrowed(&childelement)) {
+            match ITextProvider_Impl::RangeFromChild(this, windows_core::from_raw_borrowed(&childelement)) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2620,7 +2620,7 @@ impl ITextProvider_Vtbl {
         unsafe extern "system" fn RangeFromPoint<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, point: UiaPoint, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RangeFromPoint(core::mem::transmute(&point)) {
+            match ITextProvider_Impl::RangeFromPoint(this, core::mem::transmute(&point)) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2631,7 +2631,7 @@ impl ITextProvider_Vtbl {
         unsafe extern "system" fn DocumentRange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DocumentRange() {
+            match ITextProvider_Impl::DocumentRange(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2642,7 +2642,7 @@ impl ITextProvider_Vtbl {
         unsafe extern "system" fn SupportedTextSelection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut SupportedTextSelection) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SupportedTextSelection() {
+            match ITextProvider_Impl::SupportedTextSelection(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2677,7 +2677,7 @@ impl ITextProvider2_Vtbl {
         unsafe extern "system" fn RangeFromAnnotation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextProvider2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, annotationelement: *mut core::ffi::c_void, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RangeFromAnnotation(windows_core::from_raw_borrowed(&annotationelement)) {
+            match ITextProvider2_Impl::RangeFromAnnotation(this, windows_core::from_raw_borrowed(&annotationelement)) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2688,7 +2688,7 @@ impl ITextProvider2_Vtbl {
         unsafe extern "system" fn GetCaretRange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextProvider2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isactive: *mut super::super::Foundation::BOOL, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCaretRange(core::mem::transmute_copy(&isactive)) {
+            match ITextProvider2_Impl::GetCaretRange(this, core::mem::transmute_copy(&isactive)) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2735,7 +2735,7 @@ impl ITextRangeProvider_Vtbl {
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match ITextRangeProvider_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2746,7 +2746,7 @@ impl ITextRangeProvider_Vtbl {
         unsafe extern "system" fn Compare<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, range: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Compare(windows_core::from_raw_borrowed(&range)) {
+            match ITextRangeProvider_Impl::Compare(this, windows_core::from_raw_borrowed(&range)) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2757,7 +2757,7 @@ impl ITextRangeProvider_Vtbl {
         unsafe extern "system" fn CompareEndpoints<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, endpoint: TextPatternRangeEndpoint, targetrange: *mut core::ffi::c_void, targetendpoint: TextPatternRangeEndpoint, pretval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CompareEndpoints(core::mem::transmute_copy(&endpoint), windows_core::from_raw_borrowed(&targetrange), core::mem::transmute_copy(&targetendpoint)) {
+            match ITextRangeProvider_Impl::CompareEndpoints(this, core::mem::transmute_copy(&endpoint), windows_core::from_raw_borrowed(&targetrange), core::mem::transmute_copy(&targetendpoint)) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2768,12 +2768,12 @@ impl ITextRangeProvider_Vtbl {
         unsafe extern "system" fn ExpandToEnclosingUnit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unit: TextUnit) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ExpandToEnclosingUnit(core::mem::transmute_copy(&unit)).into()
+            ITextRangeProvider_Impl::ExpandToEnclosingUnit(this, core::mem::transmute_copy(&unit)).into()
         }
         unsafe extern "system" fn FindAttribute<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributeid: UIA_TEXTATTRIBUTE_ID, val: std::mem::MaybeUninit<windows_core::VARIANT>, backward: super::super::Foundation::BOOL, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FindAttribute(core::mem::transmute_copy(&attributeid), core::mem::transmute(&val), core::mem::transmute_copy(&backward)) {
+            match ITextRangeProvider_Impl::FindAttribute(this, core::mem::transmute_copy(&attributeid), core::mem::transmute(&val), core::mem::transmute_copy(&backward)) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2784,7 +2784,7 @@ impl ITextRangeProvider_Vtbl {
         unsafe extern "system" fn FindText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: std::mem::MaybeUninit<windows_core::BSTR>, backward: super::super::Foundation::BOOL, ignorecase: super::super::Foundation::BOOL, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FindText(core::mem::transmute(&text), core::mem::transmute_copy(&backward), core::mem::transmute_copy(&ignorecase)) {
+            match ITextRangeProvider_Impl::FindText(this, core::mem::transmute(&text), core::mem::transmute_copy(&backward), core::mem::transmute_copy(&ignorecase)) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2795,7 +2795,7 @@ impl ITextRangeProvider_Vtbl {
         unsafe extern "system" fn GetAttributeValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributeid: UIA_TEXTATTRIBUTE_ID, pretval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAttributeValue(core::mem::transmute_copy(&attributeid)) {
+            match ITextRangeProvider_Impl::GetAttributeValue(this, core::mem::transmute_copy(&attributeid)) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2806,7 +2806,7 @@ impl ITextRangeProvider_Vtbl {
         unsafe extern "system" fn GetBoundingRectangles<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetBoundingRectangles() {
+            match ITextRangeProvider_Impl::GetBoundingRectangles(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2817,7 +2817,7 @@ impl ITextRangeProvider_Vtbl {
         unsafe extern "system" fn GetEnclosingElement<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetEnclosingElement() {
+            match ITextRangeProvider_Impl::GetEnclosingElement(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2828,7 +2828,7 @@ impl ITextRangeProvider_Vtbl {
         unsafe extern "system" fn GetText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxlength: i32, pretval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetText(core::mem::transmute_copy(&maxlength)) {
+            match ITextRangeProvider_Impl::GetText(this, core::mem::transmute_copy(&maxlength)) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2839,7 +2839,7 @@ impl ITextRangeProvider_Vtbl {
         unsafe extern "system" fn Move<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unit: TextUnit, count: i32, pretval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Move(core::mem::transmute_copy(&unit), core::mem::transmute_copy(&count)) {
+            match ITextRangeProvider_Impl::Move(this, core::mem::transmute_copy(&unit), core::mem::transmute_copy(&count)) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2850,7 +2850,7 @@ impl ITextRangeProvider_Vtbl {
         unsafe extern "system" fn MoveEndpointByUnit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32, pretval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MoveEndpointByUnit(core::mem::transmute_copy(&endpoint), core::mem::transmute_copy(&unit), core::mem::transmute_copy(&count)) {
+            match ITextRangeProvider_Impl::MoveEndpointByUnit(this, core::mem::transmute_copy(&endpoint), core::mem::transmute_copy(&unit), core::mem::transmute_copy(&count)) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2861,32 +2861,32 @@ impl ITextRangeProvider_Vtbl {
         unsafe extern "system" fn MoveEndpointByRange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, endpoint: TextPatternRangeEndpoint, targetrange: *mut core::ffi::c_void, targetendpoint: TextPatternRangeEndpoint) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.MoveEndpointByRange(core::mem::transmute_copy(&endpoint), windows_core::from_raw_borrowed(&targetrange), core::mem::transmute_copy(&targetendpoint)).into()
+            ITextRangeProvider_Impl::MoveEndpointByRange(this, core::mem::transmute_copy(&endpoint), windows_core::from_raw_borrowed(&targetrange), core::mem::transmute_copy(&targetendpoint)).into()
         }
         unsafe extern "system" fn Select<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Select().into()
+            ITextRangeProvider_Impl::Select(this).into()
         }
         unsafe extern "system" fn AddToSelection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddToSelection().into()
+            ITextRangeProvider_Impl::AddToSelection(this).into()
         }
         unsafe extern "system" fn RemoveFromSelection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveFromSelection().into()
+            ITextRangeProvider_Impl::RemoveFromSelection(this).into()
         }
         unsafe extern "system" fn ScrollIntoView<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, aligntotop: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ScrollIntoView(core::mem::transmute_copy(&aligntotop)).into()
+            ITextRangeProvider_Impl::ScrollIntoView(this, core::mem::transmute_copy(&aligntotop)).into()
         }
         unsafe extern "system" fn GetChildren<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetChildren() {
+            match ITextRangeProvider_Impl::GetChildren(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2932,7 +2932,7 @@ impl ITextRangeProvider2_Vtbl {
         unsafe extern "system" fn ShowContextMenu<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextRangeProvider2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ShowContextMenu().into()
+            ITextRangeProvider2_Impl::ShowContextMenu(this).into()
         }
         Self { base__: ITextRangeProvider_Vtbl::new::<Identity, Impl, OFFSET>(), ShowContextMenu: ShowContextMenu::<Identity, Impl, OFFSET> }
     }
@@ -2950,12 +2950,12 @@ impl IToggleProvider_Vtbl {
         unsafe extern "system" fn Toggle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IToggleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Toggle().into()
+            IToggleProvider_Impl::Toggle(this).into()
         }
         unsafe extern "system" fn ToggleState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IToggleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut ToggleState) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ToggleState() {
+            match IToggleProvider_Impl::ToggleState(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2987,22 +2987,22 @@ impl ITransformProvider_Vtbl {
         unsafe extern "system" fn Move<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransformProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, x: f64, y: f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Move(core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)).into()
+            ITransformProvider_Impl::Move(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)).into()
         }
         unsafe extern "system" fn Resize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransformProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: f64, height: f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Resize(core::mem::transmute_copy(&width), core::mem::transmute_copy(&height)).into()
+            ITransformProvider_Impl::Resize(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height)).into()
         }
         unsafe extern "system" fn Rotate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransformProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, degrees: f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Rotate(core::mem::transmute_copy(&degrees)).into()
+            ITransformProvider_Impl::Rotate(this, core::mem::transmute_copy(&degrees)).into()
         }
         unsafe extern "system" fn CanMove<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransformProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CanMove() {
+            match ITransformProvider_Impl::CanMove(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3013,7 +3013,7 @@ impl ITransformProvider_Vtbl {
         unsafe extern "system" fn CanResize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransformProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CanResize() {
+            match ITransformProvider_Impl::CanResize(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3024,7 +3024,7 @@ impl ITransformProvider_Vtbl {
         unsafe extern "system" fn CanRotate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransformProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CanRotate() {
+            match ITransformProvider_Impl::CanRotate(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3060,12 +3060,12 @@ impl ITransformProvider2_Vtbl {
         unsafe extern "system" fn Zoom<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransformProvider2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, zoom: f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Zoom(core::mem::transmute_copy(&zoom)).into()
+            ITransformProvider2_Impl::Zoom(this, core::mem::transmute_copy(&zoom)).into()
         }
         unsafe extern "system" fn CanZoom<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransformProvider2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CanZoom() {
+            match ITransformProvider2_Impl::CanZoom(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3076,7 +3076,7 @@ impl ITransformProvider2_Vtbl {
         unsafe extern "system" fn ZoomLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransformProvider2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ZoomLevel() {
+            match ITransformProvider2_Impl::ZoomLevel(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3087,7 +3087,7 @@ impl ITransformProvider2_Vtbl {
         unsafe extern "system" fn ZoomMinimum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransformProvider2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ZoomMinimum() {
+            match ITransformProvider2_Impl::ZoomMinimum(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3098,7 +3098,7 @@ impl ITransformProvider2_Vtbl {
         unsafe extern "system" fn ZoomMaximum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransformProvider2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ZoomMaximum() {
+            match ITransformProvider2_Impl::ZoomMaximum(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3109,7 +3109,7 @@ impl ITransformProvider2_Vtbl {
         unsafe extern "system" fn ZoomByUnit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ITransformProvider2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, zoomunit: ZoomUnit) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ZoomByUnit(core::mem::transmute_copy(&zoomunit)).into()
+            ITransformProvider2_Impl::ZoomByUnit(this, core::mem::transmute_copy(&zoomunit)).into()
         }
         Self {
             base__: ITransformProvider_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3191,7 +3191,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn CompareElements<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, el1: *mut core::ffi::c_void, el2: *mut core::ffi::c_void, aresame: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CompareElements(windows_core::from_raw_borrowed(&el1), windows_core::from_raw_borrowed(&el2)) {
+            match IUIAutomation_Impl::CompareElements(this, windows_core::from_raw_borrowed(&el1), windows_core::from_raw_borrowed(&el2)) {
                 Ok(ok__) => {
                     core::ptr::write(aresame, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3202,7 +3202,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn CompareRuntimeIds<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY, aresame: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CompareRuntimeIds(core::mem::transmute_copy(&runtimeid1), core::mem::transmute_copy(&runtimeid2)) {
+            match IUIAutomation_Impl::CompareRuntimeIds(this, core::mem::transmute_copy(&runtimeid1), core::mem::transmute_copy(&runtimeid2)) {
                 Ok(ok__) => {
                     core::ptr::write(aresame, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3213,7 +3213,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn GetRootElement<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, root: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRootElement() {
+            match IUIAutomation_Impl::GetRootElement(this) {
                 Ok(ok__) => {
                     core::ptr::write(root, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3224,7 +3224,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn ElementFromHandle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, element: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ElementFromHandle(core::mem::transmute_copy(&hwnd)) {
+            match IUIAutomation_Impl::ElementFromHandle(this, core::mem::transmute_copy(&hwnd)) {
                 Ok(ok__) => {
                     core::ptr::write(element, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3235,7 +3235,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn ElementFromPoint<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pt: super::super::Foundation::POINT, element: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ElementFromPoint(core::mem::transmute(&pt)) {
+            match IUIAutomation_Impl::ElementFromPoint(this, core::mem::transmute(&pt)) {
                 Ok(ok__) => {
                     core::ptr::write(element, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3246,7 +3246,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn GetFocusedElement<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFocusedElement() {
+            match IUIAutomation_Impl::GetFocusedElement(this) {
                 Ok(ok__) => {
                     core::ptr::write(element, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3257,7 +3257,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn GetRootElementBuildCache<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, root: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRootElementBuildCache(windows_core::from_raw_borrowed(&cacherequest)) {
+            match IUIAutomation_Impl::GetRootElementBuildCache(this, windows_core::from_raw_borrowed(&cacherequest)) {
                 Ok(ok__) => {
                     core::ptr::write(root, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3268,7 +3268,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn ElementFromHandleBuildCache<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, cacherequest: *mut core::ffi::c_void, element: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ElementFromHandleBuildCache(core::mem::transmute_copy(&hwnd), windows_core::from_raw_borrowed(&cacherequest)) {
+            match IUIAutomation_Impl::ElementFromHandleBuildCache(this, core::mem::transmute_copy(&hwnd), windows_core::from_raw_borrowed(&cacherequest)) {
                 Ok(ok__) => {
                     core::ptr::write(element, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3279,7 +3279,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn ElementFromPointBuildCache<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pt: super::super::Foundation::POINT, cacherequest: *mut core::ffi::c_void, element: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ElementFromPointBuildCache(core::mem::transmute(&pt), windows_core::from_raw_borrowed(&cacherequest)) {
+            match IUIAutomation_Impl::ElementFromPointBuildCache(this, core::mem::transmute(&pt), windows_core::from_raw_borrowed(&cacherequest)) {
                 Ok(ok__) => {
                     core::ptr::write(element, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3290,7 +3290,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn GetFocusedElementBuildCache<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, element: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFocusedElementBuildCache(windows_core::from_raw_borrowed(&cacherequest)) {
+            match IUIAutomation_Impl::GetFocusedElementBuildCache(this, windows_core::from_raw_borrowed(&cacherequest)) {
                 Ok(ok__) => {
                     core::ptr::write(element, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3301,7 +3301,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn CreateTreeWalker<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcondition: *mut core::ffi::c_void, walker: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateTreeWalker(windows_core::from_raw_borrowed(&pcondition)) {
+            match IUIAutomation_Impl::CreateTreeWalker(this, windows_core::from_raw_borrowed(&pcondition)) {
                 Ok(ok__) => {
                     core::ptr::write(walker, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3312,7 +3312,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn ControlViewWalker<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, walker: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ControlViewWalker() {
+            match IUIAutomation_Impl::ControlViewWalker(this) {
                 Ok(ok__) => {
                     core::ptr::write(walker, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3323,7 +3323,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn ContentViewWalker<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, walker: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ContentViewWalker() {
+            match IUIAutomation_Impl::ContentViewWalker(this) {
                 Ok(ok__) => {
                     core::ptr::write(walker, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3334,7 +3334,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn RawViewWalker<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, walker: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RawViewWalker() {
+            match IUIAutomation_Impl::RawViewWalker(this) {
                 Ok(ok__) => {
                     core::ptr::write(walker, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3345,7 +3345,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn RawViewCondition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, condition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RawViewCondition() {
+            match IUIAutomation_Impl::RawViewCondition(this) {
                 Ok(ok__) => {
                     core::ptr::write(condition, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3356,7 +3356,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn ControlViewCondition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, condition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ControlViewCondition() {
+            match IUIAutomation_Impl::ControlViewCondition(this) {
                 Ok(ok__) => {
                     core::ptr::write(condition, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3367,7 +3367,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn ContentViewCondition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, condition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ContentViewCondition() {
+            match IUIAutomation_Impl::ContentViewCondition(this) {
                 Ok(ok__) => {
                     core::ptr::write(condition, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3378,7 +3378,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn CreateCacheRequest<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cacherequest: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateCacheRequest() {
+            match IUIAutomation_Impl::CreateCacheRequest(this) {
                 Ok(ok__) => {
                     core::ptr::write(cacherequest, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3389,7 +3389,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn CreateTrueCondition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newcondition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateTrueCondition() {
+            match IUIAutomation_Impl::CreateTrueCondition(this) {
                 Ok(ok__) => {
                     core::ptr::write(newcondition, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3400,7 +3400,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn CreateFalseCondition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newcondition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateFalseCondition() {
+            match IUIAutomation_Impl::CreateFalseCondition(this) {
                 Ok(ok__) => {
                     core::ptr::write(newcondition, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3411,7 +3411,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn CreatePropertyCondition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: std::mem::MaybeUninit<windows_core::VARIANT>, newcondition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePropertyCondition(core::mem::transmute_copy(&propertyid), core::mem::transmute(&value)) {
+            match IUIAutomation_Impl::CreatePropertyCondition(this, core::mem::transmute_copy(&propertyid), core::mem::transmute(&value)) {
                 Ok(ok__) => {
                     core::ptr::write(newcondition, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3422,7 +3422,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn CreatePropertyConditionEx<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: std::mem::MaybeUninit<windows_core::VARIANT>, flags: PropertyConditionFlags, newcondition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePropertyConditionEx(core::mem::transmute_copy(&propertyid), core::mem::transmute(&value), core::mem::transmute_copy(&flags)) {
+            match IUIAutomation_Impl::CreatePropertyConditionEx(this, core::mem::transmute_copy(&propertyid), core::mem::transmute(&value), core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
                     core::ptr::write(newcondition, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3433,7 +3433,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn CreateAndCondition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, condition1: *mut core::ffi::c_void, condition2: *mut core::ffi::c_void, newcondition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateAndCondition(windows_core::from_raw_borrowed(&condition1), windows_core::from_raw_borrowed(&condition2)) {
+            match IUIAutomation_Impl::CreateAndCondition(this, windows_core::from_raw_borrowed(&condition1), windows_core::from_raw_borrowed(&condition2)) {
                 Ok(ok__) => {
                     core::ptr::write(newcondition, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3444,7 +3444,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn CreateAndConditionFromArray<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, conditions: *const super::super::System::Com::SAFEARRAY, newcondition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateAndConditionFromArray(core::mem::transmute_copy(&conditions)) {
+            match IUIAutomation_Impl::CreateAndConditionFromArray(this, core::mem::transmute_copy(&conditions)) {
                 Ok(ok__) => {
                     core::ptr::write(newcondition, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3455,7 +3455,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn CreateAndConditionFromNativeArray<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, conditions: *const *mut core::ffi::c_void, conditioncount: i32, newcondition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateAndConditionFromNativeArray(core::mem::transmute_copy(&conditions), core::mem::transmute_copy(&conditioncount)) {
+            match IUIAutomation_Impl::CreateAndConditionFromNativeArray(this, core::mem::transmute_copy(&conditions), core::mem::transmute_copy(&conditioncount)) {
                 Ok(ok__) => {
                     core::ptr::write(newcondition, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3466,7 +3466,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn CreateOrCondition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, condition1: *mut core::ffi::c_void, condition2: *mut core::ffi::c_void, newcondition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateOrCondition(windows_core::from_raw_borrowed(&condition1), windows_core::from_raw_borrowed(&condition2)) {
+            match IUIAutomation_Impl::CreateOrCondition(this, windows_core::from_raw_borrowed(&condition1), windows_core::from_raw_borrowed(&condition2)) {
                 Ok(ok__) => {
                     core::ptr::write(newcondition, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3477,7 +3477,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn CreateOrConditionFromArray<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, conditions: *const super::super::System::Com::SAFEARRAY, newcondition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateOrConditionFromArray(core::mem::transmute_copy(&conditions)) {
+            match IUIAutomation_Impl::CreateOrConditionFromArray(this, core::mem::transmute_copy(&conditions)) {
                 Ok(ok__) => {
                     core::ptr::write(newcondition, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3488,7 +3488,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn CreateOrConditionFromNativeArray<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, conditions: *const *mut core::ffi::c_void, conditioncount: i32, newcondition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateOrConditionFromNativeArray(core::mem::transmute_copy(&conditions), core::mem::transmute_copy(&conditioncount)) {
+            match IUIAutomation_Impl::CreateOrConditionFromNativeArray(this, core::mem::transmute_copy(&conditions), core::mem::transmute_copy(&conditioncount)) {
                 Ok(ok__) => {
                     core::ptr::write(newcondition, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3499,7 +3499,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn CreateNotCondition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, condition: *mut core::ffi::c_void, newcondition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateNotCondition(windows_core::from_raw_borrowed(&condition)) {
+            match IUIAutomation_Impl::CreateNotCondition(this, windows_core::from_raw_borrowed(&condition)) {
                 Ok(ok__) => {
                     core::ptr::write(newcondition, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3510,57 +3510,57 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn AddAutomationEventHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventid: UIA_EVENT_ID, element: *mut core::ffi::c_void, scope: TreeScope, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddAutomationEventHandler(core::mem::transmute_copy(&eventid), windows_core::from_raw_borrowed(&element), core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler)).into()
+            IUIAutomation_Impl::AddAutomationEventHandler(this, core::mem::transmute_copy(&eventid), windows_core::from_raw_borrowed(&element), core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler)).into()
         }
         unsafe extern "system" fn RemoveAutomationEventHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventid: UIA_EVENT_ID, element: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAutomationEventHandler(core::mem::transmute_copy(&eventid), windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&handler)).into()
+            IUIAutomation_Impl::RemoveAutomationEventHandler(this, core::mem::transmute_copy(&eventid), windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&handler)).into()
         }
         unsafe extern "system" fn AddPropertyChangedEventHandlerNativeArray<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, scope: TreeScope, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, propertyarray: *const UIA_PROPERTY_ID, propertycount: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddPropertyChangedEventHandlerNativeArray(windows_core::from_raw_borrowed(&element), core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler), core::mem::transmute_copy(&propertyarray), core::mem::transmute_copy(&propertycount)).into()
+            IUIAutomation_Impl::AddPropertyChangedEventHandlerNativeArray(this, windows_core::from_raw_borrowed(&element), core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler), core::mem::transmute_copy(&propertyarray), core::mem::transmute_copy(&propertycount)).into()
         }
         unsafe extern "system" fn AddPropertyChangedEventHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, scope: TreeScope, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, propertyarray: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddPropertyChangedEventHandler(windows_core::from_raw_borrowed(&element), core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler), core::mem::transmute_copy(&propertyarray)).into()
+            IUIAutomation_Impl::AddPropertyChangedEventHandler(this, windows_core::from_raw_borrowed(&element), core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler), core::mem::transmute_copy(&propertyarray)).into()
         }
         unsafe extern "system" fn RemovePropertyChangedEventHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemovePropertyChangedEventHandler(windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&handler)).into()
+            IUIAutomation_Impl::RemovePropertyChangedEventHandler(this, windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&handler)).into()
         }
         unsafe extern "system" fn AddStructureChangedEventHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, scope: TreeScope, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddStructureChangedEventHandler(windows_core::from_raw_borrowed(&element), core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler)).into()
+            IUIAutomation_Impl::AddStructureChangedEventHandler(this, windows_core::from_raw_borrowed(&element), core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler)).into()
         }
         unsafe extern "system" fn RemoveStructureChangedEventHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveStructureChangedEventHandler(windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&handler)).into()
+            IUIAutomation_Impl::RemoveStructureChangedEventHandler(this, windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&handler)).into()
         }
         unsafe extern "system" fn AddFocusChangedEventHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddFocusChangedEventHandler(windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler)).into()
+            IUIAutomation_Impl::AddFocusChangedEventHandler(this, windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler)).into()
         }
         unsafe extern "system" fn RemoveFocusChangedEventHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveFocusChangedEventHandler(windows_core::from_raw_borrowed(&handler)).into()
+            IUIAutomation_Impl::RemoveFocusChangedEventHandler(this, windows_core::from_raw_borrowed(&handler)).into()
         }
         unsafe extern "system" fn RemoveAllEventHandlers<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAllEventHandlers().into()
+            IUIAutomation_Impl::RemoveAllEventHandlers(this).into()
         }
         unsafe extern "system" fn IntNativeArrayToSafeArray<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, array: *const i32, arraycount: i32, safearray: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IntNativeArrayToSafeArray(core::mem::transmute_copy(&array), core::mem::transmute_copy(&arraycount)) {
+            match IUIAutomation_Impl::IntNativeArrayToSafeArray(this, core::mem::transmute_copy(&array), core::mem::transmute_copy(&arraycount)) {
                 Ok(ok__) => {
                     core::ptr::write(safearray, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3571,7 +3571,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn IntSafeArrayToNativeArray<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IntSafeArrayToNativeArray(core::mem::transmute_copy(&intarray), core::mem::transmute_copy(&array)) {
+            match IUIAutomation_Impl::IntSafeArrayToNativeArray(this, core::mem::transmute_copy(&intarray), core::mem::transmute_copy(&array)) {
                 Ok(ok__) => {
                     core::ptr::write(arraycount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3582,7 +3582,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn RectToVariant<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rc: super::super::Foundation::RECT, var: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RectToVariant(core::mem::transmute(&rc)) {
+            match IUIAutomation_Impl::RectToVariant(this, core::mem::transmute(&rc)) {
                 Ok(ok__) => {
                     core::ptr::write(var, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3593,7 +3593,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn VariantToRect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, var: std::mem::MaybeUninit<windows_core::VARIANT>, rc: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.VariantToRect(core::mem::transmute(&var)) {
+            match IUIAutomation_Impl::VariantToRect(this, core::mem::transmute(&var)) {
                 Ok(ok__) => {
                     core::ptr::write(rc, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3604,7 +3604,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn SafeArrayToRectNativeArray<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT, rectarraycount: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SafeArrayToRectNativeArray(core::mem::transmute_copy(&rects), core::mem::transmute_copy(&rectarray)) {
+            match IUIAutomation_Impl::SafeArrayToRectNativeArray(this, core::mem::transmute_copy(&rects), core::mem::transmute_copy(&rectarray)) {
                 Ok(ok__) => {
                     core::ptr::write(rectarraycount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3615,7 +3615,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn CreateProxyFactoryEntry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, factory: *mut core::ffi::c_void, factoryentry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateProxyFactoryEntry(windows_core::from_raw_borrowed(&factory)) {
+            match IUIAutomation_Impl::CreateProxyFactoryEntry(this, windows_core::from_raw_borrowed(&factory)) {
                 Ok(ok__) => {
                     core::ptr::write(factoryentry, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3626,7 +3626,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn ProxyFactoryMapping<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, factorymapping: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ProxyFactoryMapping() {
+            match IUIAutomation_Impl::ProxyFactoryMapping(this) {
                 Ok(ok__) => {
                     core::ptr::write(factorymapping, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3637,7 +3637,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn GetPropertyProgrammaticName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: UIA_PROPERTY_ID, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPropertyProgrammaticName(core::mem::transmute_copy(&property)) {
+            match IUIAutomation_Impl::GetPropertyProgrammaticName(this, core::mem::transmute_copy(&property)) {
                 Ok(ok__) => {
                     core::ptr::write(name, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3648,7 +3648,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn GetPatternProgrammaticName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pattern: UIA_PATTERN_ID, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPatternProgrammaticName(core::mem::transmute_copy(&pattern)) {
+            match IUIAutomation_Impl::GetPatternProgrammaticName(this, core::mem::transmute_copy(&pattern)) {
                 Ok(ok__) => {
                     core::ptr::write(name, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3659,17 +3659,17 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn PollForPotentialSupportedPatterns<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pelement: *mut core::ffi::c_void, patternids: *mut *mut super::super::System::Com::SAFEARRAY, patternnames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PollForPotentialSupportedPatterns(windows_core::from_raw_borrowed(&pelement), core::mem::transmute_copy(&patternids), core::mem::transmute_copy(&patternnames)).into()
+            IUIAutomation_Impl::PollForPotentialSupportedPatterns(this, windows_core::from_raw_borrowed(&pelement), core::mem::transmute_copy(&patternids), core::mem::transmute_copy(&patternnames)).into()
         }
         unsafe extern "system" fn PollForPotentialSupportedProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pelement: *mut core::ffi::c_void, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PollForPotentialSupportedProperties(windows_core::from_raw_borrowed(&pelement), core::mem::transmute_copy(&propertyids), core::mem::transmute_copy(&propertynames)).into()
+            IUIAutomation_Impl::PollForPotentialSupportedProperties(this, windows_core::from_raw_borrowed(&pelement), core::mem::transmute_copy(&propertyids), core::mem::transmute_copy(&propertynames)).into()
         }
         unsafe extern "system" fn CheckNotSupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: std::mem::MaybeUninit<windows_core::VARIANT>, isnotsupported: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CheckNotSupported(core::mem::transmute(&value)) {
+            match IUIAutomation_Impl::CheckNotSupported(this, core::mem::transmute(&value)) {
                 Ok(ok__) => {
                     core::ptr::write(isnotsupported, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3680,7 +3680,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn ReservedNotSupportedValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, notsupportedvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReservedNotSupportedValue() {
+            match IUIAutomation_Impl::ReservedNotSupportedValue(this) {
                 Ok(ok__) => {
                     core::ptr::write(notsupportedvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3691,7 +3691,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn ReservedMixedAttributeValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mixedattributevalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReservedMixedAttributeValue() {
+            match IUIAutomation_Impl::ReservedMixedAttributeValue(this) {
                 Ok(ok__) => {
                     core::ptr::write(mixedattributevalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3702,7 +3702,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn ElementFromIAccessible<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, accessible: *mut core::ffi::c_void, childid: i32, element: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ElementFromIAccessible(windows_core::from_raw_borrowed(&accessible), core::mem::transmute_copy(&childid)) {
+            match IUIAutomation_Impl::ElementFromIAccessible(this, windows_core::from_raw_borrowed(&accessible), core::mem::transmute_copy(&childid)) {
                 Ok(ok__) => {
                     core::ptr::write(element, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3713,7 +3713,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn ElementFromIAccessibleBuildCache<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, accessible: *mut core::ffi::c_void, childid: i32, cacherequest: *mut core::ffi::c_void, element: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ElementFromIAccessibleBuildCache(windows_core::from_raw_borrowed(&accessible), core::mem::transmute_copy(&childid), windows_core::from_raw_borrowed(&cacherequest)) {
+            match IUIAutomation_Impl::ElementFromIAccessibleBuildCache(this, windows_core::from_raw_borrowed(&accessible), core::mem::transmute_copy(&childid), windows_core::from_raw_borrowed(&cacherequest)) {
                 Ok(ok__) => {
                     core::ptr::write(element, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3801,7 +3801,7 @@ impl IUIAutomation2_Vtbl {
         unsafe extern "system" fn AutoSetFocus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autosetfocus: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AutoSetFocus() {
+            match IUIAutomation2_Impl::AutoSetFocus(this) {
                 Ok(ok__) => {
                     core::ptr::write(autosetfocus, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3812,12 +3812,12 @@ impl IUIAutomation2_Vtbl {
         unsafe extern "system" fn SetAutoSetFocus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autosetfocus: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAutoSetFocus(core::mem::transmute_copy(&autosetfocus)).into()
+            IUIAutomation2_Impl::SetAutoSetFocus(this, core::mem::transmute_copy(&autosetfocus)).into()
         }
         unsafe extern "system" fn ConnectionTimeout<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timeout: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ConnectionTimeout() {
+            match IUIAutomation2_Impl::ConnectionTimeout(this) {
                 Ok(ok__) => {
                     core::ptr::write(timeout, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3828,12 +3828,12 @@ impl IUIAutomation2_Vtbl {
         unsafe extern "system" fn SetConnectionTimeout<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timeout: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetConnectionTimeout(core::mem::transmute_copy(&timeout)).into()
+            IUIAutomation2_Impl::SetConnectionTimeout(this, core::mem::transmute_copy(&timeout)).into()
         }
         unsafe extern "system" fn TransactionTimeout<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timeout: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TransactionTimeout() {
+            match IUIAutomation2_Impl::TransactionTimeout(this) {
                 Ok(ok__) => {
                     core::ptr::write(timeout, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3844,7 +3844,7 @@ impl IUIAutomation2_Vtbl {
         unsafe extern "system" fn SetTransactionTimeout<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timeout: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTransactionTimeout(core::mem::transmute_copy(&timeout)).into()
+            IUIAutomation2_Impl::SetTransactionTimeout(this, core::mem::transmute_copy(&timeout)).into()
         }
         Self {
             base__: IUIAutomation_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3873,12 +3873,12 @@ impl IUIAutomation3_Vtbl {
         unsafe extern "system" fn AddTextEditTextChangedEventHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddTextEditTextChangedEventHandler(windows_core::from_raw_borrowed(&element), core::mem::transmute_copy(&scope), core::mem::transmute_copy(&texteditchangetype), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler)).into()
+            IUIAutomation3_Impl::AddTextEditTextChangedEventHandler(this, windows_core::from_raw_borrowed(&element), core::mem::transmute_copy(&scope), core::mem::transmute_copy(&texteditchangetype), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler)).into()
         }
         unsafe extern "system" fn RemoveTextEditTextChangedEventHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveTextEditTextChangedEventHandler(windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&handler)).into()
+            IUIAutomation3_Impl::RemoveTextEditTextChangedEventHandler(this, windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&handler)).into()
         }
         Self {
             base__: IUIAutomation2_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3903,12 +3903,12 @@ impl IUIAutomation4_Vtbl {
         unsafe extern "system" fn AddChangesEventHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddChangesEventHandler(windows_core::from_raw_borrowed(&element), core::mem::transmute_copy(&scope), core::mem::transmute_copy(&changetypes), core::mem::transmute_copy(&changescount), windows_core::from_raw_borrowed(&pcacherequest), windows_core::from_raw_borrowed(&handler)).into()
+            IUIAutomation4_Impl::AddChangesEventHandler(this, windows_core::from_raw_borrowed(&element), core::mem::transmute_copy(&scope), core::mem::transmute_copy(&changetypes), core::mem::transmute_copy(&changescount), windows_core::from_raw_borrowed(&pcacherequest), windows_core::from_raw_borrowed(&handler)).into()
         }
         unsafe extern "system" fn RemoveChangesEventHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveChangesEventHandler(windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&handler)).into()
+            IUIAutomation4_Impl::RemoveChangesEventHandler(this, windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&handler)).into()
         }
         Self {
             base__: IUIAutomation3_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3933,12 +3933,12 @@ impl IUIAutomation5_Vtbl {
         unsafe extern "system" fn AddNotificationEventHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, scope: TreeScope, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddNotificationEventHandler(windows_core::from_raw_borrowed(&element), core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler)).into()
+            IUIAutomation5_Impl::AddNotificationEventHandler(this, windows_core::from_raw_borrowed(&element), core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler)).into()
         }
         unsafe extern "system" fn RemoveNotificationEventHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveNotificationEventHandler(windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&handler)).into()
+            IUIAutomation5_Impl::RemoveNotificationEventHandler(this, windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&handler)).into()
         }
         Self {
             base__: IUIAutomation4_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3970,7 +3970,7 @@ impl IUIAutomation6_Vtbl {
         unsafe extern "system" fn CreateEventHandlerGroup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handlergroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateEventHandlerGroup() {
+            match IUIAutomation6_Impl::CreateEventHandlerGroup(this) {
                 Ok(ok__) => {
                     core::ptr::write(handlergroup, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3981,17 +3981,17 @@ impl IUIAutomation6_Vtbl {
         unsafe extern "system" fn AddEventHandlerGroup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, handlergroup: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddEventHandlerGroup(windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&handlergroup)).into()
+            IUIAutomation6_Impl::AddEventHandlerGroup(this, windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&handlergroup)).into()
         }
         unsafe extern "system" fn RemoveEventHandlerGroup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, handlergroup: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveEventHandlerGroup(windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&handlergroup)).into()
+            IUIAutomation6_Impl::RemoveEventHandlerGroup(this, windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&handlergroup)).into()
         }
         unsafe extern "system" fn ConnectionRecoveryBehavior<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, connectionrecoverybehavioroptions: *mut ConnectionRecoveryBehaviorOptions) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ConnectionRecoveryBehavior() {
+            match IUIAutomation6_Impl::ConnectionRecoveryBehavior(this) {
                 Ok(ok__) => {
                     core::ptr::write(connectionrecoverybehavioroptions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4002,12 +4002,12 @@ impl IUIAutomation6_Vtbl {
         unsafe extern "system" fn SetConnectionRecoveryBehavior<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, connectionrecoverybehavioroptions: ConnectionRecoveryBehaviorOptions) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetConnectionRecoveryBehavior(core::mem::transmute_copy(&connectionrecoverybehavioroptions)).into()
+            IUIAutomation6_Impl::SetConnectionRecoveryBehavior(this, core::mem::transmute_copy(&connectionrecoverybehavioroptions)).into()
         }
         unsafe extern "system" fn CoalesceEvents<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, coalesceeventsoptions: *mut CoalesceEventsOptions) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CoalesceEvents() {
+            match IUIAutomation6_Impl::CoalesceEvents(this) {
                 Ok(ok__) => {
                     core::ptr::write(coalesceeventsoptions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4018,17 +4018,17 @@ impl IUIAutomation6_Vtbl {
         unsafe extern "system" fn SetCoalesceEvents<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, coalesceeventsoptions: CoalesceEventsOptions) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCoalesceEvents(core::mem::transmute_copy(&coalesceeventsoptions)).into()
+            IUIAutomation6_Impl::SetCoalesceEvents(this, core::mem::transmute_copy(&coalesceeventsoptions)).into()
         }
         unsafe extern "system" fn AddActiveTextPositionChangedEventHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, scope: TreeScope, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddActiveTextPositionChangedEventHandler(windows_core::from_raw_borrowed(&element), core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler)).into()
+            IUIAutomation6_Impl::AddActiveTextPositionChangedEventHandler(this, windows_core::from_raw_borrowed(&element), core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler)).into()
         }
         unsafe extern "system" fn RemoveActiveTextPositionChangedEventHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveActiveTextPositionChangedEventHandler(windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&handler)).into()
+            IUIAutomation6_Impl::RemoveActiveTextPositionChangedEventHandler(this, windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&handler)).into()
         }
         Self {
             base__: IUIAutomation5_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -4056,7 +4056,7 @@ impl IUIAutomationActiveTextPositionChangedEventHandler_Vtbl {
         unsafe extern "system" fn HandleActiveTextPositionChangedEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationActiveTextPositionChangedEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, range: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.HandleActiveTextPositionChangedEvent(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&range)).into()
+            IUIAutomationActiveTextPositionChangedEventHandler_Impl::HandleActiveTextPositionChangedEvent(this, windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&range)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -4081,7 +4081,7 @@ impl IUIAutomationAndCondition_Vtbl {
         unsafe extern "system" fn ChildCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationAndCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, childcount: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ChildCount() {
+            match IUIAutomationAndCondition_Impl::ChildCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(childcount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4092,12 +4092,12 @@ impl IUIAutomationAndCondition_Vtbl {
         unsafe extern "system" fn GetChildrenAsNativeArray<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationAndCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, childarray: *mut *mut Option<IUIAutomationCondition>, childarraycount: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetChildrenAsNativeArray(core::mem::transmute_copy(&childarray), core::mem::transmute_copy(&childarraycount)).into()
+            IUIAutomationAndCondition_Impl::GetChildrenAsNativeArray(this, core::mem::transmute_copy(&childarray), core::mem::transmute_copy(&childarraycount)).into()
         }
         unsafe extern "system" fn GetChildren<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationAndCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, childarray: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetChildren() {
+            match IUIAutomationAndCondition_Impl::GetChildren(this) {
                 Ok(ok__) => {
                     core::ptr::write(childarray, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4134,7 +4134,7 @@ impl IUIAutomationAnnotationPattern_Vtbl {
         unsafe extern "system" fn CurrentAnnotationTypeId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationAnnotationPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut UIA_ANNOTATIONTYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentAnnotationTypeId() {
+            match IUIAutomationAnnotationPattern_Impl::CurrentAnnotationTypeId(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4145,7 +4145,7 @@ impl IUIAutomationAnnotationPattern_Vtbl {
         unsafe extern "system" fn CurrentAnnotationTypeName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationAnnotationPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentAnnotationTypeName() {
+            match IUIAutomationAnnotationPattern_Impl::CurrentAnnotationTypeName(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4156,7 +4156,7 @@ impl IUIAutomationAnnotationPattern_Vtbl {
         unsafe extern "system" fn CurrentAuthor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationAnnotationPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentAuthor() {
+            match IUIAutomationAnnotationPattern_Impl::CurrentAuthor(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4167,7 +4167,7 @@ impl IUIAutomationAnnotationPattern_Vtbl {
         unsafe extern "system" fn CurrentDateTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationAnnotationPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentDateTime() {
+            match IUIAutomationAnnotationPattern_Impl::CurrentDateTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4178,7 +4178,7 @@ impl IUIAutomationAnnotationPattern_Vtbl {
         unsafe extern "system" fn CurrentTarget<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationAnnotationPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentTarget() {
+            match IUIAutomationAnnotationPattern_Impl::CurrentTarget(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4189,7 +4189,7 @@ impl IUIAutomationAnnotationPattern_Vtbl {
         unsafe extern "system" fn CachedAnnotationTypeId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationAnnotationPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut UIA_ANNOTATIONTYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedAnnotationTypeId() {
+            match IUIAutomationAnnotationPattern_Impl::CachedAnnotationTypeId(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4200,7 +4200,7 @@ impl IUIAutomationAnnotationPattern_Vtbl {
         unsafe extern "system" fn CachedAnnotationTypeName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationAnnotationPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedAnnotationTypeName() {
+            match IUIAutomationAnnotationPattern_Impl::CachedAnnotationTypeName(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4211,7 +4211,7 @@ impl IUIAutomationAnnotationPattern_Vtbl {
         unsafe extern "system" fn CachedAuthor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationAnnotationPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedAuthor() {
+            match IUIAutomationAnnotationPattern_Impl::CachedAuthor(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4222,7 +4222,7 @@ impl IUIAutomationAnnotationPattern_Vtbl {
         unsafe extern "system" fn CachedDateTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationAnnotationPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedDateTime() {
+            match IUIAutomationAnnotationPattern_Impl::CachedDateTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4233,7 +4233,7 @@ impl IUIAutomationAnnotationPattern_Vtbl {
         unsafe extern "system" fn CachedTarget<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationAnnotationPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedTarget() {
+            match IUIAutomationAnnotationPattern_Impl::CachedTarget(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4268,7 +4268,7 @@ impl IUIAutomationBoolCondition_Vtbl {
         unsafe extern "system" fn BooleanValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationBoolCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, boolval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BooleanValue() {
+            match IUIAutomationBoolCondition_Impl::BooleanValue(this) {
                 Ok(ok__) => {
                     core::ptr::write(boolval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4299,17 +4299,17 @@ impl IUIAutomationCacheRequest_Vtbl {
         unsafe extern "system" fn AddProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationCacheRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddProperty(core::mem::transmute_copy(&propertyid)).into()
+            IUIAutomationCacheRequest_Impl::AddProperty(this, core::mem::transmute_copy(&propertyid)).into()
         }
         unsafe extern "system" fn AddPattern<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationCacheRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, patternid: UIA_PATTERN_ID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddPattern(core::mem::transmute_copy(&patternid)).into()
+            IUIAutomationCacheRequest_Impl::AddPattern(this, core::mem::transmute_copy(&patternid)).into()
         }
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationCacheRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clonedrequest: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IUIAutomationCacheRequest_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(clonedrequest, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4320,7 +4320,7 @@ impl IUIAutomationCacheRequest_Vtbl {
         unsafe extern "system" fn TreeScope<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationCacheRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: *mut TreeScope) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TreeScope() {
+            match IUIAutomationCacheRequest_Impl::TreeScope(this) {
                 Ok(ok__) => {
                     core::ptr::write(scope, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4331,12 +4331,12 @@ impl IUIAutomationCacheRequest_Vtbl {
         unsafe extern "system" fn SetTreeScope<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationCacheRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTreeScope(core::mem::transmute_copy(&scope)).into()
+            IUIAutomationCacheRequest_Impl::SetTreeScope(this, core::mem::transmute_copy(&scope)).into()
         }
         unsafe extern "system" fn TreeFilter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationCacheRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TreeFilter() {
+            match IUIAutomationCacheRequest_Impl::TreeFilter(this) {
                 Ok(ok__) => {
                     core::ptr::write(filter, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4347,12 +4347,12 @@ impl IUIAutomationCacheRequest_Vtbl {
         unsafe extern "system" fn SetTreeFilter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationCacheRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filter: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTreeFilter(windows_core::from_raw_borrowed(&filter)).into()
+            IUIAutomationCacheRequest_Impl::SetTreeFilter(this, windows_core::from_raw_borrowed(&filter)).into()
         }
         unsafe extern "system" fn AutomationElementMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationCacheRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: *mut AutomationElementMode) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AutomationElementMode() {
+            match IUIAutomationCacheRequest_Impl::AutomationElementMode(this) {
                 Ok(ok__) => {
                     core::ptr::write(mode, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4363,7 +4363,7 @@ impl IUIAutomationCacheRequest_Vtbl {
         unsafe extern "system" fn SetAutomationElementMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationCacheRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: AutomationElementMode) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAutomationElementMode(core::mem::transmute_copy(&mode)).into()
+            IUIAutomationCacheRequest_Impl::SetAutomationElementMode(this, core::mem::transmute_copy(&mode)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -4391,7 +4391,7 @@ impl IUIAutomationChangesEventHandler_Vtbl {
         unsafe extern "system" fn HandleChangesEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationChangesEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, uiachanges: *const UiaChangeInfo, changescount: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.HandleChangesEvent(windows_core::from_raw_borrowed(&sender), core::mem::transmute_copy(&uiachanges), core::mem::transmute_copy(&changescount)).into()
+            IUIAutomationChangesEventHandler_Impl::HandleChangesEvent(this, windows_core::from_raw_borrowed(&sender), core::mem::transmute_copy(&uiachanges), core::mem::transmute_copy(&changescount)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandleChangesEvent: HandleChangesEvent::<Identity, Impl, OFFSET> }
     }
@@ -4418,7 +4418,7 @@ impl IUIAutomationCustomNavigationPattern_Vtbl {
         unsafe extern "system" fn Navigate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationCustomNavigationPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, direction: NavigateDirection, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Navigate(core::mem::transmute_copy(&direction)) {
+            match IUIAutomationCustomNavigationPattern_Impl::Navigate(this, core::mem::transmute_copy(&direction)) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4443,12 +4443,12 @@ impl IUIAutomationDockPattern_Vtbl {
         unsafe extern "system" fn SetDockPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationDockPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dockpos: DockPosition) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDockPosition(core::mem::transmute_copy(&dockpos)).into()
+            IUIAutomationDockPattern_Impl::SetDockPosition(this, core::mem::transmute_copy(&dockpos)).into()
         }
         unsafe extern "system" fn CurrentDockPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationDockPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut DockPosition) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentDockPosition() {
+            match IUIAutomationDockPattern_Impl::CurrentDockPosition(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4459,7 +4459,7 @@ impl IUIAutomationDockPattern_Vtbl {
         unsafe extern "system" fn CachedDockPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationDockPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut DockPosition) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedDockPosition() {
+            match IUIAutomationDockPattern_Impl::CachedDockPosition(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4497,7 +4497,7 @@ impl IUIAutomationDragPattern_Vtbl {
         unsafe extern "system" fn CurrentIsGrabbed<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationDragPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentIsGrabbed() {
+            match IUIAutomationDragPattern_Impl::CurrentIsGrabbed(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4508,7 +4508,7 @@ impl IUIAutomationDragPattern_Vtbl {
         unsafe extern "system" fn CachedIsGrabbed<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationDragPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedIsGrabbed() {
+            match IUIAutomationDragPattern_Impl::CachedIsGrabbed(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4519,7 +4519,7 @@ impl IUIAutomationDragPattern_Vtbl {
         unsafe extern "system" fn CurrentDropEffect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationDragPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentDropEffect() {
+            match IUIAutomationDragPattern_Impl::CurrentDropEffect(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4530,7 +4530,7 @@ impl IUIAutomationDragPattern_Vtbl {
         unsafe extern "system" fn CachedDropEffect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationDragPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedDropEffect() {
+            match IUIAutomationDragPattern_Impl::CachedDropEffect(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4541,7 +4541,7 @@ impl IUIAutomationDragPattern_Vtbl {
         unsafe extern "system" fn CurrentDropEffects<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationDragPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentDropEffects() {
+            match IUIAutomationDragPattern_Impl::CurrentDropEffects(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4552,7 +4552,7 @@ impl IUIAutomationDragPattern_Vtbl {
         unsafe extern "system" fn CachedDropEffects<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationDragPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedDropEffects() {
+            match IUIAutomationDragPattern_Impl::CachedDropEffects(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4563,7 +4563,7 @@ impl IUIAutomationDragPattern_Vtbl {
         unsafe extern "system" fn GetCurrentGrabbedItems<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationDragPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCurrentGrabbedItems() {
+            match IUIAutomationDragPattern_Impl::GetCurrentGrabbedItems(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4574,7 +4574,7 @@ impl IUIAutomationDragPattern_Vtbl {
         unsafe extern "system" fn GetCachedGrabbedItems<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationDragPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCachedGrabbedItems() {
+            match IUIAutomationDragPattern_Impl::GetCachedGrabbedItems(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4613,7 +4613,7 @@ impl IUIAutomationDropTargetPattern_Vtbl {
         unsafe extern "system" fn CurrentDropTargetEffect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationDropTargetPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentDropTargetEffect() {
+            match IUIAutomationDropTargetPattern_Impl::CurrentDropTargetEffect(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4624,7 +4624,7 @@ impl IUIAutomationDropTargetPattern_Vtbl {
         unsafe extern "system" fn CachedDropTargetEffect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationDropTargetPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedDropTargetEffect() {
+            match IUIAutomationDropTargetPattern_Impl::CachedDropTargetEffect(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4635,7 +4635,7 @@ impl IUIAutomationDropTargetPattern_Vtbl {
         unsafe extern "system" fn CurrentDropTargetEffects<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationDropTargetPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentDropTargetEffects() {
+            match IUIAutomationDropTargetPattern_Impl::CurrentDropTargetEffects(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4646,7 +4646,7 @@ impl IUIAutomationDropTargetPattern_Vtbl {
         unsafe extern "system" fn CachedDropTargetEffects<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationDropTargetPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedDropTargetEffects() {
+            match IUIAutomationDropTargetPattern_Impl::CachedDropTargetEffects(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4759,12 +4759,12 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn SetFocus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFocus().into()
+            IUIAutomationElement_Impl::SetFocus(this).into()
         }
         unsafe extern "system" fn GetRuntimeId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, runtimeid: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRuntimeId() {
+            match IUIAutomationElement_Impl::GetRuntimeId(this) {
                 Ok(ok__) => {
                     core::ptr::write(runtimeid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4775,7 +4775,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn FindFirst<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, condition: *mut core::ffi::c_void, found: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FindFirst(core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&condition)) {
+            match IUIAutomationElement_Impl::FindFirst(this, core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&condition)) {
                 Ok(ok__) => {
                     core::ptr::write(found, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4786,7 +4786,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn FindAll<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, condition: *mut core::ffi::c_void, found: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FindAll(core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&condition)) {
+            match IUIAutomationElement_Impl::FindAll(this, core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&condition)) {
                 Ok(ok__) => {
                     core::ptr::write(found, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4797,7 +4797,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn FindFirstBuildCache<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, condition: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, found: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FindFirstBuildCache(core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&condition), windows_core::from_raw_borrowed(&cacherequest)) {
+            match IUIAutomationElement_Impl::FindFirstBuildCache(this, core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&condition), windows_core::from_raw_borrowed(&cacherequest)) {
                 Ok(ok__) => {
                     core::ptr::write(found, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4808,7 +4808,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn FindAllBuildCache<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, condition: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, found: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FindAllBuildCache(core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&condition), windows_core::from_raw_borrowed(&cacherequest)) {
+            match IUIAutomationElement_Impl::FindAllBuildCache(this, core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&condition), windows_core::from_raw_borrowed(&cacherequest)) {
                 Ok(ok__) => {
                     core::ptr::write(found, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4819,7 +4819,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn BuildUpdatedCache<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, updatedelement: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BuildUpdatedCache(windows_core::from_raw_borrowed(&cacherequest)) {
+            match IUIAutomationElement_Impl::BuildUpdatedCache(this, windows_core::from_raw_borrowed(&cacherequest)) {
                 Ok(ok__) => {
                     core::ptr::write(updatedelement, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4830,7 +4830,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn GetCurrentPropertyValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, retval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCurrentPropertyValue(core::mem::transmute_copy(&propertyid)) {
+            match IUIAutomationElement_Impl::GetCurrentPropertyValue(this, core::mem::transmute_copy(&propertyid)) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4841,7 +4841,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn GetCurrentPropertyValueEx<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: super::super::Foundation::BOOL, retval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCurrentPropertyValueEx(core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&ignoredefaultvalue)) {
+            match IUIAutomationElement_Impl::GetCurrentPropertyValueEx(this, core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&ignoredefaultvalue)) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4852,7 +4852,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn GetCachedPropertyValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, retval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCachedPropertyValue(core::mem::transmute_copy(&propertyid)) {
+            match IUIAutomationElement_Impl::GetCachedPropertyValue(this, core::mem::transmute_copy(&propertyid)) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4863,7 +4863,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn GetCachedPropertyValueEx<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: super::super::Foundation::BOOL, retval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCachedPropertyValueEx(core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&ignoredefaultvalue)) {
+            match IUIAutomationElement_Impl::GetCachedPropertyValueEx(this, core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&ignoredefaultvalue)) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4874,17 +4874,17 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn GetCurrentPatternAs<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, patternid: UIA_PATTERN_ID, riid: *const windows_core::GUID, patternobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetCurrentPatternAs(core::mem::transmute_copy(&patternid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&patternobject)).into()
+            IUIAutomationElement_Impl::GetCurrentPatternAs(this, core::mem::transmute_copy(&patternid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&patternobject)).into()
         }
         unsafe extern "system" fn GetCachedPatternAs<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, patternid: UIA_PATTERN_ID, riid: *const windows_core::GUID, patternobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetCachedPatternAs(core::mem::transmute_copy(&patternid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&patternobject)).into()
+            IUIAutomationElement_Impl::GetCachedPatternAs(this, core::mem::transmute_copy(&patternid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&patternobject)).into()
         }
         unsafe extern "system" fn GetCurrentPattern<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, patternid: UIA_PATTERN_ID, patternobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCurrentPattern(core::mem::transmute_copy(&patternid)) {
+            match IUIAutomationElement_Impl::GetCurrentPattern(this, core::mem::transmute_copy(&patternid)) {
                 Ok(ok__) => {
                     core::ptr::write(patternobject, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4895,7 +4895,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn GetCachedPattern<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, patternid: UIA_PATTERN_ID, patternobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCachedPattern(core::mem::transmute_copy(&patternid)) {
+            match IUIAutomationElement_Impl::GetCachedPattern(this, core::mem::transmute_copy(&patternid)) {
                 Ok(ok__) => {
                     core::ptr::write(patternobject, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4906,7 +4906,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn GetCachedParent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCachedParent() {
+            match IUIAutomationElement_Impl::GetCachedParent(this) {
                 Ok(ok__) => {
                     core::ptr::write(parent, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4917,7 +4917,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn GetCachedChildren<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, children: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCachedChildren() {
+            match IUIAutomationElement_Impl::GetCachedChildren(this) {
                 Ok(ok__) => {
                     core::ptr::write(children, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4928,7 +4928,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentProcessId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentProcessId() {
+            match IUIAutomationElement_Impl::CurrentProcessId(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4939,7 +4939,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentControlType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut UIA_CONTROLTYPE_ID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentControlType() {
+            match IUIAutomationElement_Impl::CurrentControlType(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4950,7 +4950,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentLocalizedControlType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentLocalizedControlType() {
+            match IUIAutomationElement_Impl::CurrentLocalizedControlType(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4961,7 +4961,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentName() {
+            match IUIAutomationElement_Impl::CurrentName(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4972,7 +4972,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentAcceleratorKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentAcceleratorKey() {
+            match IUIAutomationElement_Impl::CurrentAcceleratorKey(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4983,7 +4983,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentAccessKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentAccessKey() {
+            match IUIAutomationElement_Impl::CurrentAccessKey(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4994,7 +4994,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentHasKeyboardFocus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentHasKeyboardFocus() {
+            match IUIAutomationElement_Impl::CurrentHasKeyboardFocus(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5005,7 +5005,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentIsKeyboardFocusable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentIsKeyboardFocusable() {
+            match IUIAutomationElement_Impl::CurrentIsKeyboardFocusable(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5016,7 +5016,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentIsEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentIsEnabled() {
+            match IUIAutomationElement_Impl::CurrentIsEnabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5027,7 +5027,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentAutomationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentAutomationId() {
+            match IUIAutomationElement_Impl::CurrentAutomationId(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5038,7 +5038,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentClassName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentClassName() {
+            match IUIAutomationElement_Impl::CurrentClassName(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5049,7 +5049,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentHelpText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentHelpText() {
+            match IUIAutomationElement_Impl::CurrentHelpText(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5060,7 +5060,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentCulture<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentCulture() {
+            match IUIAutomationElement_Impl::CurrentCulture(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5071,7 +5071,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentIsControlElement<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentIsControlElement() {
+            match IUIAutomationElement_Impl::CurrentIsControlElement(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5082,7 +5082,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentIsContentElement<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentIsContentElement() {
+            match IUIAutomationElement_Impl::CurrentIsContentElement(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5093,7 +5093,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentIsPassword<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentIsPassword() {
+            match IUIAutomationElement_Impl::CurrentIsPassword(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5104,7 +5104,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentNativeWindowHandle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::HWND) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentNativeWindowHandle() {
+            match IUIAutomationElement_Impl::CurrentNativeWindowHandle(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5115,7 +5115,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentItemType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentItemType() {
+            match IUIAutomationElement_Impl::CurrentItemType(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5126,7 +5126,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentIsOffscreen<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentIsOffscreen() {
+            match IUIAutomationElement_Impl::CurrentIsOffscreen(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5137,7 +5137,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentOrientation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut OrientationType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentOrientation() {
+            match IUIAutomationElement_Impl::CurrentOrientation(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5148,7 +5148,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentFrameworkId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentFrameworkId() {
+            match IUIAutomationElement_Impl::CurrentFrameworkId(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5159,7 +5159,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentIsRequiredForForm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentIsRequiredForForm() {
+            match IUIAutomationElement_Impl::CurrentIsRequiredForForm(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5170,7 +5170,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentItemStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentItemStatus() {
+            match IUIAutomationElement_Impl::CurrentItemStatus(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5181,7 +5181,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentBoundingRectangle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentBoundingRectangle() {
+            match IUIAutomationElement_Impl::CurrentBoundingRectangle(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5192,7 +5192,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentLabeledBy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentLabeledBy() {
+            match IUIAutomationElement_Impl::CurrentLabeledBy(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5203,7 +5203,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentAriaRole<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentAriaRole() {
+            match IUIAutomationElement_Impl::CurrentAriaRole(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5214,7 +5214,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentAriaProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentAriaProperties() {
+            match IUIAutomationElement_Impl::CurrentAriaProperties(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5225,7 +5225,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentIsDataValidForForm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentIsDataValidForForm() {
+            match IUIAutomationElement_Impl::CurrentIsDataValidForForm(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5236,7 +5236,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentControllerFor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentControllerFor() {
+            match IUIAutomationElement_Impl::CurrentControllerFor(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5247,7 +5247,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentDescribedBy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentDescribedBy() {
+            match IUIAutomationElement_Impl::CurrentDescribedBy(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5258,7 +5258,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentFlowsTo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentFlowsTo() {
+            match IUIAutomationElement_Impl::CurrentFlowsTo(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5269,7 +5269,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CurrentProviderDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentProviderDescription() {
+            match IUIAutomationElement_Impl::CurrentProviderDescription(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5280,7 +5280,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedProcessId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedProcessId() {
+            match IUIAutomationElement_Impl::CachedProcessId(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5291,7 +5291,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedControlType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut UIA_CONTROLTYPE_ID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedControlType() {
+            match IUIAutomationElement_Impl::CachedControlType(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5302,7 +5302,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedLocalizedControlType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedLocalizedControlType() {
+            match IUIAutomationElement_Impl::CachedLocalizedControlType(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5313,7 +5313,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedName() {
+            match IUIAutomationElement_Impl::CachedName(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5324,7 +5324,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedAcceleratorKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedAcceleratorKey() {
+            match IUIAutomationElement_Impl::CachedAcceleratorKey(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5335,7 +5335,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedAccessKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedAccessKey() {
+            match IUIAutomationElement_Impl::CachedAccessKey(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5346,7 +5346,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedHasKeyboardFocus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedHasKeyboardFocus() {
+            match IUIAutomationElement_Impl::CachedHasKeyboardFocus(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5357,7 +5357,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedIsKeyboardFocusable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedIsKeyboardFocusable() {
+            match IUIAutomationElement_Impl::CachedIsKeyboardFocusable(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5368,7 +5368,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedIsEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedIsEnabled() {
+            match IUIAutomationElement_Impl::CachedIsEnabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5379,7 +5379,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedAutomationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedAutomationId() {
+            match IUIAutomationElement_Impl::CachedAutomationId(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5390,7 +5390,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedClassName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedClassName() {
+            match IUIAutomationElement_Impl::CachedClassName(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5401,7 +5401,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedHelpText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedHelpText() {
+            match IUIAutomationElement_Impl::CachedHelpText(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5412,7 +5412,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedCulture<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedCulture() {
+            match IUIAutomationElement_Impl::CachedCulture(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5423,7 +5423,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedIsControlElement<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedIsControlElement() {
+            match IUIAutomationElement_Impl::CachedIsControlElement(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5434,7 +5434,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedIsContentElement<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedIsContentElement() {
+            match IUIAutomationElement_Impl::CachedIsContentElement(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5445,7 +5445,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedIsPassword<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedIsPassword() {
+            match IUIAutomationElement_Impl::CachedIsPassword(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5456,7 +5456,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedNativeWindowHandle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::HWND) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedNativeWindowHandle() {
+            match IUIAutomationElement_Impl::CachedNativeWindowHandle(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5467,7 +5467,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedItemType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedItemType() {
+            match IUIAutomationElement_Impl::CachedItemType(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5478,7 +5478,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedIsOffscreen<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedIsOffscreen() {
+            match IUIAutomationElement_Impl::CachedIsOffscreen(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5489,7 +5489,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedOrientation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut OrientationType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedOrientation() {
+            match IUIAutomationElement_Impl::CachedOrientation(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5500,7 +5500,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedFrameworkId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedFrameworkId() {
+            match IUIAutomationElement_Impl::CachedFrameworkId(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5511,7 +5511,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedIsRequiredForForm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedIsRequiredForForm() {
+            match IUIAutomationElement_Impl::CachedIsRequiredForForm(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5522,7 +5522,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedItemStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedItemStatus() {
+            match IUIAutomationElement_Impl::CachedItemStatus(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5533,7 +5533,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedBoundingRectangle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedBoundingRectangle() {
+            match IUIAutomationElement_Impl::CachedBoundingRectangle(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5544,7 +5544,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedLabeledBy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedLabeledBy() {
+            match IUIAutomationElement_Impl::CachedLabeledBy(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5555,7 +5555,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedAriaRole<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedAriaRole() {
+            match IUIAutomationElement_Impl::CachedAriaRole(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5566,7 +5566,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedAriaProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedAriaProperties() {
+            match IUIAutomationElement_Impl::CachedAriaProperties(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5577,7 +5577,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedIsDataValidForForm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedIsDataValidForForm() {
+            match IUIAutomationElement_Impl::CachedIsDataValidForForm(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5588,7 +5588,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedControllerFor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedControllerFor() {
+            match IUIAutomationElement_Impl::CachedControllerFor(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5599,7 +5599,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedDescribedBy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedDescribedBy() {
+            match IUIAutomationElement_Impl::CachedDescribedBy(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5610,7 +5610,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedFlowsTo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedFlowsTo() {
+            match IUIAutomationElement_Impl::CachedFlowsTo(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5621,7 +5621,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn CachedProviderDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedProviderDescription() {
+            match IUIAutomationElement_Impl::CachedProviderDescription(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5632,7 +5632,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn GetClickablePoint<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetClickablePoint(core::mem::transmute_copy(&clickable)) {
+            match IUIAutomationElement_Impl::GetClickablePoint(this, core::mem::transmute_copy(&clickable)) {
                 Ok(ok__) => {
                     core::ptr::write(gotclickable, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5747,7 +5747,7 @@ impl IUIAutomationElement2_Vtbl {
         unsafe extern "system" fn CurrentOptimizeForVisualContent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentOptimizeForVisualContent() {
+            match IUIAutomationElement2_Impl::CurrentOptimizeForVisualContent(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5758,7 +5758,7 @@ impl IUIAutomationElement2_Vtbl {
         unsafe extern "system" fn CachedOptimizeForVisualContent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedOptimizeForVisualContent() {
+            match IUIAutomationElement2_Impl::CachedOptimizeForVisualContent(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5769,7 +5769,7 @@ impl IUIAutomationElement2_Vtbl {
         unsafe extern "system" fn CurrentLiveSetting<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut LiveSetting) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentLiveSetting() {
+            match IUIAutomationElement2_Impl::CurrentLiveSetting(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5780,7 +5780,7 @@ impl IUIAutomationElement2_Vtbl {
         unsafe extern "system" fn CachedLiveSetting<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut LiveSetting) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedLiveSetting() {
+            match IUIAutomationElement2_Impl::CachedLiveSetting(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5791,7 +5791,7 @@ impl IUIAutomationElement2_Vtbl {
         unsafe extern "system" fn CurrentFlowsFrom<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentFlowsFrom() {
+            match IUIAutomationElement2_Impl::CurrentFlowsFrom(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5802,7 +5802,7 @@ impl IUIAutomationElement2_Vtbl {
         unsafe extern "system" fn CachedFlowsFrom<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedFlowsFrom() {
+            match IUIAutomationElement2_Impl::CachedFlowsFrom(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5838,12 +5838,12 @@ impl IUIAutomationElement3_Vtbl {
         unsafe extern "system" fn ShowContextMenu<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ShowContextMenu().into()
+            IUIAutomationElement3_Impl::ShowContextMenu(this).into()
         }
         unsafe extern "system" fn CurrentIsPeripheral<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentIsPeripheral() {
+            match IUIAutomationElement3_Impl::CurrentIsPeripheral(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5854,7 +5854,7 @@ impl IUIAutomationElement3_Vtbl {
         unsafe extern "system" fn CachedIsPeripheral<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedIsPeripheral() {
+            match IUIAutomationElement3_Impl::CachedIsPeripheral(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5894,7 +5894,7 @@ impl IUIAutomationElement4_Vtbl {
         unsafe extern "system" fn CurrentPositionInSet<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentPositionInSet() {
+            match IUIAutomationElement4_Impl::CurrentPositionInSet(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5905,7 +5905,7 @@ impl IUIAutomationElement4_Vtbl {
         unsafe extern "system" fn CurrentSizeOfSet<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentSizeOfSet() {
+            match IUIAutomationElement4_Impl::CurrentSizeOfSet(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5916,7 +5916,7 @@ impl IUIAutomationElement4_Vtbl {
         unsafe extern "system" fn CurrentLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentLevel() {
+            match IUIAutomationElement4_Impl::CurrentLevel(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5927,7 +5927,7 @@ impl IUIAutomationElement4_Vtbl {
         unsafe extern "system" fn CurrentAnnotationTypes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentAnnotationTypes() {
+            match IUIAutomationElement4_Impl::CurrentAnnotationTypes(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5938,7 +5938,7 @@ impl IUIAutomationElement4_Vtbl {
         unsafe extern "system" fn CurrentAnnotationObjects<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentAnnotationObjects() {
+            match IUIAutomationElement4_Impl::CurrentAnnotationObjects(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5949,7 +5949,7 @@ impl IUIAutomationElement4_Vtbl {
         unsafe extern "system" fn CachedPositionInSet<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedPositionInSet() {
+            match IUIAutomationElement4_Impl::CachedPositionInSet(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5960,7 +5960,7 @@ impl IUIAutomationElement4_Vtbl {
         unsafe extern "system" fn CachedSizeOfSet<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedSizeOfSet() {
+            match IUIAutomationElement4_Impl::CachedSizeOfSet(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5971,7 +5971,7 @@ impl IUIAutomationElement4_Vtbl {
         unsafe extern "system" fn CachedLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedLevel() {
+            match IUIAutomationElement4_Impl::CachedLevel(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5982,7 +5982,7 @@ impl IUIAutomationElement4_Vtbl {
         unsafe extern "system" fn CachedAnnotationTypes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedAnnotationTypes() {
+            match IUIAutomationElement4_Impl::CachedAnnotationTypes(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5993,7 +5993,7 @@ impl IUIAutomationElement4_Vtbl {
         unsafe extern "system" fn CachedAnnotationObjects<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedAnnotationObjects() {
+            match IUIAutomationElement4_Impl::CachedAnnotationObjects(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6034,7 +6034,7 @@ impl IUIAutomationElement5_Vtbl {
         unsafe extern "system" fn CurrentLandmarkType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut UIA_LANDMARKTYPE_ID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentLandmarkType() {
+            match IUIAutomationElement5_Impl::CurrentLandmarkType(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6045,7 +6045,7 @@ impl IUIAutomationElement5_Vtbl {
         unsafe extern "system" fn CurrentLocalizedLandmarkType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentLocalizedLandmarkType() {
+            match IUIAutomationElement5_Impl::CurrentLocalizedLandmarkType(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6056,7 +6056,7 @@ impl IUIAutomationElement5_Vtbl {
         unsafe extern "system" fn CachedLandmarkType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut UIA_LANDMARKTYPE_ID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedLandmarkType() {
+            match IUIAutomationElement5_Impl::CachedLandmarkType(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6067,7 +6067,7 @@ impl IUIAutomationElement5_Vtbl {
         unsafe extern "system" fn CachedLocalizedLandmarkType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedLocalizedLandmarkType() {
+            match IUIAutomationElement5_Impl::CachedLocalizedLandmarkType(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6100,7 +6100,7 @@ impl IUIAutomationElement6_Vtbl {
         unsafe extern "system" fn CurrentFullDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentFullDescription() {
+            match IUIAutomationElement6_Impl::CurrentFullDescription(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6111,7 +6111,7 @@ impl IUIAutomationElement6_Vtbl {
         unsafe extern "system" fn CachedFullDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedFullDescription() {
+            match IUIAutomationElement6_Impl::CachedFullDescription(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6145,7 +6145,7 @@ impl IUIAutomationElement7_Vtbl {
         unsafe extern "system" fn FindFirstWithOptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, condition: *mut core::ffi::c_void, traversaloptions: TreeTraversalOptions, root: *mut core::ffi::c_void, found: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FindFirstWithOptions(core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&condition), core::mem::transmute_copy(&traversaloptions), windows_core::from_raw_borrowed(&root)) {
+            match IUIAutomationElement7_Impl::FindFirstWithOptions(this, core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&condition), core::mem::transmute_copy(&traversaloptions), windows_core::from_raw_borrowed(&root)) {
                 Ok(ok__) => {
                     core::ptr::write(found, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6156,7 +6156,7 @@ impl IUIAutomationElement7_Vtbl {
         unsafe extern "system" fn FindAllWithOptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, condition: *mut core::ffi::c_void, traversaloptions: TreeTraversalOptions, root: *mut core::ffi::c_void, found: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FindAllWithOptions(core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&condition), core::mem::transmute_copy(&traversaloptions), windows_core::from_raw_borrowed(&root)) {
+            match IUIAutomationElement7_Impl::FindAllWithOptions(this, core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&condition), core::mem::transmute_copy(&traversaloptions), windows_core::from_raw_borrowed(&root)) {
                 Ok(ok__) => {
                     core::ptr::write(found, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6167,7 +6167,7 @@ impl IUIAutomationElement7_Vtbl {
         unsafe extern "system" fn FindFirstWithOptionsBuildCache<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, condition: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, traversaloptions: TreeTraversalOptions, root: *mut core::ffi::c_void, found: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FindFirstWithOptionsBuildCache(core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&condition), windows_core::from_raw_borrowed(&cacherequest), core::mem::transmute_copy(&traversaloptions), windows_core::from_raw_borrowed(&root)) {
+            match IUIAutomationElement7_Impl::FindFirstWithOptionsBuildCache(this, core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&condition), windows_core::from_raw_borrowed(&cacherequest), core::mem::transmute_copy(&traversaloptions), windows_core::from_raw_borrowed(&root)) {
                 Ok(ok__) => {
                     core::ptr::write(found, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6178,7 +6178,7 @@ impl IUIAutomationElement7_Vtbl {
         unsafe extern "system" fn FindAllWithOptionsBuildCache<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, condition: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, traversaloptions: TreeTraversalOptions, root: *mut core::ffi::c_void, found: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FindAllWithOptionsBuildCache(core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&condition), windows_core::from_raw_borrowed(&cacherequest), core::mem::transmute_copy(&traversaloptions), windows_core::from_raw_borrowed(&root)) {
+            match IUIAutomationElement7_Impl::FindAllWithOptionsBuildCache(this, core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&condition), windows_core::from_raw_borrowed(&cacherequest), core::mem::transmute_copy(&traversaloptions), windows_core::from_raw_borrowed(&root)) {
                 Ok(ok__) => {
                     core::ptr::write(found, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6189,7 +6189,7 @@ impl IUIAutomationElement7_Vtbl {
         unsafe extern "system" fn GetCurrentMetadataValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetid: i32, metadataid: UIA_METADATA_ID, returnval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCurrentMetadataValue(core::mem::transmute_copy(&targetid), core::mem::transmute_copy(&metadataid)) {
+            match IUIAutomationElement7_Impl::GetCurrentMetadataValue(this, core::mem::transmute_copy(&targetid), core::mem::transmute_copy(&metadataid)) {
                 Ok(ok__) => {
                     core::ptr::write(returnval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6223,7 +6223,7 @@ impl IUIAutomationElement8_Vtbl {
         unsafe extern "system" fn CurrentHeadingLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut UIA_HEADINGLEVEL_ID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentHeadingLevel() {
+            match IUIAutomationElement8_Impl::CurrentHeadingLevel(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6234,7 +6234,7 @@ impl IUIAutomationElement8_Vtbl {
         unsafe extern "system" fn CachedHeadingLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut UIA_HEADINGLEVEL_ID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedHeadingLevel() {
+            match IUIAutomationElement8_Impl::CachedHeadingLevel(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6265,7 +6265,7 @@ impl IUIAutomationElement9_Vtbl {
         unsafe extern "system" fn CurrentIsDialog<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentIsDialog() {
+            match IUIAutomationElement9_Impl::CurrentIsDialog(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6276,7 +6276,7 @@ impl IUIAutomationElement9_Vtbl {
         unsafe extern "system" fn CachedIsDialog<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedIsDialog() {
+            match IUIAutomationElement9_Impl::CachedIsDialog(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6304,7 +6304,7 @@ impl IUIAutomationElementArray_Vtbl {
         unsafe extern "system" fn Length<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElementArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Length() {
+            match IUIAutomationElementArray_Impl::Length(this) {
                 Ok(ok__) => {
                     core::ptr::write(length, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6315,7 +6315,7 @@ impl IUIAutomationElementArray_Vtbl {
         unsafe extern "system" fn GetElement<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElementArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, element: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetElement(core::mem::transmute_copy(&index)) {
+            match IUIAutomationElementArray_Impl::GetElement(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(element, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6342,7 +6342,7 @@ impl IUIAutomationEventHandler_Vtbl {
         unsafe extern "system" fn HandleAutomationEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, eventid: UIA_EVENT_ID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.HandleAutomationEvent(windows_core::from_raw_borrowed(&sender), core::mem::transmute_copy(&eventid)).into()
+            IUIAutomationEventHandler_Impl::HandleAutomationEvent(this, windows_core::from_raw_borrowed(&sender), core::mem::transmute_copy(&eventid)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandleAutomationEvent: HandleAutomationEvent::<Identity, Impl, OFFSET> }
     }
@@ -6365,37 +6365,37 @@ impl IUIAutomationEventHandlerGroup_Vtbl {
         unsafe extern "system" fn AddActiveTextPositionChangedEventHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddActiveTextPositionChangedEventHandler(core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler)).into()
+            IUIAutomationEventHandlerGroup_Impl::AddActiveTextPositionChangedEventHandler(this, core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler)).into()
         }
         unsafe extern "system" fn AddAutomationEventHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventid: UIA_EVENT_ID, scope: TreeScope, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddAutomationEventHandler(core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler)).into()
+            IUIAutomationEventHandlerGroup_Impl::AddAutomationEventHandler(this, core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler)).into()
         }
         unsafe extern "system" fn AddChangesEventHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, changetypes: *const i32, changescount: i32, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddChangesEventHandler(core::mem::transmute_copy(&scope), core::mem::transmute_copy(&changetypes), core::mem::transmute_copy(&changescount), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler)).into()
+            IUIAutomationEventHandlerGroup_Impl::AddChangesEventHandler(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&changetypes), core::mem::transmute_copy(&changescount), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler)).into()
         }
         unsafe extern "system" fn AddNotificationEventHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddNotificationEventHandler(core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler)).into()
+            IUIAutomationEventHandlerGroup_Impl::AddNotificationEventHandler(this, core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler)).into()
         }
         unsafe extern "system" fn AddPropertyChangedEventHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, propertyarray: *const UIA_PROPERTY_ID, propertycount: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddPropertyChangedEventHandler(core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler), core::mem::transmute_copy(&propertyarray), core::mem::transmute_copy(&propertycount)).into()
+            IUIAutomationEventHandlerGroup_Impl::AddPropertyChangedEventHandler(this, core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler), core::mem::transmute_copy(&propertyarray), core::mem::transmute_copy(&propertycount)).into()
         }
         unsafe extern "system" fn AddStructureChangedEventHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddStructureChangedEventHandler(core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler)).into()
+            IUIAutomationEventHandlerGroup_Impl::AddStructureChangedEventHandler(this, core::mem::transmute_copy(&scope), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler)).into()
         }
         unsafe extern "system" fn AddTextEditTextChangedEventHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddTextEditTextChangedEventHandler(core::mem::transmute_copy(&scope), core::mem::transmute_copy(&texteditchangetype), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler)).into()
+            IUIAutomationEventHandlerGroup_Impl::AddTextEditTextChangedEventHandler(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&texteditchangetype), windows_core::from_raw_borrowed(&cacherequest), windows_core::from_raw_borrowed(&handler)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -6424,17 +6424,17 @@ impl IUIAutomationExpandCollapsePattern_Vtbl {
         unsafe extern "system" fn Expand<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationExpandCollapsePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Expand().into()
+            IUIAutomationExpandCollapsePattern_Impl::Expand(this).into()
         }
         unsafe extern "system" fn Collapse<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationExpandCollapsePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Collapse().into()
+            IUIAutomationExpandCollapsePattern_Impl::Collapse(this).into()
         }
         unsafe extern "system" fn CurrentExpandCollapseState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationExpandCollapsePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut ExpandCollapseState) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentExpandCollapseState() {
+            match IUIAutomationExpandCollapsePattern_Impl::CurrentExpandCollapseState(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6445,7 +6445,7 @@ impl IUIAutomationExpandCollapsePattern_Vtbl {
         unsafe extern "system" fn CachedExpandCollapseState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationExpandCollapsePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut ExpandCollapseState) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedExpandCollapseState() {
+            match IUIAutomationExpandCollapsePattern_Impl::CachedExpandCollapseState(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6474,7 +6474,7 @@ impl IUIAutomationFocusChangedEventHandler_Vtbl {
         unsafe extern "system" fn HandleFocusChangedEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationFocusChangedEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.HandleFocusChangedEvent(windows_core::from_raw_borrowed(&sender)).into()
+            IUIAutomationFocusChangedEventHandler_Impl::HandleFocusChangedEvent(this, windows_core::from_raw_borrowed(&sender)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandleFocusChangedEvent: HandleFocusChangedEvent::<Identity, Impl, OFFSET> }
     }
@@ -6500,7 +6500,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
         unsafe extern "system" fn CurrentContainingGrid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationGridItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentContainingGrid() {
+            match IUIAutomationGridItemPattern_Impl::CurrentContainingGrid(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6511,7 +6511,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
         unsafe extern "system" fn CurrentRow<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationGridItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentRow() {
+            match IUIAutomationGridItemPattern_Impl::CurrentRow(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6522,7 +6522,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
         unsafe extern "system" fn CurrentColumn<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationGridItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentColumn() {
+            match IUIAutomationGridItemPattern_Impl::CurrentColumn(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6533,7 +6533,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
         unsafe extern "system" fn CurrentRowSpan<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationGridItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentRowSpan() {
+            match IUIAutomationGridItemPattern_Impl::CurrentRowSpan(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6544,7 +6544,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
         unsafe extern "system" fn CurrentColumnSpan<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationGridItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentColumnSpan() {
+            match IUIAutomationGridItemPattern_Impl::CurrentColumnSpan(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6555,7 +6555,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
         unsafe extern "system" fn CachedContainingGrid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationGridItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedContainingGrid() {
+            match IUIAutomationGridItemPattern_Impl::CachedContainingGrid(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6566,7 +6566,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
         unsafe extern "system" fn CachedRow<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationGridItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedRow() {
+            match IUIAutomationGridItemPattern_Impl::CachedRow(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6577,7 +6577,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
         unsafe extern "system" fn CachedColumn<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationGridItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedColumn() {
+            match IUIAutomationGridItemPattern_Impl::CachedColumn(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6588,7 +6588,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
         unsafe extern "system" fn CachedRowSpan<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationGridItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedRowSpan() {
+            match IUIAutomationGridItemPattern_Impl::CachedRowSpan(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6599,7 +6599,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
         unsafe extern "system" fn CachedColumnSpan<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationGridItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedColumnSpan() {
+            match IUIAutomationGridItemPattern_Impl::CachedColumnSpan(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6638,7 +6638,7 @@ impl IUIAutomationGridPattern_Vtbl {
         unsafe extern "system" fn GetItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationGridPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, row: i32, column: i32, element: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetItem(core::mem::transmute_copy(&row), core::mem::transmute_copy(&column)) {
+            match IUIAutomationGridPattern_Impl::GetItem(this, core::mem::transmute_copy(&row), core::mem::transmute_copy(&column)) {
                 Ok(ok__) => {
                     core::ptr::write(element, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6649,7 +6649,7 @@ impl IUIAutomationGridPattern_Vtbl {
         unsafe extern "system" fn CurrentRowCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationGridPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentRowCount() {
+            match IUIAutomationGridPattern_Impl::CurrentRowCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6660,7 +6660,7 @@ impl IUIAutomationGridPattern_Vtbl {
         unsafe extern "system" fn CurrentColumnCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationGridPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentColumnCount() {
+            match IUIAutomationGridPattern_Impl::CurrentColumnCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6671,7 +6671,7 @@ impl IUIAutomationGridPattern_Vtbl {
         unsafe extern "system" fn CachedRowCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationGridPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedRowCount() {
+            match IUIAutomationGridPattern_Impl::CachedRowCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6682,7 +6682,7 @@ impl IUIAutomationGridPattern_Vtbl {
         unsafe extern "system" fn CachedColumnCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationGridPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedColumnCount() {
+            match IUIAutomationGridPattern_Impl::CachedColumnCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6712,7 +6712,7 @@ impl IUIAutomationInvokePattern_Vtbl {
         unsafe extern "system" fn Invoke<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationInvokePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Invoke().into()
+            IUIAutomationInvokePattern_Impl::Invoke(this).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
@@ -6729,7 +6729,7 @@ impl IUIAutomationItemContainerPattern_Vtbl {
         unsafe extern "system" fn FindItemByProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationItemContainerPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstartafter: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: std::mem::MaybeUninit<windows_core::VARIANT>, pfound: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FindItemByProperty(windows_core::from_raw_borrowed(&pstartafter), core::mem::transmute_copy(&propertyid), core::mem::transmute(&value)) {
+            match IUIAutomationItemContainerPattern_Impl::FindItemByProperty(this, windows_core::from_raw_borrowed(&pstartafter), core::mem::transmute_copy(&propertyid), core::mem::transmute(&value)) {
                 Ok(ok__) => {
                     core::ptr::write(pfound, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6778,22 +6778,22 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
         unsafe extern "system" fn Select<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flagsselect: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Select(core::mem::transmute_copy(&flagsselect)).into()
+            IUIAutomationLegacyIAccessiblePattern_Impl::Select(this, core::mem::transmute_copy(&flagsselect)).into()
         }
         unsafe extern "system" fn DoDefaultAction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DoDefaultAction().into()
+            IUIAutomationLegacyIAccessiblePattern_Impl::DoDefaultAction(this).into()
         }
         unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szvalue: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetValue(core::mem::transmute(&szvalue)).into()
+            IUIAutomationLegacyIAccessiblePattern_Impl::SetValue(this, core::mem::transmute(&szvalue)).into()
         }
         unsafe extern "system" fn CurrentChildId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentChildId() {
+            match IUIAutomationLegacyIAccessiblePattern_Impl::CurrentChildId(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6804,7 +6804,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
         unsafe extern "system" fn CurrentName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentName() {
+            match IUIAutomationLegacyIAccessiblePattern_Impl::CurrentName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pszname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6815,7 +6815,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
         unsafe extern "system" fn CurrentValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvalue: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentValue() {
+            match IUIAutomationLegacyIAccessiblePattern_Impl::CurrentValue(this) {
                 Ok(ok__) => {
                     core::ptr::write(pszvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6826,7 +6826,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
         unsafe extern "system" fn CurrentDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszdescription: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentDescription() {
+            match IUIAutomationLegacyIAccessiblePattern_Impl::CurrentDescription(this) {
                 Ok(ok__) => {
                     core::ptr::write(pszdescription, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6837,7 +6837,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
         unsafe extern "system" fn CurrentRole<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwrole: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentRole() {
+            match IUIAutomationLegacyIAccessiblePattern_Impl::CurrentRole(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdwrole, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6848,7 +6848,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
         unsafe extern "system" fn CurrentState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstate: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentState() {
+            match IUIAutomationLegacyIAccessiblePattern_Impl::CurrentState(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdwstate, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6859,7 +6859,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
         unsafe extern "system" fn CurrentHelp<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszhelp: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentHelp() {
+            match IUIAutomationLegacyIAccessiblePattern_Impl::CurrentHelp(this) {
                 Ok(ok__) => {
                     core::ptr::write(pszhelp, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6870,7 +6870,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
         unsafe extern "system" fn CurrentKeyboardShortcut<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszkeyboardshortcut: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentKeyboardShortcut() {
+            match IUIAutomationLegacyIAccessiblePattern_Impl::CurrentKeyboardShortcut(this) {
                 Ok(ok__) => {
                     core::ptr::write(pszkeyboardshortcut, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6881,7 +6881,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
         unsafe extern "system" fn GetCurrentSelection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarselectedchildren: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCurrentSelection() {
+            match IUIAutomationLegacyIAccessiblePattern_Impl::GetCurrentSelection(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarselectedchildren, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6892,7 +6892,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
         unsafe extern "system" fn CurrentDefaultAction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszdefaultaction: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentDefaultAction() {
+            match IUIAutomationLegacyIAccessiblePattern_Impl::CurrentDefaultAction(this) {
                 Ok(ok__) => {
                     core::ptr::write(pszdefaultaction, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6903,7 +6903,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
         unsafe extern "system" fn CachedChildId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedChildId() {
+            match IUIAutomationLegacyIAccessiblePattern_Impl::CachedChildId(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6914,7 +6914,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
         unsafe extern "system" fn CachedName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedName() {
+            match IUIAutomationLegacyIAccessiblePattern_Impl::CachedName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pszname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6925,7 +6925,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
         unsafe extern "system" fn CachedValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvalue: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedValue() {
+            match IUIAutomationLegacyIAccessiblePattern_Impl::CachedValue(this) {
                 Ok(ok__) => {
                     core::ptr::write(pszvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6936,7 +6936,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
         unsafe extern "system" fn CachedDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszdescription: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedDescription() {
+            match IUIAutomationLegacyIAccessiblePattern_Impl::CachedDescription(this) {
                 Ok(ok__) => {
                     core::ptr::write(pszdescription, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6947,7 +6947,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
         unsafe extern "system" fn CachedRole<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwrole: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedRole() {
+            match IUIAutomationLegacyIAccessiblePattern_Impl::CachedRole(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdwrole, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6958,7 +6958,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
         unsafe extern "system" fn CachedState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstate: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedState() {
+            match IUIAutomationLegacyIAccessiblePattern_Impl::CachedState(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdwstate, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6969,7 +6969,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
         unsafe extern "system" fn CachedHelp<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszhelp: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedHelp() {
+            match IUIAutomationLegacyIAccessiblePattern_Impl::CachedHelp(this) {
                 Ok(ok__) => {
                     core::ptr::write(pszhelp, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6980,7 +6980,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
         unsafe extern "system" fn CachedKeyboardShortcut<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszkeyboardshortcut: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedKeyboardShortcut() {
+            match IUIAutomationLegacyIAccessiblePattern_Impl::CachedKeyboardShortcut(this) {
                 Ok(ok__) => {
                     core::ptr::write(pszkeyboardshortcut, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6991,7 +6991,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
         unsafe extern "system" fn GetCachedSelection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarselectedchildren: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCachedSelection() {
+            match IUIAutomationLegacyIAccessiblePattern_Impl::GetCachedSelection(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarselectedchildren, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7002,7 +7002,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
         unsafe extern "system" fn CachedDefaultAction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszdefaultaction: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedDefaultAction() {
+            match IUIAutomationLegacyIAccessiblePattern_Impl::CachedDefaultAction(this) {
                 Ok(ok__) => {
                     core::ptr::write(pszdefaultaction, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7013,7 +7013,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
         unsafe extern "system" fn GetIAccessible<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppaccessible: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetIAccessible() {
+            match IUIAutomationLegacyIAccessiblePattern_Impl::GetIAccessible(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppaccessible, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7070,7 +7070,7 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
         unsafe extern "system" fn GetViewName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationMultipleViewPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, view: i32, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetViewName(core::mem::transmute_copy(&view)) {
+            match IUIAutomationMultipleViewPattern_Impl::GetViewName(this, core::mem::transmute_copy(&view)) {
                 Ok(ok__) => {
                     core::ptr::write(name, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7081,12 +7081,12 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
         unsafe extern "system" fn SetCurrentView<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationMultipleViewPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, view: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCurrentView(core::mem::transmute_copy(&view)).into()
+            IUIAutomationMultipleViewPattern_Impl::SetCurrentView(this, core::mem::transmute_copy(&view)).into()
         }
         unsafe extern "system" fn CurrentCurrentView<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationMultipleViewPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentCurrentView() {
+            match IUIAutomationMultipleViewPattern_Impl::CurrentCurrentView(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7097,7 +7097,7 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
         unsafe extern "system" fn GetCurrentSupportedViews<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationMultipleViewPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCurrentSupportedViews() {
+            match IUIAutomationMultipleViewPattern_Impl::GetCurrentSupportedViews(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7108,7 +7108,7 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
         unsafe extern "system" fn CachedCurrentView<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationMultipleViewPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedCurrentView() {
+            match IUIAutomationMultipleViewPattern_Impl::CachedCurrentView(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7119,7 +7119,7 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
         unsafe extern "system" fn GetCachedSupportedViews<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationMultipleViewPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCachedSupportedViews() {
+            match IUIAutomationMultipleViewPattern_Impl::GetCachedSupportedViews(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7150,7 +7150,7 @@ impl IUIAutomationNotCondition_Vtbl {
         unsafe extern "system" fn GetChild<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationNotCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, condition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetChild() {
+            match IUIAutomationNotCondition_Impl::GetChild(this) {
                 Ok(ok__) => {
                     core::ptr::write(condition, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7173,7 +7173,7 @@ impl IUIAutomationNotificationEventHandler_Vtbl {
         unsafe extern "system" fn HandleNotificationEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationNotificationEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: std::mem::MaybeUninit<windows_core::BSTR>, activityid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.HandleNotificationEvent(windows_core::from_raw_borrowed(&sender), core::mem::transmute_copy(&notificationkind), core::mem::transmute_copy(&notificationprocessing), core::mem::transmute(&displaystring), core::mem::transmute(&activityid)).into()
+            IUIAutomationNotificationEventHandler_Impl::HandleNotificationEvent(this, windows_core::from_raw_borrowed(&sender), core::mem::transmute_copy(&notificationkind), core::mem::transmute_copy(&notificationprocessing), core::mem::transmute(&displaystring), core::mem::transmute(&activityid)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandleNotificationEvent: HandleNotificationEvent::<Identity, Impl, OFFSET> }
     }
@@ -7190,7 +7190,7 @@ impl IUIAutomationObjectModelPattern_Vtbl {
         unsafe extern "system" fn GetUnderlyingObjectModel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationObjectModelPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetUnderlyingObjectModel() {
+            match IUIAutomationObjectModelPattern_Impl::GetUnderlyingObjectModel(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7218,7 +7218,7 @@ impl IUIAutomationOrCondition_Vtbl {
         unsafe extern "system" fn ChildCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationOrCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, childcount: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ChildCount() {
+            match IUIAutomationOrCondition_Impl::ChildCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(childcount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7229,12 +7229,12 @@ impl IUIAutomationOrCondition_Vtbl {
         unsafe extern "system" fn GetChildrenAsNativeArray<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationOrCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, childarray: *mut *mut Option<IUIAutomationCondition>, childarraycount: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetChildrenAsNativeArray(core::mem::transmute_copy(&childarray), core::mem::transmute_copy(&childarraycount)).into()
+            IUIAutomationOrCondition_Impl::GetChildrenAsNativeArray(this, core::mem::transmute_copy(&childarray), core::mem::transmute_copy(&childarraycount)).into()
         }
         unsafe extern "system" fn GetChildren<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationOrCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, childarray: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetChildren() {
+            match IUIAutomationOrCondition_Impl::GetChildren(this) {
                 Ok(ok__) => {
                     core::ptr::write(childarray, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7263,7 +7263,7 @@ impl IUIAutomationPatternHandler_Vtbl {
         unsafe extern "system" fn CreateClientWrapper<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationPatternHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppatterninstance: *mut core::ffi::c_void, pclientwrapper: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateClientWrapper(windows_core::from_raw_borrowed(&ppatterninstance)) {
+            match IUIAutomationPatternHandler_Impl::CreateClientWrapper(this, windows_core::from_raw_borrowed(&ppatterninstance)) {
                 Ok(ok__) => {
                     core::ptr::write(pclientwrapper, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7274,7 +7274,7 @@ impl IUIAutomationPatternHandler_Vtbl {
         unsafe extern "system" fn Dispatch<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationPatternHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptarget: *mut core::ffi::c_void, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Dispatch(windows_core::from_raw_borrowed(&ptarget), core::mem::transmute_copy(&index), core::mem::transmute_copy(&pparams), core::mem::transmute_copy(&cparams)).into()
+            IUIAutomationPatternHandler_Impl::Dispatch(this, windows_core::from_raw_borrowed(&ptarget), core::mem::transmute_copy(&index), core::mem::transmute_copy(&pparams), core::mem::transmute_copy(&cparams)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -7296,12 +7296,12 @@ impl IUIAutomationPatternInstance_Vtbl {
         unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationPatternInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, cached: super::super::Foundation::BOOL, r#type: UIAutomationType, pptr: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetProperty(core::mem::transmute_copy(&index), core::mem::transmute_copy(&cached), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pptr)).into()
+            IUIAutomationPatternInstance_Impl::GetProperty(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&cached), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pptr)).into()
         }
         unsafe extern "system" fn CallMethod<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationPatternInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CallMethod(core::mem::transmute_copy(&index), core::mem::transmute_copy(&pparams), core::mem::transmute_copy(&cparams)).into()
+            IUIAutomationPatternInstance_Impl::CallMethod(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pparams), core::mem::transmute_copy(&cparams)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -7322,7 +7322,7 @@ impl IUIAutomationPropertyChangedEventHandler_Vtbl {
         unsafe extern "system" fn HandlePropertyChangedEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationPropertyChangedEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, newvalue: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.HandlePropertyChangedEvent(windows_core::from_raw_borrowed(&sender), core::mem::transmute_copy(&propertyid), core::mem::transmute(&newvalue)).into()
+            IUIAutomationPropertyChangedEventHandler_Impl::HandlePropertyChangedEvent(this, windows_core::from_raw_borrowed(&sender), core::mem::transmute_copy(&propertyid), core::mem::transmute(&newvalue)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandlePropertyChangedEvent: HandlePropertyChangedEvent::<Identity, Impl, OFFSET> }
     }
@@ -7341,7 +7341,7 @@ impl IUIAutomationPropertyCondition_Vtbl {
         unsafe extern "system" fn PropertyId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationPropertyCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: *mut UIA_PROPERTY_ID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PropertyId() {
+            match IUIAutomationPropertyCondition_Impl::PropertyId(this) {
                 Ok(ok__) => {
                     core::ptr::write(propertyid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7352,7 +7352,7 @@ impl IUIAutomationPropertyCondition_Vtbl {
         unsafe extern "system" fn PropertyValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationPropertyCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyvalue: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PropertyValue() {
+            match IUIAutomationPropertyCondition_Impl::PropertyValue(this) {
                 Ok(ok__) => {
                     core::ptr::write(propertyvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7363,7 +7363,7 @@ impl IUIAutomationPropertyCondition_Vtbl {
         unsafe extern "system" fn PropertyConditionFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationPropertyCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut PropertyConditionFlags) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PropertyConditionFlags() {
+            match IUIAutomationPropertyCondition_Impl::PropertyConditionFlags(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7392,7 +7392,7 @@ impl IUIAutomationProxyFactory_Vtbl {
         unsafe extern "system" fn CreateProvider<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, provider: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateProvider(core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild)) {
+            match IUIAutomationProxyFactory_Impl::CreateProvider(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild)) {
                 Ok(ok__) => {
                     core::ptr::write(provider, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7403,7 +7403,7 @@ impl IUIAutomationProxyFactory_Vtbl {
         unsafe extern "system" fn ProxyFactoryId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, factoryid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ProxyFactoryId() {
+            match IUIAutomationProxyFactory_Impl::ProxyFactoryId(this) {
                 Ok(ok__) => {
                     core::ptr::write(factoryid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7445,7 +7445,7 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
         unsafe extern "system" fn ProxyFactory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, factory: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ProxyFactory() {
+            match IUIAutomationProxyFactoryEntry_Impl::ProxyFactory(this) {
                 Ok(ok__) => {
                     core::ptr::write(factory, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7456,7 +7456,7 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
         unsafe extern "system" fn ClassName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, classname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ClassName() {
+            match IUIAutomationProxyFactoryEntry_Impl::ClassName(this) {
                 Ok(ok__) => {
                     core::ptr::write(classname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7467,7 +7467,7 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
         unsafe extern "system" fn ImageName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagename: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ImageName() {
+            match IUIAutomationProxyFactoryEntry_Impl::ImageName(this) {
                 Ok(ok__) => {
                     core::ptr::write(imagename, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7478,7 +7478,7 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
         unsafe extern "system" fn AllowSubstringMatch<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allowsubstringmatch: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AllowSubstringMatch() {
+            match IUIAutomationProxyFactoryEntry_Impl::AllowSubstringMatch(this) {
                 Ok(ok__) => {
                     core::ptr::write(allowsubstringmatch, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7489,7 +7489,7 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
         unsafe extern "system" fn CanCheckBaseClass<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cancheckbaseclass: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CanCheckBaseClass() {
+            match IUIAutomationProxyFactoryEntry_Impl::CanCheckBaseClass(this) {
                 Ok(ok__) => {
                     core::ptr::write(cancheckbaseclass, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7500,7 +7500,7 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
         unsafe extern "system" fn NeedsAdviseEvents<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adviseevents: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.NeedsAdviseEvents() {
+            match IUIAutomationProxyFactoryEntry_Impl::NeedsAdviseEvents(this) {
                 Ok(ok__) => {
                     core::ptr::write(adviseevents, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7511,37 +7511,37 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
         unsafe extern "system" fn SetClassName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, classname: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetClassName(core::mem::transmute(&classname)).into()
+            IUIAutomationProxyFactoryEntry_Impl::SetClassName(this, core::mem::transmute(&classname)).into()
         }
         unsafe extern "system" fn SetImageName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagename: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetImageName(core::mem::transmute(&imagename)).into()
+            IUIAutomationProxyFactoryEntry_Impl::SetImageName(this, core::mem::transmute(&imagename)).into()
         }
         unsafe extern "system" fn SetAllowSubstringMatch<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allowsubstringmatch: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAllowSubstringMatch(core::mem::transmute_copy(&allowsubstringmatch)).into()
+            IUIAutomationProxyFactoryEntry_Impl::SetAllowSubstringMatch(this, core::mem::transmute_copy(&allowsubstringmatch)).into()
         }
         unsafe extern "system" fn SetCanCheckBaseClass<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cancheckbaseclass: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCanCheckBaseClass(core::mem::transmute_copy(&cancheckbaseclass)).into()
+            IUIAutomationProxyFactoryEntry_Impl::SetCanCheckBaseClass(this, core::mem::transmute_copy(&cancheckbaseclass)).into()
         }
         unsafe extern "system" fn SetNeedsAdviseEvents<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adviseevents: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetNeedsAdviseEvents(core::mem::transmute_copy(&adviseevents)).into()
+            IUIAutomationProxyFactoryEntry_Impl::SetNeedsAdviseEvents(this, core::mem::transmute_copy(&adviseevents)).into()
         }
         unsafe extern "system" fn SetWinEventsForAutomationEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventid: UIA_EVENT_ID, propertyid: UIA_PROPERTY_ID, winevents: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetWinEventsForAutomationEvent(core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&winevents)).into()
+            IUIAutomationProxyFactoryEntry_Impl::SetWinEventsForAutomationEvent(this, core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&winevents)).into()
         }
         unsafe extern "system" fn GetWinEventsForAutomationEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventid: UIA_EVENT_ID, propertyid: UIA_PROPERTY_ID, winevents: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetWinEventsForAutomationEvent(core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&propertyid)) {
+            match IUIAutomationProxyFactoryEntry_Impl::GetWinEventsForAutomationEvent(this, core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&propertyid)) {
                 Ok(ok__) => {
                     core::ptr::write(winevents, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7590,7 +7590,7 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactoryMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IUIAutomationProxyFactoryMapping_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7601,7 +7601,7 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
         unsafe extern "system" fn GetTable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactoryMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, table: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetTable() {
+            match IUIAutomationProxyFactoryMapping_Impl::GetTable(this) {
                 Ok(ok__) => {
                     core::ptr::write(table, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7612,7 +7612,7 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
         unsafe extern "system" fn GetEntry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactoryMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, entry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetEntry(core::mem::transmute_copy(&index)) {
+            match IUIAutomationProxyFactoryMapping_Impl::GetEntry(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(entry, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7623,32 +7623,32 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
         unsafe extern "system" fn SetTable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactoryMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, factorylist: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTable(core::mem::transmute_copy(&factorylist)).into()
+            IUIAutomationProxyFactoryMapping_Impl::SetTable(this, core::mem::transmute_copy(&factorylist)).into()
         }
         unsafe extern "system" fn InsertEntries<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactoryMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, before: u32, factorylist: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InsertEntries(core::mem::transmute_copy(&before), core::mem::transmute_copy(&factorylist)).into()
+            IUIAutomationProxyFactoryMapping_Impl::InsertEntries(this, core::mem::transmute_copy(&before), core::mem::transmute_copy(&factorylist)).into()
         }
         unsafe extern "system" fn InsertEntry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactoryMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, before: u32, factory: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InsertEntry(core::mem::transmute_copy(&before), windows_core::from_raw_borrowed(&factory)).into()
+            IUIAutomationProxyFactoryMapping_Impl::InsertEntry(this, core::mem::transmute_copy(&before), windows_core::from_raw_borrowed(&factory)).into()
         }
         unsafe extern "system" fn RemoveEntry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactoryMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveEntry(core::mem::transmute_copy(&index)).into()
+            IUIAutomationProxyFactoryMapping_Impl::RemoveEntry(this, core::mem::transmute_copy(&index)).into()
         }
         unsafe extern "system" fn ClearTable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactoryMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ClearTable().into()
+            IUIAutomationProxyFactoryMapping_Impl::ClearTable(this).into()
         }
         unsafe extern "system" fn RestoreDefaultTable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationProxyFactoryMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RestoreDefaultTable().into()
+            IUIAutomationProxyFactoryMapping_Impl::RestoreDefaultTable(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -7688,12 +7688,12 @@ impl IUIAutomationRangeValuePattern_Vtbl {
         unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, val: f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetValue(core::mem::transmute_copy(&val)).into()
+            IUIAutomationRangeValuePattern_Impl::SetValue(this, core::mem::transmute_copy(&val)).into()
         }
         unsafe extern "system" fn CurrentValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentValue() {
+            match IUIAutomationRangeValuePattern_Impl::CurrentValue(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7704,7 +7704,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
         unsafe extern "system" fn CurrentIsReadOnly<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentIsReadOnly() {
+            match IUIAutomationRangeValuePattern_Impl::CurrentIsReadOnly(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7715,7 +7715,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
         unsafe extern "system" fn CurrentMaximum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentMaximum() {
+            match IUIAutomationRangeValuePattern_Impl::CurrentMaximum(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7726,7 +7726,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
         unsafe extern "system" fn CurrentMinimum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentMinimum() {
+            match IUIAutomationRangeValuePattern_Impl::CurrentMinimum(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7737,7 +7737,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
         unsafe extern "system" fn CurrentLargeChange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentLargeChange() {
+            match IUIAutomationRangeValuePattern_Impl::CurrentLargeChange(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7748,7 +7748,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
         unsafe extern "system" fn CurrentSmallChange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentSmallChange() {
+            match IUIAutomationRangeValuePattern_Impl::CurrentSmallChange(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7759,7 +7759,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
         unsafe extern "system" fn CachedValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedValue() {
+            match IUIAutomationRangeValuePattern_Impl::CachedValue(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7770,7 +7770,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
         unsafe extern "system" fn CachedIsReadOnly<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedIsReadOnly() {
+            match IUIAutomationRangeValuePattern_Impl::CachedIsReadOnly(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7781,7 +7781,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
         unsafe extern "system" fn CachedMaximum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedMaximum() {
+            match IUIAutomationRangeValuePattern_Impl::CachedMaximum(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7792,7 +7792,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
         unsafe extern "system" fn CachedMinimum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedMinimum() {
+            match IUIAutomationRangeValuePattern_Impl::CachedMinimum(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7803,7 +7803,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
         unsafe extern "system" fn CachedLargeChange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedLargeChange() {
+            match IUIAutomationRangeValuePattern_Impl::CachedLargeChange(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7814,7 +7814,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
         unsafe extern "system" fn CachedSmallChange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedSmallChange() {
+            match IUIAutomationRangeValuePattern_Impl::CachedSmallChange(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7854,7 +7854,7 @@ impl IUIAutomationRegistrar_Vtbl {
         unsafe extern "system" fn RegisterProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationRegistrar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: *const UIAutomationPropertyInfo, propertyid: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RegisterProperty(core::mem::transmute_copy(&property)) {
+            match IUIAutomationRegistrar_Impl::RegisterProperty(this, core::mem::transmute_copy(&property)) {
                 Ok(ok__) => {
                     core::ptr::write(propertyid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7865,7 +7865,7 @@ impl IUIAutomationRegistrar_Vtbl {
         unsafe extern "system" fn RegisterEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationRegistrar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *const UIAutomationEventInfo, eventid: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RegisterEvent(core::mem::transmute_copy(&event)) {
+            match IUIAutomationRegistrar_Impl::RegisterEvent(this, core::mem::transmute_copy(&event)) {
                 Ok(ok__) => {
                     core::ptr::write(eventid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7876,7 +7876,7 @@ impl IUIAutomationRegistrar_Vtbl {
         unsafe extern "system" fn RegisterPattern<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationRegistrar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pattern: *const UIAutomationPatternInfo, ppatternid: *mut i32, ppatternavailablepropertyid: *mut i32, propertyidcount: u32, ppropertyids: *mut i32, eventidcount: u32, peventids: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RegisterPattern(core::mem::transmute_copy(&pattern), core::mem::transmute_copy(&ppatternid), core::mem::transmute_copy(&ppatternavailablepropertyid), core::mem::transmute_copy(&propertyidcount), core::mem::transmute_copy(&ppropertyids), core::mem::transmute_copy(&eventidcount), core::mem::transmute_copy(&peventids)).into()
+            IUIAutomationRegistrar_Impl::RegisterPattern(this, core::mem::transmute_copy(&pattern), core::mem::transmute_copy(&ppatternid), core::mem::transmute_copy(&ppatternavailablepropertyid), core::mem::transmute_copy(&propertyidcount), core::mem::transmute_copy(&ppropertyids), core::mem::transmute_copy(&eventidcount), core::mem::transmute_copy(&peventids)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -7898,7 +7898,7 @@ impl IUIAutomationScrollItemPattern_Vtbl {
         unsafe extern "system" fn ScrollIntoView<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationScrollItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ScrollIntoView().into()
+            IUIAutomationScrollItemPattern_Impl::ScrollIntoView(this).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ScrollIntoView: ScrollIntoView::<Identity, Impl, OFFSET> }
     }
@@ -7928,17 +7928,17 @@ impl IUIAutomationScrollPattern_Vtbl {
         unsafe extern "system" fn Scroll<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Scroll(core::mem::transmute_copy(&horizontalamount), core::mem::transmute_copy(&verticalamount)).into()
+            IUIAutomationScrollPattern_Impl::Scroll(this, core::mem::transmute_copy(&horizontalamount), core::mem::transmute_copy(&verticalamount)).into()
         }
         unsafe extern "system" fn SetScrollPercent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, horizontalpercent: f64, verticalpercent: f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetScrollPercent(core::mem::transmute_copy(&horizontalpercent), core::mem::transmute_copy(&verticalpercent)).into()
+            IUIAutomationScrollPattern_Impl::SetScrollPercent(this, core::mem::transmute_copy(&horizontalpercent), core::mem::transmute_copy(&verticalpercent)).into()
         }
         unsafe extern "system" fn CurrentHorizontalScrollPercent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentHorizontalScrollPercent() {
+            match IUIAutomationScrollPattern_Impl::CurrentHorizontalScrollPercent(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7949,7 +7949,7 @@ impl IUIAutomationScrollPattern_Vtbl {
         unsafe extern "system" fn CurrentVerticalScrollPercent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentVerticalScrollPercent() {
+            match IUIAutomationScrollPattern_Impl::CurrentVerticalScrollPercent(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7960,7 +7960,7 @@ impl IUIAutomationScrollPattern_Vtbl {
         unsafe extern "system" fn CurrentHorizontalViewSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentHorizontalViewSize() {
+            match IUIAutomationScrollPattern_Impl::CurrentHorizontalViewSize(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7971,7 +7971,7 @@ impl IUIAutomationScrollPattern_Vtbl {
         unsafe extern "system" fn CurrentVerticalViewSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentVerticalViewSize() {
+            match IUIAutomationScrollPattern_Impl::CurrentVerticalViewSize(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7982,7 +7982,7 @@ impl IUIAutomationScrollPattern_Vtbl {
         unsafe extern "system" fn CurrentHorizontallyScrollable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentHorizontallyScrollable() {
+            match IUIAutomationScrollPattern_Impl::CurrentHorizontallyScrollable(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7993,7 +7993,7 @@ impl IUIAutomationScrollPattern_Vtbl {
         unsafe extern "system" fn CurrentVerticallyScrollable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentVerticallyScrollable() {
+            match IUIAutomationScrollPattern_Impl::CurrentVerticallyScrollable(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8004,7 +8004,7 @@ impl IUIAutomationScrollPattern_Vtbl {
         unsafe extern "system" fn CachedHorizontalScrollPercent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedHorizontalScrollPercent() {
+            match IUIAutomationScrollPattern_Impl::CachedHorizontalScrollPercent(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8015,7 +8015,7 @@ impl IUIAutomationScrollPattern_Vtbl {
         unsafe extern "system" fn CachedVerticalScrollPercent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedVerticalScrollPercent() {
+            match IUIAutomationScrollPattern_Impl::CachedVerticalScrollPercent(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8026,7 +8026,7 @@ impl IUIAutomationScrollPattern_Vtbl {
         unsafe extern "system" fn CachedHorizontalViewSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedHorizontalViewSize() {
+            match IUIAutomationScrollPattern_Impl::CachedHorizontalViewSize(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8037,7 +8037,7 @@ impl IUIAutomationScrollPattern_Vtbl {
         unsafe extern "system" fn CachedVerticalViewSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedVerticalViewSize() {
+            match IUIAutomationScrollPattern_Impl::CachedVerticalViewSize(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8048,7 +8048,7 @@ impl IUIAutomationScrollPattern_Vtbl {
         unsafe extern "system" fn CachedHorizontallyScrollable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedHorizontallyScrollable() {
+            match IUIAutomationScrollPattern_Impl::CachedHorizontallyScrollable(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8059,7 +8059,7 @@ impl IUIAutomationScrollPattern_Vtbl {
         unsafe extern "system" fn CachedVerticallyScrollable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedVerticallyScrollable() {
+            match IUIAutomationScrollPattern_Impl::CachedVerticallyScrollable(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8104,22 +8104,22 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
         unsafe extern "system" fn Select<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSelectionItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Select().into()
+            IUIAutomationSelectionItemPattern_Impl::Select(this).into()
         }
         unsafe extern "system" fn AddToSelection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSelectionItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddToSelection().into()
+            IUIAutomationSelectionItemPattern_Impl::AddToSelection(this).into()
         }
         unsafe extern "system" fn RemoveFromSelection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSelectionItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveFromSelection().into()
+            IUIAutomationSelectionItemPattern_Impl::RemoveFromSelection(this).into()
         }
         unsafe extern "system" fn CurrentIsSelected<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSelectionItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentIsSelected() {
+            match IUIAutomationSelectionItemPattern_Impl::CurrentIsSelected(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8130,7 +8130,7 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
         unsafe extern "system" fn CurrentSelectionContainer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSelectionItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentSelectionContainer() {
+            match IUIAutomationSelectionItemPattern_Impl::CurrentSelectionContainer(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8141,7 +8141,7 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
         unsafe extern "system" fn CachedIsSelected<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSelectionItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedIsSelected() {
+            match IUIAutomationSelectionItemPattern_Impl::CachedIsSelected(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8152,7 +8152,7 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
         unsafe extern "system" fn CachedSelectionContainer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSelectionItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedSelectionContainer() {
+            match IUIAutomationSelectionItemPattern_Impl::CachedSelectionContainer(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8189,7 +8189,7 @@ impl IUIAutomationSelectionPattern_Vtbl {
         unsafe extern "system" fn GetCurrentSelection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSelectionPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCurrentSelection() {
+            match IUIAutomationSelectionPattern_Impl::GetCurrentSelection(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8200,7 +8200,7 @@ impl IUIAutomationSelectionPattern_Vtbl {
         unsafe extern "system" fn CurrentCanSelectMultiple<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSelectionPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentCanSelectMultiple() {
+            match IUIAutomationSelectionPattern_Impl::CurrentCanSelectMultiple(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8211,7 +8211,7 @@ impl IUIAutomationSelectionPattern_Vtbl {
         unsafe extern "system" fn CurrentIsSelectionRequired<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSelectionPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentIsSelectionRequired() {
+            match IUIAutomationSelectionPattern_Impl::CurrentIsSelectionRequired(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8222,7 +8222,7 @@ impl IUIAutomationSelectionPattern_Vtbl {
         unsafe extern "system" fn GetCachedSelection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSelectionPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCachedSelection() {
+            match IUIAutomationSelectionPattern_Impl::GetCachedSelection(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8233,7 +8233,7 @@ impl IUIAutomationSelectionPattern_Vtbl {
         unsafe extern "system" fn CachedCanSelectMultiple<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSelectionPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedCanSelectMultiple() {
+            match IUIAutomationSelectionPattern_Impl::CachedCanSelectMultiple(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8244,7 +8244,7 @@ impl IUIAutomationSelectionPattern_Vtbl {
         unsafe extern "system" fn CachedIsSelectionRequired<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSelectionPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedIsSelectionRequired() {
+            match IUIAutomationSelectionPattern_Impl::CachedIsSelectionRequired(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8282,7 +8282,7 @@ impl IUIAutomationSelectionPattern2_Vtbl {
         unsafe extern "system" fn CurrentFirstSelectedItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSelectionPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentFirstSelectedItem() {
+            match IUIAutomationSelectionPattern2_Impl::CurrentFirstSelectedItem(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8293,7 +8293,7 @@ impl IUIAutomationSelectionPattern2_Vtbl {
         unsafe extern "system" fn CurrentLastSelectedItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSelectionPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentLastSelectedItem() {
+            match IUIAutomationSelectionPattern2_Impl::CurrentLastSelectedItem(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8304,7 +8304,7 @@ impl IUIAutomationSelectionPattern2_Vtbl {
         unsafe extern "system" fn CurrentCurrentSelectedItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSelectionPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentCurrentSelectedItem() {
+            match IUIAutomationSelectionPattern2_Impl::CurrentCurrentSelectedItem(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8315,7 +8315,7 @@ impl IUIAutomationSelectionPattern2_Vtbl {
         unsafe extern "system" fn CurrentItemCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSelectionPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentItemCount() {
+            match IUIAutomationSelectionPattern2_Impl::CurrentItemCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8326,7 +8326,7 @@ impl IUIAutomationSelectionPattern2_Vtbl {
         unsafe extern "system" fn CachedFirstSelectedItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSelectionPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedFirstSelectedItem() {
+            match IUIAutomationSelectionPattern2_Impl::CachedFirstSelectedItem(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8337,7 +8337,7 @@ impl IUIAutomationSelectionPattern2_Vtbl {
         unsafe extern "system" fn CachedLastSelectedItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSelectionPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedLastSelectedItem() {
+            match IUIAutomationSelectionPattern2_Impl::CachedLastSelectedItem(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8348,7 +8348,7 @@ impl IUIAutomationSelectionPattern2_Vtbl {
         unsafe extern "system" fn CachedCurrentSelectedItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSelectionPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedCurrentSelectedItem() {
+            match IUIAutomationSelectionPattern2_Impl::CachedCurrentSelectedItem(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8359,7 +8359,7 @@ impl IUIAutomationSelectionPattern2_Vtbl {
         unsafe extern "system" fn CachedItemCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSelectionPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedItemCount() {
+            match IUIAutomationSelectionPattern2_Impl::CachedItemCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8400,7 +8400,7 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
         unsafe extern "system" fn CurrentFormula<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSpreadsheetItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentFormula() {
+            match IUIAutomationSpreadsheetItemPattern_Impl::CurrentFormula(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8411,7 +8411,7 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
         unsafe extern "system" fn GetCurrentAnnotationObjects<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSpreadsheetItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCurrentAnnotationObjects() {
+            match IUIAutomationSpreadsheetItemPattern_Impl::GetCurrentAnnotationObjects(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8422,7 +8422,7 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
         unsafe extern "system" fn GetCurrentAnnotationTypes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSpreadsheetItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCurrentAnnotationTypes() {
+            match IUIAutomationSpreadsheetItemPattern_Impl::GetCurrentAnnotationTypes(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8433,7 +8433,7 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
         unsafe extern "system" fn CachedFormula<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSpreadsheetItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedFormula() {
+            match IUIAutomationSpreadsheetItemPattern_Impl::CachedFormula(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8444,7 +8444,7 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
         unsafe extern "system" fn GetCachedAnnotationObjects<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSpreadsheetItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCachedAnnotationObjects() {
+            match IUIAutomationSpreadsheetItemPattern_Impl::GetCachedAnnotationObjects(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8455,7 +8455,7 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
         unsafe extern "system" fn GetCachedAnnotationTypes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSpreadsheetItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCachedAnnotationTypes() {
+            match IUIAutomationSpreadsheetItemPattern_Impl::GetCachedAnnotationTypes(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8486,7 +8486,7 @@ impl IUIAutomationSpreadsheetPattern_Vtbl {
         unsafe extern "system" fn GetItemByName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSpreadsheetPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>, element: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetItemByName(core::mem::transmute(&name)) {
+            match IUIAutomationSpreadsheetPattern_Impl::GetItemByName(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
                     core::ptr::write(element, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8512,7 +8512,7 @@ impl IUIAutomationStructureChangedEventHandler_Vtbl {
         unsafe extern "system" fn HandleStructureChangedEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationStructureChangedEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, changetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.HandleStructureChangedEvent(windows_core::from_raw_borrowed(&sender), core::mem::transmute_copy(&changetype), core::mem::transmute_copy(&runtimeid)).into()
+            IUIAutomationStructureChangedEventHandler_Impl::HandleStructureChangedEvent(this, windows_core::from_raw_borrowed(&sender), core::mem::transmute_copy(&changetype), core::mem::transmute_copy(&runtimeid)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -8547,7 +8547,7 @@ impl IUIAutomationStylesPattern_Vtbl {
         unsafe extern "system" fn CurrentStyleId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut UIA_STYLE_ID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentStyleId() {
+            match IUIAutomationStylesPattern_Impl::CurrentStyleId(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8558,7 +8558,7 @@ impl IUIAutomationStylesPattern_Vtbl {
         unsafe extern "system" fn CurrentStyleName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentStyleName() {
+            match IUIAutomationStylesPattern_Impl::CurrentStyleName(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8569,7 +8569,7 @@ impl IUIAutomationStylesPattern_Vtbl {
         unsafe extern "system" fn CurrentFillColor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentFillColor() {
+            match IUIAutomationStylesPattern_Impl::CurrentFillColor(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8580,7 +8580,7 @@ impl IUIAutomationStylesPattern_Vtbl {
         unsafe extern "system" fn CurrentFillPatternStyle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentFillPatternStyle() {
+            match IUIAutomationStylesPattern_Impl::CurrentFillPatternStyle(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8591,7 +8591,7 @@ impl IUIAutomationStylesPattern_Vtbl {
         unsafe extern "system" fn CurrentShape<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentShape() {
+            match IUIAutomationStylesPattern_Impl::CurrentShape(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8602,7 +8602,7 @@ impl IUIAutomationStylesPattern_Vtbl {
         unsafe extern "system" fn CurrentFillPatternColor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentFillPatternColor() {
+            match IUIAutomationStylesPattern_Impl::CurrentFillPatternColor(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8613,7 +8613,7 @@ impl IUIAutomationStylesPattern_Vtbl {
         unsafe extern "system" fn CurrentExtendedProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentExtendedProperties() {
+            match IUIAutomationStylesPattern_Impl::CurrentExtendedProperties(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8624,12 +8624,12 @@ impl IUIAutomationStylesPattern_Vtbl {
         unsafe extern "system" fn GetCurrentExtendedPropertiesAsArray<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyarray: *mut *mut ExtendedProperty, propertycount: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetCurrentExtendedPropertiesAsArray(core::mem::transmute_copy(&propertyarray), core::mem::transmute_copy(&propertycount)).into()
+            IUIAutomationStylesPattern_Impl::GetCurrentExtendedPropertiesAsArray(this, core::mem::transmute_copy(&propertyarray), core::mem::transmute_copy(&propertycount)).into()
         }
         unsafe extern "system" fn CachedStyleId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut UIA_STYLE_ID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedStyleId() {
+            match IUIAutomationStylesPattern_Impl::CachedStyleId(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8640,7 +8640,7 @@ impl IUIAutomationStylesPattern_Vtbl {
         unsafe extern "system" fn CachedStyleName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedStyleName() {
+            match IUIAutomationStylesPattern_Impl::CachedStyleName(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8651,7 +8651,7 @@ impl IUIAutomationStylesPattern_Vtbl {
         unsafe extern "system" fn CachedFillColor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedFillColor() {
+            match IUIAutomationStylesPattern_Impl::CachedFillColor(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8662,7 +8662,7 @@ impl IUIAutomationStylesPattern_Vtbl {
         unsafe extern "system" fn CachedFillPatternStyle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedFillPatternStyle() {
+            match IUIAutomationStylesPattern_Impl::CachedFillPatternStyle(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8673,7 +8673,7 @@ impl IUIAutomationStylesPattern_Vtbl {
         unsafe extern "system" fn CachedShape<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedShape() {
+            match IUIAutomationStylesPattern_Impl::CachedShape(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8684,7 +8684,7 @@ impl IUIAutomationStylesPattern_Vtbl {
         unsafe extern "system" fn CachedFillPatternColor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedFillPatternColor() {
+            match IUIAutomationStylesPattern_Impl::CachedFillPatternColor(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8695,7 +8695,7 @@ impl IUIAutomationStylesPattern_Vtbl {
         unsafe extern "system" fn CachedExtendedProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedExtendedProperties() {
+            match IUIAutomationStylesPattern_Impl::CachedExtendedProperties(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8706,7 +8706,7 @@ impl IUIAutomationStylesPattern_Vtbl {
         unsafe extern "system" fn GetCachedExtendedPropertiesAsArray<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyarray: *mut *mut ExtendedProperty, propertycount: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetCachedExtendedPropertiesAsArray(core::mem::transmute_copy(&propertyarray), core::mem::transmute_copy(&propertycount)).into()
+            IUIAutomationStylesPattern_Impl::GetCachedExtendedPropertiesAsArray(this, core::mem::transmute_copy(&propertyarray), core::mem::transmute_copy(&propertycount)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -8742,12 +8742,12 @@ impl IUIAutomationSynchronizedInputPattern_Vtbl {
         unsafe extern "system" fn StartListening<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSynchronizedInputPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputtype: SynchronizedInputType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.StartListening(core::mem::transmute_copy(&inputtype)).into()
+            IUIAutomationSynchronizedInputPattern_Impl::StartListening(this, core::mem::transmute_copy(&inputtype)).into()
         }
         unsafe extern "system" fn Cancel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationSynchronizedInputPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Cancel().into()
+            IUIAutomationSynchronizedInputPattern_Impl::Cancel(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -8771,7 +8771,7 @@ impl IUIAutomationTableItemPattern_Vtbl {
         unsafe extern "system" fn GetCurrentRowHeaderItems<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTableItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCurrentRowHeaderItems() {
+            match IUIAutomationTableItemPattern_Impl::GetCurrentRowHeaderItems(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8782,7 +8782,7 @@ impl IUIAutomationTableItemPattern_Vtbl {
         unsafe extern "system" fn GetCurrentColumnHeaderItems<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTableItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCurrentColumnHeaderItems() {
+            match IUIAutomationTableItemPattern_Impl::GetCurrentColumnHeaderItems(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8793,7 +8793,7 @@ impl IUIAutomationTableItemPattern_Vtbl {
         unsafe extern "system" fn GetCachedRowHeaderItems<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTableItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCachedRowHeaderItems() {
+            match IUIAutomationTableItemPattern_Impl::GetCachedRowHeaderItems(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8804,7 +8804,7 @@ impl IUIAutomationTableItemPattern_Vtbl {
         unsafe extern "system" fn GetCachedColumnHeaderItems<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTableItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCachedColumnHeaderItems() {
+            match IUIAutomationTableItemPattern_Impl::GetCachedColumnHeaderItems(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8838,7 +8838,7 @@ impl IUIAutomationTablePattern_Vtbl {
         unsafe extern "system" fn GetCurrentRowHeaders<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTablePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCurrentRowHeaders() {
+            match IUIAutomationTablePattern_Impl::GetCurrentRowHeaders(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8849,7 +8849,7 @@ impl IUIAutomationTablePattern_Vtbl {
         unsafe extern "system" fn GetCurrentColumnHeaders<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTablePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCurrentColumnHeaders() {
+            match IUIAutomationTablePattern_Impl::GetCurrentColumnHeaders(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8860,7 +8860,7 @@ impl IUIAutomationTablePattern_Vtbl {
         unsafe extern "system" fn CurrentRowOrColumnMajor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTablePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut RowOrColumnMajor) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentRowOrColumnMajor() {
+            match IUIAutomationTablePattern_Impl::CurrentRowOrColumnMajor(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8871,7 +8871,7 @@ impl IUIAutomationTablePattern_Vtbl {
         unsafe extern "system" fn GetCachedRowHeaders<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTablePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCachedRowHeaders() {
+            match IUIAutomationTablePattern_Impl::GetCachedRowHeaders(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8882,7 +8882,7 @@ impl IUIAutomationTablePattern_Vtbl {
         unsafe extern "system" fn GetCachedColumnHeaders<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTablePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCachedColumnHeaders() {
+            match IUIAutomationTablePattern_Impl::GetCachedColumnHeaders(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8893,7 +8893,7 @@ impl IUIAutomationTablePattern_Vtbl {
         unsafe extern "system" fn CachedRowOrColumnMajor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTablePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut RowOrColumnMajor) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedRowOrColumnMajor() {
+            match IUIAutomationTablePattern_Impl::CachedRowOrColumnMajor(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8925,7 +8925,7 @@ impl IUIAutomationTextChildPattern_Vtbl {
         unsafe extern "system" fn TextContainer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextChildPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, container: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TextContainer() {
+            match IUIAutomationTextChildPattern_Impl::TextContainer(this) {
                 Ok(ok__) => {
                     core::ptr::write(container, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8936,7 +8936,7 @@ impl IUIAutomationTextChildPattern_Vtbl {
         unsafe extern "system" fn TextRange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextChildPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, range: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TextRange() {
+            match IUIAutomationTextChildPattern_Impl::TextRange(this) {
                 Ok(ok__) => {
                     core::ptr::write(range, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8964,7 +8964,7 @@ impl IUIAutomationTextEditPattern_Vtbl {
         unsafe extern "system" fn GetActiveComposition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextEditPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, range: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetActiveComposition() {
+            match IUIAutomationTextEditPattern_Impl::GetActiveComposition(this) {
                 Ok(ok__) => {
                     core::ptr::write(range, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -8975,7 +8975,7 @@ impl IUIAutomationTextEditPattern_Vtbl {
         unsafe extern "system" fn GetConversionTarget<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextEditPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, range: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetConversionTarget() {
+            match IUIAutomationTextEditPattern_Impl::GetConversionTarget(this) {
                 Ok(ok__) => {
                     core::ptr::write(range, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9005,7 +9005,7 @@ impl IUIAutomationTextEditTextChangedEventHandler_Vtbl {
         unsafe extern "system" fn HandleTextEditTextChangedEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextEditTextChangedEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, texteditchangetype: TextEditChangeType, eventstrings: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.HandleTextEditTextChangedEvent(windows_core::from_raw_borrowed(&sender), core::mem::transmute_copy(&texteditchangetype), core::mem::transmute_copy(&eventstrings)).into()
+            IUIAutomationTextEditTextChangedEventHandler_Impl::HandleTextEditTextChangedEvent(this, windows_core::from_raw_borrowed(&sender), core::mem::transmute_copy(&texteditchangetype), core::mem::transmute_copy(&eventstrings)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -9030,7 +9030,7 @@ impl IUIAutomationTextPattern_Vtbl {
         unsafe extern "system" fn RangeFromPoint<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pt: super::super::Foundation::POINT, range: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RangeFromPoint(core::mem::transmute(&pt)) {
+            match IUIAutomationTextPattern_Impl::RangeFromPoint(this, core::mem::transmute(&pt)) {
                 Ok(ok__) => {
                     core::ptr::write(range, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9041,7 +9041,7 @@ impl IUIAutomationTextPattern_Vtbl {
         unsafe extern "system" fn RangeFromChild<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, child: *mut core::ffi::c_void, range: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RangeFromChild(windows_core::from_raw_borrowed(&child)) {
+            match IUIAutomationTextPattern_Impl::RangeFromChild(this, windows_core::from_raw_borrowed(&child)) {
                 Ok(ok__) => {
                     core::ptr::write(range, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9052,7 +9052,7 @@ impl IUIAutomationTextPattern_Vtbl {
         unsafe extern "system" fn GetSelection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ranges: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSelection() {
+            match IUIAutomationTextPattern_Impl::GetSelection(this) {
                 Ok(ok__) => {
                     core::ptr::write(ranges, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9063,7 +9063,7 @@ impl IUIAutomationTextPattern_Vtbl {
         unsafe extern "system" fn GetVisibleRanges<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ranges: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetVisibleRanges() {
+            match IUIAutomationTextPattern_Impl::GetVisibleRanges(this) {
                 Ok(ok__) => {
                     core::ptr::write(ranges, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9074,7 +9074,7 @@ impl IUIAutomationTextPattern_Vtbl {
         unsafe extern "system" fn DocumentRange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, range: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DocumentRange() {
+            match IUIAutomationTextPattern_Impl::DocumentRange(this) {
                 Ok(ok__) => {
                     core::ptr::write(range, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9085,7 +9085,7 @@ impl IUIAutomationTextPattern_Vtbl {
         unsafe extern "system" fn SupportedTextSelection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, supportedtextselection: *mut SupportedTextSelection) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SupportedTextSelection() {
+            match IUIAutomationTextPattern_Impl::SupportedTextSelection(this) {
                 Ok(ok__) => {
                     core::ptr::write(supportedtextselection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9117,7 +9117,7 @@ impl IUIAutomationTextPattern2_Vtbl {
         unsafe extern "system" fn RangeFromAnnotation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, annotation: *mut core::ffi::c_void, range: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RangeFromAnnotation(windows_core::from_raw_borrowed(&annotation)) {
+            match IUIAutomationTextPattern2_Impl::RangeFromAnnotation(this, windows_core::from_raw_borrowed(&annotation)) {
                 Ok(ok__) => {
                     core::ptr::write(range, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9128,7 +9128,7 @@ impl IUIAutomationTextPattern2_Vtbl {
         unsafe extern "system" fn GetCaretRange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isactive: *mut super::super::Foundation::BOOL, range: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCaretRange(core::mem::transmute_copy(&isactive)) {
+            match IUIAutomationTextPattern2_Impl::GetCaretRange(this, core::mem::transmute_copy(&isactive)) {
                 Ok(ok__) => {
                     core::ptr::write(range, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9175,7 +9175,7 @@ impl IUIAutomationTextRange_Vtbl {
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clonedrange: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IUIAutomationTextRange_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(clonedrange, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9186,7 +9186,7 @@ impl IUIAutomationTextRange_Vtbl {
         unsafe extern "system" fn Compare<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, range: *mut core::ffi::c_void, aresame: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Compare(windows_core::from_raw_borrowed(&range)) {
+            match IUIAutomationTextRange_Impl::Compare(this, windows_core::from_raw_borrowed(&range)) {
                 Ok(ok__) => {
                     core::ptr::write(aresame, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9197,7 +9197,7 @@ impl IUIAutomationTextRange_Vtbl {
         unsafe extern "system" fn CompareEndpoints<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, srcendpoint: TextPatternRangeEndpoint, range: *mut core::ffi::c_void, targetendpoint: TextPatternRangeEndpoint, compvalue: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CompareEndpoints(core::mem::transmute_copy(&srcendpoint), windows_core::from_raw_borrowed(&range), core::mem::transmute_copy(&targetendpoint)) {
+            match IUIAutomationTextRange_Impl::CompareEndpoints(this, core::mem::transmute_copy(&srcendpoint), windows_core::from_raw_borrowed(&range), core::mem::transmute_copy(&targetendpoint)) {
                 Ok(ok__) => {
                     core::ptr::write(compvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9208,12 +9208,12 @@ impl IUIAutomationTextRange_Vtbl {
         unsafe extern "system" fn ExpandToEnclosingUnit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textunit: TextUnit) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ExpandToEnclosingUnit(core::mem::transmute_copy(&textunit)).into()
+            IUIAutomationTextRange_Impl::ExpandToEnclosingUnit(this, core::mem::transmute_copy(&textunit)).into()
         }
         unsafe extern "system" fn FindAttribute<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attr: UIA_TEXTATTRIBUTE_ID, val: std::mem::MaybeUninit<windows_core::VARIANT>, backward: super::super::Foundation::BOOL, found: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FindAttribute(core::mem::transmute_copy(&attr), core::mem::transmute(&val), core::mem::transmute_copy(&backward)) {
+            match IUIAutomationTextRange_Impl::FindAttribute(this, core::mem::transmute_copy(&attr), core::mem::transmute(&val), core::mem::transmute_copy(&backward)) {
                 Ok(ok__) => {
                     core::ptr::write(found, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9224,7 +9224,7 @@ impl IUIAutomationTextRange_Vtbl {
         unsafe extern "system" fn FindText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: std::mem::MaybeUninit<windows_core::BSTR>, backward: super::super::Foundation::BOOL, ignorecase: super::super::Foundation::BOOL, found: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FindText(core::mem::transmute(&text), core::mem::transmute_copy(&backward), core::mem::transmute_copy(&ignorecase)) {
+            match IUIAutomationTextRange_Impl::FindText(this, core::mem::transmute(&text), core::mem::transmute_copy(&backward), core::mem::transmute_copy(&ignorecase)) {
                 Ok(ok__) => {
                     core::ptr::write(found, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9235,7 +9235,7 @@ impl IUIAutomationTextRange_Vtbl {
         unsafe extern "system" fn GetAttributeValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attr: UIA_TEXTATTRIBUTE_ID, value: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAttributeValue(core::mem::transmute_copy(&attr)) {
+            match IUIAutomationTextRange_Impl::GetAttributeValue(this, core::mem::transmute_copy(&attr)) {
                 Ok(ok__) => {
                     core::ptr::write(value, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9246,7 +9246,7 @@ impl IUIAutomationTextRange_Vtbl {
         unsafe extern "system" fn GetBoundingRectangles<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, boundingrects: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetBoundingRectangles() {
+            match IUIAutomationTextRange_Impl::GetBoundingRectangles(this) {
                 Ok(ok__) => {
                     core::ptr::write(boundingrects, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9257,7 +9257,7 @@ impl IUIAutomationTextRange_Vtbl {
         unsafe extern "system" fn GetEnclosingElement<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enclosingelement: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetEnclosingElement() {
+            match IUIAutomationTextRange_Impl::GetEnclosingElement(this) {
                 Ok(ok__) => {
                     core::ptr::write(enclosingelement, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9268,7 +9268,7 @@ impl IUIAutomationTextRange_Vtbl {
         unsafe extern "system" fn GetText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxlength: i32, text: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetText(core::mem::transmute_copy(&maxlength)) {
+            match IUIAutomationTextRange_Impl::GetText(this, core::mem::transmute_copy(&maxlength)) {
                 Ok(ok__) => {
                     core::ptr::write(text, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9279,7 +9279,7 @@ impl IUIAutomationTextRange_Vtbl {
         unsafe extern "system" fn Move<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unit: TextUnit, count: i32, moved: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Move(core::mem::transmute_copy(&unit), core::mem::transmute_copy(&count)) {
+            match IUIAutomationTextRange_Impl::Move(this, core::mem::transmute_copy(&unit), core::mem::transmute_copy(&count)) {
                 Ok(ok__) => {
                     core::ptr::write(moved, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9290,7 +9290,7 @@ impl IUIAutomationTextRange_Vtbl {
         unsafe extern "system" fn MoveEndpointByUnit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32, moved: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MoveEndpointByUnit(core::mem::transmute_copy(&endpoint), core::mem::transmute_copy(&unit), core::mem::transmute_copy(&count)) {
+            match IUIAutomationTextRange_Impl::MoveEndpointByUnit(this, core::mem::transmute_copy(&endpoint), core::mem::transmute_copy(&unit), core::mem::transmute_copy(&count)) {
                 Ok(ok__) => {
                     core::ptr::write(moved, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9301,32 +9301,32 @@ impl IUIAutomationTextRange_Vtbl {
         unsafe extern "system" fn MoveEndpointByRange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, srcendpoint: TextPatternRangeEndpoint, range: *mut core::ffi::c_void, targetendpoint: TextPatternRangeEndpoint) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.MoveEndpointByRange(core::mem::transmute_copy(&srcendpoint), windows_core::from_raw_borrowed(&range), core::mem::transmute_copy(&targetendpoint)).into()
+            IUIAutomationTextRange_Impl::MoveEndpointByRange(this, core::mem::transmute_copy(&srcendpoint), windows_core::from_raw_borrowed(&range), core::mem::transmute_copy(&targetendpoint)).into()
         }
         unsafe extern "system" fn Select<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Select().into()
+            IUIAutomationTextRange_Impl::Select(this).into()
         }
         unsafe extern "system" fn AddToSelection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddToSelection().into()
+            IUIAutomationTextRange_Impl::AddToSelection(this).into()
         }
         unsafe extern "system" fn RemoveFromSelection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveFromSelection().into()
+            IUIAutomationTextRange_Impl::RemoveFromSelection(this).into()
         }
         unsafe extern "system" fn ScrollIntoView<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, aligntotop: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ScrollIntoView(core::mem::transmute_copy(&aligntotop)).into()
+            IUIAutomationTextRange_Impl::ScrollIntoView(this, core::mem::transmute_copy(&aligntotop)).into()
         }
         unsafe extern "system" fn GetChildren<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, children: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetChildren() {
+            match IUIAutomationTextRange_Impl::GetChildren(this) {
                 Ok(ok__) => {
                     core::ptr::write(children, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9372,7 +9372,7 @@ impl IUIAutomationTextRange2_Vtbl {
         unsafe extern "system" fn ShowContextMenu<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ShowContextMenu().into()
+            IUIAutomationTextRange2_Impl::ShowContextMenu(this).into()
         }
         Self { base__: IUIAutomationTextRange_Vtbl::new::<Identity, Impl, OFFSET>(), ShowContextMenu: ShowContextMenu::<Identity, Impl, OFFSET> }
     }
@@ -9394,7 +9394,7 @@ impl IUIAutomationTextRange3_Vtbl {
         unsafe extern "system" fn GetEnclosingElementBuildCache<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, enclosingelement: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetEnclosingElementBuildCache(windows_core::from_raw_borrowed(&cacherequest)) {
+            match IUIAutomationTextRange3_Impl::GetEnclosingElementBuildCache(this, windows_core::from_raw_borrowed(&cacherequest)) {
                 Ok(ok__) => {
                     core::ptr::write(enclosingelement, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9405,7 +9405,7 @@ impl IUIAutomationTextRange3_Vtbl {
         unsafe extern "system" fn GetChildrenBuildCache<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, children: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetChildrenBuildCache(windows_core::from_raw_borrowed(&cacherequest)) {
+            match IUIAutomationTextRange3_Impl::GetChildrenBuildCache(this, windows_core::from_raw_borrowed(&cacherequest)) {
                 Ok(ok__) => {
                     core::ptr::write(children, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9416,7 +9416,7 @@ impl IUIAutomationTextRange3_Vtbl {
         unsafe extern "system" fn GetAttributeValues<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRange3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributeids: *const UIA_TEXTATTRIBUTE_ID, attributeidcount: i32, attributevalues: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAttributeValues(core::mem::transmute_copy(&attributeids), core::mem::transmute_copy(&attributeidcount)) {
+            match IUIAutomationTextRange3_Impl::GetAttributeValues(this, core::mem::transmute_copy(&attributeids), core::mem::transmute_copy(&attributeidcount)) {
                 Ok(ok__) => {
                     core::ptr::write(attributevalues, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9445,7 +9445,7 @@ impl IUIAutomationTextRangeArray_Vtbl {
         unsafe extern "system" fn Length<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRangeArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Length() {
+            match IUIAutomationTextRangeArray_Impl::Length(this) {
                 Ok(ok__) => {
                     core::ptr::write(length, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9456,7 +9456,7 @@ impl IUIAutomationTextRangeArray_Vtbl {
         unsafe extern "system" fn GetElement<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextRangeArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, element: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetElement(core::mem::transmute_copy(&index)) {
+            match IUIAutomationTextRangeArray_Impl::GetElement(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(element, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9485,12 +9485,12 @@ impl IUIAutomationTogglePattern_Vtbl {
         unsafe extern "system" fn Toggle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTogglePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Toggle().into()
+            IUIAutomationTogglePattern_Impl::Toggle(this).into()
         }
         unsafe extern "system" fn CurrentToggleState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTogglePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut ToggleState) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentToggleState() {
+            match IUIAutomationTogglePattern_Impl::CurrentToggleState(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9501,7 +9501,7 @@ impl IUIAutomationTogglePattern_Vtbl {
         unsafe extern "system" fn CachedToggleState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTogglePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut ToggleState) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedToggleState() {
+            match IUIAutomationTogglePattern_Impl::CachedToggleState(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9537,22 +9537,22 @@ impl IUIAutomationTransformPattern_Vtbl {
         unsafe extern "system" fn Move<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, x: f64, y: f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Move(core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)).into()
+            IUIAutomationTransformPattern_Impl::Move(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)).into()
         }
         unsafe extern "system" fn Resize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: f64, height: f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Resize(core::mem::transmute_copy(&width), core::mem::transmute_copy(&height)).into()
+            IUIAutomationTransformPattern_Impl::Resize(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height)).into()
         }
         unsafe extern "system" fn Rotate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, degrees: f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Rotate(core::mem::transmute_copy(&degrees)).into()
+            IUIAutomationTransformPattern_Impl::Rotate(this, core::mem::transmute_copy(&degrees)).into()
         }
         unsafe extern "system" fn CurrentCanMove<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentCanMove() {
+            match IUIAutomationTransformPattern_Impl::CurrentCanMove(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9563,7 +9563,7 @@ impl IUIAutomationTransformPattern_Vtbl {
         unsafe extern "system" fn CurrentCanResize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentCanResize() {
+            match IUIAutomationTransformPattern_Impl::CurrentCanResize(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9574,7 +9574,7 @@ impl IUIAutomationTransformPattern_Vtbl {
         unsafe extern "system" fn CurrentCanRotate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentCanRotate() {
+            match IUIAutomationTransformPattern_Impl::CurrentCanRotate(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9585,7 +9585,7 @@ impl IUIAutomationTransformPattern_Vtbl {
         unsafe extern "system" fn CachedCanMove<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedCanMove() {
+            match IUIAutomationTransformPattern_Impl::CachedCanMove(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9596,7 +9596,7 @@ impl IUIAutomationTransformPattern_Vtbl {
         unsafe extern "system" fn CachedCanResize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedCanResize() {
+            match IUIAutomationTransformPattern_Impl::CachedCanResize(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9607,7 +9607,7 @@ impl IUIAutomationTransformPattern_Vtbl {
         unsafe extern "system" fn CachedCanRotate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTransformPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedCanRotate() {
+            match IUIAutomationTransformPattern_Impl::CachedCanRotate(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9650,17 +9650,17 @@ impl IUIAutomationTransformPattern2_Vtbl {
         unsafe extern "system" fn Zoom<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, zoomvalue: f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Zoom(core::mem::transmute_copy(&zoomvalue)).into()
+            IUIAutomationTransformPattern2_Impl::Zoom(this, core::mem::transmute_copy(&zoomvalue)).into()
         }
         unsafe extern "system" fn ZoomByUnit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, zoomunit: ZoomUnit) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ZoomByUnit(core::mem::transmute_copy(&zoomunit)).into()
+            IUIAutomationTransformPattern2_Impl::ZoomByUnit(this, core::mem::transmute_copy(&zoomunit)).into()
         }
         unsafe extern "system" fn CurrentCanZoom<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentCanZoom() {
+            match IUIAutomationTransformPattern2_Impl::CurrentCanZoom(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9671,7 +9671,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
         unsafe extern "system" fn CachedCanZoom<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedCanZoom() {
+            match IUIAutomationTransformPattern2_Impl::CachedCanZoom(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9682,7 +9682,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
         unsafe extern "system" fn CurrentZoomLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentZoomLevel() {
+            match IUIAutomationTransformPattern2_Impl::CurrentZoomLevel(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9693,7 +9693,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
         unsafe extern "system" fn CachedZoomLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedZoomLevel() {
+            match IUIAutomationTransformPattern2_Impl::CachedZoomLevel(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9704,7 +9704,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
         unsafe extern "system" fn CurrentZoomMinimum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentZoomMinimum() {
+            match IUIAutomationTransformPattern2_Impl::CurrentZoomMinimum(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9715,7 +9715,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
         unsafe extern "system" fn CachedZoomMinimum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedZoomMinimum() {
+            match IUIAutomationTransformPattern2_Impl::CachedZoomMinimum(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9726,7 +9726,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
         unsafe extern "system" fn CurrentZoomMaximum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentZoomMaximum() {
+            match IUIAutomationTransformPattern2_Impl::CurrentZoomMaximum(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9737,7 +9737,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
         unsafe extern "system" fn CachedZoomMaximum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedZoomMaximum() {
+            match IUIAutomationTransformPattern2_Impl::CachedZoomMaximum(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9784,7 +9784,7 @@ impl IUIAutomationTreeWalker_Vtbl {
         unsafe extern "system" fn GetParentElement<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, parent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetParentElement(windows_core::from_raw_borrowed(&element)) {
+            match IUIAutomationTreeWalker_Impl::GetParentElement(this, windows_core::from_raw_borrowed(&element)) {
                 Ok(ok__) => {
                     core::ptr::write(parent, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9795,7 +9795,7 @@ impl IUIAutomationTreeWalker_Vtbl {
         unsafe extern "system" fn GetFirstChildElement<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, first: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFirstChildElement(windows_core::from_raw_borrowed(&element)) {
+            match IUIAutomationTreeWalker_Impl::GetFirstChildElement(this, windows_core::from_raw_borrowed(&element)) {
                 Ok(ok__) => {
                     core::ptr::write(first, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9806,7 +9806,7 @@ impl IUIAutomationTreeWalker_Vtbl {
         unsafe extern "system" fn GetLastChildElement<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, last: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetLastChildElement(windows_core::from_raw_borrowed(&element)) {
+            match IUIAutomationTreeWalker_Impl::GetLastChildElement(this, windows_core::from_raw_borrowed(&element)) {
                 Ok(ok__) => {
                     core::ptr::write(last, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9817,7 +9817,7 @@ impl IUIAutomationTreeWalker_Vtbl {
         unsafe extern "system" fn GetNextSiblingElement<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, next: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetNextSiblingElement(windows_core::from_raw_borrowed(&element)) {
+            match IUIAutomationTreeWalker_Impl::GetNextSiblingElement(this, windows_core::from_raw_borrowed(&element)) {
                 Ok(ok__) => {
                     core::ptr::write(next, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9828,7 +9828,7 @@ impl IUIAutomationTreeWalker_Vtbl {
         unsafe extern "system" fn GetPreviousSiblingElement<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, previous: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPreviousSiblingElement(windows_core::from_raw_borrowed(&element)) {
+            match IUIAutomationTreeWalker_Impl::GetPreviousSiblingElement(this, windows_core::from_raw_borrowed(&element)) {
                 Ok(ok__) => {
                     core::ptr::write(previous, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9839,7 +9839,7 @@ impl IUIAutomationTreeWalker_Vtbl {
         unsafe extern "system" fn NormalizeElement<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, normalized: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.NormalizeElement(windows_core::from_raw_borrowed(&element)) {
+            match IUIAutomationTreeWalker_Impl::NormalizeElement(this, windows_core::from_raw_borrowed(&element)) {
                 Ok(ok__) => {
                     core::ptr::write(normalized, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9850,7 +9850,7 @@ impl IUIAutomationTreeWalker_Vtbl {
         unsafe extern "system" fn GetParentElementBuildCache<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, parent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetParentElementBuildCache(windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&cacherequest)) {
+            match IUIAutomationTreeWalker_Impl::GetParentElementBuildCache(this, windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&cacherequest)) {
                 Ok(ok__) => {
                     core::ptr::write(parent, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9861,7 +9861,7 @@ impl IUIAutomationTreeWalker_Vtbl {
         unsafe extern "system" fn GetFirstChildElementBuildCache<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, first: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFirstChildElementBuildCache(windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&cacherequest)) {
+            match IUIAutomationTreeWalker_Impl::GetFirstChildElementBuildCache(this, windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&cacherequest)) {
                 Ok(ok__) => {
                     core::ptr::write(first, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9872,7 +9872,7 @@ impl IUIAutomationTreeWalker_Vtbl {
         unsafe extern "system" fn GetLastChildElementBuildCache<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, last: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetLastChildElementBuildCache(windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&cacherequest)) {
+            match IUIAutomationTreeWalker_Impl::GetLastChildElementBuildCache(this, windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&cacherequest)) {
                 Ok(ok__) => {
                     core::ptr::write(last, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9883,7 +9883,7 @@ impl IUIAutomationTreeWalker_Vtbl {
         unsafe extern "system" fn GetNextSiblingElementBuildCache<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, next: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetNextSiblingElementBuildCache(windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&cacherequest)) {
+            match IUIAutomationTreeWalker_Impl::GetNextSiblingElementBuildCache(this, windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&cacherequest)) {
                 Ok(ok__) => {
                     core::ptr::write(next, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9894,7 +9894,7 @@ impl IUIAutomationTreeWalker_Vtbl {
         unsafe extern "system" fn GetPreviousSiblingElementBuildCache<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, previous: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPreviousSiblingElementBuildCache(windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&cacherequest)) {
+            match IUIAutomationTreeWalker_Impl::GetPreviousSiblingElementBuildCache(this, windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&cacherequest)) {
                 Ok(ok__) => {
                     core::ptr::write(previous, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9905,7 +9905,7 @@ impl IUIAutomationTreeWalker_Vtbl {
         unsafe extern "system" fn NormalizeElementBuildCache<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, normalized: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.NormalizeElementBuildCache(windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&cacherequest)) {
+            match IUIAutomationTreeWalker_Impl::NormalizeElementBuildCache(this, windows_core::from_raw_borrowed(&element), windows_core::from_raw_borrowed(&cacherequest)) {
                 Ok(ok__) => {
                     core::ptr::write(normalized, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9916,7 +9916,7 @@ impl IUIAutomationTreeWalker_Vtbl {
         unsafe extern "system" fn Condition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, condition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Condition() {
+            match IUIAutomationTreeWalker_Impl::Condition(this) {
                 Ok(ok__) => {
                     core::ptr::write(condition, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9958,12 +9958,12 @@ impl IUIAutomationValuePattern_Vtbl {
         unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationValuePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, val: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetValue(core::mem::transmute(&val)).into()
+            IUIAutomationValuePattern_Impl::SetValue(this, core::mem::transmute(&val)).into()
         }
         unsafe extern "system" fn CurrentValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationValuePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentValue() {
+            match IUIAutomationValuePattern_Impl::CurrentValue(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9974,7 +9974,7 @@ impl IUIAutomationValuePattern_Vtbl {
         unsafe extern "system" fn CurrentIsReadOnly<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationValuePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentIsReadOnly() {
+            match IUIAutomationValuePattern_Impl::CurrentIsReadOnly(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9985,7 +9985,7 @@ impl IUIAutomationValuePattern_Vtbl {
         unsafe extern "system" fn CachedValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationValuePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedValue() {
+            match IUIAutomationValuePattern_Impl::CachedValue(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -9996,7 +9996,7 @@ impl IUIAutomationValuePattern_Vtbl {
         unsafe extern "system" fn CachedIsReadOnly<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationValuePattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedIsReadOnly() {
+            match IUIAutomationValuePattern_Impl::CachedIsReadOnly(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10026,7 +10026,7 @@ impl IUIAutomationVirtualizedItemPattern_Vtbl {
         unsafe extern "system" fn Realize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationVirtualizedItemPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Realize().into()
+            IUIAutomationVirtualizedItemPattern_Impl::Realize(this).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Realize: Realize::<Identity, Impl, OFFSET> }
     }
@@ -10057,12 +10057,12 @@ impl IUIAutomationWindowPattern_Vtbl {
         unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Close().into()
+            IUIAutomationWindowPattern_Impl::Close(this).into()
         }
         unsafe extern "system" fn WaitForInputIdle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, milliseconds: i32, success: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.WaitForInputIdle(core::mem::transmute_copy(&milliseconds)) {
+            match IUIAutomationWindowPattern_Impl::WaitForInputIdle(this, core::mem::transmute_copy(&milliseconds)) {
                 Ok(ok__) => {
                     core::ptr::write(success, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10073,12 +10073,12 @@ impl IUIAutomationWindowPattern_Vtbl {
         unsafe extern "system" fn SetWindowVisualState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: WindowVisualState) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetWindowVisualState(core::mem::transmute_copy(&state)).into()
+            IUIAutomationWindowPattern_Impl::SetWindowVisualState(this, core::mem::transmute_copy(&state)).into()
         }
         unsafe extern "system" fn CurrentCanMaximize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentCanMaximize() {
+            match IUIAutomationWindowPattern_Impl::CurrentCanMaximize(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10089,7 +10089,7 @@ impl IUIAutomationWindowPattern_Vtbl {
         unsafe extern "system" fn CurrentCanMinimize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentCanMinimize() {
+            match IUIAutomationWindowPattern_Impl::CurrentCanMinimize(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10100,7 +10100,7 @@ impl IUIAutomationWindowPattern_Vtbl {
         unsafe extern "system" fn CurrentIsModal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentIsModal() {
+            match IUIAutomationWindowPattern_Impl::CurrentIsModal(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10111,7 +10111,7 @@ impl IUIAutomationWindowPattern_Vtbl {
         unsafe extern "system" fn CurrentIsTopmost<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentIsTopmost() {
+            match IUIAutomationWindowPattern_Impl::CurrentIsTopmost(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10122,7 +10122,7 @@ impl IUIAutomationWindowPattern_Vtbl {
         unsafe extern "system" fn CurrentWindowVisualState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut WindowVisualState) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentWindowVisualState() {
+            match IUIAutomationWindowPattern_Impl::CurrentWindowVisualState(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10133,7 +10133,7 @@ impl IUIAutomationWindowPattern_Vtbl {
         unsafe extern "system" fn CurrentWindowInteractionState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut WindowInteractionState) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentWindowInteractionState() {
+            match IUIAutomationWindowPattern_Impl::CurrentWindowInteractionState(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10144,7 +10144,7 @@ impl IUIAutomationWindowPattern_Vtbl {
         unsafe extern "system" fn CachedCanMaximize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedCanMaximize() {
+            match IUIAutomationWindowPattern_Impl::CachedCanMaximize(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10155,7 +10155,7 @@ impl IUIAutomationWindowPattern_Vtbl {
         unsafe extern "system" fn CachedCanMinimize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedCanMinimize() {
+            match IUIAutomationWindowPattern_Impl::CachedCanMinimize(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10166,7 +10166,7 @@ impl IUIAutomationWindowPattern_Vtbl {
         unsafe extern "system" fn CachedIsModal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedIsModal() {
+            match IUIAutomationWindowPattern_Impl::CachedIsModal(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10177,7 +10177,7 @@ impl IUIAutomationWindowPattern_Vtbl {
         unsafe extern "system" fn CachedIsTopmost<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedIsTopmost() {
+            match IUIAutomationWindowPattern_Impl::CachedIsTopmost(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10188,7 +10188,7 @@ impl IUIAutomationWindowPattern_Vtbl {
         unsafe extern "system" fn CachedWindowVisualState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut WindowVisualState) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedWindowVisualState() {
+            match IUIAutomationWindowPattern_Impl::CachedWindowVisualState(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10199,7 +10199,7 @@ impl IUIAutomationWindowPattern_Vtbl {
         unsafe extern "system" fn CachedWindowInteractionState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut WindowInteractionState) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedWindowInteractionState() {
+            match IUIAutomationWindowPattern_Impl::CachedWindowInteractionState(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10241,12 +10241,12 @@ impl IValueProvider_Vtbl {
         unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IValueProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, val: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetValue(core::mem::transmute(&val)).into()
+            IValueProvider_Impl::SetValue(this, core::mem::transmute(&val)).into()
         }
         unsafe extern "system" fn Value<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IValueProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Value() {
+            match IValueProvider_Impl::Value(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10257,7 +10257,7 @@ impl IValueProvider_Vtbl {
         unsafe extern "system" fn IsReadOnly<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IValueProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsReadOnly() {
+            match IValueProvider_Impl::IsReadOnly(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10285,7 +10285,7 @@ impl IVirtualizedItemProvider_Vtbl {
         unsafe extern "system" fn Realize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVirtualizedItemProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Realize().into()
+            IVirtualizedItemProvider_Impl::Realize(this).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Realize: Realize::<Identity, Impl, OFFSET> }
     }
@@ -10310,17 +10310,17 @@ impl IWindowProvider_Vtbl {
         unsafe extern "system" fn SetVisualState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: WindowVisualState) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetVisualState(core::mem::transmute_copy(&state)).into()
+            IWindowProvider_Impl::SetVisualState(this, core::mem::transmute_copy(&state)).into()
         }
         unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Close().into()
+            IWindowProvider_Impl::Close(this).into()
         }
         unsafe extern "system" fn WaitForInputIdle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, milliseconds: i32, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.WaitForInputIdle(core::mem::transmute_copy(&milliseconds)) {
+            match IWindowProvider_Impl::WaitForInputIdle(this, core::mem::transmute_copy(&milliseconds)) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10331,7 +10331,7 @@ impl IWindowProvider_Vtbl {
         unsafe extern "system" fn CanMaximize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CanMaximize() {
+            match IWindowProvider_Impl::CanMaximize(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10342,7 +10342,7 @@ impl IWindowProvider_Vtbl {
         unsafe extern "system" fn CanMinimize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CanMinimize() {
+            match IWindowProvider_Impl::CanMinimize(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10353,7 +10353,7 @@ impl IWindowProvider_Vtbl {
         unsafe extern "system" fn IsModal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsModal() {
+            match IWindowProvider_Impl::IsModal(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10364,7 +10364,7 @@ impl IWindowProvider_Vtbl {
         unsafe extern "system" fn WindowVisualState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut WindowVisualState) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.WindowVisualState() {
+            match IWindowProvider_Impl::WindowVisualState(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10375,7 +10375,7 @@ impl IWindowProvider_Vtbl {
         unsafe extern "system" fn WindowInteractionState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut WindowInteractionState) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.WindowInteractionState() {
+            match IWindowProvider_Impl::WindowInteractionState(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -10386,7 +10386,7 @@ impl IWindowProvider_Vtbl {
         unsafe extern "system" fn IsTopmost<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsTopmost() {
+            match IWindowProvider_Impl::IsTopmost(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

@@ -70,6 +70,12 @@ pub struct IJsonObjectWithDefaultValues_Vtbl {
     pub GetNamedBooleanOrDefault: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, bool, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IJsonValue, IJsonValue_Vtbl, 0xa3219ecb_f0b3_4dcd_beee_19d48cd3ed1e);
+impl std::ops::Deref for IJsonValue {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IJsonValue, windows_core::IUnknown, windows_core::IInspectable);
 impl IJsonValue {
     pub fn ValueType(&self) -> windows_core::Result<JsonValueType> {

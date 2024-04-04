@@ -63,7 +63,7 @@ fn gen_win_delegate(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
 
     let vtbl_signature = writer.vtbl_signature(def, true, &signature);
     let invoke = winrt_methods::writer(writer, def, generics, metadata::InterfaceKind::Default, method, &mut MethodNames::new(), &mut MethodNames::new());
-    let invoke_upcall = winrt_methods::gen_upcall(writer, &signature, quote! { ((*this).invoke) });
+    let invoke_upcall = winrt_methods::gen_upcall(writer, &signature, quote! { (this.invoke) }, false);
 
     let mut tokens = if generics.is_empty() {
         let iid = writer.guid_literal(metadata::type_def_guid(def));
@@ -148,7 +148,7 @@ fn gen_win_delegate(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
                 remaining
             }
             unsafe extern "system" fn Invoke #vtbl_signature {
-                let this = this as *mut *mut core::ffi::c_void as *mut Self;
+                let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
                 #invoke_upcall
             }
         }

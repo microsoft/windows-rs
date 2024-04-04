@@ -134,6 +134,13 @@ pub struct ISearchPane_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISearchPaneQueryChangedEventArgs, ISearchPaneQueryChangedEventArgs_Vtbl, 0x3c064fe9_2351_4248_a529_7110f464a785);
 #[cfg(feature = "deprecated")]
+impl std::ops::Deref for ISearchPaneQueryChangedEventArgs {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(ISearchPaneQueryChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ISearchPaneQueryChangedEventArgs {

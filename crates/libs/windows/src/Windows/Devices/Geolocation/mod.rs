@@ -303,6 +303,12 @@ pub struct IGeoposition2_Vtbl {
     pub VenueData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGeoshape, IGeoshape_Vtbl, 0xc99ca2af_c729_43c1_8fab_d6dec914df7e);
+impl std::ops::Deref for IGeoshape {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IGeoshape, windows_core::IUnknown, windows_core::IInspectable);
 impl IGeoshape {
     pub fn GeoshapeType(&self) -> windows_core::Result<GeoshapeType> {

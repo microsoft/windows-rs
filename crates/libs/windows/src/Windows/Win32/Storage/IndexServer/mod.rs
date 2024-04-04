@@ -36,6 +36,12 @@ where
     LoadIFilterEx(pwcspath.param().abi(), dwflags, riid, ppiunk).ok()
 }
 windows_core::imp::define_interface!(IFilter, IFilter_Vtbl, 0x89bcb740_6119_101a_bcb7_00dd010655af);
+impl std::ops::Deref for IFilter {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFilter, windows_core::IUnknown);
 impl IFilter {
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -72,6 +78,12 @@ pub struct IFilter_Vtbl {
     pub BindRegion: unsafe extern "system" fn(*mut core::ffi::c_void, FILTERREGION, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> i32,
 }
 windows_core::imp::define_interface!(IPhraseSink, IPhraseSink_Vtbl, 0xcc906ff0_c058_101a_b554_08002b33b0e6);
+impl std::ops::Deref for IPhraseSink {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPhraseSink, windows_core::IUnknown);
 impl IPhraseSink {
     pub unsafe fn PutSmallPhrase<P0, P1>(&self, pwcnoun: P0, cwcnoun: u32, pwcmodifier: P1, cwcmodifier: u32, ulattachmenttype: u32) -> windows_core::Result<()>

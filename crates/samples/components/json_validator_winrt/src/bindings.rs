@@ -129,7 +129,7 @@ impl IJsonValidator_Vtbl {
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Validate(core::mem::transmute(&value)) {
+            match IJsonValidator_Impl::Validate(this, core::mem::transmute(&value)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -171,7 +171,7 @@ impl IJsonValidatorFactory_Vtbl {
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateInstance(core::mem::transmute(&schema)) {
+            match IJsonValidatorFactory_Impl::CreateInstance(this, core::mem::transmute(&schema)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);

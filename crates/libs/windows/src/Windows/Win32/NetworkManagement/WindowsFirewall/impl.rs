@@ -23,7 +23,7 @@ impl IDynamicPortMapping_Vtbl {
         unsafe extern "system" fn ExternalIPAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDynamicPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ExternalIPAddress() {
+            match IDynamicPortMapping_Impl::ExternalIPAddress(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -34,7 +34,7 @@ impl IDynamicPortMapping_Vtbl {
         unsafe extern "system" fn RemoteHost<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDynamicPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RemoteHost() {
+            match IDynamicPortMapping_Impl::RemoteHost(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -45,7 +45,7 @@ impl IDynamicPortMapping_Vtbl {
         unsafe extern "system" fn ExternalPort<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDynamicPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ExternalPort() {
+            match IDynamicPortMapping_Impl::ExternalPort(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -56,7 +56,7 @@ impl IDynamicPortMapping_Vtbl {
         unsafe extern "system" fn Protocol<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDynamicPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Protocol() {
+            match IDynamicPortMapping_Impl::Protocol(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -67,7 +67,7 @@ impl IDynamicPortMapping_Vtbl {
         unsafe extern "system" fn InternalPort<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDynamicPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.InternalPort() {
+            match IDynamicPortMapping_Impl::InternalPort(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -78,7 +78,7 @@ impl IDynamicPortMapping_Vtbl {
         unsafe extern "system" fn InternalClient<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDynamicPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.InternalClient() {
+            match IDynamicPortMapping_Impl::InternalClient(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -89,7 +89,7 @@ impl IDynamicPortMapping_Vtbl {
         unsafe extern "system" fn Enabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDynamicPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Enabled() {
+            match IDynamicPortMapping_Impl::Enabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -100,7 +100,7 @@ impl IDynamicPortMapping_Vtbl {
         unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDynamicPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Description() {
+            match IDynamicPortMapping_Impl::Description(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -111,7 +111,7 @@ impl IDynamicPortMapping_Vtbl {
         unsafe extern "system" fn LeaseDuration<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDynamicPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LeaseDuration() {
+            match IDynamicPortMapping_Impl::LeaseDuration(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -122,7 +122,7 @@ impl IDynamicPortMapping_Vtbl {
         unsafe extern "system" fn RenewLease<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDynamicPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lleasedurationdesired: i32, pleasedurationreturned: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RenewLease(core::mem::transmute_copy(&lleasedurationdesired)) {
+            match IDynamicPortMapping_Impl::RenewLease(this, core::mem::transmute_copy(&lleasedurationdesired)) {
                 Ok(ok__) => {
                     core::ptr::write(pleasedurationreturned, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -133,22 +133,22 @@ impl IDynamicPortMapping_Vtbl {
         unsafe extern "system" fn EditInternalClient<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDynamicPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrinternalclient: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EditInternalClient(core::mem::transmute(&bstrinternalclient)).into()
+            IDynamicPortMapping_Impl::EditInternalClient(this, core::mem::transmute(&bstrinternalclient)).into()
         }
         unsafe extern "system" fn Enable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDynamicPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vb: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Enable(core::mem::transmute_copy(&vb)).into()
+            IDynamicPortMapping_Impl::Enable(this, core::mem::transmute_copy(&vb)).into()
         }
         unsafe extern "system" fn EditDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDynamicPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdescription: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EditDescription(core::mem::transmute(&bstrdescription)).into()
+            IDynamicPortMapping_Impl::EditDescription(this, core::mem::transmute(&bstrdescription)).into()
         }
         unsafe extern "system" fn EditInternalPort<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDynamicPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, linternalport: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EditInternalPort(core::mem::transmute_copy(&linternalport)).into()
+            IDynamicPortMapping_Impl::EditInternalPort(this, core::mem::transmute_copy(&linternalport)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -188,7 +188,7 @@ impl IDynamicPortMappingCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDynamicPortMappingCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IDynamicPortMappingCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -199,7 +199,7 @@ impl IDynamicPortMappingCollection_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDynamicPortMappingCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrremotehost: std::mem::MaybeUninit<windows_core::BSTR>, lexternalport: i32, bstrprotocol: std::mem::MaybeUninit<windows_core::BSTR>, ppdpm: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute(&bstrremotehost), core::mem::transmute_copy(&lexternalport), core::mem::transmute(&bstrprotocol)) {
+            match IDynamicPortMappingCollection_Impl::get_Item(this, core::mem::transmute(&bstrremotehost), core::mem::transmute_copy(&lexternalport), core::mem::transmute(&bstrprotocol)) {
                 Ok(ok__) => {
                     core::ptr::write(ppdpm, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -210,7 +210,7 @@ impl IDynamicPortMappingCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDynamicPortMappingCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IDynamicPortMappingCollection_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -221,12 +221,12 @@ impl IDynamicPortMappingCollection_Vtbl {
         unsafe extern "system" fn Remove<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDynamicPortMappingCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrremotehost: std::mem::MaybeUninit<windows_core::BSTR>, lexternalport: i32, bstrprotocol: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Remove(core::mem::transmute(&bstrremotehost), core::mem::transmute_copy(&lexternalport), core::mem::transmute(&bstrprotocol)).into()
+            IDynamicPortMappingCollection_Impl::Remove(this, core::mem::transmute(&bstrremotehost), core::mem::transmute_copy(&lexternalport), core::mem::transmute(&bstrprotocol)).into()
         }
         unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDynamicPortMappingCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrremotehost: std::mem::MaybeUninit<windows_core::BSTR>, lexternalport: i32, bstrprotocol: std::mem::MaybeUninit<windows_core::BSTR>, linternalport: i32, bstrinternalclient: std::mem::MaybeUninit<windows_core::BSTR>, benabled: super::super::Foundation::VARIANT_BOOL, bstrdescription: std::mem::MaybeUninit<windows_core::BSTR>, lleaseduration: i32, ppdpm: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Add(core::mem::transmute(&bstrremotehost), core::mem::transmute_copy(&lexternalport), core::mem::transmute(&bstrprotocol), core::mem::transmute_copy(&linternalport), core::mem::transmute(&bstrinternalclient), core::mem::transmute_copy(&benabled), core::mem::transmute(&bstrdescription), core::mem::transmute_copy(&lleaseduration)) {
+            match IDynamicPortMappingCollection_Impl::Add(this, core::mem::transmute(&bstrremotehost), core::mem::transmute_copy(&lexternalport), core::mem::transmute(&bstrprotocol), core::mem::transmute_copy(&linternalport), core::mem::transmute(&bstrinternalclient), core::mem::transmute_copy(&benabled), core::mem::transmute(&bstrdescription), core::mem::transmute_copy(&lleaseduration)) {
                 Ok(ok__) => {
                     core::ptr::write(ppdpm, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -259,22 +259,22 @@ impl IEnumNetConnection_Vtbl {
         unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Next(core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
+            IEnumNetConnection_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Skip<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Skip(core::mem::transmute_copy(&celt)).into()
+            IEnumNetConnection_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Reset().into()
+            IEnumNetConnection_Impl::Reset(this).into()
         }
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IEnumNetConnection_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppenum, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -306,22 +306,22 @@ impl IEnumNetSharingEveryConnection_Vtbl {
         unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetSharingEveryConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgvar: *mut std::mem::MaybeUninit<windows_core::VARIANT>, pceltfetched: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Next(core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgvar), core::mem::transmute_copy(&pceltfetched)).into()
+            IEnumNetSharingEveryConnection_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgvar), core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Skip<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetSharingEveryConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Skip(core::mem::transmute_copy(&celt)).into()
+            IEnumNetSharingEveryConnection_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetSharingEveryConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Reset().into()
+            IEnumNetSharingEveryConnection_Impl::Reset(this).into()
         }
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetSharingEveryConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IEnumNetSharingEveryConnection_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppenum, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -353,22 +353,22 @@ impl IEnumNetSharingPortMapping_Vtbl {
         unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetSharingPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgvar: *mut std::mem::MaybeUninit<windows_core::VARIANT>, pceltfetched: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Next(core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgvar), core::mem::transmute_copy(&pceltfetched)).into()
+            IEnumNetSharingPortMapping_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgvar), core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Skip<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetSharingPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Skip(core::mem::transmute_copy(&celt)).into()
+            IEnumNetSharingPortMapping_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetSharingPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Reset().into()
+            IEnumNetSharingPortMapping_Impl::Reset(this).into()
         }
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetSharingPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IEnumNetSharingPortMapping_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppenum, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -400,22 +400,22 @@ impl IEnumNetSharingPrivateConnection_Vtbl {
         unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetSharingPrivateConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgvar: *mut std::mem::MaybeUninit<windows_core::VARIANT>, pceltfetched: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Next(core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgvar), core::mem::transmute_copy(&pceltfetched)).into()
+            IEnumNetSharingPrivateConnection_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgvar), core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Skip<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetSharingPrivateConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Skip(core::mem::transmute_copy(&celt)).into()
+            IEnumNetSharingPrivateConnection_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetSharingPrivateConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Reset().into()
+            IEnumNetSharingPrivateConnection_Impl::Reset(this).into()
         }
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetSharingPrivateConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IEnumNetSharingPrivateConnection_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppenum, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -447,22 +447,22 @@ impl IEnumNetSharingPublicConnection_Vtbl {
         unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetSharingPublicConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgvar: *mut std::mem::MaybeUninit<windows_core::VARIANT>, pceltfetched: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Next(core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgvar), core::mem::transmute_copy(&pceltfetched)).into()
+            IEnumNetSharingPublicConnection_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgvar), core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Skip<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetSharingPublicConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Skip(core::mem::transmute_copy(&celt)).into()
+            IEnumNetSharingPublicConnection_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetSharingPublicConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Reset().into()
+            IEnumNetSharingPublicConnection_Impl::Reset(this).into()
         }
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetSharingPublicConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IEnumNetSharingPublicConnection_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppenum, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -495,12 +495,12 @@ impl INATEventManager_Vtbl {
         unsafe extern "system" fn SetExternalIPAddressCallback<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INATEventManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetExternalIPAddressCallback(windows_core::from_raw_borrowed(&punk)).into()
+            INATEventManager_Impl::SetExternalIPAddressCallback(this, windows_core::from_raw_borrowed(&punk)).into()
         }
         unsafe extern "system" fn SetNumberOfEntriesCallback<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INATEventManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetNumberOfEntriesCallback(windows_core::from_raw_borrowed(&punk)).into()
+            INATEventManager_Impl::SetNumberOfEntriesCallback(this, windows_core::from_raw_borrowed(&punk)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -521,7 +521,7 @@ impl INATExternalIPAddressCallback_Vtbl {
         unsafe extern "system" fn NewExternalIPAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INATExternalIPAddressCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrnewexternalipaddress: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.NewExternalIPAddress(core::mem::transmute(&bstrnewexternalipaddress)).into()
+            INATExternalIPAddressCallback_Impl::NewExternalIPAddress(this, core::mem::transmute(&bstrnewexternalipaddress)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), NewExternalIPAddress: NewExternalIPAddress::<Identity, Impl, OFFSET> }
     }
@@ -538,7 +538,7 @@ impl INATNumberOfEntriesCallback_Vtbl {
         unsafe extern "system" fn NewNumberOfEntries<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INATNumberOfEntriesCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lnewnumberofentries: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.NewNumberOfEntries(core::mem::transmute_copy(&lnewnumberofentries)).into()
+            INATNumberOfEntriesCallback_Impl::NewNumberOfEntries(this, core::mem::transmute_copy(&lnewnumberofentries)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), NewNumberOfEntries: NewNumberOfEntries::<Identity, Impl, OFFSET> }
     }
@@ -561,22 +561,22 @@ impl INetConnection_Vtbl {
         unsafe extern "system" fn Connect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Connect().into()
+            INetConnection_Impl::Connect(this).into()
         }
         unsafe extern "system" fn Disconnect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Disconnect().into()
+            INetConnection_Impl::Disconnect(this).into()
         }
         unsafe extern "system" fn Delete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Delete().into()
+            INetConnection_Impl::Delete(this).into()
         }
         unsafe extern "system" fn Duplicate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszwduplicatename: windows_core::PCWSTR, ppcon: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Duplicate(core::mem::transmute(&pszwduplicatename)) {
+            match INetConnection_Impl::Duplicate(this, core::mem::transmute(&pszwduplicatename)) {
                 Ok(ok__) => {
                     core::ptr::write(ppcon, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -587,7 +587,7 @@ impl INetConnection_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppprops: *mut *mut NETCON_PROPERTIES) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProperties() {
+            match INetConnection_Impl::GetProperties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppprops, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -598,7 +598,7 @@ impl INetConnection_Vtbl {
         unsafe extern "system" fn GetUiObjectClassId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclsid: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetUiObjectClassId() {
+            match INetConnection_Impl::GetUiObjectClassId(this) {
                 Ok(ok__) => {
                     core::ptr::write(pclsid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -609,7 +609,7 @@ impl INetConnection_Vtbl {
         unsafe extern "system" fn Rename<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszwnewname: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Rename(core::mem::transmute(&pszwnewname)).into()
+            INetConnection_Impl::Rename(this, core::mem::transmute(&pszwnewname)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -637,17 +637,17 @@ impl INetConnectionConnectUi_Vtbl {
         unsafe extern "system" fn SetConnection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetConnectionConnectUi_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcon: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetConnection(windows_core::from_raw_borrowed(&pcon)).into()
+            INetConnectionConnectUi_Impl::SetConnection(this, windows_core::from_raw_borrowed(&pcon)).into()
         }
         unsafe extern "system" fn Connect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetConnectionConnectUi_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Connect(core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&dwflags)).into()
+            INetConnectionConnectUi_Impl::Connect(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&dwflags)).into()
         }
         unsafe extern "system" fn Disconnect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetConnectionConnectUi_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Disconnect(core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&dwflags)).into()
+            INetConnectionConnectUi_Impl::Disconnect(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&dwflags)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -669,7 +669,7 @@ impl INetConnectionManager_Vtbl {
         unsafe extern "system" fn EnumConnections<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetConnectionManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: NETCONMGR_ENUM_FLAGS, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumConnections(core::mem::transmute_copy(&flags)) {
+            match INetConnectionManager_Impl::EnumConnections(this, core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
                     core::ptr::write(ppenum, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -700,7 +700,7 @@ impl INetConnectionProps_Vtbl {
         unsafe extern "system" fn Guid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetConnectionProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Guid() {
+            match INetConnectionProps_Impl::Guid(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrguid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -711,7 +711,7 @@ impl INetConnectionProps_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetConnectionProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match INetConnectionProps_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -722,7 +722,7 @@ impl INetConnectionProps_Vtbl {
         unsafe extern "system" fn DeviceName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetConnectionProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdevicename: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DeviceName() {
+            match INetConnectionProps_Impl::DeviceName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrdevicename, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -733,7 +733,7 @@ impl INetConnectionProps_Vtbl {
         unsafe extern "system" fn Status<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetConnectionProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstatus: *mut NETCON_STATUS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Status() {
+            match INetConnectionProps_Impl::Status(this) {
                 Ok(ok__) => {
                     core::ptr::write(pstatus, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -744,7 +744,7 @@ impl INetConnectionProps_Vtbl {
         unsafe extern "system" fn MediaType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetConnectionProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmediatype: *mut NETCON_MEDIATYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MediaType() {
+            match INetConnectionProps_Impl::MediaType(this) {
                 Ok(ok__) => {
                     core::ptr::write(pmediatype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -755,7 +755,7 @@ impl INetConnectionProps_Vtbl {
         unsafe extern "system" fn Characteristics<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetConnectionProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwflags: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Characteristics() {
+            match INetConnectionProps_Impl::Characteristics(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdwflags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -800,7 +800,7 @@ impl INetFwAuthorizedApplication_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match INetFwAuthorizedApplication_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(name, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -811,12 +811,12 @@ impl INetFwAuthorizedApplication_Vtbl {
         unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetName(core::mem::transmute(&name)).into()
+            INetFwAuthorizedApplication_Impl::SetName(this, core::mem::transmute(&name)).into()
         }
         unsafe extern "system" fn ProcessImageFileName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagefilename: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ProcessImageFileName() {
+            match INetFwAuthorizedApplication_Impl::ProcessImageFileName(this) {
                 Ok(ok__) => {
                     core::ptr::write(imagefilename, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -827,12 +827,12 @@ impl INetFwAuthorizedApplication_Vtbl {
         unsafe extern "system" fn SetProcessImageFileName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagefilename: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetProcessImageFileName(core::mem::transmute(&imagefilename)).into()
+            INetFwAuthorizedApplication_Impl::SetProcessImageFileName(this, core::mem::transmute(&imagefilename)).into()
         }
         unsafe extern "system" fn IpVersion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ipversion: *mut NET_FW_IP_VERSION) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IpVersion() {
+            match INetFwAuthorizedApplication_Impl::IpVersion(this) {
                 Ok(ok__) => {
                     core::ptr::write(ipversion, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -843,12 +843,12 @@ impl INetFwAuthorizedApplication_Vtbl {
         unsafe extern "system" fn SetIpVersion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ipversion: NET_FW_IP_VERSION) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetIpVersion(core::mem::transmute_copy(&ipversion)).into()
+            INetFwAuthorizedApplication_Impl::SetIpVersion(this, core::mem::transmute_copy(&ipversion)).into()
         }
         unsafe extern "system" fn Scope<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: *mut NET_FW_SCOPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Scope() {
+            match INetFwAuthorizedApplication_Impl::Scope(this) {
                 Ok(ok__) => {
                     core::ptr::write(scope, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -859,12 +859,12 @@ impl INetFwAuthorizedApplication_Vtbl {
         unsafe extern "system" fn SetScope<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: NET_FW_SCOPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetScope(core::mem::transmute_copy(&scope)).into()
+            INetFwAuthorizedApplication_Impl::SetScope(this, core::mem::transmute_copy(&scope)).into()
         }
         unsafe extern "system" fn RemoteAddresses<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remoteaddrs: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RemoteAddresses() {
+            match INetFwAuthorizedApplication_Impl::RemoteAddresses(this) {
                 Ok(ok__) => {
                     core::ptr::write(remoteaddrs, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -875,12 +875,12 @@ impl INetFwAuthorizedApplication_Vtbl {
         unsafe extern "system" fn SetRemoteAddresses<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remoteaddrs: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRemoteAddresses(core::mem::transmute(&remoteaddrs)).into()
+            INetFwAuthorizedApplication_Impl::SetRemoteAddresses(this, core::mem::transmute(&remoteaddrs)).into()
         }
         unsafe extern "system" fn Enabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Enabled() {
+            match INetFwAuthorizedApplication_Impl::Enabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(enabled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -891,7 +891,7 @@ impl INetFwAuthorizedApplication_Vtbl {
         unsafe extern "system" fn SetEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEnabled(core::mem::transmute_copy(&enabled)).into()
+            INetFwAuthorizedApplication_Impl::SetEnabled(this, core::mem::transmute_copy(&enabled)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -929,7 +929,7 @@ impl INetFwAuthorizedApplications_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwAuthorizedApplications_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match INetFwAuthorizedApplications_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -940,17 +940,17 @@ impl INetFwAuthorizedApplications_Vtbl {
         unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwAuthorizedApplications_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, app: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Add(windows_core::from_raw_borrowed(&app)).into()
+            INetFwAuthorizedApplications_Impl::Add(this, windows_core::from_raw_borrowed(&app)).into()
         }
         unsafe extern "system" fn Remove<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwAuthorizedApplications_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagefilename: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Remove(core::mem::transmute(&imagefilename)).into()
+            INetFwAuthorizedApplications_Impl::Remove(this, core::mem::transmute(&imagefilename)).into()
         }
         unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwAuthorizedApplications_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagefilename: std::mem::MaybeUninit<windows_core::BSTR>, app: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Item(core::mem::transmute(&imagefilename)) {
+            match INetFwAuthorizedApplications_Impl::Item(this, core::mem::transmute(&imagefilename)) {
                 Ok(ok__) => {
                     core::ptr::write(app, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -961,7 +961,7 @@ impl INetFwAuthorizedApplications_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwAuthorizedApplications_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match INetFwAuthorizedApplications_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(newenum, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1013,7 +1013,7 @@ impl INetFwIcmpSettings_Vtbl {
         unsafe extern "system" fn AllowOutboundDestinationUnreachable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AllowOutboundDestinationUnreachable() {
+            match INetFwIcmpSettings_Impl::AllowOutboundDestinationUnreachable(this) {
                 Ok(ok__) => {
                     core::ptr::write(allow, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1024,12 +1024,12 @@ impl INetFwIcmpSettings_Vtbl {
         unsafe extern "system" fn SetAllowOutboundDestinationUnreachable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAllowOutboundDestinationUnreachable(core::mem::transmute_copy(&allow)).into()
+            INetFwIcmpSettings_Impl::SetAllowOutboundDestinationUnreachable(this, core::mem::transmute_copy(&allow)).into()
         }
         unsafe extern "system" fn AllowRedirect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AllowRedirect() {
+            match INetFwIcmpSettings_Impl::AllowRedirect(this) {
                 Ok(ok__) => {
                     core::ptr::write(allow, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1040,12 +1040,12 @@ impl INetFwIcmpSettings_Vtbl {
         unsafe extern "system" fn SetAllowRedirect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAllowRedirect(core::mem::transmute_copy(&allow)).into()
+            INetFwIcmpSettings_Impl::SetAllowRedirect(this, core::mem::transmute_copy(&allow)).into()
         }
         unsafe extern "system" fn AllowInboundEchoRequest<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AllowInboundEchoRequest() {
+            match INetFwIcmpSettings_Impl::AllowInboundEchoRequest(this) {
                 Ok(ok__) => {
                     core::ptr::write(allow, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1056,12 +1056,12 @@ impl INetFwIcmpSettings_Vtbl {
         unsafe extern "system" fn SetAllowInboundEchoRequest<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAllowInboundEchoRequest(core::mem::transmute_copy(&allow)).into()
+            INetFwIcmpSettings_Impl::SetAllowInboundEchoRequest(this, core::mem::transmute_copy(&allow)).into()
         }
         unsafe extern "system" fn AllowOutboundTimeExceeded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AllowOutboundTimeExceeded() {
+            match INetFwIcmpSettings_Impl::AllowOutboundTimeExceeded(this) {
                 Ok(ok__) => {
                     core::ptr::write(allow, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1072,12 +1072,12 @@ impl INetFwIcmpSettings_Vtbl {
         unsafe extern "system" fn SetAllowOutboundTimeExceeded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAllowOutboundTimeExceeded(core::mem::transmute_copy(&allow)).into()
+            INetFwIcmpSettings_Impl::SetAllowOutboundTimeExceeded(this, core::mem::transmute_copy(&allow)).into()
         }
         unsafe extern "system" fn AllowOutboundParameterProblem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AllowOutboundParameterProblem() {
+            match INetFwIcmpSettings_Impl::AllowOutboundParameterProblem(this) {
                 Ok(ok__) => {
                     core::ptr::write(allow, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1088,12 +1088,12 @@ impl INetFwIcmpSettings_Vtbl {
         unsafe extern "system" fn SetAllowOutboundParameterProblem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAllowOutboundParameterProblem(core::mem::transmute_copy(&allow)).into()
+            INetFwIcmpSettings_Impl::SetAllowOutboundParameterProblem(this, core::mem::transmute_copy(&allow)).into()
         }
         unsafe extern "system" fn AllowOutboundSourceQuench<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AllowOutboundSourceQuench() {
+            match INetFwIcmpSettings_Impl::AllowOutboundSourceQuench(this) {
                 Ok(ok__) => {
                     core::ptr::write(allow, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1104,12 +1104,12 @@ impl INetFwIcmpSettings_Vtbl {
         unsafe extern "system" fn SetAllowOutboundSourceQuench<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAllowOutboundSourceQuench(core::mem::transmute_copy(&allow)).into()
+            INetFwIcmpSettings_Impl::SetAllowOutboundSourceQuench(this, core::mem::transmute_copy(&allow)).into()
         }
         unsafe extern "system" fn AllowInboundRouterRequest<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AllowInboundRouterRequest() {
+            match INetFwIcmpSettings_Impl::AllowInboundRouterRequest(this) {
                 Ok(ok__) => {
                     core::ptr::write(allow, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1120,12 +1120,12 @@ impl INetFwIcmpSettings_Vtbl {
         unsafe extern "system" fn SetAllowInboundRouterRequest<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAllowInboundRouterRequest(core::mem::transmute_copy(&allow)).into()
+            INetFwIcmpSettings_Impl::SetAllowInboundRouterRequest(this, core::mem::transmute_copy(&allow)).into()
         }
         unsafe extern "system" fn AllowInboundTimestampRequest<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AllowInboundTimestampRequest() {
+            match INetFwIcmpSettings_Impl::AllowInboundTimestampRequest(this) {
                 Ok(ok__) => {
                     core::ptr::write(allow, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1136,12 +1136,12 @@ impl INetFwIcmpSettings_Vtbl {
         unsafe extern "system" fn SetAllowInboundTimestampRequest<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAllowInboundTimestampRequest(core::mem::transmute_copy(&allow)).into()
+            INetFwIcmpSettings_Impl::SetAllowInboundTimestampRequest(this, core::mem::transmute_copy(&allow)).into()
         }
         unsafe extern "system" fn AllowInboundMaskRequest<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AllowInboundMaskRequest() {
+            match INetFwIcmpSettings_Impl::AllowInboundMaskRequest(this) {
                 Ok(ok__) => {
                     core::ptr::write(allow, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1152,12 +1152,12 @@ impl INetFwIcmpSettings_Vtbl {
         unsafe extern "system" fn SetAllowInboundMaskRequest<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAllowInboundMaskRequest(core::mem::transmute_copy(&allow)).into()
+            INetFwIcmpSettings_Impl::SetAllowInboundMaskRequest(this, core::mem::transmute_copy(&allow)).into()
         }
         unsafe extern "system" fn AllowOutboundPacketTooBig<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AllowOutboundPacketTooBig() {
+            match INetFwIcmpSettings_Impl::AllowOutboundPacketTooBig(this) {
                 Ok(ok__) => {
                     core::ptr::write(allow, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1168,7 +1168,7 @@ impl INetFwIcmpSettings_Vtbl {
         unsafe extern "system" fn SetAllowOutboundPacketTooBig<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwIcmpSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allow: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAllowOutboundPacketTooBig(core::mem::transmute_copy(&allow)).into()
+            INetFwIcmpSettings_Impl::SetAllowOutboundPacketTooBig(this, core::mem::transmute_copy(&allow)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1214,7 +1214,7 @@ impl INetFwMgr_Vtbl {
         unsafe extern "system" fn LocalPolicy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, localpolicy: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LocalPolicy() {
+            match INetFwMgr_Impl::LocalPolicy(this) {
                 Ok(ok__) => {
                     core::ptr::write(localpolicy, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1225,7 +1225,7 @@ impl INetFwMgr_Vtbl {
         unsafe extern "system" fn CurrentProfileType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: *mut NET_FW_PROFILE_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentProfileType() {
+            match INetFwMgr_Impl::CurrentProfileType(this) {
                 Ok(ok__) => {
                     core::ptr::write(profiletype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1236,17 +1236,17 @@ impl INetFwMgr_Vtbl {
         unsafe extern "system" fn RestoreDefaults<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RestoreDefaults().into()
+            INetFwMgr_Impl::RestoreDefaults(this).into()
         }
         unsafe extern "system" fn IsPortAllowed<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagefilename: std::mem::MaybeUninit<windows_core::BSTR>, ipversion: NET_FW_IP_VERSION, portnumber: i32, localaddress: std::mem::MaybeUninit<windows_core::BSTR>, ipprotocol: NET_FW_IP_PROTOCOL, allowed: *mut std::mem::MaybeUninit<windows_core::VARIANT>, restricted: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsPortAllowed(core::mem::transmute(&imagefilename), core::mem::transmute_copy(&ipversion), core::mem::transmute_copy(&portnumber), core::mem::transmute(&localaddress), core::mem::transmute_copy(&ipprotocol), core::mem::transmute_copy(&allowed), core::mem::transmute_copy(&restricted)).into()
+            INetFwMgr_Impl::IsPortAllowed(this, core::mem::transmute(&imagefilename), core::mem::transmute_copy(&ipversion), core::mem::transmute_copy(&portnumber), core::mem::transmute(&localaddress), core::mem::transmute_copy(&ipprotocol), core::mem::transmute_copy(&allowed), core::mem::transmute_copy(&restricted)).into()
         }
         unsafe extern "system" fn IsIcmpTypeAllowed<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ipversion: NET_FW_IP_VERSION, localaddress: std::mem::MaybeUninit<windows_core::BSTR>, r#type: u8, allowed: *mut std::mem::MaybeUninit<windows_core::VARIANT>, restricted: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsIcmpTypeAllowed(core::mem::transmute_copy(&ipversion), core::mem::transmute(&localaddress), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&allowed), core::mem::transmute_copy(&restricted)).into()
+            INetFwMgr_Impl::IsIcmpTypeAllowed(this, core::mem::transmute_copy(&ipversion), core::mem::transmute(&localaddress), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&allowed), core::mem::transmute_copy(&restricted)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1287,7 +1287,7 @@ impl INetFwOpenPort_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match INetFwOpenPort_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(name, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1298,12 +1298,12 @@ impl INetFwOpenPort_Vtbl {
         unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetName(core::mem::transmute(&name)).into()
+            INetFwOpenPort_Impl::SetName(this, core::mem::transmute(&name)).into()
         }
         unsafe extern "system" fn IpVersion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ipversion: *mut NET_FW_IP_VERSION) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IpVersion() {
+            match INetFwOpenPort_Impl::IpVersion(this) {
                 Ok(ok__) => {
                     core::ptr::write(ipversion, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1314,12 +1314,12 @@ impl INetFwOpenPort_Vtbl {
         unsafe extern "system" fn SetIpVersion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ipversion: NET_FW_IP_VERSION) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetIpVersion(core::mem::transmute_copy(&ipversion)).into()
+            INetFwOpenPort_Impl::SetIpVersion(this, core::mem::transmute_copy(&ipversion)).into()
         }
         unsafe extern "system" fn Protocol<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ipprotocol: *mut NET_FW_IP_PROTOCOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Protocol() {
+            match INetFwOpenPort_Impl::Protocol(this) {
                 Ok(ok__) => {
                     core::ptr::write(ipprotocol, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1330,12 +1330,12 @@ impl INetFwOpenPort_Vtbl {
         unsafe extern "system" fn SetProtocol<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ipprotocol: NET_FW_IP_PROTOCOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetProtocol(core::mem::transmute_copy(&ipprotocol)).into()
+            INetFwOpenPort_Impl::SetProtocol(this, core::mem::transmute_copy(&ipprotocol)).into()
         }
         unsafe extern "system" fn Port<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, portnumber: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Port() {
+            match INetFwOpenPort_Impl::Port(this) {
                 Ok(ok__) => {
                     core::ptr::write(portnumber, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1346,12 +1346,12 @@ impl INetFwOpenPort_Vtbl {
         unsafe extern "system" fn SetPort<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, portnumber: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPort(core::mem::transmute_copy(&portnumber)).into()
+            INetFwOpenPort_Impl::SetPort(this, core::mem::transmute_copy(&portnumber)).into()
         }
         unsafe extern "system" fn Scope<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: *mut NET_FW_SCOPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Scope() {
+            match INetFwOpenPort_Impl::Scope(this) {
                 Ok(ok__) => {
                     core::ptr::write(scope, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1362,12 +1362,12 @@ impl INetFwOpenPort_Vtbl {
         unsafe extern "system" fn SetScope<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: NET_FW_SCOPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetScope(core::mem::transmute_copy(&scope)).into()
+            INetFwOpenPort_Impl::SetScope(this, core::mem::transmute_copy(&scope)).into()
         }
         unsafe extern "system" fn RemoteAddresses<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remoteaddrs: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RemoteAddresses() {
+            match INetFwOpenPort_Impl::RemoteAddresses(this) {
                 Ok(ok__) => {
                     core::ptr::write(remoteaddrs, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1378,12 +1378,12 @@ impl INetFwOpenPort_Vtbl {
         unsafe extern "system" fn SetRemoteAddresses<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remoteaddrs: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRemoteAddresses(core::mem::transmute(&remoteaddrs)).into()
+            INetFwOpenPort_Impl::SetRemoteAddresses(this, core::mem::transmute(&remoteaddrs)).into()
         }
         unsafe extern "system" fn Enabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Enabled() {
+            match INetFwOpenPort_Impl::Enabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(enabled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1394,12 +1394,12 @@ impl INetFwOpenPort_Vtbl {
         unsafe extern "system" fn SetEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEnabled(core::mem::transmute_copy(&enabled)).into()
+            INetFwOpenPort_Impl::SetEnabled(this, core::mem::transmute_copy(&enabled)).into()
         }
         unsafe extern "system" fn BuiltIn<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, builtin: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BuiltIn() {
+            match INetFwOpenPort_Impl::BuiltIn(this) {
                 Ok(ok__) => {
                     core::ptr::write(builtin, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1446,7 +1446,7 @@ impl INetFwOpenPorts_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwOpenPorts_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match INetFwOpenPorts_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1457,17 +1457,17 @@ impl INetFwOpenPorts_Vtbl {
         unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwOpenPorts_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, port: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Add(windows_core::from_raw_borrowed(&port)).into()
+            INetFwOpenPorts_Impl::Add(this, windows_core::from_raw_borrowed(&port)).into()
         }
         unsafe extern "system" fn Remove<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwOpenPorts_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, portnumber: i32, ipprotocol: NET_FW_IP_PROTOCOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Remove(core::mem::transmute_copy(&portnumber), core::mem::transmute_copy(&ipprotocol)).into()
+            INetFwOpenPorts_Impl::Remove(this, core::mem::transmute_copy(&portnumber), core::mem::transmute_copy(&ipprotocol)).into()
         }
         unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwOpenPorts_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, portnumber: i32, ipprotocol: NET_FW_IP_PROTOCOL, openport: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Item(core::mem::transmute_copy(&portnumber), core::mem::transmute_copy(&ipprotocol)) {
+            match INetFwOpenPorts_Impl::Item(this, core::mem::transmute_copy(&portnumber), core::mem::transmute_copy(&ipprotocol)) {
                 Ok(ok__) => {
                     core::ptr::write(openport, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1478,7 +1478,7 @@ impl INetFwOpenPorts_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwOpenPorts_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match INetFwOpenPorts_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(newenum, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1512,7 +1512,7 @@ impl INetFwPolicy_Vtbl {
         unsafe extern "system" fn CurrentProfile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentProfile() {
+            match INetFwPolicy_Impl::CurrentProfile(this) {
                 Ok(ok__) => {
                     core::ptr::write(profile, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1523,7 +1523,7 @@ impl INetFwPolicy_Vtbl {
         unsafe extern "system" fn GetProfileByType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE, profile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProfileByType(core::mem::transmute_copy(&profiletype)) {
+            match INetFwPolicy_Impl::GetProfileByType(this, core::mem::transmute_copy(&profiletype)) {
                 Ok(ok__) => {
                     core::ptr::write(profile, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1574,7 +1574,7 @@ impl INetFwPolicy2_Vtbl {
         unsafe extern "system" fn CurrentProfileTypes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletypesbitmask: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentProfileTypes() {
+            match INetFwPolicy2_Impl::CurrentProfileTypes(this) {
                 Ok(ok__) => {
                     core::ptr::write(profiletypesbitmask, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1585,7 +1585,7 @@ impl INetFwPolicy2_Vtbl {
         unsafe extern "system" fn get_FirewallEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_FirewallEnabled(core::mem::transmute_copy(&profiletype)) {
+            match INetFwPolicy2_Impl::get_FirewallEnabled(this, core::mem::transmute_copy(&profiletype)) {
                 Ok(ok__) => {
                     core::ptr::write(enabled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1596,12 +1596,12 @@ impl INetFwPolicy2_Vtbl {
         unsafe extern "system" fn put_FirewallEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.put_FirewallEnabled(core::mem::transmute_copy(&profiletype), core::mem::transmute_copy(&enabled)).into()
+            INetFwPolicy2_Impl::put_FirewallEnabled(this, core::mem::transmute_copy(&profiletype), core::mem::transmute_copy(&enabled)).into()
         }
         unsafe extern "system" fn get_ExcludedInterfaces<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, interfaces: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_ExcludedInterfaces(core::mem::transmute_copy(&profiletype)) {
+            match INetFwPolicy2_Impl::get_ExcludedInterfaces(this, core::mem::transmute_copy(&profiletype)) {
                 Ok(ok__) => {
                     core::ptr::write(interfaces, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1612,12 +1612,12 @@ impl INetFwPolicy2_Vtbl {
         unsafe extern "system" fn put_ExcludedInterfaces<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, interfaces: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.put_ExcludedInterfaces(core::mem::transmute_copy(&profiletype), core::mem::transmute(&interfaces)).into()
+            INetFwPolicy2_Impl::put_ExcludedInterfaces(this, core::mem::transmute_copy(&profiletype), core::mem::transmute(&interfaces)).into()
         }
         unsafe extern "system" fn get_BlockAllInboundTraffic<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, block: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_BlockAllInboundTraffic(core::mem::transmute_copy(&profiletype)) {
+            match INetFwPolicy2_Impl::get_BlockAllInboundTraffic(this, core::mem::transmute_copy(&profiletype)) {
                 Ok(ok__) => {
                     core::ptr::write(block, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1628,12 +1628,12 @@ impl INetFwPolicy2_Vtbl {
         unsafe extern "system" fn put_BlockAllInboundTraffic<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, block: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.put_BlockAllInboundTraffic(core::mem::transmute_copy(&profiletype), core::mem::transmute_copy(&block)).into()
+            INetFwPolicy2_Impl::put_BlockAllInboundTraffic(this, core::mem::transmute_copy(&profiletype), core::mem::transmute_copy(&block)).into()
         }
         unsafe extern "system" fn get_NotificationsDisabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, disabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_NotificationsDisabled(core::mem::transmute_copy(&profiletype)) {
+            match INetFwPolicy2_Impl::get_NotificationsDisabled(this, core::mem::transmute_copy(&profiletype)) {
                 Ok(ok__) => {
                     core::ptr::write(disabled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1644,12 +1644,12 @@ impl INetFwPolicy2_Vtbl {
         unsafe extern "system" fn put_NotificationsDisabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, disabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.put_NotificationsDisabled(core::mem::transmute_copy(&profiletype), core::mem::transmute_copy(&disabled)).into()
+            INetFwPolicy2_Impl::put_NotificationsDisabled(this, core::mem::transmute_copy(&profiletype), core::mem::transmute_copy(&disabled)).into()
         }
         unsafe extern "system" fn get_UnicastResponsesToMulticastBroadcastDisabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, disabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_UnicastResponsesToMulticastBroadcastDisabled(core::mem::transmute_copy(&profiletype)) {
+            match INetFwPolicy2_Impl::get_UnicastResponsesToMulticastBroadcastDisabled(this, core::mem::transmute_copy(&profiletype)) {
                 Ok(ok__) => {
                     core::ptr::write(disabled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1660,12 +1660,12 @@ impl INetFwPolicy2_Vtbl {
         unsafe extern "system" fn put_UnicastResponsesToMulticastBroadcastDisabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, disabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.put_UnicastResponsesToMulticastBroadcastDisabled(core::mem::transmute_copy(&profiletype), core::mem::transmute_copy(&disabled)).into()
+            INetFwPolicy2_Impl::put_UnicastResponsesToMulticastBroadcastDisabled(this, core::mem::transmute_copy(&profiletype), core::mem::transmute_copy(&disabled)).into()
         }
         unsafe extern "system" fn Rules<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rules: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Rules() {
+            match INetFwPolicy2_Impl::Rules(this) {
                 Ok(ok__) => {
                     core::ptr::write(rules, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1676,7 +1676,7 @@ impl INetFwPolicy2_Vtbl {
         unsafe extern "system" fn ServiceRestriction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, servicerestriction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ServiceRestriction() {
+            match INetFwPolicy2_Impl::ServiceRestriction(this) {
                 Ok(ok__) => {
                     core::ptr::write(servicerestriction, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1687,12 +1687,12 @@ impl INetFwPolicy2_Vtbl {
         unsafe extern "system" fn EnableRuleGroup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletypesbitmask: i32, group: std::mem::MaybeUninit<windows_core::BSTR>, enable: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EnableRuleGroup(core::mem::transmute_copy(&profiletypesbitmask), core::mem::transmute(&group), core::mem::transmute_copy(&enable)).into()
+            INetFwPolicy2_Impl::EnableRuleGroup(this, core::mem::transmute_copy(&profiletypesbitmask), core::mem::transmute(&group), core::mem::transmute_copy(&enable)).into()
         }
         unsafe extern "system" fn IsRuleGroupEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletypesbitmask: i32, group: std::mem::MaybeUninit<windows_core::BSTR>, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsRuleGroupEnabled(core::mem::transmute_copy(&profiletypesbitmask), core::mem::transmute(&group)) {
+            match INetFwPolicy2_Impl::IsRuleGroupEnabled(this, core::mem::transmute_copy(&profiletypesbitmask), core::mem::transmute(&group)) {
                 Ok(ok__) => {
                     core::ptr::write(enabled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1703,12 +1703,12 @@ impl INetFwPolicy2_Vtbl {
         unsafe extern "system" fn RestoreLocalFirewallDefaults<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RestoreLocalFirewallDefaults().into()
+            INetFwPolicy2_Impl::RestoreLocalFirewallDefaults(this).into()
         }
         unsafe extern "system" fn get_DefaultInboundAction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, action: *mut NET_FW_ACTION) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_DefaultInboundAction(core::mem::transmute_copy(&profiletype)) {
+            match INetFwPolicy2_Impl::get_DefaultInboundAction(this, core::mem::transmute_copy(&profiletype)) {
                 Ok(ok__) => {
                     core::ptr::write(action, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1719,12 +1719,12 @@ impl INetFwPolicy2_Vtbl {
         unsafe extern "system" fn put_DefaultInboundAction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, action: NET_FW_ACTION) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.put_DefaultInboundAction(core::mem::transmute_copy(&profiletype), core::mem::transmute_copy(&action)).into()
+            INetFwPolicy2_Impl::put_DefaultInboundAction(this, core::mem::transmute_copy(&profiletype), core::mem::transmute_copy(&action)).into()
         }
         unsafe extern "system" fn get_DefaultOutboundAction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, action: *mut NET_FW_ACTION) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_DefaultOutboundAction(core::mem::transmute_copy(&profiletype)) {
+            match INetFwPolicy2_Impl::get_DefaultOutboundAction(this, core::mem::transmute_copy(&profiletype)) {
                 Ok(ok__) => {
                     core::ptr::write(action, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1735,12 +1735,12 @@ impl INetFwPolicy2_Vtbl {
         unsafe extern "system" fn put_DefaultOutboundAction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, action: NET_FW_ACTION) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.put_DefaultOutboundAction(core::mem::transmute_copy(&profiletype), core::mem::transmute_copy(&action)).into()
+            INetFwPolicy2_Impl::put_DefaultOutboundAction(this, core::mem::transmute_copy(&profiletype), core::mem::transmute_copy(&action)).into()
         }
         unsafe extern "system" fn get_IsRuleGroupCurrentlyEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, group: std::mem::MaybeUninit<windows_core::BSTR>, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_IsRuleGroupCurrentlyEnabled(core::mem::transmute(&group)) {
+            match INetFwPolicy2_Impl::get_IsRuleGroupCurrentlyEnabled(this, core::mem::transmute(&group)) {
                 Ok(ok__) => {
                     core::ptr::write(enabled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1751,7 +1751,7 @@ impl INetFwPolicy2_Vtbl {
         unsafe extern "system" fn LocalPolicyModifyState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, modifystate: *mut NET_FW_MODIFY_STATE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LocalPolicyModifyState() {
+            match INetFwPolicy2_Impl::LocalPolicyModifyState(this) {
                 Ok(ok__) => {
                     core::ptr::write(modifystate, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1805,7 +1805,7 @@ impl INetFwProduct_Vtbl {
         unsafe extern "system" fn RuleCategories<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rulecategories: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RuleCategories() {
+            match INetFwProduct_Impl::RuleCategories(this) {
                 Ok(ok__) => {
                     core::ptr::write(rulecategories, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1816,12 +1816,12 @@ impl INetFwProduct_Vtbl {
         unsafe extern "system" fn SetRuleCategories<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rulecategories: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRuleCategories(core::mem::transmute(&rulecategories)).into()
+            INetFwProduct_Impl::SetRuleCategories(this, core::mem::transmute(&rulecategories)).into()
         }
         unsafe extern "system" fn DisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, displayname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DisplayName() {
+            match INetFwProduct_Impl::DisplayName(this) {
                 Ok(ok__) => {
                     core::ptr::write(displayname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1832,12 +1832,12 @@ impl INetFwProduct_Vtbl {
         unsafe extern "system" fn SetDisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, displayname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDisplayName(core::mem::transmute(&displayname)).into()
+            INetFwProduct_Impl::SetDisplayName(this, core::mem::transmute(&displayname)).into()
         }
         unsafe extern "system" fn PathToSignedProductExe<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PathToSignedProductExe() {
+            match INetFwProduct_Impl::PathToSignedProductExe(this) {
                 Ok(ok__) => {
                     core::ptr::write(path, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1873,7 +1873,7 @@ impl INetFwProducts_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwProducts_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match INetFwProducts_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1884,7 +1884,7 @@ impl INetFwProducts_Vtbl {
         unsafe extern "system" fn Register<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwProducts_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, product: *mut core::ffi::c_void, registration: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Register(windows_core::from_raw_borrowed(&product)) {
+            match INetFwProducts_Impl::Register(this, windows_core::from_raw_borrowed(&product)) {
                 Ok(ok__) => {
                     core::ptr::write(registration, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1895,7 +1895,7 @@ impl INetFwProducts_Vtbl {
         unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwProducts_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, product: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Item(core::mem::transmute_copy(&index)) {
+            match INetFwProducts_Impl::Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(product, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1906,7 +1906,7 @@ impl INetFwProducts_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwProducts_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match INetFwProducts_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(newenum, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1951,7 +1951,7 @@ impl INetFwProfile_Vtbl {
         unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut NET_FW_PROFILE_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Type() {
+            match INetFwProfile_Impl::Type(this) {
                 Ok(ok__) => {
                     core::ptr::write(r#type, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1962,7 +1962,7 @@ impl INetFwProfile_Vtbl {
         unsafe extern "system" fn FirewallEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FirewallEnabled() {
+            match INetFwProfile_Impl::FirewallEnabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(enabled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1973,12 +1973,12 @@ impl INetFwProfile_Vtbl {
         unsafe extern "system" fn SetFirewallEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFirewallEnabled(core::mem::transmute_copy(&enabled)).into()
+            INetFwProfile_Impl::SetFirewallEnabled(this, core::mem::transmute_copy(&enabled)).into()
         }
         unsafe extern "system" fn ExceptionsNotAllowed<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, notallowed: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ExceptionsNotAllowed() {
+            match INetFwProfile_Impl::ExceptionsNotAllowed(this) {
                 Ok(ok__) => {
                     core::ptr::write(notallowed, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1989,12 +1989,12 @@ impl INetFwProfile_Vtbl {
         unsafe extern "system" fn SetExceptionsNotAllowed<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, notallowed: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetExceptionsNotAllowed(core::mem::transmute_copy(&notallowed)).into()
+            INetFwProfile_Impl::SetExceptionsNotAllowed(this, core::mem::transmute_copy(&notallowed)).into()
         }
         unsafe extern "system" fn NotificationsDisabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, disabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.NotificationsDisabled() {
+            match INetFwProfile_Impl::NotificationsDisabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(disabled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2005,12 +2005,12 @@ impl INetFwProfile_Vtbl {
         unsafe extern "system" fn SetNotificationsDisabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, disabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetNotificationsDisabled(core::mem::transmute_copy(&disabled)).into()
+            INetFwProfile_Impl::SetNotificationsDisabled(this, core::mem::transmute_copy(&disabled)).into()
         }
         unsafe extern "system" fn UnicastResponsesToMulticastBroadcastDisabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, disabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UnicastResponsesToMulticastBroadcastDisabled() {
+            match INetFwProfile_Impl::UnicastResponsesToMulticastBroadcastDisabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(disabled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2021,12 +2021,12 @@ impl INetFwProfile_Vtbl {
         unsafe extern "system" fn SetUnicastResponsesToMulticastBroadcastDisabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, disabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetUnicastResponsesToMulticastBroadcastDisabled(core::mem::transmute_copy(&disabled)).into()
+            INetFwProfile_Impl::SetUnicastResponsesToMulticastBroadcastDisabled(this, core::mem::transmute_copy(&disabled)).into()
         }
         unsafe extern "system" fn RemoteAdminSettings<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remoteadminsettings: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RemoteAdminSettings() {
+            match INetFwProfile_Impl::RemoteAdminSettings(this) {
                 Ok(ok__) => {
                     core::ptr::write(remoteadminsettings, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2037,7 +2037,7 @@ impl INetFwProfile_Vtbl {
         unsafe extern "system" fn IcmpSettings<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, icmpsettings: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IcmpSettings() {
+            match INetFwProfile_Impl::IcmpSettings(this) {
                 Ok(ok__) => {
                     core::ptr::write(icmpsettings, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2048,7 +2048,7 @@ impl INetFwProfile_Vtbl {
         unsafe extern "system" fn GloballyOpenPorts<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, openports: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GloballyOpenPorts() {
+            match INetFwProfile_Impl::GloballyOpenPorts(this) {
                 Ok(ok__) => {
                     core::ptr::write(openports, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2059,7 +2059,7 @@ impl INetFwProfile_Vtbl {
         unsafe extern "system" fn Services<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, services: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Services() {
+            match INetFwProfile_Impl::Services(this) {
                 Ok(ok__) => {
                     core::ptr::write(services, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2070,7 +2070,7 @@ impl INetFwProfile_Vtbl {
         unsafe extern "system" fn AuthorizedApplications<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, apps: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AuthorizedApplications() {
+            match INetFwProfile_Impl::AuthorizedApplications(this) {
                 Ok(ok__) => {
                     core::ptr::write(apps, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2119,7 +2119,7 @@ impl INetFwRemoteAdminSettings_Vtbl {
         unsafe extern "system" fn IpVersion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRemoteAdminSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ipversion: *mut NET_FW_IP_VERSION) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IpVersion() {
+            match INetFwRemoteAdminSettings_Impl::IpVersion(this) {
                 Ok(ok__) => {
                     core::ptr::write(ipversion, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2130,12 +2130,12 @@ impl INetFwRemoteAdminSettings_Vtbl {
         unsafe extern "system" fn SetIpVersion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRemoteAdminSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ipversion: NET_FW_IP_VERSION) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetIpVersion(core::mem::transmute_copy(&ipversion)).into()
+            INetFwRemoteAdminSettings_Impl::SetIpVersion(this, core::mem::transmute_copy(&ipversion)).into()
         }
         unsafe extern "system" fn Scope<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRemoteAdminSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: *mut NET_FW_SCOPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Scope() {
+            match INetFwRemoteAdminSettings_Impl::Scope(this) {
                 Ok(ok__) => {
                     core::ptr::write(scope, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2146,12 +2146,12 @@ impl INetFwRemoteAdminSettings_Vtbl {
         unsafe extern "system" fn SetScope<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRemoteAdminSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: NET_FW_SCOPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetScope(core::mem::transmute_copy(&scope)).into()
+            INetFwRemoteAdminSettings_Impl::SetScope(this, core::mem::transmute_copy(&scope)).into()
         }
         unsafe extern "system" fn RemoteAddresses<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRemoteAdminSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remoteaddrs: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RemoteAddresses() {
+            match INetFwRemoteAdminSettings_Impl::RemoteAddresses(this) {
                 Ok(ok__) => {
                     core::ptr::write(remoteaddrs, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2162,12 +2162,12 @@ impl INetFwRemoteAdminSettings_Vtbl {
         unsafe extern "system" fn SetRemoteAddresses<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRemoteAdminSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remoteaddrs: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRemoteAddresses(core::mem::transmute(&remoteaddrs)).into()
+            INetFwRemoteAdminSettings_Impl::SetRemoteAddresses(this, core::mem::transmute(&remoteaddrs)).into()
         }
         unsafe extern "system" fn Enabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRemoteAdminSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Enabled() {
+            match INetFwRemoteAdminSettings_Impl::Enabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(enabled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2178,7 +2178,7 @@ impl INetFwRemoteAdminSettings_Vtbl {
         unsafe extern "system" fn SetEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRemoteAdminSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEnabled(core::mem::transmute_copy(&enabled)).into()
+            INetFwRemoteAdminSettings_Impl::SetEnabled(this, core::mem::transmute_copy(&enabled)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2243,7 +2243,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match INetFwRule_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(name, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2254,12 +2254,12 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetName(core::mem::transmute(&name)).into()
+            INetFwRule_Impl::SetName(this, core::mem::transmute(&name)).into()
         }
         unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, desc: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Description() {
+            match INetFwRule_Impl::Description(this) {
                 Ok(ok__) => {
                     core::ptr::write(desc, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2270,12 +2270,12 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, desc: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDescription(core::mem::transmute(&desc)).into()
+            INetFwRule_Impl::SetDescription(this, core::mem::transmute(&desc)).into()
         }
         unsafe extern "system" fn ApplicationName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagefilename: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ApplicationName() {
+            match INetFwRule_Impl::ApplicationName(this) {
                 Ok(ok__) => {
                     core::ptr::write(imagefilename, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2286,12 +2286,12 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetApplicationName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagefilename: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetApplicationName(core::mem::transmute(&imagefilename)).into()
+            INetFwRule_Impl::SetApplicationName(this, core::mem::transmute(&imagefilename)).into()
         }
         unsafe extern "system" fn ServiceName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, servicename: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ServiceName() {
+            match INetFwRule_Impl::ServiceName(this) {
                 Ok(ok__) => {
                     core::ptr::write(servicename, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2302,12 +2302,12 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetServiceName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, servicename: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetServiceName(core::mem::transmute(&servicename)).into()
+            INetFwRule_Impl::SetServiceName(this, core::mem::transmute(&servicename)).into()
         }
         unsafe extern "system" fn Protocol<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, protocol: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Protocol() {
+            match INetFwRule_Impl::Protocol(this) {
                 Ok(ok__) => {
                     core::ptr::write(protocol, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2318,12 +2318,12 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetProtocol<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, protocol: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetProtocol(core::mem::transmute_copy(&protocol)).into()
+            INetFwRule_Impl::SetProtocol(this, core::mem::transmute_copy(&protocol)).into()
         }
         unsafe extern "system" fn LocalPorts<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, portnumbers: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LocalPorts() {
+            match INetFwRule_Impl::LocalPorts(this) {
                 Ok(ok__) => {
                     core::ptr::write(portnumbers, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2334,12 +2334,12 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetLocalPorts<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, portnumbers: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLocalPorts(core::mem::transmute(&portnumbers)).into()
+            INetFwRule_Impl::SetLocalPorts(this, core::mem::transmute(&portnumbers)).into()
         }
         unsafe extern "system" fn RemotePorts<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, portnumbers: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RemotePorts() {
+            match INetFwRule_Impl::RemotePorts(this) {
                 Ok(ok__) => {
                     core::ptr::write(portnumbers, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2350,12 +2350,12 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetRemotePorts<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, portnumbers: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRemotePorts(core::mem::transmute(&portnumbers)).into()
+            INetFwRule_Impl::SetRemotePorts(this, core::mem::transmute(&portnumbers)).into()
         }
         unsafe extern "system" fn LocalAddresses<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, localaddrs: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LocalAddresses() {
+            match INetFwRule_Impl::LocalAddresses(this) {
                 Ok(ok__) => {
                     core::ptr::write(localaddrs, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2366,12 +2366,12 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetLocalAddresses<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, localaddrs: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLocalAddresses(core::mem::transmute(&localaddrs)).into()
+            INetFwRule_Impl::SetLocalAddresses(this, core::mem::transmute(&localaddrs)).into()
         }
         unsafe extern "system" fn RemoteAddresses<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remoteaddrs: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RemoteAddresses() {
+            match INetFwRule_Impl::RemoteAddresses(this) {
                 Ok(ok__) => {
                     core::ptr::write(remoteaddrs, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2382,12 +2382,12 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetRemoteAddresses<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remoteaddrs: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRemoteAddresses(core::mem::transmute(&remoteaddrs)).into()
+            INetFwRule_Impl::SetRemoteAddresses(this, core::mem::transmute(&remoteaddrs)).into()
         }
         unsafe extern "system" fn IcmpTypesAndCodes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, icmptypesandcodes: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IcmpTypesAndCodes() {
+            match INetFwRule_Impl::IcmpTypesAndCodes(this) {
                 Ok(ok__) => {
                     core::ptr::write(icmptypesandcodes, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2398,12 +2398,12 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetIcmpTypesAndCodes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, icmptypesandcodes: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetIcmpTypesAndCodes(core::mem::transmute(&icmptypesandcodes)).into()
+            INetFwRule_Impl::SetIcmpTypesAndCodes(this, core::mem::transmute(&icmptypesandcodes)).into()
         }
         unsafe extern "system" fn Direction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dir: *mut NET_FW_RULE_DIRECTION) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Direction() {
+            match INetFwRule_Impl::Direction(this) {
                 Ok(ok__) => {
                     core::ptr::write(dir, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2414,12 +2414,12 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetDirection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dir: NET_FW_RULE_DIRECTION) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDirection(core::mem::transmute_copy(&dir)).into()
+            INetFwRule_Impl::SetDirection(this, core::mem::transmute_copy(&dir)).into()
         }
         unsafe extern "system" fn Interfaces<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaces: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Interfaces() {
+            match INetFwRule_Impl::Interfaces(this) {
                 Ok(ok__) => {
                     core::ptr::write(interfaces, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2430,12 +2430,12 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetInterfaces<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaces: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetInterfaces(core::mem::transmute(&interfaces)).into()
+            INetFwRule_Impl::SetInterfaces(this, core::mem::transmute(&interfaces)).into()
         }
         unsafe extern "system" fn InterfaceTypes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfacetypes: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.InterfaceTypes() {
+            match INetFwRule_Impl::InterfaceTypes(this) {
                 Ok(ok__) => {
                     core::ptr::write(interfacetypes, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2446,12 +2446,12 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetInterfaceTypes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfacetypes: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetInterfaceTypes(core::mem::transmute(&interfacetypes)).into()
+            INetFwRule_Impl::SetInterfaceTypes(this, core::mem::transmute(&interfacetypes)).into()
         }
         unsafe extern "system" fn Enabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Enabled() {
+            match INetFwRule_Impl::Enabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(enabled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2462,12 +2462,12 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEnabled(core::mem::transmute_copy(&enabled)).into()
+            INetFwRule_Impl::SetEnabled(this, core::mem::transmute_copy(&enabled)).into()
         }
         unsafe extern "system" fn Grouping<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Grouping() {
+            match INetFwRule_Impl::Grouping(this) {
                 Ok(ok__) => {
                     core::ptr::write(context, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2478,12 +2478,12 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetGrouping<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetGrouping(core::mem::transmute(&context)).into()
+            INetFwRule_Impl::SetGrouping(this, core::mem::transmute(&context)).into()
         }
         unsafe extern "system" fn Profiles<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletypesbitmask: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Profiles() {
+            match INetFwRule_Impl::Profiles(this) {
                 Ok(ok__) => {
                     core::ptr::write(profiletypesbitmask, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2494,12 +2494,12 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetProfiles<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletypesbitmask: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetProfiles(core::mem::transmute_copy(&profiletypesbitmask)).into()
+            INetFwRule_Impl::SetProfiles(this, core::mem::transmute_copy(&profiletypesbitmask)).into()
         }
         unsafe extern "system" fn EdgeTraversal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EdgeTraversal() {
+            match INetFwRule_Impl::EdgeTraversal(this) {
                 Ok(ok__) => {
                     core::ptr::write(enabled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2510,12 +2510,12 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetEdgeTraversal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEdgeTraversal(core::mem::transmute_copy(&enabled)).into()
+            INetFwRule_Impl::SetEdgeTraversal(this, core::mem::transmute_copy(&enabled)).into()
         }
         unsafe extern "system" fn Action<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, action: *mut NET_FW_ACTION) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Action() {
+            match INetFwRule_Impl::Action(this) {
                 Ok(ok__) => {
                     core::ptr::write(action, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2526,7 +2526,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetAction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, action: NET_FW_ACTION) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAction(core::mem::transmute_copy(&action)).into()
+            INetFwRule_Impl::SetAction(this, core::mem::transmute_copy(&action)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2585,7 +2585,7 @@ impl INetFwRule2_Vtbl {
         unsafe extern "system" fn EdgeTraversalOptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, loptions: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EdgeTraversalOptions() {
+            match INetFwRule2_Impl::EdgeTraversalOptions(this) {
                 Ok(ok__) => {
                     core::ptr::write(loptions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2596,7 +2596,7 @@ impl INetFwRule2_Vtbl {
         unsafe extern "system" fn SetEdgeTraversalOptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, loptions: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEdgeTraversalOptions(core::mem::transmute_copy(&loptions)).into()
+            INetFwRule2_Impl::SetEdgeTraversalOptions(this, core::mem::transmute_copy(&loptions)).into()
         }
         Self {
             base__: INetFwRule_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2631,7 +2631,7 @@ impl INetFwRule3_Vtbl {
         unsafe extern "system" fn LocalAppPackageId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszpackageid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LocalAppPackageId() {
+            match INetFwRule3_Impl::LocalAppPackageId(this) {
                 Ok(ok__) => {
                     core::ptr::write(wszpackageid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2642,12 +2642,12 @@ impl INetFwRule3_Vtbl {
         unsafe extern "system" fn SetLocalAppPackageId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszpackageid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLocalAppPackageId(core::mem::transmute(&wszpackageid)).into()
+            INetFwRule3_Impl::SetLocalAppPackageId(this, core::mem::transmute(&wszpackageid)).into()
         }
         unsafe extern "system" fn LocalUserOwner<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszuserowner: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LocalUserOwner() {
+            match INetFwRule3_Impl::LocalUserOwner(this) {
                 Ok(ok__) => {
                     core::ptr::write(wszuserowner, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2658,12 +2658,12 @@ impl INetFwRule3_Vtbl {
         unsafe extern "system" fn SetLocalUserOwner<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszuserowner: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLocalUserOwner(core::mem::transmute(&wszuserowner)).into()
+            INetFwRule3_Impl::SetLocalUserOwner(this, core::mem::transmute(&wszuserowner)).into()
         }
         unsafe extern "system" fn LocalUserAuthorizedList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszuserauthlist: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LocalUserAuthorizedList() {
+            match INetFwRule3_Impl::LocalUserAuthorizedList(this) {
                 Ok(ok__) => {
                     core::ptr::write(wszuserauthlist, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2674,12 +2674,12 @@ impl INetFwRule3_Vtbl {
         unsafe extern "system" fn SetLocalUserAuthorizedList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszuserauthlist: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLocalUserAuthorizedList(core::mem::transmute(&wszuserauthlist)).into()
+            INetFwRule3_Impl::SetLocalUserAuthorizedList(this, core::mem::transmute(&wszuserauthlist)).into()
         }
         unsafe extern "system" fn RemoteUserAuthorizedList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszuserauthlist: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RemoteUserAuthorizedList() {
+            match INetFwRule3_Impl::RemoteUserAuthorizedList(this) {
                 Ok(ok__) => {
                     core::ptr::write(wszuserauthlist, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2690,12 +2690,12 @@ impl INetFwRule3_Vtbl {
         unsafe extern "system" fn SetRemoteUserAuthorizedList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszuserauthlist: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRemoteUserAuthorizedList(core::mem::transmute(&wszuserauthlist)).into()
+            INetFwRule3_Impl::SetRemoteUserAuthorizedList(this, core::mem::transmute(&wszuserauthlist)).into()
         }
         unsafe extern "system" fn RemoteMachineAuthorizedList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszuserauthlist: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RemoteMachineAuthorizedList() {
+            match INetFwRule3_Impl::RemoteMachineAuthorizedList(this) {
                 Ok(ok__) => {
                     core::ptr::write(wszuserauthlist, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2706,12 +2706,12 @@ impl INetFwRule3_Vtbl {
         unsafe extern "system" fn SetRemoteMachineAuthorizedList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszuserauthlist: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRemoteMachineAuthorizedList(core::mem::transmute(&wszuserauthlist)).into()
+            INetFwRule3_Impl::SetRemoteMachineAuthorizedList(this, core::mem::transmute(&wszuserauthlist)).into()
         }
         unsafe extern "system" fn SecureFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, loptions: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SecureFlags() {
+            match INetFwRule3_Impl::SecureFlags(this) {
                 Ok(ok__) => {
                     core::ptr::write(loptions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2722,7 +2722,7 @@ impl INetFwRule3_Vtbl {
         unsafe extern "system" fn SetSecureFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRule3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, loptions: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSecureFlags(core::mem::transmute_copy(&loptions)).into()
+            INetFwRule3_Impl::SetSecureFlags(this, core::mem::transmute_copy(&loptions)).into()
         }
         Self {
             base__: INetFwRule2_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2760,7 +2760,7 @@ impl INetFwRules_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRules_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match INetFwRules_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2771,17 +2771,17 @@ impl INetFwRules_Vtbl {
         unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRules_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rule: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Add(windows_core::from_raw_borrowed(&rule)).into()
+            INetFwRules_Impl::Add(this, windows_core::from_raw_borrowed(&rule)).into()
         }
         unsafe extern "system" fn Remove<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRules_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Remove(core::mem::transmute(&name)).into()
+            INetFwRules_Impl::Remove(this, core::mem::transmute(&name)).into()
         }
         unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRules_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>, rule: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Item(core::mem::transmute(&name)) {
+            match INetFwRules_Impl::Item(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
                     core::ptr::write(rule, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2792,7 +2792,7 @@ impl INetFwRules_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwRules_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match INetFwRules_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(newenum, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2836,7 +2836,7 @@ impl INetFwService_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match INetFwService_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(name, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2847,7 +2847,7 @@ impl INetFwService_Vtbl {
         unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut NET_FW_SERVICE_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Type() {
+            match INetFwService_Impl::Type(this) {
                 Ok(ok__) => {
                     core::ptr::write(r#type, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2858,7 +2858,7 @@ impl INetFwService_Vtbl {
         unsafe extern "system" fn Customized<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, customized: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Customized() {
+            match INetFwService_Impl::Customized(this) {
                 Ok(ok__) => {
                     core::ptr::write(customized, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2869,7 +2869,7 @@ impl INetFwService_Vtbl {
         unsafe extern "system" fn IpVersion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ipversion: *mut NET_FW_IP_VERSION) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IpVersion() {
+            match INetFwService_Impl::IpVersion(this) {
                 Ok(ok__) => {
                     core::ptr::write(ipversion, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2880,12 +2880,12 @@ impl INetFwService_Vtbl {
         unsafe extern "system" fn SetIpVersion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ipversion: NET_FW_IP_VERSION) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetIpVersion(core::mem::transmute_copy(&ipversion)).into()
+            INetFwService_Impl::SetIpVersion(this, core::mem::transmute_copy(&ipversion)).into()
         }
         unsafe extern "system" fn Scope<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: *mut NET_FW_SCOPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Scope() {
+            match INetFwService_Impl::Scope(this) {
                 Ok(ok__) => {
                     core::ptr::write(scope, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2896,12 +2896,12 @@ impl INetFwService_Vtbl {
         unsafe extern "system" fn SetScope<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: NET_FW_SCOPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetScope(core::mem::transmute_copy(&scope)).into()
+            INetFwService_Impl::SetScope(this, core::mem::transmute_copy(&scope)).into()
         }
         unsafe extern "system" fn RemoteAddresses<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remoteaddrs: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RemoteAddresses() {
+            match INetFwService_Impl::RemoteAddresses(this) {
                 Ok(ok__) => {
                     core::ptr::write(remoteaddrs, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2912,12 +2912,12 @@ impl INetFwService_Vtbl {
         unsafe extern "system" fn SetRemoteAddresses<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remoteaddrs: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRemoteAddresses(core::mem::transmute(&remoteaddrs)).into()
+            INetFwService_Impl::SetRemoteAddresses(this, core::mem::transmute(&remoteaddrs)).into()
         }
         unsafe extern "system" fn Enabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Enabled() {
+            match INetFwService_Impl::Enabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(enabled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2928,12 +2928,12 @@ impl INetFwService_Vtbl {
         unsafe extern "system" fn SetEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEnabled(core::mem::transmute_copy(&enabled)).into()
+            INetFwService_Impl::SetEnabled(this, core::mem::transmute_copy(&enabled)).into()
         }
         unsafe extern "system" fn GloballyOpenPorts<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, openports: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GloballyOpenPorts() {
+            match INetFwService_Impl::GloballyOpenPorts(this) {
                 Ok(ok__) => {
                     core::ptr::write(openports, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2975,12 +2975,12 @@ impl INetFwServiceRestriction_Vtbl {
         unsafe extern "system" fn RestrictService<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwServiceRestriction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, servicename: std::mem::MaybeUninit<windows_core::BSTR>, appname: std::mem::MaybeUninit<windows_core::BSTR>, restrictservice: super::super::Foundation::VARIANT_BOOL, servicesidrestricted: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RestrictService(core::mem::transmute(&servicename), core::mem::transmute(&appname), core::mem::transmute_copy(&restrictservice), core::mem::transmute_copy(&servicesidrestricted)).into()
+            INetFwServiceRestriction_Impl::RestrictService(this, core::mem::transmute(&servicename), core::mem::transmute(&appname), core::mem::transmute_copy(&restrictservice), core::mem::transmute_copy(&servicesidrestricted)).into()
         }
         unsafe extern "system" fn ServiceRestricted<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwServiceRestriction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, servicename: std::mem::MaybeUninit<windows_core::BSTR>, appname: std::mem::MaybeUninit<windows_core::BSTR>, servicerestricted: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ServiceRestricted(core::mem::transmute(&servicename), core::mem::transmute(&appname)) {
+            match INetFwServiceRestriction_Impl::ServiceRestricted(this, core::mem::transmute(&servicename), core::mem::transmute(&appname)) {
                 Ok(ok__) => {
                     core::ptr::write(servicerestricted, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2991,7 +2991,7 @@ impl INetFwServiceRestriction_Vtbl {
         unsafe extern "system" fn Rules<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwServiceRestriction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rules: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Rules() {
+            match INetFwServiceRestriction_Impl::Rules(this) {
                 Ok(ok__) => {
                     core::ptr::write(rules, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3024,7 +3024,7 @@ impl INetFwServices_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match INetFwServices_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3035,7 +3035,7 @@ impl INetFwServices_Vtbl {
         unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, svctype: NET_FW_SERVICE_TYPE, service: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Item(core::mem::transmute_copy(&svctype)) {
+            match INetFwServices_Impl::Item(this, core::mem::transmute_copy(&svctype)) {
                 Ok(ok__) => {
                     core::ptr::write(service, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3046,7 +3046,7 @@ impl INetFwServices_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetFwServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match INetFwServices_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(newenum, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3086,7 +3086,7 @@ impl INetSharingConfiguration_Vtbl {
         unsafe extern "system" fn SharingEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SharingEnabled() {
+            match INetSharingConfiguration_Impl::SharingEnabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbenabled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3097,7 +3097,7 @@ impl INetSharingConfiguration_Vtbl {
         unsafe extern "system" fn SharingConnectionType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptype: *mut SHARINGCONNECTIONTYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SharingConnectionType() {
+            match INetSharingConfiguration_Impl::SharingConnectionType(this) {
                 Ok(ok__) => {
                     core::ptr::write(ptype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3108,17 +3108,17 @@ impl INetSharingConfiguration_Vtbl {
         unsafe extern "system" fn DisableSharing<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DisableSharing().into()
+            INetSharingConfiguration_Impl::DisableSharing(this).into()
         }
         unsafe extern "system" fn EnableSharing<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: SHARINGCONNECTIONTYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EnableSharing(core::mem::transmute_copy(&r#type)).into()
+            INetSharingConfiguration_Impl::EnableSharing(this, core::mem::transmute_copy(&r#type)).into()
         }
         unsafe extern "system" fn InternetFirewallEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.InternetFirewallEnabled() {
+            match INetSharingConfiguration_Impl::InternetFirewallEnabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbenabled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3129,17 +3129,17 @@ impl INetSharingConfiguration_Vtbl {
         unsafe extern "system" fn DisableInternetFirewall<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DisableInternetFirewall().into()
+            INetSharingConfiguration_Impl::DisableInternetFirewall(this).into()
         }
         unsafe extern "system" fn EnableInternetFirewall<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EnableInternetFirewall().into()
+            INetSharingConfiguration_Impl::EnableInternetFirewall(this).into()
         }
         unsafe extern "system" fn get_EnumPortMappings<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: SHARINGCONNECTION_ENUM_FLAGS, ppcoll: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_EnumPortMappings(core::mem::transmute_copy(&flags)) {
+            match INetSharingConfiguration_Impl::get_EnumPortMappings(this, core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
                     core::ptr::write(ppcoll, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3150,7 +3150,7 @@ impl INetSharingConfiguration_Vtbl {
         unsafe extern "system" fn AddPortMapping<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: std::mem::MaybeUninit<windows_core::BSTR>, ucipprotocol: u8, usexternalport: u16, usinternalport: u16, dwoptions: u32, bstrtargetnameoripaddress: std::mem::MaybeUninit<windows_core::BSTR>, etargettype: ICS_TARGETTYPE, ppmapping: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AddPortMapping(core::mem::transmute(&bstrname), core::mem::transmute_copy(&ucipprotocol), core::mem::transmute_copy(&usexternalport), core::mem::transmute_copy(&usinternalport), core::mem::transmute_copy(&dwoptions), core::mem::transmute(&bstrtargetnameoripaddress), core::mem::transmute_copy(&etargettype)) {
+            match INetSharingConfiguration_Impl::AddPortMapping(this, core::mem::transmute(&bstrname), core::mem::transmute_copy(&ucipprotocol), core::mem::transmute_copy(&usexternalport), core::mem::transmute_copy(&usinternalport), core::mem::transmute_copy(&dwoptions), core::mem::transmute(&bstrtargetnameoripaddress), core::mem::transmute_copy(&etargettype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmapping, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3161,7 +3161,7 @@ impl INetSharingConfiguration_Vtbl {
         unsafe extern "system" fn RemovePortMapping<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmapping: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemovePortMapping(windows_core::from_raw_borrowed(&pmapping)).into()
+            INetSharingConfiguration_Impl::RemovePortMapping(this, windows_core::from_raw_borrowed(&pmapping)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3194,7 +3194,7 @@ impl INetSharingEveryConnectionCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingEveryConnectionCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match INetSharingEveryConnectionCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3205,7 +3205,7 @@ impl INetSharingEveryConnectionCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingEveryConnectionCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match INetSharingEveryConnectionCollection_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3240,7 +3240,7 @@ impl INetSharingManager_Vtbl {
         unsafe extern "system" fn SharingInstalled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbinstalled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SharingInstalled() {
+            match INetSharingManager_Impl::SharingInstalled(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbinstalled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3251,7 +3251,7 @@ impl INetSharingManager_Vtbl {
         unsafe extern "system" fn get_EnumPublicConnections<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: SHARINGCONNECTION_ENUM_FLAGS, ppcoll: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_EnumPublicConnections(core::mem::transmute_copy(&flags)) {
+            match INetSharingManager_Impl::get_EnumPublicConnections(this, core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
                     core::ptr::write(ppcoll, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3262,7 +3262,7 @@ impl INetSharingManager_Vtbl {
         unsafe extern "system" fn get_EnumPrivateConnections<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: SHARINGCONNECTION_ENUM_FLAGS, ppcoll: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_EnumPrivateConnections(core::mem::transmute_copy(&flags)) {
+            match INetSharingManager_Impl::get_EnumPrivateConnections(this, core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
                     core::ptr::write(ppcoll, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3273,7 +3273,7 @@ impl INetSharingManager_Vtbl {
         unsafe extern "system" fn get_INetSharingConfigurationForINetConnection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnetconnection: *mut core::ffi::c_void, ppnetsharingconfiguration: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_INetSharingConfigurationForINetConnection(windows_core::from_raw_borrowed(&pnetconnection)) {
+            match INetSharingManager_Impl::get_INetSharingConfigurationForINetConnection(this, windows_core::from_raw_borrowed(&pnetconnection)) {
                 Ok(ok__) => {
                     core::ptr::write(ppnetsharingconfiguration, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3284,7 +3284,7 @@ impl INetSharingManager_Vtbl {
         unsafe extern "system" fn EnumEveryConnection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcoll: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumEveryConnection() {
+            match INetSharingManager_Impl::EnumEveryConnection(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcoll, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3295,7 +3295,7 @@ impl INetSharingManager_Vtbl {
         unsafe extern "system" fn get_NetConnectionProps<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnetconnection: *mut core::ffi::c_void, ppprops: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_NetConnectionProps(windows_core::from_raw_borrowed(&pnetconnection)) {
+            match INetSharingManager_Impl::get_NetConnectionProps(this, windows_core::from_raw_borrowed(&pnetconnection)) {
                 Ok(ok__) => {
                     core::ptr::write(ppprops, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3332,17 +3332,17 @@ impl INetSharingPortMapping_Vtbl {
         unsafe extern "system" fn Disable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Disable().into()
+            INetSharingPortMapping_Impl::Disable(this).into()
         }
         unsafe extern "system" fn Enable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Enable().into()
+            INetSharingPortMapping_Impl::Enable(this).into()
         }
         unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppnspmp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Properties() {
+            match INetSharingPortMapping_Impl::Properties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppnspmp, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3353,7 +3353,7 @@ impl INetSharingPortMapping_Vtbl {
         unsafe extern "system" fn Delete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Delete().into()
+            INetSharingPortMapping_Impl::Delete(this).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3380,7 +3380,7 @@ impl INetSharingPortMappingCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingPortMappingCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match INetSharingPortMappingCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3391,7 +3391,7 @@ impl INetSharingPortMappingCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingPortMappingCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match INetSharingPortMappingCollection_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3428,7 +3428,7 @@ impl INetSharingPortMappingProps_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingPortMappingProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match INetSharingPortMappingProps_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3439,7 +3439,7 @@ impl INetSharingPortMappingProps_Vtbl {
         unsafe extern "system" fn IPProtocol<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingPortMappingProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pucipprot: *mut u8) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IPProtocol() {
+            match INetSharingPortMappingProps_Impl::IPProtocol(this) {
                 Ok(ok__) => {
                     core::ptr::write(pucipprot, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3450,7 +3450,7 @@ impl INetSharingPortMappingProps_Vtbl {
         unsafe extern "system" fn ExternalPort<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingPortMappingProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pusport: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ExternalPort() {
+            match INetSharingPortMappingProps_Impl::ExternalPort(this) {
                 Ok(ok__) => {
                     core::ptr::write(pusport, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3461,7 +3461,7 @@ impl INetSharingPortMappingProps_Vtbl {
         unsafe extern "system" fn InternalPort<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingPortMappingProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pusport: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.InternalPort() {
+            match INetSharingPortMappingProps_Impl::InternalPort(this) {
                 Ok(ok__) => {
                     core::ptr::write(pusport, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3472,7 +3472,7 @@ impl INetSharingPortMappingProps_Vtbl {
         unsafe extern "system" fn Options<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingPortMappingProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwoptions: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Options() {
+            match INetSharingPortMappingProps_Impl::Options(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdwoptions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3483,7 +3483,7 @@ impl INetSharingPortMappingProps_Vtbl {
         unsafe extern "system" fn TargetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingPortMappingProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtargetname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TargetName() {
+            match INetSharingPortMappingProps_Impl::TargetName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrtargetname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3494,7 +3494,7 @@ impl INetSharingPortMappingProps_Vtbl {
         unsafe extern "system" fn TargetIPAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingPortMappingProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtargetipaddress: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TargetIPAddress() {
+            match INetSharingPortMappingProps_Impl::TargetIPAddress(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrtargetipaddress, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3505,7 +3505,7 @@ impl INetSharingPortMappingProps_Vtbl {
         unsafe extern "system" fn Enabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingPortMappingProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Enabled() {
+            match INetSharingPortMappingProps_Impl::Enabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbool, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3542,7 +3542,7 @@ impl INetSharingPrivateConnectionCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingPrivateConnectionCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match INetSharingPrivateConnectionCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3553,7 +3553,7 @@ impl INetSharingPrivateConnectionCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingPrivateConnectionCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match INetSharingPrivateConnectionCollection_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3584,7 +3584,7 @@ impl INetSharingPublicConnectionCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingPublicConnectionCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match INetSharingPublicConnectionCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3595,7 +3595,7 @@ impl INetSharingPublicConnectionCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INetSharingPublicConnectionCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match INetSharingPublicConnectionCollection_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3635,7 +3635,7 @@ impl IStaticPortMapping_Vtbl {
         unsafe extern "system" fn ExternalIPAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStaticPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ExternalIPAddress() {
+            match IStaticPortMapping_Impl::ExternalIPAddress(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3646,7 +3646,7 @@ impl IStaticPortMapping_Vtbl {
         unsafe extern "system" fn ExternalPort<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStaticPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ExternalPort() {
+            match IStaticPortMapping_Impl::ExternalPort(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3657,7 +3657,7 @@ impl IStaticPortMapping_Vtbl {
         unsafe extern "system" fn InternalPort<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStaticPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.InternalPort() {
+            match IStaticPortMapping_Impl::InternalPort(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3668,7 +3668,7 @@ impl IStaticPortMapping_Vtbl {
         unsafe extern "system" fn Protocol<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStaticPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Protocol() {
+            match IStaticPortMapping_Impl::Protocol(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3679,7 +3679,7 @@ impl IStaticPortMapping_Vtbl {
         unsafe extern "system" fn InternalClient<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStaticPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.InternalClient() {
+            match IStaticPortMapping_Impl::InternalClient(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3690,7 +3690,7 @@ impl IStaticPortMapping_Vtbl {
         unsafe extern "system" fn Enabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStaticPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Enabled() {
+            match IStaticPortMapping_Impl::Enabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3701,7 +3701,7 @@ impl IStaticPortMapping_Vtbl {
         unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStaticPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Description() {
+            match IStaticPortMapping_Impl::Description(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3712,22 +3712,22 @@ impl IStaticPortMapping_Vtbl {
         unsafe extern "system" fn EditInternalClient<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStaticPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrinternalclient: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EditInternalClient(core::mem::transmute(&bstrinternalclient)).into()
+            IStaticPortMapping_Impl::EditInternalClient(this, core::mem::transmute(&bstrinternalclient)).into()
         }
         unsafe extern "system" fn Enable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStaticPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vb: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Enable(core::mem::transmute_copy(&vb)).into()
+            IStaticPortMapping_Impl::Enable(this, core::mem::transmute_copy(&vb)).into()
         }
         unsafe extern "system" fn EditDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStaticPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdescription: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EditDescription(core::mem::transmute(&bstrdescription)).into()
+            IStaticPortMapping_Impl::EditDescription(this, core::mem::transmute(&bstrdescription)).into()
         }
         unsafe extern "system" fn EditInternalPort<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStaticPortMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, linternalport: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EditInternalPort(core::mem::transmute_copy(&linternalport)).into()
+            IStaticPortMapping_Impl::EditInternalPort(this, core::mem::transmute_copy(&linternalport)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3764,7 +3764,7 @@ impl IStaticPortMappingCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStaticPortMappingCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IStaticPortMappingCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3775,7 +3775,7 @@ impl IStaticPortMappingCollection_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStaticPortMappingCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lexternalport: i32, bstrprotocol: std::mem::MaybeUninit<windows_core::BSTR>, ppspm: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute_copy(&lexternalport), core::mem::transmute(&bstrprotocol)) {
+            match IStaticPortMappingCollection_Impl::get_Item(this, core::mem::transmute_copy(&lexternalport), core::mem::transmute(&bstrprotocol)) {
                 Ok(ok__) => {
                     core::ptr::write(ppspm, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3786,7 +3786,7 @@ impl IStaticPortMappingCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStaticPortMappingCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IStaticPortMappingCollection_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3797,12 +3797,12 @@ impl IStaticPortMappingCollection_Vtbl {
         unsafe extern "system" fn Remove<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStaticPortMappingCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lexternalport: i32, bstrprotocol: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Remove(core::mem::transmute_copy(&lexternalport), core::mem::transmute(&bstrprotocol)).into()
+            IStaticPortMappingCollection_Impl::Remove(this, core::mem::transmute_copy(&lexternalport), core::mem::transmute(&bstrprotocol)).into()
         }
         unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStaticPortMappingCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lexternalport: i32, bstrprotocol: std::mem::MaybeUninit<windows_core::BSTR>, linternalport: i32, bstrinternalclient: std::mem::MaybeUninit<windows_core::BSTR>, benabled: super::super::Foundation::VARIANT_BOOL, bstrdescription: std::mem::MaybeUninit<windows_core::BSTR>, ppspm: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Add(core::mem::transmute_copy(&lexternalport), core::mem::transmute(&bstrprotocol), core::mem::transmute_copy(&linternalport), core::mem::transmute(&bstrinternalclient), core::mem::transmute_copy(&benabled), core::mem::transmute(&bstrdescription)) {
+            match IStaticPortMappingCollection_Impl::Add(this, core::mem::transmute_copy(&lexternalport), core::mem::transmute(&bstrprotocol), core::mem::transmute_copy(&linternalport), core::mem::transmute(&bstrinternalclient), core::mem::transmute_copy(&benabled), core::mem::transmute(&bstrdescription)) {
                 Ok(ok__) => {
                     core::ptr::write(ppspm, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3837,7 +3837,7 @@ impl IUPnPNAT_Vtbl {
         unsafe extern "system" fn StaticPortMappingCollection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUPnPNAT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppspms: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.StaticPortMappingCollection() {
+            match IUPnPNAT_Impl::StaticPortMappingCollection(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppspms, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3848,7 +3848,7 @@ impl IUPnPNAT_Vtbl {
         unsafe extern "system" fn DynamicPortMappingCollection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUPnPNAT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdpms: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DynamicPortMappingCollection() {
+            match IUPnPNAT_Impl::DynamicPortMappingCollection(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppdpms, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3859,7 +3859,7 @@ impl IUPnPNAT_Vtbl {
         unsafe extern "system" fn NATEventManager<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUPnPNAT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppnem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.NATEventManager() {
+            match IUPnPNAT_Impl::NATEventManager(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppnem, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

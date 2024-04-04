@@ -18,16 +18,6 @@ impl MethodNames {
             to_ident(&name)
         }
     }
-
-    pub fn add_vtable_types(&mut self, def: metadata::TypeDef) {
-        for def in metadata::type_def_vtables(def) {
-            if let metadata::Type::TypeDef(def, _) = def {
-                for method in def.methods() {
-                    self.add(method);
-                }
-            }
-        }
-    }
 }
 
 fn method_def_special_name(row: metadata::MethodDef) -> String {

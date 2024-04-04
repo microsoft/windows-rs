@@ -18,7 +18,7 @@ impl IHttpContent_Vtbl {
         unsafe extern "system" fn Headers<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IHttpContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Headers() {
+            match IHttpContent_Impl::Headers(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -30,7 +30,7 @@ impl IHttpContent_Vtbl {
         unsafe extern "system" fn BufferAllAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IHttpContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BufferAllAsync() {
+            match IHttpContent_Impl::BufferAllAsync(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -42,7 +42,7 @@ impl IHttpContent_Vtbl {
         unsafe extern "system" fn ReadAsBufferAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IHttpContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReadAsBufferAsync() {
+            match IHttpContent_Impl::ReadAsBufferAsync(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -54,7 +54,7 @@ impl IHttpContent_Vtbl {
         unsafe extern "system" fn ReadAsInputStreamAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IHttpContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReadAsInputStreamAsync() {
+            match IHttpContent_Impl::ReadAsInputStreamAsync(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -66,7 +66,7 @@ impl IHttpContent_Vtbl {
         unsafe extern "system" fn ReadAsStringAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IHttpContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReadAsStringAsync() {
+            match IHttpContent_Impl::ReadAsStringAsync(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -78,7 +78,7 @@ impl IHttpContent_Vtbl {
         unsafe extern "system" fn TryComputeLength<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IHttpContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: *mut u64, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TryComputeLength(core::mem::transmute_copy(&length)) {
+            match IHttpContent_Impl::TryComputeLength(this, core::mem::transmute_copy(&length)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -89,7 +89,7 @@ impl IHttpContent_Vtbl {
         unsafe extern "system" fn WriteToStreamAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IHttpContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.WriteToStreamAsync(windows_core::from_raw_borrowed(&outputstream)) {
+            match IHttpContent_Impl::WriteToStreamAsync(this, windows_core::from_raw_borrowed(&outputstream)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);

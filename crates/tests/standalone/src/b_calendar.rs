@@ -1647,6 +1647,12 @@ pub struct ICalendarFactory2_Vtbl {
 pub struct IIterable<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
+impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IIterable<T> {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown>
     for IIterable<T>
 {
@@ -1714,6 +1720,12 @@ where
 pub struct IIterator<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
+impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IIterator<T> {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown>
     for IIterator<T>
 {
@@ -1855,6 +1867,12 @@ pub struct ITimeZoneOnCalendar_Vtbl {
 pub struct IVectorView<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
+impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IVectorView<T> {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown>
     for IVectorView<T>
 {

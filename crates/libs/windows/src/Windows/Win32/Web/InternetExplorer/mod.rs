@@ -465,6 +465,12 @@ where
     SniffStream(pinstream.param().abi(), pnformat, core::mem::transmute(ppoutstream)).ok()
 }
 windows_core::imp::define_interface!(IActiveXUIHandlerSite, IActiveXUIHandlerSite_Vtbl, 0x30510853_98b5_11cf_bb82_00aa00bdce0b);
+impl std::ops::Deref for IActiveXUIHandlerSite {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IActiveXUIHandlerSite, windows_core::IUnknown);
 impl IActiveXUIHandlerSite {
     pub unsafe fn CreateScrollableContextMenu(&self) -> windows_core::Result<IScrollableContextMenu> {
@@ -487,6 +493,12 @@ pub struct IActiveXUIHandlerSite_Vtbl {
     pub PickFileAndGetResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IActiveXUIHandlerSite2, IActiveXUIHandlerSite2_Vtbl, 0x7e3707b2_d087_4542_ac1f_a0d2fcd080fd);
+impl std::ops::Deref for IActiveXUIHandlerSite2 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IActiveXUIHandlerSite2, windows_core::IUnknown);
 impl IActiveXUIHandlerSite2 {
     pub unsafe fn AddSuspensionExemption(&self) -> windows_core::Result<u64> {
@@ -504,6 +516,12 @@ pub struct IActiveXUIHandlerSite2_Vtbl {
     pub RemoveSuspensionExemption: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IActiveXUIHandlerSite3, IActiveXUIHandlerSite3_Vtbl, 0x7904009a_1238_47f4_901c_871375c34608);
+impl std::ops::Deref for IActiveXUIHandlerSite3 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IActiveXUIHandlerSite3, windows_core::IUnknown);
 impl IActiveXUIHandlerSite3 {
     pub unsafe fn MessageBoxW<P0, P1, P2>(&self, hwnd: P0, text: P1, caption: P2, r#type: u32) -> windows_core::Result<i32>
@@ -524,6 +542,13 @@ pub struct IActiveXUIHandlerSite3_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAnchorClick, IAnchorClick_Vtbl, 0x13d5413b_33b9_11d2_95a7_00c04f8ecb02);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IAnchorClick {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IAnchorClick, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IAnchorClick {
@@ -538,6 +563,12 @@ pub struct IAnchorClick_Vtbl {
     pub ProcOnClick: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioSessionSite, IAudioSessionSite_Vtbl, 0xd7d8b684_d02d_4517_b6b7_19e3dfe29c45);
+impl std::ops::Deref for IAudioSessionSite {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAudioSessionSite, windows_core::IUnknown);
 impl IAudioSessionSite {
     pub unsafe fn GetAudioSessionGuid(&self) -> windows_core::Result<windows_core::GUID> {
@@ -565,6 +596,12 @@ pub struct IAudioSessionSite_Vtbl {
     pub OnAudioStreamDestroyed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICaretPositionProvider, ICaretPositionProvider_Vtbl, 0x58da43a2_108e_4d5b_9f75_e5f74f93fff5);
+impl std::ops::Deref for ICaretPositionProvider {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICaretPositionProvider, windows_core::IUnknown);
 impl ICaretPositionProvider {
     pub unsafe fn GetCaretPosition(&self, pptcaret: *mut super::super::Foundation::POINT, pflheight: *mut f32) -> windows_core::Result<()> {
@@ -579,6 +616,13 @@ pub struct ICaretPositionProvider_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDeviceRect, IDeviceRect_Vtbl, 0x3050f6d5_98b5_11cf_bb82_00aa00bdce0b);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IDeviceRect {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDeviceRect, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IDeviceRect {}
@@ -588,6 +632,12 @@ pub struct IDeviceRect_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
 windows_core::imp::define_interface!(IDithererImpl, IDithererImpl_Vtbl, 0x7c48e840_3910_11d0_86fc_00a0c913f750);
+impl std::ops::Deref for IDithererImpl {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDithererImpl, windows_core::IUnknown);
 impl IDithererImpl {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -611,6 +661,12 @@ pub struct IDithererImpl_Vtbl {
     pub SetEventSink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDocObjectService, IDocObjectService_Vtbl, 0x3050f801_98b5_11cf_bb82_00aa00bdce0b);
+impl std::ops::Deref for IDocObjectService {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDocObjectService, windows_core::IUnknown);
 impl IDocObjectService {
     #[cfg(feature = "Win32_System_Com")]
@@ -707,6 +763,13 @@ pub struct IDocObjectService_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDownloadBehavior, IDownloadBehavior_Vtbl, 0x3050f5bd_98b5_11cf_bb82_00aa00bdce0b);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IDownloadBehavior {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDownloadBehavior, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IDownloadBehavior {
@@ -729,6 +792,12 @@ pub struct IDownloadBehavior_Vtbl {
     startDownload: usize,
 }
 windows_core::imp::define_interface!(IDownloadManager, IDownloadManager_Vtbl, 0x988934a4_064b_11d3_bb80_00104b35e7f9);
+impl std::ops::Deref for IDownloadManager {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDownloadManager, windows_core::IUnknown);
 impl IDownloadManager {
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
@@ -751,6 +820,12 @@ pub struct IDownloadManager_Vtbl {
     Download: usize,
 }
 windows_core::imp::define_interface!(IEnumManagerFrames, IEnumManagerFrames_Vtbl, 0x3caa826a_9b1f_4a79_bc81_f0430ded1648);
+impl std::ops::Deref for IEnumManagerFrames {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumManagerFrames, windows_core::IUnknown);
 impl IEnumManagerFrames {
     pub unsafe fn Next(&self, ppwindows: &mut [*mut super::super::Foundation::HWND], pceltfetched: *mut u32) -> windows_core::Result<()> {
@@ -781,6 +856,12 @@ pub struct IEnumManagerFrames_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumOpenServiceActivity, IEnumOpenServiceActivity_Vtbl, 0xa436d7d2_17c3_4ef4_a1e8_5c86faff26c0);
+impl std::ops::Deref for IEnumOpenServiceActivity {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumOpenServiceActivity, windows_core::IUnknown);
 impl IEnumOpenServiceActivity {
     pub unsafe fn Next(&self, rgelt: &mut [Option<IOpenServiceActivity>], pceltfetched: *mut u32) -> windows_core::Result<()> {
@@ -806,6 +887,12 @@ pub struct IEnumOpenServiceActivity_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumOpenServiceActivityCategory, IEnumOpenServiceActivityCategory_Vtbl, 0x33627a56_8c9a_4430_8fd1_b5f5c771afb6);
+impl std::ops::Deref for IEnumOpenServiceActivityCategory {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumOpenServiceActivityCategory, windows_core::IUnknown);
 impl IEnumOpenServiceActivityCategory {
     pub unsafe fn Next(&self, rgelt: &mut [Option<IOpenServiceActivityCategory>], pceltfetched: *mut u32) -> windows_core::Result<()> {
@@ -831,6 +918,12 @@ pub struct IEnumOpenServiceActivityCategory_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumSTATURL, IEnumSTATURL_Vtbl, 0x3c374a42_bae4_11cf_bf7d_00aa006946ee);
+impl std::ops::Deref for IEnumSTATURL {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumSTATURL, windows_core::IUnknown);
 impl IEnumSTATURL {
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut STATURL, pceltfetched: *mut u32) -> windows_core::Result<()> {
@@ -863,6 +956,12 @@ pub struct IEnumSTATURL_Vtbl {
     pub SetFilter: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IExtensionValidation, IExtensionValidation_Vtbl, 0x7d33f73d_8525_4e0f_87db_830288baff44);
+impl std::ops::Deref for IExtensionValidation {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IExtensionValidation, windows_core::IUnknown);
 impl IExtensionValidation {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
@@ -891,6 +990,12 @@ pub struct IExtensionValidation_Vtbl {
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHTMLPersistData, IHTMLPersistData_Vtbl, 0x3050f4c5_98b5_11cf_bb82_00aa00bdce0b);
+impl std::ops::Deref for IHTMLPersistData {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IHTMLPersistData, windows_core::IUnknown);
 impl IHTMLPersistData {
     pub unsafe fn save<P0>(&self, punk: P0, ltype: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
@@ -921,6 +1026,13 @@ pub struct IHTMLPersistData_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IHTMLPersistDataOM, IHTMLPersistDataOM_Vtbl, 0x3050f4c0_98b5_11cf_bb82_00aa00bdce0b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IHTMLPersistDataOM {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IHTMLPersistDataOM, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -965,6 +1077,13 @@ pub struct IHTMLPersistDataOM_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IHTMLUserDataOM, IHTMLUserDataOM_Vtbl, 0x3050f48f_98b5_11cf_bb82_00aa00bdce0b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IHTMLUserDataOM {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IHTMLUserDataOM, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1035,6 +1154,13 @@ pub struct IHTMLUserDataOM_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IHeaderFooter, IHeaderFooter_Vtbl, 0x3050f6ce_98b5_11cf_bb82_00aa00bdce0b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IHeaderFooter {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IHeaderFooter, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1172,111 +1298,16 @@ pub struct IHeaderFooter_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IHeaderFooter2, IHeaderFooter2_Vtbl, 0x305104a5_98b5_11cf_bb82_00aa00bdce0b);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IHeaderFooter2 {
+    type Target = IHeaderFooter;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IHeaderFooter2, windows_core::IUnknown, super::super::System::Com::IDispatch, IHeaderFooter);
 #[cfg(feature = "Win32_System_Com")]
 impl IHeaderFooter2 {
-    pub unsafe fn htmlHead(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.htmlHead)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn htmlFoot(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.htmlFoot)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SettextHead<P0>(&self, v: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SettextHead)(windows_core::Interface::as_raw(self), v.param().abi()).ok()
-    }
-    pub unsafe fn textHead(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.textHead)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SettextFoot<P0>(&self, v: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SettextFoot)(windows_core::Interface::as_raw(self), v.param().abi()).ok()
-    }
-    pub unsafe fn textFoot(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.textFoot)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Setpage(&self, v: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Setpage)(windows_core::Interface::as_raw(self), v).ok()
-    }
-    pub unsafe fn page(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.page)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetpageTotal(&self, v: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetpageTotal)(windows_core::Interface::as_raw(self), v).ok()
-    }
-    pub unsafe fn pageTotal(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.pageTotal)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetURL<P0>(&self, v: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetURL)(windows_core::Interface::as_raw(self), v.param().abi()).ok()
-    }
-    pub unsafe fn URL(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.URL)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Settitle<P0>(&self, v: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.Settitle)(windows_core::Interface::as_raw(self), v.param().abi()).ok()
-    }
-    pub unsafe fn title(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.title)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetdateShort<P0>(&self, v: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetdateShort)(windows_core::Interface::as_raw(self), v.param().abi()).ok()
-    }
-    pub unsafe fn dateShort(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.dateShort)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetdateLong<P0>(&self, v: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetdateLong)(windows_core::Interface::as_raw(self), v.param().abi()).ok()
-    }
-    pub unsafe fn dateLong(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.dateLong)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SettimeShort<P0>(&self, v: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SettimeShort)(windows_core::Interface::as_raw(self), v.param().abi()).ok()
-    }
-    pub unsafe fn timeShort(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.timeShort)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SettimeLong<P0>(&self, v: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SettimeLong)(windows_core::Interface::as_raw(self), v.param().abi()).ok()
-    }
-    pub unsafe fn timeLong(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.timeLong)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn Setfont<P0>(&self, v: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -1297,6 +1328,13 @@ pub struct IHeaderFooter2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IHomePage, IHomePage_Vtbl, 0x766bf2af_d650_11d1_9811_00c04fc31d2e);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IHomePage {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IHomePage, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1327,6 +1365,12 @@ pub struct IHomePage_Vtbl {
     pub isHomePage: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHomePageSetting, IHomePageSetting_Vtbl, 0xfdfc244f_18fa_4ff2_b08e_1d618f3ffbe4);
+impl std::ops::Deref for IHomePageSetting {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IHomePageSetting, windows_core::IUnknown);
 impl IHomePageSetting {
     pub unsafe fn SetHomePage<P0, P1, P2>(&self, hwnd: P0, homepageuri: P1, brandingmessage: P2) -> windows_core::Result<()>
@@ -1358,6 +1402,13 @@ pub struct IHomePageSetting_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IIEWebDriverManager, IIEWebDriverManager_Vtbl, 0xbd1dc630_6590_4ca2_a293_6bc72b2438d8);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IIEWebDriverManager {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IIEWebDriverManager, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IIEWebDriverManager {
@@ -1377,6 +1428,13 @@ pub struct IIEWebDriverManager_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IIEWebDriverSite, IIEWebDriverSite_Vtbl, 0xffb84444_453d_4fbc_9f9d_8db5c471ec75);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IIEWebDriverSite {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IIEWebDriverSite, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1408,6 +1466,12 @@ pub struct IIEWebDriverSite_Vtbl {
     pub GetCapabilityValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IImageDecodeEventSink, IImageDecodeEventSink_Vtbl, 0xbaa342a0_2ded_11d0_86f4_00a0c913f750);
+impl std::ops::Deref for IImageDecodeEventSink {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IImageDecodeEventSink, windows_core::IUnknown);
 impl IImageDecodeEventSink {
     pub unsafe fn GetSurface(&self, nwidth: i32, nheight: i32, bfid: *const windows_core::GUID, npasses: u32, dwhints: u32) -> windows_core::Result<windows_core::IUnknown> {
@@ -1444,30 +1508,14 @@ pub struct IImageDecodeEventSink_Vtbl {
     pub OnProgress: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IImageDecodeEventSink2, IImageDecodeEventSink2_Vtbl, 0x8ebd8a57_8a96_48c9_84a6_962e2db9c931);
+impl std::ops::Deref for IImageDecodeEventSink2 {
+    type Target = IImageDecodeEventSink;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IImageDecodeEventSink2, windows_core::IUnknown, IImageDecodeEventSink);
 impl IImageDecodeEventSink2 {
-    pub unsafe fn GetSurface(&self, nwidth: i32, nheight: i32, bfid: *const windows_core::GUID, npasses: u32, dwhints: u32) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetSurface)(windows_core::Interface::as_raw(self), nwidth, nheight, bfid, npasses, dwhints, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn OnBeginDecode(&self, pdwevents: *mut u32, pnformats: *mut u32, ppformats: *mut *mut windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.OnBeginDecode)(windows_core::Interface::as_raw(self), pdwevents, pnformats, ppformats).ok()
-    }
-    pub unsafe fn OnBitsComplete(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.OnBitsComplete)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn OnDecodeComplete(&self, hrstatus: windows_core::HRESULT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.OnDecodeComplete)(windows_core::Interface::as_raw(self), hrstatus).ok()
-    }
-    pub unsafe fn OnPalette(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.OnPalette)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn OnProgress<P0>(&self, pbounds: *const super::super::Foundation::RECT, bcomplete: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.OnProgress)(windows_core::Interface::as_raw(self), pbounds, bcomplete.param().abi()).ok()
-    }
     pub unsafe fn IsAlphaPremultRequired(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).IsAlphaPremultRequired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1479,6 +1527,12 @@ pub struct IImageDecodeEventSink2_Vtbl {
     pub IsAlphaPremultRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IImageDecodeFilter, IImageDecodeFilter_Vtbl, 0xa3ccedf3_2de2_11d0_86f4_00a0c913f750);
+impl std::ops::Deref for IImageDecodeFilter {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IImageDecodeFilter, windows_core::IUnknown);
 impl IImageDecodeFilter {
     pub unsafe fn Initialize<P0>(&self, peventsink: P0) -> windows_core::Result<()>
@@ -1511,6 +1565,13 @@ pub struct IImageDecodeFilter_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IIntelliForms, IIntelliForms_Vtbl, 0x9b9f68e6_1aaa_11d2_bca5_00c04fd929db);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IIntelliForms {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IIntelliForms, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IIntelliForms {
@@ -1533,6 +1594,12 @@ pub struct IIntelliForms_Vtbl {
     pub Setenabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInternetExplorerManager, IInternetExplorerManager_Vtbl, 0xacc84351_04ff_44f9_b23f_655ed168c6d5);
+impl std::ops::Deref for IInternetExplorerManager {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IInternetExplorerManager, windows_core::IUnknown);
 impl IInternetExplorerManager {
     pub unsafe fn CreateObject<P0, T>(&self, dwconfig: u32, pszurl: P0) -> windows_core::Result<T>
@@ -1550,6 +1617,12 @@ pub struct IInternetExplorerManager_Vtbl {
     pub CreateObject: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInternetExplorerManager2, IInternetExplorerManager2_Vtbl, 0xdfbb5136_9259_4895_b4a7_c1934429919a);
+impl std::ops::Deref for IInternetExplorerManager2 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IInternetExplorerManager2, windows_core::IUnknown);
 impl IInternetExplorerManager2 {
     pub unsafe fn EnumFrameWindows(&self) -> windows_core::Result<IEnumManagerFrames> {
@@ -1564,6 +1637,13 @@ pub struct IInternetExplorerManager2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ILayoutRect, ILayoutRect_Vtbl, 0x3050f665_98b5_11cf_bb82_00aa00bdce0b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ILayoutRect {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ILayoutRect, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1652,6 +1732,12 @@ pub struct ILayoutRect_Vtbl {
     contentDocument: usize,
 }
 windows_core::imp::define_interface!(IMapMIMEToCLSID, IMapMIMEToCLSID_Vtbl, 0xd9e89500_30fa_11d0_b724_00aa006c1a01);
+impl std::ops::Deref for IMapMIMEToCLSID {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMapMIMEToCLSID, windows_core::IUnknown);
 impl IMapMIMEToCLSID {
     pub unsafe fn EnableDefaultMappings<P0>(&self, benable: P0) -> windows_core::Result<()>
@@ -1681,6 +1767,12 @@ pub struct IMapMIMEToCLSID_Vtbl {
     pub SetMapping: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaActivityNotifySite, IMediaActivityNotifySite_Vtbl, 0x8165cfef_179d_46c2_bc71_3fa726dc1f8d);
+impl std::ops::Deref for IMediaActivityNotifySite {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMediaActivityNotifySite, windows_core::IUnknown);
 impl IMediaActivityNotifySite {
     pub unsafe fn OnMediaActivityStarted(&self, mediaactivitytype: MEDIA_ACTIVITY_NOTIFY_TYPE) -> windows_core::Result<()> {
@@ -1697,6 +1789,12 @@ pub struct IMediaActivityNotifySite_Vtbl {
     pub OnMediaActivityStopped: unsafe extern "system" fn(*mut core::ffi::c_void, MEDIA_ACTIVITY_NOTIFY_TYPE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpenService, IOpenService_Vtbl, 0xc2952ed1_6a89_4606_925f_1ed8b4be0630);
+impl std::ops::Deref for IOpenService {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOpenService, windows_core::IUnknown);
 impl IOpenService {
     pub unsafe fn IsDefault(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
@@ -1723,23 +1821,14 @@ pub struct IOpenService_Vtbl {
     pub GetID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpenServiceActivity, IOpenServiceActivity_Vtbl, 0x13645c88_221a_4905_8ed1_4f5112cfc108);
+impl std::ops::Deref for IOpenServiceActivity {
+    type Target = IOpenService;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOpenServiceActivity, windows_core::IUnknown, IOpenService);
 impl IOpenServiceActivity {
-    pub unsafe fn IsDefault(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsDefault)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetDefault<P0, P1>(&self, fdefault: P0, hwnd: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-        P1: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetDefault)(windows_core::Interface::as_raw(self), fdefault.param().abi(), hwnd.param().abi()).ok()
-    }
-    pub unsafe fn GetID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn Execute<P0, P1>(&self, pinput: P0, poutput: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IOpenServiceActivityInput>,
@@ -1862,6 +1951,12 @@ pub struct IOpenServiceActivity_Vtbl {
     pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpenServiceActivityCategory, IOpenServiceActivityCategory_Vtbl, 0x850af9d6_7309_40b5_bdb8_786c106b2153);
+impl std::ops::Deref for IOpenServiceActivityCategory {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOpenServiceActivityCategory, windows_core::IUnknown);
 impl IOpenServiceActivityCategory {
     pub unsafe fn HasDefaultActivity(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
@@ -1902,6 +1997,12 @@ pub struct IOpenServiceActivityCategory_Vtbl {
     pub GetActivityEnumerator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpenServiceActivityInput, IOpenServiceActivityInput_Vtbl, 0x75cb4db9_6da0_4da3_83ce_422b6a433346);
+impl std::ops::Deref for IOpenServiceActivityInput {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOpenServiceActivityInput, windows_core::IUnknown);
 impl IOpenServiceActivityInput {
     pub unsafe fn GetVariable<P0, P1>(&self, pwzvariablename: P0, pwzvariabletype: P1) -> windows_core::Result<windows_core::BSTR>
@@ -1933,6 +2034,12 @@ pub struct IOpenServiceActivityInput_Vtbl {
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OpenServiceActivityContentType) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpenServiceActivityManager, IOpenServiceActivityManager_Vtbl, 0x8a2d0a9d_e920_4bdc_a291_d30f650bc4f1);
+impl std::ops::Deref for IOpenServiceActivityManager {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOpenServiceActivityManager, windows_core::IUnknown);
 impl IOpenServiceActivityManager {
     pub unsafe fn GetCategoryEnumerator(&self, etype: OpenServiceActivityContentType) -> windows_core::Result<IEnumOpenServiceActivityCategory> {
@@ -1968,6 +2075,12 @@ pub struct IOpenServiceActivityManager_Vtbl {
     pub GetVersionCookie: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpenServiceActivityOutputContext, IOpenServiceActivityOutputContext_Vtbl, 0xe289deab_f709_49a9_b99e_282364074571);
+impl std::ops::Deref for IOpenServiceActivityOutputContext {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOpenServiceActivityOutputContext, windows_core::IUnknown);
 impl IOpenServiceActivityOutputContext {
     #[cfg(feature = "Win32_System_Com")]
@@ -2005,6 +2118,12 @@ pub struct IOpenServiceActivityOutputContext_Vtbl {
     CanNavigate: usize,
 }
 windows_core::imp::define_interface!(IOpenServiceManager, IOpenServiceManager_Vtbl, 0x5664125f_4e10_4e90_98e4_e4513d955a14);
+impl std::ops::Deref for IOpenServiceManager {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOpenServiceManager, windows_core::IUnknown);
 impl IOpenServiceManager {
     pub unsafe fn InstallService<P0>(&self, pwzserviceurl: P0) -> windows_core::Result<IOpenService>
@@ -2036,6 +2155,12 @@ pub struct IOpenServiceManager_Vtbl {
     pub GetServiceByID: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPeerFactory, IPeerFactory_Vtbl, 0x6663f9d3_b482_11d1_89c6_00c04fb6bfc4);
+impl std::ops::Deref for IPeerFactory {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPeerFactory, windows_core::IUnknown);
 impl IPeerFactory {}
 #[repr(C)]
@@ -2045,14 +2170,16 @@ pub struct IPeerFactory_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IPersistHistory, IPersistHistory_Vtbl, 0x91a565c1_e38f_11d0_94bf_00a0c9055cbf);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IPersistHistory {
+    type Target = super::super::System::Com::IPersist;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IPersistHistory, windows_core::IUnknown, super::super::System::Com::IPersist);
 #[cfg(feature = "Win32_System_Com")]
 impl IPersistHistory {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetClassID(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetClassID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LoadHistory<P0, P1>(&self, pstream: P0, pbc: P1) -> windows_core::Result<()>
     where
@@ -2092,6 +2219,12 @@ pub struct IPersistHistory_Vtbl {
     pub GetPositionCookie: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintTaskRequestFactory, IPrintTaskRequestFactory_Vtbl, 0xbb516745_8c34_4f8b_9605_684dcb144be5);
+impl std::ops::Deref for IPrintTaskRequestFactory {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPrintTaskRequestFactory, windows_core::IUnknown);
 impl IPrintTaskRequestFactory {
     pub unsafe fn CreatePrintTaskRequest<P0>(&self, pprinttaskrequesthandler: P0) -> windows_core::Result<()>
@@ -2107,6 +2240,12 @@ pub struct IPrintTaskRequestFactory_Vtbl {
     pub CreatePrintTaskRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintTaskRequestHandler, IPrintTaskRequestHandler_Vtbl, 0x191cd340_cf36_44ff_bd53_d1b701799d9b);
+impl std::ops::Deref for IPrintTaskRequestHandler {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPrintTaskRequestHandler, windows_core::IUnknown);
 impl IPrintTaskRequestHandler {
     pub unsafe fn HandlePrintTaskRequest<P0>(&self, pprinttaskrequest: P0) -> windows_core::Result<()>
@@ -2122,6 +2261,12 @@ pub struct IPrintTaskRequestHandler_Vtbl {
     pub HandlePrintTaskRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IScrollableContextMenu, IScrollableContextMenu_Vtbl, 0x30510854_98b5_11cf_bb82_00aa00bdce0b);
+impl std::ops::Deref for IScrollableContextMenu {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IScrollableContextMenu, windows_core::IUnknown);
 impl IScrollableContextMenu {
     pub unsafe fn AddItem<P0>(&self, itemtext: P0, cmdid: u32) -> windows_core::Result<()>
@@ -2142,18 +2287,14 @@ pub struct IScrollableContextMenu_Vtbl {
     pub ShowModal: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IScrollableContextMenu2, IScrollableContextMenu2_Vtbl, 0xf77e9056_8674_4936_924c_0e4a06fa634a);
+impl std::ops::Deref for IScrollableContextMenu2 {
+    type Target = IScrollableContextMenu;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IScrollableContextMenu2, windows_core::IUnknown, IScrollableContextMenu);
 impl IScrollableContextMenu2 {
-    pub unsafe fn AddItem<P0>(&self, itemtext: P0, cmdid: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.AddItem)(windows_core::Interface::as_raw(self), itemtext.param().abi(), cmdid).ok()
-    }
-    pub unsafe fn ShowModal(&self, x: i32, y: i32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ShowModal)(windows_core::Interface::as_raw(self), x, y, &mut result__).map(|| result__)
-    }
     pub unsafe fn AddSeparator(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).AddSeparator)(windows_core::Interface::as_raw(self)).ok()
     }
@@ -2168,6 +2309,12 @@ pub struct IScrollableContextMenu2_Vtbl {
     pub SetPlacement: unsafe extern "system" fn(*mut core::ffi::c_void, SCROLLABLECONTEXTMENU_PLACEMENT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISniffStream, ISniffStream_Vtbl, 0x4ef17940_30e0_11d0_b724_00aa006c1a01);
+impl std::ops::Deref for ISniffStream {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISniffStream, windows_core::IUnknown);
 impl ISniffStream {
     #[cfg(feature = "Win32_System_Com")]
@@ -2191,6 +2338,12 @@ pub struct ISniffStream_Vtbl {
     pub Peek: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISurfacePresenterFlip, ISurfacePresenterFlip_Vtbl, 0x30510848_98b5_11cf_bb82_00aa00bdce0b);
+impl std::ops::Deref for ISurfacePresenterFlip {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISurfacePresenterFlip, windows_core::IUnknown);
 impl ISurfacePresenterFlip {
     pub unsafe fn Present(&self) -> windows_core::Result<()> {
@@ -2207,6 +2360,12 @@ pub struct ISurfacePresenterFlip_Vtbl {
     pub GetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISurfacePresenterFlip2, ISurfacePresenterFlip2_Vtbl, 0x30510865_98b5_11cf_bb82_00aa00bdce0b);
+impl std::ops::Deref for ISurfacePresenterFlip2 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISurfacePresenterFlip2, windows_core::IUnknown);
 impl ISurfacePresenterFlip2 {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2223,6 +2382,12 @@ pub struct ISurfacePresenterFlip2_Vtbl {
     SetRotation: usize,
 }
 windows_core::imp::define_interface!(ISurfacePresenterFlipBuffer, ISurfacePresenterFlipBuffer_Vtbl, 0xe43f4a08_8bbc_4665_ac92_c55ce61fd7e7);
+impl std::ops::Deref for ISurfacePresenterFlipBuffer {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISurfacePresenterFlipBuffer, windows_core::IUnknown);
 impl ISurfacePresenterFlipBuffer {
     pub unsafe fn BeginDraw(&self, riid: *const windows_core::GUID, ppbuffer: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -2239,6 +2404,12 @@ pub struct ISurfacePresenterFlipBuffer_Vtbl {
     pub EndDraw: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITargetContainer, ITargetContainer_Vtbl, 0x7847ec01_2bec_11d0_82b4_00a0c90c29c5);
+impl std::ops::Deref for ITargetContainer {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITargetContainer, windows_core::IUnknown);
 impl ITargetContainer {
     pub unsafe fn GetFrameUrl(&self) -> windows_core::Result<windows_core::PWSTR> {
@@ -2261,6 +2432,12 @@ pub struct ITargetContainer_Vtbl {
     GetFramesContainer: usize,
 }
 windows_core::imp::define_interface!(ITargetEmbedding, ITargetEmbedding_Vtbl, 0x548793c0_9e74_11cf_9655_00a0c9034923);
+impl std::ops::Deref for ITargetEmbedding {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITargetEmbedding, windows_core::IUnknown);
 impl ITargetEmbedding {
     pub unsafe fn GetTargetFrame(&self) -> windows_core::Result<ITargetFrame> {
@@ -2274,6 +2451,12 @@ pub struct ITargetEmbedding_Vtbl {
     pub GetTargetFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITargetFrame, ITargetFrame_Vtbl, 0xd5f78c80_5252_11cf_90fa_00aa0042106e);
+impl std::ops::Deref for ITargetFrame {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITargetFrame, windows_core::IUnknown);
 impl ITargetFrame {
     pub unsafe fn SetFrameName<P0>(&self, pszframename: P0) -> windows_core::Result<()>
@@ -2364,6 +2547,12 @@ pub struct ITargetFrame_Vtbl {
     pub OnChildFrameDeactivate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITargetFrame2, ITargetFrame2_Vtbl, 0x86d52e11_94a8_11d0_82af_00c04fd5ae38);
+impl std::ops::Deref for ITargetFrame2 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITargetFrame2, windows_core::IUnknown);
 impl ITargetFrame2 {
     pub unsafe fn SetFrameName<P0>(&self, pszframename: P0) -> windows_core::Result<()>
@@ -2443,6 +2632,12 @@ pub struct ITargetFrame2_Vtbl {
     pub GetTargetAlias: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITargetFramePriv, ITargetFramePriv_Vtbl, 0x9216e421_2bf5_11d0_82b4_00a0c90c29c5);
+impl std::ops::Deref for ITargetFramePriv {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITargetFramePriv, windows_core::IUnknown);
 impl ITargetFramePriv {
     pub unsafe fn FindFrameDownwards<P0>(&self, psztargetname: P0, dwflags: u32) -> windows_core::Result<windows_core::IUnknown>
@@ -2502,50 +2697,14 @@ pub struct ITargetFramePriv_Vtbl {
     pub FindBrowserByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITargetFramePriv2, ITargetFramePriv2_Vtbl, 0xb2c867e6_69d6_46f2_a611_ded9a4bd7fef);
+impl std::ops::Deref for ITargetFramePriv2 {
+    type Target = ITargetFramePriv;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITargetFramePriv2, windows_core::IUnknown, ITargetFramePriv);
 impl ITargetFramePriv2 {
-    pub unsafe fn FindFrameDownwards<P0>(&self, psztargetname: P0, dwflags: u32) -> windows_core::Result<windows_core::IUnknown>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FindFrameDownwards)(windows_core::Interface::as_raw(self), psztargetname.param().abi(), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn FindFrameInContext<P0, P1>(&self, psztargetname: P0, punkcontextframe: P1, dwflags: u32) -> windows_core::Result<windows_core::IUnknown>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::IUnknown>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FindFrameInContext)(windows_core::Interface::as_raw(self), psztargetname.param().abi(), punkcontextframe.param().abi(), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn OnChildFrameActivate<P0>(&self, punkchildframe: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-    {
-        (windows_core::Interface::vtable(self).base__.OnChildFrameActivate)(windows_core::Interface::as_raw(self), punkchildframe.param().abi()).ok()
-    }
-    pub unsafe fn OnChildFrameDeactivate<P0>(&self, punkchildframe: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-    {
-        (windows_core::Interface::vtable(self).base__.OnChildFrameDeactivate)(windows_core::Interface::as_raw(self), punkchildframe.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn NavigateHack<P0, P1, P2, P3, P4>(&self, grfhlnf: u32, pbc: P0, pibsc: P1, psztargetname: P2, pszurl: P3, pszlocation: P4) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::System::Com::IBindCtx>,
-        P1: windows_core::Param<super::super::System::Com::IBindStatusCallback>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<windows_core::PCWSTR>,
-        P4: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.NavigateHack)(windows_core::Interface::as_raw(self), grfhlnf, pbc.param().abi(), pibsc.param().abi(), psztargetname.param().abi(), pszurl.param().abi(), pszlocation.param().abi()).ok()
-    }
-    pub unsafe fn FindBrowserByIndex(&self, dwid: u32) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FindBrowserByIndex)(windows_core::Interface::as_raw(self), dwid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AggregatedNavigation2<P0, P1, P2, P3, P4>(&self, grfhlnf: u32, pbc: P0, pibsc: P1, psztargetname: P2, puri: P3, pszlocation: P4) -> windows_core::Result<()>
     where
@@ -2567,6 +2726,12 @@ pub struct ITargetFramePriv2_Vtbl {
     AggregatedNavigation2: usize,
 }
 windows_core::imp::define_interface!(ITargetNotify, ITargetNotify_Vtbl, 0x863a99a0_21bc_11d0_82b4_00a0c90c29c5);
+impl std::ops::Deref for ITargetNotify {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITargetNotify, windows_core::IUnknown);
 impl ITargetNotify {
     pub unsafe fn OnCreate<P0>(&self, punkdestination: P0, cbcookie: u32) -> windows_core::Result<()>
@@ -2589,20 +2754,14 @@ pub struct ITargetNotify_Vtbl {
     pub OnReuse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITargetNotify2, ITargetNotify2_Vtbl, 0x3050f6b1_98b5_11cf_bb82_00aa00bdce0b);
+impl std::ops::Deref for ITargetNotify2 {
+    type Target = ITargetNotify;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITargetNotify2, windows_core::IUnknown, ITargetNotify);
 impl ITargetNotify2 {
-    pub unsafe fn OnCreate<P0>(&self, punkdestination: P0, cbcookie: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-    {
-        (windows_core::Interface::vtable(self).base__.OnCreate)(windows_core::Interface::as_raw(self), punkdestination.param().abi(), cbcookie).ok()
-    }
-    pub unsafe fn OnReuse<P0>(&self, punkdestination: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-    {
-        (windows_core::Interface::vtable(self).base__.OnReuse)(windows_core::Interface::as_raw(self), punkdestination.param().abi()).ok()
-    }
     pub unsafe fn GetOptionString(&self, pbstroptions: *mut windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetOptionString)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstroptions)).ok()
     }
@@ -2613,6 +2772,12 @@ pub struct ITargetNotify2_Vtbl {
     pub GetOptionString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITimer, ITimer_Vtbl, 0x3050f360_98b5_11cf_bb82_00aa00bdce0b);
+impl std::ops::Deref for ITimer {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITimer, windows_core::IUnknown);
 impl ITimer {
     pub unsafe fn Advise<P0, P1, P2, P3>(&self, vtimemin: P0, vtimemax: P1, vtimeinterval: P2, dwflags: u32, ptimersink: P3) -> windows_core::Result<u32>
@@ -2648,31 +2813,14 @@ pub struct ITimer_Vtbl {
     pub GetTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITimerEx, ITimerEx_Vtbl, 0x30510414_98b5_11cf_bb82_00aa00bdce0b);
+impl std::ops::Deref for ITimerEx {
+    type Target = ITimer;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITimerEx, windows_core::IUnknown, ITimer);
 impl ITimerEx {
-    pub unsafe fn Advise<P0, P1, P2, P3>(&self, vtimemin: P0, vtimemax: P1, vtimeinterval: P2, dwflags: u32, ptimersink: P3) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-        P2: windows_core::Param<windows_core::VARIANT>,
-        P3: windows_core::Param<ITimerSink>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Advise)(windows_core::Interface::as_raw(self), vtimemin.param().abi(), vtimemax.param().abi(), vtimeinterval.param().abi(), dwflags, ptimersink.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Unadvise(&self, dwcookie: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Unadvise)(windows_core::Interface::as_raw(self), dwcookie).ok()
-    }
-    pub unsafe fn Freeze<P0>(&self, ffreeze: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.Freeze)(windows_core::Interface::as_raw(self), ffreeze.param().abi()).ok()
-    }
-    pub unsafe fn GetTime(&self) -> windows_core::Result<windows_core::VARIANT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn SetMode(&self, dwmode: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetMode)(windows_core::Interface::as_raw(self), dwmode).ok()
     }
@@ -2683,6 +2831,12 @@ pub struct ITimerEx_Vtbl {
     pub SetMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITimerService, ITimerService_Vtbl, 0x3050f35f_98b5_11cf_bb82_00aa00bdce0b);
+impl std::ops::Deref for ITimerService {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITimerService, windows_core::IUnknown);
 impl ITimerService {
     pub unsafe fn CreateTimer<P0>(&self, preferencetimer: P0) -> windows_core::Result<ITimer>
@@ -2711,6 +2865,12 @@ pub struct ITimerService_Vtbl {
     pub SetNamedTimerReference: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITimerSink, ITimerSink_Vtbl, 0x3050f361_98b5_11cf_bb82_00aa00bdce0b);
+impl std::ops::Deref for ITimerSink {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITimerSink, windows_core::IUnknown);
 impl ITimerSink {
     pub unsafe fn OnTimer<P0>(&self, vtimeadvise: P0) -> windows_core::Result<()>
@@ -2726,6 +2886,12 @@ pub struct ITimerSink_Vtbl {
     pub OnTimer: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITridentTouchInput, ITridentTouchInput_Vtbl, 0x30510850_98b5_11cf_bb82_00aa00bdce0b);
+impl std::ops::Deref for ITridentTouchInput {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITridentTouchInput, windows_core::IUnknown);
 impl ITridentTouchInput {
     pub unsafe fn OnPointerMessage<P0, P1>(&self, msg: u32, wparam: P0, lparam: P1) -> windows_core::Result<super::super::Foundation::BOOL>
@@ -2743,6 +2909,12 @@ pub struct ITridentTouchInput_Vtbl {
     pub OnPointerMessage: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::WPARAM, super::super::Foundation::LPARAM, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITridentTouchInputSite, ITridentTouchInputSite_Vtbl, 0x30510849_98b5_11cf_bb82_00aa00bdce0b);
+impl std::ops::Deref for ITridentTouchInputSite {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITridentTouchInputSite, windows_core::IUnknown);
 impl ITridentTouchInputSite {
     #[cfg(feature = "Win32_Web_MsHtml")]
@@ -2765,24 +2937,28 @@ pub struct ITridentTouchInputSite_Vtbl {
 #[cfg(feature = "Win32_System_Ole")]
 windows_core::imp::define_interface!(IUrlHistoryNotify, IUrlHistoryNotify_Vtbl, 0xbc40bec1_c493_11d0_831b_00c04fd5ae38);
 #[cfg(feature = "Win32_System_Ole")]
-windows_core::imp::interface_hierarchy!(IUrlHistoryNotify, windows_core::IUnknown, super::super::System::Ole::IOleCommandTarget);
-#[cfg(feature = "Win32_System_Ole")]
-impl IUrlHistoryNotify {
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn QueryStatus(&self, pguidcmdgroup: *const windows_core::GUID, ccmds: u32, prgcmds: *mut super::super::System::Ole::OLECMD, pcmdtext: *mut super::super::System::Ole::OLECMDTEXT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.QueryStatus)(windows_core::Interface::as_raw(self), pguidcmdgroup, ccmds, prgcmds, pcmdtext).ok()
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn Exec(&self, pguidcmdgroup: *const windows_core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const windows_core::VARIANT, pvaout: *mut windows_core::VARIANT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Exec)(windows_core::Interface::as_raw(self), pguidcmdgroup, ncmdid, ncmdexecopt, core::mem::transmute(pvain), core::mem::transmute(pvaout)).ok()
+impl std::ops::Deref for IUrlHistoryNotify {
+    type Target = super::super::System::Ole::IOleCommandTarget;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
     }
 }
+#[cfg(feature = "Win32_System_Ole")]
+windows_core::imp::interface_hierarchy!(IUrlHistoryNotify, windows_core::IUnknown, super::super::System::Ole::IOleCommandTarget);
+#[cfg(feature = "Win32_System_Ole")]
+impl IUrlHistoryNotify {}
 #[cfg(feature = "Win32_System_Ole")]
 #[repr(C)]
 pub struct IUrlHistoryNotify_Vtbl {
     pub base__: super::super::System::Ole::IOleCommandTarget_Vtbl,
 }
 windows_core::imp::define_interface!(IUrlHistoryStg, IUrlHistoryStg_Vtbl, 0x3c374a41_bae4_11cf_bf7d_00aa006946ee);
+impl std::ops::Deref for IUrlHistoryStg {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IUrlHistoryStg, windows_core::IUnknown);
 impl IUrlHistoryStg {
     pub unsafe fn AddUrl<P0, P1>(&self, pocsurl: P0, pocstitle: P1, dwflags: u32) -> windows_core::Result<()>
@@ -2827,39 +3003,14 @@ pub struct IUrlHistoryStg_Vtbl {
     pub EnumUrls: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUrlHistoryStg2, IUrlHistoryStg2_Vtbl, 0xafa0dc11_c313_11d0_831a_00c04fd5ae38);
+impl std::ops::Deref for IUrlHistoryStg2 {
+    type Target = IUrlHistoryStg;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IUrlHistoryStg2, windows_core::IUnknown, IUrlHistoryStg);
 impl IUrlHistoryStg2 {
-    pub unsafe fn AddUrl<P0, P1>(&self, pocsurl: P0, pocstitle: P1, dwflags: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.AddUrl)(windows_core::Interface::as_raw(self), pocsurl.param().abi(), pocstitle.param().abi(), dwflags).ok()
-    }
-    pub unsafe fn DeleteUrl<P0>(&self, pocsurl: P0, dwflags: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.DeleteUrl)(windows_core::Interface::as_raw(self), pocsurl.param().abi(), dwflags).ok()
-    }
-    pub unsafe fn QueryUrl<P0>(&self, pocsurl: P0, dwflags: u32, lpstaturl: *mut STATURL) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.QueryUrl)(windows_core::Interface::as_raw(self), pocsurl.param().abi(), dwflags, lpstaturl).ok()
-    }
-    pub unsafe fn BindToObject<P0, T>(&self, pocsurl: P0) -> windows_core::Result<T>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        T: windows_core::Interface,
-    {
-        let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).base__.BindToObject)(windows_core::Interface::as_raw(self), pocsurl.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn EnumUrls(&self) -> windows_core::Result<IEnumSTATURL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EnumUrls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn AddUrlAndNotify<P0, P1, P2, P3, P4>(&self, pocsurl: P0, pocstitle: P1, dwflags: u32, fwritehistory: P2, poctnotify: P3, punkisfolder: P4) -> windows_core::Result<()>
     where
@@ -2885,6 +3036,12 @@ pub struct IUrlHistoryStg2_Vtbl {
     pub ClearHistory: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IViewObjectPresentFlip, IViewObjectPresentFlip_Vtbl, 0x30510847_98b5_11cf_bb82_00aa00bdce0b);
+impl std::ops::Deref for IViewObjectPresentFlip {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IViewObjectPresentFlip, windows_core::IUnknown);
 impl IViewObjectPresentFlip {
     pub unsafe fn NotifyRender<P0>(&self, frecreatepresenter: P0) -> windows_core::Result<()>
@@ -2914,6 +3071,12 @@ pub struct IViewObjectPresentFlip_Vtbl {
     pub RenderObjectToSharedBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IViewObjectPresentFlip2, IViewObjectPresentFlip2_Vtbl, 0x30510856_98b5_11cf_bb82_00aa00bdce0b);
+impl std::ops::Deref for IViewObjectPresentFlip2 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IViewObjectPresentFlip2, windows_core::IUnknown);
 impl IViewObjectPresentFlip2 {
     pub unsafe fn NotifyLeavingView(&self) -> windows_core::Result<()> {
@@ -2926,6 +3089,12 @@ pub struct IViewObjectPresentFlip2_Vtbl {
     pub NotifyLeavingView: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IViewObjectPresentFlipSite, IViewObjectPresentFlipSite_Vtbl, 0x30510846_98b5_11cf_bb82_00aa00bdce0b);
+impl std::ops::Deref for IViewObjectPresentFlipSite {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IViewObjectPresentFlipSite, windows_core::IUnknown);
 impl IViewObjectPresentFlipSite {
     #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Web_MsHtml"))]
@@ -2978,6 +3147,12 @@ pub struct IViewObjectPresentFlipSite_Vtbl {
     pub GetFullScreenSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::SIZE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IViewObjectPresentFlipSite2, IViewObjectPresentFlipSite2_Vtbl, 0xaad0cbf1_e7fd_4f12_8902_c78132a8e01d);
+impl std::ops::Deref for IViewObjectPresentFlipSite2 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IViewObjectPresentFlipSite2, windows_core::IUnknown);
 impl IViewObjectPresentFlipSite2 {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2995,6 +3170,12 @@ pub struct IViewObjectPresentFlipSite2_Vtbl {
     GetRotationForCurrentOutput: usize,
 }
 windows_core::imp::define_interface!(IWebBrowserEventsService, IWebBrowserEventsService_Vtbl, 0x54a8f188_9ebd_4795_ad16_9b4945119636);
+impl std::ops::Deref for IWebBrowserEventsService {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWebBrowserEventsService, windows_core::IUnknown);
 impl IWebBrowserEventsService {
     pub unsafe fn FireBeforeNavigate2Event(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
@@ -3024,6 +3205,12 @@ pub struct IWebBrowserEventsService_Vtbl {
     pub FireDocumentCompleteEvent: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebBrowserEventsUrlService, IWebBrowserEventsUrlService_Vtbl, 0x87cc5d04_eafa_4833_9820_8f986530cc00);
+impl std::ops::Deref for IWebBrowserEventsUrlService {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWebBrowserEventsUrlService, windows_core::IUnknown);
 impl IWebBrowserEventsUrlService {
     pub unsafe fn GetUrlForEvents(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -3038,6 +3225,13 @@ pub struct IWebBrowserEventsUrlService_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(Iwfolders, Iwfolders_Vtbl, 0xbae31f98_1b81_11d2_a97a_00c04f8ecb02);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for Iwfolders {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(Iwfolders, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]

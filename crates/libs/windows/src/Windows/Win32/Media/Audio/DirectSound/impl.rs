@@ -14,17 +14,17 @@ impl IDirectSound_Vtbl {
         unsafe extern "system" fn CreateSoundBuffer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcdsbufferdesc: *const DSBUFFERDESC, ppdsbuffer: *mut *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateSoundBuffer(core::mem::transmute_copy(&pcdsbufferdesc), core::mem::transmute_copy(&ppdsbuffer), windows_core::from_raw_borrowed(&punkouter)).into()
+            IDirectSound_Impl::CreateSoundBuffer(this, core::mem::transmute_copy(&pcdsbufferdesc), core::mem::transmute_copy(&ppdsbuffer), windows_core::from_raw_borrowed(&punkouter)).into()
         }
         unsafe extern "system" fn GetCaps<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdscaps: *mut DSCAPS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetCaps(core::mem::transmute_copy(&pdscaps)).into()
+            IDirectSound_Impl::GetCaps(this, core::mem::transmute_copy(&pdscaps)).into()
         }
         unsafe extern "system" fn DuplicateSoundBuffer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdsbufferoriginal: *mut core::ffi::c_void, ppdsbufferduplicate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DuplicateSoundBuffer(windows_core::from_raw_borrowed(&pdsbufferoriginal)) {
+            match IDirectSound_Impl::DuplicateSoundBuffer(this, windows_core::from_raw_borrowed(&pdsbufferoriginal)) {
                 Ok(ok__) => {
                     core::ptr::write(ppdsbufferduplicate, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -35,17 +35,17 @@ impl IDirectSound_Vtbl {
         unsafe extern "system" fn SetCooperativeLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, dwlevel: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCooperativeLevel(core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&dwlevel)).into()
+            IDirectSound_Impl::SetCooperativeLevel(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&dwlevel)).into()
         }
         unsafe extern "system" fn Compact<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Compact().into()
+            IDirectSound_Impl::Compact(this).into()
         }
         unsafe extern "system" fn GetSpeakerConfig<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwspeakerconfig: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSpeakerConfig() {
+            match IDirectSound_Impl::GetSpeakerConfig(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdwspeakerconfig, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -56,12 +56,12 @@ impl IDirectSound_Vtbl {
         unsafe extern "system" fn SetSpeakerConfig<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwspeakerconfig: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSpeakerConfig(core::mem::transmute_copy(&dwspeakerconfig)).into()
+            IDirectSound_Impl::SetSpeakerConfig(this, core::mem::transmute_copy(&dwspeakerconfig)).into()
         }
         unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcguiddevice: *const windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(core::mem::transmute_copy(&pcguiddevice)).into()
+            IDirectSound_Impl::Initialize(this, core::mem::transmute_copy(&pcguiddevice)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -108,17 +108,17 @@ impl IDirectSound3DBuffer_Vtbl {
         unsafe extern "system" fn GetAllParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pds3dbuffer: *mut DS3DBUFFER) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetAllParameters(core::mem::transmute_copy(&pds3dbuffer)).into()
+            IDirectSound3DBuffer_Impl::GetAllParameters(this, core::mem::transmute_copy(&pds3dbuffer)).into()
         }
         unsafe extern "system" fn GetConeAngles<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwinsideconeangle: *mut u32, pdwoutsideconeangle: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetConeAngles(core::mem::transmute_copy(&pdwinsideconeangle), core::mem::transmute_copy(&pdwoutsideconeangle)).into()
+            IDirectSound3DBuffer_Impl::GetConeAngles(this, core::mem::transmute_copy(&pdwinsideconeangle), core::mem::transmute_copy(&pdwoutsideconeangle)).into()
         }
         unsafe extern "system" fn GetConeOrientation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvorientation: *mut super::super::super::Graphics::Direct3D::D3DVECTOR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetConeOrientation() {
+            match IDirectSound3DBuffer_Impl::GetConeOrientation(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvorientation, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -129,7 +129,7 @@ impl IDirectSound3DBuffer_Vtbl {
         unsafe extern "system" fn GetConeOutsideVolume<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plconeoutsidevolume: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetConeOutsideVolume() {
+            match IDirectSound3DBuffer_Impl::GetConeOutsideVolume(this) {
                 Ok(ok__) => {
                     core::ptr::write(plconeoutsidevolume, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -140,7 +140,7 @@ impl IDirectSound3DBuffer_Vtbl {
         unsafe extern "system" fn GetMaxDistance<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflmaxdistance: *mut f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetMaxDistance() {
+            match IDirectSound3DBuffer_Impl::GetMaxDistance(this) {
                 Ok(ok__) => {
                     core::ptr::write(pflmaxdistance, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -151,7 +151,7 @@ impl IDirectSound3DBuffer_Vtbl {
         unsafe extern "system" fn GetMinDistance<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflmindistance: *mut f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetMinDistance() {
+            match IDirectSound3DBuffer_Impl::GetMinDistance(this) {
                 Ok(ok__) => {
                     core::ptr::write(pflmindistance, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -162,7 +162,7 @@ impl IDirectSound3DBuffer_Vtbl {
         unsafe extern "system" fn GetMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwmode: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetMode() {
+            match IDirectSound3DBuffer_Impl::GetMode(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdwmode, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -173,7 +173,7 @@ impl IDirectSound3DBuffer_Vtbl {
         unsafe extern "system" fn GetPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvposition: *mut super::super::super::Graphics::Direct3D::D3DVECTOR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPosition() {
+            match IDirectSound3DBuffer_Impl::GetPosition(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvposition, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -184,7 +184,7 @@ impl IDirectSound3DBuffer_Vtbl {
         unsafe extern "system" fn GetVelocity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvvelocity: *mut super::super::super::Graphics::Direct3D::D3DVECTOR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetVelocity() {
+            match IDirectSound3DBuffer_Impl::GetVelocity(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvvelocity, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -195,47 +195,47 @@ impl IDirectSound3DBuffer_Vtbl {
         unsafe extern "system" fn SetAllParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcds3dbuffer: *const DS3DBUFFER, dwapply: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAllParameters(core::mem::transmute_copy(&pcds3dbuffer), core::mem::transmute_copy(&dwapply)).into()
+            IDirectSound3DBuffer_Impl::SetAllParameters(this, core::mem::transmute_copy(&pcds3dbuffer), core::mem::transmute_copy(&dwapply)).into()
         }
         unsafe extern "system" fn SetConeAngles<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinsideconeangle: u32, dwoutsideconeangle: u32, dwapply: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetConeAngles(core::mem::transmute_copy(&dwinsideconeangle), core::mem::transmute_copy(&dwoutsideconeangle), core::mem::transmute_copy(&dwapply)).into()
+            IDirectSound3DBuffer_Impl::SetConeAngles(this, core::mem::transmute_copy(&dwinsideconeangle), core::mem::transmute_copy(&dwoutsideconeangle), core::mem::transmute_copy(&dwapply)).into()
         }
         unsafe extern "system" fn SetConeOrientation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, x: f32, y: f32, z: f32, dwapply: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetConeOrientation(core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&z), core::mem::transmute_copy(&dwapply)).into()
+            IDirectSound3DBuffer_Impl::SetConeOrientation(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&z), core::mem::transmute_copy(&dwapply)).into()
         }
         unsafe extern "system" fn SetConeOutsideVolume<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lconeoutsidevolume: i32, dwapply: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetConeOutsideVolume(core::mem::transmute_copy(&lconeoutsidevolume), core::mem::transmute_copy(&dwapply)).into()
+            IDirectSound3DBuffer_Impl::SetConeOutsideVolume(this, core::mem::transmute_copy(&lconeoutsidevolume), core::mem::transmute_copy(&dwapply)).into()
         }
         unsafe extern "system" fn SetMaxDistance<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flmaxdistance: f32, dwapply: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMaxDistance(core::mem::transmute_copy(&flmaxdistance), core::mem::transmute_copy(&dwapply)).into()
+            IDirectSound3DBuffer_Impl::SetMaxDistance(this, core::mem::transmute_copy(&flmaxdistance), core::mem::transmute_copy(&dwapply)).into()
         }
         unsafe extern "system" fn SetMinDistance<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flmindistance: f32, dwapply: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMinDistance(core::mem::transmute_copy(&flmindistance), core::mem::transmute_copy(&dwapply)).into()
+            IDirectSound3DBuffer_Impl::SetMinDistance(this, core::mem::transmute_copy(&flmindistance), core::mem::transmute_copy(&dwapply)).into()
         }
         unsafe extern "system" fn SetMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmode: u32, dwapply: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMode(core::mem::transmute_copy(&dwmode), core::mem::transmute_copy(&dwapply)).into()
+            IDirectSound3DBuffer_Impl::SetMode(this, core::mem::transmute_copy(&dwmode), core::mem::transmute_copy(&dwapply)).into()
         }
         unsafe extern "system" fn SetPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, x: f32, y: f32, z: f32, dwapply: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPosition(core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&z), core::mem::transmute_copy(&dwapply)).into()
+            IDirectSound3DBuffer_Impl::SetPosition(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&z), core::mem::transmute_copy(&dwapply)).into()
         }
         unsafe extern "system" fn SetVelocity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, x: f32, y: f32, z: f32, dwapply: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetVelocity(core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&z), core::mem::transmute_copy(&dwapply)).into()
+            IDirectSound3DBuffer_Impl::SetVelocity(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&z), core::mem::transmute_copy(&dwapply)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -289,12 +289,12 @@ impl IDirectSound3DListener_Vtbl {
         unsafe extern "system" fn GetAllParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DListener_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plistener: *mut DS3DLISTENER) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetAllParameters(core::mem::transmute_copy(&plistener)).into()
+            IDirectSound3DListener_Impl::GetAllParameters(this, core::mem::transmute_copy(&plistener)).into()
         }
         unsafe extern "system" fn GetDistanceFactor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DListener_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfldistancefactor: *mut f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDistanceFactor() {
+            match IDirectSound3DListener_Impl::GetDistanceFactor(this) {
                 Ok(ok__) => {
                     core::ptr::write(pfldistancefactor, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -305,7 +305,7 @@ impl IDirectSound3DListener_Vtbl {
         unsafe extern "system" fn GetDopplerFactor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DListener_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfldopplerfactor: *mut f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDopplerFactor() {
+            match IDirectSound3DListener_Impl::GetDopplerFactor(this) {
                 Ok(ok__) => {
                     core::ptr::write(pfldopplerfactor, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -316,12 +316,12 @@ impl IDirectSound3DListener_Vtbl {
         unsafe extern "system" fn GetOrientation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DListener_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvorientfront: *mut super::super::super::Graphics::Direct3D::D3DVECTOR, pvorienttop: *mut super::super::super::Graphics::Direct3D::D3DVECTOR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetOrientation(core::mem::transmute_copy(&pvorientfront), core::mem::transmute_copy(&pvorienttop)).into()
+            IDirectSound3DListener_Impl::GetOrientation(this, core::mem::transmute_copy(&pvorientfront), core::mem::transmute_copy(&pvorienttop)).into()
         }
         unsafe extern "system" fn GetPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DListener_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvposition: *mut super::super::super::Graphics::Direct3D::D3DVECTOR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPosition() {
+            match IDirectSound3DListener_Impl::GetPosition(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvposition, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -332,7 +332,7 @@ impl IDirectSound3DListener_Vtbl {
         unsafe extern "system" fn GetRolloffFactor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DListener_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflrollofffactor: *mut f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRolloffFactor() {
+            match IDirectSound3DListener_Impl::GetRolloffFactor(this) {
                 Ok(ok__) => {
                     core::ptr::write(pflrollofffactor, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -343,7 +343,7 @@ impl IDirectSound3DListener_Vtbl {
         unsafe extern "system" fn GetVelocity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DListener_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvvelocity: *mut super::super::super::Graphics::Direct3D::D3DVECTOR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetVelocity() {
+            match IDirectSound3DListener_Impl::GetVelocity(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvvelocity, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -354,42 +354,42 @@ impl IDirectSound3DListener_Vtbl {
         unsafe extern "system" fn SetAllParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DListener_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclistener: *const DS3DLISTENER, dwapply: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAllParameters(core::mem::transmute_copy(&pclistener), core::mem::transmute_copy(&dwapply)).into()
+            IDirectSound3DListener_Impl::SetAllParameters(this, core::mem::transmute_copy(&pclistener), core::mem::transmute_copy(&dwapply)).into()
         }
         unsafe extern "system" fn SetDistanceFactor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DListener_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fldistancefactor: f32, dwapply: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDistanceFactor(core::mem::transmute_copy(&fldistancefactor), core::mem::transmute_copy(&dwapply)).into()
+            IDirectSound3DListener_Impl::SetDistanceFactor(this, core::mem::transmute_copy(&fldistancefactor), core::mem::transmute_copy(&dwapply)).into()
         }
         unsafe extern "system" fn SetDopplerFactor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DListener_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fldopplerfactor: f32, dwapply: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDopplerFactor(core::mem::transmute_copy(&fldopplerfactor), core::mem::transmute_copy(&dwapply)).into()
+            IDirectSound3DListener_Impl::SetDopplerFactor(this, core::mem::transmute_copy(&fldopplerfactor), core::mem::transmute_copy(&dwapply)).into()
         }
         unsafe extern "system" fn SetOrientation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DListener_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xfront: f32, yfront: f32, zfront: f32, xtop: f32, ytop: f32, ztop: f32, dwapply: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetOrientation(core::mem::transmute_copy(&xfront), core::mem::transmute_copy(&yfront), core::mem::transmute_copy(&zfront), core::mem::transmute_copy(&xtop), core::mem::transmute_copy(&ytop), core::mem::transmute_copy(&ztop), core::mem::transmute_copy(&dwapply)).into()
+            IDirectSound3DListener_Impl::SetOrientation(this, core::mem::transmute_copy(&xfront), core::mem::transmute_copy(&yfront), core::mem::transmute_copy(&zfront), core::mem::transmute_copy(&xtop), core::mem::transmute_copy(&ytop), core::mem::transmute_copy(&ztop), core::mem::transmute_copy(&dwapply)).into()
         }
         unsafe extern "system" fn SetPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DListener_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, x: f32, y: f32, z: f32, dwapply: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPosition(core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&z), core::mem::transmute_copy(&dwapply)).into()
+            IDirectSound3DListener_Impl::SetPosition(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&z), core::mem::transmute_copy(&dwapply)).into()
         }
         unsafe extern "system" fn SetRolloffFactor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DListener_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flrollofffactor: f32, dwapply: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRolloffFactor(core::mem::transmute_copy(&flrollofffactor), core::mem::transmute_copy(&dwapply)).into()
+            IDirectSound3DListener_Impl::SetRolloffFactor(this, core::mem::transmute_copy(&flrollofffactor), core::mem::transmute_copy(&dwapply)).into()
         }
         unsafe extern "system" fn SetVelocity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DListener_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, x: f32, y: f32, z: f32, dwapply: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetVelocity(core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&z), core::mem::transmute_copy(&dwapply)).into()
+            IDirectSound3DListener_Impl::SetVelocity(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&z), core::mem::transmute_copy(&dwapply)).into()
         }
         unsafe extern "system" fn CommitDeferredSettings<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound3DListener_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CommitDeferredSettings().into()
+            IDirectSound3DListener_Impl::CommitDeferredSettings(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -423,7 +423,7 @@ impl IDirectSound8_Vtbl {
         unsafe extern "system" fn VerifyCertification<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSound8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcertified: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.VerifyCertification() {
+            match IDirectSound8_Impl::VerifyCertification(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdwcertified, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -463,22 +463,22 @@ impl IDirectSoundBuffer_Vtbl {
         unsafe extern "system" fn GetCaps<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdsbuffercaps: *mut DSBCAPS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetCaps(core::mem::transmute_copy(&pdsbuffercaps)).into()
+            IDirectSoundBuffer_Impl::GetCaps(this, core::mem::transmute_copy(&pdsbuffercaps)).into()
         }
         unsafe extern "system" fn GetCurrentPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcurrentplaycursor: *mut u32, pdwcurrentwritecursor: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetCurrentPosition(core::mem::transmute_copy(&pdwcurrentplaycursor), core::mem::transmute_copy(&pdwcurrentwritecursor)).into()
+            IDirectSoundBuffer_Impl::GetCurrentPosition(this, core::mem::transmute_copy(&pdwcurrentplaycursor), core::mem::transmute_copy(&pdwcurrentwritecursor)).into()
         }
         unsafe extern "system" fn GetFormat<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwfxformat: *mut super::WAVEFORMATEX, dwsizeallocated: u32, pdwsizewritten: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetFormat(core::mem::transmute_copy(&pwfxformat), core::mem::transmute_copy(&dwsizeallocated), core::mem::transmute_copy(&pdwsizewritten)).into()
+            IDirectSoundBuffer_Impl::GetFormat(this, core::mem::transmute_copy(&pwfxformat), core::mem::transmute_copy(&dwsizeallocated), core::mem::transmute_copy(&pdwsizewritten)).into()
         }
         unsafe extern "system" fn GetVolume<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plvolume: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetVolume() {
+            match IDirectSoundBuffer_Impl::GetVolume(this) {
                 Ok(ok__) => {
                     core::ptr::write(plvolume, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -489,7 +489,7 @@ impl IDirectSoundBuffer_Vtbl {
         unsafe extern "system" fn GetPan<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plpan: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPan() {
+            match IDirectSoundBuffer_Impl::GetPan(this) {
                 Ok(ok__) => {
                     core::ptr::write(plpan, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -500,7 +500,7 @@ impl IDirectSoundBuffer_Vtbl {
         unsafe extern "system" fn GetFrequency<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwfrequency: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFrequency() {
+            match IDirectSoundBuffer_Impl::GetFrequency(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdwfrequency, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -511,7 +511,7 @@ impl IDirectSoundBuffer_Vtbl {
         unsafe extern "system" fn GetStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstatus: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStatus() {
+            match IDirectSoundBuffer_Impl::GetStatus(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdwstatus, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -522,57 +522,57 @@ impl IDirectSoundBuffer_Vtbl {
         unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdirectsound: *mut core::ffi::c_void, pcdsbufferdesc: *const DSBUFFERDESC) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(windows_core::from_raw_borrowed(&pdirectsound), core::mem::transmute_copy(&pcdsbufferdesc)).into()
+            IDirectSoundBuffer_Impl::Initialize(this, windows_core::from_raw_borrowed(&pdirectsound), core::mem::transmute_copy(&pcdsbufferdesc)).into()
         }
         unsafe extern "system" fn Lock<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut core::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: *mut *mut core::ffi::c_void, pdwaudiobytes2: *mut u32, dwflags: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Lock(core::mem::transmute_copy(&dwoffset), core::mem::transmute_copy(&dwbytes), core::mem::transmute_copy(&ppvaudioptr1), core::mem::transmute_copy(&pdwaudiobytes1), core::mem::transmute_copy(&ppvaudioptr2), core::mem::transmute_copy(&pdwaudiobytes2), core::mem::transmute_copy(&dwflags)).into()
+            IDirectSoundBuffer_Impl::Lock(this, core::mem::transmute_copy(&dwoffset), core::mem::transmute_copy(&dwbytes), core::mem::transmute_copy(&ppvaudioptr1), core::mem::transmute_copy(&pdwaudiobytes1), core::mem::transmute_copy(&ppvaudioptr2), core::mem::transmute_copy(&pdwaudiobytes2), core::mem::transmute_copy(&dwflags)).into()
         }
         unsafe extern "system" fn Play<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwreserved1: u32, dwpriority: u32, dwflags: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Play(core::mem::transmute_copy(&dwreserved1), core::mem::transmute_copy(&dwpriority), core::mem::transmute_copy(&dwflags)).into()
+            IDirectSoundBuffer_Impl::Play(this, core::mem::transmute_copy(&dwreserved1), core::mem::transmute_copy(&dwpriority), core::mem::transmute_copy(&dwflags)).into()
         }
         unsafe extern "system" fn SetCurrentPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwnewposition: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCurrentPosition(core::mem::transmute_copy(&dwnewposition)).into()
+            IDirectSoundBuffer_Impl::SetCurrentPosition(this, core::mem::transmute_copy(&dwnewposition)).into()
         }
         unsafe extern "system" fn SetFormat<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcfxformat: *const super::WAVEFORMATEX) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFormat(core::mem::transmute_copy(&pcfxformat)).into()
+            IDirectSoundBuffer_Impl::SetFormat(this, core::mem::transmute_copy(&pcfxformat)).into()
         }
         unsafe extern "system" fn SetVolume<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lvolume: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetVolume(core::mem::transmute_copy(&lvolume)).into()
+            IDirectSoundBuffer_Impl::SetVolume(this, core::mem::transmute_copy(&lvolume)).into()
         }
         unsafe extern "system" fn SetPan<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpan: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPan(core::mem::transmute_copy(&lpan)).into()
+            IDirectSoundBuffer_Impl::SetPan(this, core::mem::transmute_copy(&lpan)).into()
         }
         unsafe extern "system" fn SetFrequency<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwfrequency: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFrequency(core::mem::transmute_copy(&dwfrequency)).into()
+            IDirectSoundBuffer_Impl::SetFrequency(this, core::mem::transmute_copy(&dwfrequency)).into()
         }
         unsafe extern "system" fn Stop<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Stop().into()
+            IDirectSoundBuffer_Impl::Stop(this).into()
         }
         unsafe extern "system" fn Unlock<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvaudioptr1: *const core::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const core::ffi::c_void, dwaudiobytes2: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Unlock(core::mem::transmute_copy(&pvaudioptr1), core::mem::transmute_copy(&dwaudiobytes1), core::mem::transmute_copy(&pvaudioptr2), core::mem::transmute_copy(&dwaudiobytes2)).into()
+            IDirectSoundBuffer_Impl::Unlock(this, core::mem::transmute_copy(&pvaudioptr1), core::mem::transmute_copy(&dwaudiobytes1), core::mem::transmute_copy(&pvaudioptr2), core::mem::transmute_copy(&dwaudiobytes2)).into()
         }
         unsafe extern "system" fn Restore<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Restore().into()
+            IDirectSoundBuffer_Impl::Restore(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -611,17 +611,17 @@ impl IDirectSoundBuffer8_Vtbl {
         unsafe extern "system" fn SetFX<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundBuffer8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dweffectscount: u32, pdsfxdesc: *const DSEFFECTDESC, pdwresultcodes: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFX(core::mem::transmute_copy(&dweffectscount), core::mem::transmute_copy(&pdsfxdesc), core::mem::transmute_copy(&pdwresultcodes)).into()
+            IDirectSoundBuffer8_Impl::SetFX(this, core::mem::transmute_copy(&dweffectscount), core::mem::transmute_copy(&pdsfxdesc), core::mem::transmute_copy(&pdwresultcodes)).into()
         }
         unsafe extern "system" fn AcquireResources<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundBuffer8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, dweffectscount: u32, pdwresultcodes: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AcquireResources(core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&dweffectscount), core::mem::transmute_copy(&pdwresultcodes)).into()
+            IDirectSoundBuffer8_Impl::AcquireResources(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&dweffectscount), core::mem::transmute_copy(&pdwresultcodes)).into()
         }
         unsafe extern "system" fn GetObjectInPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundBuffer8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rguidobject: *const windows_core::GUID, dwindex: u32, rguidinterface: *const windows_core::GUID, ppobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetObjectInPath(core::mem::transmute_copy(&rguidobject), core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&rguidinterface), core::mem::transmute_copy(&ppobject)).into()
+            IDirectSoundBuffer8_Impl::GetObjectInPath(this, core::mem::transmute_copy(&rguidobject), core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&rguidinterface), core::mem::transmute_copy(&ppobject)).into()
         }
         Self {
             base__: IDirectSoundBuffer_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -645,12 +645,12 @@ impl IDirectSoundCapture_Vtbl {
         unsafe extern "system" fn CreateCaptureBuffer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundCapture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcdscbufferdesc: *const DSCBUFFERDESC, ppdscbuffer: *mut *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateCaptureBuffer(core::mem::transmute_copy(&pcdscbufferdesc), core::mem::transmute_copy(&ppdscbuffer), windows_core::from_raw_borrowed(&punkouter)).into()
+            IDirectSoundCapture_Impl::CreateCaptureBuffer(this, core::mem::transmute_copy(&pcdscbufferdesc), core::mem::transmute_copy(&ppdscbuffer), windows_core::from_raw_borrowed(&punkouter)).into()
         }
         unsafe extern "system" fn GetCaps<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundCapture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdsccaps: *mut DSCCAPS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCaps() {
+            match IDirectSoundCapture_Impl::GetCaps(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdsccaps, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -661,7 +661,7 @@ impl IDirectSoundCapture_Vtbl {
         unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundCapture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcguiddevice: *const windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(core::mem::transmute_copy(&pcguiddevice)).into()
+            IDirectSoundCapture_Impl::Initialize(this, core::mem::transmute_copy(&pcguiddevice)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -691,7 +691,7 @@ impl IDirectSoundCaptureBuffer_Vtbl {
         unsafe extern "system" fn GetCaps<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundCaptureBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdscbcaps: *mut DSCBCAPS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCaps() {
+            match IDirectSoundCaptureBuffer_Impl::GetCaps(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdscbcaps, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -702,17 +702,17 @@ impl IDirectSoundCaptureBuffer_Vtbl {
         unsafe extern "system" fn GetCurrentPosition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundCaptureBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcaptureposition: *mut u32, pdwreadposition: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetCurrentPosition(core::mem::transmute_copy(&pdwcaptureposition), core::mem::transmute_copy(&pdwreadposition)).into()
+            IDirectSoundCaptureBuffer_Impl::GetCurrentPosition(this, core::mem::transmute_copy(&pdwcaptureposition), core::mem::transmute_copy(&pdwreadposition)).into()
         }
         unsafe extern "system" fn GetFormat<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundCaptureBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwfxformat: *mut super::WAVEFORMATEX, dwsizeallocated: u32, pdwsizewritten: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetFormat(core::mem::transmute_copy(&pwfxformat), core::mem::transmute_copy(&dwsizeallocated), core::mem::transmute_copy(&pdwsizewritten)).into()
+            IDirectSoundCaptureBuffer_Impl::GetFormat(this, core::mem::transmute_copy(&pwfxformat), core::mem::transmute_copy(&dwsizeallocated), core::mem::transmute_copy(&pdwsizewritten)).into()
         }
         unsafe extern "system" fn GetStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundCaptureBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstatus: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStatus() {
+            match IDirectSoundCaptureBuffer_Impl::GetStatus(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdwstatus, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -723,27 +723,27 @@ impl IDirectSoundCaptureBuffer_Vtbl {
         unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundCaptureBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdirectsoundcapture: *mut core::ffi::c_void, pcdscbufferdesc: *const DSCBUFFERDESC) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(windows_core::from_raw_borrowed(&pdirectsoundcapture), core::mem::transmute_copy(&pcdscbufferdesc)).into()
+            IDirectSoundCaptureBuffer_Impl::Initialize(this, windows_core::from_raw_borrowed(&pdirectsoundcapture), core::mem::transmute_copy(&pcdscbufferdesc)).into()
         }
         unsafe extern "system" fn Lock<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundCaptureBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut core::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: *mut *mut core::ffi::c_void, pdwaudiobytes2: *mut u32, dwflags: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Lock(core::mem::transmute_copy(&dwoffset), core::mem::transmute_copy(&dwbytes), core::mem::transmute_copy(&ppvaudioptr1), core::mem::transmute_copy(&pdwaudiobytes1), core::mem::transmute_copy(&ppvaudioptr2), core::mem::transmute_copy(&pdwaudiobytes2), core::mem::transmute_copy(&dwflags)).into()
+            IDirectSoundCaptureBuffer_Impl::Lock(this, core::mem::transmute_copy(&dwoffset), core::mem::transmute_copy(&dwbytes), core::mem::transmute_copy(&ppvaudioptr1), core::mem::transmute_copy(&pdwaudiobytes1), core::mem::transmute_copy(&ppvaudioptr2), core::mem::transmute_copy(&pdwaudiobytes2), core::mem::transmute_copy(&dwflags)).into()
         }
         unsafe extern "system" fn Start<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundCaptureBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Start(core::mem::transmute_copy(&dwflags)).into()
+            IDirectSoundCaptureBuffer_Impl::Start(this, core::mem::transmute_copy(&dwflags)).into()
         }
         unsafe extern "system" fn Stop<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundCaptureBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Stop().into()
+            IDirectSoundCaptureBuffer_Impl::Stop(this).into()
         }
         unsafe extern "system" fn Unlock<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundCaptureBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvaudioptr1: *const core::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const core::ffi::c_void, dwaudiobytes2: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Unlock(core::mem::transmute_copy(&pvaudioptr1), core::mem::transmute_copy(&dwaudiobytes1), core::mem::transmute_copy(&pvaudioptr2), core::mem::transmute_copy(&dwaudiobytes2)).into()
+            IDirectSoundCaptureBuffer_Impl::Unlock(this, core::mem::transmute_copy(&pvaudioptr1), core::mem::transmute_copy(&dwaudiobytes1), core::mem::transmute_copy(&pvaudioptr2), core::mem::transmute_copy(&dwaudiobytes2)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -772,12 +772,12 @@ impl IDirectSoundCaptureBuffer8_Vtbl {
         unsafe extern "system" fn GetObjectInPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundCaptureBuffer8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rguidobject: *const windows_core::GUID, dwindex: u32, rguidinterface: *const windows_core::GUID, ppobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetObjectInPath(core::mem::transmute_copy(&rguidobject), core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&rguidinterface), core::mem::transmute_copy(&ppobject)).into()
+            IDirectSoundCaptureBuffer8_Impl::GetObjectInPath(this, core::mem::transmute_copy(&rguidobject), core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&rguidinterface), core::mem::transmute_copy(&ppobject)).into()
         }
         unsafe extern "system" fn GetFXStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundCaptureBuffer8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dweffectscount: u32, pdwfxstatus: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetFXStatus(core::mem::transmute_copy(&dweffectscount), core::mem::transmute_copy(&pdwfxstatus)).into()
+            IDirectSoundCaptureBuffer8_Impl::GetFXStatus(this, core::mem::transmute_copy(&dweffectscount), core::mem::transmute_copy(&pdwfxstatus)).into()
         }
         Self {
             base__: IDirectSoundCaptureBuffer_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -801,12 +801,12 @@ impl IDirectSoundCaptureFXAec_Vtbl {
         unsafe extern "system" fn SetAllParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundCaptureFXAec_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdscfxaec: *const DSCFXAec) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAllParameters(core::mem::transmute_copy(&pdscfxaec)).into()
+            IDirectSoundCaptureFXAec_Impl::SetAllParameters(this, core::mem::transmute_copy(&pdscfxaec)).into()
         }
         unsafe extern "system" fn GetAllParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundCaptureFXAec_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdscfxaec: *mut DSCFXAec) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAllParameters() {
+            match IDirectSoundCaptureFXAec_Impl::GetAllParameters(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdscfxaec, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -817,7 +817,7 @@ impl IDirectSoundCaptureFXAec_Vtbl {
         unsafe extern "system" fn GetStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundCaptureFXAec_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstatus: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStatus() {
+            match IDirectSoundCaptureFXAec_Impl::GetStatus(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdwstatus, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -828,7 +828,7 @@ impl IDirectSoundCaptureFXAec_Vtbl {
         unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundCaptureFXAec_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Reset().into()
+            IDirectSoundCaptureFXAec_Impl::Reset(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -853,12 +853,12 @@ impl IDirectSoundCaptureFXNoiseSuppress_Vtbl {
         unsafe extern "system" fn SetAllParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundCaptureFXNoiseSuppress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcdscfxnoisesuppress: *const DSCFXNoiseSuppress) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAllParameters(core::mem::transmute_copy(&pcdscfxnoisesuppress)).into()
+            IDirectSoundCaptureFXNoiseSuppress_Impl::SetAllParameters(this, core::mem::transmute_copy(&pcdscfxnoisesuppress)).into()
         }
         unsafe extern "system" fn GetAllParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundCaptureFXNoiseSuppress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdscfxnoisesuppress: *mut DSCFXNoiseSuppress) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAllParameters() {
+            match IDirectSoundCaptureFXNoiseSuppress_Impl::GetAllParameters(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdscfxnoisesuppress, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -869,7 +869,7 @@ impl IDirectSoundCaptureFXNoiseSuppress_Vtbl {
         unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundCaptureFXNoiseSuppress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Reset().into()
+            IDirectSoundCaptureFXNoiseSuppress_Impl::Reset(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -892,12 +892,12 @@ impl IDirectSoundFXChorus_Vtbl {
         unsafe extern "system" fn SetAllParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundFXChorus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcdsfxchorus: *const DSFXChorus) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAllParameters(core::mem::transmute_copy(&pcdsfxchorus)).into()
+            IDirectSoundFXChorus_Impl::SetAllParameters(this, core::mem::transmute_copy(&pcdsfxchorus)).into()
         }
         unsafe extern "system" fn GetAllParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundFXChorus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdsfxchorus: *mut DSFXChorus) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetAllParameters(core::mem::transmute_copy(&pdsfxchorus)).into()
+            IDirectSoundFXChorus_Impl::GetAllParameters(this, core::mem::transmute_copy(&pdsfxchorus)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -919,12 +919,12 @@ impl IDirectSoundFXCompressor_Vtbl {
         unsafe extern "system" fn SetAllParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundFXCompressor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcdsfxcompressor: *const DSFXCompressor) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAllParameters(core::mem::transmute_copy(&pcdsfxcompressor)).into()
+            IDirectSoundFXCompressor_Impl::SetAllParameters(this, core::mem::transmute_copy(&pcdsfxcompressor)).into()
         }
         unsafe extern "system" fn GetAllParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundFXCompressor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdsfxcompressor: *mut DSFXCompressor) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetAllParameters(core::mem::transmute_copy(&pdsfxcompressor)).into()
+            IDirectSoundFXCompressor_Impl::GetAllParameters(this, core::mem::transmute_copy(&pdsfxcompressor)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -946,12 +946,12 @@ impl IDirectSoundFXDistortion_Vtbl {
         unsafe extern "system" fn SetAllParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundFXDistortion_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcdsfxdistortion: *const DSFXDistortion) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAllParameters(core::mem::transmute_copy(&pcdsfxdistortion)).into()
+            IDirectSoundFXDistortion_Impl::SetAllParameters(this, core::mem::transmute_copy(&pcdsfxdistortion)).into()
         }
         unsafe extern "system" fn GetAllParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundFXDistortion_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdsfxdistortion: *mut DSFXDistortion) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetAllParameters(core::mem::transmute_copy(&pdsfxdistortion)).into()
+            IDirectSoundFXDistortion_Impl::GetAllParameters(this, core::mem::transmute_copy(&pdsfxdistortion)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -973,12 +973,12 @@ impl IDirectSoundFXEcho_Vtbl {
         unsafe extern "system" fn SetAllParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundFXEcho_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcdsfxecho: *const DSFXEcho) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAllParameters(core::mem::transmute_copy(&pcdsfxecho)).into()
+            IDirectSoundFXEcho_Impl::SetAllParameters(this, core::mem::transmute_copy(&pcdsfxecho)).into()
         }
         unsafe extern "system" fn GetAllParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundFXEcho_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdsfxecho: *mut DSFXEcho) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetAllParameters(core::mem::transmute_copy(&pdsfxecho)).into()
+            IDirectSoundFXEcho_Impl::GetAllParameters(this, core::mem::transmute_copy(&pdsfxecho)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1000,12 +1000,12 @@ impl IDirectSoundFXFlanger_Vtbl {
         unsafe extern "system" fn SetAllParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundFXFlanger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcdsfxflanger: *const DSFXFlanger) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAllParameters(core::mem::transmute_copy(&pcdsfxflanger)).into()
+            IDirectSoundFXFlanger_Impl::SetAllParameters(this, core::mem::transmute_copy(&pcdsfxflanger)).into()
         }
         unsafe extern "system" fn GetAllParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundFXFlanger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdsfxflanger: *mut DSFXFlanger) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetAllParameters(core::mem::transmute_copy(&pdsfxflanger)).into()
+            IDirectSoundFXFlanger_Impl::GetAllParameters(this, core::mem::transmute_copy(&pdsfxflanger)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1027,12 +1027,12 @@ impl IDirectSoundFXGargle_Vtbl {
         unsafe extern "system" fn SetAllParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundFXGargle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcdsfxgargle: *const DSFXGargle) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAllParameters(core::mem::transmute_copy(&pcdsfxgargle)).into()
+            IDirectSoundFXGargle_Impl::SetAllParameters(this, core::mem::transmute_copy(&pcdsfxgargle)).into()
         }
         unsafe extern "system" fn GetAllParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundFXGargle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdsfxgargle: *mut DSFXGargle) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAllParameters() {
+            match IDirectSoundFXGargle_Impl::GetAllParameters(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdsfxgargle, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1064,22 +1064,22 @@ impl IDirectSoundFXI3DL2Reverb_Vtbl {
         unsafe extern "system" fn SetAllParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundFXI3DL2Reverb_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcdsfxi3dl2reverb: *const DSFXI3DL2Reverb) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAllParameters(core::mem::transmute_copy(&pcdsfxi3dl2reverb)).into()
+            IDirectSoundFXI3DL2Reverb_Impl::SetAllParameters(this, core::mem::transmute_copy(&pcdsfxi3dl2reverb)).into()
         }
         unsafe extern "system" fn GetAllParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundFXI3DL2Reverb_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdsfxi3dl2reverb: *mut DSFXI3DL2Reverb) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetAllParameters(core::mem::transmute_copy(&pdsfxi3dl2reverb)).into()
+            IDirectSoundFXI3DL2Reverb_Impl::GetAllParameters(this, core::mem::transmute_copy(&pdsfxi3dl2reverb)).into()
         }
         unsafe extern "system" fn SetPreset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundFXI3DL2Reverb_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwpreset: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPreset(core::mem::transmute_copy(&dwpreset)).into()
+            IDirectSoundFXI3DL2Reverb_Impl::SetPreset(this, core::mem::transmute_copy(&dwpreset)).into()
         }
         unsafe extern "system" fn GetPreset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundFXI3DL2Reverb_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwpreset: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPreset() {
+            match IDirectSoundFXI3DL2Reverb_Impl::GetPreset(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdwpreset, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1090,12 +1090,12 @@ impl IDirectSoundFXI3DL2Reverb_Vtbl {
         unsafe extern "system" fn SetQuality<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundFXI3DL2Reverb_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lquality: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetQuality(core::mem::transmute_copy(&lquality)).into()
+            IDirectSoundFXI3DL2Reverb_Impl::SetQuality(this, core::mem::transmute_copy(&lquality)).into()
         }
         unsafe extern "system" fn GetQuality<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundFXI3DL2Reverb_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plquality: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetQuality() {
+            match IDirectSoundFXI3DL2Reverb_Impl::GetQuality(this) {
                 Ok(ok__) => {
                     core::ptr::write(plquality, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1127,12 +1127,12 @@ impl IDirectSoundFXParamEq_Vtbl {
         unsafe extern "system" fn SetAllParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundFXParamEq_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcdsfxparameq: *const DSFXParamEq) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAllParameters(core::mem::transmute_copy(&pcdsfxparameq)).into()
+            IDirectSoundFXParamEq_Impl::SetAllParameters(this, core::mem::transmute_copy(&pcdsfxparameq)).into()
         }
         unsafe extern "system" fn GetAllParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundFXParamEq_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdsfxparameq: *mut DSFXParamEq) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAllParameters() {
+            match IDirectSoundFXParamEq_Impl::GetAllParameters(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdsfxparameq, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1160,12 +1160,12 @@ impl IDirectSoundFXWavesReverb_Vtbl {
         unsafe extern "system" fn SetAllParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundFXWavesReverb_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcdsfxwavesreverb: *const DSFXWavesReverb) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAllParameters(core::mem::transmute_copy(&pcdsfxwavesreverb)).into()
+            IDirectSoundFXWavesReverb_Impl::SetAllParameters(this, core::mem::transmute_copy(&pcdsfxwavesreverb)).into()
         }
         unsafe extern "system" fn GetAllParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundFXWavesReverb_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdsfxwavesreverb: *mut DSFXWavesReverb) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAllParameters() {
+            match IDirectSoundFXWavesReverb_Impl::GetAllParameters(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdsfxwavesreverb, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1192,7 +1192,7 @@ impl IDirectSoundFullDuplex_Vtbl {
         unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundFullDuplex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcaptureguid: *const windows_core::GUID, prenderguid: *const windows_core::GUID, lpdscbufferdesc: *const DSCBUFFERDESC, lpdsbufferdesc: *const DSBUFFERDESC, hwnd: super::super::super::Foundation::HWND, dwlevel: u32, lplpdirectsoundcapturebuffer8: *mut *mut core::ffi::c_void, lplpdirectsoundbuffer8: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(core::mem::transmute_copy(&pcaptureguid), core::mem::transmute_copy(&prenderguid), core::mem::transmute_copy(&lpdscbufferdesc), core::mem::transmute_copy(&lpdsbufferdesc), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&dwlevel), core::mem::transmute_copy(&lplpdirectsoundcapturebuffer8), core::mem::transmute_copy(&lplpdirectsoundbuffer8)).into()
+            IDirectSoundFullDuplex_Impl::Initialize(this, core::mem::transmute_copy(&pcaptureguid), core::mem::transmute_copy(&prenderguid), core::mem::transmute_copy(&lpdscbufferdesc), core::mem::transmute_copy(&lpdsbufferdesc), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&dwlevel), core::mem::transmute_copy(&lplpdirectsoundcapturebuffer8), core::mem::transmute_copy(&lplpdirectsoundbuffer8)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
@@ -1209,7 +1209,7 @@ impl IDirectSoundNotify_Vtbl {
         unsafe extern "system" fn SetNotificationPositions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectSoundNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwpositionnotifies: u32, pcpositionnotifies: *const DSBPOSITIONNOTIFY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetNotificationPositions(core::mem::transmute_copy(&dwpositionnotifies), core::mem::transmute_copy(&pcpositionnotifies)).into()
+            IDirectSoundNotify_Impl::SetNotificationPositions(this, core::mem::transmute_copy(&dwpositionnotifies), core::mem::transmute_copy(&pcpositionnotifies)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetNotificationPositions: SetNotificationPositions::<Identity, Impl, OFFSET> }
     }

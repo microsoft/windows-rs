@@ -1004,8 +1004,8 @@ impl<F: FnMut(Option<&CredentialCommand>) -> windows_core::Result<()> + Send + '
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, command: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&command)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&command)).into()
     }
 }
 impl windows_core::RuntimeType for CredentialCommandCredentialDeletedHandler {
@@ -1065,8 +1065,8 @@ impl<F: FnMut(Option<&WebAccountCommand>, Option<&WebAccountInvokedArgs>) -> win
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, command: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&command), windows_core::from_raw_borrowed(&args)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&command), windows_core::from_raw_borrowed(&args)).into()
     }
 }
 impl windows_core::RuntimeType for WebAccountCommandInvokedHandler {
@@ -1125,8 +1125,8 @@ impl<F: FnMut(Option<&WebAccountProviderCommand>) -> windows_core::Result<()> + 
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, command: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&command)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&command)).into()
     }
 }
 impl windows_core::RuntimeType for WebAccountProviderCommandInvokedHandler {

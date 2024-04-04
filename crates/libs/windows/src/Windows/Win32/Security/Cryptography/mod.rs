@@ -2845,6 +2845,13 @@ where
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ICertSrvSetup, ICertSrvSetup_Vtbl, 0xb760a1bb_4784_44c0_8f12_555f0780ff25);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ICertSrvSetup {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ICertSrvSetup, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertSrvSetup {
@@ -2995,6 +3002,13 @@ pub struct ICertSrvSetup_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ICertSrvSetupKeyInformation, ICertSrvSetupKeyInformation_Vtbl, 0x6ba73778_36da_4c39_8a85_bcfa7d000793);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ICertSrvSetupKeyInformation {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ICertSrvSetupKeyInformation, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertSrvSetupKeyInformation {
@@ -3076,6 +3090,13 @@ pub struct ICertSrvSetupKeyInformation_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ICertSrvSetupKeyInformationCollection, ICertSrvSetupKeyInformationCollection_Vtbl, 0xe65c8b00_e58f_41f9_a9ec_a28d7427c844);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ICertSrvSetupKeyInformationCollection {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ICertSrvSetupKeyInformationCollection, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertSrvSetupKeyInformationCollection {
@@ -3114,6 +3135,13 @@ pub struct ICertSrvSetupKeyInformationCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ICertificateEnrollmentPolicyServerSetup, ICertificateEnrollmentPolicyServerSetup_Vtbl, 0x859252cc_238c_4a88_b8fd_a37e7d04e68b);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ICertificateEnrollmentPolicyServerSetup {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ICertificateEnrollmentPolicyServerSetup, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertificateEnrollmentPolicyServerSetup {
@@ -3151,6 +3179,13 @@ pub struct ICertificateEnrollmentPolicyServerSetup_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ICertificateEnrollmentServerSetup, ICertificateEnrollmentServerSetup_Vtbl, 0x70027fdb_9dd9_4921_8944_b35cb31bd2ec);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ICertificateEnrollmentServerSetup {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ICertificateEnrollmentServerSetup, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3197,6 +3232,13 @@ pub struct ICertificateEnrollmentServerSetup_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSCEPSetup, IMSCEPSetup_Vtbl, 0x4f7761bb_9f3b_4592_9ee0_9a73259c313e);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSCEPSetup {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSCEPSetup, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]

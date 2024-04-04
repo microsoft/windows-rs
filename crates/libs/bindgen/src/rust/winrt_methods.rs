@@ -173,16 +173,21 @@ fn gen_winrt_abi_args(writer: &Writer, params: &[metadata::SignatureParam]) -> T
     tokens
 }
 
-pub fn gen_upcall(writer: &Writer, sig: &metadata::Signature, inner: TokenStream) -> TokenStream {
+pub fn gen_upcall(writer: &Writer, sig: &metadata::Signature, inner: TokenStream, this: bool) -> TokenStream {
     let invoke_args = sig.params.iter().map(|param| gen_winrt_invoke_arg(writer, param));
+    let this = if this {
+        quote! { this, }
+    } else {
+        quote! {}
+    };
 
     match &sig.return_type {
         metadata::Type::Void => quote! {
-            #inner(#(#invoke_args,)*).into()
+            #inner(#this #(#invoke_args,)*).into()
         },
         _ if sig.return_type.is_winrt_array() => {
             quote! {
-                match #inner(#(#invoke_args,)*) {
+                match #inner(#this #(#invoke_args,)*) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
                         // use `core::ptr::write` since `result` could be uninitialized
@@ -202,7 +207,7 @@ pub fn gen_upcall(writer: &Writer, sig: &metadata::Signature, inner: TokenStream
             };
 
             quote! {
-                match #inner(#(#invoke_args,)*) {
+                match #inner(#this #(#invoke_args,)*) {
                     Ok(ok__) => {
                         // use `core::ptr::write` since `result` could be uninitialized
                         core::ptr::write(result__, core::mem::transmute_copy(&ok__));

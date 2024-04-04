@@ -11,7 +11,7 @@ impl IDisplayDeviceInterop_Vtbl {
         unsafe extern "system" fn CreateSharedHandle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDisplayDeviceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobject: *mut core::ffi::c_void, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: std::mem::MaybeUninit<windows_core::HSTRING>, phandle: *mut super::super::super::Foundation::HANDLE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateSharedHandle(windows_core::from_raw_borrowed(&pobject), core::mem::transmute_copy(&psecurityattributes), core::mem::transmute_copy(&access), core::mem::transmute(&name)) {
+            match IDisplayDeviceInterop_Impl::CreateSharedHandle(this, windows_core::from_raw_borrowed(&pobject), core::mem::transmute_copy(&psecurityattributes), core::mem::transmute_copy(&access), core::mem::transmute(&name)) {
                 Ok(ok__) => {
                     core::ptr::write(phandle, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -22,7 +22,7 @@ impl IDisplayDeviceInterop_Vtbl {
         unsafe extern "system" fn OpenSharedHandle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDisplayDeviceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nthandle: super::super::super::Foundation::HANDLE, riid: windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OpenSharedHandle(core::mem::transmute_copy(&nthandle), core::mem::transmute(&riid)) {
+            match IDisplayDeviceInterop_Impl::OpenSharedHandle(this, core::mem::transmute_copy(&nthandle), core::mem::transmute(&riid)) {
                 Ok(ok__) => {
                     core::ptr::write(ppvobj, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -50,7 +50,7 @@ impl IDisplayPathInterop_Vtbl {
         unsafe extern "system" fn CreateSourcePresentationHandle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDisplayPathInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::super::super::Foundation::HANDLE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateSourcePresentationHandle() {
+            match IDisplayPathInterop_Impl::CreateSourcePresentationHandle(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -61,7 +61,7 @@ impl IDisplayPathInterop_Vtbl {
         unsafe extern "system" fn GetSourceId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDisplayPathInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psourceid: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSourceId() {
+            match IDisplayPathInterop_Impl::GetSourceId(this) {
                 Ok(ok__) => {
                     core::ptr::write(psourceid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

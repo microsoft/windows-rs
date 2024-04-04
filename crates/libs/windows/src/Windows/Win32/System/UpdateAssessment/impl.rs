@@ -7,7 +7,7 @@ impl IWaaSAssessor_Vtbl {
         unsafe extern "system" fn GetOSUpdateAssessment<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWaaSAssessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result: *mut OSUpdateAssessment) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetOSUpdateAssessment() {
+            match IWaaSAssessor_Impl::GetOSUpdateAssessment(this) {
                 Ok(ok__) => {
                     core::ptr::write(result, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

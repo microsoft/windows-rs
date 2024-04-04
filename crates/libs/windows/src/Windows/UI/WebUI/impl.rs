@@ -9,7 +9,7 @@ impl IActivatedEventArgsDeferral_Vtbl {
         unsafe extern "system" fn ActivatedOperation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IActivatedEventArgsDeferral_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ActivatedOperation() {
+            match IActivatedEventArgsDeferral_Impl::ActivatedOperation(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -39,7 +39,7 @@ impl IWebUIBackgroundTaskInstance_Vtbl {
         unsafe extern "system" fn Succeeded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebUIBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Succeeded() {
+            match IWebUIBackgroundTaskInstance_Impl::Succeeded(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -50,7 +50,7 @@ impl IWebUIBackgroundTaskInstance_Vtbl {
         unsafe extern "system" fn SetSucceeded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebUIBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, succeeded: bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSucceeded(succeeded).into()
+            IWebUIBackgroundTaskInstance_Impl::SetSucceeded(this, succeeded).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebUIBackgroundTaskInstance, OFFSET>(),
@@ -73,7 +73,7 @@ impl IWebUINavigatedEventArgs_Vtbl {
         unsafe extern "system" fn NavigatedOperation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebUINavigatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.NavigatedOperation() {
+            match IWebUINavigatedEventArgs_Impl::NavigatedOperation(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);

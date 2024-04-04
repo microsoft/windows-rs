@@ -10,7 +10,7 @@ impl ILampArrayEffect_Vtbl {
         unsafe extern "system" fn ZIndex<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILampArrayEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ZIndex() {
+            match ILampArrayEffect_Impl::ZIndex(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -21,7 +21,7 @@ impl ILampArrayEffect_Vtbl {
         unsafe extern "system" fn SetZIndex<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILampArrayEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetZIndex(value).into()
+            ILampArrayEffect_Impl::SetZIndex(this, value).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, ILampArrayEffect, OFFSET>(),

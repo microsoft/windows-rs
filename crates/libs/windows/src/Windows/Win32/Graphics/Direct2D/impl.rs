@@ -7,7 +7,7 @@ impl ID2D1AnalysisTransform_Vtbl {
         unsafe extern "system" fn ProcessAnalysisResults<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1AnalysisTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, analysisdata: *const u8, analysisdatacount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ProcessAnalysisResults(core::mem::transmute_copy(&analysisdata), core::mem::transmute_copy(&analysisdatacount)).into()
+            ID2D1AnalysisTransform_Impl::ProcessAnalysisResults(this, core::mem::transmute_copy(&analysisdata), core::mem::transmute_copy(&analysisdatacount)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ProcessAnalysisResults: ProcessAnalysisResults::<Identity, Impl, OFFSET> }
     }
@@ -33,37 +33,37 @@ impl ID2D1Bitmap_Vtbl {
         unsafe extern "system" fn GetSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Bitmap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut Common::D2D_SIZE_F) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            *result__ = this.GetSize()
+            *result__ = ID2D1Bitmap_Impl::GetSize(this)
         }
         unsafe extern "system" fn GetPixelSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Bitmap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut Common::D2D_SIZE_U) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            *result__ = this.GetPixelSize()
+            *result__ = ID2D1Bitmap_Impl::GetPixelSize(this)
         }
         unsafe extern "system" fn GetPixelFormat<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Bitmap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut Common::D2D1_PIXEL_FORMAT) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            *result__ = this.GetPixelFormat()
+            *result__ = ID2D1Bitmap_Impl::GetPixelFormat(this)
         }
         unsafe extern "system" fn GetDpi<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Bitmap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dpix: *mut f32, dpiy: *mut f32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDpi(core::mem::transmute_copy(&dpix), core::mem::transmute_copy(&dpiy))
+            ID2D1Bitmap_Impl::GetDpi(this, core::mem::transmute_copy(&dpix), core::mem::transmute_copy(&dpiy))
         }
         unsafe extern "system" fn CopyFromBitmap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Bitmap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destpoint: *const Common::D2D_POINT_2U, bitmap: *mut core::ffi::c_void, srcrect: *const Common::D2D_RECT_U) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CopyFromBitmap(core::mem::transmute_copy(&destpoint), windows_core::from_raw_borrowed(&bitmap), core::mem::transmute_copy(&srcrect)).into()
+            ID2D1Bitmap_Impl::CopyFromBitmap(this, core::mem::transmute_copy(&destpoint), windows_core::from_raw_borrowed(&bitmap), core::mem::transmute_copy(&srcrect)).into()
         }
         unsafe extern "system" fn CopyFromRenderTarget<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Bitmap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destpoint: *const Common::D2D_POINT_2U, rendertarget: *mut core::ffi::c_void, srcrect: *const Common::D2D_RECT_U) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CopyFromRenderTarget(core::mem::transmute_copy(&destpoint), windows_core::from_raw_borrowed(&rendertarget), core::mem::transmute_copy(&srcrect)).into()
+            ID2D1Bitmap_Impl::CopyFromRenderTarget(this, core::mem::transmute_copy(&destpoint), windows_core::from_raw_borrowed(&rendertarget), core::mem::transmute_copy(&srcrect)).into()
         }
         unsafe extern "system" fn CopyFromMemory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Bitmap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dstrect: *const Common::D2D_RECT_U, srcdata: *const core::ffi::c_void, pitch: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CopyFromMemory(core::mem::transmute_copy(&dstrect), core::mem::transmute_copy(&srcdata), core::mem::transmute_copy(&pitch)).into()
+            ID2D1Bitmap_Impl::CopyFromMemory(this, core::mem::transmute_copy(&dstrect), core::mem::transmute_copy(&srcdata), core::mem::transmute_copy(&pitch)).into()
         }
         Self {
             base__: ID2D1Image_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -96,17 +96,17 @@ impl ID2D1Bitmap1_Vtbl {
         unsafe extern "system" fn GetColorContext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Bitmap1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, colorcontext: *mut *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetColorContext(core::mem::transmute_copy(&colorcontext))
+            ID2D1Bitmap1_Impl::GetColorContext(this, core::mem::transmute_copy(&colorcontext))
         }
         unsafe extern "system" fn GetOptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Bitmap1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_BITMAP_OPTIONS {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetOptions()
+            ID2D1Bitmap1_Impl::GetOptions(this)
         }
         unsafe extern "system" fn GetSurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Bitmap1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxgisurface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSurface() {
+            match ID2D1Bitmap1_Impl::GetSurface(this) {
                 Ok(ok__) => {
                     core::ptr::write(dxgisurface, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -117,7 +117,7 @@ impl ID2D1Bitmap1_Vtbl {
         unsafe extern "system" fn Map<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Bitmap1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: D2D1_MAP_OPTIONS, mappedrect: *mut D2D1_MAPPED_RECT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Map(core::mem::transmute_copy(&options)) {
+            match ID2D1Bitmap1_Impl::Map(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(mappedrect, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -128,7 +128,7 @@ impl ID2D1Bitmap1_Vtbl {
         unsafe extern "system" fn Unmap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Bitmap1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Unmap().into()
+            ID2D1Bitmap1_Impl::Unmap(this).into()
         }
         Self {
             base__: ID2D1Bitmap_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -162,42 +162,42 @@ impl ID2D1BitmapBrush_Vtbl {
         unsafe extern "system" fn SetExtendModeX<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1BitmapBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, extendmodex: D2D1_EXTEND_MODE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetExtendModeX(core::mem::transmute_copy(&extendmodex))
+            ID2D1BitmapBrush_Impl::SetExtendModeX(this, core::mem::transmute_copy(&extendmodex))
         }
         unsafe extern "system" fn SetExtendModeY<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1BitmapBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, extendmodey: D2D1_EXTEND_MODE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetExtendModeY(core::mem::transmute_copy(&extendmodey))
+            ID2D1BitmapBrush_Impl::SetExtendModeY(this, core::mem::transmute_copy(&extendmodey))
         }
         unsafe extern "system" fn SetInterpolationMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1BitmapBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interpolationmode: D2D1_BITMAP_INTERPOLATION_MODE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetInterpolationMode(core::mem::transmute_copy(&interpolationmode))
+            ID2D1BitmapBrush_Impl::SetInterpolationMode(this, core::mem::transmute_copy(&interpolationmode))
         }
         unsafe extern "system" fn SetBitmap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1BitmapBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmap: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBitmap(windows_core::from_raw_borrowed(&bitmap))
+            ID2D1BitmapBrush_Impl::SetBitmap(this, windows_core::from_raw_borrowed(&bitmap))
         }
         unsafe extern "system" fn GetExtendModeX<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1BitmapBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_EXTEND_MODE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetExtendModeX()
+            ID2D1BitmapBrush_Impl::GetExtendModeX(this)
         }
         unsafe extern "system" fn GetExtendModeY<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1BitmapBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_EXTEND_MODE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetExtendModeY()
+            ID2D1BitmapBrush_Impl::GetExtendModeY(this)
         }
         unsafe extern "system" fn GetInterpolationMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1BitmapBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_BITMAP_INTERPOLATION_MODE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetInterpolationMode()
+            ID2D1BitmapBrush_Impl::GetInterpolationMode(this)
         }
         unsafe extern "system" fn GetBitmap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1BitmapBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmap: *mut *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetBitmap(core::mem::transmute_copy(&bitmap))
+            ID2D1BitmapBrush_Impl::GetBitmap(this, core::mem::transmute_copy(&bitmap))
         }
         Self {
             base__: ID2D1Brush_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -228,12 +228,12 @@ impl ID2D1BitmapBrush1_Vtbl {
         unsafe extern "system" fn SetInterpolationMode1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1BitmapBrush1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interpolationmode: D2D1_INTERPOLATION_MODE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetInterpolationMode1(core::mem::transmute_copy(&interpolationmode))
+            ID2D1BitmapBrush1_Impl::SetInterpolationMode1(this, core::mem::transmute_copy(&interpolationmode))
         }
         unsafe extern "system" fn GetInterpolationMode1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1BitmapBrush1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_INTERPOLATION_MODE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetInterpolationMode1()
+            ID2D1BitmapBrush1_Impl::GetInterpolationMode1(this)
         }
         Self {
             base__: ID2D1BitmapBrush_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -257,7 +257,7 @@ impl ID2D1BitmapRenderTarget_Vtbl {
         unsafe extern "system" fn GetBitmap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1BitmapRenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetBitmap() {
+            match ID2D1BitmapRenderTarget_Impl::GetBitmap(this) {
                 Ok(ok__) => {
                     core::ptr::write(bitmap, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -281,12 +281,12 @@ impl ID2D1BlendTransform_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1BlendTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: *const D2D1_BLEND_DESCRIPTION) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDescription(core::mem::transmute_copy(&description))
+            ID2D1BlendTransform_Impl::SetDescription(this, core::mem::transmute_copy(&description))
         }
         unsafe extern "system" fn GetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1BlendTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: *mut D2D1_BLEND_DESCRIPTION) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDescription(core::mem::transmute_copy(&description))
+            ID2D1BlendTransform_Impl::GetDescription(this, core::mem::transmute_copy(&description))
         }
         Self {
             base__: ID2D1ConcreteTransform_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -310,22 +310,22 @@ impl ID2D1BorderTransform_Vtbl {
         unsafe extern "system" fn SetExtendModeX<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1BorderTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, extendmode: D2D1_EXTEND_MODE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetExtendModeX(core::mem::transmute_copy(&extendmode))
+            ID2D1BorderTransform_Impl::SetExtendModeX(this, core::mem::transmute_copy(&extendmode))
         }
         unsafe extern "system" fn SetExtendModeY<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1BorderTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, extendmode: D2D1_EXTEND_MODE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetExtendModeY(core::mem::transmute_copy(&extendmode))
+            ID2D1BorderTransform_Impl::SetExtendModeY(this, core::mem::transmute_copy(&extendmode))
         }
         unsafe extern "system" fn GetExtendModeX<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1BorderTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_EXTEND_MODE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetExtendModeX()
+            ID2D1BorderTransform_Impl::GetExtendModeX(this)
         }
         unsafe extern "system" fn GetExtendModeY<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1BorderTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_EXTEND_MODE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetExtendModeY()
+            ID2D1BorderTransform_Impl::GetExtendModeY(this)
         }
         Self {
             base__: ID2D1ConcreteTransform_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -349,12 +349,12 @@ impl ID2D1BoundsAdjustmentTransform_Vtbl {
         unsafe extern "system" fn SetOutputBounds<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1BoundsAdjustmentTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputbounds: *const super::super::Foundation::RECT) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetOutputBounds(core::mem::transmute_copy(&outputbounds))
+            ID2D1BoundsAdjustmentTransform_Impl::SetOutputBounds(this, core::mem::transmute_copy(&outputbounds))
         }
         unsafe extern "system" fn GetOutputBounds<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1BoundsAdjustmentTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputbounds: *mut super::super::Foundation::RECT) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetOutputBounds(core::mem::transmute_copy(&outputbounds))
+            ID2D1BoundsAdjustmentTransform_Impl::GetOutputBounds(this, core::mem::transmute_copy(&outputbounds))
         }
         Self {
             base__: ID2D1TransformNode_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -381,22 +381,22 @@ impl ID2D1Brush_Vtbl {
         unsafe extern "system" fn SetOpacity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Brush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opacity: f32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetOpacity(core::mem::transmute_copy(&opacity))
+            ID2D1Brush_Impl::SetOpacity(this, core::mem::transmute_copy(&opacity))
         }
         unsafe extern "system" fn SetTransform<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Brush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTransform(core::mem::transmute_copy(&transform))
+            ID2D1Brush_Impl::SetTransform(this, core::mem::transmute_copy(&transform))
         }
         unsafe extern "system" fn GetOpacity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Brush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> f32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetOpacity()
+            ID2D1Brush_Impl::GetOpacity(this)
         }
         unsafe extern "system" fn GetTransform<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Brush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetTransform(core::mem::transmute_copy(&transform))
+            ID2D1Brush_Impl::GetTransform(this, core::mem::transmute_copy(&transform))
         }
         Self {
             base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -421,17 +421,17 @@ impl ID2D1ColorContext_Vtbl {
         unsafe extern "system" fn GetColorSpace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ColorContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_COLOR_SPACE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetColorSpace()
+            ID2D1ColorContext_Impl::GetColorSpace(this)
         }
         unsafe extern "system" fn GetProfileSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ColorContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetProfileSize()
+            ID2D1ColorContext_Impl::GetProfileSize(this)
         }
         unsafe extern "system" fn GetProfile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ColorContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profile: *mut u8, profilesize: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetProfile(core::mem::transmute_copy(&profile), core::mem::transmute_copy(&profilesize)).into()
+            ID2D1ColorContext_Impl::GetProfile(this, core::mem::transmute_copy(&profile), core::mem::transmute_copy(&profilesize)).into()
         }
         Self {
             base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -458,17 +458,17 @@ impl ID2D1ColorContext1_Vtbl {
         unsafe extern "system" fn GetColorContextType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ColorContext1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_COLOR_CONTEXT_TYPE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetColorContextType()
+            ID2D1ColorContext1_Impl::GetColorContextType(this)
         }
         unsafe extern "system" fn GetDXGIColorSpace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ColorContext1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDXGIColorSpace()
+            ID2D1ColorContext1_Impl::GetDXGIColorSpace(this)
         }
         unsafe extern "system" fn GetSimpleColorProfile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ColorContext1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, simpleprofile: *mut D2D1_SIMPLE_COLOR_PROFILE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSimpleColorProfile(core::mem::transmute_copy(&simpleprofile)).into()
+            ID2D1ColorContext1_Impl::GetSimpleColorProfile(this, core::mem::transmute_copy(&simpleprofile)).into()
         }
         Self {
             base__: ID2D1ColorContext_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -491,12 +491,12 @@ impl ID2D1CommandList_Vtbl {
         unsafe extern "system" fn Stream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Stream(windows_core::from_raw_borrowed(&sink)).into()
+            ID2D1CommandList_Impl::Stream(this, windows_core::from_raw_borrowed(&sink)).into()
         }
         unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Close().into()
+            ID2D1CommandList_Impl::Close(this).into()
         }
         Self { base__: ID2D1Image_Vtbl::new::<Identity, Impl, OFFSET>(), Stream: Stream::<Identity, Impl, OFFSET>, Close: Close::<Identity, Impl, OFFSET> }
     }
@@ -540,127 +540,127 @@ impl ID2D1CommandSink_Vtbl {
         unsafe extern "system" fn BeginDraw<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.BeginDraw().into()
+            ID2D1CommandSink_Impl::BeginDraw(this).into()
         }
         unsafe extern "system" fn EndDraw<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EndDraw().into()
+            ID2D1CommandSink_Impl::EndDraw(this).into()
         }
         unsafe extern "system" fn SetAntialiasMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, antialiasmode: D2D1_ANTIALIAS_MODE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAntialiasMode(core::mem::transmute_copy(&antialiasmode)).into()
+            ID2D1CommandSink_Impl::SetAntialiasMode(this, core::mem::transmute_copy(&antialiasmode)).into()
         }
         unsafe extern "system" fn SetTags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tag1: u64, tag2: u64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTags(core::mem::transmute_copy(&tag1), core::mem::transmute_copy(&tag2)).into()
+            ID2D1CommandSink_Impl::SetTags(this, core::mem::transmute_copy(&tag1), core::mem::transmute_copy(&tag2)).into()
         }
         unsafe extern "system" fn SetTextAntialiasMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textantialiasmode: D2D1_TEXT_ANTIALIAS_MODE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTextAntialiasMode(core::mem::transmute_copy(&textantialiasmode)).into()
+            ID2D1CommandSink_Impl::SetTextAntialiasMode(this, core::mem::transmute_copy(&textantialiasmode)).into()
         }
         unsafe extern "system" fn SetTextRenderingParams<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textrenderingparams: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTextRenderingParams(windows_core::from_raw_borrowed(&textrenderingparams)).into()
+            ID2D1CommandSink_Impl::SetTextRenderingParams(this, windows_core::from_raw_borrowed(&textrenderingparams)).into()
         }
         unsafe extern "system" fn SetTransform<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTransform(core::mem::transmute_copy(&transform)).into()
+            ID2D1CommandSink_Impl::SetTransform(this, core::mem::transmute_copy(&transform)).into()
         }
         unsafe extern "system" fn SetPrimitiveBlend<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, primitiveblend: D2D1_PRIMITIVE_BLEND) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPrimitiveBlend(core::mem::transmute_copy(&primitiveblend)).into()
+            ID2D1CommandSink_Impl::SetPrimitiveBlend(this, core::mem::transmute_copy(&primitiveblend)).into()
         }
         unsafe extern "system" fn SetUnitMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unitmode: D2D1_UNIT_MODE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetUnitMode(core::mem::transmute_copy(&unitmode)).into()
+            ID2D1CommandSink_Impl::SetUnitMode(this, core::mem::transmute_copy(&unitmode)).into()
         }
         unsafe extern "system" fn Clear<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: *const Common::D2D1_COLOR_F) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Clear(core::mem::transmute_copy(&color)).into()
+            ID2D1CommandSink_Impl::Clear(this, core::mem::transmute_copy(&color)).into()
         }
         unsafe extern "system" fn DrawGlyphRun<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: *mut core::ffi::c_void, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawGlyphRun(core::mem::transmute(&baselineorigin), core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&glyphrundescription), windows_core::from_raw_borrowed(&foregroundbrush), core::mem::transmute_copy(&measuringmode)).into()
+            ID2D1CommandSink_Impl::DrawGlyphRun(this, core::mem::transmute(&baselineorigin), core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&glyphrundescription), windows_core::from_raw_borrowed(&foregroundbrush), core::mem::transmute_copy(&measuringmode)).into()
         }
         unsafe extern "system" fn DrawLine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, point0: Common::D2D_POINT_2F, point1: Common::D2D_POINT_2F, brush: *mut core::ffi::c_void, strokewidth: f32, strokestyle: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawLine(core::mem::transmute(&point0), core::mem::transmute(&point1), windows_core::from_raw_borrowed(&brush), core::mem::transmute_copy(&strokewidth), windows_core::from_raw_borrowed(&strokestyle)).into()
+            ID2D1CommandSink_Impl::DrawLine(this, core::mem::transmute(&point0), core::mem::transmute(&point1), windows_core::from_raw_borrowed(&brush), core::mem::transmute_copy(&strokewidth), windows_core::from_raw_borrowed(&strokestyle)).into()
         }
         unsafe extern "system" fn DrawGeometry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, geometry: *mut core::ffi::c_void, brush: *mut core::ffi::c_void, strokewidth: f32, strokestyle: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawGeometry(windows_core::from_raw_borrowed(&geometry), windows_core::from_raw_borrowed(&brush), core::mem::transmute_copy(&strokewidth), windows_core::from_raw_borrowed(&strokestyle)).into()
+            ID2D1CommandSink_Impl::DrawGeometry(this, windows_core::from_raw_borrowed(&geometry), windows_core::from_raw_borrowed(&brush), core::mem::transmute_copy(&strokewidth), windows_core::from_raw_borrowed(&strokestyle)).into()
         }
         unsafe extern "system" fn DrawRectangle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rect: *const Common::D2D_RECT_F, brush: *mut core::ffi::c_void, strokewidth: f32, strokestyle: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawRectangle(core::mem::transmute_copy(&rect), windows_core::from_raw_borrowed(&brush), core::mem::transmute_copy(&strokewidth), windows_core::from_raw_borrowed(&strokestyle)).into()
+            ID2D1CommandSink_Impl::DrawRectangle(this, core::mem::transmute_copy(&rect), windows_core::from_raw_borrowed(&brush), core::mem::transmute_copy(&strokewidth), windows_core::from_raw_borrowed(&strokestyle)).into()
         }
         unsafe extern "system" fn DrawBitmap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmap: *mut core::ffi::c_void, destinationrectangle: *const Common::D2D_RECT_F, opacity: f32, interpolationmode: D2D1_INTERPOLATION_MODE, sourcerectangle: *const Common::D2D_RECT_F, perspectivetransform: *const Common::D2D_MATRIX_4X4_F) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawBitmap(windows_core::from_raw_borrowed(&bitmap), core::mem::transmute_copy(&destinationrectangle), core::mem::transmute_copy(&opacity), core::mem::transmute_copy(&interpolationmode), core::mem::transmute_copy(&sourcerectangle), core::mem::transmute_copy(&perspectivetransform)).into()
+            ID2D1CommandSink_Impl::DrawBitmap(this, windows_core::from_raw_borrowed(&bitmap), core::mem::transmute_copy(&destinationrectangle), core::mem::transmute_copy(&opacity), core::mem::transmute_copy(&interpolationmode), core::mem::transmute_copy(&sourcerectangle), core::mem::transmute_copy(&perspectivetransform)).into()
         }
         unsafe extern "system" fn DrawImage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, image: *mut core::ffi::c_void, targetoffset: *const Common::D2D_POINT_2F, imagerectangle: *const Common::D2D_RECT_F, interpolationmode: D2D1_INTERPOLATION_MODE, compositemode: Common::D2D1_COMPOSITE_MODE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawImage(windows_core::from_raw_borrowed(&image), core::mem::transmute_copy(&targetoffset), core::mem::transmute_copy(&imagerectangle), core::mem::transmute_copy(&interpolationmode), core::mem::transmute_copy(&compositemode)).into()
+            ID2D1CommandSink_Impl::DrawImage(this, windows_core::from_raw_borrowed(&image), core::mem::transmute_copy(&targetoffset), core::mem::transmute_copy(&imagerectangle), core::mem::transmute_copy(&interpolationmode), core::mem::transmute_copy(&compositemode)).into()
         }
         unsafe extern "system" fn DrawGdiMetafile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gdimetafile: *mut core::ffi::c_void, targetoffset: *const Common::D2D_POINT_2F) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawGdiMetafile(windows_core::from_raw_borrowed(&gdimetafile), core::mem::transmute_copy(&targetoffset)).into()
+            ID2D1CommandSink_Impl::DrawGdiMetafile(this, windows_core::from_raw_borrowed(&gdimetafile), core::mem::transmute_copy(&targetoffset)).into()
         }
         unsafe extern "system" fn FillMesh<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mesh: *mut core::ffi::c_void, brush: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.FillMesh(windows_core::from_raw_borrowed(&mesh), windows_core::from_raw_borrowed(&brush)).into()
+            ID2D1CommandSink_Impl::FillMesh(this, windows_core::from_raw_borrowed(&mesh), windows_core::from_raw_borrowed(&brush)).into()
         }
         unsafe extern "system" fn FillOpacityMask<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opacitymask: *mut core::ffi::c_void, brush: *mut core::ffi::c_void, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.FillOpacityMask(windows_core::from_raw_borrowed(&opacitymask), windows_core::from_raw_borrowed(&brush), core::mem::transmute_copy(&destinationrectangle), core::mem::transmute_copy(&sourcerectangle)).into()
+            ID2D1CommandSink_Impl::FillOpacityMask(this, windows_core::from_raw_borrowed(&opacitymask), windows_core::from_raw_borrowed(&brush), core::mem::transmute_copy(&destinationrectangle), core::mem::transmute_copy(&sourcerectangle)).into()
         }
         unsafe extern "system" fn FillGeometry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, geometry: *mut core::ffi::c_void, brush: *mut core::ffi::c_void, opacitybrush: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.FillGeometry(windows_core::from_raw_borrowed(&geometry), windows_core::from_raw_borrowed(&brush), windows_core::from_raw_borrowed(&opacitybrush)).into()
+            ID2D1CommandSink_Impl::FillGeometry(this, windows_core::from_raw_borrowed(&geometry), windows_core::from_raw_borrowed(&brush), windows_core::from_raw_borrowed(&opacitybrush)).into()
         }
         unsafe extern "system" fn FillRectangle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rect: *const Common::D2D_RECT_F, brush: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.FillRectangle(core::mem::transmute_copy(&rect), windows_core::from_raw_borrowed(&brush)).into()
+            ID2D1CommandSink_Impl::FillRectangle(this, core::mem::transmute_copy(&rect), windows_core::from_raw_borrowed(&brush)).into()
         }
         unsafe extern "system" fn PushAxisAlignedClip<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cliprect: *const Common::D2D_RECT_F, antialiasmode: D2D1_ANTIALIAS_MODE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PushAxisAlignedClip(core::mem::transmute_copy(&cliprect), core::mem::transmute_copy(&antialiasmode)).into()
+            ID2D1CommandSink_Impl::PushAxisAlignedClip(this, core::mem::transmute_copy(&cliprect), core::mem::transmute_copy(&antialiasmode)).into()
         }
         unsafe extern "system" fn PushLayer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, layerparameters1: *const D2D1_LAYER_PARAMETERS1, layer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PushLayer(core::mem::transmute_copy(&layerparameters1), windows_core::from_raw_borrowed(&layer)).into()
+            ID2D1CommandSink_Impl::PushLayer(this, core::mem::transmute_copy(&layerparameters1), windows_core::from_raw_borrowed(&layer)).into()
         }
         unsafe extern "system" fn PopAxisAlignedClip<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PopAxisAlignedClip().into()
+            ID2D1CommandSink_Impl::PopAxisAlignedClip(this).into()
         }
         unsafe extern "system" fn PopLayer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PopLayer().into()
+            ID2D1CommandSink_Impl::PopLayer(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -707,7 +707,7 @@ impl ID2D1CommandSink1_Vtbl {
         unsafe extern "system" fn SetPrimitiveBlend1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, primitiveblend: D2D1_PRIMITIVE_BLEND) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPrimitiveBlend1(core::mem::transmute_copy(&primitiveblend)).into()
+            ID2D1CommandSink1_Impl::SetPrimitiveBlend1(this, core::mem::transmute_copy(&primitiveblend)).into()
         }
         Self { base__: ID2D1CommandSink_Vtbl::new::<Identity, Impl, OFFSET>(), SetPrimitiveBlend1: SetPrimitiveBlend1::<Identity, Impl, OFFSET> }
     }
@@ -719,7 +719,7 @@ impl ID2D1CommandSink1_Vtbl {
 pub trait ID2D1CommandSink2_Impl: Sized + ID2D1CommandSink1_Impl {
     fn DrawInk(&self, ink: Option<&ID2D1Ink>, brush: Option<&ID2D1Brush>, inkstyle: Option<&ID2D1InkStyle>) -> windows_core::Result<()>;
     fn DrawGradientMesh(&self, gradientmesh: Option<&ID2D1GradientMesh>) -> windows_core::Result<()>;
-    fn DrawGdiMetafile2(&self, gdimetafile: Option<&ID2D1GdiMetafile>, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) -> windows_core::Result<()>;
+    fn DrawGdiMetafile(&self, gdimetafile: Option<&ID2D1GdiMetafile>, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
 impl windows_core::RuntimeName for ID2D1CommandSink2 {}
@@ -729,23 +729,23 @@ impl ID2D1CommandSink2_Vtbl {
         unsafe extern "system" fn DrawInk<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ink: *mut core::ffi::c_void, brush: *mut core::ffi::c_void, inkstyle: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawInk(windows_core::from_raw_borrowed(&ink), windows_core::from_raw_borrowed(&brush), windows_core::from_raw_borrowed(&inkstyle)).into()
+            ID2D1CommandSink2_Impl::DrawInk(this, windows_core::from_raw_borrowed(&ink), windows_core::from_raw_borrowed(&brush), windows_core::from_raw_borrowed(&inkstyle)).into()
         }
         unsafe extern "system" fn DrawGradientMesh<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gradientmesh: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawGradientMesh(windows_core::from_raw_borrowed(&gradientmesh)).into()
+            ID2D1CommandSink2_Impl::DrawGradientMesh(this, windows_core::from_raw_borrowed(&gradientmesh)).into()
         }
-        unsafe extern "system" fn DrawGdiMetafile2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gdimetafile: *mut core::ffi::c_void, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) -> windows_core::HRESULT {
+        unsafe extern "system" fn DrawGdiMetafile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gdimetafile: *mut core::ffi::c_void, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawGdiMetafile2(windows_core::from_raw_borrowed(&gdimetafile), core::mem::transmute_copy(&destinationrectangle), core::mem::transmute_copy(&sourcerectangle)).into()
+            ID2D1CommandSink2_Impl::DrawGdiMetafile(this, windows_core::from_raw_borrowed(&gdimetafile), core::mem::transmute_copy(&destinationrectangle), core::mem::transmute_copy(&sourcerectangle)).into()
         }
         Self {
             base__: ID2D1CommandSink1_Vtbl::new::<Identity, Impl, OFFSET>(),
             DrawInk: DrawInk::<Identity, Impl, OFFSET>,
             DrawGradientMesh: DrawGradientMesh::<Identity, Impl, OFFSET>,
-            DrawGdiMetafile2: DrawGdiMetafile2::<Identity, Impl, OFFSET>,
+            DrawGdiMetafile: DrawGdiMetafile::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -764,7 +764,7 @@ impl ID2D1CommandSink3_Vtbl {
         unsafe extern "system" fn DrawSpriteBatch<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, spritebatch: *mut core::ffi::c_void, startindex: u32, spritecount: u32, bitmap: *mut core::ffi::c_void, interpolationmode: D2D1_BITMAP_INTERPOLATION_MODE, spriteoptions: D2D1_SPRITE_OPTIONS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawSpriteBatch(windows_core::from_raw_borrowed(&spritebatch), core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&spritecount), windows_core::from_raw_borrowed(&bitmap), core::mem::transmute_copy(&interpolationmode), core::mem::transmute_copy(&spriteoptions)).into()
+            ID2D1CommandSink3_Impl::DrawSpriteBatch(this, windows_core::from_raw_borrowed(&spritebatch), core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&spritecount), windows_core::from_raw_borrowed(&bitmap), core::mem::transmute_copy(&interpolationmode), core::mem::transmute_copy(&spriteoptions)).into()
         }
         Self { base__: ID2D1CommandSink2_Vtbl::new::<Identity, Impl, OFFSET>(), DrawSpriteBatch: DrawSpriteBatch::<Identity, Impl, OFFSET> }
     }
@@ -784,7 +784,7 @@ impl ID2D1CommandSink4_Vtbl {
         unsafe extern "system" fn SetPrimitiveBlend2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, primitiveblend: D2D1_PRIMITIVE_BLEND) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPrimitiveBlend2(core::mem::transmute_copy(&primitiveblend)).into()
+            ID2D1CommandSink4_Impl::SetPrimitiveBlend2(this, core::mem::transmute_copy(&primitiveblend)).into()
         }
         Self { base__: ID2D1CommandSink3_Vtbl::new::<Identity, Impl, OFFSET>(), SetPrimitiveBlend2: SetPrimitiveBlend2::<Identity, Impl, OFFSET> }
     }
@@ -804,7 +804,7 @@ impl ID2D1CommandSink5_Vtbl {
         unsafe extern "system" fn BlendImage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1CommandSink5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, image: *mut core::ffi::c_void, blendmode: Common::D2D1_BLEND_MODE, targetoffset: *const Common::D2D_POINT_2F, imagerectangle: *const Common::D2D_RECT_F, interpolationmode: D2D1_INTERPOLATION_MODE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.BlendImage(windows_core::from_raw_borrowed(&image), core::mem::transmute_copy(&blendmode), core::mem::transmute_copy(&targetoffset), core::mem::transmute_copy(&imagerectangle), core::mem::transmute_copy(&interpolationmode)).into()
+            ID2D1CommandSink5_Impl::BlendImage(this, windows_core::from_raw_borrowed(&image), core::mem::transmute_copy(&blendmode), core::mem::transmute_copy(&targetoffset), core::mem::transmute_copy(&imagerectangle), core::mem::transmute_copy(&interpolationmode)).into()
         }
         Self { base__: ID2D1CommandSink4_Vtbl::new::<Identity, Impl, OFFSET>(), BlendImage: BlendImage::<Identity, Impl, OFFSET> }
     }
@@ -823,17 +823,17 @@ impl ID2D1ComputeInfo_Vtbl {
         unsafe extern "system" fn SetComputeShaderConstantBuffer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ComputeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: *const u8, buffercount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetComputeShaderConstantBuffer(core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffercount)).into()
+            ID2D1ComputeInfo_Impl::SetComputeShaderConstantBuffer(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffercount)).into()
         }
         unsafe extern "system" fn SetComputeShader<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ComputeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, shaderid: *const windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetComputeShader(core::mem::transmute_copy(&shaderid)).into()
+            ID2D1ComputeInfo_Impl::SetComputeShader(this, core::mem::transmute_copy(&shaderid)).into()
         }
         unsafe extern "system" fn SetResourceTexture<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ComputeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textureindex: u32, resourcetexture: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetResourceTexture(core::mem::transmute_copy(&textureindex), windows_core::from_raw_borrowed(&resourcetexture)).into()
+            ID2D1ComputeInfo_Impl::SetResourceTexture(this, core::mem::transmute_copy(&textureindex), windows_core::from_raw_borrowed(&resourcetexture)).into()
         }
         Self {
             base__: ID2D1RenderInfo_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -856,12 +856,12 @@ impl ID2D1ComputeTransform_Vtbl {
         unsafe extern "system" fn SetComputeInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ComputeTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, computeinfo: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetComputeInfo(windows_core::from_raw_borrowed(&computeinfo)).into()
+            ID2D1ComputeTransform_Impl::SetComputeInfo(this, windows_core::from_raw_borrowed(&computeinfo)).into()
         }
         unsafe extern "system" fn CalculateThreadgroups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ComputeTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputrect: *const super::super::Foundation::RECT, dimensionx: *mut u32, dimensiony: *mut u32, dimensionz: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CalculateThreadgroups(core::mem::transmute_copy(&outputrect), core::mem::transmute_copy(&dimensionx), core::mem::transmute_copy(&dimensiony), core::mem::transmute_copy(&dimensionz)).into()
+            ID2D1ComputeTransform_Impl::CalculateThreadgroups(this, core::mem::transmute_copy(&outputrect), core::mem::transmute_copy(&dimensionx), core::mem::transmute_copy(&dimensiony), core::mem::transmute_copy(&dimensionz)).into()
         }
         Self {
             base__: ID2D1Transform_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -883,12 +883,12 @@ impl ID2D1ConcreteTransform_Vtbl {
         unsafe extern "system" fn SetOutputBuffer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ConcreteTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bufferprecision: D2D1_BUFFER_PRECISION, channeldepth: D2D1_CHANNEL_DEPTH) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetOutputBuffer(core::mem::transmute_copy(&bufferprecision), core::mem::transmute_copy(&channeldepth)).into()
+            ID2D1ConcreteTransform_Impl::SetOutputBuffer(this, core::mem::transmute_copy(&bufferprecision), core::mem::transmute_copy(&channeldepth)).into()
         }
         unsafe extern "system" fn SetCached<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ConcreteTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iscached: super::super::Foundation::BOOL) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCached(core::mem::transmute_copy(&iscached))
+            ID2D1ConcreteTransform_Impl::SetCached(this, core::mem::transmute_copy(&iscached))
         }
         Self {
             base__: ID2D1TransformNode_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -912,7 +912,7 @@ impl ID2D1DCRenderTarget_Vtbl {
         unsafe extern "system" fn BindDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DCRenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: super::Gdi::HDC, psubrect: *const super::super::Foundation::RECT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.BindDC(core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&psubrect)).into()
+            ID2D1DCRenderTarget_Impl::BindDC(this, core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&psubrect)).into()
         }
         Self { base__: ID2D1RenderTarget_Vtbl::new::<Identity, Impl, OFFSET>(), BindDC: BindDC::<Identity, Impl, OFFSET> }
     }
@@ -936,7 +936,7 @@ impl ID2D1Device_Vtbl {
         unsafe extern "system" fn CreateDeviceContext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDeviceContext(core::mem::transmute_copy(&options)) {
+            match ID2D1Device_Impl::CreateDeviceContext(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(devicecontext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -947,7 +947,7 @@ impl ID2D1Device_Vtbl {
         unsafe extern "system" fn CreatePrintControl<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wicfactory: *mut core::ffi::c_void, documenttarget: *mut core::ffi::c_void, printcontrolproperties: *const D2D1_PRINT_CONTROL_PROPERTIES, printcontrol: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePrintControl(windows_core::from_raw_borrowed(&wicfactory), windows_core::from_raw_borrowed(&documenttarget), core::mem::transmute_copy(&printcontrolproperties)) {
+            match ID2D1Device_Impl::CreatePrintControl(this, windows_core::from_raw_borrowed(&wicfactory), windows_core::from_raw_borrowed(&documenttarget), core::mem::transmute_copy(&printcontrolproperties)) {
                 Ok(ok__) => {
                     core::ptr::write(printcontrol, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -958,17 +958,17 @@ impl ID2D1Device_Vtbl {
         unsafe extern "system" fn SetMaximumTextureMemory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maximuminbytes: u64) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMaximumTextureMemory(core::mem::transmute_copy(&maximuminbytes))
+            ID2D1Device_Impl::SetMaximumTextureMemory(this, core::mem::transmute_copy(&maximuminbytes))
         }
         unsafe extern "system" fn GetMaximumTextureMemory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u64 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetMaximumTextureMemory()
+            ID2D1Device_Impl::GetMaximumTextureMemory(this)
         }
         unsafe extern "system" fn ClearResources<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, millisecondssinceuse: u32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ClearResources(core::mem::transmute_copy(&millisecondssinceuse))
+            ID2D1Device_Impl::ClearResources(this, core::mem::transmute_copy(&millisecondssinceuse))
         }
         Self {
             base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -987,7 +987,7 @@ impl ID2D1Device_Vtbl {
 pub trait ID2D1Device1_Impl: Sized + ID2D1Device_Impl {
     fn GetRenderingPriority(&self) -> D2D1_RENDERING_PRIORITY;
     fn SetRenderingPriority(&self, renderingpriority: D2D1_RENDERING_PRIORITY);
-    fn CreateDeviceContext2(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext1>;
+    fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext1>;
 }
 #[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl windows_core::RuntimeName for ID2D1Device1 {}
@@ -997,17 +997,17 @@ impl ID2D1Device1_Vtbl {
         unsafe extern "system" fn GetRenderingPriority<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_RENDERING_PRIORITY {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetRenderingPriority()
+            ID2D1Device1_Impl::GetRenderingPriority(this)
         }
         unsafe extern "system" fn SetRenderingPriority<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, renderingpriority: D2D1_RENDERING_PRIORITY) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRenderingPriority(core::mem::transmute_copy(&renderingpriority))
+            ID2D1Device1_Impl::SetRenderingPriority(this, core::mem::transmute_copy(&renderingpriority))
         }
-        unsafe extern "system" fn CreateDeviceContext2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateDeviceContext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDeviceContext2(core::mem::transmute_copy(&options)) {
+            match ID2D1Device1_Impl::CreateDeviceContext(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(devicecontext1, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1019,7 +1019,7 @@ impl ID2D1Device1_Vtbl {
             base__: ID2D1Device_Vtbl::new::<Identity, Impl, OFFSET>(),
             GetRenderingPriority: GetRenderingPriority::<Identity, Impl, OFFSET>,
             SetRenderingPriority: SetRenderingPriority::<Identity, Impl, OFFSET>,
-            CreateDeviceContext2: CreateDeviceContext2::<Identity, Impl, OFFSET>,
+            CreateDeviceContext: CreateDeviceContext::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -1028,7 +1028,7 @@ impl ID2D1Device1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 pub trait ID2D1Device2_Impl: Sized + ID2D1Device1_Impl {
-    fn CreateDeviceContext3(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext2>;
+    fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext2>;
     fn FlushDeviceContexts(&self, bitmap: Option<&ID2D1Bitmap>);
     fn GetDxgiDevice(&self) -> windows_core::Result<super::Dxgi::IDXGIDevice>;
 }
@@ -1037,10 +1037,10 @@ impl windows_core::RuntimeName for ID2D1Device2 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl ID2D1Device2_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device2_Impl, const OFFSET: isize>() -> ID2D1Device2_Vtbl {
-        unsafe extern "system" fn CreateDeviceContext3<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext2: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateDeviceContext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext2: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDeviceContext3(core::mem::transmute_copy(&options)) {
+            match ID2D1Device2_Impl::CreateDeviceContext(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(devicecontext2, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1051,12 +1051,12 @@ impl ID2D1Device2_Vtbl {
         unsafe extern "system" fn FlushDeviceContexts<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmap: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.FlushDeviceContexts(windows_core::from_raw_borrowed(&bitmap))
+            ID2D1Device2_Impl::FlushDeviceContexts(this, windows_core::from_raw_borrowed(&bitmap))
         }
         unsafe extern "system" fn GetDxgiDevice<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxgidevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDxgiDevice() {
+            match ID2D1Device2_Impl::GetDxgiDevice(this) {
                 Ok(ok__) => {
                     core::ptr::write(dxgidevice, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1066,7 +1066,7 @@ impl ID2D1Device2_Vtbl {
         }
         Self {
             base__: ID2D1Device1_Vtbl::new::<Identity, Impl, OFFSET>(),
-            CreateDeviceContext3: CreateDeviceContext3::<Identity, Impl, OFFSET>,
+            CreateDeviceContext: CreateDeviceContext::<Identity, Impl, OFFSET>,
             FlushDeviceContexts: FlushDeviceContexts::<Identity, Impl, OFFSET>,
             GetDxgiDevice: GetDxgiDevice::<Identity, Impl, OFFSET>,
         }
@@ -1077,17 +1077,17 @@ impl ID2D1Device2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 pub trait ID2D1Device3_Impl: Sized + ID2D1Device2_Impl {
-    fn CreateDeviceContext4(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext3>;
+    fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext3>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl windows_core::RuntimeName for ID2D1Device3 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl ID2D1Device3_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device3_Impl, const OFFSET: isize>() -> ID2D1Device3_Vtbl {
-        unsafe extern "system" fn CreateDeviceContext4<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext3: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateDeviceContext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext3: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDeviceContext4(core::mem::transmute_copy(&options)) {
+            match ID2D1Device3_Impl::CreateDeviceContext(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(devicecontext3, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1095,7 +1095,7 @@ impl ID2D1Device3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        Self { base__: ID2D1Device2_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDeviceContext4: CreateDeviceContext4::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1Device2_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDeviceContext: CreateDeviceContext::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1Device3 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Device as windows_core::Interface>::IID || iid == &<ID2D1Device1 as windows_core::Interface>::IID || iid == &<ID2D1Device2 as windows_core::Interface>::IID
@@ -1103,7 +1103,7 @@ impl ID2D1Device3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 pub trait ID2D1Device4_Impl: Sized + ID2D1Device3_Impl {
-    fn CreateDeviceContext5(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext4>;
+    fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext4>;
     fn SetMaximumColorGlyphCacheMemory(&self, maximuminbytes: u64);
     fn GetMaximumColorGlyphCacheMemory(&self) -> u64;
 }
@@ -1112,10 +1112,10 @@ impl windows_core::RuntimeName for ID2D1Device4 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl ID2D1Device4_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device4_Impl, const OFFSET: isize>() -> ID2D1Device4_Vtbl {
-        unsafe extern "system" fn CreateDeviceContext5<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext4: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateDeviceContext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext4: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDeviceContext5(core::mem::transmute_copy(&options)) {
+            match ID2D1Device4_Impl::CreateDeviceContext(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(devicecontext4, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1126,16 +1126,16 @@ impl ID2D1Device4_Vtbl {
         unsafe extern "system" fn SetMaximumColorGlyphCacheMemory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maximuminbytes: u64) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMaximumColorGlyphCacheMemory(core::mem::transmute_copy(&maximuminbytes))
+            ID2D1Device4_Impl::SetMaximumColorGlyphCacheMemory(this, core::mem::transmute_copy(&maximuminbytes))
         }
         unsafe extern "system" fn GetMaximumColorGlyphCacheMemory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u64 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetMaximumColorGlyphCacheMemory()
+            ID2D1Device4_Impl::GetMaximumColorGlyphCacheMemory(this)
         }
         Self {
             base__: ID2D1Device3_Vtbl::new::<Identity, Impl, OFFSET>(),
-            CreateDeviceContext5: CreateDeviceContext5::<Identity, Impl, OFFSET>,
+            CreateDeviceContext: CreateDeviceContext::<Identity, Impl, OFFSET>,
             SetMaximumColorGlyphCacheMemory: SetMaximumColorGlyphCacheMemory::<Identity, Impl, OFFSET>,
             GetMaximumColorGlyphCacheMemory: GetMaximumColorGlyphCacheMemory::<Identity, Impl, OFFSET>,
         }
@@ -1146,17 +1146,17 @@ impl ID2D1Device4_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 pub trait ID2D1Device5_Impl: Sized + ID2D1Device4_Impl {
-    fn CreateDeviceContext6(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext5>;
+    fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext5>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl windows_core::RuntimeName for ID2D1Device5 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl ID2D1Device5_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device5_Impl, const OFFSET: isize>() -> ID2D1Device5_Vtbl {
-        unsafe extern "system" fn CreateDeviceContext6<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext5: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateDeviceContext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext5: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDeviceContext6(core::mem::transmute_copy(&options)) {
+            match ID2D1Device5_Impl::CreateDeviceContext(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(devicecontext5, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1164,7 +1164,7 @@ impl ID2D1Device5_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        Self { base__: ID2D1Device4_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDeviceContext6: CreateDeviceContext6::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1Device4_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDeviceContext: CreateDeviceContext::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1Device5 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Device as windows_core::Interface>::IID || iid == &<ID2D1Device1 as windows_core::Interface>::IID || iid == &<ID2D1Device2 as windows_core::Interface>::IID || iid == &<ID2D1Device3 as windows_core::Interface>::IID || iid == &<ID2D1Device4 as windows_core::Interface>::IID
@@ -1172,17 +1172,17 @@ impl ID2D1Device5_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 pub trait ID2D1Device6_Impl: Sized + ID2D1Device5_Impl {
-    fn CreateDeviceContext7(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext6>;
+    fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext6>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl windows_core::RuntimeName for ID2D1Device6 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl ID2D1Device6_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device6_Impl, const OFFSET: isize>() -> ID2D1Device6_Vtbl {
-        unsafe extern "system" fn CreateDeviceContext7<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext6: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateDeviceContext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext6: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDeviceContext7(core::mem::transmute_copy(&options)) {
+            match ID2D1Device6_Impl::CreateDeviceContext(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(devicecontext6, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1190,7 +1190,7 @@ impl ID2D1Device6_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        Self { base__: ID2D1Device5_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDeviceContext7: CreateDeviceContext7::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1Device5_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDeviceContext: CreateDeviceContext::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1Device6 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Device as windows_core::Interface>::IID || iid == &<ID2D1Device1 as windows_core::Interface>::IID || iid == &<ID2D1Device2 as windows_core::Interface>::IID || iid == &<ID2D1Device3 as windows_core::Interface>::IID || iid == &<ID2D1Device4 as windows_core::Interface>::IID || iid == &<ID2D1Device5 as windows_core::Interface>::IID
@@ -1198,17 +1198,17 @@ impl ID2D1Device6_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 pub trait ID2D1Device7_Impl: Sized + ID2D1Device6_Impl {
-    fn CreateDeviceContext8(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext7>;
+    fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> windows_core::Result<ID2D1DeviceContext7>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl windows_core::RuntimeName for ID2D1Device7 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl ID2D1Device7_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device7_Impl, const OFFSET: isize>() -> ID2D1Device7_Vtbl {
-        unsafe extern "system" fn CreateDeviceContext8<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateDeviceContext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDeviceContext8(core::mem::transmute_copy(&options)) {
+            match ID2D1Device7_Impl::CreateDeviceContext(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(devicecontext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1216,7 +1216,7 @@ impl ID2D1Device7_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        Self { base__: ID2D1Device6_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDeviceContext8: CreateDeviceContext8::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1Device6_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDeviceContext: CreateDeviceContext::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1Device7 as windows_core::Interface>::IID || iid == &<ID2D1Resource as windows_core::Interface>::IID || iid == &<ID2D1Device as windows_core::Interface>::IID || iid == &<ID2D1Device1 as windows_core::Interface>::IID || iid == &<ID2D1Device2 as windows_core::Interface>::IID || iid == &<ID2D1Device3 as windows_core::Interface>::IID || iid == &<ID2D1Device4 as windows_core::Interface>::IID || iid == &<ID2D1Device5 as windows_core::Interface>::IID || iid == &<ID2D1Device6 as windows_core::Interface>::IID
@@ -1224,16 +1224,16 @@ impl ID2D1Device7_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 pub trait ID2D1DeviceContext_Impl: Sized + ID2D1RenderTarget_Impl {
-    fn CreateBitmap2(&self, size: &Common::D2D_SIZE_U, sourcedata: *const core::ffi::c_void, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> windows_core::Result<ID2D1Bitmap1>;
-    fn CreateBitmapFromWicBitmap2(&self, wicbitmapsource: Option<&super::Imaging::IWICBitmapSource>, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> windows_core::Result<ID2D1Bitmap1>;
+    fn CreateBitmap(&self, size: &Common::D2D_SIZE_U, sourcedata: *const core::ffi::c_void, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> windows_core::Result<ID2D1Bitmap1>;
+    fn CreateBitmapFromWicBitmap(&self, wicbitmapsource: Option<&super::Imaging::IWICBitmapSource>, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> windows_core::Result<ID2D1Bitmap1>;
     fn CreateColorContext(&self, space: D2D1_COLOR_SPACE, profile: *const u8, profilesize: u32) -> windows_core::Result<ID2D1ColorContext>;
     fn CreateColorContextFromFilename(&self, filename: &windows_core::PCWSTR) -> windows_core::Result<ID2D1ColorContext>;
     fn CreateColorContextFromWicColorContext(&self, wiccolorcontext: Option<&super::Imaging::IWICColorContext>) -> windows_core::Result<ID2D1ColorContext>;
     fn CreateBitmapFromDxgiSurface(&self, surface: Option<&super::Dxgi::IDXGISurface>, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> windows_core::Result<ID2D1Bitmap1>;
     fn CreateEffect(&self, effectid: *const windows_core::GUID) -> windows_core::Result<ID2D1Effect>;
-    fn CreateGradientStopCollection2(&self, straightalphagradientstops: *const Common::D2D1_GRADIENT_STOP, straightalphagradientstopscount: u32, preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE) -> windows_core::Result<ID2D1GradientStopCollection1>;
+    fn CreateGradientStopCollection(&self, straightalphagradientstops: *const Common::D2D1_GRADIENT_STOP, straightalphagradientstopscount: u32, preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE) -> windows_core::Result<ID2D1GradientStopCollection1>;
     fn CreateImageBrush(&self, image: Option<&ID2D1Image>, imagebrushproperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> windows_core::Result<ID2D1ImageBrush>;
-    fn CreateBitmapBrush2(&self, bitmap: Option<&ID2D1Bitmap>, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> windows_core::Result<ID2D1BitmapBrush1>;
+    fn CreateBitmapBrush(&self, bitmap: Option<&ID2D1Bitmap>, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> windows_core::Result<ID2D1BitmapBrush1>;
     fn CreateCommandList(&self) -> windows_core::Result<ID2D1CommandList>;
     fn IsDxgiFormatSupported(&self, format: super::Dxgi::Common::DXGI_FORMAT) -> super::super::Foundation::BOOL;
     fn IsBufferPrecisionSupported(&self, bufferprecision: D2D1_BUFFER_PRECISION) -> super::super::Foundation::BOOL;
@@ -1249,26 +1249,26 @@ pub trait ID2D1DeviceContext_Impl: Sized + ID2D1RenderTarget_Impl {
     fn GetPrimitiveBlend(&self) -> D2D1_PRIMITIVE_BLEND;
     fn SetUnitMode(&self, unitmode: D2D1_UNIT_MODE);
     fn GetUnitMode(&self) -> D2D1_UNIT_MODE;
-    fn DrawGlyphRun2(&self, baselineorigin: &Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: Option<&ID2D1Brush>, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE);
+    fn DrawGlyphRun(&self, baselineorigin: &Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: Option<&ID2D1Brush>, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE);
     fn DrawImage(&self, image: Option<&ID2D1Image>, targetoffset: *const Common::D2D_POINT_2F, imagerectangle: *const Common::D2D_RECT_F, interpolationmode: D2D1_INTERPOLATION_MODE, compositemode: Common::D2D1_COMPOSITE_MODE);
     fn DrawGdiMetafile(&self, gdimetafile: Option<&ID2D1GdiMetafile>, targetoffset: *const Common::D2D_POINT_2F);
-    fn DrawBitmap2(&self, bitmap: Option<&ID2D1Bitmap>, destinationrectangle: *const Common::D2D_RECT_F, opacity: f32, interpolationmode: D2D1_INTERPOLATION_MODE, sourcerectangle: *const Common::D2D_RECT_F, perspectivetransform: *const Common::D2D_MATRIX_4X4_F);
-    fn PushLayer2(&self, layerparameters: *const D2D1_LAYER_PARAMETERS1, layer: Option<&ID2D1Layer>);
+    fn DrawBitmap(&self, bitmap: Option<&ID2D1Bitmap>, destinationrectangle: *const Common::D2D_RECT_F, opacity: f32, interpolationmode: D2D1_INTERPOLATION_MODE, sourcerectangle: *const Common::D2D_RECT_F, perspectivetransform: *const Common::D2D_MATRIX_4X4_F);
+    fn PushLayer(&self, layerparameters: *const D2D1_LAYER_PARAMETERS1, layer: Option<&ID2D1Layer>);
     fn InvalidateEffectInputRectangle(&self, effect: Option<&ID2D1Effect>, input: u32, inputrectangle: *const Common::D2D_RECT_F) -> windows_core::Result<()>;
     fn GetEffectInvalidRectangleCount(&self, effect: Option<&ID2D1Effect>) -> windows_core::Result<u32>;
     fn GetEffectInvalidRectangles(&self, effect: Option<&ID2D1Effect>, rectangles: *mut Common::D2D_RECT_F, rectanglescount: u32) -> windows_core::Result<()>;
     fn GetEffectRequiredInputRectangles(&self, rendereffect: Option<&ID2D1Effect>, renderimagerectangle: *const Common::D2D_RECT_F, inputdescriptions: *const D2D1_EFFECT_INPUT_DESCRIPTION, requiredinputrects: *mut Common::D2D_RECT_F, inputcount: u32) -> windows_core::Result<()>;
-    fn FillOpacityMask2(&self, opacitymask: Option<&ID2D1Bitmap>, brush: Option<&ID2D1Brush>, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F);
+    fn FillOpacityMask(&self, opacitymask: Option<&ID2D1Bitmap>, brush: Option<&ID2D1Brush>, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F);
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1DeviceContext {}
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl ID2D1DeviceContext_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>() -> ID2D1DeviceContext_Vtbl {
-        unsafe extern "system" fn CreateBitmap2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: Common::D2D_SIZE_U, sourcedata: *const core::ffi::c_void, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1, bitmap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateBitmap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: Common::D2D_SIZE_U, sourcedata: *const core::ffi::c_void, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1, bitmap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateBitmap2(core::mem::transmute(&size), core::mem::transmute_copy(&sourcedata), core::mem::transmute_copy(&pitch), core::mem::transmute_copy(&bitmapproperties)) {
+            match ID2D1DeviceContext_Impl::CreateBitmap(this, core::mem::transmute(&size), core::mem::transmute_copy(&sourcedata), core::mem::transmute_copy(&pitch), core::mem::transmute_copy(&bitmapproperties)) {
                 Ok(ok__) => {
                     core::ptr::write(bitmap, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1276,10 +1276,10 @@ impl ID2D1DeviceContext_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateBitmapFromWicBitmap2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wicbitmapsource: *mut core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1, bitmap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateBitmapFromWicBitmap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wicbitmapsource: *mut core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1, bitmap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateBitmapFromWicBitmap2(windows_core::from_raw_borrowed(&wicbitmapsource), core::mem::transmute_copy(&bitmapproperties)) {
+            match ID2D1DeviceContext_Impl::CreateBitmapFromWicBitmap(this, windows_core::from_raw_borrowed(&wicbitmapsource), core::mem::transmute_copy(&bitmapproperties)) {
                 Ok(ok__) => {
                     core::ptr::write(bitmap, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1290,7 +1290,7 @@ impl ID2D1DeviceContext_Vtbl {
         unsafe extern "system" fn CreateColorContext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, space: D2D1_COLOR_SPACE, profile: *const u8, profilesize: u32, colorcontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateColorContext(core::mem::transmute_copy(&space), core::mem::transmute_copy(&profile), core::mem::transmute_copy(&profilesize)) {
+            match ID2D1DeviceContext_Impl::CreateColorContext(this, core::mem::transmute_copy(&space), core::mem::transmute_copy(&profile), core::mem::transmute_copy(&profilesize)) {
                 Ok(ok__) => {
                     core::ptr::write(colorcontext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1301,7 +1301,7 @@ impl ID2D1DeviceContext_Vtbl {
         unsafe extern "system" fn CreateColorContextFromFilename<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, colorcontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateColorContextFromFilename(core::mem::transmute(&filename)) {
+            match ID2D1DeviceContext_Impl::CreateColorContextFromFilename(this, core::mem::transmute(&filename)) {
                 Ok(ok__) => {
                     core::ptr::write(colorcontext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1312,7 +1312,7 @@ impl ID2D1DeviceContext_Vtbl {
         unsafe extern "system" fn CreateColorContextFromWicColorContext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wiccolorcontext: *mut core::ffi::c_void, colorcontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateColorContextFromWicColorContext(windows_core::from_raw_borrowed(&wiccolorcontext)) {
+            match ID2D1DeviceContext_Impl::CreateColorContextFromWicColorContext(this, windows_core::from_raw_borrowed(&wiccolorcontext)) {
                 Ok(ok__) => {
                     core::ptr::write(colorcontext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1323,7 +1323,7 @@ impl ID2D1DeviceContext_Vtbl {
         unsafe extern "system" fn CreateBitmapFromDxgiSurface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, surface: *mut core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1, bitmap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateBitmapFromDxgiSurface(windows_core::from_raw_borrowed(&surface), core::mem::transmute_copy(&bitmapproperties)) {
+            match ID2D1DeviceContext_Impl::CreateBitmapFromDxgiSurface(this, windows_core::from_raw_borrowed(&surface), core::mem::transmute_copy(&bitmapproperties)) {
                 Ok(ok__) => {
                     core::ptr::write(bitmap, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1334,7 +1334,7 @@ impl ID2D1DeviceContext_Vtbl {
         unsafe extern "system" fn CreateEffect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, effectid: *const windows_core::GUID, effect: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateEffect(core::mem::transmute_copy(&effectid)) {
+            match ID2D1DeviceContext_Impl::CreateEffect(this, core::mem::transmute_copy(&effectid)) {
                 Ok(ok__) => {
                     core::ptr::write(effect, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1342,10 +1342,10 @@ impl ID2D1DeviceContext_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateGradientStopCollection2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, straightalphagradientstops: *const Common::D2D1_GRADIENT_STOP, straightalphagradientstopscount: u32, preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE, gradientstopcollection1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateGradientStopCollection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, straightalphagradientstops: *const Common::D2D1_GRADIENT_STOP, straightalphagradientstopscount: u32, preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE, gradientstopcollection1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateGradientStopCollection2(core::mem::transmute_copy(&straightalphagradientstops), core::mem::transmute_copy(&straightalphagradientstopscount), core::mem::transmute_copy(&preinterpolationspace), core::mem::transmute_copy(&postinterpolationspace), core::mem::transmute_copy(&bufferprecision), core::mem::transmute_copy(&extendmode), core::mem::transmute_copy(&colorinterpolationmode)) {
+            match ID2D1DeviceContext_Impl::CreateGradientStopCollection(this, core::mem::transmute_copy(&straightalphagradientstops), core::mem::transmute_copy(&straightalphagradientstopscount), core::mem::transmute_copy(&preinterpolationspace), core::mem::transmute_copy(&postinterpolationspace), core::mem::transmute_copy(&bufferprecision), core::mem::transmute_copy(&extendmode), core::mem::transmute_copy(&colorinterpolationmode)) {
                 Ok(ok__) => {
                     core::ptr::write(gradientstopcollection1, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1356,7 +1356,7 @@ impl ID2D1DeviceContext_Vtbl {
         unsafe extern "system" fn CreateImageBrush<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, image: *mut core::ffi::c_void, imagebrushproperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, imagebrush: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateImageBrush(windows_core::from_raw_borrowed(&image), core::mem::transmute_copy(&imagebrushproperties), core::mem::transmute_copy(&brushproperties)) {
+            match ID2D1DeviceContext_Impl::CreateImageBrush(this, windows_core::from_raw_borrowed(&image), core::mem::transmute_copy(&imagebrushproperties), core::mem::transmute_copy(&brushproperties)) {
                 Ok(ok__) => {
                     core::ptr::write(imagebrush, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1364,10 +1364,10 @@ impl ID2D1DeviceContext_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateBitmapBrush2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmap: *mut core::ffi::c_void, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateBitmapBrush<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmap: *mut core::ffi::c_void, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateBitmapBrush2(windows_core::from_raw_borrowed(&bitmap), core::mem::transmute_copy(&bitmapbrushproperties), core::mem::transmute_copy(&brushproperties)) {
+            match ID2D1DeviceContext_Impl::CreateBitmapBrush(this, windows_core::from_raw_borrowed(&bitmap), core::mem::transmute_copy(&bitmapbrushproperties), core::mem::transmute_copy(&brushproperties)) {
                 Ok(ok__) => {
                     core::ptr::write(bitmapbrush, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1378,7 +1378,7 @@ impl ID2D1DeviceContext_Vtbl {
         unsafe extern "system" fn CreateCommandList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateCommandList() {
+            match ID2D1DeviceContext_Impl::CreateCommandList(this) {
                 Ok(ok__) => {
                     core::ptr::write(commandlist, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1389,17 +1389,17 @@ impl ID2D1DeviceContext_Vtbl {
         unsafe extern "system" fn IsDxgiFormatSupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: super::Dxgi::Common::DXGI_FORMAT) -> super::super::Foundation::BOOL {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsDxgiFormatSupported(core::mem::transmute_copy(&format))
+            ID2D1DeviceContext_Impl::IsDxgiFormatSupported(this, core::mem::transmute_copy(&format))
         }
         unsafe extern "system" fn IsBufferPrecisionSupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bufferprecision: D2D1_BUFFER_PRECISION) -> super::super::Foundation::BOOL {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsBufferPrecisionSupported(core::mem::transmute_copy(&bufferprecision))
+            ID2D1DeviceContext_Impl::IsBufferPrecisionSupported(this, core::mem::transmute_copy(&bufferprecision))
         }
         unsafe extern "system" fn GetImageLocalBounds<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, image: *mut core::ffi::c_void, localbounds: *mut Common::D2D_RECT_F) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetImageLocalBounds(windows_core::from_raw_borrowed(&image)) {
+            match ID2D1DeviceContext_Impl::GetImageLocalBounds(this, windows_core::from_raw_borrowed(&image)) {
                 Ok(ok__) => {
                     core::ptr::write(localbounds, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1410,7 +1410,7 @@ impl ID2D1DeviceContext_Vtbl {
         unsafe extern "system" fn GetImageWorldBounds<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, image: *mut core::ffi::c_void, worldbounds: *mut Common::D2D_RECT_F) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetImageWorldBounds(windows_core::from_raw_borrowed(&image)) {
+            match ID2D1DeviceContext_Impl::GetImageWorldBounds(this, windows_core::from_raw_borrowed(&image)) {
                 Ok(ok__) => {
                     core::ptr::write(worldbounds, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1421,7 +1421,7 @@ impl ID2D1DeviceContext_Vtbl {
         unsafe extern "system" fn GetGlyphRunWorldBounds<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bounds: *mut Common::D2D_RECT_F) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetGlyphRunWorldBounds(core::mem::transmute(&baselineorigin), core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&measuringmode)) {
+            match ID2D1DeviceContext_Impl::GetGlyphRunWorldBounds(this, core::mem::transmute(&baselineorigin), core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&measuringmode)) {
                 Ok(ok__) => {
                     core::ptr::write(bounds, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1432,82 +1432,82 @@ impl ID2D1DeviceContext_Vtbl {
         unsafe extern "system" fn GetDevice<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, device: *mut *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDevice(core::mem::transmute_copy(&device))
+            ID2D1DeviceContext_Impl::GetDevice(this, core::mem::transmute_copy(&device))
         }
         unsafe extern "system" fn SetTarget<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, image: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTarget(windows_core::from_raw_borrowed(&image))
+            ID2D1DeviceContext_Impl::SetTarget(this, windows_core::from_raw_borrowed(&image))
         }
         unsafe extern "system" fn GetTarget<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, image: *mut *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetTarget(core::mem::transmute_copy(&image))
+            ID2D1DeviceContext_Impl::GetTarget(this, core::mem::transmute_copy(&image))
         }
         unsafe extern "system" fn SetRenderingControls<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, renderingcontrols: *const D2D1_RENDERING_CONTROLS) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRenderingControls(core::mem::transmute_copy(&renderingcontrols))
+            ID2D1DeviceContext_Impl::SetRenderingControls(this, core::mem::transmute_copy(&renderingcontrols))
         }
         unsafe extern "system" fn GetRenderingControls<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, renderingcontrols: *mut D2D1_RENDERING_CONTROLS) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetRenderingControls(core::mem::transmute_copy(&renderingcontrols))
+            ID2D1DeviceContext_Impl::GetRenderingControls(this, core::mem::transmute_copy(&renderingcontrols))
         }
         unsafe extern "system" fn SetPrimitiveBlend<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, primitiveblend: D2D1_PRIMITIVE_BLEND) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPrimitiveBlend(core::mem::transmute_copy(&primitiveblend))
+            ID2D1DeviceContext_Impl::SetPrimitiveBlend(this, core::mem::transmute_copy(&primitiveblend))
         }
         unsafe extern "system" fn GetPrimitiveBlend<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_PRIMITIVE_BLEND {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPrimitiveBlend()
+            ID2D1DeviceContext_Impl::GetPrimitiveBlend(this)
         }
         unsafe extern "system" fn SetUnitMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unitmode: D2D1_UNIT_MODE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetUnitMode(core::mem::transmute_copy(&unitmode))
+            ID2D1DeviceContext_Impl::SetUnitMode(this, core::mem::transmute_copy(&unitmode))
         }
         unsafe extern "system" fn GetUnitMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_UNIT_MODE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetUnitMode()
+            ID2D1DeviceContext_Impl::GetUnitMode(this)
         }
-        unsafe extern "system" fn DrawGlyphRun2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: *mut core::ffi::c_void, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
+        unsafe extern "system" fn DrawGlyphRun<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: *mut core::ffi::c_void, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawGlyphRun2(core::mem::transmute(&baselineorigin), core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&glyphrundescription), windows_core::from_raw_borrowed(&foregroundbrush), core::mem::transmute_copy(&measuringmode))
+            ID2D1DeviceContext_Impl::DrawGlyphRun(this, core::mem::transmute(&baselineorigin), core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&glyphrundescription), windows_core::from_raw_borrowed(&foregroundbrush), core::mem::transmute_copy(&measuringmode))
         }
         unsafe extern "system" fn DrawImage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, image: *mut core::ffi::c_void, targetoffset: *const Common::D2D_POINT_2F, imagerectangle: *const Common::D2D_RECT_F, interpolationmode: D2D1_INTERPOLATION_MODE, compositemode: Common::D2D1_COMPOSITE_MODE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawImage(windows_core::from_raw_borrowed(&image), core::mem::transmute_copy(&targetoffset), core::mem::transmute_copy(&imagerectangle), core::mem::transmute_copy(&interpolationmode), core::mem::transmute_copy(&compositemode))
+            ID2D1DeviceContext_Impl::DrawImage(this, windows_core::from_raw_borrowed(&image), core::mem::transmute_copy(&targetoffset), core::mem::transmute_copy(&imagerectangle), core::mem::transmute_copy(&interpolationmode), core::mem::transmute_copy(&compositemode))
         }
         unsafe extern "system" fn DrawGdiMetafile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gdimetafile: *mut core::ffi::c_void, targetoffset: *const Common::D2D_POINT_2F) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawGdiMetafile(windows_core::from_raw_borrowed(&gdimetafile), core::mem::transmute_copy(&targetoffset))
+            ID2D1DeviceContext_Impl::DrawGdiMetafile(this, windows_core::from_raw_borrowed(&gdimetafile), core::mem::transmute_copy(&targetoffset))
         }
-        unsafe extern "system" fn DrawBitmap2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmap: *mut core::ffi::c_void, destinationrectangle: *const Common::D2D_RECT_F, opacity: f32, interpolationmode: D2D1_INTERPOLATION_MODE, sourcerectangle: *const Common::D2D_RECT_F, perspectivetransform: *const Common::D2D_MATRIX_4X4_F) {
+        unsafe extern "system" fn DrawBitmap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmap: *mut core::ffi::c_void, destinationrectangle: *const Common::D2D_RECT_F, opacity: f32, interpolationmode: D2D1_INTERPOLATION_MODE, sourcerectangle: *const Common::D2D_RECT_F, perspectivetransform: *const Common::D2D_MATRIX_4X4_F) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawBitmap2(windows_core::from_raw_borrowed(&bitmap), core::mem::transmute_copy(&destinationrectangle), core::mem::transmute_copy(&opacity), core::mem::transmute_copy(&interpolationmode), core::mem::transmute_copy(&sourcerectangle), core::mem::transmute_copy(&perspectivetransform))
+            ID2D1DeviceContext_Impl::DrawBitmap(this, windows_core::from_raw_borrowed(&bitmap), core::mem::transmute_copy(&destinationrectangle), core::mem::transmute_copy(&opacity), core::mem::transmute_copy(&interpolationmode), core::mem::transmute_copy(&sourcerectangle), core::mem::transmute_copy(&perspectivetransform))
         }
-        unsafe extern "system" fn PushLayer2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, layerparameters: *const D2D1_LAYER_PARAMETERS1, layer: *mut core::ffi::c_void) {
+        unsafe extern "system" fn PushLayer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, layerparameters: *const D2D1_LAYER_PARAMETERS1, layer: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PushLayer2(core::mem::transmute_copy(&layerparameters), windows_core::from_raw_borrowed(&layer))
+            ID2D1DeviceContext_Impl::PushLayer(this, core::mem::transmute_copy(&layerparameters), windows_core::from_raw_borrowed(&layer))
         }
         unsafe extern "system" fn InvalidateEffectInputRectangle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, effect: *mut core::ffi::c_void, input: u32, inputrectangle: *const Common::D2D_RECT_F) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InvalidateEffectInputRectangle(windows_core::from_raw_borrowed(&effect), core::mem::transmute_copy(&input), core::mem::transmute_copy(&inputrectangle)).into()
+            ID2D1DeviceContext_Impl::InvalidateEffectInputRectangle(this, windows_core::from_raw_borrowed(&effect), core::mem::transmute_copy(&input), core::mem::transmute_copy(&inputrectangle)).into()
         }
         unsafe extern "system" fn GetEffectInvalidRectangleCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, effect: *mut core::ffi::c_void, rectanglecount: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetEffectInvalidRectangleCount(windows_core::from_raw_borrowed(&effect)) {
+            match ID2D1DeviceContext_Impl::GetEffectInvalidRectangleCount(this, windows_core::from_raw_borrowed(&effect)) {
                 Ok(ok__) => {
                     core::ptr::write(rectanglecount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1518,30 +1518,30 @@ impl ID2D1DeviceContext_Vtbl {
         unsafe extern "system" fn GetEffectInvalidRectangles<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, effect: *mut core::ffi::c_void, rectangles: *mut Common::D2D_RECT_F, rectanglescount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetEffectInvalidRectangles(windows_core::from_raw_borrowed(&effect), core::mem::transmute_copy(&rectangles), core::mem::transmute_copy(&rectanglescount)).into()
+            ID2D1DeviceContext_Impl::GetEffectInvalidRectangles(this, windows_core::from_raw_borrowed(&effect), core::mem::transmute_copy(&rectangles), core::mem::transmute_copy(&rectanglescount)).into()
         }
         unsafe extern "system" fn GetEffectRequiredInputRectangles<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rendereffect: *mut core::ffi::c_void, renderimagerectangle: *const Common::D2D_RECT_F, inputdescriptions: *const D2D1_EFFECT_INPUT_DESCRIPTION, requiredinputrects: *mut Common::D2D_RECT_F, inputcount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetEffectRequiredInputRectangles(windows_core::from_raw_borrowed(&rendereffect), core::mem::transmute_copy(&renderimagerectangle), core::mem::transmute_copy(&inputdescriptions), core::mem::transmute_copy(&requiredinputrects), core::mem::transmute_copy(&inputcount)).into()
+            ID2D1DeviceContext_Impl::GetEffectRequiredInputRectangles(this, windows_core::from_raw_borrowed(&rendereffect), core::mem::transmute_copy(&renderimagerectangle), core::mem::transmute_copy(&inputdescriptions), core::mem::transmute_copy(&requiredinputrects), core::mem::transmute_copy(&inputcount)).into()
         }
-        unsafe extern "system" fn FillOpacityMask2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opacitymask: *mut core::ffi::c_void, brush: *mut core::ffi::c_void, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) {
+        unsafe extern "system" fn FillOpacityMask<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opacitymask: *mut core::ffi::c_void, brush: *mut core::ffi::c_void, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.FillOpacityMask2(windows_core::from_raw_borrowed(&opacitymask), windows_core::from_raw_borrowed(&brush), core::mem::transmute_copy(&destinationrectangle), core::mem::transmute_copy(&sourcerectangle))
+            ID2D1DeviceContext_Impl::FillOpacityMask(this, windows_core::from_raw_borrowed(&opacitymask), windows_core::from_raw_borrowed(&brush), core::mem::transmute_copy(&destinationrectangle), core::mem::transmute_copy(&sourcerectangle))
         }
         Self {
             base__: ID2D1RenderTarget_Vtbl::new::<Identity, Impl, OFFSET>(),
-            CreateBitmap2: CreateBitmap2::<Identity, Impl, OFFSET>,
-            CreateBitmapFromWicBitmap2: CreateBitmapFromWicBitmap2::<Identity, Impl, OFFSET>,
+            CreateBitmap: CreateBitmap::<Identity, Impl, OFFSET>,
+            CreateBitmapFromWicBitmap: CreateBitmapFromWicBitmap::<Identity, Impl, OFFSET>,
             CreateColorContext: CreateColorContext::<Identity, Impl, OFFSET>,
             CreateColorContextFromFilename: CreateColorContextFromFilename::<Identity, Impl, OFFSET>,
             CreateColorContextFromWicColorContext: CreateColorContextFromWicColorContext::<Identity, Impl, OFFSET>,
             CreateBitmapFromDxgiSurface: CreateBitmapFromDxgiSurface::<Identity, Impl, OFFSET>,
             CreateEffect: CreateEffect::<Identity, Impl, OFFSET>,
-            CreateGradientStopCollection2: CreateGradientStopCollection2::<Identity, Impl, OFFSET>,
+            CreateGradientStopCollection: CreateGradientStopCollection::<Identity, Impl, OFFSET>,
             CreateImageBrush: CreateImageBrush::<Identity, Impl, OFFSET>,
-            CreateBitmapBrush2: CreateBitmapBrush2::<Identity, Impl, OFFSET>,
+            CreateBitmapBrush: CreateBitmapBrush::<Identity, Impl, OFFSET>,
             CreateCommandList: CreateCommandList::<Identity, Impl, OFFSET>,
             IsDxgiFormatSupported: IsDxgiFormatSupported::<Identity, Impl, OFFSET>,
             IsBufferPrecisionSupported: IsBufferPrecisionSupported::<Identity, Impl, OFFSET>,
@@ -1557,16 +1557,16 @@ impl ID2D1DeviceContext_Vtbl {
             GetPrimitiveBlend: GetPrimitiveBlend::<Identity, Impl, OFFSET>,
             SetUnitMode: SetUnitMode::<Identity, Impl, OFFSET>,
             GetUnitMode: GetUnitMode::<Identity, Impl, OFFSET>,
-            DrawGlyphRun2: DrawGlyphRun2::<Identity, Impl, OFFSET>,
+            DrawGlyphRun: DrawGlyphRun::<Identity, Impl, OFFSET>,
             DrawImage: DrawImage::<Identity, Impl, OFFSET>,
             DrawGdiMetafile: DrawGdiMetafile::<Identity, Impl, OFFSET>,
-            DrawBitmap2: DrawBitmap2::<Identity, Impl, OFFSET>,
-            PushLayer2: PushLayer2::<Identity, Impl, OFFSET>,
+            DrawBitmap: DrawBitmap::<Identity, Impl, OFFSET>,
+            PushLayer: PushLayer::<Identity, Impl, OFFSET>,
             InvalidateEffectInputRectangle: InvalidateEffectInputRectangle::<Identity, Impl, OFFSET>,
             GetEffectInvalidRectangleCount: GetEffectInvalidRectangleCount::<Identity, Impl, OFFSET>,
             GetEffectInvalidRectangles: GetEffectInvalidRectangles::<Identity, Impl, OFFSET>,
             GetEffectRequiredInputRectangles: GetEffectRequiredInputRectangles::<Identity, Impl, OFFSET>,
-            FillOpacityMask2: FillOpacityMask2::<Identity, Impl, OFFSET>,
+            FillOpacityMask: FillOpacityMask::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -1587,7 +1587,7 @@ impl ID2D1DeviceContext1_Vtbl {
         unsafe extern "system" fn CreateFilledGeometryRealization<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, geometry: *mut core::ffi::c_void, flatteningtolerance: f32, geometryrealization: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateFilledGeometryRealization(windows_core::from_raw_borrowed(&geometry), core::mem::transmute_copy(&flatteningtolerance)) {
+            match ID2D1DeviceContext1_Impl::CreateFilledGeometryRealization(this, windows_core::from_raw_borrowed(&geometry), core::mem::transmute_copy(&flatteningtolerance)) {
                 Ok(ok__) => {
                     core::ptr::write(geometryrealization, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1598,7 +1598,7 @@ impl ID2D1DeviceContext1_Vtbl {
         unsafe extern "system" fn CreateStrokedGeometryRealization<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, geometry: *mut core::ffi::c_void, flatteningtolerance: f32, strokewidth: f32, strokestyle: *mut core::ffi::c_void, geometryrealization: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateStrokedGeometryRealization(windows_core::from_raw_borrowed(&geometry), core::mem::transmute_copy(&flatteningtolerance), core::mem::transmute_copy(&strokewidth), windows_core::from_raw_borrowed(&strokestyle)) {
+            match ID2D1DeviceContext1_Impl::CreateStrokedGeometryRealization(this, windows_core::from_raw_borrowed(&geometry), core::mem::transmute_copy(&flatteningtolerance), core::mem::transmute_copy(&strokewidth), windows_core::from_raw_borrowed(&strokestyle)) {
                 Ok(ok__) => {
                     core::ptr::write(geometryrealization, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1609,7 +1609,7 @@ impl ID2D1DeviceContext1_Vtbl {
         unsafe extern "system" fn DrawGeometryRealization<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, geometryrealization: *mut core::ffi::c_void, brush: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawGeometryRealization(windows_core::from_raw_borrowed(&geometryrealization), windows_core::from_raw_borrowed(&brush))
+            ID2D1DeviceContext1_Impl::DrawGeometryRealization(this, windows_core::from_raw_borrowed(&geometryrealization), windows_core::from_raw_borrowed(&brush))
         }
         Self {
             base__: ID2D1DeviceContext_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1633,7 +1633,7 @@ pub trait ID2D1DeviceContext2_Impl: Sized + ID2D1DeviceContext1_Impl {
     fn GetGradientMeshWorldBounds(&self, gradientmesh: Option<&ID2D1GradientMesh>) -> windows_core::Result<Common::D2D_RECT_F>;
     fn DrawInk(&self, ink: Option<&ID2D1Ink>, brush: Option<&ID2D1Brush>, inkstyle: Option<&ID2D1InkStyle>);
     fn DrawGradientMesh(&self, gradientmesh: Option<&ID2D1GradientMesh>);
-    fn DrawGdiMetafile2(&self, gdimetafile: Option<&ID2D1GdiMetafile>, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F);
+    fn DrawGdiMetafile(&self, gdimetafile: Option<&ID2D1GdiMetafile>, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F);
     fn CreateTransformedImageSource(&self, imagesource: Option<&ID2D1ImageSource>, properties: *const D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES) -> windows_core::Result<ID2D1TransformedImageSource>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
@@ -1644,7 +1644,7 @@ impl ID2D1DeviceContext2_Vtbl {
         unsafe extern "system" fn CreateInk<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startpoint: *const D2D1_INK_POINT, ink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateInk(core::mem::transmute_copy(&startpoint)) {
+            match ID2D1DeviceContext2_Impl::CreateInk(this, core::mem::transmute_copy(&startpoint)) {
                 Ok(ok__) => {
                     core::ptr::write(ink, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1655,7 +1655,7 @@ impl ID2D1DeviceContext2_Vtbl {
         unsafe extern "system" fn CreateInkStyle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inkstyleproperties: *const D2D1_INK_STYLE_PROPERTIES, inkstyle: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateInkStyle(core::mem::transmute_copy(&inkstyleproperties)) {
+            match ID2D1DeviceContext2_Impl::CreateInkStyle(this, core::mem::transmute_copy(&inkstyleproperties)) {
                 Ok(ok__) => {
                     core::ptr::write(inkstyle, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1666,7 +1666,7 @@ impl ID2D1DeviceContext2_Vtbl {
         unsafe extern "system" fn CreateGradientMesh<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, patches: *const D2D1_GRADIENT_MESH_PATCH, patchescount: u32, gradientmesh: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateGradientMesh(core::mem::transmute_copy(&patches), core::mem::transmute_copy(&patchescount)) {
+            match ID2D1DeviceContext2_Impl::CreateGradientMesh(this, core::mem::transmute_copy(&patches), core::mem::transmute_copy(&patchescount)) {
                 Ok(ok__) => {
                     core::ptr::write(gradientmesh, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1677,7 +1677,7 @@ impl ID2D1DeviceContext2_Vtbl {
         unsafe extern "system" fn CreateImageSourceFromWic<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wicbitmapsource: *mut core::ffi::c_void, loadingoptions: D2D1_IMAGE_SOURCE_LOADING_OPTIONS, alphamode: Common::D2D1_ALPHA_MODE, imagesource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateImageSourceFromWic(windows_core::from_raw_borrowed(&wicbitmapsource), core::mem::transmute_copy(&loadingoptions), core::mem::transmute_copy(&alphamode)) {
+            match ID2D1DeviceContext2_Impl::CreateImageSourceFromWic(this, windows_core::from_raw_borrowed(&wicbitmapsource), core::mem::transmute_copy(&loadingoptions), core::mem::transmute_copy(&alphamode)) {
                 Ok(ok__) => {
                     core::ptr::write(imagesource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1688,7 +1688,7 @@ impl ID2D1DeviceContext2_Vtbl {
         unsafe extern "system" fn CreateLookupTable3D<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, precision: D2D1_BUFFER_PRECISION, extents: *const u32, data: *const u8, datacount: u32, strides: *const u32, lookuptable: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateLookupTable3D(core::mem::transmute_copy(&precision), core::mem::transmute_copy(&extents), core::mem::transmute_copy(&data), core::mem::transmute_copy(&datacount), core::mem::transmute_copy(&strides)) {
+            match ID2D1DeviceContext2_Impl::CreateLookupTable3D(this, core::mem::transmute_copy(&precision), core::mem::transmute_copy(&extents), core::mem::transmute_copy(&data), core::mem::transmute_copy(&datacount), core::mem::transmute_copy(&strides)) {
                 Ok(ok__) => {
                     core::ptr::write(lookuptable, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1699,7 +1699,7 @@ impl ID2D1DeviceContext2_Vtbl {
         unsafe extern "system" fn CreateImageSourceFromDxgi<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, surfaces: *const *mut core::ffi::c_void, surfacecount: u32, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, options: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS, imagesource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateImageSourceFromDxgi(core::mem::transmute_copy(&surfaces), core::mem::transmute_copy(&surfacecount), core::mem::transmute_copy(&colorspace), core::mem::transmute_copy(&options)) {
+            match ID2D1DeviceContext2_Impl::CreateImageSourceFromDxgi(this, core::mem::transmute_copy(&surfaces), core::mem::transmute_copy(&surfacecount), core::mem::transmute_copy(&colorspace), core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(imagesource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1710,7 +1710,7 @@ impl ID2D1DeviceContext2_Vtbl {
         unsafe extern "system" fn GetGradientMeshWorldBounds<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gradientmesh: *mut core::ffi::c_void, pbounds: *mut Common::D2D_RECT_F) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetGradientMeshWorldBounds(windows_core::from_raw_borrowed(&gradientmesh)) {
+            match ID2D1DeviceContext2_Impl::GetGradientMeshWorldBounds(this, windows_core::from_raw_borrowed(&gradientmesh)) {
                 Ok(ok__) => {
                     core::ptr::write(pbounds, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1721,22 +1721,22 @@ impl ID2D1DeviceContext2_Vtbl {
         unsafe extern "system" fn DrawInk<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ink: *mut core::ffi::c_void, brush: *mut core::ffi::c_void, inkstyle: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawInk(windows_core::from_raw_borrowed(&ink), windows_core::from_raw_borrowed(&brush), windows_core::from_raw_borrowed(&inkstyle))
+            ID2D1DeviceContext2_Impl::DrawInk(this, windows_core::from_raw_borrowed(&ink), windows_core::from_raw_borrowed(&brush), windows_core::from_raw_borrowed(&inkstyle))
         }
         unsafe extern "system" fn DrawGradientMesh<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gradientmesh: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawGradientMesh(windows_core::from_raw_borrowed(&gradientmesh))
+            ID2D1DeviceContext2_Impl::DrawGradientMesh(this, windows_core::from_raw_borrowed(&gradientmesh))
         }
-        unsafe extern "system" fn DrawGdiMetafile2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gdimetafile: *mut core::ffi::c_void, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) {
+        unsafe extern "system" fn DrawGdiMetafile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gdimetafile: *mut core::ffi::c_void, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawGdiMetafile2(windows_core::from_raw_borrowed(&gdimetafile), core::mem::transmute_copy(&destinationrectangle), core::mem::transmute_copy(&sourcerectangle))
+            ID2D1DeviceContext2_Impl::DrawGdiMetafile(this, windows_core::from_raw_borrowed(&gdimetafile), core::mem::transmute_copy(&destinationrectangle), core::mem::transmute_copy(&sourcerectangle))
         }
         unsafe extern "system" fn CreateTransformedImageSource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagesource: *mut core::ffi::c_void, properties: *const D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES, transformedimagesource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateTransformedImageSource(windows_core::from_raw_borrowed(&imagesource), core::mem::transmute_copy(&properties)) {
+            match ID2D1DeviceContext2_Impl::CreateTransformedImageSource(this, windows_core::from_raw_borrowed(&imagesource), core::mem::transmute_copy(&properties)) {
                 Ok(ok__) => {
                     core::ptr::write(transformedimagesource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1755,7 +1755,7 @@ impl ID2D1DeviceContext2_Vtbl {
             GetGradientMeshWorldBounds: GetGradientMeshWorldBounds::<Identity, Impl, OFFSET>,
             DrawInk: DrawInk::<Identity, Impl, OFFSET>,
             DrawGradientMesh: DrawGradientMesh::<Identity, Impl, OFFSET>,
-            DrawGdiMetafile2: DrawGdiMetafile2::<Identity, Impl, OFFSET>,
+            DrawGdiMetafile: DrawGdiMetafile::<Identity, Impl, OFFSET>,
             CreateTransformedImageSource: CreateTransformedImageSource::<Identity, Impl, OFFSET>,
         }
     }
@@ -1776,7 +1776,7 @@ impl ID2D1DeviceContext3_Vtbl {
         unsafe extern "system" fn CreateSpriteBatch<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, spritebatch: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateSpriteBatch() {
+            match ID2D1DeviceContext3_Impl::CreateSpriteBatch(this) {
                 Ok(ok__) => {
                     core::ptr::write(spritebatch, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1787,7 +1787,7 @@ impl ID2D1DeviceContext3_Vtbl {
         unsafe extern "system" fn DrawSpriteBatch<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, spritebatch: *mut core::ffi::c_void, startindex: u32, spritecount: u32, bitmap: *mut core::ffi::c_void, interpolationmode: D2D1_BITMAP_INTERPOLATION_MODE, spriteoptions: D2D1_SPRITE_OPTIONS) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawSpriteBatch(windows_core::from_raw_borrowed(&spritebatch), core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&spritecount), windows_core::from_raw_borrowed(&bitmap), core::mem::transmute_copy(&interpolationmode), core::mem::transmute_copy(&spriteoptions))
+            ID2D1DeviceContext3_Impl::DrawSpriteBatch(this, windows_core::from_raw_borrowed(&spritebatch), core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&spritecount), windows_core::from_raw_borrowed(&bitmap), core::mem::transmute_copy(&interpolationmode), core::mem::transmute_copy(&spriteoptions))
         }
         Self {
             base__: ID2D1DeviceContext2_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1802,8 +1802,8 @@ impl ID2D1DeviceContext3_Vtbl {
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 pub trait ID2D1DeviceContext4_Impl: Sized + ID2D1DeviceContext3_Impl {
     fn CreateSvgGlyphStyle(&self) -> windows_core::Result<ID2D1SvgGlyphStyle>;
-    fn DrawText2(&self, string: &windows_core::PCWSTR, stringlength: u32, textformat: Option<&super::DirectWrite::IDWriteTextFormat>, layoutrect: *const Common::D2D_RECT_F, defaultfillbrush: Option<&ID2D1Brush>, svgglyphstyle: Option<&ID2D1SvgGlyphStyle>, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE);
-    fn DrawTextLayout2(&self, origin: &Common::D2D_POINT_2F, textlayout: Option<&super::DirectWrite::IDWriteTextLayout>, defaultfillbrush: Option<&ID2D1Brush>, svgglyphstyle: Option<&ID2D1SvgGlyphStyle>, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS);
+    fn DrawText(&self, string: &windows_core::PCWSTR, stringlength: u32, textformat: Option<&super::DirectWrite::IDWriteTextFormat>, layoutrect: *const Common::D2D_RECT_F, defaultfillbrush: Option<&ID2D1Brush>, svgglyphstyle: Option<&ID2D1SvgGlyphStyle>, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE);
+    fn DrawTextLayout(&self, origin: &Common::D2D_POINT_2F, textlayout: Option<&super::DirectWrite::IDWriteTextLayout>, defaultfillbrush: Option<&ID2D1Brush>, svgglyphstyle: Option<&ID2D1SvgGlyphStyle>, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS);
     fn DrawColorBitmapGlyphRun(&self, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, baselineorigin: &Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bitmapsnapoption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION);
     fn DrawSvgGlyphRun(&self, baselineorigin: &Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, defaultfillbrush: Option<&ID2D1Brush>, svgglyphstyle: Option<&ID2D1SvgGlyphStyle>, colorpaletteindex: u32, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE);
     fn GetColorBitmapGlyphImage(&self, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, glyphorigin: &Common::D2D_POINT_2F, fontface: Option<&super::DirectWrite::IDWriteFontFace>, fontemsize: f32, glyphindex: u16, issideways: super::super::Foundation::BOOL, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, dpix: f32, dpiy: f32, glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2, glyphimage: *mut Option<ID2D1Image>) -> windows_core::Result<()>;
@@ -1817,7 +1817,7 @@ impl ID2D1DeviceContext4_Vtbl {
         unsafe extern "system" fn CreateSvgGlyphStyle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, svgglyphstyle: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateSvgGlyphStyle() {
+            match ID2D1DeviceContext4_Impl::CreateSvgGlyphStyle(this) {
                 Ok(ok__) => {
                     core::ptr::write(svgglyphstyle, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1825,42 +1825,41 @@ impl ID2D1DeviceContext4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DrawText2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, string: windows_core::PCWSTR, stringlength: u32, textformat: *mut core::ffi::c_void, layoutrect: *const Common::D2D_RECT_F, defaultfillbrush: *mut core::ffi::c_void, svgglyphstyle: *mut core::ffi::c_void, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
+        unsafe extern "system" fn DrawText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, string: windows_core::PCWSTR, stringlength: u32, textformat: *mut core::ffi::c_void, layoutrect: *const Common::D2D_RECT_F, defaultfillbrush: *mut core::ffi::c_void, svgglyphstyle: *mut core::ffi::c_void, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawText2(core::mem::transmute(&string), core::mem::transmute_copy(&stringlength), windows_core::from_raw_borrowed(&textformat), core::mem::transmute_copy(&layoutrect), windows_core::from_raw_borrowed(&defaultfillbrush), windows_core::from_raw_borrowed(&svgglyphstyle), core::mem::transmute_copy(&colorpaletteindex), core::mem::transmute_copy(&options), core::mem::transmute_copy(&measuringmode))
+            ID2D1DeviceContext4_Impl::DrawText(this, core::mem::transmute(&string), core::mem::transmute_copy(&stringlength), windows_core::from_raw_borrowed(&textformat), core::mem::transmute_copy(&layoutrect), windows_core::from_raw_borrowed(&defaultfillbrush), windows_core::from_raw_borrowed(&svgglyphstyle), core::mem::transmute_copy(&colorpaletteindex), core::mem::transmute_copy(&options), core::mem::transmute_copy(&measuringmode))
         }
-        unsafe extern "system" fn DrawTextLayout2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, origin: Common::D2D_POINT_2F, textlayout: *mut core::ffi::c_void, defaultfillbrush: *mut core::ffi::c_void, svgglyphstyle: *mut core::ffi::c_void, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS) {
+        unsafe extern "system" fn DrawTextLayout<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, origin: Common::D2D_POINT_2F, textlayout: *mut core::ffi::c_void, defaultfillbrush: *mut core::ffi::c_void, svgglyphstyle: *mut core::ffi::c_void, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawTextLayout2(core::mem::transmute(&origin), windows_core::from_raw_borrowed(&textlayout), windows_core::from_raw_borrowed(&defaultfillbrush), windows_core::from_raw_borrowed(&svgglyphstyle), core::mem::transmute_copy(&colorpaletteindex), core::mem::transmute_copy(&options))
+            ID2D1DeviceContext4_Impl::DrawTextLayout(this, core::mem::transmute(&origin), windows_core::from_raw_borrowed(&textlayout), windows_core::from_raw_borrowed(&defaultfillbrush), windows_core::from_raw_borrowed(&svgglyphstyle), core::mem::transmute_copy(&colorpaletteindex), core::mem::transmute_copy(&options))
         }
         unsafe extern "system" fn DrawColorBitmapGlyphRun<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bitmapsnapoption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawColorBitmapGlyphRun(core::mem::transmute_copy(&glyphimageformat), core::mem::transmute(&baselineorigin), core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&bitmapsnapoption))
+            ID2D1DeviceContext4_Impl::DrawColorBitmapGlyphRun(this, core::mem::transmute_copy(&glyphimageformat), core::mem::transmute(&baselineorigin), core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&bitmapsnapoption))
         }
         unsafe extern "system" fn DrawSvgGlyphRun<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, defaultfillbrush: *mut core::ffi::c_void, svgglyphstyle: *mut core::ffi::c_void, colorpaletteindex: u32, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawSvgGlyphRun(core::mem::transmute(&baselineorigin), core::mem::transmute_copy(&glyphrun), windows_core::from_raw_borrowed(&defaultfillbrush), windows_core::from_raw_borrowed(&svgglyphstyle), core::mem::transmute_copy(&colorpaletteindex), core::mem::transmute_copy(&measuringmode))
+            ID2D1DeviceContext4_Impl::DrawSvgGlyphRun(this, core::mem::transmute(&baselineorigin), core::mem::transmute_copy(&glyphrun), windows_core::from_raw_borrowed(&defaultfillbrush), windows_core::from_raw_borrowed(&svgglyphstyle), core::mem::transmute_copy(&colorpaletteindex), core::mem::transmute_copy(&measuringmode))
         }
         unsafe extern "system" fn GetColorBitmapGlyphImage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, glyphorigin: Common::D2D_POINT_2F, fontface: *mut core::ffi::c_void, fontemsize: f32, glyphindex: u16, issideways: super::super::Foundation::BOOL, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, dpix: f32, dpiy: f32, glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2, glyphimage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetColorBitmapGlyphImage(core::mem::transmute_copy(&glyphimageformat), core::mem::transmute(&glyphorigin), windows_core::from_raw_borrowed(&fontface), core::mem::transmute_copy(&fontemsize), core::mem::transmute_copy(&glyphindex), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&dpix), core::mem::transmute_copy(&dpiy), core::mem::transmute_copy(&glyphtransform), core::mem::transmute_copy(&glyphimage)).into()
+            ID2D1DeviceContext4_Impl::GetColorBitmapGlyphImage(this, core::mem::transmute_copy(&glyphimageformat), core::mem::transmute(&glyphorigin), windows_core::from_raw_borrowed(&fontface), core::mem::transmute_copy(&fontemsize), core::mem::transmute_copy(&glyphindex), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&dpix), core::mem::transmute_copy(&dpiy), core::mem::transmute_copy(&glyphtransform), core::mem::transmute_copy(&glyphimage)).into()
         }
         unsafe extern "system" fn GetSvgGlyphImage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphorigin: Common::D2D_POINT_2F, fontface: *mut core::ffi::c_void, fontemsize: f32, glyphindex: u16, issideways: super::super::Foundation::BOOL, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, defaultfillbrush: *mut core::ffi::c_void, svgglyphstyle: *mut core::ffi::c_void, colorpaletteindex: u32, glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2, glyphimage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSvgGlyphImage(core::mem::transmute(&glyphorigin), windows_core::from_raw_borrowed(&fontface), core::mem::transmute_copy(&fontemsize), core::mem::transmute_copy(&glyphindex), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&worldtransform), windows_core::from_raw_borrowed(&defaultfillbrush), windows_core::from_raw_borrowed(&svgglyphstyle), core::mem::transmute_copy(&colorpaletteindex), core::mem::transmute_copy(&glyphtransform), core::mem::transmute_copy(&glyphimage))
-                .into()
+            ID2D1DeviceContext4_Impl::GetSvgGlyphImage(this, core::mem::transmute(&glyphorigin), windows_core::from_raw_borrowed(&fontface), core::mem::transmute_copy(&fontemsize), core::mem::transmute_copy(&glyphindex), core::mem::transmute_copy(&issideways), core::mem::transmute_copy(&worldtransform), windows_core::from_raw_borrowed(&defaultfillbrush), windows_core::from_raw_borrowed(&svgglyphstyle), core::mem::transmute_copy(&colorpaletteindex), core::mem::transmute_copy(&glyphtransform), core::mem::transmute_copy(&glyphimage)).into()
         }
         Self {
             base__: ID2D1DeviceContext3_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateSvgGlyphStyle: CreateSvgGlyphStyle::<Identity, Impl, OFFSET>,
-            DrawText2: DrawText2::<Identity, Impl, OFFSET>,
-            DrawTextLayout2: DrawTextLayout2::<Identity, Impl, OFFSET>,
+            DrawText: DrawText::<Identity, Impl, OFFSET>,
+            DrawTextLayout: DrawTextLayout::<Identity, Impl, OFFSET>,
             DrawColorBitmapGlyphRun: DrawColorBitmapGlyphRun::<Identity, Impl, OFFSET>,
             DrawSvgGlyphRun: DrawSvgGlyphRun::<Identity, Impl, OFFSET>,
             GetColorBitmapGlyphImage: GetColorBitmapGlyphImage::<Identity, Impl, OFFSET>,
@@ -1886,7 +1885,7 @@ impl ID2D1DeviceContext5_Vtbl {
         unsafe extern "system" fn CreateSvgDocument<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputxmlstream: *mut core::ffi::c_void, viewportsize: Common::D2D_SIZE_F, svgdocument: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateSvgDocument(windows_core::from_raw_borrowed(&inputxmlstream), core::mem::transmute(&viewportsize)) {
+            match ID2D1DeviceContext5_Impl::CreateSvgDocument(this, windows_core::from_raw_borrowed(&inputxmlstream), core::mem::transmute(&viewportsize)) {
                 Ok(ok__) => {
                     core::ptr::write(svgdocument, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1897,12 +1896,12 @@ impl ID2D1DeviceContext5_Vtbl {
         unsafe extern "system" fn DrawSvgDocument<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, svgdocument: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawSvgDocument(windows_core::from_raw_borrowed(&svgdocument))
+            ID2D1DeviceContext5_Impl::DrawSvgDocument(this, windows_core::from_raw_borrowed(&svgdocument))
         }
         unsafe extern "system" fn CreateColorContextFromDxgiColorSpace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, colorcontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateColorContextFromDxgiColorSpace(core::mem::transmute_copy(&colorspace)) {
+            match ID2D1DeviceContext5_Impl::CreateColorContextFromDxgiColorSpace(this, core::mem::transmute_copy(&colorspace)) {
                 Ok(ok__) => {
                     core::ptr::write(colorcontext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1913,7 +1912,7 @@ impl ID2D1DeviceContext5_Vtbl {
         unsafe extern "system" fn CreateColorContextFromSimpleColorProfile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, simpleprofile: *const D2D1_SIMPLE_COLOR_PROFILE, colorcontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateColorContextFromSimpleColorProfile(core::mem::transmute_copy(&simpleprofile)) {
+            match ID2D1DeviceContext5_Impl::CreateColorContextFromSimpleColorProfile(this, core::mem::transmute_copy(&simpleprofile)) {
                 Ok(ok__) => {
                     core::ptr::write(colorcontext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1945,7 +1944,7 @@ impl ID2D1DeviceContext6_Vtbl {
         unsafe extern "system" fn BlendImage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, image: *mut core::ffi::c_void, blendmode: Common::D2D1_BLEND_MODE, targetoffset: *const Common::D2D_POINT_2F, imagerectangle: *const Common::D2D_RECT_F, interpolationmode: D2D1_INTERPOLATION_MODE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.BlendImage(windows_core::from_raw_borrowed(&image), core::mem::transmute_copy(&blendmode), core::mem::transmute_copy(&targetoffset), core::mem::transmute_copy(&imagerectangle), core::mem::transmute_copy(&interpolationmode))
+            ID2D1DeviceContext6_Impl::BlendImage(this, windows_core::from_raw_borrowed(&image), core::mem::transmute_copy(&blendmode), core::mem::transmute_copy(&targetoffset), core::mem::transmute_copy(&imagerectangle), core::mem::transmute_copy(&interpolationmode))
         }
         Self { base__: ID2D1DeviceContext5_Vtbl::new::<Identity, Impl, OFFSET>(), BlendImage: BlendImage::<Identity, Impl, OFFSET> }
     }
@@ -1967,17 +1966,17 @@ impl ID2D1DeviceContext7_Vtbl {
         unsafe extern "system" fn GetPaintFeatureLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> DWRITE_PAINT_FEATURE_LEVEL {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPaintFeatureLevel()
+            ID2D1DeviceContext7_Impl::GetPaintFeatureLevel(this)
         }
         unsafe extern "system" fn DrawPaintGlyphRun<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, defaultfillbrush: *mut core::ffi::c_void, colorpaletteindex: u32, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawPaintGlyphRun(core::mem::transmute(&baselineorigin), core::mem::transmute_copy(&glyphrun), windows_core::from_raw_borrowed(&defaultfillbrush), core::mem::transmute_copy(&colorpaletteindex), core::mem::transmute_copy(&measuringmode))
+            ID2D1DeviceContext7_Impl::DrawPaintGlyphRun(this, core::mem::transmute(&baselineorigin), core::mem::transmute_copy(&glyphrun), windows_core::from_raw_borrowed(&defaultfillbrush), core::mem::transmute_copy(&colorpaletteindex), core::mem::transmute_copy(&measuringmode))
         }
         unsafe extern "system" fn DrawGlyphRunWithColorSupport<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: *mut core::ffi::c_void, svgglyphstyle: *mut core::ffi::c_void, colorpaletteindex: u32, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bitmapsnapoption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawGlyphRunWithColorSupport(core::mem::transmute(&baselineorigin), core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&glyphrundescription), windows_core::from_raw_borrowed(&foregroundbrush), windows_core::from_raw_borrowed(&svgglyphstyle), core::mem::transmute_copy(&colorpaletteindex), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&bitmapsnapoption))
+            ID2D1DeviceContext7_Impl::DrawGlyphRunWithColorSupport(this, core::mem::transmute(&baselineorigin), core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&glyphrundescription), windows_core::from_raw_borrowed(&foregroundbrush), windows_core::from_raw_borrowed(&svgglyphstyle), core::mem::transmute_copy(&colorpaletteindex), core::mem::transmute_copy(&measuringmode), core::mem::transmute_copy(&bitmapsnapoption))
         }
         Self {
             base__: ID2D1DeviceContext6_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2003,27 +2002,27 @@ impl ID2D1DrawInfo_Vtbl {
         unsafe extern "system" fn SetPixelShaderConstantBuffer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DrawInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: *const u8, buffercount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPixelShaderConstantBuffer(core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffercount)).into()
+            ID2D1DrawInfo_Impl::SetPixelShaderConstantBuffer(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffercount)).into()
         }
         unsafe extern "system" fn SetResourceTexture<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DrawInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textureindex: u32, resourcetexture: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetResourceTexture(core::mem::transmute_copy(&textureindex), windows_core::from_raw_borrowed(&resourcetexture)).into()
+            ID2D1DrawInfo_Impl::SetResourceTexture(this, core::mem::transmute_copy(&textureindex), windows_core::from_raw_borrowed(&resourcetexture)).into()
         }
         unsafe extern "system" fn SetVertexShaderConstantBuffer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DrawInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: *const u8, buffercount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetVertexShaderConstantBuffer(core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffercount)).into()
+            ID2D1DrawInfo_Impl::SetVertexShaderConstantBuffer(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffercount)).into()
         }
         unsafe extern "system" fn SetPixelShader<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DrawInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, shaderid: *const windows_core::GUID, pixeloptions: D2D1_PIXEL_OPTIONS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPixelShader(core::mem::transmute_copy(&shaderid), core::mem::transmute_copy(&pixeloptions)).into()
+            ID2D1DrawInfo_Impl::SetPixelShader(this, core::mem::transmute_copy(&shaderid), core::mem::transmute_copy(&pixeloptions)).into()
         }
         unsafe extern "system" fn SetVertexProcessing<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DrawInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vertexbuffer: *mut core::ffi::c_void, vertexoptions: D2D1_VERTEX_OPTIONS, blenddescription: *const D2D1_BLEND_DESCRIPTION, vertexrange: *const D2D1_VERTEX_RANGE, vertexshader: *const windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetVertexProcessing(windows_core::from_raw_borrowed(&vertexbuffer), core::mem::transmute_copy(&vertexoptions), core::mem::transmute_copy(&blenddescription), core::mem::transmute_copy(&vertexrange), core::mem::transmute_copy(&vertexshader)).into()
+            ID2D1DrawInfo_Impl::SetVertexProcessing(this, windows_core::from_raw_borrowed(&vertexbuffer), core::mem::transmute_copy(&vertexoptions), core::mem::transmute_copy(&blenddescription), core::mem::transmute_copy(&vertexrange), core::mem::transmute_copy(&vertexshader)).into()
         }
         Self {
             base__: ID2D1RenderInfo_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2047,7 +2046,7 @@ impl ID2D1DrawTransform_Vtbl {
         unsafe extern "system" fn SetDrawInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DrawTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, drawinfo: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDrawInfo(windows_core::from_raw_borrowed(&drawinfo)).into()
+            ID2D1DrawTransform_Impl::SetDrawInfo(this, windows_core::from_raw_borrowed(&drawinfo)).into()
         }
         Self { base__: ID2D1Transform_Vtbl::new::<Identity, Impl, OFFSET>(), SetDrawInfo: SetDrawInfo::<Identity, Impl, OFFSET> }
     }
@@ -2070,22 +2069,22 @@ impl ID2D1DrawingStateBlock_Vtbl {
         unsafe extern "system" fn GetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DrawingStateBlock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, statedescription: *mut D2D1_DRAWING_STATE_DESCRIPTION) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDescription(core::mem::transmute_copy(&statedescription))
+            ID2D1DrawingStateBlock_Impl::GetDescription(this, core::mem::transmute_copy(&statedescription))
         }
         unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DrawingStateBlock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, statedescription: *const D2D1_DRAWING_STATE_DESCRIPTION) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDescription(core::mem::transmute_copy(&statedescription))
+            ID2D1DrawingStateBlock_Impl::SetDescription(this, core::mem::transmute_copy(&statedescription))
         }
         unsafe extern "system" fn SetTextRenderingParams<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DrawingStateBlock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textrenderingparams: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTextRenderingParams(windows_core::from_raw_borrowed(&textrenderingparams))
+            ID2D1DrawingStateBlock_Impl::SetTextRenderingParams(this, windows_core::from_raw_borrowed(&textrenderingparams))
         }
         unsafe extern "system" fn GetTextRenderingParams<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DrawingStateBlock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textrenderingparams: *mut *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetTextRenderingParams(core::mem::transmute_copy(&textrenderingparams))
+            ID2D1DrawingStateBlock_Impl::GetTextRenderingParams(this, core::mem::transmute_copy(&textrenderingparams))
         }
         Self {
             base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2101,28 +2100,28 @@ impl ID2D1DrawingStateBlock_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
 pub trait ID2D1DrawingStateBlock1_Impl: Sized + ID2D1DrawingStateBlock_Impl {
-    fn GetDescription2(&self, statedescription: *mut D2D1_DRAWING_STATE_DESCRIPTION1);
-    fn SetDescription2(&self, statedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1);
+    fn GetDescription(&self, statedescription: *mut D2D1_DRAWING_STATE_DESCRIPTION1);
+    fn SetDescription(&self, statedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1);
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
 impl windows_core::RuntimeName for ID2D1DrawingStateBlock1 {}
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
 impl ID2D1DrawingStateBlock1_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DrawingStateBlock1_Impl, const OFFSET: isize>() -> ID2D1DrawingStateBlock1_Vtbl {
-        unsafe extern "system" fn GetDescription2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DrawingStateBlock1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, statedescription: *mut D2D1_DRAWING_STATE_DESCRIPTION1) {
+        unsafe extern "system" fn GetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DrawingStateBlock1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, statedescription: *mut D2D1_DRAWING_STATE_DESCRIPTION1) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDescription2(core::mem::transmute_copy(&statedescription))
+            ID2D1DrawingStateBlock1_Impl::GetDescription(this, core::mem::transmute_copy(&statedescription))
         }
-        unsafe extern "system" fn SetDescription2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DrawingStateBlock1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, statedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1) {
+        unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DrawingStateBlock1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, statedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDescription2(core::mem::transmute_copy(&statedescription))
+            ID2D1DrawingStateBlock1_Impl::SetDescription(this, core::mem::transmute_copy(&statedescription))
         }
         Self {
             base__: ID2D1DrawingStateBlock_Vtbl::new::<Identity, Impl, OFFSET>(),
-            GetDescription2: GetDescription2::<Identity, Impl, OFFSET>,
-            SetDescription2: SetDescription2::<Identity, Impl, OFFSET>,
+            GetDescription: GetDescription::<Identity, Impl, OFFSET>,
+            SetDescription: SetDescription::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -2142,27 +2141,27 @@ impl ID2D1Effect_Vtbl {
         unsafe extern "system" fn SetInput<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Effect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, input: *mut core::ffi::c_void, invalidate: super::super::Foundation::BOOL) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetInput(core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&input), core::mem::transmute_copy(&invalidate))
+            ID2D1Effect_Impl::SetInput(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&input), core::mem::transmute_copy(&invalidate))
         }
         unsafe extern "system" fn SetInputCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Effect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputcount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetInputCount(core::mem::transmute_copy(&inputcount)).into()
+            ID2D1Effect_Impl::SetInputCount(this, core::mem::transmute_copy(&inputcount)).into()
         }
         unsafe extern "system" fn GetInput<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Effect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, input: *mut *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetInput(core::mem::transmute_copy(&index), core::mem::transmute_copy(&input))
+            ID2D1Effect_Impl::GetInput(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&input))
         }
         unsafe extern "system" fn GetInputCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Effect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetInputCount()
+            ID2D1Effect_Impl::GetInputCount(this)
         }
         unsafe extern "system" fn GetOutput<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Effect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputimage: *mut *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetOutput(core::mem::transmute_copy(&outputimage))
+            ID2D1Effect_Impl::GetOutput(this, core::mem::transmute_copy(&outputimage))
         }
         Self {
             base__: ID2D1Properties_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2209,12 +2208,12 @@ impl ID2D1EffectContext_Vtbl {
         unsafe extern "system" fn GetDpi<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dpix: *mut f32, dpiy: *mut f32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDpi(core::mem::transmute_copy(&dpix), core::mem::transmute_copy(&dpiy))
+            ID2D1EffectContext_Impl::GetDpi(this, core::mem::transmute_copy(&dpix), core::mem::transmute_copy(&dpiy))
         }
         unsafe extern "system" fn CreateEffect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, effectid: *const windows_core::GUID, effect: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateEffect(core::mem::transmute_copy(&effectid)) {
+            match ID2D1EffectContext_Impl::CreateEffect(this, core::mem::transmute_copy(&effectid)) {
                 Ok(ok__) => {
                     core::ptr::write(effect, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2225,7 +2224,7 @@ impl ID2D1EffectContext_Vtbl {
         unsafe extern "system" fn GetMaximumSupportedFeatureLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, featurelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevelscount: u32, maximumsupportedfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetMaximumSupportedFeatureLevel(core::mem::transmute_copy(&featurelevels), core::mem::transmute_copy(&featurelevelscount)) {
+            match ID2D1EffectContext_Impl::GetMaximumSupportedFeatureLevel(this, core::mem::transmute_copy(&featurelevels), core::mem::transmute_copy(&featurelevelscount)) {
                 Ok(ok__) => {
                     core::ptr::write(maximumsupportedfeaturelevel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2236,7 +2235,7 @@ impl ID2D1EffectContext_Vtbl {
         unsafe extern "system" fn CreateTransformNodeFromEffect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, effect: *mut core::ffi::c_void, transformnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateTransformNodeFromEffect(windows_core::from_raw_borrowed(&effect)) {
+            match ID2D1EffectContext_Impl::CreateTransformNodeFromEffect(this, windows_core::from_raw_borrowed(&effect)) {
                 Ok(ok__) => {
                     core::ptr::write(transformnode, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2247,7 +2246,7 @@ impl ID2D1EffectContext_Vtbl {
         unsafe extern "system" fn CreateBlendTransform<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numinputs: u32, blenddescription: *const D2D1_BLEND_DESCRIPTION, transform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateBlendTransform(core::mem::transmute_copy(&numinputs), core::mem::transmute_copy(&blenddescription)) {
+            match ID2D1EffectContext_Impl::CreateBlendTransform(this, core::mem::transmute_copy(&numinputs), core::mem::transmute_copy(&blenddescription)) {
                 Ok(ok__) => {
                     core::ptr::write(transform, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2258,7 +2257,7 @@ impl ID2D1EffectContext_Vtbl {
         unsafe extern "system" fn CreateBorderTransform<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, extendmodex: D2D1_EXTEND_MODE, extendmodey: D2D1_EXTEND_MODE, transform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateBorderTransform(core::mem::transmute_copy(&extendmodex), core::mem::transmute_copy(&extendmodey)) {
+            match ID2D1EffectContext_Impl::CreateBorderTransform(this, core::mem::transmute_copy(&extendmodex), core::mem::transmute_copy(&extendmodey)) {
                 Ok(ok__) => {
                     core::ptr::write(transform, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2269,7 +2268,7 @@ impl ID2D1EffectContext_Vtbl {
         unsafe extern "system" fn CreateOffsetTransform<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: super::super::Foundation::POINT, transform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateOffsetTransform(core::mem::transmute(&offset)) {
+            match ID2D1EffectContext_Impl::CreateOffsetTransform(this, core::mem::transmute(&offset)) {
                 Ok(ok__) => {
                     core::ptr::write(transform, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2280,7 +2279,7 @@ impl ID2D1EffectContext_Vtbl {
         unsafe extern "system" fn CreateBoundsAdjustmentTransform<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputrectangle: *const super::super::Foundation::RECT, transform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateBoundsAdjustmentTransform(core::mem::transmute_copy(&outputrectangle)) {
+            match ID2D1EffectContext_Impl::CreateBoundsAdjustmentTransform(this, core::mem::transmute_copy(&outputrectangle)) {
                 Ok(ok__) => {
                     core::ptr::write(transform, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2291,27 +2290,27 @@ impl ID2D1EffectContext_Vtbl {
         unsafe extern "system" fn LoadPixelShader<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, shaderid: *const windows_core::GUID, shaderbuffer: *const u8, shaderbuffercount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.LoadPixelShader(core::mem::transmute_copy(&shaderid), core::mem::transmute_copy(&shaderbuffer), core::mem::transmute_copy(&shaderbuffercount)).into()
+            ID2D1EffectContext_Impl::LoadPixelShader(this, core::mem::transmute_copy(&shaderid), core::mem::transmute_copy(&shaderbuffer), core::mem::transmute_copy(&shaderbuffercount)).into()
         }
         unsafe extern "system" fn LoadVertexShader<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourceid: *const windows_core::GUID, shaderbuffer: *const u8, shaderbuffercount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.LoadVertexShader(core::mem::transmute_copy(&resourceid), core::mem::transmute_copy(&shaderbuffer), core::mem::transmute_copy(&shaderbuffercount)).into()
+            ID2D1EffectContext_Impl::LoadVertexShader(this, core::mem::transmute_copy(&resourceid), core::mem::transmute_copy(&shaderbuffer), core::mem::transmute_copy(&shaderbuffercount)).into()
         }
         unsafe extern "system" fn LoadComputeShader<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourceid: *const windows_core::GUID, shaderbuffer: *const u8, shaderbuffercount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.LoadComputeShader(core::mem::transmute_copy(&resourceid), core::mem::transmute_copy(&shaderbuffer), core::mem::transmute_copy(&shaderbuffercount)).into()
+            ID2D1EffectContext_Impl::LoadComputeShader(this, core::mem::transmute_copy(&resourceid), core::mem::transmute_copy(&shaderbuffer), core::mem::transmute_copy(&shaderbuffercount)).into()
         }
         unsafe extern "system" fn IsShaderLoaded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, shaderid: *const windows_core::GUID) -> super::super::Foundation::BOOL {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsShaderLoaded(core::mem::transmute_copy(&shaderid))
+            ID2D1EffectContext_Impl::IsShaderLoaded(this, core::mem::transmute_copy(&shaderid))
         }
         unsafe extern "system" fn CreateResourceTexture<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourceid: *const windows_core::GUID, resourcetextureproperties: *const D2D1_RESOURCE_TEXTURE_PROPERTIES, data: *const u8, strides: *const u32, datasize: u32, resourcetexture: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateResourceTexture(core::mem::transmute_copy(&resourceid), core::mem::transmute_copy(&resourcetextureproperties), core::mem::transmute_copy(&data), core::mem::transmute_copy(&strides), core::mem::transmute_copy(&datasize)) {
+            match ID2D1EffectContext_Impl::CreateResourceTexture(this, core::mem::transmute_copy(&resourceid), core::mem::transmute_copy(&resourcetextureproperties), core::mem::transmute_copy(&data), core::mem::transmute_copy(&strides), core::mem::transmute_copy(&datasize)) {
                 Ok(ok__) => {
                     core::ptr::write(resourcetexture, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2322,7 +2321,7 @@ impl ID2D1EffectContext_Vtbl {
         unsafe extern "system" fn FindResourceTexture<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourceid: *const windows_core::GUID, resourcetexture: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FindResourceTexture(core::mem::transmute_copy(&resourceid)) {
+            match ID2D1EffectContext_Impl::FindResourceTexture(this, core::mem::transmute_copy(&resourceid)) {
                 Ok(ok__) => {
                     core::ptr::write(resourcetexture, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2333,7 +2332,7 @@ impl ID2D1EffectContext_Vtbl {
         unsafe extern "system" fn CreateVertexBuffer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vertexbufferproperties: *const D2D1_VERTEX_BUFFER_PROPERTIES, resourceid: *const windows_core::GUID, customvertexbufferproperties: *const D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES, buffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateVertexBuffer(core::mem::transmute_copy(&vertexbufferproperties), core::mem::transmute_copy(&resourceid), core::mem::transmute_copy(&customvertexbufferproperties)) {
+            match ID2D1EffectContext_Impl::CreateVertexBuffer(this, core::mem::transmute_copy(&vertexbufferproperties), core::mem::transmute_copy(&resourceid), core::mem::transmute_copy(&customvertexbufferproperties)) {
                 Ok(ok__) => {
                     core::ptr::write(buffer, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2344,7 +2343,7 @@ impl ID2D1EffectContext_Vtbl {
         unsafe extern "system" fn FindVertexBuffer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourceid: *const windows_core::GUID, buffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FindVertexBuffer(core::mem::transmute_copy(&resourceid)) {
+            match ID2D1EffectContext_Impl::FindVertexBuffer(this, core::mem::transmute_copy(&resourceid)) {
                 Ok(ok__) => {
                     core::ptr::write(buffer, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2355,7 +2354,7 @@ impl ID2D1EffectContext_Vtbl {
         unsafe extern "system" fn CreateColorContext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, space: D2D1_COLOR_SPACE, profile: *const u8, profilesize: u32, colorcontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateColorContext(core::mem::transmute_copy(&space), core::mem::transmute_copy(&profile), core::mem::transmute_copy(&profilesize)) {
+            match ID2D1EffectContext_Impl::CreateColorContext(this, core::mem::transmute_copy(&space), core::mem::transmute_copy(&profile), core::mem::transmute_copy(&profilesize)) {
                 Ok(ok__) => {
                     core::ptr::write(colorcontext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2366,7 +2365,7 @@ impl ID2D1EffectContext_Vtbl {
         unsafe extern "system" fn CreateColorContextFromFilename<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, colorcontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateColorContextFromFilename(core::mem::transmute(&filename)) {
+            match ID2D1EffectContext_Impl::CreateColorContextFromFilename(this, core::mem::transmute(&filename)) {
                 Ok(ok__) => {
                     core::ptr::write(colorcontext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2377,7 +2376,7 @@ impl ID2D1EffectContext_Vtbl {
         unsafe extern "system" fn CreateColorContextFromWicColorContext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wiccolorcontext: *mut core::ffi::c_void, colorcontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateColorContextFromWicColorContext(windows_core::from_raw_borrowed(&wiccolorcontext)) {
+            match ID2D1EffectContext_Impl::CreateColorContextFromWicColorContext(this, windows_core::from_raw_borrowed(&wiccolorcontext)) {
                 Ok(ok__) => {
                     core::ptr::write(colorcontext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2388,12 +2387,12 @@ impl ID2D1EffectContext_Vtbl {
         unsafe extern "system" fn CheckFeatureSupport<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, feature: D2D1_FEATURE, featuresupportdata: *mut core::ffi::c_void, featuresupportdatasize: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CheckFeatureSupport(core::mem::transmute_copy(&feature), core::mem::transmute_copy(&featuresupportdata), core::mem::transmute_copy(&featuresupportdatasize)).into()
+            ID2D1EffectContext_Impl::CheckFeatureSupport(this, core::mem::transmute_copy(&feature), core::mem::transmute_copy(&featuresupportdata), core::mem::transmute_copy(&featuresupportdatasize)).into()
         }
         unsafe extern "system" fn IsBufferPrecisionSupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EffectContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bufferprecision: D2D1_BUFFER_PRECISION) -> super::super::Foundation::BOOL {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsBufferPrecisionSupported(core::mem::transmute_copy(&bufferprecision))
+            ID2D1EffectContext_Impl::IsBufferPrecisionSupported(this, core::mem::transmute_copy(&bufferprecision))
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -2436,7 +2435,7 @@ impl ID2D1EffectContext1_Vtbl {
         unsafe extern "system" fn CreateLookupTable3D<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EffectContext1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, precision: D2D1_BUFFER_PRECISION, extents: *const u32, data: *const u8, datacount: u32, strides: *const u32, lookuptable: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateLookupTable3D(core::mem::transmute_copy(&precision), core::mem::transmute_copy(&extents), core::mem::transmute_copy(&data), core::mem::transmute_copy(&datacount), core::mem::transmute_copy(&strides)) {
+            match ID2D1EffectContext1_Impl::CreateLookupTable3D(this, core::mem::transmute_copy(&precision), core::mem::transmute_copy(&extents), core::mem::transmute_copy(&data), core::mem::transmute_copy(&datacount), core::mem::transmute_copy(&strides)) {
                 Ok(ok__) => {
                     core::ptr::write(lookuptable, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2463,7 +2462,7 @@ impl ID2D1EffectContext2_Vtbl {
         unsafe extern "system" fn CreateColorContextFromDxgiColorSpace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EffectContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, colorcontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateColorContextFromDxgiColorSpace(core::mem::transmute_copy(&colorspace)) {
+            match ID2D1EffectContext2_Impl::CreateColorContextFromDxgiColorSpace(this, core::mem::transmute_copy(&colorspace)) {
                 Ok(ok__) => {
                     core::ptr::write(colorcontext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2474,7 +2473,7 @@ impl ID2D1EffectContext2_Vtbl {
         unsafe extern "system" fn CreateColorContextFromSimpleColorProfile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EffectContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, simpleprofile: *const D2D1_SIMPLE_COLOR_PROFILE, colorcontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateColorContextFromSimpleColorProfile(core::mem::transmute_copy(&simpleprofile)) {
+            match ID2D1EffectContext2_Impl::CreateColorContextFromSimpleColorProfile(this, core::mem::transmute_copy(&simpleprofile)) {
                 Ok(ok__) => {
                     core::ptr::write(colorcontext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2503,17 +2502,17 @@ impl ID2D1EffectImpl_Vtbl {
         unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EffectImpl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, effectcontext: *mut core::ffi::c_void, transformgraph: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(windows_core::from_raw_borrowed(&effectcontext), windows_core::from_raw_borrowed(&transformgraph)).into()
+            ID2D1EffectImpl_Impl::Initialize(this, windows_core::from_raw_borrowed(&effectcontext), windows_core::from_raw_borrowed(&transformgraph)).into()
         }
         unsafe extern "system" fn PrepareForRender<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EffectImpl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, changetype: D2D1_CHANGE_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PrepareForRender(core::mem::transmute_copy(&changetype)).into()
+            ID2D1EffectImpl_Impl::PrepareForRender(this, core::mem::transmute_copy(&changetype)).into()
         }
         unsafe extern "system" fn SetGraph<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EffectImpl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transformgraph: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetGraph(windows_core::from_raw_borrowed(&transformgraph)).into()
+            ID2D1EffectImpl_Impl::SetGraph(this, windows_core::from_raw_borrowed(&transformgraph)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -2538,7 +2537,7 @@ impl ID2D1EllipseGeometry_Vtbl {
         unsafe extern "system" fn GetEllipse<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1EllipseGeometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ellipse: *mut D2D1_ELLIPSE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetEllipse(core::mem::transmute_copy(&ellipse))
+            ID2D1EllipseGeometry_Impl::GetEllipse(this, core::mem::transmute_copy(&ellipse))
         }
         Self { base__: ID2D1Geometry_Vtbl::new::<Identity, Impl, OFFSET>(), GetEllipse: GetEllipse::<Identity, Impl, OFFSET> }
     }
@@ -2571,17 +2570,17 @@ impl ID2D1Factory_Vtbl {
         unsafe extern "system" fn ReloadSystemMetrics<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ReloadSystemMetrics().into()
+            ID2D1Factory_Impl::ReloadSystemMetrics(this).into()
         }
         unsafe extern "system" fn GetDesktopDpi<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dpix: *mut f32, dpiy: *mut f32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDesktopDpi(core::mem::transmute_copy(&dpix), core::mem::transmute_copy(&dpiy))
+            ID2D1Factory_Impl::GetDesktopDpi(this, core::mem::transmute_copy(&dpix), core::mem::transmute_copy(&dpiy))
         }
         unsafe extern "system" fn CreateRectangleGeometry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rectangle: *const Common::D2D_RECT_F, rectanglegeometry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateRectangleGeometry(core::mem::transmute_copy(&rectangle)) {
+            match ID2D1Factory_Impl::CreateRectangleGeometry(this, core::mem::transmute_copy(&rectangle)) {
                 Ok(ok__) => {
                     core::ptr::write(rectanglegeometry, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2592,7 +2591,7 @@ impl ID2D1Factory_Vtbl {
         unsafe extern "system" fn CreateRoundedRectangleGeometry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, roundedrectangle: *const D2D1_ROUNDED_RECT, roundedrectanglegeometry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateRoundedRectangleGeometry(core::mem::transmute_copy(&roundedrectangle)) {
+            match ID2D1Factory_Impl::CreateRoundedRectangleGeometry(this, core::mem::transmute_copy(&roundedrectangle)) {
                 Ok(ok__) => {
                     core::ptr::write(roundedrectanglegeometry, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2603,7 +2602,7 @@ impl ID2D1Factory_Vtbl {
         unsafe extern "system" fn CreateEllipseGeometry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ellipse: *const D2D1_ELLIPSE, ellipsegeometry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateEllipseGeometry(core::mem::transmute_copy(&ellipse)) {
+            match ID2D1Factory_Impl::CreateEllipseGeometry(this, core::mem::transmute_copy(&ellipse)) {
                 Ok(ok__) => {
                     core::ptr::write(ellipsegeometry, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2614,7 +2613,7 @@ impl ID2D1Factory_Vtbl {
         unsafe extern "system" fn CreateGeometryGroup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fillmode: Common::D2D1_FILL_MODE, geometries: *const *mut core::ffi::c_void, geometriescount: u32, geometrygroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateGeometryGroup(core::mem::transmute_copy(&fillmode), core::mem::transmute_copy(&geometries), core::mem::transmute_copy(&geometriescount)) {
+            match ID2D1Factory_Impl::CreateGeometryGroup(this, core::mem::transmute_copy(&fillmode), core::mem::transmute_copy(&geometries), core::mem::transmute_copy(&geometriescount)) {
                 Ok(ok__) => {
                     core::ptr::write(geometrygroup, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2625,7 +2624,7 @@ impl ID2D1Factory_Vtbl {
         unsafe extern "system" fn CreateTransformedGeometry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcegeometry: *mut core::ffi::c_void, transform: *const super::super::super::Foundation::Numerics::Matrix3x2, transformedgeometry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateTransformedGeometry(windows_core::from_raw_borrowed(&sourcegeometry), core::mem::transmute_copy(&transform)) {
+            match ID2D1Factory_Impl::CreateTransformedGeometry(this, windows_core::from_raw_borrowed(&sourcegeometry), core::mem::transmute_copy(&transform)) {
                 Ok(ok__) => {
                     core::ptr::write(transformedgeometry, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2636,7 +2635,7 @@ impl ID2D1Factory_Vtbl {
         unsafe extern "system" fn CreatePathGeometry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pathgeometry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePathGeometry() {
+            match ID2D1Factory_Impl::CreatePathGeometry(this) {
                 Ok(ok__) => {
                     core::ptr::write(pathgeometry, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2647,7 +2646,7 @@ impl ID2D1Factory_Vtbl {
         unsafe extern "system" fn CreateStrokeStyle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES, dashes: *const f32, dashescount: u32, strokestyle: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateStrokeStyle(core::mem::transmute_copy(&strokestyleproperties), core::mem::transmute_copy(&dashes), core::mem::transmute_copy(&dashescount)) {
+            match ID2D1Factory_Impl::CreateStrokeStyle(this, core::mem::transmute_copy(&strokestyleproperties), core::mem::transmute_copy(&dashes), core::mem::transmute_copy(&dashescount)) {
                 Ok(ok__) => {
                     core::ptr::write(strokestyle, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2658,7 +2657,7 @@ impl ID2D1Factory_Vtbl {
         unsafe extern "system" fn CreateDrawingStateBlock<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION, textrenderingparams: *mut core::ffi::c_void, drawingstateblock: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDrawingStateBlock(core::mem::transmute_copy(&drawingstatedescription), windows_core::from_raw_borrowed(&textrenderingparams)) {
+            match ID2D1Factory_Impl::CreateDrawingStateBlock(this, core::mem::transmute_copy(&drawingstatedescription), windows_core::from_raw_borrowed(&textrenderingparams)) {
                 Ok(ok__) => {
                     core::ptr::write(drawingstateblock, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2669,7 +2668,7 @@ impl ID2D1Factory_Vtbl {
         unsafe extern "system" fn CreateWicBitmapRenderTarget<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, target: *mut core::ffi::c_void, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES, rendertarget: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateWicBitmapRenderTarget(windows_core::from_raw_borrowed(&target), core::mem::transmute_copy(&rendertargetproperties)) {
+            match ID2D1Factory_Impl::CreateWicBitmapRenderTarget(this, windows_core::from_raw_borrowed(&target), core::mem::transmute_copy(&rendertargetproperties)) {
                 Ok(ok__) => {
                     core::ptr::write(rendertarget, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2680,7 +2679,7 @@ impl ID2D1Factory_Vtbl {
         unsafe extern "system" fn CreateHwndRenderTarget<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES, hwndrendertargetproperties: *const D2D1_HWND_RENDER_TARGET_PROPERTIES, hwndrendertarget: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateHwndRenderTarget(core::mem::transmute_copy(&rendertargetproperties), core::mem::transmute_copy(&hwndrendertargetproperties)) {
+            match ID2D1Factory_Impl::CreateHwndRenderTarget(this, core::mem::transmute_copy(&rendertargetproperties), core::mem::transmute_copy(&hwndrendertargetproperties)) {
                 Ok(ok__) => {
                     core::ptr::write(hwndrendertarget, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2691,7 +2690,7 @@ impl ID2D1Factory_Vtbl {
         unsafe extern "system" fn CreateDxgiSurfaceRenderTarget<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxgisurface: *mut core::ffi::c_void, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES, rendertarget: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDxgiSurfaceRenderTarget(windows_core::from_raw_borrowed(&dxgisurface), core::mem::transmute_copy(&rendertargetproperties)) {
+            match ID2D1Factory_Impl::CreateDxgiSurfaceRenderTarget(this, windows_core::from_raw_borrowed(&dxgisurface), core::mem::transmute_copy(&rendertargetproperties)) {
                 Ok(ok__) => {
                     core::ptr::write(rendertarget, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2702,7 +2701,7 @@ impl ID2D1Factory_Vtbl {
         unsafe extern "system" fn CreateDCRenderTarget<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES, dcrendertarget: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDCRenderTarget(core::mem::transmute_copy(&rendertargetproperties)) {
+            match ID2D1Factory_Impl::CreateDCRenderTarget(this, core::mem::transmute_copy(&rendertargetproperties)) {
                 Ok(ok__) => {
                     core::ptr::write(dcrendertarget, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2735,9 +2734,9 @@ impl ID2D1Factory_Vtbl {
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 pub trait ID2D1Factory1_Impl: Sized + ID2D1Factory_Impl {
     fn CreateDevice(&self, dxgidevice: Option<&super::Dxgi::IDXGIDevice>) -> windows_core::Result<ID2D1Device>;
-    fn CreateStrokeStyle2(&self, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1, dashes: *const f32, dashescount: u32) -> windows_core::Result<ID2D1StrokeStyle1>;
-    fn CreatePathGeometry2(&self) -> windows_core::Result<ID2D1PathGeometry1>;
-    fn CreateDrawingStateBlock2(&self, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: Option<&super::DirectWrite::IDWriteRenderingParams>) -> windows_core::Result<ID2D1DrawingStateBlock1>;
+    fn CreateStrokeStyle(&self, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1, dashes: *const f32, dashescount: u32) -> windows_core::Result<ID2D1StrokeStyle1>;
+    fn CreatePathGeometry(&self) -> windows_core::Result<ID2D1PathGeometry1>;
+    fn CreateDrawingStateBlock(&self, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: Option<&super::DirectWrite::IDWriteRenderingParams>) -> windows_core::Result<ID2D1DrawingStateBlock1>;
     fn CreateGdiMetafile(&self, metafilestream: Option<&super::super::System::Com::IStream>) -> windows_core::Result<ID2D1GdiMetafile>;
     fn RegisterEffectFromStream(&self, classid: *const windows_core::GUID, propertyxml: Option<&super::super::System::Com::IStream>, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: PD2D1_EFFECT_FACTORY) -> windows_core::Result<()>;
     fn RegisterEffectFromString(&self, classid: *const windows_core::GUID, propertyxml: &windows_core::PCWSTR, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: PD2D1_EFFECT_FACTORY) -> windows_core::Result<()>;
@@ -2753,7 +2752,7 @@ impl ID2D1Factory1_Vtbl {
         unsafe extern "system" fn CreateDevice<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxgidevice: *mut core::ffi::c_void, d2ddevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDevice(windows_core::from_raw_borrowed(&dxgidevice)) {
+            match ID2D1Factory1_Impl::CreateDevice(this, windows_core::from_raw_borrowed(&dxgidevice)) {
                 Ok(ok__) => {
                     core::ptr::write(d2ddevice, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2761,10 +2760,10 @@ impl ID2D1Factory1_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateStrokeStyle2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1, dashes: *const f32, dashescount: u32, strokestyle: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateStrokeStyle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1, dashes: *const f32, dashescount: u32, strokestyle: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateStrokeStyle2(core::mem::transmute_copy(&strokestyleproperties), core::mem::transmute_copy(&dashes), core::mem::transmute_copy(&dashescount)) {
+            match ID2D1Factory1_Impl::CreateStrokeStyle(this, core::mem::transmute_copy(&strokestyleproperties), core::mem::transmute_copy(&dashes), core::mem::transmute_copy(&dashescount)) {
                 Ok(ok__) => {
                     core::ptr::write(strokestyle, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2772,10 +2771,10 @@ impl ID2D1Factory1_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreatePathGeometry2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pathgeometry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreatePathGeometry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pathgeometry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePathGeometry2() {
+            match ID2D1Factory1_Impl::CreatePathGeometry(this) {
                 Ok(ok__) => {
                     core::ptr::write(pathgeometry, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2783,10 +2782,10 @@ impl ID2D1Factory1_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateDrawingStateBlock2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: *mut core::ffi::c_void, drawingstateblock: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateDrawingStateBlock<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: *mut core::ffi::c_void, drawingstateblock: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDrawingStateBlock2(core::mem::transmute_copy(&drawingstatedescription), windows_core::from_raw_borrowed(&textrenderingparams)) {
+            match ID2D1Factory1_Impl::CreateDrawingStateBlock(this, core::mem::transmute_copy(&drawingstatedescription), windows_core::from_raw_borrowed(&textrenderingparams)) {
                 Ok(ok__) => {
                     core::ptr::write(drawingstateblock, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2797,7 +2796,7 @@ impl ID2D1Factory1_Vtbl {
         unsafe extern "system" fn CreateGdiMetafile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, metafilestream: *mut core::ffi::c_void, metafile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateGdiMetafile(windows_core::from_raw_borrowed(&metafilestream)) {
+            match ID2D1Factory1_Impl::CreateGdiMetafile(this, windows_core::from_raw_borrowed(&metafilestream)) {
                 Ok(ok__) => {
                     core::ptr::write(metafile, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2808,27 +2807,27 @@ impl ID2D1Factory1_Vtbl {
         unsafe extern "system" fn RegisterEffectFromStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, classid: *const windows_core::GUID, propertyxml: *mut core::ffi::c_void, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: PD2D1_EFFECT_FACTORY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RegisterEffectFromStream(core::mem::transmute_copy(&classid), windows_core::from_raw_borrowed(&propertyxml), core::mem::transmute_copy(&bindings), core::mem::transmute_copy(&bindingscount), core::mem::transmute_copy(&effectfactory)).into()
+            ID2D1Factory1_Impl::RegisterEffectFromStream(this, core::mem::transmute_copy(&classid), windows_core::from_raw_borrowed(&propertyxml), core::mem::transmute_copy(&bindings), core::mem::transmute_copy(&bindingscount), core::mem::transmute_copy(&effectfactory)).into()
         }
         unsafe extern "system" fn RegisterEffectFromString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, classid: *const windows_core::GUID, propertyxml: windows_core::PCWSTR, bindings: *const D2D1_PROPERTY_BINDING, bindingscount: u32, effectfactory: PD2D1_EFFECT_FACTORY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RegisterEffectFromString(core::mem::transmute_copy(&classid), core::mem::transmute(&propertyxml), core::mem::transmute_copy(&bindings), core::mem::transmute_copy(&bindingscount), core::mem::transmute_copy(&effectfactory)).into()
+            ID2D1Factory1_Impl::RegisterEffectFromString(this, core::mem::transmute_copy(&classid), core::mem::transmute(&propertyxml), core::mem::transmute_copy(&bindings), core::mem::transmute_copy(&bindingscount), core::mem::transmute_copy(&effectfactory)).into()
         }
         unsafe extern "system" fn UnregisterEffect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, classid: *const windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.UnregisterEffect(core::mem::transmute_copy(&classid)).into()
+            ID2D1Factory1_Impl::UnregisterEffect(this, core::mem::transmute_copy(&classid)).into()
         }
         unsafe extern "system" fn GetRegisteredEffects<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, effects: *mut windows_core::GUID, effectscount: u32, effectsreturned: *mut u32, effectsregistered: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetRegisteredEffects(core::mem::transmute_copy(&effects), core::mem::transmute_copy(&effectscount), core::mem::transmute_copy(&effectsreturned), core::mem::transmute_copy(&effectsregistered)).into()
+            ID2D1Factory1_Impl::GetRegisteredEffects(this, core::mem::transmute_copy(&effects), core::mem::transmute_copy(&effectscount), core::mem::transmute_copy(&effectsreturned), core::mem::transmute_copy(&effectsregistered)).into()
         }
         unsafe extern "system" fn GetEffectProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, effectid: *const windows_core::GUID, properties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetEffectProperties(core::mem::transmute_copy(&effectid)) {
+            match ID2D1Factory1_Impl::GetEffectProperties(this, core::mem::transmute_copy(&effectid)) {
                 Ok(ok__) => {
                     core::ptr::write(properties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2839,9 +2838,9 @@ impl ID2D1Factory1_Vtbl {
         Self {
             base__: ID2D1Factory_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreateDevice: CreateDevice::<Identity, Impl, OFFSET>,
-            CreateStrokeStyle2: CreateStrokeStyle2::<Identity, Impl, OFFSET>,
-            CreatePathGeometry2: CreatePathGeometry2::<Identity, Impl, OFFSET>,
-            CreateDrawingStateBlock2: CreateDrawingStateBlock2::<Identity, Impl, OFFSET>,
+            CreateStrokeStyle: CreateStrokeStyle::<Identity, Impl, OFFSET>,
+            CreatePathGeometry: CreatePathGeometry::<Identity, Impl, OFFSET>,
+            CreateDrawingStateBlock: CreateDrawingStateBlock::<Identity, Impl, OFFSET>,
             CreateGdiMetafile: CreateGdiMetafile::<Identity, Impl, OFFSET>,
             RegisterEffectFromStream: RegisterEffectFromStream::<Identity, Impl, OFFSET>,
             RegisterEffectFromString: RegisterEffectFromString::<Identity, Impl, OFFSET>,
@@ -2856,17 +2855,17 @@ impl ID2D1Factory1_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 pub trait ID2D1Factory2_Impl: Sized + ID2D1Factory1_Impl {
-    fn CreateDevice2(&self, dxgidevice: Option<&super::Dxgi::IDXGIDevice>) -> windows_core::Result<ID2D1Device1>;
+    fn CreateDevice(&self, dxgidevice: Option<&super::Dxgi::IDXGIDevice>) -> windows_core::Result<ID2D1Device1>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1Factory2 {}
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl ID2D1Factory2_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory2_Impl, const OFFSET: isize>() -> ID2D1Factory2_Vtbl {
-        unsafe extern "system" fn CreateDevice2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxgidevice: *mut core::ffi::c_void, d2ddevice1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateDevice<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxgidevice: *mut core::ffi::c_void, d2ddevice1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDevice2(windows_core::from_raw_borrowed(&dxgidevice)) {
+            match ID2D1Factory2_Impl::CreateDevice(this, windows_core::from_raw_borrowed(&dxgidevice)) {
                 Ok(ok__) => {
                     core::ptr::write(d2ddevice1, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2874,7 +2873,7 @@ impl ID2D1Factory2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        Self { base__: ID2D1Factory1_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice2: CreateDevice2::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1Factory1_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice: CreateDevice::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1Factory2 as windows_core::Interface>::IID || iid == &<ID2D1Factory as windows_core::Interface>::IID || iid == &<ID2D1Factory1 as windows_core::Interface>::IID
@@ -2882,17 +2881,17 @@ impl ID2D1Factory2_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 pub trait ID2D1Factory3_Impl: Sized + ID2D1Factory2_Impl {
-    fn CreateDevice3(&self, dxgidevice: Option<&super::Dxgi::IDXGIDevice>) -> windows_core::Result<ID2D1Device2>;
+    fn CreateDevice(&self, dxgidevice: Option<&super::Dxgi::IDXGIDevice>) -> windows_core::Result<ID2D1Device2>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1Factory3 {}
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl ID2D1Factory3_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory3_Impl, const OFFSET: isize>() -> ID2D1Factory3_Vtbl {
-        unsafe extern "system" fn CreateDevice3<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxgidevice: *mut core::ffi::c_void, d2ddevice2: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateDevice<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxgidevice: *mut core::ffi::c_void, d2ddevice2: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDevice3(windows_core::from_raw_borrowed(&dxgidevice)) {
+            match ID2D1Factory3_Impl::CreateDevice(this, windows_core::from_raw_borrowed(&dxgidevice)) {
                 Ok(ok__) => {
                     core::ptr::write(d2ddevice2, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2900,7 +2899,7 @@ impl ID2D1Factory3_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        Self { base__: ID2D1Factory2_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice3: CreateDevice3::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1Factory2_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice: CreateDevice::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1Factory3 as windows_core::Interface>::IID || iid == &<ID2D1Factory as windows_core::Interface>::IID || iid == &<ID2D1Factory1 as windows_core::Interface>::IID || iid == &<ID2D1Factory2 as windows_core::Interface>::IID
@@ -2908,17 +2907,17 @@ impl ID2D1Factory3_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 pub trait ID2D1Factory4_Impl: Sized + ID2D1Factory3_Impl {
-    fn CreateDevice4(&self, dxgidevice: Option<&super::Dxgi::IDXGIDevice>) -> windows_core::Result<ID2D1Device3>;
+    fn CreateDevice(&self, dxgidevice: Option<&super::Dxgi::IDXGIDevice>) -> windows_core::Result<ID2D1Device3>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1Factory4 {}
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl ID2D1Factory4_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory4_Impl, const OFFSET: isize>() -> ID2D1Factory4_Vtbl {
-        unsafe extern "system" fn CreateDevice4<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxgidevice: *mut core::ffi::c_void, d2ddevice3: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateDevice<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxgidevice: *mut core::ffi::c_void, d2ddevice3: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDevice4(windows_core::from_raw_borrowed(&dxgidevice)) {
+            match ID2D1Factory4_Impl::CreateDevice(this, windows_core::from_raw_borrowed(&dxgidevice)) {
                 Ok(ok__) => {
                     core::ptr::write(d2ddevice3, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2926,7 +2925,7 @@ impl ID2D1Factory4_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        Self { base__: ID2D1Factory3_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice4: CreateDevice4::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1Factory3_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice: CreateDevice::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1Factory4 as windows_core::Interface>::IID || iid == &<ID2D1Factory as windows_core::Interface>::IID || iid == &<ID2D1Factory1 as windows_core::Interface>::IID || iid == &<ID2D1Factory2 as windows_core::Interface>::IID || iid == &<ID2D1Factory3 as windows_core::Interface>::IID
@@ -2934,17 +2933,17 @@ impl ID2D1Factory4_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 pub trait ID2D1Factory5_Impl: Sized + ID2D1Factory4_Impl {
-    fn CreateDevice5(&self, dxgidevice: Option<&super::Dxgi::IDXGIDevice>) -> windows_core::Result<ID2D1Device4>;
+    fn CreateDevice(&self, dxgidevice: Option<&super::Dxgi::IDXGIDevice>) -> windows_core::Result<ID2D1Device4>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1Factory5 {}
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl ID2D1Factory5_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory5_Impl, const OFFSET: isize>() -> ID2D1Factory5_Vtbl {
-        unsafe extern "system" fn CreateDevice5<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxgidevice: *mut core::ffi::c_void, d2ddevice4: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateDevice<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxgidevice: *mut core::ffi::c_void, d2ddevice4: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDevice5(windows_core::from_raw_borrowed(&dxgidevice)) {
+            match ID2D1Factory5_Impl::CreateDevice(this, windows_core::from_raw_borrowed(&dxgidevice)) {
                 Ok(ok__) => {
                     core::ptr::write(d2ddevice4, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2952,7 +2951,7 @@ impl ID2D1Factory5_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        Self { base__: ID2D1Factory4_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice5: CreateDevice5::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1Factory4_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice: CreateDevice::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1Factory5 as windows_core::Interface>::IID || iid == &<ID2D1Factory as windows_core::Interface>::IID || iid == &<ID2D1Factory1 as windows_core::Interface>::IID || iid == &<ID2D1Factory2 as windows_core::Interface>::IID || iid == &<ID2D1Factory3 as windows_core::Interface>::IID || iid == &<ID2D1Factory4 as windows_core::Interface>::IID
@@ -2960,17 +2959,17 @@ impl ID2D1Factory5_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 pub trait ID2D1Factory6_Impl: Sized + ID2D1Factory5_Impl {
-    fn CreateDevice6(&self, dxgidevice: Option<&super::Dxgi::IDXGIDevice>) -> windows_core::Result<ID2D1Device5>;
+    fn CreateDevice(&self, dxgidevice: Option<&super::Dxgi::IDXGIDevice>) -> windows_core::Result<ID2D1Device5>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1Factory6 {}
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl ID2D1Factory6_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory6_Impl, const OFFSET: isize>() -> ID2D1Factory6_Vtbl {
-        unsafe extern "system" fn CreateDevice6<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxgidevice: *mut core::ffi::c_void, d2ddevice5: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateDevice<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxgidevice: *mut core::ffi::c_void, d2ddevice5: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDevice6(windows_core::from_raw_borrowed(&dxgidevice)) {
+            match ID2D1Factory6_Impl::CreateDevice(this, windows_core::from_raw_borrowed(&dxgidevice)) {
                 Ok(ok__) => {
                     core::ptr::write(d2ddevice5, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2978,7 +2977,7 @@ impl ID2D1Factory6_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        Self { base__: ID2D1Factory5_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice6: CreateDevice6::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1Factory5_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice: CreateDevice::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1Factory6 as windows_core::Interface>::IID || iid == &<ID2D1Factory as windows_core::Interface>::IID || iid == &<ID2D1Factory1 as windows_core::Interface>::IID || iid == &<ID2D1Factory2 as windows_core::Interface>::IID || iid == &<ID2D1Factory3 as windows_core::Interface>::IID || iid == &<ID2D1Factory4 as windows_core::Interface>::IID || iid == &<ID2D1Factory5 as windows_core::Interface>::IID
@@ -2986,17 +2985,17 @@ impl ID2D1Factory6_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 pub trait ID2D1Factory7_Impl: Sized + ID2D1Factory6_Impl {
-    fn CreateDevice7(&self, dxgidevice: Option<&super::Dxgi::IDXGIDevice>) -> windows_core::Result<ID2D1Device6>;
+    fn CreateDevice(&self, dxgidevice: Option<&super::Dxgi::IDXGIDevice>) -> windows_core::Result<ID2D1Device6>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1Factory7 {}
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl ID2D1Factory7_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory7_Impl, const OFFSET: isize>() -> ID2D1Factory7_Vtbl {
-        unsafe extern "system" fn CreateDevice7<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxgidevice: *mut core::ffi::c_void, d2ddevice6: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateDevice<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxgidevice: *mut core::ffi::c_void, d2ddevice6: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDevice7(windows_core::from_raw_borrowed(&dxgidevice)) {
+            match ID2D1Factory7_Impl::CreateDevice(this, windows_core::from_raw_borrowed(&dxgidevice)) {
                 Ok(ok__) => {
                     core::ptr::write(d2ddevice6, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3004,7 +3003,7 @@ impl ID2D1Factory7_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        Self { base__: ID2D1Factory6_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice7: CreateDevice7::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1Factory6_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice: CreateDevice::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1Factory7 as windows_core::Interface>::IID || iid == &<ID2D1Factory as windows_core::Interface>::IID || iid == &<ID2D1Factory1 as windows_core::Interface>::IID || iid == &<ID2D1Factory2 as windows_core::Interface>::IID || iid == &<ID2D1Factory3 as windows_core::Interface>::IID || iid == &<ID2D1Factory4 as windows_core::Interface>::IID || iid == &<ID2D1Factory5 as windows_core::Interface>::IID || iid == &<ID2D1Factory6 as windows_core::Interface>::IID
@@ -3012,17 +3011,17 @@ impl ID2D1Factory7_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 pub trait ID2D1Factory8_Impl: Sized + ID2D1Factory7_Impl {
-    fn CreateDevice8(&self, dxgidevice: Option<&super::Dxgi::IDXGIDevice>) -> windows_core::Result<ID2D1Device7>;
+    fn CreateDevice(&self, dxgidevice: Option<&super::Dxgi::IDXGIDevice>) -> windows_core::Result<ID2D1Device7>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1Factory8 {}
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl ID2D1Factory8_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory8_Impl, const OFFSET: isize>() -> ID2D1Factory8_Vtbl {
-        unsafe extern "system" fn CreateDevice8<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxgidevice: *mut core::ffi::c_void, d2ddevice6: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateDevice<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dxgidevice: *mut core::ffi::c_void, d2ddevice6: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDevice8(windows_core::from_raw_borrowed(&dxgidevice)) {
+            match ID2D1Factory8_Impl::CreateDevice(this, windows_core::from_raw_borrowed(&dxgidevice)) {
                 Ok(ok__) => {
                     core::ptr::write(d2ddevice6, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3030,7 +3029,7 @@ impl ID2D1Factory8_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        Self { base__: ID2D1Factory7_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice8: CreateDevice8::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1Factory7_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice: CreateDevice::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1Factory8 as windows_core::Interface>::IID || iid == &<ID2D1Factory as windows_core::Interface>::IID || iid == &<ID2D1Factory1 as windows_core::Interface>::IID || iid == &<ID2D1Factory2 as windows_core::Interface>::IID || iid == &<ID2D1Factory3 as windows_core::Interface>::IID || iid == &<ID2D1Factory4 as windows_core::Interface>::IID || iid == &<ID2D1Factory5 as windows_core::Interface>::IID || iid == &<ID2D1Factory6 as windows_core::Interface>::IID || iid == &<ID2D1Factory7 as windows_core::Interface>::IID
@@ -3049,7 +3048,7 @@ impl ID2D1GdiInteropRenderTarget_Vtbl {
         unsafe extern "system" fn GetDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GdiInteropRenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: D2D1_DC_INITIALIZE_MODE, hdc: *mut super::Gdi::HDC) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDC(core::mem::transmute_copy(&mode)) {
+            match ID2D1GdiInteropRenderTarget_Impl::GetDC(this, core::mem::transmute_copy(&mode)) {
                 Ok(ok__) => {
                     core::ptr::write(hdc, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3060,7 +3059,7 @@ impl ID2D1GdiInteropRenderTarget_Vtbl {
         unsafe extern "system" fn ReleaseDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GdiInteropRenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, update: *const super::super::Foundation::RECT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ReleaseDC(core::mem::transmute_copy(&update)).into()
+            ID2D1GdiInteropRenderTarget_Impl::ReleaseDC(this, core::mem::transmute_copy(&update)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -3085,12 +3084,12 @@ impl ID2D1GdiMetafile_Vtbl {
         unsafe extern "system" fn Stream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GdiMetafile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Stream(windows_core::from_raw_borrowed(&sink)).into()
+            ID2D1GdiMetafile_Impl::Stream(this, windows_core::from_raw_borrowed(&sink)).into()
         }
         unsafe extern "system" fn GetBounds<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GdiMetafile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bounds: *mut Common::D2D_RECT_F) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetBounds() {
+            match ID2D1GdiMetafile_Impl::GetBounds(this) {
                 Ok(ok__) => {
                     core::ptr::write(bounds, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3121,12 +3120,12 @@ impl ID2D1GdiMetafile1_Vtbl {
         unsafe extern "system" fn GetDpi<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GdiMetafile1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dpix: *mut f32, dpiy: *mut f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDpi(core::mem::transmute_copy(&dpix), core::mem::transmute_copy(&dpiy)).into()
+            ID2D1GdiMetafile1_Impl::GetDpi(this, core::mem::transmute_copy(&dpix), core::mem::transmute_copy(&dpiy)).into()
         }
         unsafe extern "system" fn GetSourceBounds<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GdiMetafile1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bounds: *mut Common::D2D_RECT_F) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSourceBounds() {
+            match ID2D1GdiMetafile1_Impl::GetSourceBounds(this) {
                 Ok(ok__) => {
                     core::ptr::write(bounds, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3153,7 +3152,7 @@ impl ID2D1GdiMetafileSink_Vtbl {
         unsafe extern "system" fn ProcessRecord<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GdiMetafileSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recordtype: u32, recorddata: *const core::ffi::c_void, recorddatasize: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ProcessRecord(core::mem::transmute_copy(&recordtype), core::mem::transmute_copy(&recorddata), core::mem::transmute_copy(&recorddatasize)).into()
+            ID2D1GdiMetafileSink_Impl::ProcessRecord(this, core::mem::transmute_copy(&recordtype), core::mem::transmute_copy(&recorddata), core::mem::transmute_copy(&recorddatasize)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ProcessRecord: ProcessRecord::<Identity, Impl, OFFSET> }
     }
@@ -3162,17 +3161,17 @@ impl ID2D1GdiMetafileSink_Vtbl {
     }
 }
 pub trait ID2D1GdiMetafileSink1_Impl: Sized + ID2D1GdiMetafileSink_Impl {
-    fn ProcessRecord2(&self, recordtype: u32, recorddata: *const core::ffi::c_void, recorddatasize: u32, flags: u32) -> windows_core::Result<()>;
+    fn ProcessRecord(&self, recordtype: u32, recorddata: *const core::ffi::c_void, recorddatasize: u32, flags: u32) -> windows_core::Result<()>;
 }
 impl windows_core::RuntimeName for ID2D1GdiMetafileSink1 {}
 impl ID2D1GdiMetafileSink1_Vtbl {
     pub const fn new<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GdiMetafileSink1_Impl, const OFFSET: isize>() -> ID2D1GdiMetafileSink1_Vtbl {
-        unsafe extern "system" fn ProcessRecord2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GdiMetafileSink1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recordtype: u32, recorddata: *const core::ffi::c_void, recorddatasize: u32, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ProcessRecord<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GdiMetafileSink1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recordtype: u32, recorddata: *const core::ffi::c_void, recorddatasize: u32, flags: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ProcessRecord2(core::mem::transmute_copy(&recordtype), core::mem::transmute_copy(&recorddata), core::mem::transmute_copy(&recorddatasize), core::mem::transmute_copy(&flags)).into()
+            ID2D1GdiMetafileSink1_Impl::ProcessRecord(this, core::mem::transmute_copy(&recordtype), core::mem::transmute_copy(&recorddata), core::mem::transmute_copy(&recorddatasize), core::mem::transmute_copy(&flags)).into()
         }
-        Self { base__: ID2D1GdiMetafileSink_Vtbl::new::<Identity, Impl, OFFSET>(), ProcessRecord2: ProcessRecord2::<Identity, Impl, OFFSET> }
+        Self { base__: ID2D1GdiMetafileSink_Vtbl::new::<Identity, Impl, OFFSET>(), ProcessRecord: ProcessRecord::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID2D1GdiMetafileSink1 as windows_core::Interface>::IID || iid == &<ID2D1GdiMetafileSink as windows_core::Interface>::IID
@@ -3202,7 +3201,7 @@ impl ID2D1Geometry_Vtbl {
         unsafe extern "system" fn GetBounds<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Geometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, bounds: *mut Common::D2D_RECT_F) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetBounds(core::mem::transmute_copy(&worldtransform)) {
+            match ID2D1Geometry_Impl::GetBounds(this, core::mem::transmute_copy(&worldtransform)) {
                 Ok(ok__) => {
                     core::ptr::write(bounds, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3213,7 +3212,7 @@ impl ID2D1Geometry_Vtbl {
         unsafe extern "system" fn GetWidenedBounds<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Geometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokewidth: f32, strokestyle: *mut core::ffi::c_void, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, bounds: *mut Common::D2D_RECT_F) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetWidenedBounds(core::mem::transmute_copy(&strokewidth), windows_core::from_raw_borrowed(&strokestyle), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance)) {
+            match ID2D1Geometry_Impl::GetWidenedBounds(this, core::mem::transmute_copy(&strokewidth), windows_core::from_raw_borrowed(&strokestyle), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance)) {
                 Ok(ok__) => {
                     core::ptr::write(bounds, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3224,7 +3223,7 @@ impl ID2D1Geometry_Vtbl {
         unsafe extern "system" fn StrokeContainsPoint<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Geometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, point: Common::D2D_POINT_2F, strokewidth: f32, strokestyle: *mut core::ffi::c_void, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.StrokeContainsPoint(core::mem::transmute(&point), core::mem::transmute_copy(&strokewidth), windows_core::from_raw_borrowed(&strokestyle), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance)) {
+            match ID2D1Geometry_Impl::StrokeContainsPoint(this, core::mem::transmute(&point), core::mem::transmute_copy(&strokewidth), windows_core::from_raw_borrowed(&strokestyle), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance)) {
                 Ok(ok__) => {
                     core::ptr::write(contains, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3235,7 +3234,7 @@ impl ID2D1Geometry_Vtbl {
         unsafe extern "system" fn FillContainsPoint<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Geometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, point: Common::D2D_POINT_2F, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, contains: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FillContainsPoint(core::mem::transmute(&point), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance)) {
+            match ID2D1Geometry_Impl::FillContainsPoint(this, core::mem::transmute(&point), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance)) {
                 Ok(ok__) => {
                     core::ptr::write(contains, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3246,7 +3245,7 @@ impl ID2D1Geometry_Vtbl {
         unsafe extern "system" fn CompareWithGeometry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Geometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputgeometry: *mut core::ffi::c_void, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, relation: *mut D2D1_GEOMETRY_RELATION) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CompareWithGeometry(windows_core::from_raw_borrowed(&inputgeometry), core::mem::transmute_copy(&inputgeometrytransform), core::mem::transmute_copy(&flatteningtolerance)) {
+            match ID2D1Geometry_Impl::CompareWithGeometry(this, windows_core::from_raw_borrowed(&inputgeometry), core::mem::transmute_copy(&inputgeometrytransform), core::mem::transmute_copy(&flatteningtolerance)) {
                 Ok(ok__) => {
                     core::ptr::write(relation, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3257,27 +3256,27 @@ impl ID2D1Geometry_Vtbl {
         unsafe extern "system" fn Simplify<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Geometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, simplificationoption: D2D1_GEOMETRY_SIMPLIFICATION_OPTION, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Simplify(core::mem::transmute_copy(&simplificationoption), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance), windows_core::from_raw_borrowed(&geometrysink)).into()
+            ID2D1Geometry_Impl::Simplify(this, core::mem::transmute_copy(&simplificationoption), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance), windows_core::from_raw_borrowed(&geometrysink)).into()
         }
         unsafe extern "system" fn Tessellate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Geometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, tessellationsink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Tessellate(core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance), windows_core::from_raw_borrowed(&tessellationsink)).into()
+            ID2D1Geometry_Impl::Tessellate(this, core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance), windows_core::from_raw_borrowed(&tessellationsink)).into()
         }
         unsafe extern "system" fn CombineWithGeometry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Geometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputgeometry: *mut core::ffi::c_void, combinemode: D2D1_COMBINE_MODE, inputgeometrytransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CombineWithGeometry(windows_core::from_raw_borrowed(&inputgeometry), core::mem::transmute_copy(&combinemode), core::mem::transmute_copy(&inputgeometrytransform), core::mem::transmute_copy(&flatteningtolerance), windows_core::from_raw_borrowed(&geometrysink)).into()
+            ID2D1Geometry_Impl::CombineWithGeometry(this, windows_core::from_raw_borrowed(&inputgeometry), core::mem::transmute_copy(&combinemode), core::mem::transmute_copy(&inputgeometrytransform), core::mem::transmute_copy(&flatteningtolerance), windows_core::from_raw_borrowed(&geometrysink)).into()
         }
         unsafe extern "system" fn Outline<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Geometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Outline(core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance), windows_core::from_raw_borrowed(&geometrysink)).into()
+            ID2D1Geometry_Impl::Outline(this, core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance), windows_core::from_raw_borrowed(&geometrysink)).into()
         }
         unsafe extern "system" fn ComputeArea<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Geometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, area: *mut f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ComputeArea(core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance)) {
+            match ID2D1Geometry_Impl::ComputeArea(this, core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance)) {
                 Ok(ok__) => {
                     core::ptr::write(area, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3288,7 +3287,7 @@ impl ID2D1Geometry_Vtbl {
         unsafe extern "system" fn ComputeLength<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Geometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, length: *mut f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ComputeLength(core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance)) {
+            match ID2D1Geometry_Impl::ComputeLength(this, core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance)) {
                 Ok(ok__) => {
                     core::ptr::write(length, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3299,12 +3298,12 @@ impl ID2D1Geometry_Vtbl {
         unsafe extern "system" fn ComputePointAtLength<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Geometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: f32, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, point: *mut Common::D2D_POINT_2F, unittangentvector: *mut Common::D2D_POINT_2F) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ComputePointAtLength(core::mem::transmute_copy(&length), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance), core::mem::transmute_copy(&point), core::mem::transmute_copy(&unittangentvector)).into()
+            ID2D1Geometry_Impl::ComputePointAtLength(this, core::mem::transmute_copy(&length), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance), core::mem::transmute_copy(&point), core::mem::transmute_copy(&unittangentvector)).into()
         }
         unsafe extern "system" fn Widen<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Geometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokewidth: f32, strokestyle: *mut core::ffi::c_void, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Widen(core::mem::transmute_copy(&strokewidth), windows_core::from_raw_borrowed(&strokestyle), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance), windows_core::from_raw_borrowed(&geometrysink)).into()
+            ID2D1Geometry_Impl::Widen(this, core::mem::transmute_copy(&strokewidth), windows_core::from_raw_borrowed(&strokestyle), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance), windows_core::from_raw_borrowed(&geometrysink)).into()
         }
         Self {
             base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3341,17 +3340,17 @@ impl ID2D1GeometryGroup_Vtbl {
         unsafe extern "system" fn GetFillMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GeometryGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> Common::D2D1_FILL_MODE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetFillMode()
+            ID2D1GeometryGroup_Impl::GetFillMode(this)
         }
         unsafe extern "system" fn GetSourceGeometryCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GeometryGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSourceGeometryCount()
+            ID2D1GeometryGroup_Impl::GetSourceGeometryCount(this)
         }
         unsafe extern "system" fn GetSourceGeometries<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GeometryGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, geometries: *mut *mut core::ffi::c_void, geometriescount: u32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSourceGeometries(core::mem::transmute_copy(&geometries), core::mem::transmute_copy(&geometriescount))
+            ID2D1GeometryGroup_Impl::GetSourceGeometries(this, core::mem::transmute_copy(&geometries), core::mem::transmute_copy(&geometriescount))
         }
         Self {
             base__: ID2D1Geometry_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3390,27 +3389,27 @@ impl ID2D1GeometrySink_Vtbl {
         unsafe extern "system" fn AddLine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GeometrySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, point: Common::D2D_POINT_2F) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddLine(core::mem::transmute(&point))
+            ID2D1GeometrySink_Impl::AddLine(this, core::mem::transmute(&point))
         }
         unsafe extern "system" fn AddBezier<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GeometrySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bezier: *const Common::D2D1_BEZIER_SEGMENT) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddBezier(core::mem::transmute_copy(&bezier))
+            ID2D1GeometrySink_Impl::AddBezier(this, core::mem::transmute_copy(&bezier))
         }
         unsafe extern "system" fn AddQuadraticBezier<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GeometrySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bezier: *const D2D1_QUADRATIC_BEZIER_SEGMENT) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddQuadraticBezier(core::mem::transmute_copy(&bezier))
+            ID2D1GeometrySink_Impl::AddQuadraticBezier(this, core::mem::transmute_copy(&bezier))
         }
         unsafe extern "system" fn AddQuadraticBeziers<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GeometrySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, beziers: *const D2D1_QUADRATIC_BEZIER_SEGMENT, bezierscount: u32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddQuadraticBeziers(core::mem::transmute_copy(&beziers), core::mem::transmute_copy(&bezierscount))
+            ID2D1GeometrySink_Impl::AddQuadraticBeziers(this, core::mem::transmute_copy(&beziers), core::mem::transmute_copy(&bezierscount))
         }
         unsafe extern "system" fn AddArc<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GeometrySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, arc: *const D2D1_ARC_SEGMENT) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddArc(core::mem::transmute_copy(&arc))
+            ID2D1GeometrySink_Impl::AddArc(this, core::mem::transmute_copy(&arc))
         }
         Self {
             base__: Common::ID2D1SimplifiedGeometrySink_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3438,12 +3437,12 @@ impl ID2D1GradientMesh_Vtbl {
         unsafe extern "system" fn GetPatchCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GradientMesh_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPatchCount()
+            ID2D1GradientMesh_Impl::GetPatchCount(this)
         }
         unsafe extern "system" fn GetPatches<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GradientMesh_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startindex: u32, patches: *mut D2D1_GRADIENT_MESH_PATCH, patchescount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPatches(core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&patches), core::mem::transmute_copy(&patchescount)).into()
+            ID2D1GradientMesh_Impl::GetPatches(this, core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&patches), core::mem::transmute_copy(&patchescount)).into()
         }
         Self {
             base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3470,22 +3469,22 @@ impl ID2D1GradientStopCollection_Vtbl {
         unsafe extern "system" fn GetGradientStopCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GradientStopCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetGradientStopCount()
+            ID2D1GradientStopCollection_Impl::GetGradientStopCount(this)
         }
         unsafe extern "system" fn GetGradientStops<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GradientStopCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gradientstops: *mut Common::D2D1_GRADIENT_STOP, gradientstopscount: u32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetGradientStops(core::mem::transmute_copy(&gradientstops), core::mem::transmute_copy(&gradientstopscount))
+            ID2D1GradientStopCollection_Impl::GetGradientStops(this, core::mem::transmute_copy(&gradientstops), core::mem::transmute_copy(&gradientstopscount))
         }
         unsafe extern "system" fn GetColorInterpolationGamma<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GradientStopCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_GAMMA {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetColorInterpolationGamma()
+            ID2D1GradientStopCollection_Impl::GetColorInterpolationGamma(this)
         }
         unsafe extern "system" fn GetExtendMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GradientStopCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_EXTEND_MODE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetExtendMode()
+            ID2D1GradientStopCollection_Impl::GetExtendMode(this)
         }
         Self {
             base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3515,27 +3514,27 @@ impl ID2D1GradientStopCollection1_Vtbl {
         unsafe extern "system" fn GetGradientStops1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GradientStopCollection1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gradientstops: *mut Common::D2D1_GRADIENT_STOP, gradientstopscount: u32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetGradientStops1(core::mem::transmute_copy(&gradientstops), core::mem::transmute_copy(&gradientstopscount))
+            ID2D1GradientStopCollection1_Impl::GetGradientStops1(this, core::mem::transmute_copy(&gradientstops), core::mem::transmute_copy(&gradientstopscount))
         }
         unsafe extern "system" fn GetPreInterpolationSpace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GradientStopCollection1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_COLOR_SPACE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPreInterpolationSpace()
+            ID2D1GradientStopCollection1_Impl::GetPreInterpolationSpace(this)
         }
         unsafe extern "system" fn GetPostInterpolationSpace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GradientStopCollection1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_COLOR_SPACE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPostInterpolationSpace()
+            ID2D1GradientStopCollection1_Impl::GetPostInterpolationSpace(this)
         }
         unsafe extern "system" fn GetBufferPrecision<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GradientStopCollection1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_BUFFER_PRECISION {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetBufferPrecision()
+            ID2D1GradientStopCollection1_Impl::GetBufferPrecision(this)
         }
         unsafe extern "system" fn GetColorInterpolationMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GradientStopCollection1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_COLOR_INTERPOLATION_MODE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetColorInterpolationMode()
+            ID2D1GradientStopCollection1_Impl::GetColorInterpolationMode(this)
         }
         Self {
             base__: ID2D1GradientStopCollection_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3564,17 +3563,17 @@ impl ID2D1HwndRenderTarget_Vtbl {
         unsafe extern "system" fn CheckWindowState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1HwndRenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_WINDOW_STATE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CheckWindowState()
+            ID2D1HwndRenderTarget_Impl::CheckWindowState(this)
         }
         unsafe extern "system" fn Resize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1HwndRenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pixelsize: *const Common::D2D_SIZE_U) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Resize(core::mem::transmute_copy(&pixelsize)).into()
+            ID2D1HwndRenderTarget_Impl::Resize(this, core::mem::transmute_copy(&pixelsize)).into()
         }
         unsafe extern "system" fn GetHwnd<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1HwndRenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::HWND {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetHwnd()
+            ID2D1HwndRenderTarget_Impl::GetHwnd(this)
         }
         Self {
             base__: ID2D1RenderTarget_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3618,52 +3617,52 @@ impl ID2D1ImageBrush_Vtbl {
         unsafe extern "system" fn SetImage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ImageBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, image: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetImage(windows_core::from_raw_borrowed(&image))
+            ID2D1ImageBrush_Impl::SetImage(this, windows_core::from_raw_borrowed(&image))
         }
         unsafe extern "system" fn SetExtendModeX<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ImageBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, extendmodex: D2D1_EXTEND_MODE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetExtendModeX(core::mem::transmute_copy(&extendmodex))
+            ID2D1ImageBrush_Impl::SetExtendModeX(this, core::mem::transmute_copy(&extendmodex))
         }
         unsafe extern "system" fn SetExtendModeY<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ImageBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, extendmodey: D2D1_EXTEND_MODE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetExtendModeY(core::mem::transmute_copy(&extendmodey))
+            ID2D1ImageBrush_Impl::SetExtendModeY(this, core::mem::transmute_copy(&extendmodey))
         }
         unsafe extern "system" fn SetInterpolationMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ImageBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interpolationmode: D2D1_INTERPOLATION_MODE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetInterpolationMode(core::mem::transmute_copy(&interpolationmode))
+            ID2D1ImageBrush_Impl::SetInterpolationMode(this, core::mem::transmute_copy(&interpolationmode))
         }
         unsafe extern "system" fn SetSourceRectangle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ImageBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcerectangle: *const Common::D2D_RECT_F) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSourceRectangle(core::mem::transmute_copy(&sourcerectangle))
+            ID2D1ImageBrush_Impl::SetSourceRectangle(this, core::mem::transmute_copy(&sourcerectangle))
         }
         unsafe extern "system" fn GetImage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ImageBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, image: *mut *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetImage(core::mem::transmute_copy(&image))
+            ID2D1ImageBrush_Impl::GetImage(this, core::mem::transmute_copy(&image))
         }
         unsafe extern "system" fn GetExtendModeX<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ImageBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_EXTEND_MODE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetExtendModeX()
+            ID2D1ImageBrush_Impl::GetExtendModeX(this)
         }
         unsafe extern "system" fn GetExtendModeY<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ImageBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_EXTEND_MODE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetExtendModeY()
+            ID2D1ImageBrush_Impl::GetExtendModeY(this)
         }
         unsafe extern "system" fn GetInterpolationMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ImageBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_INTERPOLATION_MODE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetInterpolationMode()
+            ID2D1ImageBrush_Impl::GetInterpolationMode(this)
         }
         unsafe extern "system" fn GetSourceRectangle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ImageBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcerectangle: *mut Common::D2D_RECT_F) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSourceRectangle(core::mem::transmute_copy(&sourcerectangle))
+            ID2D1ImageBrush_Impl::GetSourceRectangle(this, core::mem::transmute_copy(&sourcerectangle))
         }
         Self {
             base__: ID2D1Brush_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3693,12 +3692,12 @@ impl ID2D1ImageSource_Vtbl {
         unsafe extern "system" fn OfferResources<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ImageSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OfferResources().into()
+            ID2D1ImageSource_Impl::OfferResources(this).into()
         }
         unsafe extern "system" fn TryReclaimResources<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ImageSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourcesdiscarded: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TryReclaimResources() {
+            match ID2D1ImageSource_Impl::TryReclaimResources(this) {
                 Ok(ok__) => {
                     core::ptr::write(resourcesdiscarded, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3730,17 +3729,17 @@ impl ID2D1ImageSourceFromWic_Vtbl {
         unsafe extern "system" fn EnsureCached<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ImageSourceFromWic_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rectangletofill: *const Common::D2D_RECT_U) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EnsureCached(core::mem::transmute_copy(&rectangletofill)).into()
+            ID2D1ImageSourceFromWic_Impl::EnsureCached(this, core::mem::transmute_copy(&rectangletofill)).into()
         }
         unsafe extern "system" fn TrimCache<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ImageSourceFromWic_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rectangletopreserve: *const Common::D2D_RECT_U) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.TrimCache(core::mem::transmute_copy(&rectangletopreserve)).into()
+            ID2D1ImageSourceFromWic_Impl::TrimCache(this, core::mem::transmute_copy(&rectangletopreserve)).into()
         }
         unsafe extern "system" fn GetSource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ImageSourceFromWic_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wicbitmapsource: *mut *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSource(core::mem::transmute_copy(&wicbitmapsource))
+            ID2D1ImageSourceFromWic_Impl::GetSource(this, core::mem::transmute_copy(&wicbitmapsource))
         }
         Self {
             base__: ID2D1ImageSource_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3774,52 +3773,52 @@ impl ID2D1Ink_Vtbl {
         unsafe extern "system" fn SetStartPoint<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Ink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startpoint: *const D2D1_INK_POINT) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetStartPoint(core::mem::transmute_copy(&startpoint))
+            ID2D1Ink_Impl::SetStartPoint(this, core::mem::transmute_copy(&startpoint))
         }
         unsafe extern "system" fn GetStartPoint<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Ink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut D2D1_INK_POINT) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            *result__ = this.GetStartPoint()
+            *result__ = ID2D1Ink_Impl::GetStartPoint(this)
         }
         unsafe extern "system" fn AddSegments<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Ink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, segments: *const D2D1_INK_BEZIER_SEGMENT, segmentscount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddSegments(core::mem::transmute_copy(&segments), core::mem::transmute_copy(&segmentscount)).into()
+            ID2D1Ink_Impl::AddSegments(this, core::mem::transmute_copy(&segments), core::mem::transmute_copy(&segmentscount)).into()
         }
         unsafe extern "system" fn RemoveSegmentsAtEnd<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Ink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, segmentscount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveSegmentsAtEnd(core::mem::transmute_copy(&segmentscount)).into()
+            ID2D1Ink_Impl::RemoveSegmentsAtEnd(this, core::mem::transmute_copy(&segmentscount)).into()
         }
         unsafe extern "system" fn SetSegments<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Ink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startsegment: u32, segments: *const D2D1_INK_BEZIER_SEGMENT, segmentscount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSegments(core::mem::transmute_copy(&startsegment), core::mem::transmute_copy(&segments), core::mem::transmute_copy(&segmentscount)).into()
+            ID2D1Ink_Impl::SetSegments(this, core::mem::transmute_copy(&startsegment), core::mem::transmute_copy(&segments), core::mem::transmute_copy(&segmentscount)).into()
         }
         unsafe extern "system" fn SetSegmentAtEnd<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Ink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, segment: *const D2D1_INK_BEZIER_SEGMENT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSegmentAtEnd(core::mem::transmute_copy(&segment)).into()
+            ID2D1Ink_Impl::SetSegmentAtEnd(this, core::mem::transmute_copy(&segment)).into()
         }
         unsafe extern "system" fn GetSegmentCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Ink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSegmentCount()
+            ID2D1Ink_Impl::GetSegmentCount(this)
         }
         unsafe extern "system" fn GetSegments<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Ink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startsegment: u32, segments: *mut D2D1_INK_BEZIER_SEGMENT, segmentscount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSegments(core::mem::transmute_copy(&startsegment), core::mem::transmute_copy(&segments), core::mem::transmute_copy(&segmentscount)).into()
+            ID2D1Ink_Impl::GetSegments(this, core::mem::transmute_copy(&startsegment), core::mem::transmute_copy(&segments), core::mem::transmute_copy(&segmentscount)).into()
         }
         unsafe extern "system" fn StreamAsGeometry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Ink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inkstyle: *mut core::ffi::c_void, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.StreamAsGeometry(windows_core::from_raw_borrowed(&inkstyle), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance), windows_core::from_raw_borrowed(&geometrysink)).into()
+            ID2D1Ink_Impl::StreamAsGeometry(this, windows_core::from_raw_borrowed(&inkstyle), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance), windows_core::from_raw_borrowed(&geometrysink)).into()
         }
         unsafe extern "system" fn GetBounds<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Ink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inkstyle: *mut core::ffi::c_void, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, bounds: *mut Common::D2D_RECT_F) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetBounds(windows_core::from_raw_borrowed(&inkstyle), core::mem::transmute_copy(&worldtransform)) {
+            match ID2D1Ink_Impl::GetBounds(this, windows_core::from_raw_borrowed(&inkstyle), core::mem::transmute_copy(&worldtransform)) {
                 Ok(ok__) => {
                     core::ptr::write(bounds, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3860,22 +3859,22 @@ impl ID2D1InkStyle_Vtbl {
         unsafe extern "system" fn SetNibTransform<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1InkStyle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetNibTransform(core::mem::transmute_copy(&transform))
+            ID2D1InkStyle_Impl::SetNibTransform(this, core::mem::transmute_copy(&transform))
         }
         unsafe extern "system" fn GetNibTransform<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1InkStyle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetNibTransform(core::mem::transmute_copy(&transform))
+            ID2D1InkStyle_Impl::GetNibTransform(this, core::mem::transmute_copy(&transform))
         }
         unsafe extern "system" fn SetNibShape<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1InkStyle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nibshape: D2D1_INK_NIB_SHAPE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetNibShape(core::mem::transmute_copy(&nibshape))
+            ID2D1InkStyle_Impl::SetNibShape(this, core::mem::transmute_copy(&nibshape))
         }
         unsafe extern "system" fn GetNibShape<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1InkStyle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_INK_NIB_SHAPE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetNibShape()
+            ID2D1InkStyle_Impl::GetNibShape(this)
         }
         Self {
             base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3901,7 +3900,7 @@ impl ID2D1Layer_Vtbl {
         unsafe extern "system" fn GetSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Layer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut Common::D2D_SIZE_F) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            *result__ = this.GetSize()
+            *result__ = ID2D1Layer_Impl::GetSize(this)
         }
         Self { base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(), GetSize: GetSize::<Identity, Impl, OFFSET> }
     }
@@ -3925,27 +3924,27 @@ impl ID2D1LinearGradientBrush_Vtbl {
         unsafe extern "system" fn SetStartPoint<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1LinearGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startpoint: Common::D2D_POINT_2F) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetStartPoint(core::mem::transmute(&startpoint))
+            ID2D1LinearGradientBrush_Impl::SetStartPoint(this, core::mem::transmute(&startpoint))
         }
         unsafe extern "system" fn SetEndPoint<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1LinearGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, endpoint: Common::D2D_POINT_2F) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEndPoint(core::mem::transmute(&endpoint))
+            ID2D1LinearGradientBrush_Impl::SetEndPoint(this, core::mem::transmute(&endpoint))
         }
         unsafe extern "system" fn GetStartPoint<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1LinearGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut Common::D2D_POINT_2F) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            *result__ = this.GetStartPoint()
+            *result__ = ID2D1LinearGradientBrush_Impl::GetStartPoint(this)
         }
         unsafe extern "system" fn GetEndPoint<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1LinearGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut Common::D2D_POINT_2F) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            *result__ = this.GetEndPoint()
+            *result__ = ID2D1LinearGradientBrush_Impl::GetEndPoint(this)
         }
         unsafe extern "system" fn GetGradientStopCollection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1LinearGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gradientstopcollection: *mut *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetGradientStopCollection(core::mem::transmute_copy(&gradientstopcollection))
+            ID2D1LinearGradientBrush_Impl::GetGradientStopCollection(this, core::mem::transmute_copy(&gradientstopcollection))
         }
         Self {
             base__: ID2D1Brush_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3979,7 +3978,7 @@ impl ID2D1Mesh_Vtbl {
         unsafe extern "system" fn Open<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Mesh_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tessellationsink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Open() {
+            match ID2D1Mesh_Impl::Open(this) {
                 Ok(ok__) => {
                     core::ptr::write(tessellationsink, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4004,17 +4003,17 @@ impl ID2D1Multithread_Vtbl {
         unsafe extern "system" fn GetMultithreadProtected<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Multithread_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetMultithreadProtected()
+            ID2D1Multithread_Impl::GetMultithreadProtected(this)
         }
         unsafe extern "system" fn Enter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Multithread_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Enter()
+            ID2D1Multithread_Impl::Enter(this)
         }
         unsafe extern "system" fn Leave<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Multithread_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Leave()
+            ID2D1Multithread_Impl::Leave(this)
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -4037,12 +4036,12 @@ impl ID2D1OffsetTransform_Vtbl {
         unsafe extern "system" fn SetOffset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1OffsetTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: super::super::Foundation::POINT) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetOffset(core::mem::transmute(&offset))
+            ID2D1OffsetTransform_Impl::SetOffset(this, core::mem::transmute(&offset))
         }
         unsafe extern "system" fn GetOffset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1OffsetTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::Foundation::POINT) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            *result__ = this.GetOffset()
+            *result__ = ID2D1OffsetTransform_Impl::GetOffset(this)
         }
         Self {
             base__: ID2D1TransformNode_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -4069,7 +4068,7 @@ impl ID2D1PathGeometry_Vtbl {
         unsafe extern "system" fn Open<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1PathGeometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, geometrysink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Open() {
+            match ID2D1PathGeometry_Impl::Open(this) {
                 Ok(ok__) => {
                     core::ptr::write(geometrysink, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4080,12 +4079,12 @@ impl ID2D1PathGeometry_Vtbl {
         unsafe extern "system" fn Stream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1PathGeometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, geometrysink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Stream(windows_core::from_raw_borrowed(&geometrysink)).into()
+            ID2D1PathGeometry_Impl::Stream(this, windows_core::from_raw_borrowed(&geometrysink)).into()
         }
         unsafe extern "system" fn GetSegmentCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1PathGeometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSegmentCount() {
+            match ID2D1PathGeometry_Impl::GetSegmentCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4096,7 +4095,7 @@ impl ID2D1PathGeometry_Vtbl {
         unsafe extern "system" fn GetFigureCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1PathGeometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFigureCount() {
+            match ID2D1PathGeometry_Impl::GetFigureCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4128,7 +4127,7 @@ impl ID2D1PathGeometry1_Vtbl {
         unsafe extern "system" fn ComputePointAndSegmentAtLength<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1PathGeometry1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: f32, startsegment: u32, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, pointdescription: *mut D2D1_POINT_DESCRIPTION) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ComputePointAndSegmentAtLength(core::mem::transmute_copy(&length), core::mem::transmute_copy(&startsegment), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance), core::mem::transmute_copy(&pointdescription)).into()
+            ID2D1PathGeometry1_Impl::ComputePointAndSegmentAtLength(this, core::mem::transmute_copy(&length), core::mem::transmute_copy(&startsegment), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance), core::mem::transmute_copy(&pointdescription)).into()
         }
         Self {
             base__: ID2D1PathGeometry_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -4152,12 +4151,12 @@ impl ID2D1PrintControl_Vtbl {
         unsafe extern "system" fn AddPage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1PrintControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandlist: *mut core::ffi::c_void, pagesize: Common::D2D_SIZE_F, pageprintticketstream: *mut core::ffi::c_void, tag1: *mut u64, tag2: *mut u64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddPage(windows_core::from_raw_borrowed(&commandlist), core::mem::transmute(&pagesize), windows_core::from_raw_borrowed(&pageprintticketstream), core::mem::transmute_copy(&tag1), core::mem::transmute_copy(&tag2)).into()
+            ID2D1PrintControl_Impl::AddPage(this, windows_core::from_raw_borrowed(&commandlist), core::mem::transmute(&pagesize), windows_core::from_raw_borrowed(&pageprintticketstream), core::mem::transmute_copy(&tag1), core::mem::transmute_copy(&tag2)).into()
         }
         unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1PrintControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Close().into()
+            ID2D1PrintControl_Impl::Close(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -4188,57 +4187,57 @@ impl ID2D1Properties_Vtbl {
         unsafe extern "system" fn GetPropertyCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Properties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPropertyCount()
+            ID2D1Properties_Impl::GetPropertyCount(this)
         }
         unsafe extern "system" fn GetPropertyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Properties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, name: windows_core::PWSTR, namecount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPropertyName(core::mem::transmute_copy(&index), core::mem::transmute_copy(&name), core::mem::transmute_copy(&namecount)).into()
+            ID2D1Properties_Impl::GetPropertyName(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&name), core::mem::transmute_copy(&namecount)).into()
         }
         unsafe extern "system" fn GetPropertyNameLength<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Properties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> u32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPropertyNameLength(core::mem::transmute_copy(&index))
+            ID2D1Properties_Impl::GetPropertyNameLength(this, core::mem::transmute_copy(&index))
         }
         unsafe extern "system" fn GetType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Properties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> D2D1_PROPERTY_TYPE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetType(core::mem::transmute_copy(&index))
+            ID2D1Properties_Impl::GetType(this, core::mem::transmute_copy(&index))
         }
         unsafe extern "system" fn GetPropertyIndex<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Properties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR) -> u32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPropertyIndex(core::mem::transmute(&name))
+            ID2D1Properties_Impl::GetPropertyIndex(this, core::mem::transmute(&name))
         }
         unsafe extern "system" fn SetValueByName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Properties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, r#type: D2D1_PROPERTY_TYPE, data: *const u8, datasize: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetValueByName(core::mem::transmute(&name), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&data), core::mem::transmute_copy(&datasize)).into()
+            ID2D1Properties_Impl::SetValueByName(this, core::mem::transmute(&name), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&data), core::mem::transmute_copy(&datasize)).into()
         }
         unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Properties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, r#type: D2D1_PROPERTY_TYPE, data: *const u8, datasize: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetValue(core::mem::transmute_copy(&index), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&data), core::mem::transmute_copy(&datasize)).into()
+            ID2D1Properties_Impl::SetValue(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&data), core::mem::transmute_copy(&datasize)).into()
         }
         unsafe extern "system" fn GetValueByName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Properties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, r#type: D2D1_PROPERTY_TYPE, data: *mut u8, datasize: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetValueByName(core::mem::transmute(&name), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&data), core::mem::transmute_copy(&datasize)).into()
+            ID2D1Properties_Impl::GetValueByName(this, core::mem::transmute(&name), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&data), core::mem::transmute_copy(&datasize)).into()
         }
         unsafe extern "system" fn GetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Properties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, r#type: D2D1_PROPERTY_TYPE, data: *mut u8, datasize: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetValue(core::mem::transmute_copy(&index), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&data), core::mem::transmute_copy(&datasize)).into()
+            ID2D1Properties_Impl::GetValue(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&data), core::mem::transmute_copy(&datasize)).into()
         }
         unsafe extern "system" fn GetValueSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Properties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> u32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetValueSize(core::mem::transmute_copy(&index))
+            ID2D1Properties_Impl::GetValueSize(this, core::mem::transmute_copy(&index))
         }
         unsafe extern "system" fn GetSubProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Properties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, subproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSubProperties(core::mem::transmute_copy(&index)) {
+            match ID2D1Properties_Impl::GetSubProperties(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(subproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4285,47 +4284,47 @@ impl ID2D1RadialGradientBrush_Vtbl {
         unsafe extern "system" fn SetCenter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RadialGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, center: Common::D2D_POINT_2F) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCenter(core::mem::transmute(&center))
+            ID2D1RadialGradientBrush_Impl::SetCenter(this, core::mem::transmute(&center))
         }
         unsafe extern "system" fn SetGradientOriginOffset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RadialGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gradientoriginoffset: Common::D2D_POINT_2F) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetGradientOriginOffset(core::mem::transmute(&gradientoriginoffset))
+            ID2D1RadialGradientBrush_Impl::SetGradientOriginOffset(this, core::mem::transmute(&gradientoriginoffset))
         }
         unsafe extern "system" fn SetRadiusX<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RadialGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, radiusx: f32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRadiusX(core::mem::transmute_copy(&radiusx))
+            ID2D1RadialGradientBrush_Impl::SetRadiusX(this, core::mem::transmute_copy(&radiusx))
         }
         unsafe extern "system" fn SetRadiusY<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RadialGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, radiusy: f32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRadiusY(core::mem::transmute_copy(&radiusy))
+            ID2D1RadialGradientBrush_Impl::SetRadiusY(this, core::mem::transmute_copy(&radiusy))
         }
         unsafe extern "system" fn GetCenter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RadialGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut Common::D2D_POINT_2F) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            *result__ = this.GetCenter()
+            *result__ = ID2D1RadialGradientBrush_Impl::GetCenter(this)
         }
         unsafe extern "system" fn GetGradientOriginOffset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RadialGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut Common::D2D_POINT_2F) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            *result__ = this.GetGradientOriginOffset()
+            *result__ = ID2D1RadialGradientBrush_Impl::GetGradientOriginOffset(this)
         }
         unsafe extern "system" fn GetRadiusX<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RadialGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> f32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetRadiusX()
+            ID2D1RadialGradientBrush_Impl::GetRadiusX(this)
         }
         unsafe extern "system" fn GetRadiusY<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RadialGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> f32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetRadiusY()
+            ID2D1RadialGradientBrush_Impl::GetRadiusY(this)
         }
         unsafe extern "system" fn GetGradientStopCollection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RadialGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gradientstopcollection: *mut *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetGradientStopCollection(core::mem::transmute_copy(&gradientstopcollection))
+            ID2D1RadialGradientBrush_Impl::GetGradientStopCollection(this, core::mem::transmute_copy(&gradientstopcollection))
         }
         Self {
             base__: ID2D1Brush_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -4356,7 +4355,7 @@ impl ID2D1RectangleGeometry_Vtbl {
         unsafe extern "system" fn GetRect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RectangleGeometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rect: *mut Common::D2D_RECT_F) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetRect(core::mem::transmute_copy(&rect))
+            ID2D1RectangleGeometry_Impl::GetRect(this, core::mem::transmute_copy(&rect))
         }
         Self { base__: ID2D1Geometry_Vtbl::new::<Identity, Impl, OFFSET>(), GetRect: GetRect::<Identity, Impl, OFFSET> }
     }
@@ -4376,22 +4375,22 @@ impl ID2D1RenderInfo_Vtbl {
         unsafe extern "system" fn SetInputDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputindex: u32, inputdescription: D2D1_INPUT_DESCRIPTION) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetInputDescription(core::mem::transmute_copy(&inputindex), core::mem::transmute(&inputdescription)).into()
+            ID2D1RenderInfo_Impl::SetInputDescription(this, core::mem::transmute_copy(&inputindex), core::mem::transmute(&inputdescription)).into()
         }
         unsafe extern "system" fn SetOutputBuffer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bufferprecision: D2D1_BUFFER_PRECISION, channeldepth: D2D1_CHANNEL_DEPTH) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetOutputBuffer(core::mem::transmute_copy(&bufferprecision), core::mem::transmute_copy(&channeldepth)).into()
+            ID2D1RenderInfo_Impl::SetOutputBuffer(this, core::mem::transmute_copy(&bufferprecision), core::mem::transmute_copy(&channeldepth)).into()
         }
         unsafe extern "system" fn SetCached<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iscached: super::super::Foundation::BOOL) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCached(core::mem::transmute_copy(&iscached))
+            ID2D1RenderInfo_Impl::SetCached(this, core::mem::transmute_copy(&iscached))
         }
         unsafe extern "system" fn SetInstructionCountHint<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, instructioncount: u32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetInstructionCountHint(core::mem::transmute_copy(&instructioncount))
+            ID2D1RenderInfo_Impl::SetInstructionCountHint(this, core::mem::transmute_copy(&instructioncount))
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -4469,7 +4468,7 @@ impl ID2D1RenderTarget_Vtbl {
         unsafe extern "system" fn CreateBitmap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: Common::D2D_SIZE_U, srcdata: *const core::ffi::c_void, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateBitmap(core::mem::transmute(&size), core::mem::transmute_copy(&srcdata), core::mem::transmute_copy(&pitch), core::mem::transmute_copy(&bitmapproperties)) {
+            match ID2D1RenderTarget_Impl::CreateBitmap(this, core::mem::transmute(&size), core::mem::transmute_copy(&srcdata), core::mem::transmute_copy(&pitch), core::mem::transmute_copy(&bitmapproperties)) {
                 Ok(ok__) => {
                     core::ptr::write(bitmap, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4480,7 +4479,7 @@ impl ID2D1RenderTarget_Vtbl {
         unsafe extern "system" fn CreateBitmapFromWicBitmap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wicbitmapsource: *mut core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateBitmapFromWicBitmap(windows_core::from_raw_borrowed(&wicbitmapsource), core::mem::transmute_copy(&bitmapproperties)) {
+            match ID2D1RenderTarget_Impl::CreateBitmapFromWicBitmap(this, windows_core::from_raw_borrowed(&wicbitmapsource), core::mem::transmute_copy(&bitmapproperties)) {
                 Ok(ok__) => {
                     core::ptr::write(bitmap, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4491,12 +4490,12 @@ impl ID2D1RenderTarget_Vtbl {
         unsafe extern "system" fn CreateSharedBitmap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, data: *mut core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateSharedBitmap(core::mem::transmute_copy(&riid), core::mem::transmute_copy(&data), core::mem::transmute_copy(&bitmapproperties), core::mem::transmute_copy(&bitmap)).into()
+            ID2D1RenderTarget_Impl::CreateSharedBitmap(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&data), core::mem::transmute_copy(&bitmapproperties), core::mem::transmute_copy(&bitmap)).into()
         }
         unsafe extern "system" fn CreateBitmapBrush<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmap: *mut core::ffi::c_void, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateBitmapBrush(windows_core::from_raw_borrowed(&bitmap), core::mem::transmute_copy(&bitmapbrushproperties), core::mem::transmute_copy(&brushproperties)) {
+            match ID2D1RenderTarget_Impl::CreateBitmapBrush(this, windows_core::from_raw_borrowed(&bitmap), core::mem::transmute_copy(&bitmapbrushproperties), core::mem::transmute_copy(&brushproperties)) {
                 Ok(ok__) => {
                     core::ptr::write(bitmapbrush, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4507,7 +4506,7 @@ impl ID2D1RenderTarget_Vtbl {
         unsafe extern "system" fn CreateSolidColorBrush<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES, solidcolorbrush: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateSolidColorBrush(core::mem::transmute_copy(&color), core::mem::transmute_copy(&brushproperties)) {
+            match ID2D1RenderTarget_Impl::CreateSolidColorBrush(this, core::mem::transmute_copy(&color), core::mem::transmute_copy(&brushproperties)) {
                 Ok(ok__) => {
                     core::ptr::write(solidcolorbrush, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4518,7 +4517,7 @@ impl ID2D1RenderTarget_Vtbl {
         unsafe extern "system" fn CreateGradientStopCollection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gradientstops: *const Common::D2D1_GRADIENT_STOP, gradientstopscount: u32, colorinterpolationgamma: D2D1_GAMMA, extendmode: D2D1_EXTEND_MODE, gradientstopcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateGradientStopCollection(core::mem::transmute_copy(&gradientstops), core::mem::transmute_copy(&gradientstopscount), core::mem::transmute_copy(&colorinterpolationgamma), core::mem::transmute_copy(&extendmode)) {
+            match ID2D1RenderTarget_Impl::CreateGradientStopCollection(this, core::mem::transmute_copy(&gradientstops), core::mem::transmute_copy(&gradientstopscount), core::mem::transmute_copy(&colorinterpolationgamma), core::mem::transmute_copy(&extendmode)) {
                 Ok(ok__) => {
                     core::ptr::write(gradientstopcollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4529,7 +4528,7 @@ impl ID2D1RenderTarget_Vtbl {
         unsafe extern "system" fn CreateLinearGradientBrush<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: *mut core::ffi::c_void, lineargradientbrush: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateLinearGradientBrush(core::mem::transmute_copy(&lineargradientbrushproperties), core::mem::transmute_copy(&brushproperties), windows_core::from_raw_borrowed(&gradientstopcollection)) {
+            match ID2D1RenderTarget_Impl::CreateLinearGradientBrush(this, core::mem::transmute_copy(&lineargradientbrushproperties), core::mem::transmute_copy(&brushproperties), windows_core::from_raw_borrowed(&gradientstopcollection)) {
                 Ok(ok__) => {
                     core::ptr::write(lineargradientbrush, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4540,7 +4539,7 @@ impl ID2D1RenderTarget_Vtbl {
         unsafe extern "system" fn CreateRadialGradientBrush<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: *mut core::ffi::c_void, radialgradientbrush: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateRadialGradientBrush(core::mem::transmute_copy(&radialgradientbrushproperties), core::mem::transmute_copy(&brushproperties), windows_core::from_raw_borrowed(&gradientstopcollection)) {
+            match ID2D1RenderTarget_Impl::CreateRadialGradientBrush(this, core::mem::transmute_copy(&radialgradientbrushproperties), core::mem::transmute_copy(&brushproperties), windows_core::from_raw_borrowed(&gradientstopcollection)) {
                 Ok(ok__) => {
                     core::ptr::write(radialgradientbrush, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4551,7 +4550,7 @@ impl ID2D1RenderTarget_Vtbl {
         unsafe extern "system" fn CreateCompatibleRenderTarget<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, desiredsize: *const Common::D2D_SIZE_F, desiredpixelsize: *const Common::D2D_SIZE_U, desiredformat: *const Common::D2D1_PIXEL_FORMAT, options: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS, bitmaprendertarget: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateCompatibleRenderTarget(core::mem::transmute_copy(&desiredsize), core::mem::transmute_copy(&desiredpixelsize), core::mem::transmute_copy(&desiredformat), core::mem::transmute_copy(&options)) {
+            match ID2D1RenderTarget_Impl::CreateCompatibleRenderTarget(this, core::mem::transmute_copy(&desiredsize), core::mem::transmute_copy(&desiredpixelsize), core::mem::transmute_copy(&desiredformat), core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(bitmaprendertarget, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4562,7 +4561,7 @@ impl ID2D1RenderTarget_Vtbl {
         unsafe extern "system" fn CreateLayer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *const Common::D2D_SIZE_F, layer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateLayer(core::mem::transmute_copy(&size)) {
+            match ID2D1RenderTarget_Impl::CreateLayer(this, core::mem::transmute_copy(&size)) {
                 Ok(ok__) => {
                     core::ptr::write(layer, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4573,7 +4572,7 @@ impl ID2D1RenderTarget_Vtbl {
         unsafe extern "system" fn CreateMesh<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mesh: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateMesh() {
+            match ID2D1RenderTarget_Impl::CreateMesh(this) {
                 Ok(ok__) => {
                     core::ptr::write(mesh, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4584,212 +4583,212 @@ impl ID2D1RenderTarget_Vtbl {
         unsafe extern "system" fn DrawLine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, point0: Common::D2D_POINT_2F, point1: Common::D2D_POINT_2F, brush: *mut core::ffi::c_void, strokewidth: f32, strokestyle: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawLine(core::mem::transmute(&point0), core::mem::transmute(&point1), windows_core::from_raw_borrowed(&brush), core::mem::transmute_copy(&strokewidth), windows_core::from_raw_borrowed(&strokestyle))
+            ID2D1RenderTarget_Impl::DrawLine(this, core::mem::transmute(&point0), core::mem::transmute(&point1), windows_core::from_raw_borrowed(&brush), core::mem::transmute_copy(&strokewidth), windows_core::from_raw_borrowed(&strokestyle))
         }
         unsafe extern "system" fn DrawRectangle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rect: *const Common::D2D_RECT_F, brush: *mut core::ffi::c_void, strokewidth: f32, strokestyle: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawRectangle(core::mem::transmute_copy(&rect), windows_core::from_raw_borrowed(&brush), core::mem::transmute_copy(&strokewidth), windows_core::from_raw_borrowed(&strokestyle))
+            ID2D1RenderTarget_Impl::DrawRectangle(this, core::mem::transmute_copy(&rect), windows_core::from_raw_borrowed(&brush), core::mem::transmute_copy(&strokewidth), windows_core::from_raw_borrowed(&strokestyle))
         }
         unsafe extern "system" fn FillRectangle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rect: *const Common::D2D_RECT_F, brush: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.FillRectangle(core::mem::transmute_copy(&rect), windows_core::from_raw_borrowed(&brush))
+            ID2D1RenderTarget_Impl::FillRectangle(this, core::mem::transmute_copy(&rect), windows_core::from_raw_borrowed(&brush))
         }
         unsafe extern "system" fn DrawRoundedRectangle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, roundedrect: *const D2D1_ROUNDED_RECT, brush: *mut core::ffi::c_void, strokewidth: f32, strokestyle: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawRoundedRectangle(core::mem::transmute_copy(&roundedrect), windows_core::from_raw_borrowed(&brush), core::mem::transmute_copy(&strokewidth), windows_core::from_raw_borrowed(&strokestyle))
+            ID2D1RenderTarget_Impl::DrawRoundedRectangle(this, core::mem::transmute_copy(&roundedrect), windows_core::from_raw_borrowed(&brush), core::mem::transmute_copy(&strokewidth), windows_core::from_raw_borrowed(&strokestyle))
         }
         unsafe extern "system" fn FillRoundedRectangle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, roundedrect: *const D2D1_ROUNDED_RECT, brush: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.FillRoundedRectangle(core::mem::transmute_copy(&roundedrect), windows_core::from_raw_borrowed(&brush))
+            ID2D1RenderTarget_Impl::FillRoundedRectangle(this, core::mem::transmute_copy(&roundedrect), windows_core::from_raw_borrowed(&brush))
         }
         unsafe extern "system" fn DrawEllipse<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ellipse: *const D2D1_ELLIPSE, brush: *mut core::ffi::c_void, strokewidth: f32, strokestyle: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawEllipse(core::mem::transmute_copy(&ellipse), windows_core::from_raw_borrowed(&brush), core::mem::transmute_copy(&strokewidth), windows_core::from_raw_borrowed(&strokestyle))
+            ID2D1RenderTarget_Impl::DrawEllipse(this, core::mem::transmute_copy(&ellipse), windows_core::from_raw_borrowed(&brush), core::mem::transmute_copy(&strokewidth), windows_core::from_raw_borrowed(&strokestyle))
         }
         unsafe extern "system" fn FillEllipse<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ellipse: *const D2D1_ELLIPSE, brush: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.FillEllipse(core::mem::transmute_copy(&ellipse), windows_core::from_raw_borrowed(&brush))
+            ID2D1RenderTarget_Impl::FillEllipse(this, core::mem::transmute_copy(&ellipse), windows_core::from_raw_borrowed(&brush))
         }
         unsafe extern "system" fn DrawGeometry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, geometry: *mut core::ffi::c_void, brush: *mut core::ffi::c_void, strokewidth: f32, strokestyle: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawGeometry(windows_core::from_raw_borrowed(&geometry), windows_core::from_raw_borrowed(&brush), core::mem::transmute_copy(&strokewidth), windows_core::from_raw_borrowed(&strokestyle))
+            ID2D1RenderTarget_Impl::DrawGeometry(this, windows_core::from_raw_borrowed(&geometry), windows_core::from_raw_borrowed(&brush), core::mem::transmute_copy(&strokewidth), windows_core::from_raw_borrowed(&strokestyle))
         }
         unsafe extern "system" fn FillGeometry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, geometry: *mut core::ffi::c_void, brush: *mut core::ffi::c_void, opacitybrush: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.FillGeometry(windows_core::from_raw_borrowed(&geometry), windows_core::from_raw_borrowed(&brush), windows_core::from_raw_borrowed(&opacitybrush))
+            ID2D1RenderTarget_Impl::FillGeometry(this, windows_core::from_raw_borrowed(&geometry), windows_core::from_raw_borrowed(&brush), windows_core::from_raw_borrowed(&opacitybrush))
         }
         unsafe extern "system" fn FillMesh<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mesh: *mut core::ffi::c_void, brush: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.FillMesh(windows_core::from_raw_borrowed(&mesh), windows_core::from_raw_borrowed(&brush))
+            ID2D1RenderTarget_Impl::FillMesh(this, windows_core::from_raw_borrowed(&mesh), windows_core::from_raw_borrowed(&brush))
         }
         unsafe extern "system" fn FillOpacityMask<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opacitymask: *mut core::ffi::c_void, brush: *mut core::ffi::c_void, content: D2D1_OPACITY_MASK_CONTENT, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.FillOpacityMask(windows_core::from_raw_borrowed(&opacitymask), windows_core::from_raw_borrowed(&brush), core::mem::transmute_copy(&content), core::mem::transmute_copy(&destinationrectangle), core::mem::transmute_copy(&sourcerectangle))
+            ID2D1RenderTarget_Impl::FillOpacityMask(this, windows_core::from_raw_borrowed(&opacitymask), windows_core::from_raw_borrowed(&brush), core::mem::transmute_copy(&content), core::mem::transmute_copy(&destinationrectangle), core::mem::transmute_copy(&sourcerectangle))
         }
         unsafe extern "system" fn DrawBitmap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmap: *mut core::ffi::c_void, destinationrectangle: *const Common::D2D_RECT_F, opacity: f32, interpolationmode: D2D1_BITMAP_INTERPOLATION_MODE, sourcerectangle: *const Common::D2D_RECT_F) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawBitmap(windows_core::from_raw_borrowed(&bitmap), core::mem::transmute_copy(&destinationrectangle), core::mem::transmute_copy(&opacity), core::mem::transmute_copy(&interpolationmode), core::mem::transmute_copy(&sourcerectangle))
+            ID2D1RenderTarget_Impl::DrawBitmap(this, windows_core::from_raw_borrowed(&bitmap), core::mem::transmute_copy(&destinationrectangle), core::mem::transmute_copy(&opacity), core::mem::transmute_copy(&interpolationmode), core::mem::transmute_copy(&sourcerectangle))
         }
         unsafe extern "system" fn DrawText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, string: windows_core::PCWSTR, stringlength: u32, textformat: *mut core::ffi::c_void, layoutrect: *const Common::D2D_RECT_F, defaultfillbrush: *mut core::ffi::c_void, options: D2D1_DRAW_TEXT_OPTIONS, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawText(core::mem::transmute(&string), core::mem::transmute_copy(&stringlength), windows_core::from_raw_borrowed(&textformat), core::mem::transmute_copy(&layoutrect), windows_core::from_raw_borrowed(&defaultfillbrush), core::mem::transmute_copy(&options), core::mem::transmute_copy(&measuringmode))
+            ID2D1RenderTarget_Impl::DrawText(this, core::mem::transmute(&string), core::mem::transmute_copy(&stringlength), windows_core::from_raw_borrowed(&textformat), core::mem::transmute_copy(&layoutrect), windows_core::from_raw_borrowed(&defaultfillbrush), core::mem::transmute_copy(&options), core::mem::transmute_copy(&measuringmode))
         }
         unsafe extern "system" fn DrawTextLayout<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, origin: Common::D2D_POINT_2F, textlayout: *mut core::ffi::c_void, defaultfillbrush: *mut core::ffi::c_void, options: D2D1_DRAW_TEXT_OPTIONS) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawTextLayout(core::mem::transmute(&origin), windows_core::from_raw_borrowed(&textlayout), windows_core::from_raw_borrowed(&defaultfillbrush), core::mem::transmute_copy(&options))
+            ID2D1RenderTarget_Impl::DrawTextLayout(this, core::mem::transmute(&origin), windows_core::from_raw_borrowed(&textlayout), windows_core::from_raw_borrowed(&defaultfillbrush), core::mem::transmute_copy(&options))
         }
         unsafe extern "system" fn DrawGlyphRun<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, foregroundbrush: *mut core::ffi::c_void, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DrawGlyphRun(core::mem::transmute(&baselineorigin), core::mem::transmute_copy(&glyphrun), windows_core::from_raw_borrowed(&foregroundbrush), core::mem::transmute_copy(&measuringmode))
+            ID2D1RenderTarget_Impl::DrawGlyphRun(this, core::mem::transmute(&baselineorigin), core::mem::transmute_copy(&glyphrun), windows_core::from_raw_borrowed(&foregroundbrush), core::mem::transmute_copy(&measuringmode))
         }
         unsafe extern "system" fn SetTransform<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *const super::super::super::Foundation::Numerics::Matrix3x2) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTransform(core::mem::transmute_copy(&transform))
+            ID2D1RenderTarget_Impl::SetTransform(this, core::mem::transmute_copy(&transform))
         }
         unsafe extern "system" fn GetTransform<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetTransform(core::mem::transmute_copy(&transform))
+            ID2D1RenderTarget_Impl::GetTransform(this, core::mem::transmute_copy(&transform))
         }
         unsafe extern "system" fn SetAntialiasMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, antialiasmode: D2D1_ANTIALIAS_MODE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAntialiasMode(core::mem::transmute_copy(&antialiasmode))
+            ID2D1RenderTarget_Impl::SetAntialiasMode(this, core::mem::transmute_copy(&antialiasmode))
         }
         unsafe extern "system" fn GetAntialiasMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_ANTIALIAS_MODE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetAntialiasMode()
+            ID2D1RenderTarget_Impl::GetAntialiasMode(this)
         }
         unsafe extern "system" fn SetTextAntialiasMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textantialiasmode: D2D1_TEXT_ANTIALIAS_MODE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTextAntialiasMode(core::mem::transmute_copy(&textantialiasmode))
+            ID2D1RenderTarget_Impl::SetTextAntialiasMode(this, core::mem::transmute_copy(&textantialiasmode))
         }
         unsafe extern "system" fn GetTextAntialiasMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_TEXT_ANTIALIAS_MODE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetTextAntialiasMode()
+            ID2D1RenderTarget_Impl::GetTextAntialiasMode(this)
         }
         unsafe extern "system" fn SetTextRenderingParams<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textrenderingparams: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTextRenderingParams(windows_core::from_raw_borrowed(&textrenderingparams))
+            ID2D1RenderTarget_Impl::SetTextRenderingParams(this, windows_core::from_raw_borrowed(&textrenderingparams))
         }
         unsafe extern "system" fn GetTextRenderingParams<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, textrenderingparams: *mut *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetTextRenderingParams(core::mem::transmute_copy(&textrenderingparams))
+            ID2D1RenderTarget_Impl::GetTextRenderingParams(this, core::mem::transmute_copy(&textrenderingparams))
         }
         unsafe extern "system" fn SetTags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tag1: u64, tag2: u64) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTags(core::mem::transmute_copy(&tag1), core::mem::transmute_copy(&tag2))
+            ID2D1RenderTarget_Impl::SetTags(this, core::mem::transmute_copy(&tag1), core::mem::transmute_copy(&tag2))
         }
         unsafe extern "system" fn GetTags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tag1: *mut u64, tag2: *mut u64) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetTags(core::mem::transmute_copy(&tag1), core::mem::transmute_copy(&tag2))
+            ID2D1RenderTarget_Impl::GetTags(this, core::mem::transmute_copy(&tag1), core::mem::transmute_copy(&tag2))
         }
         unsafe extern "system" fn PushLayer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, layerparameters: *const D2D1_LAYER_PARAMETERS, layer: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PushLayer(core::mem::transmute_copy(&layerparameters), windows_core::from_raw_borrowed(&layer))
+            ID2D1RenderTarget_Impl::PushLayer(this, core::mem::transmute_copy(&layerparameters), windows_core::from_raw_borrowed(&layer))
         }
         unsafe extern "system" fn PopLayer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PopLayer()
+            ID2D1RenderTarget_Impl::PopLayer(this)
         }
         unsafe extern "system" fn Flush<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tag1: *mut u64, tag2: *mut u64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Flush(core::mem::transmute_copy(&tag1), core::mem::transmute_copy(&tag2)).into()
+            ID2D1RenderTarget_Impl::Flush(this, core::mem::transmute_copy(&tag1), core::mem::transmute_copy(&tag2)).into()
         }
         unsafe extern "system" fn SaveDrawingState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, drawingstateblock: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SaveDrawingState(windows_core::from_raw_borrowed(&drawingstateblock))
+            ID2D1RenderTarget_Impl::SaveDrawingState(this, windows_core::from_raw_borrowed(&drawingstateblock))
         }
         unsafe extern "system" fn RestoreDrawingState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, drawingstateblock: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RestoreDrawingState(windows_core::from_raw_borrowed(&drawingstateblock))
+            ID2D1RenderTarget_Impl::RestoreDrawingState(this, windows_core::from_raw_borrowed(&drawingstateblock))
         }
         unsafe extern "system" fn PushAxisAlignedClip<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cliprect: *const Common::D2D_RECT_F, antialiasmode: D2D1_ANTIALIAS_MODE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PushAxisAlignedClip(core::mem::transmute_copy(&cliprect), core::mem::transmute_copy(&antialiasmode))
+            ID2D1RenderTarget_Impl::PushAxisAlignedClip(this, core::mem::transmute_copy(&cliprect), core::mem::transmute_copy(&antialiasmode))
         }
         unsafe extern "system" fn PopAxisAlignedClip<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PopAxisAlignedClip()
+            ID2D1RenderTarget_Impl::PopAxisAlignedClip(this)
         }
         unsafe extern "system" fn Clear<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clearcolor: *const Common::D2D1_COLOR_F) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Clear(core::mem::transmute_copy(&clearcolor))
+            ID2D1RenderTarget_Impl::Clear(this, core::mem::transmute_copy(&clearcolor))
         }
         unsafe extern "system" fn BeginDraw<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.BeginDraw()
+            ID2D1RenderTarget_Impl::BeginDraw(this)
         }
         unsafe extern "system" fn EndDraw<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tag1: *mut u64, tag2: *mut u64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EndDraw(core::mem::transmute_copy(&tag1), core::mem::transmute_copy(&tag2)).into()
+            ID2D1RenderTarget_Impl::EndDraw(this, core::mem::transmute_copy(&tag1), core::mem::transmute_copy(&tag2)).into()
         }
         unsafe extern "system" fn GetPixelFormat<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut Common::D2D1_PIXEL_FORMAT) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            *result__ = this.GetPixelFormat()
+            *result__ = ID2D1RenderTarget_Impl::GetPixelFormat(this)
         }
         unsafe extern "system" fn SetDpi<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dpix: f32, dpiy: f32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDpi(core::mem::transmute_copy(&dpix), core::mem::transmute_copy(&dpiy))
+            ID2D1RenderTarget_Impl::SetDpi(this, core::mem::transmute_copy(&dpix), core::mem::transmute_copy(&dpiy))
         }
         unsafe extern "system" fn GetDpi<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dpix: *mut f32, dpiy: *mut f32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDpi(core::mem::transmute_copy(&dpix), core::mem::transmute_copy(&dpiy))
+            ID2D1RenderTarget_Impl::GetDpi(this, core::mem::transmute_copy(&dpix), core::mem::transmute_copy(&dpiy))
         }
         unsafe extern "system" fn GetSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut Common::D2D_SIZE_F) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            *result__ = this.GetSize()
+            *result__ = ID2D1RenderTarget_Impl::GetSize(this)
         }
         unsafe extern "system" fn GetPixelSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut Common::D2D_SIZE_U) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            *result__ = this.GetPixelSize()
+            *result__ = ID2D1RenderTarget_Impl::GetPixelSize(this)
         }
         unsafe extern "system" fn GetMaximumBitmapSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetMaximumBitmapSize()
+            ID2D1RenderTarget_Impl::GetMaximumBitmapSize(this)
         }
         unsafe extern "system" fn IsSupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES) -> super::super::Foundation::BOOL {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsSupported(core::mem::transmute_copy(&rendertargetproperties))
+            ID2D1RenderTarget_Impl::IsSupported(this, core::mem::transmute_copy(&rendertargetproperties))
         }
         Self {
             base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -4861,7 +4860,7 @@ impl ID2D1Resource_Vtbl {
         unsafe extern "system" fn GetFactory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Resource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, factory: *mut *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetFactory(core::mem::transmute_copy(&factory))
+            ID2D1Resource_Impl::GetFactory(this, core::mem::transmute_copy(&factory))
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetFactory: GetFactory::<Identity, Impl, OFFSET> }
     }
@@ -4878,7 +4877,7 @@ impl ID2D1ResourceTexture_Vtbl {
         unsafe extern "system" fn Update<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1ResourceTexture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minimumextents: *const u32, maximimumextents: *const u32, strides: *const u32, dimensions: u32, data: *const u8, datacount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Update(core::mem::transmute_copy(&minimumextents), core::mem::transmute_copy(&maximimumextents), core::mem::transmute_copy(&strides), core::mem::transmute_copy(&dimensions), core::mem::transmute_copy(&data), core::mem::transmute_copy(&datacount)).into()
+            ID2D1ResourceTexture_Impl::Update(this, core::mem::transmute_copy(&minimumextents), core::mem::transmute_copy(&maximimumextents), core::mem::transmute_copy(&strides), core::mem::transmute_copy(&dimensions), core::mem::transmute_copy(&data), core::mem::transmute_copy(&datacount)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
     }
@@ -4898,7 +4897,7 @@ impl ID2D1RoundedRectangleGeometry_Vtbl {
         unsafe extern "system" fn GetRoundedRect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RoundedRectangleGeometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, roundedrect: *mut D2D1_ROUNDED_RECT) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetRoundedRect(core::mem::transmute_copy(&roundedrect))
+            ID2D1RoundedRectangleGeometry_Impl::GetRoundedRect(this, core::mem::transmute_copy(&roundedrect))
         }
         Self { base__: ID2D1Geometry_Vtbl::new::<Identity, Impl, OFFSET>(), GetRoundedRect: GetRoundedRect::<Identity, Impl, OFFSET> }
     }
@@ -4919,12 +4918,12 @@ impl ID2D1SolidColorBrush_Vtbl {
         unsafe extern "system" fn SetColor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SolidColorBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: *const Common::D2D1_COLOR_F) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetColor(core::mem::transmute_copy(&color))
+            ID2D1SolidColorBrush_Impl::SetColor(this, core::mem::transmute_copy(&color))
         }
         unsafe extern "system" fn GetColor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SolidColorBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut Common::D2D1_COLOR_F) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            *result__ = this.GetColor()
+            *result__ = ID2D1SolidColorBrush_Impl::GetColor(this)
         }
         Self {
             base__: ID2D1Brush_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -4949,12 +4948,12 @@ impl ID2D1SourceTransform_Vtbl {
         unsafe extern "system" fn SetRenderInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SourceTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, renderinfo: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRenderInfo(windows_core::from_raw_borrowed(&renderinfo)).into()
+            ID2D1SourceTransform_Impl::SetRenderInfo(this, windows_core::from_raw_borrowed(&renderinfo)).into()
         }
         unsafe extern "system" fn Draw<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SourceTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, target: *mut core::ffi::c_void, drawrect: *const super::super::Foundation::RECT, targetorigin: Common::D2D_POINT_2U) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Draw(windows_core::from_raw_borrowed(&target), core::mem::transmute_copy(&drawrect), core::mem::transmute(&targetorigin)).into()
+            ID2D1SourceTransform_Impl::Draw(this, windows_core::from_raw_borrowed(&target), core::mem::transmute_copy(&drawrect), core::mem::transmute(&targetorigin)).into()
         }
         Self {
             base__: ID2D1Transform_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -4982,27 +4981,27 @@ impl ID2D1SpriteBatch_Vtbl {
         unsafe extern "system" fn AddSprites<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SpriteBatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, spritecount: u32, destinationrectangles: *const Common::D2D_RECT_F, sourcerectangles: *const Common::D2D_RECT_U, colors: *const Common::D2D1_COLOR_F, transforms: *const super::super::super::Foundation::Numerics::Matrix3x2, destinationrectanglesstride: u32, sourcerectanglesstride: u32, colorsstride: u32, transformsstride: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddSprites(core::mem::transmute_copy(&spritecount), core::mem::transmute_copy(&destinationrectangles), core::mem::transmute_copy(&sourcerectangles), core::mem::transmute_copy(&colors), core::mem::transmute_copy(&transforms), core::mem::transmute_copy(&destinationrectanglesstride), core::mem::transmute_copy(&sourcerectanglesstride), core::mem::transmute_copy(&colorsstride), core::mem::transmute_copy(&transformsstride)).into()
+            ID2D1SpriteBatch_Impl::AddSprites(this, core::mem::transmute_copy(&spritecount), core::mem::transmute_copy(&destinationrectangles), core::mem::transmute_copy(&sourcerectangles), core::mem::transmute_copy(&colors), core::mem::transmute_copy(&transforms), core::mem::transmute_copy(&destinationrectanglesstride), core::mem::transmute_copy(&sourcerectanglesstride), core::mem::transmute_copy(&colorsstride), core::mem::transmute_copy(&transformsstride)).into()
         }
         unsafe extern "system" fn SetSprites<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SpriteBatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startindex: u32, spritecount: u32, destinationrectangles: *const Common::D2D_RECT_F, sourcerectangles: *const Common::D2D_RECT_U, colors: *const Common::D2D1_COLOR_F, transforms: *const super::super::super::Foundation::Numerics::Matrix3x2, destinationrectanglesstride: u32, sourcerectanglesstride: u32, colorsstride: u32, transformsstride: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSprites(core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&spritecount), core::mem::transmute_copy(&destinationrectangles), core::mem::transmute_copy(&sourcerectangles), core::mem::transmute_copy(&colors), core::mem::transmute_copy(&transforms), core::mem::transmute_copy(&destinationrectanglesstride), core::mem::transmute_copy(&sourcerectanglesstride), core::mem::transmute_copy(&colorsstride), core::mem::transmute_copy(&transformsstride)).into()
+            ID2D1SpriteBatch_Impl::SetSprites(this, core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&spritecount), core::mem::transmute_copy(&destinationrectangles), core::mem::transmute_copy(&sourcerectangles), core::mem::transmute_copy(&colors), core::mem::transmute_copy(&transforms), core::mem::transmute_copy(&destinationrectanglesstride), core::mem::transmute_copy(&sourcerectanglesstride), core::mem::transmute_copy(&colorsstride), core::mem::transmute_copy(&transformsstride)).into()
         }
         unsafe extern "system" fn GetSprites<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SpriteBatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startindex: u32, spritecount: u32, destinationrectangles: *mut Common::D2D_RECT_F, sourcerectangles: *mut Common::D2D_RECT_U, colors: *mut Common::D2D1_COLOR_F, transforms: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSprites(core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&spritecount), core::mem::transmute_copy(&destinationrectangles), core::mem::transmute_copy(&sourcerectangles), core::mem::transmute_copy(&colors), core::mem::transmute_copy(&transforms)).into()
+            ID2D1SpriteBatch_Impl::GetSprites(this, core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&spritecount), core::mem::transmute_copy(&destinationrectangles), core::mem::transmute_copy(&sourcerectangles), core::mem::transmute_copy(&colors), core::mem::transmute_copy(&transforms)).into()
         }
         unsafe extern "system" fn GetSpriteCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SpriteBatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSpriteCount()
+            ID2D1SpriteBatch_Impl::GetSpriteCount(this)
         }
         unsafe extern "system" fn Clear<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SpriteBatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Clear()
+            ID2D1SpriteBatch_Impl::Clear(this)
         }
         Self {
             base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -5034,47 +5033,47 @@ impl ID2D1StrokeStyle_Vtbl {
         unsafe extern "system" fn GetStartCap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1StrokeStyle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_CAP_STYLE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetStartCap()
+            ID2D1StrokeStyle_Impl::GetStartCap(this)
         }
         unsafe extern "system" fn GetEndCap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1StrokeStyle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_CAP_STYLE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetEndCap()
+            ID2D1StrokeStyle_Impl::GetEndCap(this)
         }
         unsafe extern "system" fn GetDashCap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1StrokeStyle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_CAP_STYLE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDashCap()
+            ID2D1StrokeStyle_Impl::GetDashCap(this)
         }
         unsafe extern "system" fn GetMiterLimit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1StrokeStyle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> f32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetMiterLimit()
+            ID2D1StrokeStyle_Impl::GetMiterLimit(this)
         }
         unsafe extern "system" fn GetLineJoin<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1StrokeStyle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_LINE_JOIN {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetLineJoin()
+            ID2D1StrokeStyle_Impl::GetLineJoin(this)
         }
         unsafe extern "system" fn GetDashOffset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1StrokeStyle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> f32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDashOffset()
+            ID2D1StrokeStyle_Impl::GetDashOffset(this)
         }
         unsafe extern "system" fn GetDashStyle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1StrokeStyle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_DASH_STYLE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDashStyle()
+            ID2D1StrokeStyle_Impl::GetDashStyle(this)
         }
         unsafe extern "system" fn GetDashesCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1StrokeStyle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDashesCount()
+            ID2D1StrokeStyle_Impl::GetDashesCount(this)
         }
         unsafe extern "system" fn GetDashes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1StrokeStyle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dashes: *mut f32, dashescount: u32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDashes(core::mem::transmute_copy(&dashes), core::mem::transmute_copy(&dashescount))
+            ID2D1StrokeStyle_Impl::GetDashes(this, core::mem::transmute_copy(&dashes), core::mem::transmute_copy(&dashescount))
         }
         Self {
             base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -5102,7 +5101,7 @@ impl ID2D1StrokeStyle1_Vtbl {
         unsafe extern "system" fn GetStrokeTransformType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1StrokeStyle1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_STROKE_TRANSFORM_TYPE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetStrokeTransformType()
+            ID2D1StrokeStyle1_Impl::GetStrokeTransformType(this)
         }
         Self { base__: ID2D1StrokeStyle_Vtbl::new::<Identity, Impl, OFFSET>(), GetStrokeTransformType: GetStrokeTransformType::<Identity, Impl, OFFSET> }
     }
@@ -5120,12 +5119,12 @@ impl ID2D1SvgAttribute_Vtbl {
         unsafe extern "system" fn GetElement<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgAttribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetElement(core::mem::transmute_copy(&element))
+            ID2D1SvgAttribute_Impl::GetElement(this, core::mem::transmute_copy(&element))
         }
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgAttribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attribute: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match ID2D1SvgAttribute_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(attribute, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5165,27 +5164,27 @@ impl ID2D1SvgDocument_Vtbl {
         unsafe extern "system" fn SetViewportSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, viewportsize: Common::D2D_SIZE_F) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetViewportSize(core::mem::transmute(&viewportsize)).into()
+            ID2D1SvgDocument_Impl::SetViewportSize(this, core::mem::transmute(&viewportsize)).into()
         }
         unsafe extern "system" fn GetViewportSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut Common::D2D_SIZE_F) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            *result__ = this.GetViewportSize()
+            *result__ = ID2D1SvgDocument_Impl::GetViewportSize(this)
         }
         unsafe extern "system" fn SetRoot<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, root: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRoot(windows_core::from_raw_borrowed(&root)).into()
+            ID2D1SvgDocument_Impl::SetRoot(this, windows_core::from_raw_borrowed(&root)).into()
         }
         unsafe extern "system" fn GetRoot<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, root: *mut *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetRoot(core::mem::transmute_copy(&root))
+            ID2D1SvgDocument_Impl::GetRoot(this, core::mem::transmute_copy(&root))
         }
         unsafe extern "system" fn FindElementById<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: windows_core::PCWSTR, svgelement: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FindElementById(core::mem::transmute(&id)) {
+            match ID2D1SvgDocument_Impl::FindElementById(this, core::mem::transmute(&id)) {
                 Ok(ok__) => {
                     core::ptr::write(svgelement, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5196,12 +5195,12 @@ impl ID2D1SvgDocument_Vtbl {
         unsafe extern "system" fn Serialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputxmlstream: *mut core::ffi::c_void, subtree: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Serialize(windows_core::from_raw_borrowed(&outputxmlstream), windows_core::from_raw_borrowed(&subtree)).into()
+            ID2D1SvgDocument_Impl::Serialize(this, windows_core::from_raw_borrowed(&outputxmlstream), windows_core::from_raw_borrowed(&subtree)).into()
         }
         unsafe extern "system" fn Deserialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputxmlstream: *mut core::ffi::c_void, subtree: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Deserialize(windows_core::from_raw_borrowed(&inputxmlstream)) {
+            match ID2D1SvgDocument_Impl::Deserialize(this, windows_core::from_raw_borrowed(&inputxmlstream)) {
                 Ok(ok__) => {
                     core::ptr::write(subtree, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5212,7 +5211,7 @@ impl ID2D1SvgDocument_Vtbl {
         unsafe extern "system" fn CreatePaint<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, painttype: D2D1_SVG_PAINT_TYPE, color: *const Common::D2D1_COLOR_F, id: windows_core::PCWSTR, paint: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePaint(core::mem::transmute_copy(&painttype), core::mem::transmute_copy(&color), core::mem::transmute(&id)) {
+            match ID2D1SvgDocument_Impl::CreatePaint(this, core::mem::transmute_copy(&painttype), core::mem::transmute_copy(&color), core::mem::transmute(&id)) {
                 Ok(ok__) => {
                     core::ptr::write(paint, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5223,7 +5222,7 @@ impl ID2D1SvgDocument_Vtbl {
         unsafe extern "system" fn CreateStrokeDashArray<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dashes: *const D2D1_SVG_LENGTH, dashescount: u32, strokedasharray: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateStrokeDashArray(core::mem::transmute_copy(&dashes), core::mem::transmute_copy(&dashescount)) {
+            match ID2D1SvgDocument_Impl::CreateStrokeDashArray(this, core::mem::transmute_copy(&dashes), core::mem::transmute_copy(&dashescount)) {
                 Ok(ok__) => {
                     core::ptr::write(strokedasharray, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5234,7 +5233,7 @@ impl ID2D1SvgDocument_Vtbl {
         unsafe extern "system" fn CreatePointCollection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, points: *const Common::D2D_POINT_2F, pointscount: u32, pointcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePointCollection(core::mem::transmute_copy(&points), core::mem::transmute_copy(&pointscount)) {
+            match ID2D1SvgDocument_Impl::CreatePointCollection(this, core::mem::transmute_copy(&points), core::mem::transmute_copy(&pointscount)) {
                 Ok(ok__) => {
                     core::ptr::write(pointcollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5245,7 +5244,7 @@ impl ID2D1SvgDocument_Vtbl {
         unsafe extern "system" fn CreatePathData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, segmentdata: *const f32, segmentdatacount: u32, commands: *const D2D1_SVG_PATH_COMMAND, commandscount: u32, pathdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePathData(core::mem::transmute_copy(&segmentdata), core::mem::transmute_copy(&segmentdatacount), core::mem::transmute_copy(&commands), core::mem::transmute_copy(&commandscount)) {
+            match ID2D1SvgDocument_Impl::CreatePathData(this, core::mem::transmute_copy(&segmentdata), core::mem::transmute_copy(&segmentdatacount), core::mem::transmute_copy(&commands), core::mem::transmute_copy(&commandscount)) {
                 Ok(ok__) => {
                     core::ptr::write(pathdata, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5310,47 +5309,47 @@ impl ID2D1SvgElement_Vtbl {
         unsafe extern "system" fn GetDocument<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, document: *mut *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDocument(core::mem::transmute_copy(&document))
+            ID2D1SvgElement_Impl::GetDocument(this, core::mem::transmute_copy(&document))
         }
         unsafe extern "system" fn GetTagName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PWSTR, namecount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetTagName(core::mem::transmute_copy(&name), core::mem::transmute_copy(&namecount)).into()
+            ID2D1SvgElement_Impl::GetTagName(this, core::mem::transmute_copy(&name), core::mem::transmute_copy(&namecount)).into()
         }
         unsafe extern "system" fn GetTagNameLength<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetTagNameLength()
+            ID2D1SvgElement_Impl::GetTagNameLength(this)
         }
         unsafe extern "system" fn IsTextContent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsTextContent()
+            ID2D1SvgElement_Impl::IsTextContent(this)
         }
         unsafe extern "system" fn GetParent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parent: *mut *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetParent(core::mem::transmute_copy(&parent))
+            ID2D1SvgElement_Impl::GetParent(this, core::mem::transmute_copy(&parent))
         }
         unsafe extern "system" fn HasChildren<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.HasChildren()
+            ID2D1SvgElement_Impl::HasChildren(this)
         }
         unsafe extern "system" fn GetFirstChild<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, child: *mut *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetFirstChild(core::mem::transmute_copy(&child))
+            ID2D1SvgElement_Impl::GetFirstChild(this, core::mem::transmute_copy(&child))
         }
         unsafe extern "system" fn GetLastChild<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, child: *mut *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetLastChild(core::mem::transmute_copy(&child))
+            ID2D1SvgElement_Impl::GetLastChild(this, core::mem::transmute_copy(&child))
         }
         unsafe extern "system" fn GetPreviousChild<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, referencechild: *mut core::ffi::c_void, previouschild: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPreviousChild(windows_core::from_raw_borrowed(&referencechild)) {
+            match ID2D1SvgElement_Impl::GetPreviousChild(this, windows_core::from_raw_borrowed(&referencechild)) {
                 Ok(ok__) => {
                     core::ptr::write(previouschild, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5361,7 +5360,7 @@ impl ID2D1SvgElement_Vtbl {
         unsafe extern "system" fn GetNextChild<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, referencechild: *mut core::ffi::c_void, nextchild: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetNextChild(windows_core::from_raw_borrowed(&referencechild)) {
+            match ID2D1SvgElement_Impl::GetNextChild(this, windows_core::from_raw_borrowed(&referencechild)) {
                 Ok(ok__) => {
                     core::ptr::write(nextchild, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5372,27 +5371,27 @@ impl ID2D1SvgElement_Vtbl {
         unsafe extern "system" fn InsertChildBefore<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newchild: *mut core::ffi::c_void, referencechild: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InsertChildBefore(windows_core::from_raw_borrowed(&newchild), windows_core::from_raw_borrowed(&referencechild)).into()
+            ID2D1SvgElement_Impl::InsertChildBefore(this, windows_core::from_raw_borrowed(&newchild), windows_core::from_raw_borrowed(&referencechild)).into()
         }
         unsafe extern "system" fn AppendChild<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newchild: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AppendChild(windows_core::from_raw_borrowed(&newchild)).into()
+            ID2D1SvgElement_Impl::AppendChild(this, windows_core::from_raw_borrowed(&newchild)).into()
         }
         unsafe extern "system" fn ReplaceChild<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newchild: *mut core::ffi::c_void, oldchild: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ReplaceChild(windows_core::from_raw_borrowed(&newchild), windows_core::from_raw_borrowed(&oldchild)).into()
+            ID2D1SvgElement_Impl::ReplaceChild(this, windows_core::from_raw_borrowed(&newchild), windows_core::from_raw_borrowed(&oldchild)).into()
         }
         unsafe extern "system" fn RemoveChild<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, oldchild: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveChild(windows_core::from_raw_borrowed(&oldchild)).into()
+            ID2D1SvgElement_Impl::RemoveChild(this, windows_core::from_raw_borrowed(&oldchild)).into()
         }
         unsafe extern "system" fn CreateChild<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tagname: windows_core::PCWSTR, newchild: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateChild(core::mem::transmute(&tagname)) {
+            match ID2D1SvgElement_Impl::CreateChild(this, core::mem::transmute(&tagname)) {
                 Ok(ok__) => {
                     core::ptr::write(newchild, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5403,77 +5402,77 @@ impl ID2D1SvgElement_Vtbl {
         unsafe extern "system" fn IsAttributeSpecified<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, inherited: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsAttributeSpecified(core::mem::transmute(&name), core::mem::transmute_copy(&inherited))
+            ID2D1SvgElement_Impl::IsAttributeSpecified(this, core::mem::transmute(&name), core::mem::transmute_copy(&inherited))
         }
         unsafe extern "system" fn GetSpecifiedAttributeCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSpecifiedAttributeCount()
+            ID2D1SvgElement_Impl::GetSpecifiedAttributeCount(this)
         }
         unsafe extern "system" fn GetSpecifiedAttributeName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, name: windows_core::PWSTR, namecount: u32, inherited: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSpecifiedAttributeName(core::mem::transmute_copy(&index), core::mem::transmute_copy(&name), core::mem::transmute_copy(&namecount), core::mem::transmute_copy(&inherited)).into()
+            ID2D1SvgElement_Impl::GetSpecifiedAttributeName(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&name), core::mem::transmute_copy(&namecount), core::mem::transmute_copy(&inherited)).into()
         }
         unsafe extern "system" fn GetSpecifiedAttributeNameLength<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, namelength: *mut u32, inherited: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSpecifiedAttributeNameLength(core::mem::transmute_copy(&index), core::mem::transmute_copy(&namelength), core::mem::transmute_copy(&inherited)).into()
+            ID2D1SvgElement_Impl::GetSpecifiedAttributeNameLength(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&namelength), core::mem::transmute_copy(&inherited)).into()
         }
         unsafe extern "system" fn RemoveAttribute<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAttribute(core::mem::transmute(&name)).into()
+            ID2D1SvgElement_Impl::RemoveAttribute(this, core::mem::transmute(&name)).into()
         }
         unsafe extern "system" fn SetTextValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, namecount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTextValue(core::mem::transmute(&name), core::mem::transmute_copy(&namecount)).into()
+            ID2D1SvgElement_Impl::SetTextValue(this, core::mem::transmute(&name), core::mem::transmute_copy(&namecount)).into()
         }
         unsafe extern "system" fn GetTextValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PWSTR, namecount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetTextValue(core::mem::transmute_copy(&name), core::mem::transmute_copy(&namecount)).into()
+            ID2D1SvgElement_Impl::GetTextValue(this, core::mem::transmute_copy(&name), core::mem::transmute_copy(&namecount)).into()
         }
         unsafe extern "system" fn GetTextValueLength<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetTextValueLength()
+            ID2D1SvgElement_Impl::GetTextValueLength(this)
         }
         unsafe extern "system" fn SetAttributeValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAttributeValue(core::mem::transmute(&name), windows_core::from_raw_borrowed(&value)).into()
+            ID2D1SvgElement_Impl::SetAttributeValue(this, core::mem::transmute(&name), windows_core::from_raw_borrowed(&value)).into()
         }
         unsafe extern "system" fn SetAttributeValue2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: *const core::ffi::c_void, valuesizeinbytes: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAttributeValue2(core::mem::transmute(&name), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&value), core::mem::transmute_copy(&valuesizeinbytes)).into()
+            ID2D1SvgElement_Impl::SetAttributeValue2(this, core::mem::transmute(&name), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&value), core::mem::transmute_copy(&valuesizeinbytes)).into()
         }
         unsafe extern "system" fn SetAttributeValue3<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAttributeValue3(core::mem::transmute(&name), core::mem::transmute_copy(&r#type), core::mem::transmute(&value)).into()
+            ID2D1SvgElement_Impl::SetAttributeValue3(this, core::mem::transmute(&name), core::mem::transmute_copy(&r#type), core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn GetAttributeValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, riid: *const windows_core::GUID, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetAttributeValue(core::mem::transmute(&name), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&value)).into()
+            ID2D1SvgElement_Impl::GetAttributeValue(this, core::mem::transmute(&name), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn GetAttributeValue2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_POD_TYPE, value: *mut core::ffi::c_void, valuesizeinbytes: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetAttributeValue2(core::mem::transmute(&name), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&value), core::mem::transmute_copy(&valuesizeinbytes)).into()
+            ID2D1SvgElement_Impl::GetAttributeValue2(this, core::mem::transmute(&name), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&value), core::mem::transmute_copy(&valuesizeinbytes)).into()
         }
         unsafe extern "system" fn GetAttributeValue3<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, value: windows_core::PWSTR, valuecount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetAttributeValue3(core::mem::transmute(&name), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&value), core::mem::transmute_copy(&valuecount)).into()
+            ID2D1SvgElement_Impl::GetAttributeValue3(this, core::mem::transmute(&name), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&value), core::mem::transmute_copy(&valuecount)).into()
         }
         unsafe extern "system" fn GetAttributeValueLength<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, valuelength: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAttributeValueLength(core::mem::transmute(&name), core::mem::transmute_copy(&r#type)) {
+            match ID2D1SvgElement_Impl::GetAttributeValueLength(this, core::mem::transmute(&name), core::mem::transmute_copy(&r#type)) {
                 Ok(ok__) => {
                     core::ptr::write(valuelength, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5532,27 +5531,27 @@ impl ID2D1SvgGlyphStyle_Vtbl {
         unsafe extern "system" fn SetFill<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgGlyphStyle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, brush: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFill(windows_core::from_raw_borrowed(&brush)).into()
+            ID2D1SvgGlyphStyle_Impl::SetFill(this, windows_core::from_raw_borrowed(&brush)).into()
         }
         unsafe extern "system" fn GetFill<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgGlyphStyle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, brush: *mut *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetFill(core::mem::transmute_copy(&brush))
+            ID2D1SvgGlyphStyle_Impl::GetFill(this, core::mem::transmute_copy(&brush))
         }
         unsafe extern "system" fn SetStroke<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgGlyphStyle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, brush: *mut core::ffi::c_void, strokewidth: f32, dashes: *const f32, dashescount: u32, dashoffset: f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetStroke(windows_core::from_raw_borrowed(&brush), core::mem::transmute_copy(&strokewidth), core::mem::transmute_copy(&dashes), core::mem::transmute_copy(&dashescount), core::mem::transmute_copy(&dashoffset)).into()
+            ID2D1SvgGlyphStyle_Impl::SetStroke(this, windows_core::from_raw_borrowed(&brush), core::mem::transmute_copy(&strokewidth), core::mem::transmute_copy(&dashes), core::mem::transmute_copy(&dashescount), core::mem::transmute_copy(&dashoffset)).into()
         }
         unsafe extern "system" fn GetStrokeDashesCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgGlyphStyle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetStrokeDashesCount()
+            ID2D1SvgGlyphStyle_Impl::GetStrokeDashesCount(this)
         }
         unsafe extern "system" fn GetStroke<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgGlyphStyle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, brush: *mut *mut core::ffi::c_void, strokewidth: *mut f32, dashes: *mut f32, dashescount: u32, dashoffset: *mut f32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetStroke(core::mem::transmute_copy(&brush), core::mem::transmute_copy(&strokewidth), core::mem::transmute_copy(&dashes), core::mem::transmute_copy(&dashescount), core::mem::transmute_copy(&dashoffset))
+            ID2D1SvgGlyphStyle_Impl::GetStroke(this, core::mem::transmute_copy(&brush), core::mem::transmute_copy(&strokewidth), core::mem::transmute_copy(&dashes), core::mem::transmute_copy(&dashescount), core::mem::transmute_copy(&dashoffset))
         }
         Self {
             base__: ID2D1Resource_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -5585,37 +5584,37 @@ impl ID2D1SvgPaint_Vtbl {
         unsafe extern "system" fn SetPaintType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgPaint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, painttype: D2D1_SVG_PAINT_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPaintType(core::mem::transmute_copy(&painttype)).into()
+            ID2D1SvgPaint_Impl::SetPaintType(this, core::mem::transmute_copy(&painttype)).into()
         }
         unsafe extern "system" fn GetPaintType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgPaint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D2D1_SVG_PAINT_TYPE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPaintType()
+            ID2D1SvgPaint_Impl::GetPaintType(this)
         }
         unsafe extern "system" fn SetColor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgPaint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: *const Common::D2D1_COLOR_F) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetColor(core::mem::transmute_copy(&color)).into()
+            ID2D1SvgPaint_Impl::SetColor(this, core::mem::transmute_copy(&color)).into()
         }
         unsafe extern "system" fn GetColor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgPaint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: *mut Common::D2D1_COLOR_F) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetColor(core::mem::transmute_copy(&color))
+            ID2D1SvgPaint_Impl::GetColor(this, core::mem::transmute_copy(&color))
         }
         unsafe extern "system" fn SetId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgPaint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetId(core::mem::transmute(&id)).into()
+            ID2D1SvgPaint_Impl::SetId(this, core::mem::transmute(&id)).into()
         }
         unsafe extern "system" fn GetId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgPaint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: windows_core::PWSTR, idcount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetId(core::mem::transmute_copy(&id), core::mem::transmute_copy(&idcount)).into()
+            ID2D1SvgPaint_Impl::GetId(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&idcount)).into()
         }
         unsafe extern "system" fn GetIdLength<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgPaint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetIdLength()
+            ID2D1SvgPaint_Impl::GetIdLength(this)
         }
         Self {
             base__: ID2D1SvgAttribute_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -5652,47 +5651,47 @@ impl ID2D1SvgPathData_Vtbl {
         unsafe extern "system" fn RemoveSegmentDataAtEnd<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgPathData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, datacount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveSegmentDataAtEnd(core::mem::transmute_copy(&datacount)).into()
+            ID2D1SvgPathData_Impl::RemoveSegmentDataAtEnd(this, core::mem::transmute_copy(&datacount)).into()
         }
         unsafe extern "system" fn UpdateSegmentData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgPathData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *const f32, datacount: u32, startindex: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.UpdateSegmentData(core::mem::transmute_copy(&data), core::mem::transmute_copy(&datacount), core::mem::transmute_copy(&startindex)).into()
+            ID2D1SvgPathData_Impl::UpdateSegmentData(this, core::mem::transmute_copy(&data), core::mem::transmute_copy(&datacount), core::mem::transmute_copy(&startindex)).into()
         }
         unsafe extern "system" fn GetSegmentData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgPathData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut f32, datacount: u32, startindex: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSegmentData(core::mem::transmute_copy(&data), core::mem::transmute_copy(&datacount), core::mem::transmute_copy(&startindex)).into()
+            ID2D1SvgPathData_Impl::GetSegmentData(this, core::mem::transmute_copy(&data), core::mem::transmute_copy(&datacount), core::mem::transmute_copy(&startindex)).into()
         }
         unsafe extern "system" fn GetSegmentDataCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgPathData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSegmentDataCount()
+            ID2D1SvgPathData_Impl::GetSegmentDataCount(this)
         }
         unsafe extern "system" fn RemoveCommandsAtEnd<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgPathData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandscount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveCommandsAtEnd(core::mem::transmute_copy(&commandscount)).into()
+            ID2D1SvgPathData_Impl::RemoveCommandsAtEnd(this, core::mem::transmute_copy(&commandscount)).into()
         }
         unsafe extern "system" fn UpdateCommands<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgPathData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commands: *const D2D1_SVG_PATH_COMMAND, commandscount: u32, startindex: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.UpdateCommands(core::mem::transmute_copy(&commands), core::mem::transmute_copy(&commandscount), core::mem::transmute_copy(&startindex)).into()
+            ID2D1SvgPathData_Impl::UpdateCommands(this, core::mem::transmute_copy(&commands), core::mem::transmute_copy(&commandscount), core::mem::transmute_copy(&startindex)).into()
         }
         unsafe extern "system" fn GetCommands<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgPathData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commands: *mut D2D1_SVG_PATH_COMMAND, commandscount: u32, startindex: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetCommands(core::mem::transmute_copy(&commands), core::mem::transmute_copy(&commandscount), core::mem::transmute_copy(&startindex)).into()
+            ID2D1SvgPathData_Impl::GetCommands(this, core::mem::transmute_copy(&commands), core::mem::transmute_copy(&commandscount), core::mem::transmute_copy(&startindex)).into()
         }
         unsafe extern "system" fn GetCommandsCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgPathData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetCommandsCount()
+            ID2D1SvgPathData_Impl::GetCommandsCount(this)
         }
         unsafe extern "system" fn CreatePathGeometry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgPathData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fillmode: Common::D2D1_FILL_MODE, pathgeometry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePathGeometry(core::mem::transmute_copy(&fillmode)) {
+            match ID2D1SvgPathData_Impl::CreatePathGeometry(this, core::mem::transmute_copy(&fillmode)) {
                 Ok(ok__) => {
                     core::ptr::write(pathgeometry, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5732,22 +5731,22 @@ impl ID2D1SvgPointCollection_Vtbl {
         unsafe extern "system" fn RemovePointsAtEnd<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgPointCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pointscount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemovePointsAtEnd(core::mem::transmute_copy(&pointscount)).into()
+            ID2D1SvgPointCollection_Impl::RemovePointsAtEnd(this, core::mem::transmute_copy(&pointscount)).into()
         }
         unsafe extern "system" fn UpdatePoints<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgPointCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, points: *const Common::D2D_POINT_2F, pointscount: u32, startindex: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.UpdatePoints(core::mem::transmute_copy(&points), core::mem::transmute_copy(&pointscount), core::mem::transmute_copy(&startindex)).into()
+            ID2D1SvgPointCollection_Impl::UpdatePoints(this, core::mem::transmute_copy(&points), core::mem::transmute_copy(&pointscount), core::mem::transmute_copy(&startindex)).into()
         }
         unsafe extern "system" fn GetPoints<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgPointCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, points: *mut Common::D2D_POINT_2F, pointscount: u32, startindex: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPoints(core::mem::transmute_copy(&points), core::mem::transmute_copy(&pointscount), core::mem::transmute_copy(&startindex)).into()
+            ID2D1SvgPointCollection_Impl::GetPoints(this, core::mem::transmute_copy(&points), core::mem::transmute_copy(&pointscount), core::mem::transmute_copy(&startindex)).into()
         }
         unsafe extern "system" fn GetPointsCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgPointCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPointsCount()
+            ID2D1SvgPointCollection_Impl::GetPointsCount(this)
         }
         Self {
             base__: ID2D1SvgAttribute_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -5775,32 +5774,32 @@ impl ID2D1SvgStrokeDashArray_Vtbl {
         unsafe extern "system" fn RemoveDashesAtEnd<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgStrokeDashArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dashescount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveDashesAtEnd(core::mem::transmute_copy(&dashescount)).into()
+            ID2D1SvgStrokeDashArray_Impl::RemoveDashesAtEnd(this, core::mem::transmute_copy(&dashescount)).into()
         }
         unsafe extern "system" fn UpdateDashes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgStrokeDashArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dashes: *const D2D1_SVG_LENGTH, dashescount: u32, startindex: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.UpdateDashes(core::mem::transmute_copy(&dashes), core::mem::transmute_copy(&dashescount), core::mem::transmute_copy(&startindex)).into()
+            ID2D1SvgStrokeDashArray_Impl::UpdateDashes(this, core::mem::transmute_copy(&dashes), core::mem::transmute_copy(&dashescount), core::mem::transmute_copy(&startindex)).into()
         }
         unsafe extern "system" fn UpdateDashes2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgStrokeDashArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dashes: *const f32, dashescount: u32, startindex: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.UpdateDashes2(core::mem::transmute_copy(&dashes), core::mem::transmute_copy(&dashescount), core::mem::transmute_copy(&startindex)).into()
+            ID2D1SvgStrokeDashArray_Impl::UpdateDashes2(this, core::mem::transmute_copy(&dashes), core::mem::transmute_copy(&dashescount), core::mem::transmute_copy(&startindex)).into()
         }
         unsafe extern "system" fn GetDashes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgStrokeDashArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dashes: *mut D2D1_SVG_LENGTH, dashescount: u32, startindex: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDashes(core::mem::transmute_copy(&dashes), core::mem::transmute_copy(&dashescount), core::mem::transmute_copy(&startindex)).into()
+            ID2D1SvgStrokeDashArray_Impl::GetDashes(this, core::mem::transmute_copy(&dashes), core::mem::transmute_copy(&dashescount), core::mem::transmute_copy(&startindex)).into()
         }
         unsafe extern "system" fn GetDashes2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgStrokeDashArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dashes: *mut f32, dashescount: u32, startindex: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDashes2(core::mem::transmute_copy(&dashes), core::mem::transmute_copy(&dashescount), core::mem::transmute_copy(&startindex)).into()
+            ID2D1SvgStrokeDashArray_Impl::GetDashes2(this, core::mem::transmute_copy(&dashes), core::mem::transmute_copy(&dashescount), core::mem::transmute_copy(&startindex)).into()
         }
         unsafe extern "system" fn GetDashesCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SvgStrokeDashArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDashesCount()
+            ID2D1SvgStrokeDashArray_Impl::GetDashesCount(this)
         }
         Self {
             base__: ID2D1SvgAttribute_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -5829,12 +5828,12 @@ impl ID2D1TessellationSink_Vtbl {
         unsafe extern "system" fn AddTriangles<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1TessellationSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, triangles: *const D2D1_TRIANGLE, trianglescount: u32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddTriangles(core::mem::transmute_copy(&triangles), core::mem::transmute_copy(&trianglescount))
+            ID2D1TessellationSink_Impl::AddTriangles(this, core::mem::transmute_copy(&triangles), core::mem::transmute_copy(&trianglescount))
         }
         unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1TessellationSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Close().into()
+            ID2D1TessellationSink_Impl::Close(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -5857,17 +5856,17 @@ impl ID2D1Transform_Vtbl {
         unsafe extern "system" fn MapOutputRectToInputRects<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Transform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputrect: *const super::super::Foundation::RECT, inputrects: *mut super::super::Foundation::RECT, inputrectscount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.MapOutputRectToInputRects(core::mem::transmute_copy(&outputrect), core::mem::transmute_copy(&inputrects), core::mem::transmute_copy(&inputrectscount)).into()
+            ID2D1Transform_Impl::MapOutputRectToInputRects(this, core::mem::transmute_copy(&outputrect), core::mem::transmute_copy(&inputrects), core::mem::transmute_copy(&inputrectscount)).into()
         }
         unsafe extern "system" fn MapInputRectsToOutputRect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Transform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputrects: *const super::super::Foundation::RECT, inputopaquesubrects: *const super::super::Foundation::RECT, inputrectcount: u32, outputrect: *mut super::super::Foundation::RECT, outputopaquesubrect: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.MapInputRectsToOutputRect(core::mem::transmute_copy(&inputrects), core::mem::transmute_copy(&inputopaquesubrects), core::mem::transmute_copy(&inputrectcount), core::mem::transmute_copy(&outputrect), core::mem::transmute_copy(&outputopaquesubrect)).into()
+            ID2D1Transform_Impl::MapInputRectsToOutputRect(this, core::mem::transmute_copy(&inputrects), core::mem::transmute_copy(&inputopaquesubrects), core::mem::transmute_copy(&inputrectcount), core::mem::transmute_copy(&outputrect), core::mem::transmute_copy(&outputopaquesubrect)).into()
         }
         unsafe extern "system" fn MapInvalidRect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Transform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputindex: u32, invalidinputrect: super::super::Foundation::RECT, invalidoutputrect: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MapInvalidRect(core::mem::transmute_copy(&inputindex), core::mem::transmute(&invalidinputrect)) {
+            match ID2D1Transform_Impl::MapInvalidRect(this, core::mem::transmute_copy(&inputindex), core::mem::transmute(&invalidinputrect)) {
                 Ok(ok__) => {
                     core::ptr::write(invalidoutputrect, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5903,47 +5902,47 @@ impl ID2D1TransformGraph_Vtbl {
         unsafe extern "system" fn GetInputCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1TransformGraph_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetInputCount()
+            ID2D1TransformGraph_Impl::GetInputCount(this)
         }
         unsafe extern "system" fn SetSingleTransformNode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1TransformGraph_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, node: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSingleTransformNode(windows_core::from_raw_borrowed(&node)).into()
+            ID2D1TransformGraph_Impl::SetSingleTransformNode(this, windows_core::from_raw_borrowed(&node)).into()
         }
         unsafe extern "system" fn AddNode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1TransformGraph_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, node: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddNode(windows_core::from_raw_borrowed(&node)).into()
+            ID2D1TransformGraph_Impl::AddNode(this, windows_core::from_raw_borrowed(&node)).into()
         }
         unsafe extern "system" fn RemoveNode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1TransformGraph_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, node: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveNode(windows_core::from_raw_borrowed(&node)).into()
+            ID2D1TransformGraph_Impl::RemoveNode(this, windows_core::from_raw_borrowed(&node)).into()
         }
         unsafe extern "system" fn SetOutputNode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1TransformGraph_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, node: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetOutputNode(windows_core::from_raw_borrowed(&node)).into()
+            ID2D1TransformGraph_Impl::SetOutputNode(this, windows_core::from_raw_borrowed(&node)).into()
         }
         unsafe extern "system" fn ConnectNode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1TransformGraph_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fromnode: *mut core::ffi::c_void, tonode: *mut core::ffi::c_void, tonodeinputindex: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ConnectNode(windows_core::from_raw_borrowed(&fromnode), windows_core::from_raw_borrowed(&tonode), core::mem::transmute_copy(&tonodeinputindex)).into()
+            ID2D1TransformGraph_Impl::ConnectNode(this, windows_core::from_raw_borrowed(&fromnode), windows_core::from_raw_borrowed(&tonode), core::mem::transmute_copy(&tonodeinputindex)).into()
         }
         unsafe extern "system" fn ConnectToEffectInput<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1TransformGraph_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, toeffectinputindex: u32, node: *mut core::ffi::c_void, tonodeinputindex: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ConnectToEffectInput(core::mem::transmute_copy(&toeffectinputindex), windows_core::from_raw_borrowed(&node), core::mem::transmute_copy(&tonodeinputindex)).into()
+            ID2D1TransformGraph_Impl::ConnectToEffectInput(this, core::mem::transmute_copy(&toeffectinputindex), windows_core::from_raw_borrowed(&node), core::mem::transmute_copy(&tonodeinputindex)).into()
         }
         unsafe extern "system" fn Clear<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1TransformGraph_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Clear()
+            ID2D1TransformGraph_Impl::Clear(this)
         }
         unsafe extern "system" fn SetPassthroughGraph<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1TransformGraph_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, effectinputindex: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPassthroughGraph(core::mem::transmute_copy(&effectinputindex)).into()
+            ID2D1TransformGraph_Impl::SetPassthroughGraph(this, core::mem::transmute_copy(&effectinputindex)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -5971,7 +5970,7 @@ impl ID2D1TransformNode_Vtbl {
         unsafe extern "system" fn GetInputCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1TransformNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetInputCount()
+            ID2D1TransformNode_Impl::GetInputCount(this)
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetInputCount: GetInputCount::<Identity, Impl, OFFSET> }
     }
@@ -5992,12 +5991,12 @@ impl ID2D1TransformedGeometry_Vtbl {
         unsafe extern "system" fn GetSourceGeometry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1TransformedGeometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcegeometry: *mut *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSourceGeometry(core::mem::transmute_copy(&sourcegeometry))
+            ID2D1TransformedGeometry_Impl::GetSourceGeometry(this, core::mem::transmute_copy(&sourcegeometry))
         }
         unsafe extern "system" fn GetTransform<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1TransformedGeometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetTransform(core::mem::transmute_copy(&transform))
+            ID2D1TransformedGeometry_Impl::GetTransform(this, core::mem::transmute_copy(&transform))
         }
         Self {
             base__: ID2D1Geometry_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -6019,12 +6018,12 @@ impl ID2D1TransformedImageSource_Vtbl {
         unsafe extern "system" fn GetSource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1TransformedImageSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagesource: *mut *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSource(core::mem::transmute_copy(&imagesource))
+            ID2D1TransformedImageSource_Impl::GetSource(this, core::mem::transmute_copy(&imagesource))
         }
         unsafe extern "system" fn GetProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1TransformedImageSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, properties: *mut D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetProperties(core::mem::transmute_copy(&properties))
+            ID2D1TransformedImageSource_Impl::GetProperties(this, core::mem::transmute_copy(&properties))
         }
         Self {
             base__: ID2D1Image_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -6046,12 +6045,12 @@ impl ID2D1VertexBuffer_Vtbl {
         unsafe extern "system" fn Map<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1VertexBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut *mut u8, buffersize: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Map(core::mem::transmute_copy(&data), core::mem::transmute_copy(&buffersize)).into()
+            ID2D1VertexBuffer_Impl::Map(this, core::mem::transmute_copy(&data), core::mem::transmute_copy(&buffersize)).into()
         }
         unsafe extern "system" fn Unmap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1VertexBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Unmap().into()
+            ID2D1VertexBuffer_Impl::Unmap(this).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Map: Map::<Identity, Impl, OFFSET>, Unmap: Unmap::<Identity, Impl, OFFSET> }
     }

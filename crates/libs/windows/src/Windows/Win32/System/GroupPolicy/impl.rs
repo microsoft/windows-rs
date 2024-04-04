@@ -18,47 +18,47 @@ impl IGPEInformation_Vtbl {
         unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPEInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PWSTR, cchmaxlength: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetName(core::mem::transmute_copy(&pszname), core::mem::transmute_copy(&cchmaxlength)).into()
+            IGPEInformation_Impl::GetName(this, core::mem::transmute_copy(&pszname), core::mem::transmute_copy(&cchmaxlength)).into()
         }
         unsafe extern "system" fn GetDisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPEInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PWSTR, cchmaxlength: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDisplayName(core::mem::transmute_copy(&pszname), core::mem::transmute_copy(&cchmaxlength)).into()
+            IGPEInformation_Impl::GetDisplayName(this, core::mem::transmute_copy(&pszname), core::mem::transmute_copy(&cchmaxlength)).into()
         }
         unsafe extern "system" fn GetRegistryKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPEInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsection: u32, hkey: *mut super::Registry::HKEY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetRegistryKey(core::mem::transmute_copy(&dwsection), core::mem::transmute_copy(&hkey)).into()
+            IGPEInformation_Impl::GetRegistryKey(this, core::mem::transmute_copy(&dwsection), core::mem::transmute_copy(&hkey)).into()
         }
         unsafe extern "system" fn GetDSPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPEInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsection: u32, pszpath: windows_core::PWSTR, cchmaxpath: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDSPath(core::mem::transmute_copy(&dwsection), core::mem::transmute_copy(&pszpath), core::mem::transmute_copy(&cchmaxpath)).into()
+            IGPEInformation_Impl::GetDSPath(this, core::mem::transmute_copy(&dwsection), core::mem::transmute_copy(&pszpath), core::mem::transmute_copy(&cchmaxpath)).into()
         }
         unsafe extern "system" fn GetFileSysPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPEInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsection: u32, pszpath: windows_core::PWSTR, cchmaxpath: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetFileSysPath(core::mem::transmute_copy(&dwsection), core::mem::transmute_copy(&pszpath), core::mem::transmute_copy(&cchmaxpath)).into()
+            IGPEInformation_Impl::GetFileSysPath(this, core::mem::transmute_copy(&dwsection), core::mem::transmute_copy(&pszpath), core::mem::transmute_copy(&cchmaxpath)).into()
         }
         unsafe extern "system" fn GetOptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPEInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoptions: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetOptions(core::mem::transmute_copy(&dwoptions)).into()
+            IGPEInformation_Impl::GetOptions(this, core::mem::transmute_copy(&dwoptions)).into()
         }
         unsafe extern "system" fn GetType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPEInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpotype: *mut GROUP_POLICY_OBJECT_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetType(core::mem::transmute_copy(&gpotype)).into()
+            IGPEInformation_Impl::GetType(this, core::mem::transmute_copy(&gpotype)).into()
         }
         unsafe extern "system" fn GetHint<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPEInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gphint: *mut GROUP_POLICY_HINT_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetHint(core::mem::transmute_copy(&gphint)).into()
+            IGPEInformation_Impl::GetHint(this, core::mem::transmute_copy(&gphint)).into()
         }
         unsafe extern "system" fn PolicyChanged<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPEInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bmachine: super::super::Foundation::BOOL, badd: super::super::Foundation::BOOL, pguidextension: *mut windows_core::GUID, pguidsnapin: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PolicyChanged(core::mem::transmute_copy(&bmachine), core::mem::transmute_copy(&badd), core::mem::transmute_copy(&pguidextension), core::mem::transmute_copy(&pguidsnapin)).into()
+            IGPEInformation_Impl::PolicyChanged(this, core::mem::transmute_copy(&bmachine), core::mem::transmute_copy(&badd), core::mem::transmute_copy(&pguidextension), core::mem::transmute_copy(&pguidsnapin)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -100,7 +100,7 @@ impl IGPM_Vtbl {
         unsafe extern "system" fn GetDomain<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdomain: std::mem::MaybeUninit<windows_core::BSTR>, bstrdomaincontroller: std::mem::MaybeUninit<windows_core::BSTR>, ldcflags: i32, pigpmdomain: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDomain(core::mem::transmute(&bstrdomain), core::mem::transmute(&bstrdomaincontroller), core::mem::transmute_copy(&ldcflags)) {
+            match IGPM_Impl::GetDomain(this, core::mem::transmute(&bstrdomain), core::mem::transmute(&bstrdomaincontroller), core::mem::transmute_copy(&ldcflags)) {
                 Ok(ok__) => {
                     core::ptr::write(pigpmdomain, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -111,7 +111,7 @@ impl IGPM_Vtbl {
         unsafe extern "system" fn GetBackupDir<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrbackupdir: std::mem::MaybeUninit<windows_core::BSTR>, pigpmbackupdir: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetBackupDir(core::mem::transmute(&bstrbackupdir)) {
+            match IGPM_Impl::GetBackupDir(this, core::mem::transmute(&bstrbackupdir)) {
                 Ok(ok__) => {
                     core::ptr::write(pigpmbackupdir, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -122,7 +122,7 @@ impl IGPM_Vtbl {
         unsafe extern "system" fn GetSitesContainer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrforest: std::mem::MaybeUninit<windows_core::BSTR>, bstrdomain: std::mem::MaybeUninit<windows_core::BSTR>, bstrdomaincontroller: std::mem::MaybeUninit<windows_core::BSTR>, ldcflags: i32, ppigpmsitescontainer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSitesContainer(core::mem::transmute(&bstrforest), core::mem::transmute(&bstrdomain), core::mem::transmute(&bstrdomaincontroller), core::mem::transmute_copy(&ldcflags)) {
+            match IGPM_Impl::GetSitesContainer(this, core::mem::transmute(&bstrforest), core::mem::transmute(&bstrdomain), core::mem::transmute(&bstrdomaincontroller), core::mem::transmute_copy(&ldcflags)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmsitescontainer, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -133,7 +133,7 @@ impl IGPM_Vtbl {
         unsafe extern "system" fn GetRSOP<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmrsopmode: GPMRSOPMode, bstrnamespace: std::mem::MaybeUninit<windows_core::BSTR>, lflags: i32, ppigpmrsop: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRSOP(core::mem::transmute_copy(&gpmrsopmode), core::mem::transmute(&bstrnamespace), core::mem::transmute_copy(&lflags)) {
+            match IGPM_Impl::GetRSOP(this, core::mem::transmute_copy(&gpmrsopmode), core::mem::transmute(&bstrnamespace), core::mem::transmute_copy(&lflags)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmrsop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -144,7 +144,7 @@ impl IGPM_Vtbl {
         unsafe extern "system" fn CreatePermission<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtrustee: std::mem::MaybeUninit<windows_core::BSTR>, perm: GPMPermissionType, binheritable: super::super::Foundation::VARIANT_BOOL, ppperm: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePermission(core::mem::transmute(&bstrtrustee), core::mem::transmute_copy(&perm), core::mem::transmute_copy(&binheritable)) {
+            match IGPM_Impl::CreatePermission(this, core::mem::transmute(&bstrtrustee), core::mem::transmute_copy(&perm), core::mem::transmute_copy(&binheritable)) {
                 Ok(ok__) => {
                     core::ptr::write(ppperm, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -155,7 +155,7 @@ impl IGPM_Vtbl {
         unsafe extern "system" fn CreateSearchCriteria<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppigpmsearchcriteria: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateSearchCriteria() {
+            match IGPM_Impl::CreateSearchCriteria(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmsearchcriteria, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -166,7 +166,7 @@ impl IGPM_Vtbl {
         unsafe extern "system" fn CreateTrustee<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtrustee: std::mem::MaybeUninit<windows_core::BSTR>, ppigpmtrustee: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateTrustee(core::mem::transmute(&bstrtrustee)) {
+            match IGPM_Impl::CreateTrustee(this, core::mem::transmute(&bstrtrustee)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmtrustee, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -177,7 +177,7 @@ impl IGPM_Vtbl {
         unsafe extern "system" fn GetClientSideExtensions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppigpmcsecollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetClientSideExtensions() {
+            match IGPM_Impl::GetClientSideExtensions(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmcsecollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -188,7 +188,7 @@ impl IGPM_Vtbl {
         unsafe extern "system" fn GetConstants<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppigpmconstants: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetConstants() {
+            match IGPM_Impl::GetConstants(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmconstants, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -199,7 +199,7 @@ impl IGPM_Vtbl {
         unsafe extern "system" fn GetMigrationTable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmigrationtablepath: std::mem::MaybeUninit<windows_core::BSTR>, ppmigrationtable: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetMigrationTable(core::mem::transmute(&bstrmigrationtablepath)) {
+            match IGPM_Impl::GetMigrationTable(this, core::mem::transmute(&bstrmigrationtablepath)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmigrationtable, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -210,7 +210,7 @@ impl IGPM_Vtbl {
         unsafe extern "system" fn CreateMigrationTable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmigrationtable: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateMigrationTable() {
+            match IGPM_Impl::CreateMigrationTable(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppmigrationtable, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -221,7 +221,7 @@ impl IGPM_Vtbl {
         unsafe extern "system" fn InitializeReporting<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstradmpath: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InitializeReporting(core::mem::transmute(&bstradmpath)).into()
+            IGPM_Impl::InitializeReporting(this, core::mem::transmute(&bstradmpath)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -256,7 +256,7 @@ impl IGPM2_Vtbl {
         unsafe extern "system" fn GetBackupDirEx<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrbackupdir: std::mem::MaybeUninit<windows_core::BSTR>, backupdirtype: GPMBackupType, ppigpmbackupdirex: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetBackupDirEx(core::mem::transmute(&bstrbackupdir), core::mem::transmute_copy(&backupdirtype)) {
+            match IGPM2_Impl::GetBackupDirEx(this, core::mem::transmute(&bstrbackupdir), core::mem::transmute_copy(&backupdirtype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmbackupdirex, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -267,7 +267,7 @@ impl IGPM2_Vtbl {
         unsafe extern "system" fn InitializeReportingEx<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPM2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstradmpath: std::mem::MaybeUninit<windows_core::BSTR>, reportingoptions: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InitializeReportingEx(core::mem::transmute(&bstradmpath), core::mem::transmute_copy(&reportingoptions)).into()
+            IGPM2_Impl::InitializeReportingEx(this, core::mem::transmute(&bstradmpath), core::mem::transmute_copy(&reportingoptions)).into()
         }
         Self {
             base__: IGPM_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -291,7 +291,7 @@ impl IGPMAsyncCancel_Vtbl {
         unsafe extern "system" fn Cancel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMAsyncCancel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Cancel().into()
+            IGPMAsyncCancel_Impl::Cancel(this).into()
         }
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Cancel: Cancel::<Identity, Impl, OFFSET> }
     }
@@ -311,7 +311,7 @@ impl IGPMAsyncProgress_Vtbl {
         unsafe extern "system" fn Status<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMAsyncProgress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lprogressnumerator: i32, lprogressdenominator: i32, hrstatus: windows_core::HRESULT, presult: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmstatusmsgcollection: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Status(core::mem::transmute_copy(&lprogressnumerator), core::mem::transmute_copy(&lprogressdenominator), core::mem::transmute_copy(&hrstatus), core::mem::transmute_copy(&presult), windows_core::from_raw_borrowed(&ppigpmstatusmsgcollection)).into()
+            IGPMAsyncProgress_Impl::Status(this, core::mem::transmute_copy(&lprogressnumerator), core::mem::transmute_copy(&lprogressdenominator), core::mem::transmute_copy(&hrstatus), core::mem::transmute_copy(&presult), windows_core::from_raw_borrowed(&ppigpmstatusmsgcollection)).into()
         }
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Status: Status::<Identity, Impl, OFFSET> }
     }
@@ -340,7 +340,7 @@ impl IGPMBackup_Vtbl {
         unsafe extern "system" fn ID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ID() {
+            match IGPMBackup_Impl::ID(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -351,7 +351,7 @@ impl IGPMBackup_Vtbl {
         unsafe extern "system" fn GPOID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GPOID() {
+            match IGPMBackup_Impl::GPOID(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -362,7 +362,7 @@ impl IGPMBackup_Vtbl {
         unsafe extern "system" fn GPODomain<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GPODomain() {
+            match IGPMBackup_Impl::GPODomain(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -373,7 +373,7 @@ impl IGPMBackup_Vtbl {
         unsafe extern "system" fn GPODisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GPODisplayName() {
+            match IGPMBackup_Impl::GPODisplayName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -384,7 +384,7 @@ impl IGPMBackup_Vtbl {
         unsafe extern "system" fn Timestamp<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Timestamp() {
+            match IGPMBackup_Impl::Timestamp(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -395,7 +395,7 @@ impl IGPMBackup_Vtbl {
         unsafe extern "system" fn Comment<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Comment() {
+            match IGPMBackup_Impl::Comment(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -406,7 +406,7 @@ impl IGPMBackup_Vtbl {
         unsafe extern "system" fn BackupDir<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BackupDir() {
+            match IGPMBackup_Impl::BackupDir(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -417,12 +417,12 @@ impl IGPMBackup_Vtbl {
         unsafe extern "system" fn Delete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Delete().into()
+            IGPMBackup_Impl::Delete(this).into()
         }
         unsafe extern "system" fn GenerateReport<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GenerateReport(core::mem::transmute_copy(&gpmreporttype), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
+            match IGPMBackup_Impl::GenerateReport(this, core::mem::transmute_copy(&gpmreporttype), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmresult, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -433,7 +433,7 @@ impl IGPMBackup_Vtbl {
         unsafe extern "system" fn GenerateReportToFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: std::mem::MaybeUninit<windows_core::BSTR>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GenerateReportToFile(core::mem::transmute_copy(&gpmreporttype), core::mem::transmute(&bstrtargetfilepath)) {
+            match IGPMBackup_Impl::GenerateReportToFile(this, core::mem::transmute_copy(&gpmreporttype), core::mem::transmute(&bstrtargetfilepath)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmresult, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -473,7 +473,7 @@ impl IGPMBackupCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackupCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IGPMBackupCollection_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -484,7 +484,7 @@ impl IGPMBackupCollection_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackupCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute_copy(&lindex)) {
+            match IGPMBackupCollection_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -495,7 +495,7 @@ impl IGPMBackupCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackupCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppigpmbackup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IGPMBackupCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmbackup, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -528,7 +528,7 @@ impl IGPMBackupDir_Vtbl {
         unsafe extern "system" fn BackupDirectory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackupDir_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BackupDirectory() {
+            match IGPMBackupDir_Impl::BackupDirectory(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -539,7 +539,7 @@ impl IGPMBackupDir_Vtbl {
         unsafe extern "system" fn GetBackup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackupDir_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrid: std::mem::MaybeUninit<windows_core::BSTR>, ppbackup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetBackup(core::mem::transmute(&bstrid)) {
+            match IGPMBackupDir_Impl::GetBackup(this, core::mem::transmute(&bstrid)) {
                 Ok(ok__) => {
                     core::ptr::write(ppbackup, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -550,7 +550,7 @@ impl IGPMBackupDir_Vtbl {
         unsafe extern "system" fn SearchBackups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackupDir_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pigpmsearchcriteria: *mut core::ffi::c_void, ppigpmbackupcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SearchBackups(windows_core::from_raw_borrowed(&pigpmsearchcriteria)) {
+            match IGPMBackupDir_Impl::SearchBackups(this, windows_core::from_raw_borrowed(&pigpmsearchcriteria)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmbackupcollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -584,7 +584,7 @@ impl IGPMBackupDirEx_Vtbl {
         unsafe extern "system" fn BackupDir<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackupDirEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrbackupdir: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BackupDir() {
+            match IGPMBackupDirEx_Impl::BackupDir(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrbackupdir, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -595,7 +595,7 @@ impl IGPMBackupDirEx_Vtbl {
         unsafe extern "system" fn BackupType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackupDirEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgpmbackuptype: *mut GPMBackupType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BackupType() {
+            match IGPMBackupDirEx_Impl::BackupType(this) {
                 Ok(ok__) => {
                     core::ptr::write(pgpmbackuptype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -606,7 +606,7 @@ impl IGPMBackupDirEx_Vtbl {
         unsafe extern "system" fn GetBackup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackupDirEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrid: std::mem::MaybeUninit<windows_core::BSTR>, pvarbackup: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetBackup(core::mem::transmute(&bstrid)) {
+            match IGPMBackupDirEx_Impl::GetBackup(this, core::mem::transmute(&bstrid)) {
                 Ok(ok__) => {
                     core::ptr::write(pvarbackup, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -617,7 +617,7 @@ impl IGPMBackupDirEx_Vtbl {
         unsafe extern "system" fn SearchBackups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMBackupDirEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pigpmsearchcriteria: *mut core::ffi::c_void, pvarbackupcollection: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SearchBackups(windows_core::from_raw_borrowed(&pigpmsearchcriteria)) {
+            match IGPMBackupDirEx_Impl::SearchBackups(this, windows_core::from_raw_borrowed(&pigpmsearchcriteria)) {
                 Ok(ok__) => {
                     core::ptr::write(pvarbackupcollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -651,7 +651,7 @@ impl IGPMCSECollection_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMCSECollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IGPMCSECollection_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -662,7 +662,7 @@ impl IGPMCSECollection_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMCSECollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute_copy(&lindex)) {
+            match IGPMCSECollection_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -673,7 +673,7 @@ impl IGPMCSECollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMCSECollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppigpmcses: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IGPMCSECollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmcses, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -707,7 +707,7 @@ impl IGPMClientSideExtension_Vtbl {
         unsafe extern "system" fn ID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMClientSideExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ID() {
+            match IGPMClientSideExtension_Impl::ID(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -718,7 +718,7 @@ impl IGPMClientSideExtension_Vtbl {
         unsafe extern "system" fn DisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMClientSideExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DisplayName() {
+            match IGPMClientSideExtension_Impl::DisplayName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -729,7 +729,7 @@ impl IGPMClientSideExtension_Vtbl {
         unsafe extern "system" fn IsUserEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMClientSideExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsUserEnabled() {
+            match IGPMClientSideExtension_Impl::IsUserEnabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvbenabled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -740,7 +740,7 @@ impl IGPMClientSideExtension_Vtbl {
         unsafe extern "system" fn IsComputerEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMClientSideExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsComputerEnabled() {
+            match IGPMClientSideExtension_Impl::IsComputerEnabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvbenabled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -831,7 +831,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn PermGPOApply<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMPermissionType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PermGPOApply() {
+            match IGPMConstants_Impl::PermGPOApply(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -842,7 +842,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn PermGPORead<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMPermissionType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PermGPORead() {
+            match IGPMConstants_Impl::PermGPORead(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -853,7 +853,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn PermGPOEdit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMPermissionType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PermGPOEdit() {
+            match IGPMConstants_Impl::PermGPOEdit(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -864,7 +864,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn PermGPOEditSecurityAndDelete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMPermissionType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PermGPOEditSecurityAndDelete() {
+            match IGPMConstants_Impl::PermGPOEditSecurityAndDelete(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -875,7 +875,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn PermGPOCustom<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMPermissionType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PermGPOCustom() {
+            match IGPMConstants_Impl::PermGPOCustom(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -886,7 +886,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn PermWMIFilterEdit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMPermissionType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PermWMIFilterEdit() {
+            match IGPMConstants_Impl::PermWMIFilterEdit(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -897,7 +897,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn PermWMIFilterFullControl<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMPermissionType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PermWMIFilterFullControl() {
+            match IGPMConstants_Impl::PermWMIFilterFullControl(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -908,7 +908,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn PermWMIFilterCustom<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMPermissionType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PermWMIFilterCustom() {
+            match IGPMConstants_Impl::PermWMIFilterCustom(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -919,7 +919,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn PermSOMLink<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMPermissionType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PermSOMLink() {
+            match IGPMConstants_Impl::PermSOMLink(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -930,7 +930,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn PermSOMLogging<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMPermissionType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PermSOMLogging() {
+            match IGPMConstants_Impl::PermSOMLogging(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -941,7 +941,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn PermSOMPlanning<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMPermissionType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PermSOMPlanning() {
+            match IGPMConstants_Impl::PermSOMPlanning(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -952,7 +952,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn PermSOMGPOCreate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMPermissionType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PermSOMGPOCreate() {
+            match IGPMConstants_Impl::PermSOMGPOCreate(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -963,7 +963,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn PermSOMWMICreate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMPermissionType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PermSOMWMICreate() {
+            match IGPMConstants_Impl::PermSOMWMICreate(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -974,7 +974,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn PermSOMWMIFullControl<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMPermissionType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PermSOMWMIFullControl() {
+            match IGPMConstants_Impl::PermSOMWMIFullControl(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -985,7 +985,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn SearchPropertyGPOPermissions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMSearchProperty) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SearchPropertyGPOPermissions() {
+            match IGPMConstants_Impl::SearchPropertyGPOPermissions(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -996,7 +996,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn SearchPropertyGPOEffectivePermissions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMSearchProperty) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SearchPropertyGPOEffectivePermissions() {
+            match IGPMConstants_Impl::SearchPropertyGPOEffectivePermissions(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1007,7 +1007,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn SearchPropertyGPODisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMSearchProperty) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SearchPropertyGPODisplayName() {
+            match IGPMConstants_Impl::SearchPropertyGPODisplayName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1018,7 +1018,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn SearchPropertyGPOWMIFilter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMSearchProperty) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SearchPropertyGPOWMIFilter() {
+            match IGPMConstants_Impl::SearchPropertyGPOWMIFilter(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1029,7 +1029,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn SearchPropertyGPOID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMSearchProperty) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SearchPropertyGPOID() {
+            match IGPMConstants_Impl::SearchPropertyGPOID(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1040,7 +1040,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn SearchPropertyGPOComputerExtensions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMSearchProperty) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SearchPropertyGPOComputerExtensions() {
+            match IGPMConstants_Impl::SearchPropertyGPOComputerExtensions(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1051,7 +1051,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn SearchPropertyGPOUserExtensions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMSearchProperty) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SearchPropertyGPOUserExtensions() {
+            match IGPMConstants_Impl::SearchPropertyGPOUserExtensions(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1062,7 +1062,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn SearchPropertySOMLinks<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMSearchProperty) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SearchPropertySOMLinks() {
+            match IGPMConstants_Impl::SearchPropertySOMLinks(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1073,7 +1073,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn SearchPropertyGPODomain<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMSearchProperty) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SearchPropertyGPODomain() {
+            match IGPMConstants_Impl::SearchPropertyGPODomain(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1084,7 +1084,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn SearchPropertyBackupMostRecent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMSearchProperty) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SearchPropertyBackupMostRecent() {
+            match IGPMConstants_Impl::SearchPropertyBackupMostRecent(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1095,7 +1095,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn SearchOpEquals<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMSearchOperation) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SearchOpEquals() {
+            match IGPMConstants_Impl::SearchOpEquals(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1106,7 +1106,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn SearchOpContains<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMSearchOperation) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SearchOpContains() {
+            match IGPMConstants_Impl::SearchOpContains(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1117,7 +1117,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn SearchOpNotContains<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMSearchOperation) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SearchOpNotContains() {
+            match IGPMConstants_Impl::SearchOpNotContains(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1128,7 +1128,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn SearchOpNotEquals<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMSearchOperation) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SearchOpNotEquals() {
+            match IGPMConstants_Impl::SearchOpNotEquals(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1139,7 +1139,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn UsePDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UsePDC() {
+            match IGPMConstants_Impl::UsePDC(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1150,7 +1150,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn UseAnyDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UseAnyDC() {
+            match IGPMConstants_Impl::UseAnyDC(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1161,7 +1161,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn DoNotUseW2KDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DoNotUseW2KDC() {
+            match IGPMConstants_Impl::DoNotUseW2KDC(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1172,7 +1172,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn SOMSite<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMSOMType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SOMSite() {
+            match IGPMConstants_Impl::SOMSite(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1183,7 +1183,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn SOMDomain<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMSOMType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SOMDomain() {
+            match IGPMConstants_Impl::SOMDomain(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1194,7 +1194,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn SOMOU<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMSOMType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SOMOU() {
+            match IGPMConstants_Impl::SOMOU(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1205,7 +1205,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn get_SecurityFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vbowner: super::super::Foundation::VARIANT_BOOL, vbgroup: super::super::Foundation::VARIANT_BOOL, vbdacl: super::super::Foundation::VARIANT_BOOL, vbsacl: super::super::Foundation::VARIANT_BOOL, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_SecurityFlags(core::mem::transmute_copy(&vbowner), core::mem::transmute_copy(&vbgroup), core::mem::transmute_copy(&vbdacl), core::mem::transmute_copy(&vbsacl)) {
+            match IGPMConstants_Impl::get_SecurityFlags(this, core::mem::transmute_copy(&vbowner), core::mem::transmute_copy(&vbgroup), core::mem::transmute_copy(&vbdacl), core::mem::transmute_copy(&vbsacl)) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1216,7 +1216,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn DoNotValidateDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DoNotValidateDC() {
+            match IGPMConstants_Impl::DoNotValidateDC(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1227,7 +1227,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn ReportHTML<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMReportType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReportHTML() {
+            match IGPMConstants_Impl::ReportHTML(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1238,7 +1238,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn ReportXML<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMReportType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReportXML() {
+            match IGPMConstants_Impl::ReportXML(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1249,7 +1249,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn RSOPModeUnknown<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMRSOPMode) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RSOPModeUnknown() {
+            match IGPMConstants_Impl::RSOPModeUnknown(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1260,7 +1260,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn RSOPModePlanning<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMRSOPMode) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RSOPModePlanning() {
+            match IGPMConstants_Impl::RSOPModePlanning(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1271,7 +1271,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn RSOPModeLogging<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMRSOPMode) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RSOPModeLogging() {
+            match IGPMConstants_Impl::RSOPModeLogging(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1282,7 +1282,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn EntryTypeUser<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMEntryType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EntryTypeUser() {
+            match IGPMConstants_Impl::EntryTypeUser(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1293,7 +1293,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn EntryTypeComputer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMEntryType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EntryTypeComputer() {
+            match IGPMConstants_Impl::EntryTypeComputer(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1304,7 +1304,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn EntryTypeLocalGroup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMEntryType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EntryTypeLocalGroup() {
+            match IGPMConstants_Impl::EntryTypeLocalGroup(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1315,7 +1315,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn EntryTypeGlobalGroup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMEntryType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EntryTypeGlobalGroup() {
+            match IGPMConstants_Impl::EntryTypeGlobalGroup(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1326,7 +1326,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn EntryTypeUniversalGroup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMEntryType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EntryTypeUniversalGroup() {
+            match IGPMConstants_Impl::EntryTypeUniversalGroup(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1337,7 +1337,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn EntryTypeUNCPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMEntryType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EntryTypeUNCPath() {
+            match IGPMConstants_Impl::EntryTypeUNCPath(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1348,7 +1348,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn EntryTypeUnknown<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMEntryType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EntryTypeUnknown() {
+            match IGPMConstants_Impl::EntryTypeUnknown(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1359,7 +1359,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn DestinationOptionSameAsSource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMDestinationOption) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DestinationOptionSameAsSource() {
+            match IGPMConstants_Impl::DestinationOptionSameAsSource(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1370,7 +1370,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn DestinationOptionNone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMDestinationOption) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DestinationOptionNone() {
+            match IGPMConstants_Impl::DestinationOptionNone(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1381,7 +1381,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn DestinationOptionByRelativeName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMDestinationOption) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DestinationOptionByRelativeName() {
+            match IGPMConstants_Impl::DestinationOptionByRelativeName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1392,7 +1392,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn DestinationOptionSet<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMDestinationOption) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DestinationOptionSet() {
+            match IGPMConstants_Impl::DestinationOptionSet(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1403,7 +1403,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn MigrationTableOnly<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MigrationTableOnly() {
+            match IGPMConstants_Impl::MigrationTableOnly(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1414,7 +1414,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn ProcessSecurity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ProcessSecurity() {
+            match IGPMConstants_Impl::ProcessSecurity(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1425,7 +1425,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn RsopLoggingNoComputer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RsopLoggingNoComputer() {
+            match IGPMConstants_Impl::RsopLoggingNoComputer(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1436,7 +1436,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn RsopLoggingNoUser<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RsopLoggingNoUser() {
+            match IGPMConstants_Impl::RsopLoggingNoUser(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1447,7 +1447,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn RsopPlanningAssumeSlowLink<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RsopPlanningAssumeSlowLink() {
+            match IGPMConstants_Impl::RsopPlanningAssumeSlowLink(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1458,7 +1458,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn get_RsopPlanningLoopbackOption<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vbmerge: super::super::Foundation::VARIANT_BOOL, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_RsopPlanningLoopbackOption(core::mem::transmute_copy(&vbmerge)) {
+            match IGPMConstants_Impl::get_RsopPlanningLoopbackOption(this, core::mem::transmute_copy(&vbmerge)) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1469,7 +1469,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn RsopPlanningAssumeUserWQLFilterTrue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RsopPlanningAssumeUserWQLFilterTrue() {
+            match IGPMConstants_Impl::RsopPlanningAssumeUserWQLFilterTrue(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1480,7 +1480,7 @@ impl IGPMConstants_Vtbl {
         unsafe extern "system" fn RsopPlanningAssumeCompWQLFilterTrue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RsopPlanningAssumeCompWQLFilterTrue() {
+            match IGPMConstants_Impl::RsopPlanningAssumeCompWQLFilterTrue(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1582,7 +1582,7 @@ impl IGPMConstants2_Vtbl {
         unsafe extern "system" fn BackupTypeGPO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMBackupType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BackupTypeGPO() {
+            match IGPMConstants2_Impl::BackupTypeGPO(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1593,7 +1593,7 @@ impl IGPMConstants2_Vtbl {
         unsafe extern "system" fn BackupTypeStarterGPO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMBackupType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BackupTypeStarterGPO() {
+            match IGPMConstants2_Impl::BackupTypeStarterGPO(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1604,7 +1604,7 @@ impl IGPMConstants2_Vtbl {
         unsafe extern "system" fn StarterGPOTypeSystem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMStarterGPOType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.StarterGPOTypeSystem() {
+            match IGPMConstants2_Impl::StarterGPOTypeSystem(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1615,7 +1615,7 @@ impl IGPMConstants2_Vtbl {
         unsafe extern "system" fn StarterGPOTypeCustom<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMStarterGPOType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.StarterGPOTypeCustom() {
+            match IGPMConstants2_Impl::StarterGPOTypeCustom(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1626,7 +1626,7 @@ impl IGPMConstants2_Vtbl {
         unsafe extern "system" fn SearchPropertyStarterGPOPermissions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMSearchProperty) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SearchPropertyStarterGPOPermissions() {
+            match IGPMConstants2_Impl::SearchPropertyStarterGPOPermissions(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1637,7 +1637,7 @@ impl IGPMConstants2_Vtbl {
         unsafe extern "system" fn SearchPropertyStarterGPOEffectivePermissions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMSearchProperty) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SearchPropertyStarterGPOEffectivePermissions() {
+            match IGPMConstants2_Impl::SearchPropertyStarterGPOEffectivePermissions(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1648,7 +1648,7 @@ impl IGPMConstants2_Vtbl {
         unsafe extern "system" fn SearchPropertyStarterGPODisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMSearchProperty) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SearchPropertyStarterGPODisplayName() {
+            match IGPMConstants2_Impl::SearchPropertyStarterGPODisplayName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1659,7 +1659,7 @@ impl IGPMConstants2_Vtbl {
         unsafe extern "system" fn SearchPropertyStarterGPOID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMSearchProperty) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SearchPropertyStarterGPOID() {
+            match IGPMConstants2_Impl::SearchPropertyStarterGPOID(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1670,7 +1670,7 @@ impl IGPMConstants2_Vtbl {
         unsafe extern "system" fn SearchPropertyStarterGPODomain<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMSearchProperty) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SearchPropertyStarterGPODomain() {
+            match IGPMConstants2_Impl::SearchPropertyStarterGPODomain(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1681,7 +1681,7 @@ impl IGPMConstants2_Vtbl {
         unsafe extern "system" fn PermStarterGPORead<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMPermissionType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PermStarterGPORead() {
+            match IGPMConstants2_Impl::PermStarterGPORead(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1692,7 +1692,7 @@ impl IGPMConstants2_Vtbl {
         unsafe extern "system" fn PermStarterGPOEdit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMPermissionType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PermStarterGPOEdit() {
+            match IGPMConstants2_Impl::PermStarterGPOEdit(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1703,7 +1703,7 @@ impl IGPMConstants2_Vtbl {
         unsafe extern "system" fn PermStarterGPOFullControl<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMPermissionType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PermStarterGPOFullControl() {
+            match IGPMConstants2_Impl::PermStarterGPOFullControl(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1714,7 +1714,7 @@ impl IGPMConstants2_Vtbl {
         unsafe extern "system" fn PermStarterGPOCustom<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMPermissionType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PermStarterGPOCustom() {
+            match IGPMConstants2_Impl::PermStarterGPOCustom(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1725,7 +1725,7 @@ impl IGPMConstants2_Vtbl {
         unsafe extern "system" fn ReportLegacy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMReportingOptions) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReportLegacy() {
+            match IGPMConstants2_Impl::ReportLegacy(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1736,7 +1736,7 @@ impl IGPMConstants2_Vtbl {
         unsafe extern "system" fn ReportComments<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMReportingOptions) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReportComments() {
+            match IGPMConstants2_Impl::ReportComments(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1788,7 +1788,7 @@ impl IGPMDomain_Vtbl {
         unsafe extern "system" fn DomainController<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DomainController() {
+            match IGPMDomain_Impl::DomainController(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1799,7 +1799,7 @@ impl IGPMDomain_Vtbl {
         unsafe extern "system" fn Domain<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Domain() {
+            match IGPMDomain_Impl::Domain(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1810,7 +1810,7 @@ impl IGPMDomain_Vtbl {
         unsafe extern "system" fn CreateGPO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppnewgpo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateGPO() {
+            match IGPMDomain_Impl::CreateGPO(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppnewgpo, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1821,7 +1821,7 @@ impl IGPMDomain_Vtbl {
         unsafe extern "system" fn GetGPO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguid: std::mem::MaybeUninit<windows_core::BSTR>, ppgpo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetGPO(core::mem::transmute(&bstrguid)) {
+            match IGPMDomain_Impl::GetGPO(this, core::mem::transmute(&bstrguid)) {
                 Ok(ok__) => {
                     core::ptr::write(ppgpo, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1832,7 +1832,7 @@ impl IGPMDomain_Vtbl {
         unsafe extern "system" fn SearchGPOs<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pigpmsearchcriteria: *mut core::ffi::c_void, ppigpmgpocollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SearchGPOs(windows_core::from_raw_borrowed(&pigpmsearchcriteria)) {
+            match IGPMDomain_Impl::SearchGPOs(this, windows_core::from_raw_borrowed(&pigpmsearchcriteria)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmgpocollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1843,7 +1843,7 @@ impl IGPMDomain_Vtbl {
         unsafe extern "system" fn RestoreGPO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pigpmbackup: *mut core::ffi::c_void, ldcflags: i32, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RestoreGPO(windows_core::from_raw_borrowed(&pigpmbackup), core::mem::transmute_copy(&ldcflags), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
+            match IGPMDomain_Impl::RestoreGPO(this, windows_core::from_raw_borrowed(&pigpmbackup), core::mem::transmute_copy(&ldcflags), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmresult, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1854,7 +1854,7 @@ impl IGPMDomain_Vtbl {
         unsafe extern "system" fn GetSOM<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpath: std::mem::MaybeUninit<windows_core::BSTR>, ppsom: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSOM(core::mem::transmute(&bstrpath)) {
+            match IGPMDomain_Impl::GetSOM(this, core::mem::transmute(&bstrpath)) {
                 Ok(ok__) => {
                     core::ptr::write(ppsom, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1865,7 +1865,7 @@ impl IGPMDomain_Vtbl {
         unsafe extern "system" fn SearchSOMs<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pigpmsearchcriteria: *mut core::ffi::c_void, ppigpmsomcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SearchSOMs(windows_core::from_raw_borrowed(&pigpmsearchcriteria)) {
+            match IGPMDomain_Impl::SearchSOMs(this, windows_core::from_raw_borrowed(&pigpmsearchcriteria)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmsomcollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1876,7 +1876,7 @@ impl IGPMDomain_Vtbl {
         unsafe extern "system" fn GetWMIFilter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpath: std::mem::MaybeUninit<windows_core::BSTR>, ppwmifilter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetWMIFilter(core::mem::transmute(&bstrpath)) {
+            match IGPMDomain_Impl::GetWMIFilter(this, core::mem::transmute(&bstrpath)) {
                 Ok(ok__) => {
                     core::ptr::write(ppwmifilter, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1887,7 +1887,7 @@ impl IGPMDomain_Vtbl {
         unsafe extern "system" fn SearchWMIFilters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pigpmsearchcriteria: *mut core::ffi::c_void, ppigpmwmifiltercollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SearchWMIFilters(windows_core::from_raw_borrowed(&pigpmsearchcriteria)) {
+            match IGPMDomain_Impl::SearchWMIFilters(this, windows_core::from_raw_borrowed(&pigpmsearchcriteria)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmwmifiltercollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1930,7 +1930,7 @@ impl IGPMDomain2_Vtbl {
         unsafe extern "system" fn CreateStarterGPO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppnewtemplate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateStarterGPO() {
+            match IGPMDomain2_Impl::CreateStarterGPO(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppnewtemplate, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1941,7 +1941,7 @@ impl IGPMDomain2_Vtbl {
         unsafe extern "system" fn CreateGPOFromStarterGPO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgpotemplate: *mut core::ffi::c_void, ppnewgpo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateGPOFromStarterGPO(windows_core::from_raw_borrowed(&pgpotemplate)) {
+            match IGPMDomain2_Impl::CreateGPOFromStarterGPO(this, windows_core::from_raw_borrowed(&pgpotemplate)) {
                 Ok(ok__) => {
                     core::ptr::write(ppnewgpo, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1952,7 +1952,7 @@ impl IGPMDomain2_Vtbl {
         unsafe extern "system" fn GetStarterGPO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguid: std::mem::MaybeUninit<windows_core::BSTR>, pptemplate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStarterGPO(core::mem::transmute(&bstrguid)) {
+            match IGPMDomain2_Impl::GetStarterGPO(this, core::mem::transmute(&bstrguid)) {
                 Ok(ok__) => {
                     core::ptr::write(pptemplate, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1963,7 +1963,7 @@ impl IGPMDomain2_Vtbl {
         unsafe extern "system" fn SearchStarterGPOs<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pigpmsearchcriteria: *mut core::ffi::c_void, ppigpmtemplatecollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SearchStarterGPOs(windows_core::from_raw_borrowed(&pigpmsearchcriteria)) {
+            match IGPMDomain2_Impl::SearchStarterGPOs(this, windows_core::from_raw_borrowed(&pigpmsearchcriteria)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmtemplatecollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1974,7 +1974,7 @@ impl IGPMDomain2_Vtbl {
         unsafe extern "system" fn LoadStarterGPO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrloadfile: std::mem::MaybeUninit<windows_core::BSTR>, boverwrite: super::super::Foundation::VARIANT_BOOL, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LoadStarterGPO(core::mem::transmute(&bstrloadfile), core::mem::transmute_copy(&boverwrite), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
+            match IGPMDomain2_Impl::LoadStarterGPO(this, core::mem::transmute(&bstrloadfile), core::mem::transmute_copy(&boverwrite), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmresult, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1985,7 +1985,7 @@ impl IGPMDomain2_Vtbl {
         unsafe extern "system" fn RestoreStarterGPO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pigpmtmplbackup: *mut core::ffi::c_void, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RestoreStarterGPO(windows_core::from_raw_borrowed(&pigpmtmplbackup), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
+            match IGPMDomain2_Impl::RestoreStarterGPO(this, windows_core::from_raw_borrowed(&pigpmtmplbackup), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmresult, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2022,7 +2022,7 @@ impl IGPMDomain3_Vtbl {
         unsafe extern "system" fn GenerateReport<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GenerateReport(core::mem::transmute_copy(&gpmreporttype), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
+            match IGPMDomain3_Impl::GenerateReport(this, core::mem::transmute_copy(&gpmreporttype), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmresult, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2033,7 +2033,7 @@ impl IGPMDomain3_Vtbl {
         unsafe extern "system" fn InfrastructureDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.InfrastructureDC() {
+            match IGPMDomain3_Impl::InfrastructureDC(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2044,12 +2044,12 @@ impl IGPMDomain3_Vtbl {
         unsafe extern "system" fn SetInfrastructureDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetInfrastructureDC(core::mem::transmute(&newval)).into()
+            IGPMDomain3_Impl::SetInfrastructureDC(this, core::mem::transmute(&newval)).into()
         }
         unsafe extern "system" fn SetInfrastructureFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMDomain3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetInfrastructureFlags(core::mem::transmute_copy(&dwflags)).into()
+            IGPMDomain3_Impl::SetInfrastructureFlags(this, core::mem::transmute_copy(&dwflags)).into()
         }
         Self {
             base__: IGPMDomain2_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2103,7 +2103,7 @@ impl IGPMGPO_Vtbl {
         unsafe extern "system" fn DisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DisplayName() {
+            match IGPMGPO_Impl::DisplayName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2114,12 +2114,12 @@ impl IGPMGPO_Vtbl {
         unsafe extern "system" fn SetDisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDisplayName(core::mem::transmute(&newval)).into()
+            IGPMGPO_Impl::SetDisplayName(this, core::mem::transmute(&newval)).into()
         }
         unsafe extern "system" fn Path<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Path() {
+            match IGPMGPO_Impl::Path(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2130,7 +2130,7 @@ impl IGPMGPO_Vtbl {
         unsafe extern "system" fn ID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ID() {
+            match IGPMGPO_Impl::ID(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2141,7 +2141,7 @@ impl IGPMGPO_Vtbl {
         unsafe extern "system" fn DomainName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DomainName() {
+            match IGPMGPO_Impl::DomainName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2152,7 +2152,7 @@ impl IGPMGPO_Vtbl {
         unsafe extern "system" fn CreationTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdate: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreationTime() {
+            match IGPMGPO_Impl::CreationTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdate, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2163,7 +2163,7 @@ impl IGPMGPO_Vtbl {
         unsafe extern "system" fn ModificationTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdate: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ModificationTime() {
+            match IGPMGPO_Impl::ModificationTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdate, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2174,7 +2174,7 @@ impl IGPMGPO_Vtbl {
         unsafe extern "system" fn UserDSVersionNumber<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UserDSVersionNumber() {
+            match IGPMGPO_Impl::UserDSVersionNumber(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2185,7 +2185,7 @@ impl IGPMGPO_Vtbl {
         unsafe extern "system" fn ComputerDSVersionNumber<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ComputerDSVersionNumber() {
+            match IGPMGPO_Impl::ComputerDSVersionNumber(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2196,7 +2196,7 @@ impl IGPMGPO_Vtbl {
         unsafe extern "system" fn UserSysvolVersionNumber<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UserSysvolVersionNumber() {
+            match IGPMGPO_Impl::UserSysvolVersionNumber(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2207,7 +2207,7 @@ impl IGPMGPO_Vtbl {
         unsafe extern "system" fn ComputerSysvolVersionNumber<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ComputerSysvolVersionNumber() {
+            match IGPMGPO_Impl::ComputerSysvolVersionNumber(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2218,7 +2218,7 @@ impl IGPMGPO_Vtbl {
         unsafe extern "system" fn GetWMIFilter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppigpmwmifilter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetWMIFilter() {
+            match IGPMGPO_Impl::GetWMIFilter(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmwmifilter, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2229,22 +2229,22 @@ impl IGPMGPO_Vtbl {
         unsafe extern "system" fn SetWMIFilter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pigpmwmifilter: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetWMIFilter(windows_core::from_raw_borrowed(&pigpmwmifilter)).into()
+            IGPMGPO_Impl::SetWMIFilter(this, windows_core::from_raw_borrowed(&pigpmwmifilter)).into()
         }
         unsafe extern "system" fn SetUserEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vbenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetUserEnabled(core::mem::transmute_copy(&vbenabled)).into()
+            IGPMGPO_Impl::SetUserEnabled(this, core::mem::transmute_copy(&vbenabled)).into()
         }
         unsafe extern "system" fn SetComputerEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vbenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetComputerEnabled(core::mem::transmute_copy(&vbenabled)).into()
+            IGPMGPO_Impl::SetComputerEnabled(this, core::mem::transmute_copy(&vbenabled)).into()
         }
         unsafe extern "system" fn IsUserEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsUserEnabled() {
+            match IGPMGPO_Impl::IsUserEnabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvbenabled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2255,7 +2255,7 @@ impl IGPMGPO_Vtbl {
         unsafe extern "system" fn IsComputerEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsComputerEnabled() {
+            match IGPMGPO_Impl::IsComputerEnabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvbenabled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2266,7 +2266,7 @@ impl IGPMGPO_Vtbl {
         unsafe extern "system" fn GetSecurityInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsecurityinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSecurityInfo() {
+            match IGPMGPO_Impl::GetSecurityInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppsecurityinfo, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2277,17 +2277,17 @@ impl IGPMGPO_Vtbl {
         unsafe extern "system" fn SetSecurityInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psecurityinfo: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSecurityInfo(windows_core::from_raw_borrowed(&psecurityinfo)).into()
+            IGPMGPO_Impl::SetSecurityInfo(this, windows_core::from_raw_borrowed(&psecurityinfo)).into()
         }
         unsafe extern "system" fn Delete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Delete().into()
+            IGPMGPO_Impl::Delete(this).into()
         }
         unsafe extern "system" fn Backup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrbackupdir: std::mem::MaybeUninit<windows_core::BSTR>, bstrcomment: std::mem::MaybeUninit<windows_core::BSTR>, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Backup(core::mem::transmute(&bstrbackupdir), core::mem::transmute(&bstrcomment), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
+            match IGPMGPO_Impl::Backup(this, core::mem::transmute(&bstrbackupdir), core::mem::transmute(&bstrcomment), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmresult, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2298,7 +2298,7 @@ impl IGPMGPO_Vtbl {
         unsafe extern "system" fn Import<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, pigpmbackup: *mut core::ffi::c_void, pvarmigrationtable: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Import(core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pigpmbackup), core::mem::transmute_copy(&pvarmigrationtable), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
+            match IGPMGPO_Impl::Import(this, core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pigpmbackup), core::mem::transmute_copy(&pvarmigrationtable), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmresult, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2309,7 +2309,7 @@ impl IGPMGPO_Vtbl {
         unsafe extern "system" fn GenerateReport<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GenerateReport(core::mem::transmute_copy(&gpmreporttype), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
+            match IGPMGPO_Impl::GenerateReport(this, core::mem::transmute_copy(&gpmreporttype), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmresult, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2320,7 +2320,7 @@ impl IGPMGPO_Vtbl {
         unsafe extern "system" fn GenerateReportToFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: std::mem::MaybeUninit<windows_core::BSTR>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GenerateReportToFile(core::mem::transmute_copy(&gpmreporttype), core::mem::transmute(&bstrtargetfilepath)) {
+            match IGPMGPO_Impl::GenerateReportToFile(this, core::mem::transmute_copy(&gpmreporttype), core::mem::transmute(&bstrtargetfilepath)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmresult, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2331,7 +2331,7 @@ impl IGPMGPO_Vtbl {
         unsafe extern "system" fn CopyTo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, pigpmdomain: *mut core::ffi::c_void, pvarnewdisplayname: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvarmigrationtable: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CopyTo(core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pigpmdomain), core::mem::transmute_copy(&pvarnewdisplayname), core::mem::transmute_copy(&pvarmigrationtable), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
+            match IGPMGPO_Impl::CopyTo(this, core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&pigpmdomain), core::mem::transmute_copy(&pvarnewdisplayname), core::mem::transmute_copy(&pvarmigrationtable), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmresult, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2342,12 +2342,12 @@ impl IGPMGPO_Vtbl {
         unsafe extern "system" fn SetSecurityDescriptor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, psd: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSecurityDescriptor(core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&psd)).into()
+            IGPMGPO_Impl::SetSecurityDescriptor(this, core::mem::transmute_copy(&lflags), windows_core::from_raw_borrowed(&psd)).into()
         }
         unsafe extern "system" fn GetSecurityDescriptor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, ppsd: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSecurityDescriptor(core::mem::transmute_copy(&lflags)) {
+            match IGPMGPO_Impl::GetSecurityDescriptor(this, core::mem::transmute_copy(&lflags)) {
                 Ok(ok__) => {
                     core::ptr::write(ppsd, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2358,7 +2358,7 @@ impl IGPMGPO_Vtbl {
         unsafe extern "system" fn IsACLConsistent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvbconsistent: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsACLConsistent() {
+            match IGPMGPO_Impl::IsACLConsistent(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvbconsistent, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2369,7 +2369,7 @@ impl IGPMGPO_Vtbl {
         unsafe extern "system" fn MakeACLConsistent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.MakeACLConsistent().into()
+            IGPMGPO_Impl::MakeACLConsistent(this).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2421,7 +2421,7 @@ impl IGPMGPO2_Vtbl {
         unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Description() {
+            match IGPMGPO2_Impl::Description(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2432,7 +2432,7 @@ impl IGPMGPO2_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDescription(core::mem::transmute(&newval)).into()
+            IGPMGPO2_Impl::SetDescription(this, core::mem::transmute(&newval)).into()
         }
         Self {
             base__: IGPMGPO_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2458,7 +2458,7 @@ impl IGPMGPO3_Vtbl {
         unsafe extern "system" fn InfrastructureDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.InfrastructureDC() {
+            match IGPMGPO3_Impl::InfrastructureDC(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2469,12 +2469,12 @@ impl IGPMGPO3_Vtbl {
         unsafe extern "system" fn SetInfrastructureDC<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetInfrastructureDC(core::mem::transmute(&newval)).into()
+            IGPMGPO3_Impl::SetInfrastructureDC(this, core::mem::transmute(&newval)).into()
         }
         unsafe extern "system" fn SetInfrastructureFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPO3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetInfrastructureFlags(core::mem::transmute_copy(&dwflags)).into()
+            IGPMGPO3_Impl::SetInfrastructureFlags(this, core::mem::transmute_copy(&dwflags)).into()
         }
         Self {
             base__: IGPMGPO2_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2501,7 +2501,7 @@ impl IGPMGPOCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPOCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IGPMGPOCollection_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2512,7 +2512,7 @@ impl IGPMGPOCollection_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPOCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute_copy(&lindex)) {
+            match IGPMGPOCollection_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2523,7 +2523,7 @@ impl IGPMGPOCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPOCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppigpmgpos: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IGPMGPOCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmgpos, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2562,7 +2562,7 @@ impl IGPMGPOLink_Vtbl {
         unsafe extern "system" fn GPOID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPOLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GPOID() {
+            match IGPMGPOLink_Impl::GPOID(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2573,7 +2573,7 @@ impl IGPMGPOLink_Vtbl {
         unsafe extern "system" fn GPODomain<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPOLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GPODomain() {
+            match IGPMGPOLink_Impl::GPODomain(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2584,7 +2584,7 @@ impl IGPMGPOLink_Vtbl {
         unsafe extern "system" fn Enabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPOLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Enabled() {
+            match IGPMGPOLink_Impl::Enabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2595,12 +2595,12 @@ impl IGPMGPOLink_Vtbl {
         unsafe extern "system" fn SetEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPOLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEnabled(core::mem::transmute_copy(&newval)).into()
+            IGPMGPOLink_Impl::SetEnabled(this, core::mem::transmute_copy(&newval)).into()
         }
         unsafe extern "system" fn Enforced<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPOLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Enforced() {
+            match IGPMGPOLink_Impl::Enforced(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2611,12 +2611,12 @@ impl IGPMGPOLink_Vtbl {
         unsafe extern "system" fn SetEnforced<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPOLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEnforced(core::mem::transmute_copy(&newval)).into()
+            IGPMGPOLink_Impl::SetEnforced(this, core::mem::transmute_copy(&newval)).into()
         }
         unsafe extern "system" fn SOMLinkOrder<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPOLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SOMLinkOrder() {
+            match IGPMGPOLink_Impl::SOMLinkOrder(this) {
                 Ok(ok__) => {
                     core::ptr::write(lval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2627,7 +2627,7 @@ impl IGPMGPOLink_Vtbl {
         unsafe extern "system" fn SOM<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPOLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppigpmsom: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SOM() {
+            match IGPMGPOLink_Impl::SOM(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmsom, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2638,7 +2638,7 @@ impl IGPMGPOLink_Vtbl {
         unsafe extern "system" fn Delete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPOLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Delete().into()
+            IGPMGPOLink_Impl::Delete(this).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2671,7 +2671,7 @@ impl IGPMGPOLinksCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPOLinksCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IGPMGPOLinksCollection_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2682,7 +2682,7 @@ impl IGPMGPOLinksCollection_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPOLinksCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute_copy(&lindex)) {
+            match IGPMGPOLinksCollection_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2693,7 +2693,7 @@ impl IGPMGPOLinksCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMGPOLinksCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppigpmlinks: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IGPMGPOLinksCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmlinks, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2727,7 +2727,7 @@ impl IGPMMapEntry_Vtbl {
         unsafe extern "system" fn Source<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMapEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsource: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Source() {
+            match IGPMMapEntry_Impl::Source(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrsource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2738,7 +2738,7 @@ impl IGPMMapEntry_Vtbl {
         unsafe extern "system" fn Destination<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMapEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdestination: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Destination() {
+            match IGPMMapEntry_Impl::Destination(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrdestination, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2749,7 +2749,7 @@ impl IGPMMapEntry_Vtbl {
         unsafe extern "system" fn DestinationOption<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMapEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgpmdestoption: *mut GPMDestinationOption) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DestinationOption() {
+            match IGPMMapEntry_Impl::DestinationOption(this) {
                 Ok(ok__) => {
                     core::ptr::write(pgpmdestoption, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2760,7 +2760,7 @@ impl IGPMMapEntry_Vtbl {
         unsafe extern "system" fn EntryType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMapEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgpmentrytype: *mut GPMEntryType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EntryType() {
+            match IGPMMapEntry_Impl::EntryType(this) {
                 Ok(ok__) => {
                     core::ptr::write(pgpmentrytype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2794,7 +2794,7 @@ impl IGPMMapEntryCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMapEntryCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IGPMMapEntryCollection_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2805,7 +2805,7 @@ impl IGPMMapEntryCollection_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMapEntryCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute_copy(&lindex)) {
+            match IGPMMapEntryCollection_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2816,7 +2816,7 @@ impl IGPMMapEntryCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMapEntryCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IGPMMapEntryCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2854,17 +2854,17 @@ impl IGPMMigrationTable_Vtbl {
         unsafe extern "system" fn Save<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmigrationtablepath: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Save(core::mem::transmute(&bstrmigrationtablepath)).into()
+            IGPMMigrationTable_Impl::Save(this, core::mem::transmute(&bstrmigrationtablepath)).into()
         }
         unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32, var: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Add(core::mem::transmute_copy(&lflags), core::mem::transmute(&var)).into()
+            IGPMMigrationTable_Impl::Add(this, core::mem::transmute_copy(&lflags), core::mem::transmute(&var)).into()
         }
         unsafe extern "system" fn AddEntry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsource: std::mem::MaybeUninit<windows_core::BSTR>, gpmentrytype: GPMEntryType, pvardestination: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppentry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AddEntry(core::mem::transmute(&bstrsource), core::mem::transmute_copy(&gpmentrytype), core::mem::transmute_copy(&pvardestination)) {
+            match IGPMMigrationTable_Impl::AddEntry(this, core::mem::transmute(&bstrsource), core::mem::transmute_copy(&gpmentrytype), core::mem::transmute_copy(&pvardestination)) {
                 Ok(ok__) => {
                     core::ptr::write(ppentry, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2875,7 +2875,7 @@ impl IGPMMigrationTable_Vtbl {
         unsafe extern "system" fn GetEntry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsource: std::mem::MaybeUninit<windows_core::BSTR>, ppentry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetEntry(core::mem::transmute(&bstrsource)) {
+            match IGPMMigrationTable_Impl::GetEntry(this, core::mem::transmute(&bstrsource)) {
                 Ok(ok__) => {
                     core::ptr::write(ppentry, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2886,12 +2886,12 @@ impl IGPMMigrationTable_Vtbl {
         unsafe extern "system" fn DeleteEntry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsource: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteEntry(core::mem::transmute(&bstrsource)).into()
+            IGPMMigrationTable_Impl::DeleteEntry(this, core::mem::transmute(&bstrsource)).into()
         }
         unsafe extern "system" fn UpdateDestination<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsource: std::mem::MaybeUninit<windows_core::BSTR>, pvardestination: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppentry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UpdateDestination(core::mem::transmute(&bstrsource), core::mem::transmute_copy(&pvardestination)) {
+            match IGPMMigrationTable_Impl::UpdateDestination(this, core::mem::transmute(&bstrsource), core::mem::transmute_copy(&pvardestination)) {
                 Ok(ok__) => {
                     core::ptr::write(ppentry, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2902,7 +2902,7 @@ impl IGPMMigrationTable_Vtbl {
         unsafe extern "system" fn Validate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Validate() {
+            match IGPMMigrationTable_Impl::Validate(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppresult, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2913,7 +2913,7 @@ impl IGPMMigrationTable_Vtbl {
         unsafe extern "system" fn GetEntries<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppentries: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetEntries() {
+            match IGPMMigrationTable_Impl::GetEntries(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppentries, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2953,7 +2953,7 @@ impl IGPMPermission_Vtbl {
         unsafe extern "system" fn Inherited<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMPermission_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Inherited() {
+            match IGPMPermission_Impl::Inherited(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2964,7 +2964,7 @@ impl IGPMPermission_Vtbl {
         unsafe extern "system" fn Inheritable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMPermission_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Inheritable() {
+            match IGPMPermission_Impl::Inheritable(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2975,7 +2975,7 @@ impl IGPMPermission_Vtbl {
         unsafe extern "system" fn Denied<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMPermission_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Denied() {
+            match IGPMPermission_Impl::Denied(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2986,7 +2986,7 @@ impl IGPMPermission_Vtbl {
         unsafe extern "system" fn Permission<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMPermission_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMPermissionType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Permission() {
+            match IGPMPermission_Impl::Permission(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2997,7 +2997,7 @@ impl IGPMPermission_Vtbl {
         unsafe extern "system" fn Trustee<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMPermission_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppigpmtrustee: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Trustee() {
+            match IGPMPermission_Impl::Trustee(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmtrustee, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3064,7 +3064,7 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn Mode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMRSOPMode) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Mode() {
+            match IGPMRSOP_Impl::Mode(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3075,7 +3075,7 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn Namespace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Namespace() {
+            match IGPMRSOP_Impl::Namespace(this) {
                 Ok(ok__) => {
                     core::ptr::write(bstrval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3086,12 +3086,12 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn SetLoggingComputer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLoggingComputer(core::mem::transmute(&bstrval)).into()
+            IGPMRSOP_Impl::SetLoggingComputer(this, core::mem::transmute(&bstrval)).into()
         }
         unsafe extern "system" fn LoggingComputer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LoggingComputer() {
+            match IGPMRSOP_Impl::LoggingComputer(this) {
                 Ok(ok__) => {
                     core::ptr::write(bstrval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3102,12 +3102,12 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn SetLoggingUser<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLoggingUser(core::mem::transmute(&bstrval)).into()
+            IGPMRSOP_Impl::SetLoggingUser(this, core::mem::transmute(&bstrval)).into()
         }
         unsafe extern "system" fn LoggingUser<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LoggingUser() {
+            match IGPMRSOP_Impl::LoggingUser(this) {
                 Ok(ok__) => {
                     core::ptr::write(bstrval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3118,12 +3118,12 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn SetLoggingFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lval: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLoggingFlags(core::mem::transmute_copy(&lval)).into()
+            IGPMRSOP_Impl::SetLoggingFlags(this, core::mem::transmute_copy(&lval)).into()
         }
         unsafe extern "system" fn LoggingFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LoggingFlags() {
+            match IGPMRSOP_Impl::LoggingFlags(this) {
                 Ok(ok__) => {
                     core::ptr::write(lval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3134,12 +3134,12 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn SetPlanningFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lval: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPlanningFlags(core::mem::transmute_copy(&lval)).into()
+            IGPMRSOP_Impl::SetPlanningFlags(this, core::mem::transmute_copy(&lval)).into()
         }
         unsafe extern "system" fn PlanningFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PlanningFlags() {
+            match IGPMRSOP_Impl::PlanningFlags(this) {
                 Ok(ok__) => {
                     core::ptr::write(lval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3150,12 +3150,12 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn SetPlanningDomainController<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPlanningDomainController(core::mem::transmute(&bstrval)).into()
+            IGPMRSOP_Impl::SetPlanningDomainController(this, core::mem::transmute(&bstrval)).into()
         }
         unsafe extern "system" fn PlanningDomainController<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PlanningDomainController() {
+            match IGPMRSOP_Impl::PlanningDomainController(this) {
                 Ok(ok__) => {
                     core::ptr::write(bstrval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3166,12 +3166,12 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn SetPlanningSiteName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPlanningSiteName(core::mem::transmute(&bstrval)).into()
+            IGPMRSOP_Impl::SetPlanningSiteName(this, core::mem::transmute(&bstrval)).into()
         }
         unsafe extern "system" fn PlanningSiteName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PlanningSiteName() {
+            match IGPMRSOP_Impl::PlanningSiteName(this) {
                 Ok(ok__) => {
                     core::ptr::write(bstrval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3182,12 +3182,12 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn SetPlanningUser<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPlanningUser(core::mem::transmute(&bstrval)).into()
+            IGPMRSOP_Impl::SetPlanningUser(this, core::mem::transmute(&bstrval)).into()
         }
         unsafe extern "system" fn PlanningUser<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PlanningUser() {
+            match IGPMRSOP_Impl::PlanningUser(this) {
                 Ok(ok__) => {
                     core::ptr::write(bstrval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3198,12 +3198,12 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn SetPlanningUserSOM<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPlanningUserSOM(core::mem::transmute(&bstrval)).into()
+            IGPMRSOP_Impl::SetPlanningUserSOM(this, core::mem::transmute(&bstrval)).into()
         }
         unsafe extern "system" fn PlanningUserSOM<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PlanningUserSOM() {
+            match IGPMRSOP_Impl::PlanningUserSOM(this) {
                 Ok(ok__) => {
                     core::ptr::write(bstrval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3214,12 +3214,12 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn SetPlanningUserWMIFilters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPlanningUserWMIFilters(core::mem::transmute(&varval)).into()
+            IGPMRSOP_Impl::SetPlanningUserWMIFilters(this, core::mem::transmute(&varval)).into()
         }
         unsafe extern "system" fn PlanningUserWMIFilters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PlanningUserWMIFilters() {
+            match IGPMRSOP_Impl::PlanningUserWMIFilters(this) {
                 Ok(ok__) => {
                     core::ptr::write(varval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3230,12 +3230,12 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn SetPlanningUserSecurityGroups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPlanningUserSecurityGroups(core::mem::transmute(&varval)).into()
+            IGPMRSOP_Impl::SetPlanningUserSecurityGroups(this, core::mem::transmute(&varval)).into()
         }
         unsafe extern "system" fn PlanningUserSecurityGroups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PlanningUserSecurityGroups() {
+            match IGPMRSOP_Impl::PlanningUserSecurityGroups(this) {
                 Ok(ok__) => {
                     core::ptr::write(varval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3246,12 +3246,12 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn SetPlanningComputer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPlanningComputer(core::mem::transmute(&bstrval)).into()
+            IGPMRSOP_Impl::SetPlanningComputer(this, core::mem::transmute(&bstrval)).into()
         }
         unsafe extern "system" fn PlanningComputer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PlanningComputer() {
+            match IGPMRSOP_Impl::PlanningComputer(this) {
                 Ok(ok__) => {
                     core::ptr::write(bstrval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3262,12 +3262,12 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn SetPlanningComputerSOM<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPlanningComputerSOM(core::mem::transmute(&bstrval)).into()
+            IGPMRSOP_Impl::SetPlanningComputerSOM(this, core::mem::transmute(&bstrval)).into()
         }
         unsafe extern "system" fn PlanningComputerSOM<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PlanningComputerSOM() {
+            match IGPMRSOP_Impl::PlanningComputerSOM(this) {
                 Ok(ok__) => {
                     core::ptr::write(bstrval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3278,12 +3278,12 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn SetPlanningComputerWMIFilters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPlanningComputerWMIFilters(core::mem::transmute(&varval)).into()
+            IGPMRSOP_Impl::SetPlanningComputerWMIFilters(this, core::mem::transmute(&varval)).into()
         }
         unsafe extern "system" fn PlanningComputerWMIFilters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PlanningComputerWMIFilters() {
+            match IGPMRSOP_Impl::PlanningComputerWMIFilters(this) {
                 Ok(ok__) => {
                     core::ptr::write(varval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3294,12 +3294,12 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn SetPlanningComputerSecurityGroups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPlanningComputerSecurityGroups(core::mem::transmute(&varval)).into()
+            IGPMRSOP_Impl::SetPlanningComputerSecurityGroups(this, core::mem::transmute(&varval)).into()
         }
         unsafe extern "system" fn PlanningComputerSecurityGroups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PlanningComputerSecurityGroups() {
+            match IGPMRSOP_Impl::PlanningComputerSecurityGroups(this) {
                 Ok(ok__) => {
                     core::ptr::write(varval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3310,7 +3310,7 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn LoggingEnumerateUsers<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LoggingEnumerateUsers() {
+            match IGPMRSOP_Impl::LoggingEnumerateUsers(this) {
                 Ok(ok__) => {
                     core::ptr::write(varval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3321,17 +3321,17 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn CreateQueryResults<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateQueryResults().into()
+            IGPMRSOP_Impl::CreateQueryResults(this).into()
         }
         unsafe extern "system" fn ReleaseQueryResults<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ReleaseQueryResults().into()
+            IGPMRSOP_Impl::ReleaseQueryResults(this).into()
         }
         unsafe extern "system" fn GenerateReport<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GenerateReport(core::mem::transmute_copy(&gpmreporttype), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
+            match IGPMRSOP_Impl::GenerateReport(this, core::mem::transmute_copy(&gpmreporttype), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmresult, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3342,7 +3342,7 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn GenerateReportToFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: std::mem::MaybeUninit<windows_core::BSTR>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GenerateReportToFile(core::mem::transmute_copy(&gpmreporttype), core::mem::transmute(&bstrtargetfilepath)) {
+            match IGPMRSOP_Impl::GenerateReportToFile(this, core::mem::transmute_copy(&gpmreporttype), core::mem::transmute(&bstrtargetfilepath)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmresult, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3407,7 +3407,7 @@ impl IGPMResult_Vtbl {
         unsafe extern "system" fn Status<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppigpmstatusmsgcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Status() {
+            match IGPMResult_Impl::Status(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmstatusmsgcollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3418,7 +3418,7 @@ impl IGPMResult_Vtbl {
         unsafe extern "system" fn Result<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarresult: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Result() {
+            match IGPMResult_Impl::Result(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarresult, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3429,7 +3429,7 @@ impl IGPMResult_Vtbl {
         unsafe extern "system" fn OverallStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OverallStatus().into()
+            IGPMResult_Impl::OverallStatus(this).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3463,7 +3463,7 @@ impl IGPMSOM_Vtbl {
         unsafe extern "system" fn GPOInheritanceBlocked<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GPOInheritanceBlocked() {
+            match IGPMSOM_Impl::GPOInheritanceBlocked(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3474,12 +3474,12 @@ impl IGPMSOM_Vtbl {
         unsafe extern "system" fn SetGPOInheritanceBlocked<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetGPOInheritanceBlocked(core::mem::transmute_copy(&newval)).into()
+            IGPMSOM_Impl::SetGPOInheritanceBlocked(this, core::mem::transmute_copy(&newval)).into()
         }
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IGPMSOM_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3490,7 +3490,7 @@ impl IGPMSOM_Vtbl {
         unsafe extern "system" fn Path<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Path() {
+            match IGPMSOM_Impl::Path(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3501,7 +3501,7 @@ impl IGPMSOM_Vtbl {
         unsafe extern "system" fn CreateGPOLink<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, llinkpos: i32, pgpo: *mut core::ffi::c_void, ppnewgpolink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateGPOLink(core::mem::transmute_copy(&llinkpos), windows_core::from_raw_borrowed(&pgpo)) {
+            match IGPMSOM_Impl::CreateGPOLink(this, core::mem::transmute_copy(&llinkpos), windows_core::from_raw_borrowed(&pgpo)) {
                 Ok(ok__) => {
                     core::ptr::write(ppnewgpolink, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3512,7 +3512,7 @@ impl IGPMSOM_Vtbl {
         unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMSOMType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Type() {
+            match IGPMSOM_Impl::Type(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3523,7 +3523,7 @@ impl IGPMSOM_Vtbl {
         unsafe extern "system" fn GetGPOLinks<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppgpolinks: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetGPOLinks() {
+            match IGPMSOM_Impl::GetGPOLinks(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppgpolinks, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3534,7 +3534,7 @@ impl IGPMSOM_Vtbl {
         unsafe extern "system" fn GetInheritedGPOLinks<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppgpolinks: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetInheritedGPOLinks() {
+            match IGPMSOM_Impl::GetInheritedGPOLinks(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppgpolinks, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3545,7 +3545,7 @@ impl IGPMSOM_Vtbl {
         unsafe extern "system" fn GetSecurityInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsecurityinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSecurityInfo() {
+            match IGPMSOM_Impl::GetSecurityInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppsecurityinfo, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3556,7 +3556,7 @@ impl IGPMSOM_Vtbl {
         unsafe extern "system" fn SetSecurityInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSOM_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psecurityinfo: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSecurityInfo(windows_core::from_raw_borrowed(&psecurityinfo)).into()
+            IGPMSOM_Impl::SetSecurityInfo(this, windows_core::from_raw_borrowed(&psecurityinfo)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3590,7 +3590,7 @@ impl IGPMSOMCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSOMCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IGPMSOMCollection_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3601,7 +3601,7 @@ impl IGPMSOMCollection_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSOMCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute_copy(&lindex)) {
+            match IGPMSOMCollection_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3612,7 +3612,7 @@ impl IGPMSOMCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSOMCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppigpmsom: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IGPMSOMCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmsom, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3643,7 +3643,7 @@ impl IGPMSearchCriteria_Vtbl {
         unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSearchCriteria_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, searchproperty: GPMSearchProperty, searchoperation: GPMSearchOperation, varvalue: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Add(core::mem::transmute_copy(&searchproperty), core::mem::transmute_copy(&searchoperation), core::mem::transmute(&varvalue)).into()
+            IGPMSearchCriteria_Impl::Add(this, core::mem::transmute_copy(&searchproperty), core::mem::transmute_copy(&searchoperation), core::mem::transmute(&varvalue)).into()
         }
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Add: Add::<Identity, Impl, OFFSET> }
     }
@@ -3668,7 +3668,7 @@ impl IGPMSecurityInfo_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSecurityInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IGPMSecurityInfo_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3679,7 +3679,7 @@ impl IGPMSecurityInfo_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSecurityInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute_copy(&lindex)) {
+            match IGPMSecurityInfo_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3690,7 +3690,7 @@ impl IGPMSecurityInfo_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSecurityInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IGPMSecurityInfo_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppenum, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3701,17 +3701,17 @@ impl IGPMSecurityInfo_Vtbl {
         unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSecurityInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pperm: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Add(windows_core::from_raw_borrowed(&pperm)).into()
+            IGPMSecurityInfo_Impl::Add(this, windows_core::from_raw_borrowed(&pperm)).into()
         }
         unsafe extern "system" fn Remove<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSecurityInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pperm: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Remove(windows_core::from_raw_borrowed(&pperm)).into()
+            IGPMSecurityInfo_Impl::Remove(this, windows_core::from_raw_borrowed(&pperm)).into()
         }
         unsafe extern "system" fn RemoveTrustee<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSecurityInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrtrustee: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveTrustee(core::mem::transmute(&bstrtrustee)).into()
+            IGPMSecurityInfo_Impl::RemoveTrustee(this, core::mem::transmute(&bstrtrustee)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3743,7 +3743,7 @@ impl IGPMSitesContainer_Vtbl {
         unsafe extern "system" fn DomainController<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSitesContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DomainController() {
+            match IGPMSitesContainer_Impl::DomainController(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3754,7 +3754,7 @@ impl IGPMSitesContainer_Vtbl {
         unsafe extern "system" fn Domain<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSitesContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Domain() {
+            match IGPMSitesContainer_Impl::Domain(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3765,7 +3765,7 @@ impl IGPMSitesContainer_Vtbl {
         unsafe extern "system" fn Forest<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSitesContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Forest() {
+            match IGPMSitesContainer_Impl::Forest(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3776,7 +3776,7 @@ impl IGPMSitesContainer_Vtbl {
         unsafe extern "system" fn GetSite<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSitesContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsitename: std::mem::MaybeUninit<windows_core::BSTR>, ppsom: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSite(core::mem::transmute(&bstrsitename)) {
+            match IGPMSitesContainer_Impl::GetSite(this, core::mem::transmute(&bstrsitename)) {
                 Ok(ok__) => {
                     core::ptr::write(ppsom, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3787,7 +3787,7 @@ impl IGPMSitesContainer_Vtbl {
         unsafe extern "system" fn SearchSites<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMSitesContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pigpmsearchcriteria: *mut core::ffi::c_void, ppigpmsomcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SearchSites(windows_core::from_raw_borrowed(&pigpmsearchcriteria)) {
+            match IGPMSitesContainer_Impl::SearchSites(this, windows_core::from_raw_borrowed(&pigpmsearchcriteria)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmsomcollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3840,7 +3840,7 @@ impl IGPMStarterGPO_Vtbl {
         unsafe extern "system" fn DisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DisplayName() {
+            match IGPMStarterGPO_Impl::DisplayName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3851,12 +3851,12 @@ impl IGPMStarterGPO_Vtbl {
         unsafe extern "system" fn SetDisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDisplayName(core::mem::transmute(&newval)).into()
+            IGPMStarterGPO_Impl::SetDisplayName(this, core::mem::transmute(&newval)).into()
         }
         unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Description() {
+            match IGPMStarterGPO_Impl::Description(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3867,12 +3867,12 @@ impl IGPMStarterGPO_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDescription(core::mem::transmute(&newval)).into()
+            IGPMStarterGPO_Impl::SetDescription(this, core::mem::transmute(&newval)).into()
         }
         unsafe extern "system" fn Author<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Author() {
+            match IGPMStarterGPO_Impl::Author(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3883,7 +3883,7 @@ impl IGPMStarterGPO_Vtbl {
         unsafe extern "system" fn Product<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Product() {
+            match IGPMStarterGPO_Impl::Product(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3894,7 +3894,7 @@ impl IGPMStarterGPO_Vtbl {
         unsafe extern "system" fn CreationTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreationTime() {
+            match IGPMStarterGPO_Impl::CreationTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3905,7 +3905,7 @@ impl IGPMStarterGPO_Vtbl {
         unsafe extern "system" fn ID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ID() {
+            match IGPMStarterGPO_Impl::ID(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3916,7 +3916,7 @@ impl IGPMStarterGPO_Vtbl {
         unsafe extern "system" fn ModifiedTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ModifiedTime() {
+            match IGPMStarterGPO_Impl::ModifiedTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3927,7 +3927,7 @@ impl IGPMStarterGPO_Vtbl {
         unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut GPMStarterGPOType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Type() {
+            match IGPMStarterGPO_Impl::Type(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3938,7 +3938,7 @@ impl IGPMStarterGPO_Vtbl {
         unsafe extern "system" fn ComputerVersion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut u16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ComputerVersion() {
+            match IGPMStarterGPO_Impl::ComputerVersion(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3949,7 +3949,7 @@ impl IGPMStarterGPO_Vtbl {
         unsafe extern "system" fn UserVersion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut u16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UserVersion() {
+            match IGPMStarterGPO_Impl::UserVersion(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3960,7 +3960,7 @@ impl IGPMStarterGPO_Vtbl {
         unsafe extern "system" fn StarterGPOVersion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.StarterGPOVersion() {
+            match IGPMStarterGPO_Impl::StarterGPOVersion(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3971,7 +3971,7 @@ impl IGPMStarterGPO_Vtbl {
         unsafe extern "system" fn Delete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Delete().into()
+            IGPMStarterGPO_Impl::Delete(this).into()
         }
         unsafe extern "system" fn Save<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
@@ -3989,7 +3989,7 @@ impl IGPMStarterGPO_Vtbl {
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Save(core::mem::transmute(&bstrsavefile), core::mem::transmute_copy(&boverwrite), core::mem::transmute_copy(&bsaveassystem), core::mem::transmute_copy(&bstrlanguage), core::mem::transmute_copy(&bstrauthor), core::mem::transmute_copy(&bstrproduct), core::mem::transmute_copy(&bstruniqueid), core::mem::transmute_copy(&bstrversion), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
+            match IGPMStarterGPO_Impl::Save(this, core::mem::transmute(&bstrsavefile), core::mem::transmute_copy(&boverwrite), core::mem::transmute_copy(&bsaveassystem), core::mem::transmute_copy(&bstrlanguage), core::mem::transmute_copy(&bstrauthor), core::mem::transmute_copy(&bstrproduct), core::mem::transmute_copy(&bstruniqueid), core::mem::transmute_copy(&bstrversion), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmresult, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4000,7 +4000,7 @@ impl IGPMStarterGPO_Vtbl {
         unsafe extern "system" fn Backup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrbackupdir: std::mem::MaybeUninit<windows_core::BSTR>, bstrcomment: std::mem::MaybeUninit<windows_core::BSTR>, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Backup(core::mem::transmute(&bstrbackupdir), core::mem::transmute(&bstrcomment), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
+            match IGPMStarterGPO_Impl::Backup(this, core::mem::transmute(&bstrbackupdir), core::mem::transmute(&bstrcomment), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmresult, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4011,7 +4011,7 @@ impl IGPMStarterGPO_Vtbl {
         unsafe extern "system" fn CopyTo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarnewdisplayname: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CopyTo(core::mem::transmute_copy(&pvarnewdisplayname), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
+            match IGPMStarterGPO_Impl::CopyTo(this, core::mem::transmute_copy(&pvarnewdisplayname), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmresult, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4022,7 +4022,7 @@ impl IGPMStarterGPO_Vtbl {
         unsafe extern "system" fn GenerateReport<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GenerateReport(core::mem::transmute_copy(&gpmreporttype), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
+            match IGPMStarterGPO_Impl::GenerateReport(this, core::mem::transmute_copy(&gpmreporttype), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmresult, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4033,7 +4033,7 @@ impl IGPMStarterGPO_Vtbl {
         unsafe extern "system" fn GenerateReportToFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: std::mem::MaybeUninit<windows_core::BSTR>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GenerateReportToFile(core::mem::transmute_copy(&gpmreporttype), core::mem::transmute(&bstrtargetfilepath)) {
+            match IGPMStarterGPO_Impl::GenerateReportToFile(this, core::mem::transmute_copy(&gpmreporttype), core::mem::transmute(&bstrtargetfilepath)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmresult, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4044,7 +4044,7 @@ impl IGPMStarterGPO_Vtbl {
         unsafe extern "system" fn GetSecurityInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsecurityinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSecurityInfo() {
+            match IGPMStarterGPO_Impl::GetSecurityInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppsecurityinfo, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4055,7 +4055,7 @@ impl IGPMStarterGPO_Vtbl {
         unsafe extern "system" fn SetSecurityInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psecurityinfo: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSecurityInfo(windows_core::from_raw_borrowed(&psecurityinfo)).into()
+            IGPMStarterGPO_Impl::SetSecurityInfo(this, windows_core::from_raw_borrowed(&psecurityinfo)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -4108,7 +4108,7 @@ impl IGPMStarterGPOBackup_Vtbl {
         unsafe extern "system" fn BackupDir<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrbackupdir: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BackupDir() {
+            match IGPMStarterGPOBackup_Impl::BackupDir(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrbackupdir, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4119,7 +4119,7 @@ impl IGPMStarterGPOBackup_Vtbl {
         unsafe extern "system" fn Comment<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcomment: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Comment() {
+            match IGPMStarterGPOBackup_Impl::Comment(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrcomment, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4130,7 +4130,7 @@ impl IGPMStarterGPOBackup_Vtbl {
         unsafe extern "system" fn DisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdisplayname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DisplayName() {
+            match IGPMStarterGPOBackup_Impl::DisplayName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrdisplayname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4141,7 +4141,7 @@ impl IGPMStarterGPOBackup_Vtbl {
         unsafe extern "system" fn Domain<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtemplatedomain: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Domain() {
+            match IGPMStarterGPOBackup_Impl::Domain(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrtemplatedomain, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4152,7 +4152,7 @@ impl IGPMStarterGPOBackup_Vtbl {
         unsafe extern "system" fn StarterGPOID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtemplateid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.StarterGPOID() {
+            match IGPMStarterGPOBackup_Impl::StarterGPOID(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrtemplateid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4163,7 +4163,7 @@ impl IGPMStarterGPOBackup_Vtbl {
         unsafe extern "system" fn ID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ID() {
+            match IGPMStarterGPOBackup_Impl::ID(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4174,7 +4174,7 @@ impl IGPMStarterGPOBackup_Vtbl {
         unsafe extern "system" fn Timestamp<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptimestamp: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Timestamp() {
+            match IGPMStarterGPOBackup_Impl::Timestamp(this) {
                 Ok(ok__) => {
                     core::ptr::write(ptimestamp, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4185,7 +4185,7 @@ impl IGPMStarterGPOBackup_Vtbl {
         unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptype: *mut GPMStarterGPOType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Type() {
+            match IGPMStarterGPOBackup_Impl::Type(this) {
                 Ok(ok__) => {
                     core::ptr::write(ptype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4196,12 +4196,12 @@ impl IGPMStarterGPOBackup_Vtbl {
         unsafe extern "system" fn Delete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Delete().into()
+            IGPMStarterGPOBackup_Impl::Delete(this).into()
         }
         unsafe extern "system" fn GenerateReport<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvargpmcancel: *mut std::mem::MaybeUninit<windows_core::VARIANT>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GenerateReport(core::mem::transmute_copy(&gpmreporttype), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
+            match IGPMStarterGPOBackup_Impl::GenerateReport(this, core::mem::transmute_copy(&gpmreporttype), core::mem::transmute_copy(&pvargpmprogress), core::mem::transmute_copy(&pvargpmcancel)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmresult, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4212,7 +4212,7 @@ impl IGPMStarterGPOBackup_Vtbl {
         unsafe extern "system" fn GenerateReportToFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: std::mem::MaybeUninit<windows_core::BSTR>, ppigpmresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GenerateReportToFile(core::mem::transmute_copy(&gpmreporttype), core::mem::transmute(&bstrtargetfilepath)) {
+            match IGPMStarterGPOBackup_Impl::GenerateReportToFile(this, core::mem::transmute_copy(&gpmreporttype), core::mem::transmute(&bstrtargetfilepath)) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmresult, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4253,7 +4253,7 @@ impl IGPMStarterGPOBackupCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackupCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IGPMStarterGPOBackupCollection_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4264,7 +4264,7 @@ impl IGPMStarterGPOBackupCollection_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackupCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute_copy(&lindex)) {
+            match IGPMStarterGPOBackupCollection_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4275,7 +4275,7 @@ impl IGPMStarterGPOBackupCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOBackupCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppigpmtmplbackup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IGPMStarterGPOBackupCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmtmplbackup, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4308,7 +4308,7 @@ impl IGPMStarterGPOCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IGPMStarterGPOCollection_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4319,7 +4319,7 @@ impl IGPMStarterGPOCollection_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute_copy(&lindex)) {
+            match IGPMStarterGPOCollection_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4330,7 +4330,7 @@ impl IGPMStarterGPOCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStarterGPOCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppigpmtemplates: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IGPMStarterGPOCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppigpmtemplates, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4366,7 +4366,7 @@ impl IGPMStatusMessage_Vtbl {
         unsafe extern "system" fn ObjectPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStatusMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ObjectPath() {
+            match IGPMStatusMessage_Impl::ObjectPath(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4377,12 +4377,12 @@ impl IGPMStatusMessage_Vtbl {
         unsafe extern "system" fn ErrorCode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStatusMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ErrorCode().into()
+            IGPMStatusMessage_Impl::ErrorCode(this).into()
         }
         unsafe extern "system" fn ExtensionName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStatusMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ExtensionName() {
+            match IGPMStatusMessage_Impl::ExtensionName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4393,7 +4393,7 @@ impl IGPMStatusMessage_Vtbl {
         unsafe extern "system" fn SettingsName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStatusMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SettingsName() {
+            match IGPMStatusMessage_Impl::SettingsName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4404,12 +4404,12 @@ impl IGPMStatusMessage_Vtbl {
         unsafe extern "system" fn OperationCode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStatusMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OperationCode().into()
+            IGPMStatusMessage_Impl::OperationCode(this).into()
         }
         unsafe extern "system" fn Message<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStatusMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Message() {
+            match IGPMStatusMessage_Impl::Message(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4445,7 +4445,7 @@ impl IGPMStatusMsgCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStatusMsgCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IGPMStatusMsgCollection_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4456,7 +4456,7 @@ impl IGPMStatusMsgCollection_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStatusMsgCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute_copy(&lindex)) {
+            match IGPMStatusMsgCollection_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4467,7 +4467,7 @@ impl IGPMStatusMsgCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMStatusMsgCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IGPMStatusMsgCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4502,7 +4502,7 @@ impl IGPMTrustee_Vtbl {
         unsafe extern "system" fn TrusteeSid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMTrustee_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TrusteeSid() {
+            match IGPMTrustee_Impl::TrusteeSid(this) {
                 Ok(ok__) => {
                     core::ptr::write(bstrval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4513,7 +4513,7 @@ impl IGPMTrustee_Vtbl {
         unsafe extern "system" fn TrusteeName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMTrustee_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TrusteeName() {
+            match IGPMTrustee_Impl::TrusteeName(this) {
                 Ok(ok__) => {
                     core::ptr::write(bstrval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4524,7 +4524,7 @@ impl IGPMTrustee_Vtbl {
         unsafe extern "system" fn TrusteeDomain<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMTrustee_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TrusteeDomain() {
+            match IGPMTrustee_Impl::TrusteeDomain(this) {
                 Ok(ok__) => {
                     core::ptr::write(bstrval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4535,7 +4535,7 @@ impl IGPMTrustee_Vtbl {
         unsafe extern "system" fn TrusteeDSPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMTrustee_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TrusteeDSPath() {
+            match IGPMTrustee_Impl::TrusteeDSPath(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4546,7 +4546,7 @@ impl IGPMTrustee_Vtbl {
         unsafe extern "system" fn TrusteeType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMTrustee_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TrusteeType() {
+            match IGPMTrustee_Impl::TrusteeType(this) {
                 Ok(ok__) => {
                     core::ptr::write(lval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4586,7 +4586,7 @@ impl IGPMWMIFilter_Vtbl {
         unsafe extern "system" fn Path<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Path() {
+            match IGPMWMIFilter_Impl::Path(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4597,12 +4597,12 @@ impl IGPMWMIFilter_Vtbl {
         unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetName(core::mem::transmute(&newval)).into()
+            IGPMWMIFilter_Impl::SetName(this, core::mem::transmute(&newval)).into()
         }
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IGPMWMIFilter_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4613,12 +4613,12 @@ impl IGPMWMIFilter_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDescription(core::mem::transmute(&newval)).into()
+            IGPMWMIFilter_Impl::SetDescription(this, core::mem::transmute(&newval)).into()
         }
         unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Description() {
+            match IGPMWMIFilter_Impl::Description(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4629,7 +4629,7 @@ impl IGPMWMIFilter_Vtbl {
         unsafe extern "system" fn GetQueryList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqrylist: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetQueryList() {
+            match IGPMWMIFilter_Impl::GetQueryList(this) {
                 Ok(ok__) => {
                     core::ptr::write(pqrylist, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4640,7 +4640,7 @@ impl IGPMWMIFilter_Vtbl {
         unsafe extern "system" fn GetSecurityInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsecurityinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSecurityInfo() {
+            match IGPMWMIFilter_Impl::GetSecurityInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppsecurityinfo, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4651,7 +4651,7 @@ impl IGPMWMIFilter_Vtbl {
         unsafe extern "system" fn SetSecurityInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psecurityinfo: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSecurityInfo(windows_core::from_raw_borrowed(&psecurityinfo)).into()
+            IGPMWMIFilter_Impl::SetSecurityInfo(this, windows_core::from_raw_borrowed(&psecurityinfo)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -4683,7 +4683,7 @@ impl IGPMWMIFilterCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMWMIFilterCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IGPMWMIFilterCollection_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4694,7 +4694,7 @@ impl IGPMWMIFilterCollection_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMWMIFilterCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute_copy(&lindex)) {
+            match IGPMWMIFilterCollection_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4705,7 +4705,7 @@ impl IGPMWMIFilterCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGPMWMIFilterCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IGPMWMIFilterCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4753,92 +4753,92 @@ impl IGroupPolicyObject_Vtbl {
         unsafe extern "system" fn New<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszdomainname: windows_core::PCWSTR, pszdisplayname: windows_core::PCWSTR, dwflags: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.New(core::mem::transmute(&pszdomainname), core::mem::transmute(&pszdisplayname), core::mem::transmute_copy(&dwflags)).into()
+            IGroupPolicyObject_Impl::New(this, core::mem::transmute(&pszdomainname), core::mem::transmute(&pszdisplayname), core::mem::transmute_copy(&dwflags)).into()
         }
         unsafe extern "system" fn OpenDSGPO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpath: windows_core::PCWSTR, dwflags: GPO_OPEN_FLAGS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OpenDSGPO(core::mem::transmute(&pszpath), core::mem::transmute_copy(&dwflags)).into()
+            IGroupPolicyObject_Impl::OpenDSGPO(this, core::mem::transmute(&pszpath), core::mem::transmute_copy(&dwflags)).into()
         }
         unsafe extern "system" fn OpenLocalMachineGPO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: GPO_OPEN_FLAGS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OpenLocalMachineGPO(core::mem::transmute_copy(&dwflags)).into()
+            IGroupPolicyObject_Impl::OpenLocalMachineGPO(this, core::mem::transmute_copy(&dwflags)).into()
         }
         unsafe extern "system" fn OpenRemoteMachineGPO<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszcomputername: windows_core::PCWSTR, dwflags: GPO_OPEN_FLAGS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OpenRemoteMachineGPO(core::mem::transmute(&pszcomputername), core::mem::transmute_copy(&dwflags)).into()
+            IGroupPolicyObject_Impl::OpenRemoteMachineGPO(this, core::mem::transmute(&pszcomputername), core::mem::transmute_copy(&dwflags)).into()
         }
         unsafe extern "system" fn Save<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bmachine: super::super::Foundation::BOOL, badd: super::super::Foundation::BOOL, pguidextension: *mut windows_core::GUID, pguid: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Save(core::mem::transmute_copy(&bmachine), core::mem::transmute_copy(&badd), core::mem::transmute_copy(&pguidextension), core::mem::transmute_copy(&pguid)).into()
+            IGroupPolicyObject_Impl::Save(this, core::mem::transmute_copy(&bmachine), core::mem::transmute_copy(&badd), core::mem::transmute_copy(&pguidextension), core::mem::transmute_copy(&pguid)).into()
         }
         unsafe extern "system" fn Delete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Delete().into()
+            IGroupPolicyObject_Impl::Delete(this).into()
         }
         unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PWSTR, cchmaxlength: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetName(core::mem::transmute_copy(&pszname), core::mem::transmute_copy(&cchmaxlength)).into()
+            IGroupPolicyObject_Impl::GetName(this, core::mem::transmute_copy(&pszname), core::mem::transmute_copy(&cchmaxlength)).into()
         }
         unsafe extern "system" fn GetDisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PWSTR, cchmaxlength: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDisplayName(core::mem::transmute_copy(&pszname), core::mem::transmute_copy(&cchmaxlength)).into()
+            IGroupPolicyObject_Impl::GetDisplayName(this, core::mem::transmute_copy(&pszname), core::mem::transmute_copy(&cchmaxlength)).into()
         }
         unsafe extern "system" fn SetDisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDisplayName(core::mem::transmute(&pszname)).into()
+            IGroupPolicyObject_Impl::SetDisplayName(this, core::mem::transmute(&pszname)).into()
         }
         unsafe extern "system" fn GetPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpath: windows_core::PWSTR, cchmaxlength: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPath(core::mem::transmute_copy(&pszpath), core::mem::transmute_copy(&cchmaxlength)).into()
+            IGroupPolicyObject_Impl::GetPath(this, core::mem::transmute_copy(&pszpath), core::mem::transmute_copy(&cchmaxlength)).into()
         }
         unsafe extern "system" fn GetDSPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsection: u32, pszpath: windows_core::PWSTR, cchmaxpath: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDSPath(core::mem::transmute_copy(&dwsection), core::mem::transmute_copy(&pszpath), core::mem::transmute_copy(&cchmaxpath)).into()
+            IGroupPolicyObject_Impl::GetDSPath(this, core::mem::transmute_copy(&dwsection), core::mem::transmute_copy(&pszpath), core::mem::transmute_copy(&cchmaxpath)).into()
         }
         unsafe extern "system" fn GetFileSysPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsection: u32, pszpath: windows_core::PWSTR, cchmaxpath: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetFileSysPath(core::mem::transmute_copy(&dwsection), core::mem::transmute_copy(&pszpath), core::mem::transmute_copy(&cchmaxpath)).into()
+            IGroupPolicyObject_Impl::GetFileSysPath(this, core::mem::transmute_copy(&dwsection), core::mem::transmute_copy(&pszpath), core::mem::transmute_copy(&cchmaxpath)).into()
         }
         unsafe extern "system" fn GetRegistryKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsection: GPO_SECTION, hkey: *mut super::Registry::HKEY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetRegistryKey(core::mem::transmute_copy(&dwsection), core::mem::transmute_copy(&hkey)).into()
+            IGroupPolicyObject_Impl::GetRegistryKey(this, core::mem::transmute_copy(&dwsection), core::mem::transmute_copy(&hkey)).into()
         }
         unsafe extern "system" fn GetOptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoptions: *mut GPO_OPTIONS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetOptions(core::mem::transmute_copy(&dwoptions)).into()
+            IGroupPolicyObject_Impl::GetOptions(this, core::mem::transmute_copy(&dwoptions)).into()
         }
         unsafe extern "system" fn SetOptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoptions: GPO_OPTIONS, dwmask: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetOptions(core::mem::transmute_copy(&dwoptions), core::mem::transmute_copy(&dwmask)).into()
+            IGroupPolicyObject_Impl::SetOptions(this, core::mem::transmute_copy(&dwoptions), core::mem::transmute_copy(&dwmask)).into()
         }
         unsafe extern "system" fn GetType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpotype: *mut GROUP_POLICY_OBJECT_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetType(core::mem::transmute_copy(&gpotype)).into()
+            IGroupPolicyObject_Impl::GetType(this, core::mem::transmute_copy(&gpotype)).into()
         }
         unsafe extern "system" fn GetMachineName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PWSTR, cchmaxlength: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetMachineName(core::mem::transmute_copy(&pszname), core::mem::transmute_copy(&cchmaxlength)).into()
+            IGroupPolicyObject_Impl::GetMachineName(this, core::mem::transmute_copy(&pszname), core::mem::transmute_copy(&cchmaxlength)).into()
         }
         unsafe extern "system" fn GetPropertySheetPages<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hpages: *mut *mut super::super::UI::Controls::HPROPSHEETPAGE, upagecount: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPropertySheetPages(core::mem::transmute_copy(&hpages), core::mem::transmute_copy(&upagecount)).into()
+            IGroupPolicyObject_Impl::GetPropertySheetPages(this, core::mem::transmute_copy(&hpages), core::mem::transmute_copy(&upagecount)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -4877,17 +4877,17 @@ impl IRSOPInformation_Vtbl {
         unsafe extern "system" fn GetNamespace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRSOPInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsection: u32, pszname: windows_core::PWSTR, cchmaxlength: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetNamespace(core::mem::transmute_copy(&dwsection), core::mem::transmute_copy(&pszname), core::mem::transmute_copy(&cchmaxlength)).into()
+            IRSOPInformation_Impl::GetNamespace(this, core::mem::transmute_copy(&dwsection), core::mem::transmute_copy(&pszname), core::mem::transmute_copy(&cchmaxlength)).into()
         }
         unsafe extern "system" fn GetFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRSOPInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwflags: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetFlags(core::mem::transmute_copy(&pdwflags)).into()
+            IRSOPInformation_Impl::GetFlags(this, core::mem::transmute_copy(&pdwflags)).into()
         }
         unsafe extern "system" fn GetEventLogEntryText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRSOPInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszeventsource: windows_core::PCWSTR, pszeventlogname: windows_core::PCWSTR, pszeventtime: windows_core::PCWSTR, dweventid: u32, ppsztext: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetEventLogEntryText(core::mem::transmute(&pszeventsource), core::mem::transmute(&pszeventlogname), core::mem::transmute(&pszeventtime), core::mem::transmute_copy(&dweventid)) {
+            match IRSOPInformation_Impl::GetEventLogEntryText(this, core::mem::transmute(&pszeventsource), core::mem::transmute(&pszeventlogname), core::mem::transmute(&pszeventtime), core::mem::transmute_copy(&dweventid)) {
                 Ok(ok__) => {
                     core::ptr::write(ppsztext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

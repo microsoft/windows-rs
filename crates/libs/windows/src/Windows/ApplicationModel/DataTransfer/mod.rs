@@ -2582,8 +2582,8 @@ impl<F: FnMut(Option<&DataProviderRequest>) -> windows_core::Result<()> + Send +
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, request: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&request)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&request)).into()
     }
 }
 impl windows_core::RuntimeType for DataProviderHandler {
@@ -2642,8 +2642,8 @@ impl<F: FnMut(Option<&ShareProviderOperation>) -> windows_core::Result<()> + Sen
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, operation: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&operation)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&operation)).into()
     }
 }
 impl windows_core::RuntimeType for ShareProviderHandler {
