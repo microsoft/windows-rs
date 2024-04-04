@@ -460,6 +460,12 @@ pub struct IPointerPointStatics_Vtbl {
     GetIntermediatePointsTransformed: usize,
 }
 windows_core::imp::define_interface!(IPointerPointTransform, IPointerPointTransform_Vtbl, 0x4d5fe14f_b87c_4028_bc9c_59e9947fb056);
+impl std::ops::Deref for IPointerPointTransform {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPointerPointTransform, windows_core::IUnknown, windows_core::IInspectable);
 impl IPointerPointTransform {
     pub fn Inverse(&self) -> windows_core::Result<IPointerPointTransform> {

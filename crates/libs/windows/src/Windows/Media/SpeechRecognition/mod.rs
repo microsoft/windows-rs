@@ -46,6 +46,12 @@ pub struct ISpeechRecognitionCompilationResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpeechRecognitionResultStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpeechRecognitionConstraint, ISpeechRecognitionConstraint_Vtbl, 0x79ac1628_4d68_43c4_8911_40dc4101b55b);
+impl std::ops::Deref for ISpeechRecognitionConstraint {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISpeechRecognitionConstraint, windows_core::IUnknown, windows_core::IInspectable);
 impl ISpeechRecognitionConstraint {
     pub fn IsEnabled(&self) -> windows_core::Result<bool> {

@@ -14,7 +14,7 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
         unsafe extern "system" fn TimeCreated<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TimeCreated() {
+            match IAccessoryNotificationTriggerDetails_Impl::TimeCreated(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -25,7 +25,7 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
         unsafe extern "system" fn AppDisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AppDisplayName() {
+            match IAccessoryNotificationTriggerDetails_Impl::AppDisplayName(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -37,7 +37,7 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
         unsafe extern "system" fn AppId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AppId() {
+            match IAccessoryNotificationTriggerDetails_Impl::AppId(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -49,7 +49,7 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
         unsafe extern "system" fn AccessoryNotificationType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut AccessoryNotificationType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AccessoryNotificationType() {
+            match IAccessoryNotificationTriggerDetails_Impl::AccessoryNotificationType(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -60,7 +60,7 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
         unsafe extern "system" fn StartedProcessing<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.StartedProcessing() {
+            match IAccessoryNotificationTriggerDetails_Impl::StartedProcessing(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -71,7 +71,7 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
         unsafe extern "system" fn SetStartedProcessing<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetStartedProcessing(value).into()
+            IAccessoryNotificationTriggerDetails_Impl::SetStartedProcessing(this, value).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IAccessoryNotificationTriggerDetails, OFFSET>(),

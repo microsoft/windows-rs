@@ -412,6 +412,12 @@ pub struct IContactEmail_Vtbl {
     pub SetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactField, IContactField_Vtbl, 0xb176486a_d293_492c_a058_db575b3e3c0f);
+impl std::ops::Deref for IContactField {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IContactField, windows_core::IUnknown, windows_core::IInspectable);
 impl IContactField {
     pub fn Type(&self) -> windows_core::Result<ContactFieldType> {
@@ -455,6 +461,12 @@ pub struct IContactField_Vtbl {
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactFieldFactory, IContactFieldFactory_Vtbl, 0x85e2913f_0e4a_4a3e_8994_406ae7ed646e);
+impl std::ops::Deref for IContactFieldFactory {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IContactFieldFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IContactFieldFactory {
     pub fn CreateField_Default(&self, value: &windows_core::HSTRING, r#type: ContactFieldType) -> windows_core::Result<ContactField> {
@@ -547,6 +559,12 @@ pub struct IContactInstantMessageField_Vtbl {
     pub LaunchUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactInstantMessageFieldFactory, IContactInstantMessageFieldFactory_Vtbl, 0xba0b6794_91a3_4bb2_b1b9_69a5dff0ba09);
+impl std::ops::Deref for IContactInstantMessageFieldFactory {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IContactInstantMessageFieldFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IContactInstantMessageFieldFactory {
     pub fn CreateInstantMessage_Default(&self, username: &windows_core::HSTRING) -> windows_core::Result<ContactInstantMessageField> {
@@ -789,6 +807,12 @@ pub struct IContactLocationField_Vtbl {
     pub PostalCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactLocationFieldFactory, IContactLocationFieldFactory_Vtbl, 0xf79932d7_2fdf_43fe_8f18_41897390bcfe);
+impl std::ops::Deref for IContactLocationFieldFactory {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IContactLocationFieldFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IContactLocationFieldFactory {
     pub fn CreateLocation_Default(&self, unstructuredaddress: &windows_core::HSTRING) -> windows_core::Result<ContactLocationField> {

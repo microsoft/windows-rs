@@ -1,4 +1,10 @@
 windows_core::imp::define_interface!(IXMLGraphBuilder, IXMLGraphBuilder_Vtbl, 0x1bb05960_5fbf_11d2_a521_44df07c10000);
+impl std::ops::Deref for IXMLGraphBuilder {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IXMLGraphBuilder, windows_core::IUnknown);
 impl IXMLGraphBuilder {
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]

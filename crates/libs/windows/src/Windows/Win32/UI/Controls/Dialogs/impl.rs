@@ -9,17 +9,17 @@ impl IPrintDialogCallback_Vtbl {
         unsafe extern "system" fn InitDone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPrintDialogCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InitDone().into()
+            IPrintDialogCallback_Impl::InitDone(this).into()
         }
         unsafe extern "system" fn SelectionChange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPrintDialogCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SelectionChange().into()
+            IPrintDialogCallback_Impl::SelectionChange(this).into()
         }
         unsafe extern "system" fn HandleMessage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPrintDialogCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdlg: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, presult: *mut super::super::super::Foundation::LRESULT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.HandleMessage(core::mem::transmute_copy(&hdlg), core::mem::transmute_copy(&umsg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam), core::mem::transmute_copy(&presult)).into()
+            IPrintDialogCallback_Impl::HandleMessage(this, core::mem::transmute_copy(&hdlg), core::mem::transmute_copy(&umsg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam), core::mem::transmute_copy(&presult)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -46,17 +46,17 @@ impl IPrintDialogServices_Vtbl {
         unsafe extern "system" fn GetCurrentDevMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPrintDialogServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetCurrentDevMode(core::mem::transmute_copy(&pdevmode), core::mem::transmute_copy(&pcbsize)).into()
+            IPrintDialogServices_Impl::GetCurrentDevMode(this, core::mem::transmute_copy(&pdevmode), core::mem::transmute_copy(&pcbsize)).into()
         }
         unsafe extern "system" fn GetCurrentPrinterName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPrintDialogServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprintername: windows_core::PWSTR, pcchsize: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetCurrentPrinterName(core::mem::transmute_copy(&pprintername), core::mem::transmute_copy(&pcchsize)).into()
+            IPrintDialogServices_Impl::GetCurrentPrinterName(this, core::mem::transmute_copy(&pprintername), core::mem::transmute_copy(&pcchsize)).into()
         }
         unsafe extern "system" fn GetCurrentPortName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPrintDialogServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pportname: windows_core::PWSTR, pcchsize: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetCurrentPortName(core::mem::transmute_copy(&pportname), core::mem::transmute_copy(&pcchsize)).into()
+            IPrintDialogServices_Impl::GetCurrentPortName(this, core::mem::transmute_copy(&pportname), core::mem::transmute_copy(&pcchsize)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

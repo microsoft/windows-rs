@@ -37,6 +37,12 @@ pub struct IConstantForceEffect_Vtbl {
     SetParametersWithEnvelope: usize,
 }
 windows_core::imp::define_interface!(IForceFeedbackEffect, IForceFeedbackEffect_Vtbl, 0xa17fba0c_2ae4_48c2_8063_eabd0777cb89);
+impl std::ops::Deref for IForceFeedbackEffect {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IForceFeedbackEffect, windows_core::IUnknown, windows_core::IInspectable);
 impl IForceFeedbackEffect {
     pub fn Gain(&self) -> windows_core::Result<f64> {

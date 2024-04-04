@@ -212,8 +212,8 @@ impl<F: FnMut(Option<&SignalNotifier>, bool) -> windows_core::Result<()> + Send 
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, signalnotifier: *mut core::ffi::c_void, timedout: bool) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&signalnotifier), timedout).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&signalnotifier), timedout).into()
     }
 }
 impl windows_core::RuntimeType for SignalHandler {

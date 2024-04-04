@@ -46,6 +46,12 @@ pub struct ISyndicationCategoryFactory_Vtbl {
     pub CreateSyndicationCategoryEx: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyndicationClient, ISyndicationClient_Vtbl, 0x9e18a9b7_7249_4b45_b229_7df895a5a1f5);
+impl std::ops::Deref for ISyndicationClient {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyndicationClient, windows_core::IUnknown, windows_core::IInspectable);
 impl ISyndicationClient {
     #[cfg(feature = "Security_Credentials")]
@@ -377,6 +383,12 @@ pub struct ISyndicationLinkFactory_Vtbl {
     pub CreateSyndicationLinkEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyndicationNode, ISyndicationNode_Vtbl, 0x753cef78_51f8_45c0_a9f5_f1719dec3fb2);
+impl std::ops::Deref for ISyndicationNode {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyndicationNode, windows_core::IUnknown, windows_core::IInspectable);
 impl ISyndicationNode {
     pub fn NodeName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -525,6 +537,12 @@ pub struct ISyndicationPersonFactory_Vtbl {
     pub CreateSyndicationPersonEx: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyndicationText, ISyndicationText_Vtbl, 0xb9cc5e80_313a_4091_a2a6_243e0ee923f9);
+impl std::ops::Deref for ISyndicationText {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyndicationText, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ISyndicationText, ISyndicationNode);
 impl ISyndicationText {

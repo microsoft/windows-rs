@@ -12,7 +12,7 @@ impl IUriToStreamResolver_Vtbl {
         unsafe extern "system" fn UriToStreamAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUriToStreamResolver_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UriToStreamAsync(windows_core::from_raw_borrowed(&uri)) {
+            match IUriToStreamResolver_Impl::UriToStreamAsync(this, windows_core::from_raw_borrowed(&uri)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);

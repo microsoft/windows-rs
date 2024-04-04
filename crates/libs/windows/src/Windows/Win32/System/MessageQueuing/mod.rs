@@ -260,6 +260,13 @@ where
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQApplication, IMSMQApplication_Vtbl, 0xd7d6e085_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQApplication {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQApplication, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQApplication {
@@ -280,16 +287,16 @@ pub struct IMSMQApplication_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQApplication2, IMSMQApplication2_Vtbl, 0x12a30900_7300_11d2_b0e6_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQApplication2 {
+    type Target = IMSMQApplication;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQApplication2, windows_core::IUnknown, super::Com::IDispatch, IMSMQApplication);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQApplication2 {
-    pub unsafe fn MachineIdOfMachineName<P0>(&self, machinename: P0) -> windows_core::Result<windows_core::BSTR>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.MachineIdOfMachineName)(windows_core::Interface::as_raw(self), machinename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn RegisterCertificate(&self, flags: *const windows_core::VARIANT, externalcertificate: *const windows_core::VARIANT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RegisterCertificate)(windows_core::Interface::as_raw(self), core::mem::transmute(flags), core::mem::transmute(externalcertificate)).ok()
     }
@@ -340,47 +347,16 @@ pub struct IMSMQApplication2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQApplication3, IMSMQApplication3_Vtbl, 0xeba96b1f_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQApplication3 {
+    type Target = IMSMQApplication2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQApplication3, windows_core::IUnknown, super::Com::IDispatch, IMSMQApplication, IMSMQApplication2);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQApplication3 {
-    pub unsafe fn MachineIdOfMachineName<P0>(&self, machinename: P0) -> windows_core::Result<windows_core::BSTR>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.MachineIdOfMachineName)(windows_core::Interface::as_raw(self), machinename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn RegisterCertificate(&self, flags: *const windows_core::VARIANT, externalcertificate: *const windows_core::VARIANT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.RegisterCertificate)(windows_core::Interface::as_raw(self), core::mem::transmute(flags), core::mem::transmute(externalcertificate)).ok()
-    }
-    pub unsafe fn MachineNameOfMachineId<P0>(&self, bstrguid: P0) -> windows_core::Result<windows_core::BSTR>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.MachineNameOfMachineId)(windows_core::Interface::as_raw(self), bstrguid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn MSMQVersionMajor(&self) -> windows_core::Result<i16> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.MSMQVersionMajor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn MSMQVersionMinor(&self) -> windows_core::Result<i16> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.MSMQVersionMinor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn MSMQVersionBuild(&self) -> windows_core::Result<i16> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.MSMQVersionBuild)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsDsEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsDsEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> windows_core::Result<super::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Properties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn ActiveQueues(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).ActiveQueues)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -439,6 +415,13 @@ pub struct IMSMQApplication3_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQCollection, IMSMQCollection_Vtbl, 0x0188ac2f_ecb3_4173_9779_635ca2039c72);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQCollection {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQCollection {
@@ -466,6 +449,13 @@ pub struct IMSMQCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQCoordinatedTransactionDispenser, IMSMQCoordinatedTransactionDispenser_Vtbl, 0xd7d6e081_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQCoordinatedTransactionDispenser {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQCoordinatedTransactionDispenser, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQCoordinatedTransactionDispenser {
@@ -486,6 +476,13 @@ pub struct IMSMQCoordinatedTransactionDispenser_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQCoordinatedTransactionDispenser2, IMSMQCoordinatedTransactionDispenser2_Vtbl, 0xeba96b10_2168_11d3_898c_00e02c074f6b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQCoordinatedTransactionDispenser2 {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQCoordinatedTransactionDispenser2, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -517,6 +514,13 @@ pub struct IMSMQCoordinatedTransactionDispenser2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQCoordinatedTransactionDispenser3, IMSMQCoordinatedTransactionDispenser3_Vtbl, 0xeba96b14_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQCoordinatedTransactionDispenser3 {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQCoordinatedTransactionDispenser3, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQCoordinatedTransactionDispenser3 {
@@ -546,6 +550,13 @@ pub struct IMSMQCoordinatedTransactionDispenser3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQDestination, IMSMQDestination_Vtbl, 0xeba96b16_2168_11d3_898c_00e02c074f6b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQDestination {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQDestination, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -657,6 +668,13 @@ pub struct IMSMQDestination_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQEvent, IMSMQEvent_Vtbl, 0xd7d6e077_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQEvent {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQEvent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQEvent {}
@@ -667,6 +685,13 @@ pub struct IMSMQEvent_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQEvent2, IMSMQEvent2_Vtbl, 0xeba96b12_2168_11d3_898c_00e02c074f6b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQEvent2 {
+    type Target = IMSMQEvent;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQEvent2, windows_core::IUnknown, super::Com::IDispatch, IMSMQEvent);
 #[cfg(feature = "Win32_System_Com")]
@@ -689,15 +714,16 @@ pub struct IMSMQEvent2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQEvent3, IMSMQEvent3_Vtbl, 0xeba96b1c_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::interface_hierarchy!(IMSMQEvent3, windows_core::IUnknown, super::Com::IDispatch, IMSMQEvent, IMSMQEvent2);
-#[cfg(feature = "Win32_System_Com")]
-impl IMSMQEvent3 {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> windows_core::Result<super::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Properties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+impl std::ops::Deref for IMSMQEvent3 {
+    type Target = IMSMQEvent2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
+windows_core::imp::interface_hierarchy!(IMSMQEvent3, windows_core::IUnknown, super::Com::IDispatch, IMSMQEvent, IMSMQEvent2);
+#[cfg(feature = "Win32_System_Com")]
+impl IMSMQEvent3 {}
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 pub struct IMSMQEvent3_Vtbl {
@@ -705,6 +731,13 @@ pub struct IMSMQEvent3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQManagement, IMSMQManagement_Vtbl, 0xbe5f0241_e489_4957_8cc4_a452fcf3e23e);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQManagement {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQManagement, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -761,6 +794,13 @@ pub struct IMSMQManagement_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQMessage, IMSMQMessage_Vtbl, 0xd7d6e074_dccd_11d0_aa4b_0060970debae);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQMessage {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQMessage, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1042,6 +1082,13 @@ pub struct IMSMQMessage_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQMessage2, IMSMQMessage2_Vtbl, 0xd9933be0_a567_11d2_b0f3_00e02c074f6b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQMessage2 {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQMessage2, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1491,6 +1538,13 @@ pub struct IMSMQMessage2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQMessage3, IMSMQMessage3_Vtbl, 0xeba96b1a_2168_11d3_898c_00e02c074f6b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQMessage3 {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQMessage3, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2058,6 +2112,13 @@ pub struct IMSMQMessage3_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQMessage4, IMSMQMessage4_Vtbl, 0xeba96b23_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQMessage4 {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQMessage4, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQMessage4 {
@@ -2624,44 +2685,16 @@ pub struct IMSMQMessage4_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQOutgoingQueueManagement, IMSMQOutgoingQueueManagement_Vtbl, 0x64c478fb_f9b0_4695_8a7f_439ac94326d3);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQOutgoingQueueManagement {
+    type Target = IMSMQManagement;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQOutgoingQueueManagement, windows_core::IUnknown, super::Com::IDispatch, IMSMQManagement);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQOutgoingQueueManagement {
-    pub unsafe fn Init(&self, machine: *const windows_core::VARIANT, pathname: *const windows_core::VARIANT, formatname: *const windows_core::VARIANT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Init)(windows_core::Interface::as_raw(self), core::mem::transmute(machine), core::mem::transmute(pathname), core::mem::transmute(formatname)).ok()
-    }
-    pub unsafe fn FormatName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FormatName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Machine(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Machine)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn MessageCount(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.MessageCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ForeignStatus(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ForeignStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn QueueType(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.QueueType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsLocal(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsLocal)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn TransactionalStatus(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.TransactionalStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn BytesInQueue(&self) -> windows_core::Result<windows_core::VARIANT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.BytesInQueue)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn State(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2702,6 +2735,13 @@ pub struct IMSMQOutgoingQueueManagement_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQPrivateDestination, IMSMQPrivateDestination_Vtbl, 0xeba96b17_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQPrivateDestination {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQPrivateDestination, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQPrivateDestination {
@@ -2725,6 +2765,13 @@ pub struct IMSMQPrivateDestination_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQPrivateEvent, IMSMQPrivateEvent_Vtbl, 0xd7ab3341_c9d3_11d1_bb47_0080c7c5a2c0);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQPrivateEvent {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQPrivateEvent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2765,6 +2812,13 @@ pub struct IMSMQPrivateEvent_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQQuery, IMSMQQuery_Vtbl, 0xd7d6e072_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQQuery {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQuery, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQuery {
@@ -2785,6 +2839,13 @@ pub struct IMSMQQuery_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQQuery2, IMSMQQuery2_Vtbl, 0xeba96b0e_2168_11d3_898c_00e02c074f6b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQQuery2 {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQuery2, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2815,6 +2876,13 @@ pub struct IMSMQQuery2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQQuery3, IMSMQQuery3_Vtbl, 0xeba96b19_2168_11d3_898c_00e02c074f6b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQQuery3 {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQuery3, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2855,6 +2923,13 @@ pub struct IMSMQQuery3_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQQuery4, IMSMQQuery4_Vtbl, 0xeba96b24_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQQuery4 {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQuery4, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQuery4 {
@@ -2893,6 +2968,13 @@ pub struct IMSMQQuery4_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQQueue, IMSMQQueue_Vtbl, 0xd7d6e076_dccd_11d0_aa4b_0060970debae);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQQueue {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQueue, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2998,6 +3080,13 @@ pub struct IMSMQQueue_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQQueue2, IMSMQQueue2_Vtbl, 0xef0574e0_06d8_11d3_b100_00e02c074f6b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQQueue2 {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQueue2, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3157,6 +3246,13 @@ pub struct IMSMQQueue2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQQueue3, IMSMQQueue3_Vtbl, 0xeba96b1b_2168_11d3_898c_00e02c074f6b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQQueue3 {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQueue3, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3438,6 +3534,13 @@ pub struct IMSMQQueue3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQQueue4, IMSMQQueue4_Vtbl, 0xeba96b20_2168_11d3_898c_00e02c074f6b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQQueue4 {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQueue4, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3732,6 +3835,13 @@ pub struct IMSMQQueue4_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQQueueInfo, IMSMQQueueInfo_Vtbl, 0xd7d6e07b_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQQueueInfo {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQueueInfo, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueueInfo {
@@ -3895,6 +4005,13 @@ pub struct IMSMQQueueInfo_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQQueueInfo2, IMSMQQueueInfo2_Vtbl, 0xfd174a80_89cf_11d2_b0f2_00e02c074f6b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQQueueInfo2 {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQueueInfo2, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4085,6 +4202,13 @@ pub struct IMSMQQueueInfo2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQQueueInfo3, IMSMQQueueInfo3_Vtbl, 0xeba96b1d_2168_11d3_898c_00e02c074f6b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQQueueInfo3 {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQueueInfo3, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4303,6 +4427,13 @@ pub struct IMSMQQueueInfo3_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQQueueInfo4, IMSMQQueueInfo4_Vtbl, 0xeba96b21_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQQueueInfo4 {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQueueInfo4, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueueInfo4 {
@@ -4520,6 +4651,13 @@ pub struct IMSMQQueueInfo4_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQQueueInfos, IMSMQQueueInfos_Vtbl, 0xd7d6e07d_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQQueueInfos {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQueueInfos, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueueInfos {
@@ -4544,6 +4682,13 @@ pub struct IMSMQQueueInfos_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQQueueInfos2, IMSMQQueueInfos2_Vtbl, 0xeba96b0f_2168_11d3_898c_00e02c074f6b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQQueueInfos2 {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQueueInfos2, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4579,6 +4724,13 @@ pub struct IMSMQQueueInfos2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQQueueInfos3, IMSMQQueueInfos3_Vtbl, 0xeba96b1e_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQQueueInfos3 {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQueueInfos3, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueueInfos3 {
@@ -4612,6 +4764,13 @@ pub struct IMSMQQueueInfos3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQQueueInfos4, IMSMQQueueInfos4_Vtbl, 0xeba96b22_2168_11d3_898c_00e02c074f6b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQQueueInfos4 {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQueueInfos4, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4647,44 +4806,16 @@ pub struct IMSMQQueueInfos4_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQQueueManagement, IMSMQQueueManagement_Vtbl, 0x7fbe7759_5760_444d_b8a5_5e7ab9a84cce);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQQueueManagement {
+    type Target = IMSMQManagement;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQQueueManagement, windows_core::IUnknown, super::Com::IDispatch, IMSMQManagement);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueueManagement {
-    pub unsafe fn Init(&self, machine: *const windows_core::VARIANT, pathname: *const windows_core::VARIANT, formatname: *const windows_core::VARIANT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Init)(windows_core::Interface::as_raw(self), core::mem::transmute(machine), core::mem::transmute(pathname), core::mem::transmute(formatname)).ok()
-    }
-    pub unsafe fn FormatName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FormatName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Machine(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Machine)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn MessageCount(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.MessageCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ForeignStatus(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ForeignStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn QueueType(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.QueueType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsLocal(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsLocal)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn TransactionalStatus(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.TransactionalStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn BytesInQueue(&self) -> windows_core::Result<windows_core::VARIANT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.BytesInQueue)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn JournalMessageCount(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).JournalMessageCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4708,6 +4839,13 @@ pub struct IMSMQQueueManagement_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQTransaction, IMSMQTransaction_Vtbl, 0xd7d6e07f_dccd_11d0_aa4b_0060970debae);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQTransaction {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQTransaction, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4734,19 +4872,16 @@ pub struct IMSMQTransaction_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQTransaction2, IMSMQTransaction2_Vtbl, 0x2ce0c5b0_6e67_11d2_b0e6_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQTransaction2 {
+    type Target = IMSMQTransaction;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQTransaction2, windows_core::IUnknown, super::Com::IDispatch, IMSMQTransaction);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQTransaction2 {
-    pub unsafe fn Transaction(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Transaction)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Commit(&self, fretaining: *const windows_core::VARIANT, grftc: *const windows_core::VARIANT, grfrm: *const windows_core::VARIANT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Commit)(windows_core::Interface::as_raw(self), core::mem::transmute(fretaining), core::mem::transmute(grftc), core::mem::transmute(grfrm)).ok()
-    }
-    pub unsafe fn Abort(&self, fretaining: *const windows_core::VARIANT, fasync: *const windows_core::VARIANT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Abort)(windows_core::Interface::as_raw(self), core::mem::transmute(fretaining), core::mem::transmute(fasync)).ok()
-    }
     pub unsafe fn InitNew<P0>(&self, vartransaction: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::VARIANT>,
@@ -4772,30 +4907,16 @@ pub struct IMSMQTransaction2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQTransaction3, IMSMQTransaction3_Vtbl, 0xeba96b13_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQTransaction3 {
+    type Target = IMSMQTransaction2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQTransaction3, windows_core::IUnknown, super::Com::IDispatch, IMSMQTransaction, IMSMQTransaction2);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQTransaction3 {
-    pub unsafe fn Transaction(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Transaction)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Commit(&self, fretaining: *const windows_core::VARIANT, grftc: *const windows_core::VARIANT, grfrm: *const windows_core::VARIANT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.Commit)(windows_core::Interface::as_raw(self), core::mem::transmute(fretaining), core::mem::transmute(grftc), core::mem::transmute(grfrm)).ok()
-    }
-    pub unsafe fn Abort(&self, fretaining: *const windows_core::VARIANT, fasync: *const windows_core::VARIANT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.Abort)(windows_core::Interface::as_raw(self), core::mem::transmute(fretaining), core::mem::transmute(fasync)).ok()
-    }
-    pub unsafe fn InitNew<P0>(&self, vartransaction: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.InitNew)(windows_core::Interface::as_raw(self), vartransaction.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Properties(&self) -> windows_core::Result<super::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Properties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn ITransaction(&self) -> windows_core::Result<windows_core::VARIANT> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).ITransaction)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4809,6 +4930,13 @@ pub struct IMSMQTransaction3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQTransactionDispenser, IMSMQTransactionDispenser_Vtbl, 0xd7d6e083_dccd_11d0_aa4b_0060970debae);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQTransactionDispenser {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQTransactionDispenser, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4830,6 +4958,13 @@ pub struct IMSMQTransactionDispenser_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQTransactionDispenser2, IMSMQTransactionDispenser2_Vtbl, 0xeba96b11_2168_11d3_898c_00e02c074f6b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQTransactionDispenser2 {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQTransactionDispenser2, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4861,6 +4996,13 @@ pub struct IMSMQTransactionDispenser2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSMQTransactionDispenser3, IMSMQTransactionDispenser3_Vtbl, 0xeba96b15_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IMSMQTransactionDispenser3 {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IMSMQTransactionDispenser3, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQTransactionDispenser3 {
@@ -4890,6 +5032,13 @@ pub struct IMSMQTransactionDispenser3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(_DMSMQEventEvents, _DMSMQEventEvents_Vtbl, 0xd7d6e078_dccd_11d0_aa4b_0060970debae);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for _DMSMQEventEvents {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(_DMSMQEventEvents, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]

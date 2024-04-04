@@ -114,6 +114,12 @@ pub struct IHttpCacheControl_Vtbl {
     pub SetWriteBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, HttpCacheWriteBehavior) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHttpFilter, IHttpFilter_Vtbl, 0xa4cb6dd5_0902_439e_bfd7_e12552b165ce);
+impl std::ops::Deref for IHttpFilter {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IHttpFilter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IHttpFilter, super::super::super::Foundation::IClosable);
 impl IHttpFilter {

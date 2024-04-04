@@ -10,7 +10,7 @@ impl IWSCDefaultProduct_Vtbl {
         unsafe extern "system" fn SetDefaultProduct<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSCDefaultProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, etype: SECURITY_PRODUCT_TYPE, pguid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDefaultProduct(core::mem::transmute_copy(&etype), core::mem::transmute(&pguid)).into()
+            IWSCDefaultProduct_Impl::SetDefaultProduct(this, core::mem::transmute_copy(&etype), core::mem::transmute(&pguid)).into()
         }
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), SetDefaultProduct: SetDefaultProduct::<Identity, Impl, OFFSET> }
     }
@@ -32,12 +32,12 @@ impl IWSCProductList_Vtbl {
         unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSCProductList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, provider: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(core::mem::transmute(&provider)).into()
+            IWSCProductList_Impl::Initialize(this, core::mem::transmute(&provider)).into()
         }
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSCProductList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IWSCProductList_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -48,7 +48,7 @@ impl IWSCProductList_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSCProductList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute_copy(&index)) {
+            match IWSCProductList_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -85,7 +85,7 @@ impl IWscProduct_Vtbl {
         unsafe extern "system" fn ProductName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWscProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ProductName() {
+            match IWscProduct_Impl::ProductName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -96,7 +96,7 @@ impl IWscProduct_Vtbl {
         unsafe extern "system" fn ProductState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWscProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut WSC_SECURITY_PRODUCT_STATE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ProductState() {
+            match IWscProduct_Impl::ProductState(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -107,7 +107,7 @@ impl IWscProduct_Vtbl {
         unsafe extern "system" fn SignatureStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWscProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut WSC_SECURITY_SIGNATURE_STATUS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SignatureStatus() {
+            match IWscProduct_Impl::SignatureStatus(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -118,7 +118,7 @@ impl IWscProduct_Vtbl {
         unsafe extern "system" fn RemediationPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWscProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RemediationPath() {
+            match IWscProduct_Impl::RemediationPath(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -129,7 +129,7 @@ impl IWscProduct_Vtbl {
         unsafe extern "system" fn ProductStateTimestamp<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWscProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ProductStateTimestamp() {
+            match IWscProduct_Impl::ProductStateTimestamp(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -140,7 +140,7 @@ impl IWscProduct_Vtbl {
         unsafe extern "system" fn ProductGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWscProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ProductGuid() {
+            match IWscProduct_Impl::ProductGuid(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -151,7 +151,7 @@ impl IWscProduct_Vtbl {
         unsafe extern "system" fn ProductIsDefault<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWscProduct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ProductIsDefault() {
+            match IWscProduct_Impl::ProductIsDefault(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -191,7 +191,7 @@ impl IWscProduct2_Vtbl {
         unsafe extern "system" fn AntivirusScanSubstatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWscProduct2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AntivirusScanSubstatus() {
+            match IWscProduct2_Impl::AntivirusScanSubstatus(this) {
                 Ok(ok__) => {
                     core::ptr::write(pestatus, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -202,7 +202,7 @@ impl IWscProduct2_Vtbl {
         unsafe extern "system" fn AntivirusSettingsSubstatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWscProduct2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AntivirusSettingsSubstatus() {
+            match IWscProduct2_Impl::AntivirusSettingsSubstatus(this) {
                 Ok(ok__) => {
                     core::ptr::write(pestatus, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -213,7 +213,7 @@ impl IWscProduct2_Vtbl {
         unsafe extern "system" fn AntivirusProtectionUpdateSubstatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWscProduct2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AntivirusProtectionUpdateSubstatus() {
+            match IWscProduct2_Impl::AntivirusProtectionUpdateSubstatus(this) {
                 Ok(ok__) => {
                     core::ptr::write(pestatus, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -224,7 +224,7 @@ impl IWscProduct2_Vtbl {
         unsafe extern "system" fn FirewallDomainProfileSubstatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWscProduct2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FirewallDomainProfileSubstatus() {
+            match IWscProduct2_Impl::FirewallDomainProfileSubstatus(this) {
                 Ok(ok__) => {
                     core::ptr::write(pestatus, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -235,7 +235,7 @@ impl IWscProduct2_Vtbl {
         unsafe extern "system" fn FirewallPrivateProfileSubstatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWscProduct2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FirewallPrivateProfileSubstatus() {
+            match IWscProduct2_Impl::FirewallPrivateProfileSubstatus(this) {
                 Ok(ok__) => {
                     core::ptr::write(pestatus, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -246,7 +246,7 @@ impl IWscProduct2_Vtbl {
         unsafe extern "system" fn FirewallPublicProfileSubstatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWscProduct2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FirewallPublicProfileSubstatus() {
+            match IWscProduct2_Impl::FirewallPublicProfileSubstatus(this) {
                 Ok(ok__) => {
                     core::ptr::write(pestatus, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -280,7 +280,7 @@ impl IWscProduct3_Vtbl {
         unsafe extern "system" fn AntivirusDaysUntilExpired<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWscProduct3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwdays: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AntivirusDaysUntilExpired() {
+            match IWscProduct3_Impl::AntivirusDaysUntilExpired(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdwdays, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

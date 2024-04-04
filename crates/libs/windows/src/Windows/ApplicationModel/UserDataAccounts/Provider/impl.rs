@@ -9,7 +9,7 @@ impl IUserDataAccountProviderOperation_Vtbl {
         unsafe extern "system" fn Kind<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUserDataAccountProviderOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut UserDataAccountProviderOperationKind) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Kind() {
+            match IUserDataAccountProviderOperation_Impl::Kind(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)

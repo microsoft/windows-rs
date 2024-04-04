@@ -159,6 +159,12 @@ pub struct IStorageProviderItemPropertyDefinition_Vtbl {
     pub SetDisplayNameResource: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageProviderItemPropertySource, IStorageProviderItemPropertySource_Vtbl, 0x8f6f9c3e_f632_4a9b_8d99_d2d7a11df56a);
+impl std::ops::Deref for IStorageProviderItemPropertySource {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IStorageProviderItemPropertySource, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageProviderItemPropertySource {
     #[cfg(feature = "Foundation_Collections")]
@@ -210,6 +216,12 @@ pub struct IStorageProviderKnownFolderSyncInfo_Vtbl {
     pub SetSyncRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageProviderKnownFolderSyncInfoSource, IStorageProviderKnownFolderSyncInfoSource_Vtbl, 0x51359342_f7c0_53d0_bbb6_1cdc098ebda9);
+impl std::ops::Deref for IStorageProviderKnownFolderSyncInfoSource {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IStorageProviderKnownFolderSyncInfoSource, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageProviderKnownFolderSyncInfoSource {
     pub fn GetKnownFolderSyncInfo(&self) -> windows_core::Result<StorageProviderKnownFolderSyncInfo> {
@@ -245,6 +257,12 @@ pub struct IStorageProviderKnownFolderSyncInfoSource_Vtbl {
     pub RemoveKnownFolderSyncInfoChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageProviderKnownFolderSyncInfoSourceFactory, IStorageProviderKnownFolderSyncInfoSourceFactory_Vtbl, 0xaaee03a7_a7f6_50be_a9b0_8e82d0c81082);
+impl std::ops::Deref for IStorageProviderKnownFolderSyncInfoSourceFactory {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IStorageProviderKnownFolderSyncInfoSourceFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageProviderKnownFolderSyncInfoSourceFactory {
     pub fn GetKnownFolderSyncInfoSource(&self) -> windows_core::Result<IStorageProviderKnownFolderSyncInfoSource> {
@@ -289,6 +307,12 @@ pub struct IStorageProviderMoreInfoUI_Vtbl {
     pub SetCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageProviderPropertyCapabilities, IStorageProviderPropertyCapabilities_Vtbl, 0x658d2f0e_63b7_4567_acf9_51abe301dda5);
+impl std::ops::Deref for IStorageProviderPropertyCapabilities {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IStorageProviderPropertyCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageProviderPropertyCapabilities {
     pub fn IsPropertySupported(&self, propertycanonicalname: &windows_core::HSTRING) -> windows_core::Result<bool> {
@@ -360,6 +384,12 @@ pub struct IStorageProviderStatusUI_Vtbl {
     SetProviderSecondaryCommands: usize,
 }
 windows_core::imp::define_interface!(IStorageProviderStatusUISource, IStorageProviderStatusUISource_Vtbl, 0xa306c249_3d66_5e70_9007_e43df96051ff);
+impl std::ops::Deref for IStorageProviderStatusUISource {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IStorageProviderStatusUISource, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageProviderStatusUISource {
     pub fn GetStatusUI(&self) -> windows_core::Result<StorageProviderStatusUI> {
@@ -395,6 +425,12 @@ pub struct IStorageProviderStatusUISource_Vtbl {
     pub RemoveStatusUIChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageProviderStatusUISourceFactory, IStorageProviderStatusUISourceFactory_Vtbl, 0x12e46b74_4e5a_58d1_a62f_0376e8ee7dd8);
+impl std::ops::Deref for IStorageProviderStatusUISourceFactory {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IStorageProviderStatusUISourceFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageProviderStatusUISourceFactory {
     pub fn GetStatusUISource(&self, syncrootid: &windows_core::HSTRING) -> windows_core::Result<IStorageProviderStatusUISource> {
@@ -509,6 +545,12 @@ pub struct IStorageProviderSyncRootManagerStatics2_Vtbl {
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageProviderUICommand, IStorageProviderUICommand_Vtbl, 0x0c3e0760_d846_568f_9484_105cc57b502b);
+impl std::ops::Deref for IStorageProviderUICommand {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IStorageProviderUICommand, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageProviderUICommand {
     pub fn Label(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -557,6 +599,12 @@ pub struct IStorageProviderUICommand_Vtbl {
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageProviderUriSource, IStorageProviderUriSource_Vtbl, 0xb29806d1_8be0_4962_8bb6_0d4c2e14d47a);
+impl std::ops::Deref for IStorageProviderUriSource {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IStorageProviderUriSource, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageProviderUriSource {
     pub fn GetPathForContentUri<P0>(&self, contenturi: &windows_core::HSTRING, result: P0) -> windows_core::Result<()>
@@ -2242,8 +2290,8 @@ impl<F: FnMut(Option<&StorageProviderKnownFolderSyncRequestArgs>) -> windows_cor
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&args)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&args)).into()
     }
 }
 impl windows_core::RuntimeType for StorageProviderKnownFolderSyncRequestedHandler {

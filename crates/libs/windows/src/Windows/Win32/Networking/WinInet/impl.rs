@@ -11,12 +11,12 @@ impl IDialBranding_Vtbl {
         unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDialBranding_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzconnectoid: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(core::mem::transmute(&pwzconnectoid)).into()
+            IDialBranding_Impl::Initialize(this, core::mem::transmute(&pwzconnectoid)).into()
         }
         unsafe extern "system" fn GetBitmap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDialBranding_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: u32, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetBitmap(core::mem::transmute_copy(&dwindex)) {
+            match IDialBranding_Impl::GetBitmap(this, core::mem::transmute_copy(&dwindex)) {
                 Ok(ok__) => {
                     core::ptr::write(phbitmap, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -49,32 +49,32 @@ impl IDialEngine_Vtbl {
         unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDialEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzconnectoid: windows_core::PCWSTR, pides: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(core::mem::transmute(&pwzconnectoid), windows_core::from_raw_borrowed(&pides)).into()
+            IDialEngine_Impl::Initialize(this, core::mem::transmute(&pwzconnectoid), windows_core::from_raw_borrowed(&pides)).into()
         }
         unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDialEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzproperty: windows_core::PCWSTR, pwzvalue: windows_core::PCWSTR, dwbufsize: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetProperty(core::mem::transmute(&pwzproperty), core::mem::transmute(&pwzvalue), core::mem::transmute_copy(&dwbufsize)).into()
+            IDialEngine_Impl::GetProperty(this, core::mem::transmute(&pwzproperty), core::mem::transmute(&pwzvalue), core::mem::transmute_copy(&dwbufsize)).into()
         }
         unsafe extern "system" fn SetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDialEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzproperty: windows_core::PCWSTR, pwzvalue: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetProperty(core::mem::transmute(&pwzproperty), core::mem::transmute(&pwzvalue)).into()
+            IDialEngine_Impl::SetProperty(this, core::mem::transmute(&pwzproperty), core::mem::transmute(&pwzvalue)).into()
         }
         unsafe extern "system" fn Dial<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDialEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Dial().into()
+            IDialEngine_Impl::Dial(this).into()
         }
         unsafe extern "system" fn HangUp<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDialEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.HangUp().into()
+            IDialEngine_Impl::HangUp(this).into()
         }
         unsafe extern "system" fn GetConnectedState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDialEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstate: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetConnectedState() {
+            match IDialEngine_Impl::GetConnectedState(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdwstate, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -85,7 +85,7 @@ impl IDialEngine_Vtbl {
         unsafe extern "system" fn GetConnectHandle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDialEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwhandle: *mut usize) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetConnectHandle() {
+            match IDialEngine_Impl::GetConnectHandle(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdwhandle, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -117,7 +117,7 @@ impl IDialEventSink_Vtbl {
         unsafe extern "system" fn OnEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDialEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwevent: u32, dwstatus: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnEvent(core::mem::transmute_copy(&dwevent), core::mem::transmute_copy(&dwstatus)).into()
+            IDialEventSink_Impl::OnEvent(this, core::mem::transmute_copy(&dwevent), core::mem::transmute_copy(&dwstatus)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnEvent: OnEvent::<Identity, Impl, OFFSET> }
     }
@@ -134,7 +134,7 @@ impl IProofOfPossessionCookieInfoManager_Vtbl {
         unsafe extern "system" fn GetCookieInfoForUri<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProofOfPossessionCookieInfoManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: windows_core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetCookieInfoForUri(core::mem::transmute(&uri), core::mem::transmute_copy(&cookieinfocount), core::mem::transmute_copy(&cookieinfo)).into()
+            IProofOfPossessionCookieInfoManager_Impl::GetCookieInfoForUri(this, core::mem::transmute(&uri), core::mem::transmute_copy(&cookieinfocount), core::mem::transmute_copy(&cookieinfo)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetCookieInfoForUri: GetCookieInfoForUri::<Identity, Impl, OFFSET> }
     }
@@ -151,7 +151,7 @@ impl IProofOfPossessionCookieInfoManager2_Vtbl {
         unsafe extern "system" fn GetCookieInfoWithUriForAccount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProofOfPossessionCookieInfoManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, webaccount: *mut core::ffi::c_void, uri: windows_core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetCookieInfoWithUriForAccount(windows_core::from_raw_borrowed(&webaccount), core::mem::transmute(&uri), core::mem::transmute_copy(&cookieinfocount), core::mem::transmute_copy(&cookieinfo)).into()
+            IProofOfPossessionCookieInfoManager2_Impl::GetCookieInfoWithUriForAccount(this, windows_core::from_raw_borrowed(&webaccount), core::mem::transmute(&uri), core::mem::transmute_copy(&cookieinfocount), core::mem::transmute_copy(&cookieinfo)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

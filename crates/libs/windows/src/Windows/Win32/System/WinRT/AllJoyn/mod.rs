@@ -1,4 +1,10 @@
 windows_core::imp::define_interface!(IWindowsDevicesAllJoynBusAttachmentFactoryInterop, IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl, 0x4b8f7505_b239_4e7b_88af_f6682575d861);
+impl std::ops::Deref for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWindowsDevicesAllJoynBusAttachmentFactoryInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
     pub unsafe fn CreateFromWin32Handle<T>(&self, win32handle: u64, enableaboutdata: u8) -> windows_core::Result<T>
@@ -15,6 +21,12 @@ pub struct IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl {
     pub CreateFromWin32Handle: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u8, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWindowsDevicesAllJoynBusAttachmentInterop, IWindowsDevicesAllJoynBusAttachmentInterop_Vtbl, 0xfd89c65b_b50e_4a19_9d0c_b42b783281cd);
+impl std::ops::Deref for IWindowsDevicesAllJoynBusAttachmentInterop {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWindowsDevicesAllJoynBusAttachmentInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl IWindowsDevicesAllJoynBusAttachmentInterop {
     pub unsafe fn Win32Handle(&self) -> windows_core::Result<u64> {
@@ -28,6 +40,12 @@ pub struct IWindowsDevicesAllJoynBusAttachmentInterop_Vtbl {
     pub Win32Handle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWindowsDevicesAllJoynBusObjectFactoryInterop, IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl, 0x6174e506_8b95_4e36_95c0_b88fed34938c);
+impl std::ops::Deref for IWindowsDevicesAllJoynBusObjectFactoryInterop {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWindowsDevicesAllJoynBusObjectFactoryInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl IWindowsDevicesAllJoynBusObjectFactoryInterop {
     pub unsafe fn CreateFromWin32Handle<T>(&self, win32handle: u64) -> windows_core::Result<T>
@@ -44,6 +62,12 @@ pub struct IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl {
     pub CreateFromWin32Handle: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWindowsDevicesAllJoynBusObjectInterop, IWindowsDevicesAllJoynBusObjectInterop_Vtbl, 0xd78aa3d5_5054_428f_99f2_ec3a5de3c3bc);
+impl std::ops::Deref for IWindowsDevicesAllJoynBusObjectInterop {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWindowsDevicesAllJoynBusObjectInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl IWindowsDevicesAllJoynBusObjectInterop {
     pub unsafe fn AddPropertyGetHandler(&self, context: *const core::ffi::c_void, interfacename: &windows_core::HSTRING, callback: isize) -> windows_core::Result<()> {

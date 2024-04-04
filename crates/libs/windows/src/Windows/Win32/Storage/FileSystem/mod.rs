@@ -3336,19 +3336,16 @@ where
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDiskQuotaControl, IDiskQuotaControl_Vtbl, 0x7988b572_ec89_11cf_9c00_00aa00a14f56);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IDiskQuotaControl {
+    type Target = super::super::System::Com::IConnectionPointContainer;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDiskQuotaControl, windows_core::IUnknown, super::super::System::Com::IConnectionPointContainer);
 #[cfg(feature = "Win32_System_Com")]
 impl IDiskQuotaControl {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EnumConnectionPoints(&self) -> windows_core::Result<super::super::System::Com::IEnumConnectionPoints> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EnumConnectionPoints)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn FindConnectionPoint(&self, riid: *const windows_core::GUID) -> windows_core::Result<super::super::System::Com::IConnectionPoint> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FindConnectionPoint)(windows_core::Interface::as_raw(self), riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn Initialize<P0, P1>(&self, pszpath: P0, breadwrite: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -3473,6 +3470,12 @@ pub struct IDiskQuotaControl_Vtbl {
     pub ShutdownNameResolution: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDiskQuotaEvents, IDiskQuotaEvents_Vtbl, 0x7988b579_ec89_11cf_9c00_00aa00a14f56);
+impl std::ops::Deref for IDiskQuotaEvents {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDiskQuotaEvents, windows_core::IUnknown);
 impl IDiskQuotaEvents {
     pub unsafe fn OnUserNameChanged<P0>(&self, puser: P0) -> windows_core::Result<()>
@@ -3488,6 +3491,12 @@ pub struct IDiskQuotaEvents_Vtbl {
     pub OnUserNameChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDiskQuotaUser, IDiskQuotaUser_Vtbl, 0x7988b574_ec89_11cf_9c00_00aa00a14f56);
+impl std::ops::Deref for IDiskQuotaUser {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDiskQuotaUser, windows_core::IUnknown);
 impl IDiskQuotaUser {
     pub unsafe fn GetID(&self, pulid: *mut u32) -> windows_core::Result<()> {
@@ -3576,6 +3585,12 @@ pub struct IDiskQuotaUser_Vtbl {
     pub GetAccountStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDiskQuotaUserBatch, IDiskQuotaUserBatch_Vtbl, 0x7988b576_ec89_11cf_9c00_00aa00a14f56);
+impl std::ops::Deref for IDiskQuotaUserBatch {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDiskQuotaUserBatch, windows_core::IUnknown);
 impl IDiskQuotaUserBatch {
     pub unsafe fn Add<P0>(&self, puser: P0) -> windows_core::Result<()>
@@ -3606,6 +3621,12 @@ pub struct IDiskQuotaUserBatch_Vtbl {
     pub FlushToDisk: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumDiskQuotaUsers, IEnumDiskQuotaUsers_Vtbl, 0x7988b577_ec89_11cf_9c00_00aa00a14f56);
+impl std::ops::Deref for IEnumDiskQuotaUsers {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumDiskQuotaUsers, windows_core::IUnknown);
 impl IEnumDiskQuotaUsers {
     pub unsafe fn Next(&self, cusers: u32, rgusers: *mut Option<IDiskQuotaUser>, pcusersfetched: *mut u32) -> windows_core::Result<()> {

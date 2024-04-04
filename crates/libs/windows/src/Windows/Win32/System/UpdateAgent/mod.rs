@@ -1,6 +1,13 @@
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAutomaticUpdates, IAutomaticUpdates_Vtbl, 0x673425bf_c082_4c7c_bdfd_569464b8e0ce);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IAutomaticUpdates {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IAutomaticUpdates, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IAutomaticUpdates {
@@ -47,33 +54,16 @@ pub struct IAutomaticUpdates_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAutomaticUpdates2, IAutomaticUpdates2_Vtbl, 0x4a2f5c31_cfd9_410e_b7fb_29a653973a0f);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IAutomaticUpdates2 {
+    type Target = IAutomaticUpdates;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IAutomaticUpdates2, windows_core::IUnknown, super::Com::IDispatch, IAutomaticUpdates);
 #[cfg(feature = "Win32_System_Com")]
 impl IAutomaticUpdates2 {
-    pub unsafe fn DetectNow(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.DetectNow)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Pause(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Pause)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Resume(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Resume)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ShowSettingsDialog(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.ShowSettingsDialog)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Settings(&self) -> windows_core::Result<IAutomaticUpdatesSettings> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Settings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn ServiceEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ServiceEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn EnableService(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.EnableService)(windows_core::Interface::as_raw(self)).ok()
-    }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Results(&self) -> windows_core::Result<IAutomaticUpdatesResults> {
         let mut result__ = std::mem::zeroed();
@@ -91,6 +81,13 @@ pub struct IAutomaticUpdates2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAutomaticUpdatesResults, IAutomaticUpdatesResults_Vtbl, 0xe7a4d634_7942_4dd9_a111_82228ba33901);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IAutomaticUpdatesResults {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IAutomaticUpdatesResults, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -113,6 +110,13 @@ pub struct IAutomaticUpdatesResults_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAutomaticUpdatesSettings, IAutomaticUpdatesSettings_Vtbl, 0x2ee48f22_af3c_405f_8970_f71be12ee9a2);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IAutomaticUpdatesSettings {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IAutomaticUpdatesSettings, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -171,44 +175,16 @@ pub struct IAutomaticUpdatesSettings_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAutomaticUpdatesSettings2, IAutomaticUpdatesSettings2_Vtbl, 0x6abc136a_c3ca_4384_8171_cb2b1e59b8dc);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IAutomaticUpdatesSettings2 {
+    type Target = IAutomaticUpdatesSettings;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IAutomaticUpdatesSettings2, windows_core::IUnknown, super::Com::IDispatch, IAutomaticUpdatesSettings);
 #[cfg(feature = "Win32_System_Com")]
 impl IAutomaticUpdatesSettings2 {
-    pub unsafe fn NotificationLevel(&self) -> windows_core::Result<AutomaticUpdatesNotificationLevel> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.NotificationLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetNotificationLevel(&self, value: AutomaticUpdatesNotificationLevel) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetNotificationLevel)(windows_core::Interface::as_raw(self), value).ok()
-    }
-    pub unsafe fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Required(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Required)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ScheduledInstallationDay(&self) -> windows_core::Result<AutomaticUpdatesScheduledInstallationDay> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ScheduledInstallationDay)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetScheduledInstallationDay(&self, value: AutomaticUpdatesScheduledInstallationDay) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetScheduledInstallationDay)(windows_core::Interface::as_raw(self), value).ok()
-    }
-    pub unsafe fn ScheduledInstallationTime(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ScheduledInstallationTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetScheduledInstallationTime(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetScheduledInstallationTime)(windows_core::Interface::as_raw(self), value).ok()
-    }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Refresh)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Save(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Save)(windows_core::Interface::as_raw(self)).ok()
-    }
     pub unsafe fn IncludeRecommendedUpdates(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).IncludeRecommendedUpdates)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -235,58 +211,16 @@ pub struct IAutomaticUpdatesSettings2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAutomaticUpdatesSettings3, IAutomaticUpdatesSettings3_Vtbl, 0xb587f5c3_f57e_485f_bbf5_0d181c5cd0dc);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IAutomaticUpdatesSettings3 {
+    type Target = IAutomaticUpdatesSettings2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IAutomaticUpdatesSettings3, windows_core::IUnknown, super::Com::IDispatch, IAutomaticUpdatesSettings, IAutomaticUpdatesSettings2);
 #[cfg(feature = "Win32_System_Com")]
 impl IAutomaticUpdatesSettings3 {
-    pub unsafe fn NotificationLevel(&self) -> windows_core::Result<AutomaticUpdatesNotificationLevel> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.NotificationLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetNotificationLevel(&self, value: AutomaticUpdatesNotificationLevel) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetNotificationLevel)(windows_core::Interface::as_raw(self), value).ok()
-    }
-    pub unsafe fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Required(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Required)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ScheduledInstallationDay(&self) -> windows_core::Result<AutomaticUpdatesScheduledInstallationDay> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ScheduledInstallationDay)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetScheduledInstallationDay(&self, value: AutomaticUpdatesScheduledInstallationDay) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetScheduledInstallationDay)(windows_core::Interface::as_raw(self), value).ok()
-    }
-    pub unsafe fn ScheduledInstallationTime(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ScheduledInstallationTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetScheduledInstallationTime(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetScheduledInstallationTime)(windows_core::Interface::as_raw(self), value).ok()
-    }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.Refresh)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Save(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.Save)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn IncludeRecommendedUpdates(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IncludeRecommendedUpdates)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetIncludeRecommendedUpdates<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetIncludeRecommendedUpdates)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn CheckPermission(&self, usertype: AutomaticUpdatesUserType, permissiontype: AutomaticUpdatesPermissionType) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CheckPermission)(windows_core::Interface::as_raw(self), usertype, permissiontype, &mut result__).map(|| result__)
-    }
     pub unsafe fn NonAdministratorsElevated(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).NonAdministratorsElevated)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -319,6 +253,13 @@ pub struct IAutomaticUpdatesSettings3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ICategory, ICategory_Vtbl, 0x81ddc1b8_9d35_47a6_b471_5b80f519223b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ICategory {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ICategory, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -393,6 +334,13 @@ pub struct ICategory_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ICategoryCollection, ICategoryCollection_Vtbl, 0x3a56bfb8_576c_43f7_9335_fe4838fd7e37);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ICategoryCollection {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ICategoryCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ICategoryCollection {
@@ -422,6 +370,12 @@ pub struct ICategoryCollection_Vtbl {
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDownloadCompletedCallback, IDownloadCompletedCallback_Vtbl, 0x77254866_9f5b_4c8e_b9e2_c77a8530d64b);
+impl std::ops::Deref for IDownloadCompletedCallback {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDownloadCompletedCallback, windows_core::IUnknown);
 impl IDownloadCompletedCallback {
     #[cfg(feature = "Win32_System_Com")]
@@ -444,6 +398,13 @@ pub struct IDownloadCompletedCallback_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDownloadCompletedCallbackArgs, IDownloadCompletedCallbackArgs_Vtbl, 0xfa565b23_498c_47a0_979d_e7d5b1813360);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IDownloadCompletedCallbackArgs {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDownloadCompletedCallbackArgs, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IDownloadCompletedCallbackArgs {}
@@ -454,6 +415,13 @@ pub struct IDownloadCompletedCallbackArgs_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDownloadJob, IDownloadJob_Vtbl, 0xc574de85_7358_43f6_aae8_8697e62d8ba7);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IDownloadJob {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDownloadJob, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -502,6 +470,13 @@ pub struct IDownloadJob_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDownloadProgress, IDownloadProgress_Vtbl, 0xd31a5bac_f719_4178_9dbb_5e2cb47fd18a);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IDownloadProgress {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDownloadProgress, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -562,6 +537,12 @@ pub struct IDownloadProgress_Vtbl {
     pub CurrentUpdatePercentComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDownloadProgressChangedCallback, IDownloadProgressChangedCallback_Vtbl, 0x8c3f1cdd_6173_4591_aebd_a56a53ca77c1);
+impl std::ops::Deref for IDownloadProgressChangedCallback {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDownloadProgressChangedCallback, windows_core::IUnknown);
 impl IDownloadProgressChangedCallback {
     #[cfg(feature = "Win32_System_Com")]
@@ -584,6 +565,13 @@ pub struct IDownloadProgressChangedCallback_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDownloadProgressChangedCallbackArgs, IDownloadProgressChangedCallbackArgs_Vtbl, 0x324ff2c6_4981_4b04_9412_57481745ab24);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IDownloadProgressChangedCallbackArgs {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDownloadProgressChangedCallbackArgs, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IDownloadProgressChangedCallbackArgs {
@@ -604,6 +592,13 @@ pub struct IDownloadProgressChangedCallbackArgs_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDownloadResult, IDownloadResult_Vtbl, 0xdaa4fdd0_4727_4dbe_a1e7_745dca317144);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IDownloadResult {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDownloadResult, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -635,6 +630,13 @@ pub struct IDownloadResult_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IImageInformation, IImageInformation_Vtbl, 0x7c907864_346c_4aeb_8f3f_57da289f969f);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IImageInformation {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IImageInformation, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -668,6 +670,13 @@ pub struct IImageInformation_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IInstallationAgent, IInstallationAgent_Vtbl, 0x925cbc18_a2ea_4648_bf1c_ec8badcfe20a);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IInstallationAgent {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IInstallationAgent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInstallationAgent {
@@ -691,6 +700,13 @@ pub struct IInstallationAgent_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IInstallationBehavior, IInstallationBehavior_Vtbl, 0xd9a59339_e245_4dbd_9686_4d5763e39624);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IInstallationBehavior {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IInstallationBehavior, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -722,6 +738,12 @@ pub struct IInstallationBehavior_Vtbl {
     pub RequiresNetworkConnectivity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInstallationCompletedCallback, IInstallationCompletedCallback_Vtbl, 0x45f4f6f3_d602_4f98_9a8a_3efa152ad2d3);
+impl std::ops::Deref for IInstallationCompletedCallback {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IInstallationCompletedCallback, windows_core::IUnknown);
 impl IInstallationCompletedCallback {
     #[cfg(feature = "Win32_System_Com")]
@@ -744,6 +766,13 @@ pub struct IInstallationCompletedCallback_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IInstallationCompletedCallbackArgs, IInstallationCompletedCallbackArgs_Vtbl, 0x250e2106_8efb_4705_9653_ef13c581b6a1);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IInstallationCompletedCallbackArgs {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IInstallationCompletedCallbackArgs, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInstallationCompletedCallbackArgs {}
@@ -754,6 +783,13 @@ pub struct IInstallationCompletedCallbackArgs_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IInstallationJob, IInstallationJob_Vtbl, 0x5c209f0b_bad5_432a_9556_4699bed2638a);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IInstallationJob {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IInstallationJob, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -803,6 +839,13 @@ pub struct IInstallationJob_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IInstallationProgress, IInstallationProgress_Vtbl, 0x345c8244_43a3_4e32_a368_65f073b76f36);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IInstallationProgress {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IInstallationProgress, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInstallationProgress {
@@ -837,6 +880,12 @@ pub struct IInstallationProgress_Vtbl {
     GetUpdateResult: usize,
 }
 windows_core::imp::define_interface!(IInstallationProgressChangedCallback, IInstallationProgressChangedCallback_Vtbl, 0xe01402d5_f8da_43ba_a012_38894bd048f1);
+impl std::ops::Deref for IInstallationProgressChangedCallback {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IInstallationProgressChangedCallback, windows_core::IUnknown);
 impl IInstallationProgressChangedCallback {
     #[cfg(feature = "Win32_System_Com")]
@@ -859,6 +908,13 @@ pub struct IInstallationProgressChangedCallback_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IInstallationProgressChangedCallbackArgs, IInstallationProgressChangedCallbackArgs_Vtbl, 0xe4f14e1e_689d_4218_a0b9_bc189c484a01);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IInstallationProgressChangedCallbackArgs {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IInstallationProgressChangedCallbackArgs, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInstallationProgressChangedCallbackArgs {
@@ -879,6 +935,13 @@ pub struct IInstallationProgressChangedCallbackArgs_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IInstallationResult, IInstallationResult_Vtbl, 0xa43c56d6_7451_48d4_af96_b6cd2d0d9b7a);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IInstallationResult {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IInstallationResult, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -916,21 +979,16 @@ pub struct IInstallationResult_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IInvalidProductLicenseException, IInvalidProductLicenseException_Vtbl, 0xa37d00f5_7bb0_4953_b414_f9e98326f2e8);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IInvalidProductLicenseException {
+    type Target = IUpdateException;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IInvalidProductLicenseException, windows_core::IUnknown, super::Com::IDispatch, IUpdateException);
 #[cfg(feature = "Win32_System_Com")]
 impl IInvalidProductLicenseException {
-    pub unsafe fn Message(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Message)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn HResult(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.HResult)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Context(&self) -> windows_core::Result<UpdateExceptionContext> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Context)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     pub unsafe fn Product(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).Product)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -943,6 +1001,12 @@ pub struct IInvalidProductLicenseException_Vtbl {
     pub Product: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISearchCompletedCallback, ISearchCompletedCallback_Vtbl, 0x88aee058_d4b0_4725_a2f1_814a67ae964c);
+impl std::ops::Deref for ISearchCompletedCallback {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISearchCompletedCallback, windows_core::IUnknown);
 impl ISearchCompletedCallback {
     #[cfg(feature = "Win32_System_Com")]
@@ -965,6 +1029,13 @@ pub struct ISearchCompletedCallback_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISearchCompletedCallbackArgs, ISearchCompletedCallbackArgs_Vtbl, 0xa700a634_2850_4c47_938a_9e4b6e5af9a6);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISearchCompletedCallbackArgs {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISearchCompletedCallbackArgs, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISearchCompletedCallbackArgs {}
@@ -975,6 +1046,13 @@ pub struct ISearchCompletedCallbackArgs_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISearchJob, ISearchJob_Vtbl, 0x7366ea16_7a1a_4ea2_b042_973d3e9cd99b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISearchJob {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISearchJob, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1005,6 +1083,13 @@ pub struct ISearchJob_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISearchResult, ISearchResult_Vtbl, 0xd40cff62_e08c_4498_941a_01e25f0fd33c);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISearchResult {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISearchResult, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1049,6 +1134,13 @@ pub struct ISearchResult_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IStringCollection, IStringCollection_Vtbl, 0xeff90582_2ddc_480f_a06d_60f3fbc362c3);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IStringCollection {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IStringCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1121,6 +1213,13 @@ pub struct IStringCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISystemInformation, ISystemInformation_Vtbl, 0xade87bf7_7b56_4275_8fab_b9b0e591844b);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISystemInformation {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISystemInformation, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISystemInformation {
@@ -1142,6 +1241,13 @@ pub struct ISystemInformation_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdate, IUpdate_Vtbl, 0x6a92b07a_d821_4682_b423_5c805022cc4d);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdate {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdate, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1436,206 +1542,16 @@ pub struct IUpdate_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdate2, IUpdate2_Vtbl, 0x144fe9b0_d23d_4a8b_8634_fb4457533b7a);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdate2 {
+    type Target = IUpdate;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdate2, windows_core::IUnknown, super::Com::IDispatch, IUpdate);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdate2 {
-    pub unsafe fn Title(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Title)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AutoSelectOnWebSites(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.AutoSelectOnWebSites)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BundledUpdates(&self) -> windows_core::Result<IUpdateCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.BundledUpdates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn CanRequireSource(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CanRequireSource)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Categories(&self) -> windows_core::Result<ICategoryCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Categories)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Deadline(&self) -> windows_core::Result<windows_core::VARIANT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Deadline)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DeltaCompressedContentAvailable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DeltaCompressedContentAvailable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DeltaCompressedContentPreferred(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DeltaCompressedContentPreferred)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Description)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn EulaAccepted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EulaAccepted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn EulaText(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EulaText)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn HandlerID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.HandlerID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Identity(&self) -> windows_core::Result<IUpdateIdentity> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Identity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Image(&self) -> windows_core::Result<IImageInformation> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Image)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InstallationBehavior(&self) -> windows_core::Result<IInstallationBehavior> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.InstallationBehavior)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn IsBeta(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsBeta)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsDownloaded(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsDownloaded)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsHidden(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsHidden)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetIsHidden<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetIsHidden)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn IsInstalled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsInstalled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsMandatory(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsMandatory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsUninstallable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsUninstallable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Languages(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Languages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn LastDeploymentChangeTime(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LastDeploymentChangeTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn MaxDownloadSize(&self) -> windows_core::Result<super::super::Foundation::DECIMAL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.MaxDownloadSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn MinDownloadSize(&self) -> windows_core::Result<super::super::Foundation::DECIMAL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.MinDownloadSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MoreInfoUrls(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.MoreInfoUrls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn MsrcSeverity(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.MsrcSeverity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn RecommendedCpuSpeed(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RecommendedCpuSpeed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RecommendedHardDiskSpace(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RecommendedHardDiskSpace)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RecommendedMemory(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RecommendedMemory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ReleaseNotes(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ReleaseNotes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SecurityBulletinIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SecurityBulletinIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SupersededUpdateIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SupersededUpdateIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SupportUrl(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SupportUrl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Type(&self) -> windows_core::Result<UpdateType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn UninstallationNotes(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.UninstallationNotes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UninstallationBehavior(&self) -> windows_core::Result<IInstallationBehavior> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.UninstallationBehavior)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UninstallationSteps(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.UninstallationSteps)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn KBArticleIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.KBArticleIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AcceptEula(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.AcceptEula)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn DeploymentAction(&self) -> windows_core::Result<DeploymentAction> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DeploymentAction)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn CopyFromCache<P0, P1>(&self, path: P0, toextractcabfiles: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.CopyFromCache)(windows_core::Interface::as_raw(self), path.param().abi(), toextractcabfiles.param().abi()).ok()
-    }
-    pub unsafe fn DownloadPriority(&self) -> windows_core::Result<DownloadPriority> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DownloadPriority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DownloadContents(&self) -> windows_core::Result<IUpdateDownloadContentCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DownloadContents)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn RebootRequired(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).RebootRequired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1675,226 +1591,16 @@ pub struct IUpdate2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdate3, IUpdate3_Vtbl, 0x112eda6b_95b3_476f_9d90_aee82c6b8181);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdate3 {
+    type Target = IUpdate2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdate3, windows_core::IUnknown, super::Com::IDispatch, IUpdate, IUpdate2);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdate3 {
-    pub unsafe fn Title(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Title)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AutoSelectOnWebSites(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.AutoSelectOnWebSites)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BundledUpdates(&self) -> windows_core::Result<IUpdateCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.BundledUpdates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn CanRequireSource(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CanRequireSource)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Categories(&self) -> windows_core::Result<ICategoryCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Categories)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Deadline(&self) -> windows_core::Result<windows_core::VARIANT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Deadline)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DeltaCompressedContentAvailable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.DeltaCompressedContentAvailable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DeltaCompressedContentPreferred(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.DeltaCompressedContentPreferred)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Description)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn EulaAccepted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.EulaAccepted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn EulaText(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.EulaText)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn HandlerID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.HandlerID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Identity(&self) -> windows_core::Result<IUpdateIdentity> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Identity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Image(&self) -> windows_core::Result<IImageInformation> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Image)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InstallationBehavior(&self) -> windows_core::Result<IInstallationBehavior> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.InstallationBehavior)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn IsBeta(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsBeta)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsDownloaded(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsDownloaded)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsHidden(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsHidden)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetIsHidden<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetIsHidden)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn IsInstalled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsInstalled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsMandatory(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsMandatory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsUninstallable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsUninstallable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Languages(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Languages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn LastDeploymentChangeTime(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.LastDeploymentChangeTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn MaxDownloadSize(&self) -> windows_core::Result<super::super::Foundation::DECIMAL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.MaxDownloadSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn MinDownloadSize(&self) -> windows_core::Result<super::super::Foundation::DECIMAL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.MinDownloadSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MoreInfoUrls(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.MoreInfoUrls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn MsrcSeverity(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.MsrcSeverity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn RecommendedCpuSpeed(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.RecommendedCpuSpeed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RecommendedHardDiskSpace(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.RecommendedHardDiskSpace)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RecommendedMemory(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.RecommendedMemory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ReleaseNotes(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ReleaseNotes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SecurityBulletinIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.SecurityBulletinIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SupersededUpdateIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.SupersededUpdateIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SupportUrl(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.SupportUrl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Type(&self) -> windows_core::Result<UpdateType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn UninstallationNotes(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.UninstallationNotes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UninstallationBehavior(&self) -> windows_core::Result<IInstallationBehavior> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.UninstallationBehavior)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UninstallationSteps(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.UninstallationSteps)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn KBArticleIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.KBArticleIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AcceptEula(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.AcceptEula)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn DeploymentAction(&self) -> windows_core::Result<DeploymentAction> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.DeploymentAction)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn CopyFromCache<P0, P1>(&self, path: P0, toextractcabfiles: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.CopyFromCache)(windows_core::Interface::as_raw(self), path.param().abi(), toextractcabfiles.param().abi()).ok()
-    }
-    pub unsafe fn DownloadPriority(&self) -> windows_core::Result<DownloadPriority> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.DownloadPriority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DownloadContents(&self) -> windows_core::Result<IUpdateDownloadContentCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.DownloadContents)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn RebootRequired(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RebootRequired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsPresent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsPresent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CveIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CveIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyToCache<P0>(&self, pfiles: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IStringCollection>,
-    {
-        (windows_core::Interface::vtable(self).base__.CopyToCache)(windows_core::Interface::as_raw(self), pfiles.param().abi()).ok()
-    }
     pub unsafe fn BrowseOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).BrowseOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1909,230 +1615,16 @@ pub struct IUpdate3_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdate4, IUpdate4_Vtbl, 0x27e94b0d_5139_49a2_9a61_93522dc54652);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdate4 {
+    type Target = IUpdate3;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdate4, windows_core::IUnknown, super::Com::IDispatch, IUpdate, IUpdate2, IUpdate3);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdate4 {
-    pub unsafe fn Title(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.Title)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AutoSelectOnWebSites(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.AutoSelectOnWebSites)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BundledUpdates(&self) -> windows_core::Result<IUpdateCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.BundledUpdates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn CanRequireSource(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.CanRequireSource)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Categories(&self) -> windows_core::Result<ICategoryCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.Categories)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Deadline(&self) -> windows_core::Result<windows_core::VARIANT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.Deadline)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DeltaCompressedContentAvailable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.DeltaCompressedContentAvailable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DeltaCompressedContentPreferred(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.DeltaCompressedContentPreferred)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.Description)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn EulaAccepted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.EulaAccepted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn EulaText(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.EulaText)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn HandlerID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.HandlerID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Identity(&self) -> windows_core::Result<IUpdateIdentity> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.Identity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Image(&self) -> windows_core::Result<IImageInformation> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.Image)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InstallationBehavior(&self) -> windows_core::Result<IInstallationBehavior> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.InstallationBehavior)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn IsBeta(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.IsBeta)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsDownloaded(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.IsDownloaded)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsHidden(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.IsHidden)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetIsHidden<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetIsHidden)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn IsInstalled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.IsInstalled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsMandatory(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.IsMandatory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsUninstallable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.IsUninstallable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Languages(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.Languages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn LastDeploymentChangeTime(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.LastDeploymentChangeTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn MaxDownloadSize(&self) -> windows_core::Result<super::super::Foundation::DECIMAL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.MaxDownloadSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn MinDownloadSize(&self) -> windows_core::Result<super::super::Foundation::DECIMAL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.MinDownloadSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MoreInfoUrls(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.MoreInfoUrls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn MsrcSeverity(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.MsrcSeverity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn RecommendedCpuSpeed(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.RecommendedCpuSpeed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RecommendedHardDiskSpace(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.RecommendedHardDiskSpace)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RecommendedMemory(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.RecommendedMemory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ReleaseNotes(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.ReleaseNotes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SecurityBulletinIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.SecurityBulletinIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SupersededUpdateIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.SupersededUpdateIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SupportUrl(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.SupportUrl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Type(&self) -> windows_core::Result<UpdateType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn UninstallationNotes(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.UninstallationNotes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UninstallationBehavior(&self) -> windows_core::Result<IInstallationBehavior> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.UninstallationBehavior)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UninstallationSteps(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.UninstallationSteps)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn KBArticleIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.KBArticleIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AcceptEula(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.AcceptEula)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn DeploymentAction(&self) -> windows_core::Result<DeploymentAction> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.DeploymentAction)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn CopyFromCache<P0, P1>(&self, path: P0, toextractcabfiles: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.CopyFromCache)(windows_core::Interface::as_raw(self), path.param().abi(), toextractcabfiles.param().abi()).ok()
-    }
-    pub unsafe fn DownloadPriority(&self) -> windows_core::Result<DownloadPriority> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.DownloadPriority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DownloadContents(&self) -> windows_core::Result<IUpdateDownloadContentCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.DownloadContents)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn RebootRequired(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.RebootRequired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsPresent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsPresent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CveIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CveIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyToCache<P0>(&self, pfiles: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IStringCollection>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.CopyToCache)(windows_core::Interface::as_raw(self), pfiles.param().abi()).ok()
-    }
-    pub unsafe fn BrowseOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.BrowseOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     pub unsafe fn PerUser(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).PerUser)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2147,234 +1639,16 @@ pub struct IUpdate4_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdate5, IUpdate5_Vtbl, 0xc1c2f21a_d2f4_4902_b5c6_8a081c19a890);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdate5 {
+    type Target = IUpdate4;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdate5, windows_core::IUnknown, super::Com::IDispatch, IUpdate, IUpdate2, IUpdate3, IUpdate4);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdate5 {
-    pub unsafe fn Title(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.Title)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AutoSelectOnWebSites(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.AutoSelectOnWebSites)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BundledUpdates(&self) -> windows_core::Result<IUpdateCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.BundledUpdates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn CanRequireSource(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.CanRequireSource)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Categories(&self) -> windows_core::Result<ICategoryCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.Categories)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Deadline(&self) -> windows_core::Result<windows_core::VARIANT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.Deadline)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DeltaCompressedContentAvailable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.DeltaCompressedContentAvailable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DeltaCompressedContentPreferred(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.DeltaCompressedContentPreferred)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.Description)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn EulaAccepted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.EulaAccepted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn EulaText(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.EulaText)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn HandlerID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.HandlerID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Identity(&self) -> windows_core::Result<IUpdateIdentity> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.Identity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Image(&self) -> windows_core::Result<IImageInformation> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.Image)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InstallationBehavior(&self) -> windows_core::Result<IInstallationBehavior> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.InstallationBehavior)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn IsBeta(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.IsBeta)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsDownloaded(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.IsDownloaded)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsHidden(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.IsHidden)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetIsHidden<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetIsHidden)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn IsInstalled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.IsInstalled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsMandatory(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.IsMandatory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsUninstallable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.IsUninstallable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Languages(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.Languages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn LastDeploymentChangeTime(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.LastDeploymentChangeTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn MaxDownloadSize(&self) -> windows_core::Result<super::super::Foundation::DECIMAL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.MaxDownloadSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn MinDownloadSize(&self) -> windows_core::Result<super::super::Foundation::DECIMAL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.MinDownloadSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MoreInfoUrls(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.MoreInfoUrls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn MsrcSeverity(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.MsrcSeverity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn RecommendedCpuSpeed(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.RecommendedCpuSpeed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RecommendedHardDiskSpace(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.RecommendedHardDiskSpace)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RecommendedMemory(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.RecommendedMemory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ReleaseNotes(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ReleaseNotes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SecurityBulletinIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SecurityBulletinIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SupersededUpdateIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SupersededUpdateIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SupportUrl(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SupportUrl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Type(&self) -> windows_core::Result<UpdateType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn UninstallationNotes(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.UninstallationNotes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UninstallationBehavior(&self) -> windows_core::Result<IInstallationBehavior> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.UninstallationBehavior)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UninstallationSteps(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.UninstallationSteps)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn KBArticleIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.KBArticleIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AcceptEula(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.AcceptEula)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn DeploymentAction(&self) -> windows_core::Result<DeploymentAction> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.DeploymentAction)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn CopyFromCache<P0, P1>(&self, path: P0, toextractcabfiles: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.CopyFromCache)(windows_core::Interface::as_raw(self), path.param().abi(), toextractcabfiles.param().abi()).ok()
-    }
-    pub unsafe fn DownloadPriority(&self) -> windows_core::Result<DownloadPriority> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.DownloadPriority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DownloadContents(&self) -> windows_core::Result<IUpdateDownloadContentCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.DownloadContents)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn RebootRequired(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.RebootRequired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsPresent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.IsPresent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CveIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.CveIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyToCache<P0>(&self, pfiles: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IStringCollection>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.CopyToCache)(windows_core::Interface::as_raw(self), pfiles.param().abi()).ok()
-    }
-    pub unsafe fn BrowseOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.BrowseOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn PerUser(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.PerUser)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     pub unsafe fn AutoSelection(&self) -> windows_core::Result<AutoSelectionMode> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).AutoSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2393,6 +1667,13 @@ pub struct IUpdate5_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateCollection, IUpdateCollection_Vtbl, 0x07f7438c_7709_4ca5_b518_91279288134e);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateCollection {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2481,6 +1762,13 @@ pub struct IUpdateCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateDownloadContent, IUpdateDownloadContent_Vtbl, 0x54a2cb2d_9a0c_48b6_8a50_9abb69ee2d02);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateDownloadContent {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateDownloadContent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateDownloadContent {
@@ -2498,13 +1786,16 @@ pub struct IUpdateDownloadContent_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateDownloadContent2, IUpdateDownloadContent2_Vtbl, 0xc97ad11b_f257_420b_9d9f_377f733f6f68);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateDownloadContent2 {
+    type Target = IUpdateDownloadContent;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateDownloadContent2, windows_core::IUnknown, super::Com::IDispatch, IUpdateDownloadContent);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateDownloadContent2 {
-    pub unsafe fn DownloadUrl(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DownloadUrl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn IsDeltaCompressedContent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).IsDeltaCompressedContent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2518,6 +1809,13 @@ pub struct IUpdateDownloadContent2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateDownloadContentCollection, IUpdateDownloadContentCollection_Vtbl, 0xbc5513c8_b3b8_4bf7_a4d4_361c0d8c88ba);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateDownloadContentCollection {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateDownloadContentCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2550,6 +1848,13 @@ pub struct IUpdateDownloadContentCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateDownloadResult, IUpdateDownloadResult_Vtbl, 0xbf99af76_b575_42ad_8aa4_33cbb5477af1);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateDownloadResult {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateDownloadResult, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateDownloadResult {
@@ -2571,6 +1876,13 @@ pub struct IUpdateDownloadResult_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateDownloader, IUpdateDownloader_Vtbl, 0x68f1c6f9_7ecc_4666_a464_247fe12496c3);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateDownloader {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateDownloader, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2672,6 +1984,13 @@ pub struct IUpdateDownloader_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateException, IUpdateException_Vtbl, 0xa376dd5e_09d4_427f_af7c_fed5b6e1c1d6);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateException {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateException, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateException {
@@ -2698,6 +2017,13 @@ pub struct IUpdateException_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateExceptionCollection, IUpdateExceptionCollection_Vtbl, 0x503626a3_8e14_4729_9355_0fe664bd2321);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateExceptionCollection {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateExceptionCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2729,6 +2055,13 @@ pub struct IUpdateExceptionCollection_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateHistoryEntry, IUpdateHistoryEntry_Vtbl, 0xbe56a644_af0e_4e0e_a311_c1d8e695cbff);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateHistoryEntry {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateHistoryEntry, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2820,67 +2153,16 @@ pub struct IUpdateHistoryEntry_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateHistoryEntry2, IUpdateHistoryEntry2_Vtbl, 0xc2bfb780_4539_4132_ab8c_0a8772013ab6);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateHistoryEntry2 {
+    type Target = IUpdateHistoryEntry;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateHistoryEntry2, windows_core::IUnknown, super::Com::IDispatch, IUpdateHistoryEntry);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateHistoryEntry2 {
-    pub unsafe fn Operation(&self) -> windows_core::Result<UpdateOperation> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Operation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ResultCode(&self) -> windows_core::Result<OperationResultCode> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ResultCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn HResult(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.HResult)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Date(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Date)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UpdateIdentity(&self) -> windows_core::Result<IUpdateIdentity> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.UpdateIdentity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Title(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Title)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Description)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn UnmappedResultCode(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.UnmappedResultCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ClientApplicationID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn ServerSelection(&self) -> windows_core::Result<ServerSelection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ServerSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ServiceID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ServiceID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UninstallationSteps(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.UninstallationSteps)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn UninstallationNotes(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.UninstallationNotes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SupportUrl(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SupportUrl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Categories(&self) -> windows_core::Result<ICategoryCollection> {
         let mut result__ = std::mem::zeroed();
@@ -2898,6 +2180,13 @@ pub struct IUpdateHistoryEntry2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateHistoryEntryCollection, IUpdateHistoryEntryCollection_Vtbl, 0xa7f04f3c_a290_435b_aadf_a116c3357a5c);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateHistoryEntryCollection {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateHistoryEntryCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2930,6 +2219,13 @@ pub struct IUpdateHistoryEntryCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateIdentity, IUpdateIdentity_Vtbl, 0x46297823_9940_4c09_aed9_cd3ea6d05968);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateIdentity {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateIdentity, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateIdentity {
@@ -2951,6 +2247,13 @@ pub struct IUpdateIdentity_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateInstallationResult, IUpdateInstallationResult_Vtbl, 0xd940f0f8_3cbb_4fd0_993f_471e7f2328ad);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateInstallationResult {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateInstallationResult, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2978,6 +2281,13 @@ pub struct IUpdateInstallationResult_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateInstaller, IUpdateInstaller_Vtbl, 0x7b929c68_ccdc_4226_96b1_8724600b54c2);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateInstaller {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateInstaller, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3163,133 +2473,16 @@ pub struct IUpdateInstaller_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateInstaller2, IUpdateInstaller2_Vtbl, 0x3442d4fe_224d_4cee_98cf_30e0c4d229e6);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateInstaller2 {
+    type Target = IUpdateInstaller;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateInstaller2, windows_core::IUnknown, super::Com::IDispatch, IUpdateInstaller);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateInstaller2 {
-    pub unsafe fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ClientApplicationID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetClientApplicationID<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetClientApplicationID)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn IsForced(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsForced)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetIsForced<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetIsForced)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn ParentHwnd(&self) -> windows_core::Result<super::super::Foundation::HWND> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ParentHwnd)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetParentHwnd<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetParentHwnd)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn SetParentWindow<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetParentWindow)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn ParentWindow(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ParentWindow)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Updates(&self) -> windows_core::Result<IUpdateCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Updates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetUpdates<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IUpdateCollection>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetUpdates)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BeginInstall<P0, P1, P2>(&self, onprogresschanged: P0, oncompleted: P1, state: P2) -> windows_core::Result<IInstallationJob>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-        P1: windows_core::Param<windows_core::IUnknown>,
-        P2: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.BeginInstall)(windows_core::Interface::as_raw(self), onprogresschanged.param().abi(), oncompleted.param().abi(), state.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BeginUninstall<P0, P1, P2>(&self, onprogresschanged: P0, oncompleted: P1, state: P2) -> windows_core::Result<IInstallationJob>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-        P1: windows_core::Param<windows_core::IUnknown>,
-        P2: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.BeginUninstall)(windows_core::Interface::as_raw(self), onprogresschanged.param().abi(), oncompleted.param().abi(), state.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndInstall<P0>(&self, value: P0) -> windows_core::Result<IInstallationResult>
-    where
-        P0: windows_core::Param<IInstallationJob>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EndInstall)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndUninstall<P0>(&self, value: P0) -> windows_core::Result<IInstallationResult>
-    where
-        P0: windows_core::Param<IInstallationJob>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EndUninstall)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Install(&self) -> windows_core::Result<IInstallationResult> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Install)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RunWizard<P0>(&self, dialogtitle: P0) -> windows_core::Result<IInstallationResult>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RunWizard)(windows_core::Interface::as_raw(self), dialogtitle.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn IsBusy(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsBusy)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Uninstall(&self) -> windows_core::Result<IInstallationResult> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Uninstall)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AllowSourcePrompts(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.AllowSourcePrompts)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetAllowSourcePrompts<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetAllowSourcePrompts)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn RebootRequiredBeforeInstallation(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RebootRequiredBeforeInstallation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     pub unsafe fn ForceQuiet(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).ForceQuiet)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3311,143 +2504,16 @@ pub struct IUpdateInstaller2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateInstaller3, IUpdateInstaller3_Vtbl, 0x16d11c35_099a_48d0_8338_5fae64047f8e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateInstaller3 {
+    type Target = IUpdateInstaller2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateInstaller3, windows_core::IUnknown, super::Com::IDispatch, IUpdateInstaller, IUpdateInstaller2);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateInstaller3 {
-    pub unsafe fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ClientApplicationID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetClientApplicationID<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetClientApplicationID)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn IsForced(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsForced)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetIsForced<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetIsForced)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn ParentHwnd(&self) -> windows_core::Result<super::super::Foundation::HWND> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ParentHwnd)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetParentHwnd<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetParentHwnd)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn SetParentWindow<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetParentWindow)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn ParentWindow(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ParentWindow)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Updates(&self) -> windows_core::Result<IUpdateCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Updates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetUpdates<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IUpdateCollection>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetUpdates)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BeginInstall<P0, P1, P2>(&self, onprogresschanged: P0, oncompleted: P1, state: P2) -> windows_core::Result<IInstallationJob>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-        P1: windows_core::Param<windows_core::IUnknown>,
-        P2: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.BeginInstall)(windows_core::Interface::as_raw(self), onprogresschanged.param().abi(), oncompleted.param().abi(), state.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BeginUninstall<P0, P1, P2>(&self, onprogresschanged: P0, oncompleted: P1, state: P2) -> windows_core::Result<IInstallationJob>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-        P1: windows_core::Param<windows_core::IUnknown>,
-        P2: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.BeginUninstall)(windows_core::Interface::as_raw(self), onprogresschanged.param().abi(), oncompleted.param().abi(), state.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndInstall<P0>(&self, value: P0) -> windows_core::Result<IInstallationResult>
-    where
-        P0: windows_core::Param<IInstallationJob>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.EndInstall)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndUninstall<P0>(&self, value: P0) -> windows_core::Result<IInstallationResult>
-    where
-        P0: windows_core::Param<IInstallationJob>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.EndUninstall)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Install(&self) -> windows_core::Result<IInstallationResult> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Install)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RunWizard<P0>(&self, dialogtitle: P0) -> windows_core::Result<IInstallationResult>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.RunWizard)(windows_core::Interface::as_raw(self), dialogtitle.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn IsBusy(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsBusy)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Uninstall(&self) -> windows_core::Result<IInstallationResult> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Uninstall)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AllowSourcePrompts(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.AllowSourcePrompts)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetAllowSourcePrompts<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetAllowSourcePrompts)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn RebootRequiredBeforeInstallation(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.RebootRequiredBeforeInstallation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ForceQuiet(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ForceQuiet)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetForceQuiet<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetForceQuiet)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
     pub unsafe fn AttemptCloseAppsIfNecessary(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).AttemptCloseAppsIfNecessary)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3469,153 +2535,16 @@ pub struct IUpdateInstaller3_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateInstaller4, IUpdateInstaller4_Vtbl, 0xef8208ea_2304_492d_9109_23813b0958e1);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateInstaller4 {
+    type Target = IUpdateInstaller3;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateInstaller4, windows_core::IUnknown, super::Com::IDispatch, IUpdateInstaller, IUpdateInstaller2, IUpdateInstaller3);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateInstaller4 {
-    pub unsafe fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.ClientApplicationID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetClientApplicationID<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetClientApplicationID)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn IsForced(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.IsForced)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetIsForced<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetIsForced)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn ParentHwnd(&self) -> windows_core::Result<super::super::Foundation::HWND> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.ParentHwnd)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetParentHwnd<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetParentHwnd)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn SetParentWindow<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetParentWindow)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn ParentWindow(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.ParentWindow)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Updates(&self) -> windows_core::Result<IUpdateCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.Updates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetUpdates<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IUpdateCollection>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetUpdates)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BeginInstall<P0, P1, P2>(&self, onprogresschanged: P0, oncompleted: P1, state: P2) -> windows_core::Result<IInstallationJob>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-        P1: windows_core::Param<windows_core::IUnknown>,
-        P2: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.BeginInstall)(windows_core::Interface::as_raw(self), onprogresschanged.param().abi(), oncompleted.param().abi(), state.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BeginUninstall<P0, P1, P2>(&self, onprogresschanged: P0, oncompleted: P1, state: P2) -> windows_core::Result<IInstallationJob>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-        P1: windows_core::Param<windows_core::IUnknown>,
-        P2: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.BeginUninstall)(windows_core::Interface::as_raw(self), onprogresschanged.param().abi(), oncompleted.param().abi(), state.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndInstall<P0>(&self, value: P0) -> windows_core::Result<IInstallationResult>
-    where
-        P0: windows_core::Param<IInstallationJob>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.EndInstall)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndUninstall<P0>(&self, value: P0) -> windows_core::Result<IInstallationResult>
-    where
-        P0: windows_core::Param<IInstallationJob>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.EndUninstall)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Install(&self) -> windows_core::Result<IInstallationResult> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.Install)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RunWizard<P0>(&self, dialogtitle: P0) -> windows_core::Result<IInstallationResult>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.RunWizard)(windows_core::Interface::as_raw(self), dialogtitle.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn IsBusy(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.IsBusy)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Uninstall(&self) -> windows_core::Result<IInstallationResult> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.Uninstall)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AllowSourcePrompts(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.AllowSourcePrompts)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetAllowSourcePrompts<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetAllowSourcePrompts)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn RebootRequiredBeforeInstallation(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.RebootRequiredBeforeInstallation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ForceQuiet(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ForceQuiet)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetForceQuiet<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetForceQuiet)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn AttemptCloseAppsIfNecessary(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.AttemptCloseAppsIfNecessary)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetAttemptCloseAppsIfNecessary<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetAttemptCloseAppsIfNecessary)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
     pub unsafe fn Commit(&self, dwflags: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self), dwflags).ok()
     }
@@ -3627,6 +2556,12 @@ pub struct IUpdateInstaller4_Vtbl {
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUpdateLockdown, IUpdateLockdown_Vtbl, 0xa976c28d_75a1_42aa_94ae_8af8b872089a);
+impl std::ops::Deref for IUpdateLockdown {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IUpdateLockdown, windows_core::IUnknown);
 impl IUpdateLockdown {
     pub unsafe fn LockDown(&self, flags: i32) -> windows_core::Result<()> {
@@ -3640,6 +2575,13 @@ pub struct IUpdateLockdown_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateSearcher, IUpdateSearcher_Vtbl, 0x8f45abf1_f9ae_4b95_a933_f0f66e5056ea);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateSearcher {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateSearcher, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3782,108 +2724,16 @@ pub struct IUpdateSearcher_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateSearcher2, IUpdateSearcher2_Vtbl, 0x4cbdcb2d_1589_4beb_bd1c_3e582ff0add0);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateSearcher2 {
+    type Target = IUpdateSearcher;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateSearcher2, windows_core::IUnknown, super::Com::IDispatch, IUpdateSearcher);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateSearcher2 {
-    pub unsafe fn CanAutomaticallyUpgradeService(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CanAutomaticallyUpgradeService)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetCanAutomaticallyUpgradeService<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetCanAutomaticallyUpgradeService)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ClientApplicationID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetClientApplicationID<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetClientApplicationID)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn IncludePotentiallySupersededUpdates(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IncludePotentiallySupersededUpdates)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetIncludePotentiallySupersededUpdates<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetIncludePotentiallySupersededUpdates)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn ServerSelection(&self) -> windows_core::Result<ServerSelection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ServerSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetServerSelection(&self, value: ServerSelection) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetServerSelection)(windows_core::Interface::as_raw(self), value).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BeginSearch<P0, P1, P2>(&self, criteria: P0, oncompleted: P1, state: P2) -> windows_core::Result<ISearchJob>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::IUnknown>,
-        P2: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.BeginSearch)(windows_core::Interface::as_raw(self), criteria.param().abi(), oncompleted.param().abi(), state.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndSearch<P0>(&self, searchjob: P0) -> windows_core::Result<ISearchResult>
-    where
-        P0: windows_core::Param<ISearchJob>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EndSearch)(windows_core::Interface::as_raw(self), searchjob.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn EscapeString<P0>(&self, unescaped: P0) -> windows_core::Result<windows_core::BSTR>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EscapeString)(windows_core::Interface::as_raw(self), unescaped.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn QueryHistory(&self, startindex: i32, count: i32) -> windows_core::Result<IUpdateHistoryEntryCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.QueryHistory)(windows_core::Interface::as_raw(self), startindex, count, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Search<P0>(&self, criteria: P0) -> windows_core::Result<ISearchResult>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Search)(windows_core::Interface::as_raw(self), criteria.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Online(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Online)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetOnline<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetOnline)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn GetTotalHistoryCount(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetTotalHistoryCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ServiceID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ServiceID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetServiceID<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetServiceID)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
     pub unsafe fn IgnoreDownloadPriority(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).IgnoreDownloadPriority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3905,118 +2755,16 @@ pub struct IUpdateSearcher2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateSearcher3, IUpdateSearcher3_Vtbl, 0x04c6895d_eaf2_4034_97f3_311de9be413a);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateSearcher3 {
+    type Target = IUpdateSearcher2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateSearcher3, windows_core::IUnknown, super::Com::IDispatch, IUpdateSearcher, IUpdateSearcher2);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateSearcher3 {
-    pub unsafe fn CanAutomaticallyUpgradeService(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CanAutomaticallyUpgradeService)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetCanAutomaticallyUpgradeService<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetCanAutomaticallyUpgradeService)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ClientApplicationID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetClientApplicationID<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetClientApplicationID)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn IncludePotentiallySupersededUpdates(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IncludePotentiallySupersededUpdates)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetIncludePotentiallySupersededUpdates<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetIncludePotentiallySupersededUpdates)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn ServerSelection(&self) -> windows_core::Result<ServerSelection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ServerSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetServerSelection(&self, value: ServerSelection) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetServerSelection)(windows_core::Interface::as_raw(self), value).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BeginSearch<P0, P1, P2>(&self, criteria: P0, oncompleted: P1, state: P2) -> windows_core::Result<ISearchJob>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::IUnknown>,
-        P2: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.BeginSearch)(windows_core::Interface::as_raw(self), criteria.param().abi(), oncompleted.param().abi(), state.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndSearch<P0>(&self, searchjob: P0) -> windows_core::Result<ISearchResult>
-    where
-        P0: windows_core::Param<ISearchJob>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.EndSearch)(windows_core::Interface::as_raw(self), searchjob.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn EscapeString<P0>(&self, unescaped: P0) -> windows_core::Result<windows_core::BSTR>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.EscapeString)(windows_core::Interface::as_raw(self), unescaped.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn QueryHistory(&self, startindex: i32, count: i32) -> windows_core::Result<IUpdateHistoryEntryCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.QueryHistory)(windows_core::Interface::as_raw(self), startindex, count, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Search<P0>(&self, criteria: P0) -> windows_core::Result<ISearchResult>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Search)(windows_core::Interface::as_raw(self), criteria.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Online(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Online)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetOnline<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetOnline)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn GetTotalHistoryCount(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetTotalHistoryCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ServiceID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ServiceID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetServiceID<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetServiceID)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn IgnoreDownloadPriority(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IgnoreDownloadPriority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetIgnoreDownloadPriority<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetIgnoreDownloadPriority)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
     pub unsafe fn SearchScope(&self) -> windows_core::Result<SearchScope> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).SearchScope)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4034,6 +2782,13 @@ pub struct IUpdateSearcher3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateService, IUpdateService_Vtbl, 0x76b3b17e_aed6_4da5_85f0_83587f81abe3);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateService {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateService, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4116,62 +2871,16 @@ pub struct IUpdateService_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateService2, IUpdateService2_Vtbl, 0x1518b460_6518_4172_940f_c75883b24ceb);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateService2 {
+    type Target = IUpdateService;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateService2, windows_core::IUnknown, super::Com::IDispatch, IUpdateService);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateService2 {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn ContentValidationCert(&self) -> windows_core::Result<windows_core::VARIANT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ContentValidationCert)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn ExpirationDate(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ExpirationDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsManaged(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsManaged)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsRegisteredWithAU(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsRegisteredWithAU)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IssueDate(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IssueDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn OffersWindowsUpdates(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.OffersWindowsUpdates)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RedirectUrls(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RedirectUrls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn ServiceID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ServiceID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn IsScanPackageService(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsScanPackageService)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn CanRegisterWithAU(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CanRegisterWithAU)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ServiceUrl(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ServiceUrl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetupPrefix(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SetupPrefix)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn IsDefaultAUService(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).IsDefaultAUService)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4185,6 +2894,13 @@ pub struct IUpdateService2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateServiceCollection, IUpdateServiceCollection_Vtbl, 0x9b0353aa_0e52_44ff_b8b0_1f7fa0437f88);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateServiceCollection {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateServiceCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4216,6 +2932,13 @@ pub struct IUpdateServiceCollection_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateServiceManager, IUpdateServiceManager_Vtbl, 0x23857e3c_02ba_44a3_9423_b1c900805f37);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateServiceManager {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateServiceManager, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4293,57 +3016,16 @@ pub struct IUpdateServiceManager_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateServiceManager2, IUpdateServiceManager2_Vtbl, 0x0bb8531d_7e8d_424f_986c_a0b8f60a3e7b);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateServiceManager2 {
+    type Target = IUpdateServiceManager;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateServiceManager2, windows_core::IUnknown, super::Com::IDispatch, IUpdateServiceManager);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateServiceManager2 {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Services(&self) -> windows_core::Result<IUpdateServiceCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Services)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddService<P0, P1>(&self, serviceid: P0, authorizationcabpath: P1) -> windows_core::Result<IUpdateService>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.AddService)(windows_core::Interface::as_raw(self), serviceid.param().abi(), authorizationcabpath.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn RegisterServiceWithAU<P0>(&self, serviceid: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.RegisterServiceWithAU)(windows_core::Interface::as_raw(self), serviceid.param().abi()).ok()
-    }
-    pub unsafe fn RemoveService<P0>(&self, serviceid: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.RemoveService)(windows_core::Interface::as_raw(self), serviceid.param().abi()).ok()
-    }
-    pub unsafe fn UnregisterServiceWithAU<P0>(&self, serviceid: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.UnregisterServiceWithAU)(windows_core::Interface::as_raw(self), serviceid.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddScanPackageService<P0, P1>(&self, servicename: P0, scanfilelocation: P1, flags: i32) -> windows_core::Result<IUpdateService>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.AddScanPackageService)(windows_core::Interface::as_raw(self), servicename.param().abi(), scanfilelocation.param().abi(), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetOption<P0, P1>(&self, optionname: P0, optionvalue: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetOption)(windows_core::Interface::as_raw(self), optionname.param().abi(), optionvalue.param().abi()).ok()
-    }
     pub unsafe fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).ClientApplicationID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4390,6 +3072,13 @@ pub struct IUpdateServiceManager2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateServiceRegistration, IUpdateServiceRegistration_Vtbl, 0xdde02280_12b3_4e0b_937b_6747f6acb286);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateServiceRegistration {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateServiceRegistration, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateServiceRegistration {
@@ -4425,6 +3114,13 @@ pub struct IUpdateServiceRegistration_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateSession, IUpdateSession_Vtbl, 0x816858a4_260d_4260_933a_2585f1abc76b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateSession {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateSession, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4502,50 +3198,16 @@ pub struct IUpdateSession_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateSession2, IUpdateSession2_Vtbl, 0x91caf7b0_eb23_49ed_9937_c52d817f46f7);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateSession2 {
+    type Target = IUpdateSession;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateSession2, windows_core::IUnknown, super::Com::IDispatch, IUpdateSession);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateSession2 {
-    pub unsafe fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ClientApplicationID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetClientApplicationID<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetClientApplicationID)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn WebProxy(&self) -> windows_core::Result<IWebProxy> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.WebProxy)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetWebProxy<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWebProxy>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetWebProxy)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateUpdateSearcher(&self) -> windows_core::Result<IUpdateSearcher> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateUpdateSearcher)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateUpdateDownloader(&self) -> windows_core::Result<IUpdateDownloader> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateUpdateDownloader)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateUpdateInstaller(&self) -> windows_core::Result<IUpdateInstaller> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateUpdateInstaller)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn UserLocale(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).UserLocale)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4564,57 +3226,16 @@ pub struct IUpdateSession2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateSession3, IUpdateSession3_Vtbl, 0x918efd1e_b5d8_4c90_8540_aeb9bdc56f9d);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUpdateSession3 {
+    type Target = IUpdateSession2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUpdateSession3, windows_core::IUnknown, super::Com::IDispatch, IUpdateSession, IUpdateSession2);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateSession3 {
-    pub unsafe fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ClientApplicationID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetClientApplicationID<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetClientApplicationID)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn WebProxy(&self) -> windows_core::Result<IWebProxy> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.WebProxy)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetWebProxy<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWebProxy>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetWebProxy)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateUpdateSearcher(&self) -> windows_core::Result<IUpdateSearcher> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CreateUpdateSearcher)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateUpdateDownloader(&self) -> windows_core::Result<IUpdateDownloader> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CreateUpdateDownloader)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateUpdateInstaller(&self) -> windows_core::Result<IUpdateInstaller> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CreateUpdateInstaller)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn UserLocale(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.UserLocale)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetUserLocale(&self, lcid: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetUserLocale)(windows_core::Interface::as_raw(self), lcid).ok()
-    }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateUpdateServiceManager(&self) -> windows_core::Result<IUpdateServiceManager2> {
         let mut result__ = std::mem::zeroed();
@@ -4644,6 +3265,13 @@ pub struct IUpdateSession3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWebProxy, IWebProxy_Vtbl, 0x174c81fe_aecd_4dae_b8a0_2c6318dd86a8);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWebProxy {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWebProxy, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4753,206 +3381,16 @@ pub struct IWebProxy_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWindowsDriverUpdate, IWindowsDriverUpdate_Vtbl, 0xb383cd1a_5ce9_4504_9f63_764b1236f191);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWindowsDriverUpdate {
+    type Target = IUpdate;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWindowsDriverUpdate, windows_core::IUnknown, super::Com::IDispatch, IUpdate);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsDriverUpdate {
-    pub unsafe fn Title(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Title)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AutoSelectOnWebSites(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.AutoSelectOnWebSites)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BundledUpdates(&self) -> windows_core::Result<IUpdateCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.BundledUpdates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn CanRequireSource(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CanRequireSource)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Categories(&self) -> windows_core::Result<ICategoryCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Categories)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Deadline(&self) -> windows_core::Result<windows_core::VARIANT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Deadline)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DeltaCompressedContentAvailable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DeltaCompressedContentAvailable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DeltaCompressedContentPreferred(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DeltaCompressedContentPreferred)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Description)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn EulaAccepted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EulaAccepted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn EulaText(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EulaText)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn HandlerID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.HandlerID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Identity(&self) -> windows_core::Result<IUpdateIdentity> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Identity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Image(&self) -> windows_core::Result<IImageInformation> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Image)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InstallationBehavior(&self) -> windows_core::Result<IInstallationBehavior> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.InstallationBehavior)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn IsBeta(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsBeta)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsDownloaded(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsDownloaded)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsHidden(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsHidden)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetIsHidden<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetIsHidden)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn IsInstalled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsInstalled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsMandatory(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsMandatory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsUninstallable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsUninstallable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Languages(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Languages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn LastDeploymentChangeTime(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LastDeploymentChangeTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn MaxDownloadSize(&self) -> windows_core::Result<super::super::Foundation::DECIMAL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.MaxDownloadSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn MinDownloadSize(&self) -> windows_core::Result<super::super::Foundation::DECIMAL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.MinDownloadSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MoreInfoUrls(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.MoreInfoUrls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn MsrcSeverity(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.MsrcSeverity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn RecommendedCpuSpeed(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RecommendedCpuSpeed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RecommendedHardDiskSpace(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RecommendedHardDiskSpace)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RecommendedMemory(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RecommendedMemory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ReleaseNotes(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ReleaseNotes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SecurityBulletinIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SecurityBulletinIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SupersededUpdateIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SupersededUpdateIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SupportUrl(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SupportUrl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Type(&self) -> windows_core::Result<UpdateType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn UninstallationNotes(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.UninstallationNotes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UninstallationBehavior(&self) -> windows_core::Result<IInstallationBehavior> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.UninstallationBehavior)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UninstallationSteps(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.UninstallationSteps)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn KBArticleIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.KBArticleIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AcceptEula(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.AcceptEula)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn DeploymentAction(&self) -> windows_core::Result<DeploymentAction> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DeploymentAction)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn CopyFromCache<P0, P1>(&self, path: P0, toextractcabfiles: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.CopyFromCache)(windows_core::Interface::as_raw(self), path.param().abi(), toextractcabfiles.param().abi()).ok()
-    }
-    pub unsafe fn DownloadPriority(&self) -> windows_core::Result<DownloadPriority> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DownloadPriority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DownloadContents(&self) -> windows_core::Result<IUpdateDownloadContentCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DownloadContents)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn DriverClass(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).DriverClass)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5002,238 +3440,16 @@ pub struct IWindowsDriverUpdate_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWindowsDriverUpdate2, IWindowsDriverUpdate2_Vtbl, 0x615c4269_7a48_43bd_96b7_bf6ca27d6c3e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWindowsDriverUpdate2 {
+    type Target = IWindowsDriverUpdate;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWindowsDriverUpdate2, windows_core::IUnknown, super::Com::IDispatch, IUpdate, IWindowsDriverUpdate);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsDriverUpdate2 {
-    pub unsafe fn Title(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Title)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AutoSelectOnWebSites(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.AutoSelectOnWebSites)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BundledUpdates(&self) -> windows_core::Result<IUpdateCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.BundledUpdates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn CanRequireSource(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CanRequireSource)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Categories(&self) -> windows_core::Result<ICategoryCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Categories)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Deadline(&self) -> windows_core::Result<windows_core::VARIANT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Deadline)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DeltaCompressedContentAvailable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.DeltaCompressedContentAvailable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DeltaCompressedContentPreferred(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.DeltaCompressedContentPreferred)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Description)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn EulaAccepted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.EulaAccepted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn EulaText(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.EulaText)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn HandlerID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.HandlerID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Identity(&self) -> windows_core::Result<IUpdateIdentity> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Identity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Image(&self) -> windows_core::Result<IImageInformation> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Image)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InstallationBehavior(&self) -> windows_core::Result<IInstallationBehavior> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.InstallationBehavior)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn IsBeta(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsBeta)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsDownloaded(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsDownloaded)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsHidden(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsHidden)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetIsHidden<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetIsHidden)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn IsInstalled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsInstalled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsMandatory(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsMandatory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsUninstallable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsUninstallable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Languages(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Languages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn LastDeploymentChangeTime(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.LastDeploymentChangeTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn MaxDownloadSize(&self) -> windows_core::Result<super::super::Foundation::DECIMAL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.MaxDownloadSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn MinDownloadSize(&self) -> windows_core::Result<super::super::Foundation::DECIMAL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.MinDownloadSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MoreInfoUrls(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.MoreInfoUrls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn MsrcSeverity(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.MsrcSeverity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn RecommendedCpuSpeed(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.RecommendedCpuSpeed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RecommendedHardDiskSpace(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.RecommendedHardDiskSpace)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RecommendedMemory(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.RecommendedMemory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ReleaseNotes(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ReleaseNotes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SecurityBulletinIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.SecurityBulletinIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SupersededUpdateIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.SupersededUpdateIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SupportUrl(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.SupportUrl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Type(&self) -> windows_core::Result<UpdateType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn UninstallationNotes(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.UninstallationNotes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UninstallationBehavior(&self) -> windows_core::Result<IInstallationBehavior> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.UninstallationBehavior)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UninstallationSteps(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.UninstallationSteps)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn KBArticleIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.KBArticleIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AcceptEula(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.AcceptEula)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn DeploymentAction(&self) -> windows_core::Result<DeploymentAction> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.DeploymentAction)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn CopyFromCache<P0, P1>(&self, path: P0, toextractcabfiles: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.CopyFromCache)(windows_core::Interface::as_raw(self), path.param().abi(), toextractcabfiles.param().abi()).ok()
-    }
-    pub unsafe fn DownloadPriority(&self) -> windows_core::Result<DownloadPriority> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.DownloadPriority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DownloadContents(&self) -> windows_core::Result<IUpdateDownloadContentCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.DownloadContents)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DriverClass(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DriverClass)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DriverHardwareID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DriverHardwareID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DriverManufacturer(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DriverManufacturer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DriverModel(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DriverModel)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DriverProvider(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DriverProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DriverVerDate(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DriverVerDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DeviceProblemNumber(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DeviceProblemNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DeviceStatus(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DeviceStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     pub unsafe fn RebootRequired(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).RebootRequired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5273,258 +3489,16 @@ pub struct IWindowsDriverUpdate2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWindowsDriverUpdate3, IWindowsDriverUpdate3_Vtbl, 0x49ebd502_4a96_41bd_9e3e_4c5057f4250c);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWindowsDriverUpdate3 {
+    type Target = IWindowsDriverUpdate2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWindowsDriverUpdate3, windows_core::IUnknown, super::Com::IDispatch, IUpdate, IWindowsDriverUpdate, IWindowsDriverUpdate2);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsDriverUpdate3 {
-    pub unsafe fn Title(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.Title)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AutoSelectOnWebSites(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.AutoSelectOnWebSites)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BundledUpdates(&self) -> windows_core::Result<IUpdateCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.BundledUpdates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn CanRequireSource(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.CanRequireSource)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Categories(&self) -> windows_core::Result<ICategoryCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.Categories)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Deadline(&self) -> windows_core::Result<windows_core::VARIANT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.Deadline)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DeltaCompressedContentAvailable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.DeltaCompressedContentAvailable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DeltaCompressedContentPreferred(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.DeltaCompressedContentPreferred)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.Description)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn EulaAccepted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.EulaAccepted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn EulaText(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.EulaText)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn HandlerID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.HandlerID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Identity(&self) -> windows_core::Result<IUpdateIdentity> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.Identity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Image(&self) -> windows_core::Result<IImageInformation> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.Image)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InstallationBehavior(&self) -> windows_core::Result<IInstallationBehavior> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.InstallationBehavior)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn IsBeta(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.IsBeta)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsDownloaded(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.IsDownloaded)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsHidden(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.IsHidden)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetIsHidden<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetIsHidden)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn IsInstalled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.IsInstalled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsMandatory(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.IsMandatory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsUninstallable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.IsUninstallable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Languages(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.Languages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn LastDeploymentChangeTime(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.LastDeploymentChangeTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn MaxDownloadSize(&self) -> windows_core::Result<super::super::Foundation::DECIMAL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.MaxDownloadSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn MinDownloadSize(&self) -> windows_core::Result<super::super::Foundation::DECIMAL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.MinDownloadSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MoreInfoUrls(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.MoreInfoUrls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn MsrcSeverity(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.MsrcSeverity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn RecommendedCpuSpeed(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.RecommendedCpuSpeed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RecommendedHardDiskSpace(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.RecommendedHardDiskSpace)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RecommendedMemory(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.RecommendedMemory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ReleaseNotes(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.ReleaseNotes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SecurityBulletinIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.SecurityBulletinIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SupersededUpdateIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.SupersededUpdateIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SupportUrl(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.SupportUrl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Type(&self) -> windows_core::Result<UpdateType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn UninstallationNotes(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.UninstallationNotes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UninstallationBehavior(&self) -> windows_core::Result<IInstallationBehavior> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.UninstallationBehavior)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UninstallationSteps(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.UninstallationSteps)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn KBArticleIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.KBArticleIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AcceptEula(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.AcceptEula)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn DeploymentAction(&self) -> windows_core::Result<DeploymentAction> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.DeploymentAction)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn CopyFromCache<P0, P1>(&self, path: P0, toextractcabfiles: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.CopyFromCache)(windows_core::Interface::as_raw(self), path.param().abi(), toextractcabfiles.param().abi()).ok()
-    }
-    pub unsafe fn DownloadPriority(&self) -> windows_core::Result<DownloadPriority> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.DownloadPriority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DownloadContents(&self) -> windows_core::Result<IUpdateDownloadContentCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.DownloadContents)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DriverClass(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.DriverClass)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DriverHardwareID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.DriverHardwareID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DriverManufacturer(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.DriverManufacturer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DriverModel(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.DriverModel)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DriverProvider(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.DriverProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DriverVerDate(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.DriverVerDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DeviceProblemNumber(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.DeviceProblemNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DeviceStatus(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.DeviceStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RebootRequired(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RebootRequired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsPresent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsPresent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CveIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CveIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyToCache<P0>(&self, pfiles: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IStringCollection>,
-    {
-        (windows_core::Interface::vtable(self).base__.CopyToCache)(windows_core::Interface::as_raw(self), pfiles.param().abi()).ok()
-    }
     pub unsafe fn BrowseOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).BrowseOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5539,262 +3513,16 @@ pub struct IWindowsDriverUpdate3_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWindowsDriverUpdate4, IWindowsDriverUpdate4_Vtbl, 0x004c6a2b_0c19_4c69_9f5c_a269b2560db9);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWindowsDriverUpdate4 {
+    type Target = IWindowsDriverUpdate3;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWindowsDriverUpdate4, windows_core::IUnknown, super::Com::IDispatch, IUpdate, IWindowsDriverUpdate, IWindowsDriverUpdate2, IWindowsDriverUpdate3);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsDriverUpdate4 {
-    pub unsafe fn Title(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.Title)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AutoSelectOnWebSites(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.AutoSelectOnWebSites)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BundledUpdates(&self) -> windows_core::Result<IUpdateCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.BundledUpdates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn CanRequireSource(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.CanRequireSource)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Categories(&self) -> windows_core::Result<ICategoryCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.Categories)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Deadline(&self) -> windows_core::Result<windows_core::VARIANT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.Deadline)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DeltaCompressedContentAvailable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.DeltaCompressedContentAvailable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DeltaCompressedContentPreferred(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.DeltaCompressedContentPreferred)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.Description)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn EulaAccepted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.EulaAccepted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn EulaText(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.EulaText)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn HandlerID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.HandlerID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Identity(&self) -> windows_core::Result<IUpdateIdentity> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.Identity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Image(&self) -> windows_core::Result<IImageInformation> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.Image)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InstallationBehavior(&self) -> windows_core::Result<IInstallationBehavior> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.InstallationBehavior)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn IsBeta(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.IsBeta)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsDownloaded(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.IsDownloaded)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsHidden(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.IsHidden)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetIsHidden<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetIsHidden)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn IsInstalled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.IsInstalled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsMandatory(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.IsMandatory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsUninstallable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.IsUninstallable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Languages(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.Languages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn LastDeploymentChangeTime(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.LastDeploymentChangeTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn MaxDownloadSize(&self) -> windows_core::Result<super::super::Foundation::DECIMAL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.MaxDownloadSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn MinDownloadSize(&self) -> windows_core::Result<super::super::Foundation::DECIMAL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.MinDownloadSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MoreInfoUrls(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.MoreInfoUrls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn MsrcSeverity(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.MsrcSeverity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn RecommendedCpuSpeed(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.RecommendedCpuSpeed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RecommendedHardDiskSpace(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.RecommendedHardDiskSpace)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RecommendedMemory(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.RecommendedMemory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ReleaseNotes(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ReleaseNotes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SecurityBulletinIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SecurityBulletinIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SupersededUpdateIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SupersededUpdateIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SupportUrl(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SupportUrl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Type(&self) -> windows_core::Result<UpdateType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn UninstallationNotes(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.UninstallationNotes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UninstallationBehavior(&self) -> windows_core::Result<IInstallationBehavior> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.UninstallationBehavior)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UninstallationSteps(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.UninstallationSteps)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn KBArticleIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.KBArticleIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AcceptEula(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.AcceptEula)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn DeploymentAction(&self) -> windows_core::Result<DeploymentAction> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.DeploymentAction)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn CopyFromCache<P0, P1>(&self, path: P0, toextractcabfiles: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.CopyFromCache)(windows_core::Interface::as_raw(self), path.param().abi(), toextractcabfiles.param().abi()).ok()
-    }
-    pub unsafe fn DownloadPriority(&self) -> windows_core::Result<DownloadPriority> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.DownloadPriority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DownloadContents(&self) -> windows_core::Result<IUpdateDownloadContentCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.DownloadContents)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DriverClass(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.DriverClass)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DriverHardwareID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.DriverHardwareID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DriverManufacturer(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.DriverManufacturer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DriverModel(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.DriverModel)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DriverProvider(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.DriverProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DriverVerDate(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.DriverVerDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DeviceProblemNumber(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.DeviceProblemNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DeviceStatus(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.DeviceStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RebootRequired(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.RebootRequired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsPresent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsPresent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CveIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CveIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyToCache<P0>(&self, pfiles: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IStringCollection>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.CopyToCache)(windows_core::Interface::as_raw(self), pfiles.param().abi()).ok()
-    }
-    pub unsafe fn BrowseOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.BrowseOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn WindowsDriverUpdateEntries(&self) -> windows_core::Result<IWindowsDriverUpdateEntryCollection> {
         let mut result__ = std::mem::zeroed();
@@ -5818,271 +3546,16 @@ pub struct IWindowsDriverUpdate4_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWindowsDriverUpdate5, IWindowsDriverUpdate5_Vtbl, 0x70cf5c82_8642_42bb_9dbc_0cfd263c6c4f);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWindowsDriverUpdate5 {
+    type Target = IWindowsDriverUpdate4;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWindowsDriverUpdate5, windows_core::IUnknown, super::Com::IDispatch, IUpdate, IWindowsDriverUpdate, IWindowsDriverUpdate2, IWindowsDriverUpdate3, IWindowsDriverUpdate4);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsDriverUpdate5 {
-    pub unsafe fn Title(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.Title)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AutoSelectOnWebSites(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.AutoSelectOnWebSites)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BundledUpdates(&self) -> windows_core::Result<IUpdateCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.BundledUpdates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn CanRequireSource(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CanRequireSource)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Categories(&self) -> windows_core::Result<ICategoryCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.Categories)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Deadline(&self) -> windows_core::Result<windows_core::VARIANT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.Deadline)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DeltaCompressedContentAvailable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.DeltaCompressedContentAvailable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DeltaCompressedContentPreferred(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.DeltaCompressedContentPreferred)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.Description)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn EulaAccepted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.EulaAccepted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn EulaText(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.EulaText)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn HandlerID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.HandlerID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Identity(&self) -> windows_core::Result<IUpdateIdentity> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.Identity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Image(&self) -> windows_core::Result<IImageInformation> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.Image)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InstallationBehavior(&self) -> windows_core::Result<IInstallationBehavior> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.InstallationBehavior)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn IsBeta(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.IsBeta)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsDownloaded(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.IsDownloaded)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsHidden(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.IsHidden)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetIsHidden<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetIsHidden)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn IsInstalled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.IsInstalled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsMandatory(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.IsMandatory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsUninstallable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.IsUninstallable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Languages(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.Languages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn LastDeploymentChangeTime(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.LastDeploymentChangeTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn MaxDownloadSize(&self) -> windows_core::Result<super::super::Foundation::DECIMAL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.MaxDownloadSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn MinDownloadSize(&self) -> windows_core::Result<super::super::Foundation::DECIMAL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.MinDownloadSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MoreInfoUrls(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.MoreInfoUrls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn MsrcSeverity(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.MsrcSeverity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn RecommendedCpuSpeed(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RecommendedCpuSpeed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RecommendedHardDiskSpace(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RecommendedHardDiskSpace)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RecommendedMemory(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RecommendedMemory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ReleaseNotes(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ReleaseNotes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SecurityBulletinIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SecurityBulletinIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SupersededUpdateIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SupersededUpdateIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SupportUrl(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SupportUrl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Type(&self) -> windows_core::Result<UpdateType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn UninstallationNotes(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.UninstallationNotes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UninstallationBehavior(&self) -> windows_core::Result<IInstallationBehavior> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.UninstallationBehavior)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UninstallationSteps(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.UninstallationSteps)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn KBArticleIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.KBArticleIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AcceptEula(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.AcceptEula)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn DeploymentAction(&self) -> windows_core::Result<DeploymentAction> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.DeploymentAction)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn CopyFromCache<P0, P1>(&self, path: P0, toextractcabfiles: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CopyFromCache)(windows_core::Interface::as_raw(self), path.param().abi(), toextractcabfiles.param().abi()).ok()
-    }
-    pub unsafe fn DownloadPriority(&self) -> windows_core::Result<DownloadPriority> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.DownloadPriority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DownloadContents(&self) -> windows_core::Result<IUpdateDownloadContentCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.DownloadContents)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DriverClass(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.DriverClass)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DriverHardwareID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.DriverHardwareID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DriverManufacturer(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.DriverManufacturer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DriverModel(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.DriverModel)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DriverProvider(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.DriverProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DriverVerDate(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.DriverVerDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DeviceProblemNumber(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.DeviceProblemNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DeviceStatus(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.DeviceStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RebootRequired(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.RebootRequired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsPresent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.IsPresent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CveIDs(&self) -> windows_core::Result<IStringCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.CveIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyToCache<P0>(&self, pfiles: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IStringCollection>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.CopyToCache)(windows_core::Interface::as_raw(self), pfiles.param().abi()).ok()
-    }
-    pub unsafe fn BrowseOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.BrowseOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn WindowsDriverUpdateEntries(&self) -> windows_core::Result<IWindowsDriverUpdateEntryCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.WindowsDriverUpdateEntries)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn PerUser(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.PerUser)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     pub unsafe fn AutoSelection(&self) -> windows_core::Result<AutoSelectionMode> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).AutoSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -6101,6 +3574,13 @@ pub struct IWindowsDriverUpdate5_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWindowsDriverUpdateEntry, IWindowsDriverUpdateEntry_Vtbl, 0xed8bfe40_a60b_42ea_9652_817dfcfa23ec);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWindowsDriverUpdateEntry {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWindowsDriverUpdateEntry, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -6154,6 +3634,13 @@ pub struct IWindowsDriverUpdateEntry_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWindowsDriverUpdateEntryCollection, IWindowsDriverUpdateEntryCollection_Vtbl, 0x0d521700_a372_4bef_828b_3d00c10adebd);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWindowsDriverUpdateEntryCollection {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWindowsDriverUpdateEntryCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsDriverUpdateEntryCollection {
@@ -6184,6 +3671,13 @@ pub struct IWindowsDriverUpdateEntryCollection_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWindowsUpdateAgentInfo, IWindowsUpdateAgentInfo_Vtbl, 0x85713fa1_7796_4fa2_be3b_e2d6124dd373);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWindowsUpdateAgentInfo {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWindowsUpdateAgentInfo, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]

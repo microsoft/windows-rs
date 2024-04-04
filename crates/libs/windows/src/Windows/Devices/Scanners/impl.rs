@@ -12,7 +12,7 @@ impl IImageScannerFormatConfiguration_Vtbl {
         unsafe extern "system" fn DefaultFormat<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerFormatConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ImageScannerFormat) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DefaultFormat() {
+            match IImageScannerFormatConfiguration_Impl::DefaultFormat(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -23,7 +23,7 @@ impl IImageScannerFormatConfiguration_Vtbl {
         unsafe extern "system" fn Format<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerFormatConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ImageScannerFormat) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Format() {
+            match IImageScannerFormatConfiguration_Impl::Format(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -34,12 +34,12 @@ impl IImageScannerFormatConfiguration_Vtbl {
         unsafe extern "system" fn SetFormat<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerFormatConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: ImageScannerFormat) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFormat(value).into()
+            IImageScannerFormatConfiguration_Impl::SetFormat(this, value).into()
         }
         unsafe extern "system" fn IsFormatSupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerFormatConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: ImageScannerFormat, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsFormatSupported(value) {
+            match IImageScannerFormatConfiguration_Impl::IsFormatSupported(this, value) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -98,7 +98,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
         unsafe extern "system" fn MinScanArea<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MinScanArea() {
+            match IImageScannerSourceConfiguration_Impl::MinScanArea(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -109,7 +109,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
         unsafe extern "system" fn MaxScanArea<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MaxScanArea() {
+            match IImageScannerSourceConfiguration_Impl::MaxScanArea(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -120,7 +120,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
         unsafe extern "system" fn SelectedScanRegion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SelectedScanRegion() {
+            match IImageScannerSourceConfiguration_Impl::SelectedScanRegion(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -131,12 +131,12 @@ impl IImageScannerSourceConfiguration_Vtbl {
         unsafe extern "system" fn SetSelectedScanRegion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::super::Foundation::Rect) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSelectedScanRegion(core::mem::transmute(&value)).into()
+            IImageScannerSourceConfiguration_Impl::SetSelectedScanRegion(this, core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn AutoCroppingMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ImageScannerAutoCroppingMode) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AutoCroppingMode() {
+            match IImageScannerSourceConfiguration_Impl::AutoCroppingMode(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -147,12 +147,12 @@ impl IImageScannerSourceConfiguration_Vtbl {
         unsafe extern "system" fn SetAutoCroppingMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: ImageScannerAutoCroppingMode) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAutoCroppingMode(value).into()
+            IImageScannerSourceConfiguration_Impl::SetAutoCroppingMode(this, value).into()
         }
         unsafe extern "system" fn IsAutoCroppingModeSupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: ImageScannerAutoCroppingMode, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsAutoCroppingModeSupported(value) {
+            match IImageScannerSourceConfiguration_Impl::IsAutoCroppingModeSupported(this, value) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -163,7 +163,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
         unsafe extern "system" fn MinResolution<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ImageScannerResolution) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MinResolution() {
+            match IImageScannerSourceConfiguration_Impl::MinResolution(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -174,7 +174,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
         unsafe extern "system" fn MaxResolution<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ImageScannerResolution) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MaxResolution() {
+            match IImageScannerSourceConfiguration_Impl::MaxResolution(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -185,7 +185,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
         unsafe extern "system" fn OpticalResolution<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ImageScannerResolution) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OpticalResolution() {
+            match IImageScannerSourceConfiguration_Impl::OpticalResolution(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -196,7 +196,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
         unsafe extern "system" fn DesiredResolution<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ImageScannerResolution) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DesiredResolution() {
+            match IImageScannerSourceConfiguration_Impl::DesiredResolution(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -207,12 +207,12 @@ impl IImageScannerSourceConfiguration_Vtbl {
         unsafe extern "system" fn SetDesiredResolution<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: ImageScannerResolution) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDesiredResolution(core::mem::transmute(&value)).into()
+            IImageScannerSourceConfiguration_Impl::SetDesiredResolution(this, core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn ActualResolution<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ImageScannerResolution) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ActualResolution() {
+            match IImageScannerSourceConfiguration_Impl::ActualResolution(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -223,7 +223,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
         unsafe extern "system" fn DefaultColorMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ImageScannerColorMode) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DefaultColorMode() {
+            match IImageScannerSourceConfiguration_Impl::DefaultColorMode(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -234,7 +234,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
         unsafe extern "system" fn ColorMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ImageScannerColorMode) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ColorMode() {
+            match IImageScannerSourceConfiguration_Impl::ColorMode(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -245,12 +245,12 @@ impl IImageScannerSourceConfiguration_Vtbl {
         unsafe extern "system" fn SetColorMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: ImageScannerColorMode) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetColorMode(value).into()
+            IImageScannerSourceConfiguration_Impl::SetColorMode(this, value).into()
         }
         unsafe extern "system" fn IsColorModeSupported<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: ImageScannerColorMode, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsColorModeSupported(value) {
+            match IImageScannerSourceConfiguration_Impl::IsColorModeSupported(this, value) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -261,7 +261,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
         unsafe extern "system" fn MinBrightness<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MinBrightness() {
+            match IImageScannerSourceConfiguration_Impl::MinBrightness(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -272,7 +272,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
         unsafe extern "system" fn MaxBrightness<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MaxBrightness() {
+            match IImageScannerSourceConfiguration_Impl::MaxBrightness(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -283,7 +283,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
         unsafe extern "system" fn BrightnessStep<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BrightnessStep() {
+            match IImageScannerSourceConfiguration_Impl::BrightnessStep(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -294,7 +294,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
         unsafe extern "system" fn DefaultBrightness<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DefaultBrightness() {
+            match IImageScannerSourceConfiguration_Impl::DefaultBrightness(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -305,7 +305,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
         unsafe extern "system" fn Brightness<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Brightness() {
+            match IImageScannerSourceConfiguration_Impl::Brightness(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -316,12 +316,12 @@ impl IImageScannerSourceConfiguration_Vtbl {
         unsafe extern "system" fn SetBrightness<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBrightness(value).into()
+            IImageScannerSourceConfiguration_Impl::SetBrightness(this, value).into()
         }
         unsafe extern "system" fn MinContrast<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MinContrast() {
+            match IImageScannerSourceConfiguration_Impl::MinContrast(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -332,7 +332,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
         unsafe extern "system" fn MaxContrast<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MaxContrast() {
+            match IImageScannerSourceConfiguration_Impl::MaxContrast(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -343,7 +343,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
         unsafe extern "system" fn ContrastStep<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ContrastStep() {
+            match IImageScannerSourceConfiguration_Impl::ContrastStep(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -354,7 +354,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
         unsafe extern "system" fn DefaultContrast<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DefaultContrast() {
+            match IImageScannerSourceConfiguration_Impl::DefaultContrast(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -365,7 +365,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
         unsafe extern "system" fn Contrast<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Contrast() {
+            match IImageScannerSourceConfiguration_Impl::Contrast(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -376,7 +376,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
         unsafe extern "system" fn SetContrast<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IImageScannerSourceConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetContrast(value).into()
+            IImageScannerSourceConfiguration_Impl::SetContrast(this, value).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IImageScannerSourceConfiguration, OFFSET>(),

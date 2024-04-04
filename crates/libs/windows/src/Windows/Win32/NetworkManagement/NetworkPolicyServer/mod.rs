@@ -1,6 +1,13 @@
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISdo, ISdo_Vtbl, 0x56bc53de_96db_11d1_bf3f_000000000000);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISdo {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISdo, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISdo {
@@ -43,6 +50,13 @@ pub struct ISdo_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISdoCollection, ISdoCollection_Vtbl, 0x56bc53e2_96db_11d1_bf3f_000000000000);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISdoCollection {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISdoCollection, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -113,6 +127,13 @@ pub struct ISdoCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISdoDictionaryOld, ISdoDictionaryOld_Vtbl, 0xd432e5f4_53d8_11d2_9a3a_00c04fb998ac);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISdoDictionaryOld {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISdoDictionaryOld, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISdoDictionaryOld {
@@ -156,6 +177,13 @@ pub struct ISdoDictionaryOld_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISdoMachine, ISdoMachine_Vtbl, 0x479f6e75_49a2_11d2_8eca_00c04fc2f519);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISdoMachine {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISdoMachine, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -222,53 +250,16 @@ pub struct ISdoMachine_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISdoMachine2, ISdoMachine2_Vtbl, 0x518e5ffe_d8ce_4f7e_a5db_b40a35419d3b);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISdoMachine2 {
+    type Target = ISdoMachine;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISdoMachine2, windows_core::IUnknown, super::super::System::Com::IDispatch, ISdoMachine);
 #[cfg(feature = "Win32_System_Com")]
 impl ISdoMachine2 {
-    pub unsafe fn Attach<P0>(&self, bstrcomputername: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.Attach)(windows_core::Interface::as_raw(self), bstrcomputername.param().abi()).ok()
-    }
-    pub unsafe fn GetDictionarySDO(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetDictionarySDO)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetServiceSDO<P0>(&self, edatastore: IASDATASTORE, bstrservicename: P0) -> windows_core::Result<windows_core::IUnknown>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetServiceSDO)(windows_core::Interface::as_raw(self), edatastore, bstrservicename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetUserSDO<P0>(&self, edatastore: IASDATASTORE, bstrusername: P0) -> windows_core::Result<windows_core::IUnknown>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetUserSDO)(windows_core::Interface::as_raw(self), edatastore, bstrusername.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetOSType(&self) -> windows_core::Result<IASOSTYPE> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetOSType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetDomainType(&self) -> windows_core::Result<IASDOMAINTYPE> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetDomainType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsDirectoryAvailable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsDirectoryAvailable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetAttachedComputer(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetAttachedComputer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetSDOSchema(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetSDOSchema)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn GetTemplatesSDO<P0>(&self, bstrservicename: P0) -> windows_core::Result<windows_core::IUnknown>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -310,6 +301,13 @@ pub struct ISdoMachine2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISdoServiceControl, ISdoServiceControl_Vtbl, 0x479f6e74_49a2_11d2_8eca_00c04fc2f519);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISdoServiceControl {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISdoServiceControl, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISdoServiceControl {
@@ -339,33 +337,16 @@ pub struct ISdoServiceControl_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITemplateSdo, ITemplateSdo_Vtbl, 0x8aa85302_d2e2_4e20_8b1f_a571e437d6c9);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ITemplateSdo {
+    type Target = ISdo;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ITemplateSdo, windows_core::IUnknown, super::super::System::Com::IDispatch, ISdo);
 #[cfg(feature = "Win32_System_Com")]
 impl ITemplateSdo {
-    pub unsafe fn GetPropertyInfo(&self, id: i32) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetPropertyInfo)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetProperty(&self, id: i32) -> windows_core::Result<windows_core::VARIANT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetProperty)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn PutProperty(&self, id: i32, pvalue: *const windows_core::VARIANT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.PutProperty)(windows_core::Interface::as_raw(self), id, core::mem::transmute(pvalue)).ok()
-    }
-    pub unsafe fn ResetProperty(&self, id: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.ResetProperty)(windows_core::Interface::as_raw(self), id).ok()
-    }
-    pub unsafe fn Apply(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Apply)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Restore(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Restore)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddToCollection<P0, P1>(&self, bstrname: P0, pcollection: P1, ppitem: *mut Option<super::super::System::Com::IDispatch>) -> windows_core::Result<()>
     where

@@ -12,17 +12,17 @@ impl IWICImageEncoder_Vtbl {
         unsafe extern "system" fn WriteFrame<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWICImageEncoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pimage: *mut core::ffi::c_void, pframeencode: *mut core::ffi::c_void, pimageparameters: *const super::WICImageParameters) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.WriteFrame(windows_core::from_raw_borrowed(&pimage), windows_core::from_raw_borrowed(&pframeencode), core::mem::transmute_copy(&pimageparameters)).into()
+            IWICImageEncoder_Impl::WriteFrame(this, windows_core::from_raw_borrowed(&pimage), windows_core::from_raw_borrowed(&pframeencode), core::mem::transmute_copy(&pimageparameters)).into()
         }
         unsafe extern "system" fn WriteFrameThumbnail<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWICImageEncoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pimage: *mut core::ffi::c_void, pframeencode: *mut core::ffi::c_void, pimageparameters: *const super::WICImageParameters) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.WriteFrameThumbnail(windows_core::from_raw_borrowed(&pimage), windows_core::from_raw_borrowed(&pframeencode), core::mem::transmute_copy(&pimageparameters)).into()
+            IWICImageEncoder_Impl::WriteFrameThumbnail(this, windows_core::from_raw_borrowed(&pimage), windows_core::from_raw_borrowed(&pframeencode), core::mem::transmute_copy(&pimageparameters)).into()
         }
         unsafe extern "system" fn WriteThumbnail<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWICImageEncoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pimage: *mut core::ffi::c_void, pencoder: *mut core::ffi::c_void, pimageparameters: *const super::WICImageParameters) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.WriteThumbnail(windows_core::from_raw_borrowed(&pimage), windows_core::from_raw_borrowed(&pencoder), core::mem::transmute_copy(&pimageparameters)).into()
+            IWICImageEncoder_Impl::WriteThumbnail(this, windows_core::from_raw_borrowed(&pimage), windows_core::from_raw_borrowed(&pencoder), core::mem::transmute_copy(&pimageparameters)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -47,7 +47,7 @@ impl IWICImagingFactory2_Vtbl {
         unsafe extern "system" fn CreateImageEncoder<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWICImagingFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pd2ddevice: *mut core::ffi::c_void, ppwicimageencoder: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateImageEncoder(windows_core::from_raw_borrowed(&pd2ddevice)) {
+            match IWICImagingFactory2_Impl::CreateImageEncoder(this, windows_core::from_raw_borrowed(&pd2ddevice)) {
                 Ok(ok__) => {
                     core::ptr::write(ppwicimageencoder, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

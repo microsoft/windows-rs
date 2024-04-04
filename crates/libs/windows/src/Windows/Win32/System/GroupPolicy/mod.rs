@@ -254,6 +254,12 @@ where
     UnregisterGPNotification(hevent.param().abi()).ok()
 }
 windows_core::imp::define_interface!(IGPEInformation, IGPEInformation_Vtbl, 0x8fc0b735_a0e1_11d1_a7d3_0000f87571e3);
+impl std::ops::Deref for IGPEInformation {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IGPEInformation, windows_core::IUnknown);
 impl IGPEInformation {
     pub unsafe fn GetName(&self, pszname: &mut [u16]) -> windows_core::Result<()> {
@@ -307,6 +313,13 @@ pub struct IGPEInformation_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPM, IGPM_Vtbl, 0xf5fae809_3bd6_4da9_a65e_17665b41d763);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPM {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPM, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -451,95 +464,16 @@ pub struct IGPM_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPM2, IGPM2_Vtbl, 0x00238f8a_3d86_41ac_8f5e_06a6638a634a);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPM2 {
+    type Target = IGPM;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPM2, windows_core::IUnknown, super::Com::IDispatch, IGPM);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPM2 {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetDomain<P0, P1>(&self, bstrdomain: P0, bstrdomaincontroller: P1, ldcflags: i32) -> windows_core::Result<IGPMDomain>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetDomain)(windows_core::Interface::as_raw(self), bstrdomain.param().abi(), bstrdomaincontroller.param().abi(), ldcflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetBackupDir<P0>(&self, bstrbackupdir: P0) -> windows_core::Result<IGPMBackupDir>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetBackupDir)(windows_core::Interface::as_raw(self), bstrbackupdir.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetSitesContainer<P0, P1, P2>(&self, bstrforest: P0, bstrdomain: P1, bstrdomaincontroller: P2, ldcflags: i32) -> windows_core::Result<IGPMSitesContainer>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetSitesContainer)(windows_core::Interface::as_raw(self), bstrforest.param().abi(), bstrdomain.param().abi(), bstrdomaincontroller.param().abi(), ldcflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetRSOP<P0>(&self, gpmrsopmode: GPMRSOPMode, bstrnamespace: P0, lflags: i32) -> windows_core::Result<IGPMRSOP>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetRSOP)(windows_core::Interface::as_raw(self), gpmrsopmode, bstrnamespace.param().abi(), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreatePermission<P0, P1>(&self, bstrtrustee: P0, perm: GPMPermissionType, binheritable: P1) -> windows_core::Result<IGPMPermission>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreatePermission)(windows_core::Interface::as_raw(self), bstrtrustee.param().abi(), perm, binheritable.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateSearchCriteria(&self) -> windows_core::Result<IGPMSearchCriteria> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateSearchCriteria)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateTrustee<P0>(&self, bstrtrustee: P0) -> windows_core::Result<IGPMTrustee>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateTrustee)(windows_core::Interface::as_raw(self), bstrtrustee.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetClientSideExtensions(&self) -> windows_core::Result<IGPMCSECollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetClientSideExtensions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetConstants(&self) -> windows_core::Result<IGPMConstants> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetConstants)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetMigrationTable<P0>(&self, bstrmigrationtablepath: P0) -> windows_core::Result<IGPMMigrationTable>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetMigrationTable)(windows_core::Interface::as_raw(self), bstrmigrationtablepath.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateMigrationTable(&self) -> windows_core::Result<IGPMMigrationTable> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateMigrationTable)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn InitializeReporting<P0>(&self, bstradmpath: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.InitializeReporting)(windows_core::Interface::as_raw(self), bstradmpath.param().abi()).ok()
-    }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBackupDirEx<P0>(&self, bstrbackupdir: P0, backupdirtype: GPMBackupType) -> windows_core::Result<IGPMBackupDirEx>
     where
@@ -568,6 +502,13 @@ pub struct IGPM2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMAsyncCancel, IGPMAsyncCancel_Vtbl, 0xddc67754_be67_4541_8166_f48166868c9c);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMAsyncCancel {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMAsyncCancel, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMAsyncCancel {
@@ -583,6 +524,13 @@ pub struct IGPMAsyncCancel_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMAsyncProgress, IGPMAsyncProgress_Vtbl, 0x6aac29f8_5948_4324_bf70_423818942dbc);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMAsyncProgress {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMAsyncProgress, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -606,6 +554,13 @@ pub struct IGPMAsyncProgress_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMBackup, IGPMBackup_Vtbl, 0xd8a16a35_3b0d_416b_8d02_4df6f95a7119);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMBackup {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMBackup, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -679,6 +634,13 @@ pub struct IGPMBackup_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMBackupCollection, IGPMBackupCollection_Vtbl, 0xc786fc0f_26d8_4bab_a745_39ca7e800cac);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMBackupCollection {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMBackupCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMBackupCollection {
@@ -709,6 +671,13 @@ pub struct IGPMBackupCollection_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMBackupDir, IGPMBackupDir_Vtbl, 0xb1568bed_0a93_4acc_810f_afe7081019b9);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMBackupDir {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMBackupDir, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -750,6 +719,13 @@ pub struct IGPMBackupDir_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMBackupDirEx, IGPMBackupDirEx_Vtbl, 0xf8dc55ed_3ba0_4864_aad4_d365189ee1d5);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMBackupDirEx {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMBackupDirEx, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -793,6 +769,13 @@ pub struct IGPMBackupDirEx_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMCSECollection, IGPMCSECollection_Vtbl, 0x2e52a97d_0a4a_4a6f_85db_201622455da0);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMCSECollection {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMCSECollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMCSECollection {
@@ -823,6 +806,13 @@ pub struct IGPMCSECollection_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMClientSideExtension, IGPMClientSideExtension_Vtbl, 0x69da7488_b8db_415e_9266_901be4d49928);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMClientSideExtension {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMClientSideExtension, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -855,6 +845,13 @@ pub struct IGPMClientSideExtension_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMConstants, IGPMConstants_Vtbl, 0x50ef73e6_d35c_4c8d_be63_7ea5d2aac5c4);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMConstants {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMConstants, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1177,258 +1174,16 @@ pub struct IGPMConstants_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMConstants2, IGPMConstants2_Vtbl, 0x05ae21b0_ac09_4032_a26f_9e7da786dc19);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMConstants2 {
+    type Target = IGPMConstants;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMConstants2, windows_core::IUnknown, super::Com::IDispatch, IGPMConstants);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMConstants2 {
-    pub unsafe fn PermGPOApply(&self) -> windows_core::Result<GPMPermissionType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.PermGPOApply)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn PermGPORead(&self) -> windows_core::Result<GPMPermissionType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.PermGPORead)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn PermGPOEdit(&self) -> windows_core::Result<GPMPermissionType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.PermGPOEdit)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn PermGPOEditSecurityAndDelete(&self) -> windows_core::Result<GPMPermissionType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.PermGPOEditSecurityAndDelete)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn PermGPOCustom(&self) -> windows_core::Result<GPMPermissionType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.PermGPOCustom)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn PermWMIFilterEdit(&self) -> windows_core::Result<GPMPermissionType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.PermWMIFilterEdit)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn PermWMIFilterFullControl(&self) -> windows_core::Result<GPMPermissionType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.PermWMIFilterFullControl)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn PermWMIFilterCustom(&self) -> windows_core::Result<GPMPermissionType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.PermWMIFilterCustom)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn PermSOMLink(&self) -> windows_core::Result<GPMPermissionType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.PermSOMLink)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn PermSOMLogging(&self) -> windows_core::Result<GPMPermissionType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.PermSOMLogging)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn PermSOMPlanning(&self) -> windows_core::Result<GPMPermissionType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.PermSOMPlanning)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn PermSOMGPOCreate(&self) -> windows_core::Result<GPMPermissionType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.PermSOMGPOCreate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn PermSOMWMICreate(&self) -> windows_core::Result<GPMPermissionType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.PermSOMWMICreate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn PermSOMWMIFullControl(&self) -> windows_core::Result<GPMPermissionType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.PermSOMWMIFullControl)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SearchPropertyGPOPermissions(&self) -> windows_core::Result<GPMSearchProperty> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SearchPropertyGPOPermissions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SearchPropertyGPOEffectivePermissions(&self) -> windows_core::Result<GPMSearchProperty> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SearchPropertyGPOEffectivePermissions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SearchPropertyGPODisplayName(&self) -> windows_core::Result<GPMSearchProperty> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SearchPropertyGPODisplayName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SearchPropertyGPOWMIFilter(&self) -> windows_core::Result<GPMSearchProperty> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SearchPropertyGPOWMIFilter)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SearchPropertyGPOID(&self) -> windows_core::Result<GPMSearchProperty> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SearchPropertyGPOID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SearchPropertyGPOComputerExtensions(&self) -> windows_core::Result<GPMSearchProperty> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SearchPropertyGPOComputerExtensions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SearchPropertyGPOUserExtensions(&self) -> windows_core::Result<GPMSearchProperty> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SearchPropertyGPOUserExtensions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SearchPropertySOMLinks(&self) -> windows_core::Result<GPMSearchProperty> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SearchPropertySOMLinks)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SearchPropertyGPODomain(&self) -> windows_core::Result<GPMSearchProperty> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SearchPropertyGPODomain)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SearchPropertyBackupMostRecent(&self) -> windows_core::Result<GPMSearchProperty> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SearchPropertyBackupMostRecent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SearchOpEquals(&self) -> windows_core::Result<GPMSearchOperation> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SearchOpEquals)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SearchOpContains(&self) -> windows_core::Result<GPMSearchOperation> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SearchOpContains)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SearchOpNotContains(&self) -> windows_core::Result<GPMSearchOperation> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SearchOpNotContains)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SearchOpNotEquals(&self) -> windows_core::Result<GPMSearchOperation> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SearchOpNotEquals)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn UsePDC(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.UsePDC)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn UseAnyDC(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.UseAnyDC)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DoNotUseW2KDC(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DoNotUseW2KDC)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SOMSite(&self) -> windows_core::Result<GPMSOMType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SOMSite)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SOMDomain(&self) -> windows_core::Result<GPMSOMType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SOMDomain)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SOMOU(&self) -> windows_core::Result<GPMSOMType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SOMOU)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn get_SecurityFlags<P0, P1, P2, P3>(&self, vbowner: P0, vbgroup: P1, vbdacl: P2, vbsacl: P3) -> windows_core::Result<i32>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P3: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.get_SecurityFlags)(windows_core::Interface::as_raw(self), vbowner.param().abi(), vbgroup.param().abi(), vbdacl.param().abi(), vbsacl.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DoNotValidateDC(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DoNotValidateDC)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ReportHTML(&self) -> windows_core::Result<GPMReportType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ReportHTML)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ReportXML(&self) -> windows_core::Result<GPMReportType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ReportXML)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RSOPModeUnknown(&self) -> windows_core::Result<GPMRSOPMode> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RSOPModeUnknown)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RSOPModePlanning(&self) -> windows_core::Result<GPMRSOPMode> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RSOPModePlanning)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RSOPModeLogging(&self) -> windows_core::Result<GPMRSOPMode> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RSOPModeLogging)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn EntryTypeUser(&self) -> windows_core::Result<GPMEntryType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EntryTypeUser)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn EntryTypeComputer(&self) -> windows_core::Result<GPMEntryType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EntryTypeComputer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn EntryTypeLocalGroup(&self) -> windows_core::Result<GPMEntryType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EntryTypeLocalGroup)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn EntryTypeGlobalGroup(&self) -> windows_core::Result<GPMEntryType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EntryTypeGlobalGroup)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn EntryTypeUniversalGroup(&self) -> windows_core::Result<GPMEntryType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EntryTypeUniversalGroup)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn EntryTypeUNCPath(&self) -> windows_core::Result<GPMEntryType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EntryTypeUNCPath)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn EntryTypeUnknown(&self) -> windows_core::Result<GPMEntryType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EntryTypeUnknown)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DestinationOptionSameAsSource(&self) -> windows_core::Result<GPMDestinationOption> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DestinationOptionSameAsSource)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DestinationOptionNone(&self) -> windows_core::Result<GPMDestinationOption> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DestinationOptionNone)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DestinationOptionByRelativeName(&self) -> windows_core::Result<GPMDestinationOption> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DestinationOptionByRelativeName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DestinationOptionSet(&self) -> windows_core::Result<GPMDestinationOption> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DestinationOptionSet)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn MigrationTableOnly(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.MigrationTableOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ProcessSecurity(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ProcessSecurity)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RsopLoggingNoComputer(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RsopLoggingNoComputer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RsopLoggingNoUser(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RsopLoggingNoUser)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RsopPlanningAssumeSlowLink(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RsopPlanningAssumeSlowLink)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn get_RsopPlanningLoopbackOption<P0>(&self, vbmerge: P0) -> windows_core::Result<i32>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.get_RsopPlanningLoopbackOption)(windows_core::Interface::as_raw(self), vbmerge.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RsopPlanningAssumeUserWQLFilterTrue(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RsopPlanningAssumeUserWQLFilterTrue)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RsopPlanningAssumeCompWQLFilterTrue(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RsopPlanningAssumeCompWQLFilterTrue)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     pub unsafe fn BackupTypeGPO(&self) -> windows_core::Result<GPMBackupType> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).BackupTypeGPO)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1512,6 +1267,13 @@ pub struct IGPMConstants2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMDomain, IGPMDomain_Vtbl, 0x6b21cc14_5a00_4f44_a738_feec8a94c7e3);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMDomain {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMDomain, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1628,78 +1390,16 @@ pub struct IGPMDomain_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMDomain2, IGPMDomain2_Vtbl, 0x7ca6bb8b_f1eb_490a_938d_3c4e51c768e6);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMDomain2 {
+    type Target = IGPMDomain;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMDomain2, windows_core::IUnknown, super::Com::IDispatch, IGPMDomain);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMDomain2 {
-    pub unsafe fn DomainController(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DomainController)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Domain(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Domain)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateGPO(&self) -> windows_core::Result<IGPMGPO> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateGPO)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetGPO<P0>(&self, bstrguid: P0) -> windows_core::Result<IGPMGPO>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetGPO)(windows_core::Interface::as_raw(self), bstrguid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SearchGPOs<P0>(&self, pigpmsearchcriteria: P0) -> windows_core::Result<IGPMGPOCollection>
-    where
-        P0: windows_core::Param<IGPMSearchCriteria>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SearchGPOs)(windows_core::Interface::as_raw(self), pigpmsearchcriteria.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RestoreGPO<P0>(&self, pigpmbackup: P0, ldcflags: i32, pvargpmprogress: *const windows_core::VARIANT, pvargpmcancel: *mut windows_core::VARIANT) -> windows_core::Result<IGPMResult>
-    where
-        P0: windows_core::Param<IGPMBackup>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RestoreGPO)(windows_core::Interface::as_raw(self), pigpmbackup.param().abi(), ldcflags, core::mem::transmute(pvargpmprogress), core::mem::transmute(pvargpmcancel), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetSOM<P0>(&self, bstrpath: P0) -> windows_core::Result<IGPMSOM>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetSOM)(windows_core::Interface::as_raw(self), bstrpath.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SearchSOMs<P0>(&self, pigpmsearchcriteria: P0) -> windows_core::Result<IGPMSOMCollection>
-    where
-        P0: windows_core::Param<IGPMSearchCriteria>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SearchSOMs)(windows_core::Interface::as_raw(self), pigpmsearchcriteria.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetWMIFilter<P0>(&self, bstrpath: P0) -> windows_core::Result<IGPMWMIFilter>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetWMIFilter)(windows_core::Interface::as_raw(self), bstrpath.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SearchWMIFilters<P0>(&self, pigpmsearchcriteria: P0) -> windows_core::Result<IGPMWMIFilterCollection>
-    where
-        P0: windows_core::Param<IGPMSearchCriteria>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SearchWMIFilters)(windows_core::Interface::as_raw(self), pigpmsearchcriteria.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateStarterGPO(&self) -> windows_core::Result<IGPMStarterGPO> {
         let mut result__ = std::mem::zeroed();
@@ -1779,124 +1479,16 @@ pub struct IGPMDomain2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMDomain3, IGPMDomain3_Vtbl, 0x0077fdfe_88c7_4acf_a11d_d10a7c310a03);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMDomain3 {
+    type Target = IGPMDomain2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMDomain3, windows_core::IUnknown, super::Com::IDispatch, IGPMDomain, IGPMDomain2);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMDomain3 {
-    pub unsafe fn DomainController(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.DomainController)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Domain(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Domain)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateGPO(&self) -> windows_core::Result<IGPMGPO> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CreateGPO)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetGPO<P0>(&self, bstrguid: P0) -> windows_core::Result<IGPMGPO>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetGPO)(windows_core::Interface::as_raw(self), bstrguid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SearchGPOs<P0>(&self, pigpmsearchcriteria: P0) -> windows_core::Result<IGPMGPOCollection>
-    where
-        P0: windows_core::Param<IGPMSearchCriteria>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.SearchGPOs)(windows_core::Interface::as_raw(self), pigpmsearchcriteria.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RestoreGPO<P0>(&self, pigpmbackup: P0, ldcflags: i32, pvargpmprogress: *const windows_core::VARIANT, pvargpmcancel: *mut windows_core::VARIANT) -> windows_core::Result<IGPMResult>
-    where
-        P0: windows_core::Param<IGPMBackup>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.RestoreGPO)(windows_core::Interface::as_raw(self), pigpmbackup.param().abi(), ldcflags, core::mem::transmute(pvargpmprogress), core::mem::transmute(pvargpmcancel), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetSOM<P0>(&self, bstrpath: P0) -> windows_core::Result<IGPMSOM>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetSOM)(windows_core::Interface::as_raw(self), bstrpath.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SearchSOMs<P0>(&self, pigpmsearchcriteria: P0) -> windows_core::Result<IGPMSOMCollection>
-    where
-        P0: windows_core::Param<IGPMSearchCriteria>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.SearchSOMs)(windows_core::Interface::as_raw(self), pigpmsearchcriteria.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetWMIFilter<P0>(&self, bstrpath: P0) -> windows_core::Result<IGPMWMIFilter>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetWMIFilter)(windows_core::Interface::as_raw(self), bstrpath.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SearchWMIFilters<P0>(&self, pigpmsearchcriteria: P0) -> windows_core::Result<IGPMWMIFilterCollection>
-    where
-        P0: windows_core::Param<IGPMSearchCriteria>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.SearchWMIFilters)(windows_core::Interface::as_raw(self), pigpmsearchcriteria.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateStarterGPO(&self) -> windows_core::Result<IGPMStarterGPO> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateStarterGPO)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateGPOFromStarterGPO<P0>(&self, pgpotemplate: P0) -> windows_core::Result<IGPMGPO>
-    where
-        P0: windows_core::Param<IGPMStarterGPO>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateGPOFromStarterGPO)(windows_core::Interface::as_raw(self), pgpotemplate.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetStarterGPO<P0>(&self, bstrguid: P0) -> windows_core::Result<IGPMStarterGPO>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetStarterGPO)(windows_core::Interface::as_raw(self), bstrguid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SearchStarterGPOs<P0>(&self, pigpmsearchcriteria: P0) -> windows_core::Result<IGPMStarterGPOCollection>
-    where
-        P0: windows_core::Param<IGPMSearchCriteria>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SearchStarterGPOs)(windows_core::Interface::as_raw(self), pigpmsearchcriteria.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn LoadStarterGPO<P0, P1>(&self, bstrloadfile: P0, boverwrite: P1, pvargpmprogress: *const windows_core::VARIANT, pvargpmcancel: *mut windows_core::VARIANT) -> windows_core::Result<IGPMResult>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LoadStarterGPO)(windows_core::Interface::as_raw(self), bstrloadfile.param().abi(), boverwrite.param().abi(), core::mem::transmute(pvargpmprogress), core::mem::transmute(pvargpmcancel), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RestoreStarterGPO<P0>(&self, pigpmtmplbackup: P0, pvargpmprogress: *const windows_core::VARIANT, pvargpmcancel: *mut windows_core::VARIANT) -> windows_core::Result<IGPMResult>
-    where
-        P0: windows_core::Param<IGPMStarterGPOBackup>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RestoreStarterGPO)(windows_core::Interface::as_raw(self), pigpmtmplbackup.param().abi(), core::mem::transmute(pvargpmprogress), core::mem::transmute(pvargpmcancel), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const windows_core::VARIANT, pvargpmcancel: *mut windows_core::VARIANT) -> windows_core::Result<IGPMResult> {
         let mut result__ = std::mem::zeroed();
@@ -1930,6 +1522,13 @@ pub struct IGPMDomain3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMGPO, IGPMGPO_Vtbl, 0x58cc4352_1ca3_48e5_9864_1da4d6e0d60f);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMGPO {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMGPO, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2155,159 +1754,16 @@ pub struct IGPMGPO_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMGPO2, IGPMGPO2_Vtbl, 0x8a66a210_b78b_4d99_88e2_c306a817c925);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMGPO2 {
+    type Target = IGPMGPO;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMGPO2, windows_core::IUnknown, super::Com::IDispatch, IGPMGPO);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMGPO2 {
-    pub unsafe fn DisplayName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DisplayName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetDisplayName<P0>(&self, newval: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetDisplayName)(windows_core::Interface::as_raw(self), newval.param().abi()).ok()
-    }
-    pub unsafe fn Path(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Path)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn ID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DomainName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DomainName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn CreationTime(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreationTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ModificationTime(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ModificationTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn UserDSVersionNumber(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.UserDSVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ComputerDSVersionNumber(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ComputerDSVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn UserSysvolVersionNumber(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.UserSysvolVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ComputerSysvolVersionNumber(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ComputerSysvolVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetWMIFilter(&self) -> windows_core::Result<IGPMWMIFilter> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetWMIFilter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetWMIFilter<P0>(&self, pigpmwmifilter: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IGPMWMIFilter>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetWMIFilter)(windows_core::Interface::as_raw(self), pigpmwmifilter.param().abi()).ok()
-    }
-    pub unsafe fn SetUserEnabled<P0>(&self, vbenabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetUserEnabled)(windows_core::Interface::as_raw(self), vbenabled.param().abi()).ok()
-    }
-    pub unsafe fn SetComputerEnabled<P0>(&self, vbenabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetComputerEnabled)(windows_core::Interface::as_raw(self), vbenabled.param().abi()).ok()
-    }
-    pub unsafe fn IsUserEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsUserEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsComputerEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsComputerEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetSecurityInfo(&self) -> windows_core::Result<IGPMSecurityInfo> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetSecurityInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSecurityInfo<P0>(&self, psecurityinfo: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IGPMSecurityInfo>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetSecurityInfo)(windows_core::Interface::as_raw(self), psecurityinfo.param().abi()).ok()
-    }
-    pub unsafe fn Delete(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Delete)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Backup<P0, P1>(&self, bstrbackupdir: P0, bstrcomment: P1, pvargpmprogress: *const windows_core::VARIANT, pvargpmcancel: *mut windows_core::VARIANT) -> windows_core::Result<IGPMResult>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Backup)(windows_core::Interface::as_raw(self), bstrbackupdir.param().abi(), bstrcomment.param().abi(), core::mem::transmute(pvargpmprogress), core::mem::transmute(pvargpmcancel), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Import<P0>(&self, lflags: i32, pigpmbackup: P0, pvarmigrationtable: *const windows_core::VARIANT, pvargpmprogress: *const windows_core::VARIANT, pvargpmcancel: *mut windows_core::VARIANT) -> windows_core::Result<IGPMResult>
-    where
-        P0: windows_core::Param<IGPMBackup>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Import)(windows_core::Interface::as_raw(self), lflags, pigpmbackup.param().abi(), core::mem::transmute(pvarmigrationtable), core::mem::transmute(pvargpmprogress), core::mem::transmute(pvargpmcancel), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const windows_core::VARIANT, pvargpmcancel: *mut windows_core::VARIANT) -> windows_core::Result<IGPMResult> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GenerateReport)(windows_core::Interface::as_raw(self), gpmreporttype, core::mem::transmute(pvargpmprogress), core::mem::transmute(pvargpmcancel), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GenerateReportToFile<P0>(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: P0) -> windows_core::Result<IGPMResult>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GenerateReportToFile)(windows_core::Interface::as_raw(self), gpmreporttype, bstrtargetfilepath.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyTo<P0>(&self, lflags: i32, pigpmdomain: P0, pvarnewdisplayname: *const windows_core::VARIANT, pvarmigrationtable: *const windows_core::VARIANT, pvargpmprogress: *const windows_core::VARIANT, pvargpmcancel: *mut windows_core::VARIANT) -> windows_core::Result<IGPMResult>
-    where
-        P0: windows_core::Param<IGPMDomain>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CopyTo)(windows_core::Interface::as_raw(self), lflags, pigpmdomain.param().abi(), core::mem::transmute(pvarnewdisplayname), core::mem::transmute(pvarmigrationtable), core::mem::transmute(pvargpmprogress), core::mem::transmute(pvargpmcancel), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSecurityDescriptor<P0>(&self, lflags: i32, psd: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::Com::IDispatch>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetSecurityDescriptor)(windows_core::Interface::as_raw(self), lflags, psd.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetSecurityDescriptor(&self, lflags: i32) -> windows_core::Result<super::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetSecurityDescriptor)(windows_core::Interface::as_raw(self), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn IsACLConsistent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsACLConsistent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn MakeACLConsistent(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.MakeACLConsistent)(windows_core::Interface::as_raw(self)).ok()
-    }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2329,169 +1785,16 @@ pub struct IGPMGPO2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMGPO3, IGPMGPO3_Vtbl, 0x7cf123a1_f94a_4112_bfae_6aa1db9cb248);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMGPO3 {
+    type Target = IGPMGPO2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMGPO3, windows_core::IUnknown, super::Com::IDispatch, IGPMGPO, IGPMGPO2);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMGPO3 {
-    pub unsafe fn DisplayName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.DisplayName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetDisplayName<P0>(&self, newval: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetDisplayName)(windows_core::Interface::as_raw(self), newval.param().abi()).ok()
-    }
-    pub unsafe fn Path(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Path)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn ID(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DomainName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.DomainName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn CreationTime(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CreationTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ModificationTime(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ModificationTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn UserDSVersionNumber(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.UserDSVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ComputerDSVersionNumber(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ComputerDSVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn UserSysvolVersionNumber(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.UserSysvolVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ComputerSysvolVersionNumber(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ComputerSysvolVersionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetWMIFilter(&self) -> windows_core::Result<IGPMWMIFilter> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetWMIFilter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetWMIFilter<P0>(&self, pigpmwmifilter: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IGPMWMIFilter>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetWMIFilter)(windows_core::Interface::as_raw(self), pigpmwmifilter.param().abi()).ok()
-    }
-    pub unsafe fn SetUserEnabled<P0>(&self, vbenabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetUserEnabled)(windows_core::Interface::as_raw(self), vbenabled.param().abi()).ok()
-    }
-    pub unsafe fn SetComputerEnabled<P0>(&self, vbenabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetComputerEnabled)(windows_core::Interface::as_raw(self), vbenabled.param().abi()).ok()
-    }
-    pub unsafe fn IsUserEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsUserEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsComputerEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsComputerEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetSecurityInfo(&self) -> windows_core::Result<IGPMSecurityInfo> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetSecurityInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSecurityInfo<P0>(&self, psecurityinfo: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IGPMSecurityInfo>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetSecurityInfo)(windows_core::Interface::as_raw(self), psecurityinfo.param().abi()).ok()
-    }
-    pub unsafe fn Delete(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.Delete)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Backup<P0, P1>(&self, bstrbackupdir: P0, bstrcomment: P1, pvargpmprogress: *const windows_core::VARIANT, pvargpmcancel: *mut windows_core::VARIANT) -> windows_core::Result<IGPMResult>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Backup)(windows_core::Interface::as_raw(self), bstrbackupdir.param().abi(), bstrcomment.param().abi(), core::mem::transmute(pvargpmprogress), core::mem::transmute(pvargpmcancel), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Import<P0>(&self, lflags: i32, pigpmbackup: P0, pvarmigrationtable: *const windows_core::VARIANT, pvargpmprogress: *const windows_core::VARIANT, pvargpmcancel: *mut windows_core::VARIANT) -> windows_core::Result<IGPMResult>
-    where
-        P0: windows_core::Param<IGPMBackup>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Import)(windows_core::Interface::as_raw(self), lflags, pigpmbackup.param().abi(), core::mem::transmute(pvarmigrationtable), core::mem::transmute(pvargpmprogress), core::mem::transmute(pvargpmcancel), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const windows_core::VARIANT, pvargpmcancel: *mut windows_core::VARIANT) -> windows_core::Result<IGPMResult> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GenerateReport)(windows_core::Interface::as_raw(self), gpmreporttype, core::mem::transmute(pvargpmprogress), core::mem::transmute(pvargpmcancel), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GenerateReportToFile<P0>(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: P0) -> windows_core::Result<IGPMResult>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GenerateReportToFile)(windows_core::Interface::as_raw(self), gpmreporttype, bstrtargetfilepath.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyTo<P0>(&self, lflags: i32, pigpmdomain: P0, pvarnewdisplayname: *const windows_core::VARIANT, pvarmigrationtable: *const windows_core::VARIANT, pvargpmprogress: *const windows_core::VARIANT, pvargpmcancel: *mut windows_core::VARIANT) -> windows_core::Result<IGPMResult>
-    where
-        P0: windows_core::Param<IGPMDomain>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CopyTo)(windows_core::Interface::as_raw(self), lflags, pigpmdomain.param().abi(), core::mem::transmute(pvarnewdisplayname), core::mem::transmute(pvarmigrationtable), core::mem::transmute(pvargpmprogress), core::mem::transmute(pvargpmcancel), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSecurityDescriptor<P0>(&self, lflags: i32, psd: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::Com::IDispatch>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetSecurityDescriptor)(windows_core::Interface::as_raw(self), lflags, psd.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetSecurityDescriptor(&self, lflags: i32) -> windows_core::Result<super::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetSecurityDescriptor)(windows_core::Interface::as_raw(self), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn IsACLConsistent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsACLConsistent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn MakeACLConsistent(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.MakeACLConsistent)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Description)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetDescription<P0>(&self, newval: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), newval.param().abi()).ok()
-    }
     pub unsafe fn InfrastructureDC(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).InfrastructureDC)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2516,6 +1819,13 @@ pub struct IGPMGPO3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMGPOCollection, IGPMGPOCollection_Vtbl, 0xf0f0d5cf_70ca_4c39_9e29_b642f8726c01);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMGPOCollection {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMGPOCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2547,6 +1857,13 @@ pub struct IGPMGPOCollection_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMGPOLink, IGPMGPOLink_Vtbl, 0x434b99bd_5de7_478a_809c_c251721df70c);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMGPOLink {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMGPOLink, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2612,6 +1929,13 @@ pub struct IGPMGPOLink_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMGPOLinksCollection, IGPMGPOLinksCollection_Vtbl, 0x189d7b68_16bd_4d0d_a2ec_2e6aa2288c7f);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMGPOLinksCollection {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMGPOLinksCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMGPOLinksCollection {
@@ -2642,6 +1966,13 @@ pub struct IGPMGPOLinksCollection_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMMapEntry, IGPMMapEntry_Vtbl, 0x8e79ad06_2381_4444_be4c_ff693e6e6f2b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMMapEntry {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMMapEntry, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2675,6 +2006,13 @@ pub struct IGPMMapEntry_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMMapEntryCollection, IGPMMapEntryCollection_Vtbl, 0xbb0bf49b_e53f_443f_b807_8be22bfb6d42);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMMapEntryCollection {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMMapEntryCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMMapEntryCollection {
@@ -2705,6 +2043,13 @@ pub struct IGPMMapEntryCollection_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMMigrationTable, IGPMMigrationTable_Vtbl, 0x48f823b1_efaf_470b_b6ed_40d14ee1a4ec);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMMigrationTable {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMMigrationTable, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2793,6 +2138,13 @@ pub struct IGPMMigrationTable_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMPermission, IGPMPermission_Vtbl, 0x35ebca40_e1a1_4a02_8905_d79416fb464a);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMPermission {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMPermission, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMPermission {
@@ -2833,6 +2185,13 @@ pub struct IGPMPermission_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMRSOP, IGPMRSOP_Vtbl, 0x49ed785a_3237_4ff2_b1f0_fdf5a8d5a1ee);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMRSOP {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMRSOP, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3052,6 +2411,13 @@ pub struct IGPMRSOP_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMResult, IGPMResult_Vtbl, 0x86dff7e9_f76f_42ab_9570_cebc6be8a52d);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMResult {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMResult, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMResult {
@@ -3081,6 +2447,13 @@ pub struct IGPMResult_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMSOM, IGPMSOM_Vtbl, 0xc0a7f09e_05a1_4f0c_8158_9e5c33684f6b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMSOM {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMSOM, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3171,6 +2544,13 @@ pub struct IGPMSOM_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMSOMCollection, IGPMSOMCollection_Vtbl, 0xadc1688e_00e4_4495_abba_bed200df0cab);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMSOMCollection {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMSOMCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMSOMCollection {
@@ -3202,6 +2582,13 @@ pub struct IGPMSOMCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMSearchCriteria, IGPMSearchCriteria_Vtbl, 0xd6f11c42_829b_48d4_83f5_3615b67dfc22);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMSearchCriteria {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMSearchCriteria, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMSearchCriteria {
@@ -3220,6 +2607,13 @@ pub struct IGPMSearchCriteria_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMSecurityInfo, IGPMSecurityInfo_Vtbl, 0xb6c31ed4_1c93_4d3e_ae84_eb6d61161b60);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMSecurityInfo {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMSecurityInfo, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3281,6 +2675,13 @@ pub struct IGPMSecurityInfo_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMSitesContainer, IGPMSitesContainer_Vtbl, 0x4725a899_2782_4d27_a6bb_d499246ffd72);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMSitesContainer {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMSitesContainer, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMSitesContainer {
@@ -3331,6 +2732,13 @@ pub struct IGPMSitesContainer_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMStarterGPO, IGPMStarterGPO_Vtbl, 0xdfc3f61b_8880_4490_9337_d29c7ba8c2f0);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMStarterGPO {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMStarterGPO, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3494,6 +2902,13 @@ pub struct IGPMStarterGPO_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMStarterGPOBackup, IGPMStarterGPOBackup_Vtbl, 0x51d98eda_a87e_43dd_b80a_0b66ef1938d6);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMStarterGPOBackup {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMStarterGPOBackup, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMStarterGPOBackup {
@@ -3571,6 +2986,13 @@ pub struct IGPMStarterGPOBackup_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMStarterGPOBackupCollection, IGPMStarterGPOBackupCollection_Vtbl, 0xc998031d_add0_4bb5_8dea_298505d8423b);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMStarterGPOBackupCollection {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMStarterGPOBackupCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMStarterGPOBackupCollection {
@@ -3602,6 +3024,13 @@ pub struct IGPMStarterGPOBackupCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMStarterGPOCollection, IGPMStarterGPOCollection_Vtbl, 0x2e522729_2219_44ad_933a_64dfd650c423);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMStarterGPOCollection {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMStarterGPOCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMStarterGPOCollection {
@@ -3632,6 +3061,13 @@ pub struct IGPMStarterGPOCollection_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMStatusMessage, IGPMStatusMessage_Vtbl, 0x8496c22f_f3de_4a1f_8f58_603caaa93d7b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMStatusMessage {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMStatusMessage, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3673,6 +3109,13 @@ pub struct IGPMStatusMessage_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMStatusMsgCollection, IGPMStatusMsgCollection_Vtbl, 0x9b6e1af0_1a92_40f3_a59d_f36ac1f728b7);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMStatusMsgCollection {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMStatusMsgCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMStatusMsgCollection {
@@ -3703,6 +3146,13 @@ pub struct IGPMStatusMsgCollection_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMTrustee, IGPMTrustee_Vtbl, 0x3b466da8_c1a4_4b2a_999a_befcdd56cefb);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMTrustee {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMTrustee, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3740,6 +3190,13 @@ pub struct IGPMTrustee_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMWMIFilter, IGPMWMIFilter_Vtbl, 0xef2ff9b4_3c27_459a_b979_038305cec75d);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMWMIFilter {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMWMIFilter, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3807,6 +3264,13 @@ pub struct IGPMWMIFilter_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IGPMWMIFilterCollection, IGPMWMIFilterCollection_Vtbl, 0x5782d582_1a36_4661_8a94_c3c32551945b);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IGPMWMIFilterCollection {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IGPMWMIFilterCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMWMIFilterCollection {
@@ -3836,6 +3300,12 @@ pub struct IGPMWMIFilterCollection_Vtbl {
     _NewEnum: usize,
 }
 windows_core::imp::define_interface!(IGroupPolicyObject, IGroupPolicyObject_Vtbl, 0xea502723_a23d_11d1_a7d3_0000f87571e3);
+impl std::ops::Deref for IGroupPolicyObject {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IGroupPolicyObject, windows_core::IUnknown);
 impl IGroupPolicyObject {
     pub unsafe fn New<P0, P1>(&self, pszdomainname: P0, pszdisplayname: P1, dwflags: u32) -> windows_core::Result<()>
@@ -3941,6 +3411,12 @@ pub struct IGroupPolicyObject_Vtbl {
     GetPropertySheetPages: usize,
 }
 windows_core::imp::define_interface!(IRSOPInformation, IRSOPInformation_Vtbl, 0x9a5a81b5_d9c7_49ef_9d11_ddf50968c48d);
+impl std::ops::Deref for IRSOPInformation {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IRSOPInformation, windows_core::IUnknown);
 impl IRSOPInformation {
     pub unsafe fn GetNamespace(&self, dwsection: u32, pszname: &mut [u16]) -> windows_core::Result<()> {

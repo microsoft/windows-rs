@@ -3500,6 +3500,12 @@ where
     SetGroupDependencyExpressionEx(hgroup.param().abi(), lpszdependencyexpression.param().abi(), lpszreason.param().abi())
 }
 windows_core::imp::define_interface!(IGetClusterDataInfo, IGetClusterDataInfo_Vtbl, 0x97dede51_fc6b_11cf_b5f5_00a0c90ab505);
+impl std::ops::Deref for IGetClusterDataInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IGetClusterDataInfo, windows_core::IUnknown);
 impl IGetClusterDataInfo {
     pub unsafe fn GetClusterName(&self, lpszname: &windows_core::BSTR, pcchname: *mut i32) -> windows_core::Result<()> {
@@ -3520,6 +3526,12 @@ pub struct IGetClusterDataInfo_Vtbl {
     pub GetObjectCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> i32,
 }
 windows_core::imp::define_interface!(IGetClusterGroupInfo, IGetClusterGroupInfo_Vtbl, 0x97dede54_fc6b_11cf_b5f5_00a0c90ab505);
+impl std::ops::Deref for IGetClusterGroupInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IGetClusterGroupInfo, windows_core::IUnknown);
 impl IGetClusterGroupInfo {
     pub unsafe fn GetGroupHandle(&self, lobjindex: i32) -> HGROUP {
@@ -3532,6 +3544,12 @@ pub struct IGetClusterGroupInfo_Vtbl {
     pub GetGroupHandle: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> HGROUP,
 }
 windows_core::imp::define_interface!(IGetClusterNetInterfaceInfo, IGetClusterNetInterfaceInfo_Vtbl, 0x97dede57_fc6b_11cf_b5f5_00a0c90ab505);
+impl std::ops::Deref for IGetClusterNetInterfaceInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IGetClusterNetInterfaceInfo, windows_core::IUnknown);
 impl IGetClusterNetInterfaceInfo {
     pub unsafe fn GetNetInterfaceHandle(&self, lobjindex: i32) -> HNETINTERFACE {
@@ -3544,6 +3562,12 @@ pub struct IGetClusterNetInterfaceInfo_Vtbl {
     pub GetNetInterfaceHandle: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> HNETINTERFACE,
 }
 windows_core::imp::define_interface!(IGetClusterNetworkInfo, IGetClusterNetworkInfo_Vtbl, 0x97dede56_fc6b_11cf_b5f5_00a0c90ab505);
+impl std::ops::Deref for IGetClusterNetworkInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IGetClusterNetworkInfo, windows_core::IUnknown);
 impl IGetClusterNetworkInfo {
     pub unsafe fn GetNetworkHandle(&self, lobjindex: i32) -> HNETWORK {
@@ -3556,6 +3580,12 @@ pub struct IGetClusterNetworkInfo_Vtbl {
     pub GetNetworkHandle: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> HNETWORK,
 }
 windows_core::imp::define_interface!(IGetClusterNodeInfo, IGetClusterNodeInfo_Vtbl, 0x97dede53_fc6b_11cf_b5f5_00a0c90ab505);
+impl std::ops::Deref for IGetClusterNodeInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IGetClusterNodeInfo, windows_core::IUnknown);
 impl IGetClusterNodeInfo {
     pub unsafe fn GetNodeHandle(&self, lobjindex: i32) -> HNODE {
@@ -3568,6 +3598,12 @@ pub struct IGetClusterNodeInfo_Vtbl {
     pub GetNodeHandle: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> HNODE,
 }
 windows_core::imp::define_interface!(IGetClusterObjectInfo, IGetClusterObjectInfo_Vtbl, 0x97dede52_fc6b_11cf_b5f5_00a0c90ab505);
+impl std::ops::Deref for IGetClusterObjectInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IGetClusterObjectInfo, windows_core::IUnknown);
 impl IGetClusterObjectInfo {
     pub unsafe fn GetObjectName(&self, lobjindex: i32, lpszname: &windows_core::BSTR, pcchname: *mut i32) -> windows_core::Result<()> {
@@ -3584,6 +3620,12 @@ pub struct IGetClusterObjectInfo_Vtbl {
     pub GetObjectType: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> CLUADMEX_OBJECT_TYPE,
 }
 windows_core::imp::define_interface!(IGetClusterResourceInfo, IGetClusterResourceInfo_Vtbl, 0x97dede55_fc6b_11cf_b5f5_00a0c90ab505);
+impl std::ops::Deref for IGetClusterResourceInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IGetClusterResourceInfo, windows_core::IUnknown);
 impl IGetClusterResourceInfo {
     pub unsafe fn GetResourceHandle(&self, lobjindex: i32) -> HRESOURCE {
@@ -3604,6 +3646,12 @@ pub struct IGetClusterResourceInfo_Vtbl {
     pub GetResourceNetworkName: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::BSTR>, *mut u32) -> super::super::Foundation::BOOL,
 }
 windows_core::imp::define_interface!(IGetClusterUIInfo, IGetClusterUIInfo_Vtbl, 0x97dede50_fc6b_11cf_b5f5_00a0c90ab505);
+impl std::ops::Deref for IGetClusterUIInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IGetClusterUIInfo, windows_core::IUnknown);
 impl IGetClusterUIInfo {
     pub unsafe fn GetClusterName(&self, lpszname: &windows_core::BSTR, pcchname: *mut i32) -> windows_core::Result<()> {
@@ -3637,6 +3685,13 @@ pub struct IGetClusterUIInfo_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusApplication, ISClusApplication_Vtbl, 0xf2e606e6_2631_11d1_89f1_00a0c90d061e);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusApplication {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusApplication, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3682,6 +3737,13 @@ pub struct ISClusApplication_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusCryptoKeys, ISClusCryptoKeys_Vtbl, 0xf2e6072c_2631_11d1_89f1_00a0c90d061e);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusCryptoKeys {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusCryptoKeys, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3731,6 +3793,13 @@ pub struct ISClusCryptoKeys_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusDisk, ISClusDisk_Vtbl, 0xf2e60724_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusDisk {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusDisk, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusDisk {
@@ -3771,6 +3840,13 @@ pub struct ISClusDisk_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusDisks, ISClusDisks_Vtbl, 0xf2e60726_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusDisks {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusDisks, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusDisks {
@@ -3804,6 +3880,13 @@ pub struct ISClusDisks_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusNetInterface, ISClusNetInterface_Vtbl, 0xf2e606ee_2631_11d1_89f1_00a0c90d061e);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusNetInterface {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusNetInterface, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3877,6 +3960,13 @@ pub struct ISClusNetInterface_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusNetInterfaces, ISClusNetInterfaces_Vtbl, 0xf2e606f0_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusNetInterfaces {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusNetInterfaces, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNetInterfaces {
@@ -3914,6 +4004,13 @@ pub struct ISClusNetInterfaces_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusNetwork, ISClusNetwork_Vtbl, 0xf2e606f2_2631_11d1_89f1_00a0c90d061e);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusNetwork {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusNetwork, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4008,6 +4105,13 @@ pub struct ISClusNetwork_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusNetworkNetInterfaces, ISClusNetworkNetInterfaces_Vtbl, 0xf2e606f6_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusNetworkNetInterfaces {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusNetworkNetInterfaces, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNetworkNetInterfaces {
@@ -4046,6 +4150,13 @@ pub struct ISClusNetworkNetInterfaces_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusNetworks, ISClusNetworks_Vtbl, 0xf2e606f4_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusNetworks {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusNetworks, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNetworks {
@@ -4083,6 +4194,13 @@ pub struct ISClusNetworks_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusNode, ISClusNode_Vtbl, 0xf2e606f8_2631_11d1_89f1_00a0c90d061e);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusNode {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusNode, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4191,6 +4309,13 @@ pub struct ISClusNode_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusNodeNetInterfaces, ISClusNodeNetInterfaces_Vtbl, 0xf2e606fc_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusNodeNetInterfaces {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusNodeNetInterfaces, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNodeNetInterfaces {
@@ -4229,6 +4354,13 @@ pub struct ISClusNodeNetInterfaces_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusNodes, ISClusNodes_Vtbl, 0xf2e606fa_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusNodes {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusNodes, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNodes {
@@ -4266,6 +4398,13 @@ pub struct ISClusNodes_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusPartition, ISClusPartition_Vtbl, 0xf2e60720_2631_11d1_89f1_00a0c90d061e);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusPartition {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusPartition, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4314,37 +4453,16 @@ pub struct ISClusPartition_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusPartitionEx, ISClusPartitionEx_Vtbl, 0x8802d4fe_b32e_4ad1_9dbd_64f18e1166ce);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusPartitionEx {
+    type Target = ISClusPartition;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusPartitionEx, windows_core::IUnknown, super::super::System::Com::IDispatch, ISClusPartition);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusPartitionEx {
-    pub unsafe fn Flags(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Flags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DeviceName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DeviceName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn VolumeLabel(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.VolumeLabel)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SerialNumber(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SerialNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn MaximumComponentLength(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.MaximumComponentLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn FileSystemFlags(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FileSystemFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn FileSystem(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FileSystem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn TotalSize(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).TotalSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4379,6 +4497,13 @@ pub struct ISClusPartitionEx_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusPartitions, ISClusPartitions_Vtbl, 0xf2e60722_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusPartitions {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusPartitions, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusPartitions {
@@ -4412,6 +4537,13 @@ pub struct ISClusPartitions_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusProperties, ISClusProperties_Vtbl, 0xf2e60700_2631_11d1_89f1_00a0c90d061e);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusProperties {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusProperties, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4495,6 +4627,13 @@ pub struct ISClusProperties_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusProperty, ISClusProperty_Vtbl, 0xf2e606fe_2631_11d1_89f1_00a0c90d061e);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusProperty {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusProperty, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4586,6 +4725,13 @@ pub struct ISClusProperty_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusPropertyValue, ISClusPropertyValue_Vtbl, 0xf2e6071a_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusPropertyValue {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusPropertyValue, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusPropertyValue {
@@ -4647,6 +4793,13 @@ pub struct ISClusPropertyValue_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusPropertyValueData, ISClusPropertyValueData_Vtbl, 0xf2e6071e_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusPropertyValueData {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusPropertyValueData, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusPropertyValueData {
@@ -4691,6 +4844,13 @@ pub struct ISClusPropertyValueData_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusPropertyValues, ISClusPropertyValues_Vtbl, 0xf2e6071c_2631_11d1_89f1_00a0c90d061e);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusPropertyValues {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusPropertyValues, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4746,6 +4906,13 @@ pub struct ISClusPropertyValues_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusRefObject, ISClusRefObject_Vtbl, 0xf2e60702_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusRefObject {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusRefObject, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusRefObject {
@@ -4762,6 +4929,13 @@ pub struct ISClusRefObject_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusRegistryKeys, ISClusRegistryKeys_Vtbl, 0xf2e6072a_2631_11d1_89f1_00a0c90d061e);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusRegistryKeys {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusRegistryKeys, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4810,6 +4984,13 @@ pub struct ISClusRegistryKeys_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusResDependencies, ISClusResDependencies_Vtbl, 0xf2e60704_2631_11d1_89f1_00a0c90d061e);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusResDependencies {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusResDependencies, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4887,6 +5068,13 @@ pub struct ISClusResDependencies_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusResDependents, ISClusResDependents_Vtbl, 0xf2e6072e_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusResDependents {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusResDependents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResDependents {
@@ -4962,6 +5150,13 @@ pub struct ISClusResDependents_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusResGroup, ISClusResGroup_Vtbl, 0xf2e60706_2631_11d1_89f1_00a0c90d061e);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusResGroup {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusResGroup, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5099,6 +5294,13 @@ pub struct ISClusResGroup_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusResGroupPreferredOwnerNodes, ISClusResGroupPreferredOwnerNodes_Vtbl, 0xf2e606e8_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusResGroupPreferredOwnerNodes {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusResGroupPreferredOwnerNodes, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResGroupPreferredOwnerNodes {
@@ -5175,6 +5377,13 @@ pub struct ISClusResGroupPreferredOwnerNodes_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusResGroupResources, ISClusResGroupResources_Vtbl, 0xf2e606ea_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusResGroupResources {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusResGroupResources, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResGroupResources {
@@ -5233,6 +5442,13 @@ pub struct ISClusResGroupResources_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusResGroups, ISClusResGroups_Vtbl, 0xf2e60708_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusResGroups {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusResGroups, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResGroups {
@@ -5289,6 +5505,13 @@ pub struct ISClusResGroups_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusResPossibleOwnerNodes, ISClusResPossibleOwnerNodes_Vtbl, 0xf2e6070e_2631_11d1_89f1_00a0c90d061e);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusResPossibleOwnerNodes {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusResPossibleOwnerNodes, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5350,6 +5573,13 @@ pub struct ISClusResPossibleOwnerNodes_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusResType, ISClusResType_Vtbl, 0xf2e60710_2631_11d1_89f1_00a0c90d061e);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusResType {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusResType, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5444,6 +5674,13 @@ pub struct ISClusResType_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusResTypePossibleOwnerNodes, ISClusResTypePossibleOwnerNodes_Vtbl, 0xf2e60718_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusResTypePossibleOwnerNodes {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusResTypePossibleOwnerNodes, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResTypePossibleOwnerNodes {
@@ -5481,6 +5718,13 @@ pub struct ISClusResTypePossibleOwnerNodes_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusResTypeResources, ISClusResTypeResources_Vtbl, 0xf2e60714_2631_11d1_89f1_00a0c90d061e);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusResTypeResources {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusResTypeResources, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5540,6 +5784,13 @@ pub struct ISClusResTypeResources_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusResTypes, ISClusResTypes_Vtbl, 0xf2e60712_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusResTypes {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusResTypes, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResTypes {
@@ -5598,6 +5849,13 @@ pub struct ISClusResTypes_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusResource, ISClusResource_Vtbl, 0xf2e6070a_2631_11d1_89f1_00a0c90d061e);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusResource {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusResource, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5856,6 +6114,13 @@ pub struct ISClusResource_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusResources, ISClusResources_Vtbl, 0xf2e6070c_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusResources {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusResources, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResources {
@@ -5915,6 +6180,13 @@ pub struct ISClusResources_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusScsiAddress, ISClusScsiAddress_Vtbl, 0xf2e60728_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusScsiAddress {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusScsiAddress, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusScsiAddress {
@@ -5946,6 +6218,13 @@ pub struct ISClusScsiAddress_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusVersion, ISClusVersion_Vtbl, 0xf2e60716_2631_11d1_89f1_00a0c90d061e);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusVersion {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusVersion, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -6008,6 +6287,13 @@ pub struct ISClusVersion_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISCluster, ISCluster_Vtbl, 0xf2e606e4_2631_11d1_89f1_00a0c90d061e);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISCluster {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISCluster, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -6185,6 +6471,13 @@ pub struct ISCluster_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusterNames, ISClusterNames_Vtbl, 0xf2e606ec_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISClusterNames {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISClusterNames, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusterNames {
@@ -6224,6 +6517,13 @@ pub struct ISClusterNames_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISDomainNames, ISDomainNames_Vtbl, 0xf2e606e2_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISDomainNames {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISDomainNames, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISDomainNames {
@@ -6256,6 +6556,12 @@ pub struct ISDomainNames_Vtbl {
     pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWCContextMenuCallback, IWCContextMenuCallback_Vtbl, 0x97dede64_fc6b_11cf_b5f5_00a0c90ab505);
+impl std::ops::Deref for IWCContextMenuCallback {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWCContextMenuCallback, windows_core::IUnknown);
 impl IWCContextMenuCallback {
     pub unsafe fn AddExtensionMenuItem<P0, P1>(&self, lpszname: P0, lpszstatusbartext: P1, ncommandid: u32, nsubmenucommandid: u32, uflags: u32) -> windows_core::Result<()>
@@ -6272,6 +6578,12 @@ pub struct IWCContextMenuCallback_Vtbl {
     pub AddExtensionMenuItem: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, u32, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWCPropertySheetCallback, IWCPropertySheetCallback_Vtbl, 0x97dede60_fc6b_11cf_b5f5_00a0c90ab505);
+impl std::ops::Deref for IWCPropertySheetCallback {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWCPropertySheetCallback, windows_core::IUnknown);
 impl IWCPropertySheetCallback {
     pub unsafe fn AddPropertySheetPage(&self, hpage: *const i32) -> windows_core::Result<()> {
@@ -6284,6 +6596,12 @@ pub struct IWCPropertySheetCallback_Vtbl {
     pub AddPropertySheetPage: unsafe extern "system" fn(*mut core::ffi::c_void, *const i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWCWizard97Callback, IWCWizard97Callback_Vtbl, 0x97dede67_fc6b_11cf_b5f5_00a0c90ab505);
+impl std::ops::Deref for IWCWizard97Callback {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWCWizard97Callback, windows_core::IUnknown);
 impl IWCWizard97Callback {
     pub unsafe fn AddWizard97Page(&self, hpage: *const i32) -> windows_core::Result<()> {
@@ -6303,6 +6621,12 @@ pub struct IWCWizard97Callback_Vtbl {
     pub EnableNext: unsafe extern "system" fn(*mut core::ffi::c_void, *const i32, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWCWizardCallback, IWCWizardCallback_Vtbl, 0x97dede62_fc6b_11cf_b5f5_00a0c90ab505);
+impl std::ops::Deref for IWCWizardCallback {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWCWizardCallback, windows_core::IUnknown);
 impl IWCWizardCallback {
     pub unsafe fn AddWizardPage(&self, hpage: *const i32) -> windows_core::Result<()> {
@@ -6322,6 +6646,12 @@ pub struct IWCWizardCallback_Vtbl {
     pub EnableNext: unsafe extern "system" fn(*mut core::ffi::c_void, *const i32, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWEExtendContextMenu, IWEExtendContextMenu_Vtbl, 0x97dede65_fc6b_11cf_b5f5_00a0c90ab505);
+impl std::ops::Deref for IWEExtendContextMenu {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWEExtendContextMenu, windows_core::IUnknown);
 impl IWEExtendContextMenu {
     pub unsafe fn AddContextMenuItems<P0, P1>(&self, pidata: P0, picallback: P1) -> windows_core::Result<()>
@@ -6338,6 +6668,12 @@ pub struct IWEExtendContextMenu_Vtbl {
     pub AddContextMenuItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWEExtendPropertySheet, IWEExtendPropertySheet_Vtbl, 0x97dede61_fc6b_11cf_b5f5_00a0c90ab505);
+impl std::ops::Deref for IWEExtendPropertySheet {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWEExtendPropertySheet, windows_core::IUnknown);
 impl IWEExtendPropertySheet {
     pub unsafe fn CreatePropertySheetPages<P0, P1>(&self, pidata: P0, picallback: P1) -> windows_core::Result<()>
@@ -6354,6 +6690,12 @@ pub struct IWEExtendPropertySheet_Vtbl {
     pub CreatePropertySheetPages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWEExtendWizard, IWEExtendWizard_Vtbl, 0x97dede63_fc6b_11cf_b5f5_00a0c90ab505);
+impl std::ops::Deref for IWEExtendWizard {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWEExtendWizard, windows_core::IUnknown);
 impl IWEExtendWizard {
     pub unsafe fn CreateWizardPages<P0, P1>(&self, pidata: P0, picallback: P1) -> windows_core::Result<()>
@@ -6370,6 +6712,12 @@ pub struct IWEExtendWizard_Vtbl {
     pub CreateWizardPages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWEExtendWizard97, IWEExtendWizard97_Vtbl, 0x97dede68_fc6b_11cf_b5f5_00a0c90ab505);
+impl std::ops::Deref for IWEExtendWizard97 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWEExtendWizard97, windows_core::IUnknown);
 impl IWEExtendWizard97 {
     pub unsafe fn CreateWizard97Pages<P0, P1>(&self, pidata: P0, picallback: P1) -> windows_core::Result<()>
@@ -6386,6 +6734,12 @@ pub struct IWEExtendWizard97_Vtbl {
     pub CreateWizard97Pages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWEInvokeCommand, IWEInvokeCommand_Vtbl, 0x97dede66_fc6b_11cf_b5f5_00a0c90ab505);
+impl std::ops::Deref for IWEInvokeCommand {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWEInvokeCommand, windows_core::IUnknown);
 impl IWEInvokeCommand {
     pub unsafe fn InvokeCommand<P0>(&self, ncommandid: u32, pidata: P0) -> windows_core::Result<()>

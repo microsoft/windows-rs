@@ -13,7 +13,7 @@ impl IWdsTransportCacheable_Vtbl {
         unsafe extern "system" fn Dirty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportCacheable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbdirty: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Dirty() {
+            match IWdsTransportCacheable_Impl::Dirty(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbdirty, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -24,17 +24,17 @@ impl IWdsTransportCacheable_Vtbl {
         unsafe extern "system" fn Discard<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportCacheable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Discard().into()
+            IWdsTransportCacheable_Impl::Discard(this).into()
         }
         unsafe extern "system" fn Refresh<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportCacheable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Refresh().into()
+            IWdsTransportCacheable_Impl::Refresh(this).into()
         }
         unsafe extern "system" fn Commit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportCacheable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Commit().into()
+            IWdsTransportCacheable_Impl::Commit(this).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -71,7 +71,7 @@ impl IWdsTransportClient_Vtbl {
         unsafe extern "system" fn Session<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwdstransportsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Session() {
+            match IWdsTransportClient_Impl::Session(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppwdstransportsession, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -82,7 +82,7 @@ impl IWdsTransportClient_Vtbl {
         unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulid: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Id() {
+            match IWdsTransportClient_Impl::Id(this) {
                 Ok(ok__) => {
                     core::ptr::write(pulid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -93,7 +93,7 @@ impl IWdsTransportClient_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbszname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IWdsTransportClient_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbszname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -104,7 +104,7 @@ impl IWdsTransportClient_Vtbl {
         unsafe extern "system" fn MacAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbszmacaddress: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MacAddress() {
+            match IWdsTransportClient_Impl::MacAddress(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbszmacaddress, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -115,7 +115,7 @@ impl IWdsTransportClient_Vtbl {
         unsafe extern "system" fn IpAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbszipaddress: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IpAddress() {
+            match IWdsTransportClient_Impl::IpAddress(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbszipaddress, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -126,7 +126,7 @@ impl IWdsTransportClient_Vtbl {
         unsafe extern "system" fn PercentCompletion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulpercentcompletion: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PercentCompletion() {
+            match IWdsTransportClient_Impl::PercentCompletion(this) {
                 Ok(ok__) => {
                     core::ptr::write(pulpercentcompletion, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -137,7 +137,7 @@ impl IWdsTransportClient_Vtbl {
         unsafe extern "system" fn JoinDuration<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puljoinduration: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.JoinDuration() {
+            match IWdsTransportClient_Impl::JoinDuration(this) {
                 Ok(ok__) => {
                     core::ptr::write(puljoinduration, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -148,7 +148,7 @@ impl IWdsTransportClient_Vtbl {
         unsafe extern "system" fn CpuUtilization<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulcpuutilization: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CpuUtilization() {
+            match IWdsTransportClient_Impl::CpuUtilization(this) {
                 Ok(ok__) => {
                     core::ptr::write(pulcpuutilization, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -159,7 +159,7 @@ impl IWdsTransportClient_Vtbl {
         unsafe extern "system" fn MemoryUtilization<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulmemoryutilization: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MemoryUtilization() {
+            match IWdsTransportClient_Impl::MemoryUtilization(this) {
                 Ok(ok__) => {
                     core::ptr::write(pulmemoryutilization, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -170,7 +170,7 @@ impl IWdsTransportClient_Vtbl {
         unsafe extern "system" fn NetworkUtilization<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulnetworkutilization: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.NetworkUtilization() {
+            match IWdsTransportClient_Impl::NetworkUtilization(this) {
                 Ok(ok__) => {
                     core::ptr::write(pulnetworkutilization, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -181,7 +181,7 @@ impl IWdsTransportClient_Vtbl {
         unsafe extern "system" fn UserIdentity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbszuseridentity: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UserIdentity() {
+            match IWdsTransportClient_Impl::UserIdentity(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbszuseridentity, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -192,7 +192,7 @@ impl IWdsTransportClient_Vtbl {
         unsafe extern "system" fn Disconnect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Disconnect(core::mem::transmute_copy(&disconnectiontype)).into()
+            IWdsTransportClient_Impl::Disconnect(this, core::mem::transmute_copy(&disconnectiontype)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -228,7 +228,7 @@ impl IWdsTransportCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulcount: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IWdsTransportCollection_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(pulcount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -239,7 +239,7 @@ impl IWdsTransportCollection_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulindex: u32, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute_copy(&ulindex)) {
+            match IWdsTransportCollection_Impl::get_Item(this, core::mem::transmute_copy(&ulindex)) {
                 Ok(ok__) => {
                     core::ptr::write(ppval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -250,7 +250,7 @@ impl IWdsTransportCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IWdsTransportCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -289,7 +289,7 @@ impl IWdsTransportConfigurationManager_Vtbl {
         unsafe extern "system" fn ServicePolicy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportConfigurationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwdstransportservicepolicy: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ServicePolicy() {
+            match IWdsTransportConfigurationManager_Impl::ServicePolicy(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppwdstransportservicepolicy, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -300,7 +300,7 @@ impl IWdsTransportConfigurationManager_Vtbl {
         unsafe extern "system" fn DiagnosticsPolicy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportConfigurationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwdstransportdiagnosticspolicy: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DiagnosticsPolicy() {
+            match IWdsTransportConfigurationManager_Impl::DiagnosticsPolicy(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppwdstransportdiagnosticspolicy, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -311,7 +311,7 @@ impl IWdsTransportConfigurationManager_Vtbl {
         unsafe extern "system" fn get_WdsTransportServicesRunning<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportConfigurationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, brealtimestatus: super::super::Foundation::VARIANT_BOOL, pbservicesrunning: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_WdsTransportServicesRunning(core::mem::transmute_copy(&brealtimestatus)) {
+            match IWdsTransportConfigurationManager_Impl::get_WdsTransportServicesRunning(this, core::mem::transmute_copy(&brealtimestatus)) {
                 Ok(ok__) => {
                     core::ptr::write(pbservicesrunning, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -322,32 +322,32 @@ impl IWdsTransportConfigurationManager_Vtbl {
         unsafe extern "system" fn EnableWdsTransportServices<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportConfigurationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EnableWdsTransportServices().into()
+            IWdsTransportConfigurationManager_Impl::EnableWdsTransportServices(this).into()
         }
         unsafe extern "system" fn DisableWdsTransportServices<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportConfigurationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DisableWdsTransportServices().into()
+            IWdsTransportConfigurationManager_Impl::DisableWdsTransportServices(this).into()
         }
         unsafe extern "system" fn StartWdsTransportServices<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportConfigurationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.StartWdsTransportServices().into()
+            IWdsTransportConfigurationManager_Impl::StartWdsTransportServices(this).into()
         }
         unsafe extern "system" fn StopWdsTransportServices<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportConfigurationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.StopWdsTransportServices().into()
+            IWdsTransportConfigurationManager_Impl::StopWdsTransportServices(this).into()
         }
         unsafe extern "system" fn RestartWdsTransportServices<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportConfigurationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RestartWdsTransportServices().into()
+            IWdsTransportConfigurationManager_Impl::RestartWdsTransportServices(this).into()
         }
         unsafe extern "system" fn NotifyWdsTransportServices<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportConfigurationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, servicenotification: WDSTRANSPORT_SERVICE_NOTIFICATION) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.NotifyWdsTransportServices(core::mem::transmute_copy(&servicenotification)).into()
+            IWdsTransportConfigurationManager_Impl::NotifyWdsTransportServices(this, core::mem::transmute_copy(&servicenotification)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -378,7 +378,7 @@ impl IWdsTransportConfigurationManager2_Vtbl {
         unsafe extern "system" fn MulticastSessionPolicy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportConfigurationManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwdstransportmulticastsessionpolicy: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MulticastSessionPolicy() {
+            match IWdsTransportConfigurationManager2_Impl::MulticastSessionPolicy(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppwdstransportmulticastsessionpolicy, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -411,7 +411,7 @@ impl IWdsTransportContent_Vtbl {
         unsafe extern "system" fn Namespace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwdstransportnamespace: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Namespace() {
+            match IWdsTransportContent_Impl::Namespace(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppwdstransportnamespace, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -422,7 +422,7 @@ impl IWdsTransportContent_Vtbl {
         unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulid: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Id() {
+            match IWdsTransportContent_Impl::Id(this) {
                 Ok(ok__) => {
                     core::ptr::write(pulid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -433,7 +433,7 @@ impl IWdsTransportContent_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbszname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IWdsTransportContent_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbszname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -444,7 +444,7 @@ impl IWdsTransportContent_Vtbl {
         unsafe extern "system" fn RetrieveSessions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwdstransportsessions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RetrieveSessions() {
+            match IWdsTransportContent_Impl::RetrieveSessions(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppwdstransportsessions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -455,7 +455,7 @@ impl IWdsTransportContent_Vtbl {
         unsafe extern "system" fn Terminate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Terminate().into()
+            IWdsTransportContent_Impl::Terminate(this).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -485,7 +485,7 @@ impl IWdsTransportContentProvider_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportContentProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbszname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IWdsTransportContentProvider_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbszname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -496,7 +496,7 @@ impl IWdsTransportContentProvider_Vtbl {
         unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportContentProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbszdescription: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Description() {
+            match IWdsTransportContentProvider_Impl::Description(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbszdescription, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -507,7 +507,7 @@ impl IWdsTransportContentProvider_Vtbl {
         unsafe extern "system" fn FilePath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportContentProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbszfilepath: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FilePath() {
+            match IWdsTransportContentProvider_Impl::FilePath(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbszfilepath, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -518,7 +518,7 @@ impl IWdsTransportContentProvider_Vtbl {
         unsafe extern "system" fn InitializationRoutine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportContentProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbszinitializationroutine: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.InitializationRoutine() {
+            match IWdsTransportContentProvider_Impl::InitializationRoutine(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbszinitializationroutine, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -553,7 +553,7 @@ impl IWdsTransportDiagnosticsPolicy_Vtbl {
         unsafe extern "system" fn Enabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportDiagnosticsPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Enabled() {
+            match IWdsTransportDiagnosticsPolicy_Impl::Enabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbenabled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -564,12 +564,12 @@ impl IWdsTransportDiagnosticsPolicy_Vtbl {
         unsafe extern "system" fn SetEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportDiagnosticsPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEnabled(core::mem::transmute_copy(&benabled)).into()
+            IWdsTransportDiagnosticsPolicy_Impl::SetEnabled(this, core::mem::transmute_copy(&benabled)).into()
         }
         unsafe extern "system" fn Components<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportDiagnosticsPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulcomponents: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Components() {
+            match IWdsTransportDiagnosticsPolicy_Impl::Components(this) {
                 Ok(ok__) => {
                     core::ptr::write(pulcomponents, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -580,7 +580,7 @@ impl IWdsTransportDiagnosticsPolicy_Vtbl {
         unsafe extern "system" fn SetComponents<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportDiagnosticsPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulcomponents: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetComponents(core::mem::transmute_copy(&ulcomponents)).into()
+            IWdsTransportDiagnosticsPolicy_Impl::SetComponents(this, core::mem::transmute_copy(&ulcomponents)).into()
         }
         Self {
             base__: IWdsTransportCacheable_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -606,7 +606,7 @@ impl IWdsTransportManager_Vtbl {
         unsafe extern "system" fn GetWdsTransportServer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bszservername: std::mem::MaybeUninit<windows_core::BSTR>, ppwdstransportserver: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetWdsTransportServer(core::mem::transmute(&bszservername)) {
+            match IWdsTransportManager_Impl::GetWdsTransportServer(this, core::mem::transmute(&bszservername)) {
                 Ok(ok__) => {
                     core::ptr::write(ppwdstransportserver, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -639,7 +639,7 @@ impl IWdsTransportMulticastSessionPolicy_Vtbl {
         unsafe extern "system" fn SlowClientHandling<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportMulticastSessionPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pslowclienthandling: *mut WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SlowClientHandling() {
+            match IWdsTransportMulticastSessionPolicy_Impl::SlowClientHandling(this) {
                 Ok(ok__) => {
                     core::ptr::write(pslowclienthandling, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -650,12 +650,12 @@ impl IWdsTransportMulticastSessionPolicy_Vtbl {
         unsafe extern "system" fn SetSlowClientHandling<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportMulticastSessionPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, slowclienthandling: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSlowClientHandling(core::mem::transmute_copy(&slowclienthandling)).into()
+            IWdsTransportMulticastSessionPolicy_Impl::SetSlowClientHandling(this, core::mem::transmute_copy(&slowclienthandling)).into()
         }
         unsafe extern "system" fn AutoDisconnectThreshold<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportMulticastSessionPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulthreshold: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AutoDisconnectThreshold() {
+            match IWdsTransportMulticastSessionPolicy_Impl::AutoDisconnectThreshold(this) {
                 Ok(ok__) => {
                     core::ptr::write(pulthreshold, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -666,12 +666,12 @@ impl IWdsTransportMulticastSessionPolicy_Vtbl {
         unsafe extern "system" fn SetAutoDisconnectThreshold<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportMulticastSessionPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulthreshold: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAutoDisconnectThreshold(core::mem::transmute_copy(&ulthreshold)).into()
+            IWdsTransportMulticastSessionPolicy_Impl::SetAutoDisconnectThreshold(this, core::mem::transmute_copy(&ulthreshold)).into()
         }
         unsafe extern "system" fn MultistreamStreamCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportMulticastSessionPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulstreamcount: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MultistreamStreamCount() {
+            match IWdsTransportMulticastSessionPolicy_Impl::MultistreamStreamCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(pulstreamcount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -682,12 +682,12 @@ impl IWdsTransportMulticastSessionPolicy_Vtbl {
         unsafe extern "system" fn SetMultistreamStreamCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportMulticastSessionPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulstreamcount: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMultistreamStreamCount(core::mem::transmute_copy(&ulstreamcount)).into()
+            IWdsTransportMulticastSessionPolicy_Impl::SetMultistreamStreamCount(this, core::mem::transmute_copy(&ulstreamcount)).into()
         }
         unsafe extern "system" fn SlowClientFallback<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportMulticastSessionPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbclientfallback: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SlowClientFallback() {
+            match IWdsTransportMulticastSessionPolicy_Impl::SlowClientFallback(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbclientfallback, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -698,7 +698,7 @@ impl IWdsTransportMulticastSessionPolicy_Vtbl {
         unsafe extern "system" fn SetSlowClientFallback<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportMulticastSessionPolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bclientfallback: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSlowClientFallback(core::mem::transmute_copy(&bclientfallback)).into()
+            IWdsTransportMulticastSessionPolicy_Impl::SetSlowClientFallback(this, core::mem::transmute_copy(&bclientfallback)).into()
         }
         Self {
             base__: IWdsTransportCacheable_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -748,7 +748,7 @@ impl IWdsTransportNamespace_Vtbl {
         unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptype: *mut WDSTRANSPORT_NAMESPACE_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Type() {
+            match IWdsTransportNamespace_Impl::Type(this) {
                 Ok(ok__) => {
                     core::ptr::write(ptype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -759,7 +759,7 @@ impl IWdsTransportNamespace_Vtbl {
         unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulid: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Id() {
+            match IWdsTransportNamespace_Impl::Id(this) {
                 Ok(ok__) => {
                     core::ptr::write(pulid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -770,7 +770,7 @@ impl IWdsTransportNamespace_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbszname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IWdsTransportNamespace_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbszname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -781,12 +781,12 @@ impl IWdsTransportNamespace_Vtbl {
         unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bszname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetName(core::mem::transmute(&bszname)).into()
+            IWdsTransportNamespace_Impl::SetName(this, core::mem::transmute(&bszname)).into()
         }
         unsafe extern "system" fn FriendlyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbszfriendlyname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FriendlyName() {
+            match IWdsTransportNamespace_Impl::FriendlyName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbszfriendlyname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -797,12 +797,12 @@ impl IWdsTransportNamespace_Vtbl {
         unsafe extern "system" fn SetFriendlyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bszfriendlyname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFriendlyName(core::mem::transmute(&bszfriendlyname)).into()
+            IWdsTransportNamespace_Impl::SetFriendlyName(this, core::mem::transmute(&bszfriendlyname)).into()
         }
         unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbszdescription: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Description() {
+            match IWdsTransportNamespace_Impl::Description(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbszdescription, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -813,12 +813,12 @@ impl IWdsTransportNamespace_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bszdescription: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDescription(core::mem::transmute(&bszdescription)).into()
+            IWdsTransportNamespace_Impl::SetDescription(this, core::mem::transmute(&bszdescription)).into()
         }
         unsafe extern "system" fn ContentProvider<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbszcontentprovider: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ContentProvider() {
+            match IWdsTransportNamespace_Impl::ContentProvider(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbszcontentprovider, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -829,12 +829,12 @@ impl IWdsTransportNamespace_Vtbl {
         unsafe extern "system" fn SetContentProvider<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bszcontentprovider: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetContentProvider(core::mem::transmute(&bszcontentprovider)).into()
+            IWdsTransportNamespace_Impl::SetContentProvider(this, core::mem::transmute(&bszcontentprovider)).into()
         }
         unsafe extern "system" fn Configuration<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbszconfiguration: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Configuration() {
+            match IWdsTransportNamespace_Impl::Configuration(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbszconfiguration, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -845,12 +845,12 @@ impl IWdsTransportNamespace_Vtbl {
         unsafe extern "system" fn SetConfiguration<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bszconfiguration: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetConfiguration(core::mem::transmute(&bszconfiguration)).into()
+            IWdsTransportNamespace_Impl::SetConfiguration(this, core::mem::transmute(&bszconfiguration)).into()
         }
         unsafe extern "system" fn Registered<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbregistered: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Registered() {
+            match IWdsTransportNamespace_Impl::Registered(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbregistered, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -861,7 +861,7 @@ impl IWdsTransportNamespace_Vtbl {
         unsafe extern "system" fn Tombstoned<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbtombstoned: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Tombstoned() {
+            match IWdsTransportNamespace_Impl::Tombstoned(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbtombstoned, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -872,7 +872,7 @@ impl IWdsTransportNamespace_Vtbl {
         unsafe extern "system" fn TombstoneTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptombstonetime: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TombstoneTime() {
+            match IWdsTransportNamespace_Impl::TombstoneTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(ptombstonetime, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -883,7 +883,7 @@ impl IWdsTransportNamespace_Vtbl {
         unsafe extern "system" fn TransmissionStarted<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbtransmissionstarted: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TransmissionStarted() {
+            match IWdsTransportNamespace_Impl::TransmissionStarted(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbtransmissionstarted, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -894,17 +894,17 @@ impl IWdsTransportNamespace_Vtbl {
         unsafe extern "system" fn Register<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Register().into()
+            IWdsTransportNamespace_Impl::Register(this).into()
         }
         unsafe extern "system" fn Deregister<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bterminatesessions: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Deregister(core::mem::transmute_copy(&bterminatesessions)).into()
+            IWdsTransportNamespace_Impl::Deregister(this, core::mem::transmute_copy(&bterminatesessions)).into()
         }
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwdstransportnamespaceclone: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IWdsTransportNamespace_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppwdstransportnamespaceclone, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -915,12 +915,12 @@ impl IWdsTransportNamespace_Vtbl {
         unsafe extern "system" fn Refresh<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Refresh().into()
+            IWdsTransportNamespace_Impl::Refresh(this).into()
         }
         unsafe extern "system" fn RetrieveContents<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwdstransportcontents: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RetrieveContents() {
+            match IWdsTransportNamespace_Impl::RetrieveContents(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppwdstransportcontents, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -984,7 +984,7 @@ impl IWdsTransportNamespaceManager_Vtbl {
         unsafe extern "system" fn CreateNamespace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespacetype: WDSTRANSPORT_NAMESPACE_TYPE, bsznamespacename: std::mem::MaybeUninit<windows_core::BSTR>, bszcontentprovider: std::mem::MaybeUninit<windows_core::BSTR>, bszconfiguration: std::mem::MaybeUninit<windows_core::BSTR>, ppwdstransportnamespace: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateNamespace(core::mem::transmute_copy(&namespacetype), core::mem::transmute(&bsznamespacename), core::mem::transmute(&bszcontentprovider), core::mem::transmute(&bszconfiguration)) {
+            match IWdsTransportNamespaceManager_Impl::CreateNamespace(this, core::mem::transmute_copy(&namespacetype), core::mem::transmute(&bsznamespacename), core::mem::transmute(&bszcontentprovider), core::mem::transmute(&bszconfiguration)) {
                 Ok(ok__) => {
                     core::ptr::write(ppwdstransportnamespace, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -995,7 +995,7 @@ impl IWdsTransportNamespaceManager_Vtbl {
         unsafe extern "system" fn RetrieveNamespace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bsznamespacename: std::mem::MaybeUninit<windows_core::BSTR>, ppwdstransportnamespace: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RetrieveNamespace(core::mem::transmute(&bsznamespacename)) {
+            match IWdsTransportNamespaceManager_Impl::RetrieveNamespace(this, core::mem::transmute(&bsznamespacename)) {
                 Ok(ok__) => {
                     core::ptr::write(ppwdstransportnamespace, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1006,7 +1006,7 @@ impl IWdsTransportNamespaceManager_Vtbl {
         unsafe extern "system" fn RetrieveNamespaces<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bszcontentprovider: std::mem::MaybeUninit<windows_core::BSTR>, bsznamespacename: std::mem::MaybeUninit<windows_core::BSTR>, bincludetombstones: super::super::Foundation::VARIANT_BOOL, ppwdstransportnamespaces: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RetrieveNamespaces(core::mem::transmute(&bszcontentprovider), core::mem::transmute(&bsznamespacename), core::mem::transmute_copy(&bincludetombstones)) {
+            match IWdsTransportNamespaceManager_Impl::RetrieveNamespaces(this, core::mem::transmute(&bszcontentprovider), core::mem::transmute(&bsznamespacename), core::mem::transmute_copy(&bincludetombstones)) {
                 Ok(ok__) => {
                     core::ptr::write(ppwdstransportnamespaces, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1037,7 +1037,7 @@ impl IWdsTransportNamespaceScheduledCast_Vtbl {
         unsafe extern "system" fn StartTransmission<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespaceScheduledCast_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.StartTransmission().into()
+            IWdsTransportNamespaceScheduledCast_Impl::StartTransmission(this).into()
         }
         Self { base__: IWdsTransportNamespace_Vtbl::new::<Identity, Impl, OFFSET>(), StartTransmission: StartTransmission::<Identity, Impl, OFFSET> }
     }
@@ -1060,7 +1060,7 @@ impl IWdsTransportNamespaceScheduledCastAutoStart_Vtbl {
         unsafe extern "system" fn MinimumClients<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespaceScheduledCastAutoStart_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulminimumclients: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MinimumClients() {
+            match IWdsTransportNamespaceScheduledCastAutoStart_Impl::MinimumClients(this) {
                 Ok(ok__) => {
                     core::ptr::write(pulminimumclients, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1071,12 +1071,12 @@ impl IWdsTransportNamespaceScheduledCastAutoStart_Vtbl {
         unsafe extern "system" fn SetMinimumClients<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespaceScheduledCastAutoStart_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulminimumclients: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMinimumClients(core::mem::transmute_copy(&ulminimumclients)).into()
+            IWdsTransportNamespaceScheduledCastAutoStart_Impl::SetMinimumClients(this, core::mem::transmute_copy(&ulminimumclients)).into()
         }
         unsafe extern "system" fn StartTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespaceScheduledCastAutoStart_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstarttime: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.StartTime() {
+            match IWdsTransportNamespaceScheduledCastAutoStart_Impl::StartTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(pstarttime, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1087,7 +1087,7 @@ impl IWdsTransportNamespaceScheduledCastAutoStart_Vtbl {
         unsafe extern "system" fn SetStartTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportNamespaceScheduledCastAutoStart_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, starttime: f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetStartTime(core::mem::transmute_copy(&starttime)).into()
+            IWdsTransportNamespaceScheduledCastAutoStart_Impl::SetStartTime(this, core::mem::transmute_copy(&starttime)).into()
         }
         Self {
             base__: IWdsTransportNamespaceScheduledCast_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1130,7 +1130,7 @@ impl IWdsTransportServer_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbszname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IWdsTransportServer_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbszname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1141,7 +1141,7 @@ impl IWdsTransportServer_Vtbl {
         unsafe extern "system" fn SetupManager<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwdstransportsetupmanager: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SetupManager() {
+            match IWdsTransportServer_Impl::SetupManager(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppwdstransportsetupmanager, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1152,7 +1152,7 @@ impl IWdsTransportServer_Vtbl {
         unsafe extern "system" fn ConfigurationManager<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwdstransportconfigurationmanager: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ConfigurationManager() {
+            match IWdsTransportServer_Impl::ConfigurationManager(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppwdstransportconfigurationmanager, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1163,7 +1163,7 @@ impl IWdsTransportServer_Vtbl {
         unsafe extern "system" fn NamespaceManager<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwdstransportnamespacemanager: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.NamespaceManager() {
+            match IWdsTransportServer_Impl::NamespaceManager(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppwdstransportnamespacemanager, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1174,7 +1174,7 @@ impl IWdsTransportServer_Vtbl {
         unsafe extern "system" fn DisconnectClient<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportServer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulclientid: u32, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DisconnectClient(core::mem::transmute_copy(&ulclientid), core::mem::transmute_copy(&disconnectiontype)).into()
+            IWdsTransportServer_Impl::DisconnectClient(this, core::mem::transmute_copy(&ulclientid), core::mem::transmute_copy(&disconnectiontype)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1201,7 +1201,7 @@ impl IWdsTransportServer2_Vtbl {
         unsafe extern "system" fn TftpManager<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportServer2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwdstransporttftpmanager: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TftpManager() {
+            match IWdsTransportServer2_Impl::TftpManager(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppwdstransporttftpmanager, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1238,7 +1238,7 @@ impl IWdsTransportServicePolicy_Vtbl {
         unsafe extern "system" fn get_IpAddressSource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, psourcetype: *mut WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_IpAddressSource(core::mem::transmute_copy(&addresstype)) {
+            match IWdsTransportServicePolicy_Impl::get_IpAddressSource(this, core::mem::transmute_copy(&addresstype)) {
                 Ok(ok__) => {
                     core::ptr::write(psourcetype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1249,12 +1249,12 @@ impl IWdsTransportServicePolicy_Vtbl {
         unsafe extern "system" fn put_IpAddressSource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, sourcetype: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.put_IpAddressSource(core::mem::transmute_copy(&addresstype), core::mem::transmute_copy(&sourcetype)).into()
+            IWdsTransportServicePolicy_Impl::put_IpAddressSource(this, core::mem::transmute_copy(&addresstype), core::mem::transmute_copy(&sourcetype)).into()
         }
         unsafe extern "system" fn get_StartIpAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, pbszstartipaddress: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_StartIpAddress(core::mem::transmute_copy(&addresstype)) {
+            match IWdsTransportServicePolicy_Impl::get_StartIpAddress(this, core::mem::transmute_copy(&addresstype)) {
                 Ok(ok__) => {
                     core::ptr::write(pbszstartipaddress, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1265,12 +1265,12 @@ impl IWdsTransportServicePolicy_Vtbl {
         unsafe extern "system" fn put_StartIpAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszstartipaddress: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.put_StartIpAddress(core::mem::transmute_copy(&addresstype), core::mem::transmute(&bszstartipaddress)).into()
+            IWdsTransportServicePolicy_Impl::put_StartIpAddress(this, core::mem::transmute_copy(&addresstype), core::mem::transmute(&bszstartipaddress)).into()
         }
         unsafe extern "system" fn get_EndIpAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, pbszendipaddress: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_EndIpAddress(core::mem::transmute_copy(&addresstype)) {
+            match IWdsTransportServicePolicy_Impl::get_EndIpAddress(this, core::mem::transmute_copy(&addresstype)) {
                 Ok(ok__) => {
                     core::ptr::write(pbszendipaddress, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1281,12 +1281,12 @@ impl IWdsTransportServicePolicy_Vtbl {
         unsafe extern "system" fn put_EndIpAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszendipaddress: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.put_EndIpAddress(core::mem::transmute_copy(&addresstype), core::mem::transmute(&bszendipaddress)).into()
+            IWdsTransportServicePolicy_Impl::put_EndIpAddress(this, core::mem::transmute_copy(&addresstype), core::mem::transmute(&bszendipaddress)).into()
         }
         unsafe extern "system" fn StartPort<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulstartport: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.StartPort() {
+            match IWdsTransportServicePolicy_Impl::StartPort(this) {
                 Ok(ok__) => {
                     core::ptr::write(pulstartport, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1297,12 +1297,12 @@ impl IWdsTransportServicePolicy_Vtbl {
         unsafe extern "system" fn SetStartPort<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulstartport: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetStartPort(core::mem::transmute_copy(&ulstartport)).into()
+            IWdsTransportServicePolicy_Impl::SetStartPort(this, core::mem::transmute_copy(&ulstartport)).into()
         }
         unsafe extern "system" fn EndPort<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulendport: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EndPort() {
+            match IWdsTransportServicePolicy_Impl::EndPort(this) {
                 Ok(ok__) => {
                     core::ptr::write(pulendport, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1313,12 +1313,12 @@ impl IWdsTransportServicePolicy_Vtbl {
         unsafe extern "system" fn SetEndPort<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulendport: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEndPort(core::mem::transmute_copy(&ulendport)).into()
+            IWdsTransportServicePolicy_Impl::SetEndPort(this, core::mem::transmute_copy(&ulendport)).into()
         }
         unsafe extern "system" fn NetworkProfile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprofiletype: *mut WDSTRANSPORT_NETWORK_PROFILE_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.NetworkProfile() {
+            match IWdsTransportServicePolicy_Impl::NetworkProfile(this) {
                 Ok(ok__) => {
                     core::ptr::write(pprofiletype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1329,7 +1329,7 @@ impl IWdsTransportServicePolicy_Vtbl {
         unsafe extern "system" fn SetNetworkProfile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profiletype: WDSTRANSPORT_NETWORK_PROFILE_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetNetworkProfile(core::mem::transmute_copy(&profiletype)).into()
+            IWdsTransportServicePolicy_Impl::SetNetworkProfile(this, core::mem::transmute_copy(&profiletype)).into()
         }
         Self {
             base__: IWdsTransportCacheable_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1368,7 +1368,7 @@ impl IWdsTransportServicePolicy2_Vtbl {
         unsafe extern "system" fn UdpPortPolicy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportServicePolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pudpportpolicy: *mut WDSTRANSPORT_UDP_PORT_POLICY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UdpPortPolicy() {
+            match IWdsTransportServicePolicy2_Impl::UdpPortPolicy(this) {
                 Ok(ok__) => {
                     core::ptr::write(pudpportpolicy, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1379,12 +1379,12 @@ impl IWdsTransportServicePolicy2_Vtbl {
         unsafe extern "system" fn SetUdpPortPolicy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportServicePolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, udpportpolicy: WDSTRANSPORT_UDP_PORT_POLICY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetUdpPortPolicy(core::mem::transmute_copy(&udpportpolicy)).into()
+            IWdsTransportServicePolicy2_Impl::SetUdpPortPolicy(this, core::mem::transmute_copy(&udpportpolicy)).into()
         }
         unsafe extern "system" fn TftpMaximumBlockSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportServicePolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pultftpmaximumblocksize: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TftpMaximumBlockSize() {
+            match IWdsTransportServicePolicy2_Impl::TftpMaximumBlockSize(this) {
                 Ok(ok__) => {
                     core::ptr::write(pultftpmaximumblocksize, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1395,12 +1395,12 @@ impl IWdsTransportServicePolicy2_Vtbl {
         unsafe extern "system" fn SetTftpMaximumBlockSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportServicePolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ultftpmaximumblocksize: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTftpMaximumBlockSize(core::mem::transmute_copy(&ultftpmaximumblocksize)).into()
+            IWdsTransportServicePolicy2_Impl::SetTftpMaximumBlockSize(this, core::mem::transmute_copy(&ultftpmaximumblocksize)).into()
         }
         unsafe extern "system" fn EnableTftpVariableWindowExtension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportServicePolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbenabletftpvariablewindowextension: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnableTftpVariableWindowExtension() {
+            match IWdsTransportServicePolicy2_Impl::EnableTftpVariableWindowExtension(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbenabletftpvariablewindowextension, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1411,7 +1411,7 @@ impl IWdsTransportServicePolicy2_Vtbl {
         unsafe extern "system" fn SetEnableTftpVariableWindowExtension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportServicePolicy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benabletftpvariablewindowextension: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEnableTftpVariableWindowExtension(core::mem::transmute_copy(&benabletftpvariablewindowextension)).into()
+            IWdsTransportServicePolicy2_Impl::SetEnableTftpVariableWindowExtension(this, core::mem::transmute_copy(&benabletftpvariablewindowextension)).into()
         }
         Self {
             base__: IWdsTransportServicePolicy_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1446,7 +1446,7 @@ impl IWdsTransportSession_Vtbl {
         unsafe extern "system" fn Content<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwdstransportcontent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Content() {
+            match IWdsTransportSession_Impl::Content(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppwdstransportcontent, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1457,7 +1457,7 @@ impl IWdsTransportSession_Vtbl {
         unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulid: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Id() {
+            match IWdsTransportSession_Impl::Id(this) {
                 Ok(ok__) => {
                     core::ptr::write(pulid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1468,7 +1468,7 @@ impl IWdsTransportSession_Vtbl {
         unsafe extern "system" fn NetworkInterfaceName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbsznetworkinterfacename: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.NetworkInterfaceName() {
+            match IWdsTransportSession_Impl::NetworkInterfaceName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbsznetworkinterfacename, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1479,7 +1479,7 @@ impl IWdsTransportSession_Vtbl {
         unsafe extern "system" fn NetworkInterfaceAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbsznetworkinterfaceaddress: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.NetworkInterfaceAddress() {
+            match IWdsTransportSession_Impl::NetworkInterfaceAddress(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbsznetworkinterfaceaddress, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1490,7 +1490,7 @@ impl IWdsTransportSession_Vtbl {
         unsafe extern "system" fn TransferRate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pultransferrate: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TransferRate() {
+            match IWdsTransportSession_Impl::TransferRate(this) {
                 Ok(ok__) => {
                     core::ptr::write(pultransferrate, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1501,7 +1501,7 @@ impl IWdsTransportSession_Vtbl {
         unsafe extern "system" fn MasterClientId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulmasterclientid: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MasterClientId() {
+            match IWdsTransportSession_Impl::MasterClientId(this) {
                 Ok(ok__) => {
                     core::ptr::write(pulmasterclientid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1512,7 +1512,7 @@ impl IWdsTransportSession_Vtbl {
         unsafe extern "system" fn RetrieveClients<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwdstransportclients: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RetrieveClients() {
+            match IWdsTransportSession_Impl::RetrieveClients(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppwdstransportclients, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1523,7 +1523,7 @@ impl IWdsTransportSession_Vtbl {
         unsafe extern "system" fn Terminate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Terminate().into()
+            IWdsTransportSession_Impl::Terminate(this).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1557,7 +1557,7 @@ impl IWdsTransportSetupManager_Vtbl {
         unsafe extern "system" fn Version<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportSetupManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pullversion: *mut u64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Version() {
+            match IWdsTransportSetupManager_Impl::Version(this) {
                 Ok(ok__) => {
                     core::ptr::write(pullversion, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1568,7 +1568,7 @@ impl IWdsTransportSetupManager_Vtbl {
         unsafe extern "system" fn InstalledFeatures<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportSetupManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulinstalledfeatures: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.InstalledFeatures() {
+            match IWdsTransportSetupManager_Impl::InstalledFeatures(this) {
                 Ok(ok__) => {
                     core::ptr::write(pulinstalledfeatures, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1579,7 +1579,7 @@ impl IWdsTransportSetupManager_Vtbl {
         unsafe extern "system" fn Protocols<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportSetupManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulprotocols: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Protocols() {
+            match IWdsTransportSetupManager_Impl::Protocols(this) {
                 Ok(ok__) => {
                     core::ptr::write(pulprotocols, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1590,12 +1590,12 @@ impl IWdsTransportSetupManager_Vtbl {
         unsafe extern "system" fn RegisterContentProvider<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportSetupManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bszname: std::mem::MaybeUninit<windows_core::BSTR>, bszdescription: std::mem::MaybeUninit<windows_core::BSTR>, bszfilepath: std::mem::MaybeUninit<windows_core::BSTR>, bszinitializationroutine: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RegisterContentProvider(core::mem::transmute(&bszname), core::mem::transmute(&bszdescription), core::mem::transmute(&bszfilepath), core::mem::transmute(&bszinitializationroutine)).into()
+            IWdsTransportSetupManager_Impl::RegisterContentProvider(this, core::mem::transmute(&bszname), core::mem::transmute(&bszdescription), core::mem::transmute(&bszfilepath), core::mem::transmute(&bszinitializationroutine)).into()
         }
         unsafe extern "system" fn DeregisterContentProvider<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportSetupManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bszname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeregisterContentProvider(core::mem::transmute(&bszname)).into()
+            IWdsTransportSetupManager_Impl::DeregisterContentProvider(this, core::mem::transmute(&bszname)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1623,7 +1623,7 @@ impl IWdsTransportSetupManager2_Vtbl {
         unsafe extern "system" fn TftpCapabilities<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportSetupManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pultftpcapabilities: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TftpCapabilities() {
+            match IWdsTransportSetupManager2_Impl::TftpCapabilities(this) {
                 Ok(ok__) => {
                     core::ptr::write(pultftpcapabilities, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1634,7 +1634,7 @@ impl IWdsTransportSetupManager2_Vtbl {
         unsafe extern "system" fn ContentProviders<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportSetupManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppprovidercollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ContentProviders() {
+            match IWdsTransportSetupManager2_Impl::ContentProviders(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppprovidercollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1670,7 +1670,7 @@ impl IWdsTransportTftpClient_Vtbl {
         unsafe extern "system" fn FileName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportTftpClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbszfilename: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FileName() {
+            match IWdsTransportTftpClient_Impl::FileName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbszfilename, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1681,7 +1681,7 @@ impl IWdsTransportTftpClient_Vtbl {
         unsafe extern "system" fn IpAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportTftpClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbszipaddress: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IpAddress() {
+            match IWdsTransportTftpClient_Impl::IpAddress(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbszipaddress, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1692,7 +1692,7 @@ impl IWdsTransportTftpClient_Vtbl {
         unsafe extern "system" fn Timeout<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportTftpClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pultimeout: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Timeout() {
+            match IWdsTransportTftpClient_Impl::Timeout(this) {
                 Ok(ok__) => {
                     core::ptr::write(pultimeout, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1703,7 +1703,7 @@ impl IWdsTransportTftpClient_Vtbl {
         unsafe extern "system" fn CurrentFileOffset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportTftpClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pul64currentoffset: *mut u64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentFileOffset() {
+            match IWdsTransportTftpClient_Impl::CurrentFileOffset(this) {
                 Ok(ok__) => {
                     core::ptr::write(pul64currentoffset, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1714,7 +1714,7 @@ impl IWdsTransportTftpClient_Vtbl {
         unsafe extern "system" fn FileSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportTftpClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pul64filesize: *mut u64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FileSize() {
+            match IWdsTransportTftpClient_Impl::FileSize(this) {
                 Ok(ok__) => {
                     core::ptr::write(pul64filesize, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1725,7 +1725,7 @@ impl IWdsTransportTftpClient_Vtbl {
         unsafe extern "system" fn BlockSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportTftpClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulblocksize: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BlockSize() {
+            match IWdsTransportTftpClient_Impl::BlockSize(this) {
                 Ok(ok__) => {
                     core::ptr::write(pulblocksize, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1736,7 +1736,7 @@ impl IWdsTransportTftpClient_Vtbl {
         unsafe extern "system" fn WindowSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportTftpClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulwindowsize: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.WindowSize() {
+            match IWdsTransportTftpClient_Impl::WindowSize(this) {
                 Ok(ok__) => {
                     core::ptr::write(pulwindowsize, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1771,7 +1771,7 @@ impl IWdsTransportTftpManager_Vtbl {
         unsafe extern "system" fn RetrieveTftpClients<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWdsTransportTftpManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwdstransporttftpclients: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RetrieveTftpClients() {
+            match IWdsTransportTftpManager_Impl::RetrieveTftpClients(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppwdstransporttftpclients, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

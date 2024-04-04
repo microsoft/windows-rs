@@ -1,159 +1,16 @@
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
 windows_core::imp::define_interface!(IAccessibleWinSAT, IAccessibleWinSAT_Vtbl, 0x30e6018a_94a8_4ff8_a69a_71b67413f07b);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
+impl std::ops::Deref for IAccessibleWinSAT {
+    type Target = super::super::UI::Accessibility::IAccessible;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
 windows_core::imp::interface_hierarchy!(IAccessibleWinSAT, windows_core::IUnknown, super::Com::IDispatch, super::super::UI::Accessibility::IAccessible);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
 impl IAccessibleWinSAT {
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
-    pub unsafe fn accParent(&self) -> windows_core::Result<super::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.accParent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_UI_Accessibility")]
-    pub unsafe fn accChildCount(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.accChildCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
-    pub unsafe fn get_accChild<P0>(&self, varchild: P0) -> windows_core::Result<super::Com::IDispatch>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.get_accChild)(windows_core::Interface::as_raw(self), varchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_UI_Accessibility")]
-    pub unsafe fn get_accName<P0>(&self, varchild: P0) -> windows_core::Result<windows_core::BSTR>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.get_accName)(windows_core::Interface::as_raw(self), varchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_UI_Accessibility")]
-    pub unsafe fn get_accValue<P0>(&self, varchild: P0) -> windows_core::Result<windows_core::BSTR>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.get_accValue)(windows_core::Interface::as_raw(self), varchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_UI_Accessibility")]
-    pub unsafe fn get_accDescription<P0>(&self, varchild: P0) -> windows_core::Result<windows_core::BSTR>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.get_accDescription)(windows_core::Interface::as_raw(self), varchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_UI_Accessibility")]
-    pub unsafe fn get_accRole<P0>(&self, varchild: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.get_accRole)(windows_core::Interface::as_raw(self), varchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_UI_Accessibility")]
-    pub unsafe fn get_accState<P0>(&self, varchild: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.get_accState)(windows_core::Interface::as_raw(self), varchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_UI_Accessibility")]
-    pub unsafe fn get_accHelp<P0>(&self, varchild: P0) -> windows_core::Result<windows_core::BSTR>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.get_accHelp)(windows_core::Interface::as_raw(self), varchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_UI_Accessibility")]
-    pub unsafe fn get_accHelpTopic<P0>(&self, pszhelpfile: *mut windows_core::BSTR, varchild: P0) -> windows_core::Result<i32>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.get_accHelpTopic)(windows_core::Interface::as_raw(self), core::mem::transmute(pszhelpfile), varchild.param().abi(), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_UI_Accessibility")]
-    pub unsafe fn get_accKeyboardShortcut<P0>(&self, varchild: P0) -> windows_core::Result<windows_core::BSTR>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.get_accKeyboardShortcut)(windows_core::Interface::as_raw(self), varchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_UI_Accessibility")]
-    pub unsafe fn accFocus(&self) -> windows_core::Result<windows_core::VARIANT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.accFocus)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_UI_Accessibility")]
-    pub unsafe fn accSelection(&self) -> windows_core::Result<windows_core::VARIANT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.accSelection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_UI_Accessibility")]
-    pub unsafe fn get_accDefaultAction<P0>(&self, varchild: P0) -> windows_core::Result<windows_core::BSTR>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.get_accDefaultAction)(windows_core::Interface::as_raw(self), varchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_UI_Accessibility")]
-    pub unsafe fn accSelect<P0>(&self, flagsselect: i32, varchild: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.accSelect)(windows_core::Interface::as_raw(self), flagsselect, varchild.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_UI_Accessibility")]
-    pub unsafe fn accLocation<P0>(&self, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.accLocation)(windows_core::Interface::as_raw(self), pxleft, pytop, pcxwidth, pcyheight, varchild.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_UI_Accessibility")]
-    pub unsafe fn accNavigate<P0>(&self, navdir: i32, varstart: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.accNavigate)(windows_core::Interface::as_raw(self), navdir, varstart.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_UI_Accessibility")]
-    pub unsafe fn accHitTest(&self, xleft: i32, ytop: i32) -> windows_core::Result<windows_core::VARIANT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.accHitTest)(windows_core::Interface::as_raw(self), xleft, ytop, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_UI_Accessibility")]
-    pub unsafe fn accDoDefaultAction<P0>(&self, varchild: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.accDoDefaultAction)(windows_core::Interface::as_raw(self), varchild.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_UI_Accessibility")]
-    pub unsafe fn put_accName<P0, P1>(&self, varchild: P0, szname: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.put_accName)(windows_core::Interface::as_raw(self), varchild.param().abi(), szname.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_UI_Accessibility")]
-    pub unsafe fn put_accValue<P0, P1>(&self, varchild: P0, szvalue: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.put_accValue)(windows_core::Interface::as_raw(self), varchild.param().abi(), szvalue.param().abi()).ok()
-    }
     pub unsafe fn SetAccessiblityData<P0, P1, P2>(&self, wsname: P0, wsvalue: P1, wsdesc: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -170,6 +27,12 @@ pub struct IAccessibleWinSAT_Vtbl {
     pub SetAccessiblityData: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInitiateWinSATAssessment, IInitiateWinSATAssessment_Vtbl, 0xd983fc50_f5bf_49d5_b5ed_cccb18aa7fc1);
+impl std::ops::Deref for IInitiateWinSATAssessment {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IInitiateWinSATAssessment, windows_core::IUnknown);
 impl IInitiateWinSATAssessment {
     pub unsafe fn InitiateAssessment<P0, P1, P2>(&self, cmdline: P0, pcallbacks: P1, callerhwnd: P2) -> windows_core::Result<()>
@@ -201,6 +64,13 @@ pub struct IInitiateWinSATAssessment_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IProvideWinSATAssessmentInfo, IProvideWinSATAssessmentInfo_Vtbl, 0x0cd1c380_52d3_4678_ac6f_e929e480be9e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IProvideWinSATAssessmentInfo {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IProvideWinSATAssessmentInfo, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IProvideWinSATAssessmentInfo {
@@ -227,6 +97,13 @@ pub struct IProvideWinSATAssessmentInfo_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IProvideWinSATResultsInfo, IProvideWinSATResultsInfo_Vtbl, 0xf8334d5d_568e_4075_875f_9df341506640);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IProvideWinSATResultsInfo {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IProvideWinSATResultsInfo, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -267,6 +144,12 @@ pub struct IProvideWinSATResultsInfo_Vtbl {
     pub RatingStateDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProvideWinSATVisuals, IProvideWinSATVisuals_Vtbl, 0xa9f4ade0_871a_42a3_b813_3078d25162c9);
+impl std::ops::Deref for IProvideWinSATVisuals {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IProvideWinSATVisuals, windows_core::IUnknown);
 impl IProvideWinSATVisuals {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -285,6 +168,13 @@ pub struct IProvideWinSATVisuals_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IQueryAllWinSATAssessments, IQueryAllWinSATAssessments_Vtbl, 0x0b89ed1d_6398_4fea_87fc_567d8d19176f);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IQueryAllWinSATAssessments {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IQueryAllWinSATAssessments, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -309,6 +199,12 @@ pub struct IQueryAllWinSATAssessments_Vtbl {
     get_AllXML: usize,
 }
 windows_core::imp::define_interface!(IQueryOEMWinSATCustomization, IQueryOEMWinSATCustomization_Vtbl, 0xbc9a6a9f_ad4e_420e_9953_b34671e9df22);
+impl std::ops::Deref for IQueryOEMWinSATCustomization {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IQueryOEMWinSATCustomization, windows_core::IUnknown);
 impl IQueryOEMWinSATCustomization {
     pub unsafe fn GetOEMPrePopulationInfo(&self) -> windows_core::Result<WINSAT_OEM_CUSTOMIZATION_STATE> {
@@ -323,6 +219,13 @@ pub struct IQueryOEMWinSATCustomization_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IQueryRecentWinSATAssessment, IQueryRecentWinSATAssessment_Vtbl, 0xf8ad5d1f_3b47_4bdc_9375_7c6b1da4eca7);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IQueryRecentWinSATAssessment {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IQueryRecentWinSATAssessment, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -356,6 +259,12 @@ pub struct IQueryRecentWinSATAssessment_Vtbl {
     Info: usize,
 }
 windows_core::imp::define_interface!(IWinSATInitiateEvents, IWinSATInitiateEvents_Vtbl, 0x262a1918_ba0d_41d5_92c2_fab4633ee74f);
+impl std::ops::Deref for IWinSATInitiateEvents {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWinSATInitiateEvents, windows_core::IUnknown);
 impl IWinSATInitiateEvents {
     pub unsafe fn WinSATComplete<P0>(&self, hresult: windows_core::HRESULT, strdescription: P0) -> windows_core::Result<()>

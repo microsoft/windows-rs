@@ -8,12 +8,12 @@ impl ID3DBlob_Vtbl {
         unsafe extern "system" fn GetBufferPointer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3DBlob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> *mut core::ffi::c_void {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetBufferPointer()
+            ID3DBlob_Impl::GetBufferPointer(this)
         }
         unsafe extern "system" fn GetBufferSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3DBlob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> usize {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetBufferSize()
+            ID3DBlob_Impl::GetBufferSize(this)
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -35,7 +35,7 @@ impl ID3DDestructionNotifier_Vtbl {
         unsafe extern "system" fn RegisterDestructionCallback<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3DDestructionNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void, pcallbackid: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RegisterDestructionCallback(core::mem::transmute_copy(&callbackfn), core::mem::transmute_copy(&pdata)) {
+            match ID3DDestructionNotifier_Impl::RegisterDestructionCallback(this, core::mem::transmute_copy(&callbackfn), core::mem::transmute_copy(&pdata)) {
                 Ok(ok__) => {
                     core::ptr::write(pcallbackid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -46,7 +46,7 @@ impl ID3DDestructionNotifier_Vtbl {
         unsafe extern "system" fn UnregisterDestructionCallback<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ID3DDestructionNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callbackid: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.UnregisterDestructionCallback(core::mem::transmute_copy(&callbackid)).into()
+            ID3DDestructionNotifier_Impl::UnregisterDestructionCallback(this, core::mem::transmute_copy(&callbackid)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -67,12 +67,12 @@ impl ID3DInclude_Vtbl {
         unsafe extern "system" fn Open<Impl: ID3DInclude_Impl>(this: *mut core::ffi::c_void, includetype: D3D_INCLUDE_TYPE, pfilename: windows_core::PCSTR, pparentdata: *const core::ffi::c_void, ppdata: *mut *mut core::ffi::c_void, pbytes: *mut u32) -> windows_core::HRESULT {
             let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
             let this = &*((*this).this as *const Impl);
-            this.Open(core::mem::transmute_copy(&includetype), core::mem::transmute(&pfilename), core::mem::transmute_copy(&pparentdata), core::mem::transmute_copy(&ppdata), core::mem::transmute_copy(&pbytes)).into()
+            ID3DInclude_Impl::Open(this, core::mem::transmute_copy(&includetype), core::mem::transmute(&pfilename), core::mem::transmute_copy(&pparentdata), core::mem::transmute_copy(&ppdata), core::mem::transmute_copy(&pbytes)).into()
         }
         unsafe extern "system" fn Close<Impl: ID3DInclude_Impl>(this: *mut core::ffi::c_void, pdata: *const core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
             let this = &*((*this).this as *const Impl);
-            this.Close(core::mem::transmute_copy(&pdata)).into()
+            ID3DInclude_Impl::Close(this, core::mem::transmute_copy(&pdata)).into()
         }
         Self { Open: Open::<Impl>, Close: Close::<Impl> }
     }

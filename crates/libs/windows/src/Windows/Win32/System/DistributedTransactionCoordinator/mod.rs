@@ -35,6 +35,12 @@ where
     DtcGetTransactionManagerExW(i_pwszhost.param().abi(), i_pwsztmname.param().abi(), i_riid, i_grfoptions, i_pvconfigparams, o_ppvobject).ok()
 }
 windows_core::imp::define_interface!(IDtcLuConfigure, IDtcLuConfigure_Vtbl, 0x4131e760_1aea_11d0_944b_00a0c905416e);
+impl std::ops::Deref for IDtcLuConfigure {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDtcLuConfigure, windows_core::IUnknown);
 impl IDtcLuConfigure {
     pub unsafe fn Add(&self, puclupair: &[u8]) -> windows_core::Result<()> {
@@ -51,6 +57,12 @@ pub struct IDtcLuConfigure_Vtbl {
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDtcLuRecovery, IDtcLuRecovery_Vtbl, 0xac2b8ad2_d6f0_11d0_b386_00a0c9083365);
+impl std::ops::Deref for IDtcLuRecovery {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDtcLuRecovery, windows_core::IUnknown);
 impl IDtcLuRecovery {}
 #[repr(C)]
@@ -58,6 +70,12 @@ pub struct IDtcLuRecovery_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
 windows_core::imp::define_interface!(IDtcLuRecoveryFactory, IDtcLuRecoveryFactory_Vtbl, 0x4131e762_1aea_11d0_944b_00a0c905416e);
+impl std::ops::Deref for IDtcLuRecoveryFactory {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDtcLuRecoveryFactory, windows_core::IUnknown);
 impl IDtcLuRecoveryFactory {
     pub unsafe fn Create(&self, puclupair: &[u8]) -> windows_core::Result<IDtcLuRecovery> {
@@ -71,6 +89,12 @@ pub struct IDtcLuRecoveryFactory_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDtcLuRecoveryInitiatedByDtc, IDtcLuRecoveryInitiatedByDtc_Vtbl, 0x4131e764_1aea_11d0_944b_00a0c905416e);
+impl std::ops::Deref for IDtcLuRecoveryInitiatedByDtc {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByDtc, windows_core::IUnknown);
 impl IDtcLuRecoveryInitiatedByDtc {
     pub unsafe fn GetWork(&self, pwork: *mut DTCINITIATEDRECOVERYWORK, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -83,6 +107,12 @@ pub struct IDtcLuRecoveryInitiatedByDtc_Vtbl {
     pub GetWork: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DTCINITIATEDRECOVERYWORK, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDtcLuRecoveryInitiatedByDtcStatusWork, IDtcLuRecoveryInitiatedByDtcStatusWork_Vtbl, 0x4131e766_1aea_11d0_944b_00a0c905416e);
+impl std::ops::Deref for IDtcLuRecoveryInitiatedByDtcStatusWork {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByDtcStatusWork, windows_core::IUnknown);
 impl IDtcLuRecoveryInitiatedByDtcStatusWork {
     pub unsafe fn HandleCheckLuStatus(&self, lrecoveryseqnum: i32) -> windows_core::Result<()> {
@@ -95,6 +125,12 @@ pub struct IDtcLuRecoveryInitiatedByDtcStatusWork_Vtbl {
     pub HandleCheckLuStatus: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDtcLuRecoveryInitiatedByDtcTransWork, IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl, 0x4131e765_1aea_11d0_944b_00a0c905416e);
+impl std::ops::Deref for IDtcLuRecoveryInitiatedByDtcTransWork {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByDtcTransWork, windows_core::IUnknown);
 impl IDtcLuRecoveryInitiatedByDtcTransWork {
     pub unsafe fn GetLogNameSizes(&self, pcbourlogname: *mut u32, pcbremotelogname: *mut u32) -> windows_core::Result<()> {
@@ -155,6 +191,12 @@ pub struct IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl {
     pub ObsoleteRecoverySeqNum: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDtcLuRecoveryInitiatedByLu, IDtcLuRecoveryInitiatedByLu_Vtbl, 0x4131e768_1aea_11d0_944b_00a0c905416e);
+impl std::ops::Deref for IDtcLuRecoveryInitiatedByLu {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByLu, windows_core::IUnknown);
 impl IDtcLuRecoveryInitiatedByLu {
     pub unsafe fn GetObjectToHandleWorkFromLu(&self) -> windows_core::Result<IDtcLuRecoveryInitiatedByLuWork> {
@@ -168,6 +210,12 @@ pub struct IDtcLuRecoveryInitiatedByLu_Vtbl {
     pub GetObjectToHandleWorkFromLu: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDtcLuRecoveryInitiatedByLuWork, IDtcLuRecoveryInitiatedByLuWork_Vtbl, 0xac2b8ad1_d6f0_11d0_b386_00a0c9083365);
+impl std::ops::Deref for IDtcLuRecoveryInitiatedByLuWork {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByLuWork, windows_core::IUnknown);
 impl IDtcLuRecoveryInitiatedByLuWork {
     pub unsafe fn HandleTheirXln(&self, lrecoveryseqnum: i32, xln: DTCLUXLN, premotelogname: *mut u8, cbremotelogname: u32, pourlogname: *mut u8, cbourlogname: u32, dwprotocol: u32, presponse: *mut DTCLUXLNRESPONSE) -> windows_core::Result<()> {
@@ -208,6 +256,12 @@ pub struct IDtcLuRecoveryInitiatedByLuWork_Vtbl {
     pub ConversationLost: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDtcLuRmEnlistment, IDtcLuRmEnlistment_Vtbl, 0x4131e769_1aea_11d0_944b_00a0c905416e);
+impl std::ops::Deref for IDtcLuRmEnlistment {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDtcLuRmEnlistment, windows_core::IUnknown);
 impl IDtcLuRmEnlistment {
     pub unsafe fn Unplug<P0>(&self, fconversationlost: P0) -> windows_core::Result<()>
@@ -243,6 +297,12 @@ pub struct IDtcLuRmEnlistment_Vtbl {
     pub RequestCommit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDtcLuRmEnlistmentFactory, IDtcLuRmEnlistmentFactory_Vtbl, 0x4131e771_1aea_11d0_944b_00a0c905416e);
+impl std::ops::Deref for IDtcLuRmEnlistmentFactory {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDtcLuRmEnlistmentFactory, windows_core::IUnknown);
 impl IDtcLuRmEnlistmentFactory {
     pub unsafe fn Create<P0, P1>(&self, puclupair: *mut u8, cblupair: u32, pitransaction: P0, ptransid: *mut u8, cbtransid: u32, prmenlistmentsink: P1, pprmenlistment: *mut Option<IDtcLuRmEnlistment>) -> windows_core::Result<()>
@@ -259,6 +319,12 @@ pub struct IDtcLuRmEnlistmentFactory_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, u32, *mut core::ffi::c_void, *mut u8, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDtcLuRmEnlistmentSink, IDtcLuRmEnlistmentSink_Vtbl, 0x4131e770_1aea_11d0_944b_00a0c905416e);
+impl std::ops::Deref for IDtcLuRmEnlistmentSink {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDtcLuRmEnlistmentSink, windows_core::IUnknown);
 impl IDtcLuRmEnlistmentSink {
     pub unsafe fn AckUnplug(&self) -> windows_core::Result<()> {
@@ -303,6 +369,12 @@ pub struct IDtcLuRmEnlistmentSink_Vtbl {
     pub RequestCommit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDtcLuSubordinateDtc, IDtcLuSubordinateDtc_Vtbl, 0x4131e773_1aea_11d0_944b_00a0c905416e);
+impl std::ops::Deref for IDtcLuSubordinateDtc {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDtcLuSubordinateDtc, windows_core::IUnknown);
 impl IDtcLuSubordinateDtc {
     pub unsafe fn Unplug<P0>(&self, fconversationlost: P0) -> windows_core::Result<()>
@@ -342,6 +414,12 @@ pub struct IDtcLuSubordinateDtc_Vtbl {
     pub RequestCommit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDtcLuSubordinateDtcFactory, IDtcLuSubordinateDtcFactory_Vtbl, 0x4131e775_1aea_11d0_944b_00a0c905416e);
+impl std::ops::Deref for IDtcLuSubordinateDtcFactory {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDtcLuSubordinateDtcFactory, windows_core::IUnknown);
 impl IDtcLuSubordinateDtcFactory {
     pub unsafe fn Create<P0, P1, P2>(&self, puclupair: *mut u8, cblupair: u32, punktransactionouter: P0, isolevel: i32, isoflags: u32, poptions: P1, pptransaction: *mut Option<ITransaction>, ptransid: *mut u8, cbtransid: u32, psubordinatedtcsink: P2, ppsubordinatedtc: *mut Option<IDtcLuSubordinateDtc>) -> windows_core::Result<()>
@@ -359,6 +437,12 @@ pub struct IDtcLuSubordinateDtcFactory_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, u32, *mut core::ffi::c_void, i32, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u8, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDtcLuSubordinateDtcSink, IDtcLuSubordinateDtcSink_Vtbl, 0x4131e774_1aea_11d0_944b_00a0c905416e);
+impl std::ops::Deref for IDtcLuSubordinateDtcSink {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDtcLuSubordinateDtcSink, windows_core::IUnknown);
 impl IDtcLuSubordinateDtcSink {
     pub unsafe fn AckUnplug(&self) -> windows_core::Result<()> {
@@ -399,6 +483,12 @@ pub struct IDtcLuSubordinateDtcSink_Vtbl {
     pub RequestCommit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDtcNetworkAccessConfig, IDtcNetworkAccessConfig_Vtbl, 0x9797c15d_a428_4291_87b6_0995031a678d);
+impl std::ops::Deref for IDtcNetworkAccessConfig {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDtcNetworkAccessConfig, windows_core::IUnknown);
 impl IDtcNetworkAccessConfig {
     pub unsafe fn GetAnyNetworkAccess(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
@@ -483,71 +573,14 @@ pub struct IDtcNetworkAccessConfig_Vtbl {
     pub RestartDtcService: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDtcNetworkAccessConfig2, IDtcNetworkAccessConfig2_Vtbl, 0xa7aa013b_eb7d_4f42_b41c_b2dec09ae034);
+impl std::ops::Deref for IDtcNetworkAccessConfig2 {
+    type Target = IDtcNetworkAccessConfig;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDtcNetworkAccessConfig2, windows_core::IUnknown, IDtcNetworkAccessConfig);
 impl IDtcNetworkAccessConfig2 {
-    pub unsafe fn GetAnyNetworkAccess(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetAnyNetworkAccess)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetAnyNetworkAccess<P0>(&self, banynetworkaccess: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetAnyNetworkAccess)(windows_core::Interface::as_raw(self), banynetworkaccess.param().abi()).ok()
-    }
-    pub unsafe fn GetNetworkAdministrationAccess(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetNetworkAdministrationAccess)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetNetworkAdministrationAccess<P0>(&self, bnetworkadministrationaccess: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetNetworkAdministrationAccess)(windows_core::Interface::as_raw(self), bnetworkadministrationaccess.param().abi()).ok()
-    }
-    pub unsafe fn GetNetworkTransactionAccess(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetNetworkTransactionAccess)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetNetworkTransactionAccess<P0>(&self, bnetworktransactionaccess: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetNetworkTransactionAccess)(windows_core::Interface::as_raw(self), bnetworktransactionaccess.param().abi()).ok()
-    }
-    pub unsafe fn GetNetworkClientAccess(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetNetworkClientAccess)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetNetworkClientAccess<P0>(&self, bnetworkclientaccess: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetNetworkClientAccess)(windows_core::Interface::as_raw(self), bnetworkclientaccess.param().abi()).ok()
-    }
-    pub unsafe fn GetNetworkTIPAccess(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetNetworkTIPAccess)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetNetworkTIPAccess<P0>(&self, bnetworktipaccess: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetNetworkTIPAccess)(windows_core::Interface::as_raw(self), bnetworktipaccess.param().abi()).ok()
-    }
-    pub unsafe fn GetXAAccess(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetXAAccess)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetXAAccess<P0>(&self, bxaaccess: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetXAAccess)(windows_core::Interface::as_raw(self), bxaaccess.param().abi()).ok()
-    }
-    pub unsafe fn RestartDtcService(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.RestartDtcService)(windows_core::Interface::as_raw(self)).ok()
-    }
     pub unsafe fn GetNetworkInboundAccess(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNetworkInboundAccess)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -587,98 +620,14 @@ pub struct IDtcNetworkAccessConfig2_Vtbl {
     pub SetAuthenticationLevel: unsafe extern "system" fn(*mut core::ffi::c_void, AUTHENTICATION_LEVEL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDtcNetworkAccessConfig3, IDtcNetworkAccessConfig3_Vtbl, 0x76e4b4f3_2ca5_466b_89d5_fd218ee75b49);
+impl std::ops::Deref for IDtcNetworkAccessConfig3 {
+    type Target = IDtcNetworkAccessConfig2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDtcNetworkAccessConfig3, windows_core::IUnknown, IDtcNetworkAccessConfig, IDtcNetworkAccessConfig2);
 impl IDtcNetworkAccessConfig3 {
-    pub unsafe fn GetAnyNetworkAccess(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetAnyNetworkAccess)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetAnyNetworkAccess<P0>(&self, banynetworkaccess: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetAnyNetworkAccess)(windows_core::Interface::as_raw(self), banynetworkaccess.param().abi()).ok()
-    }
-    pub unsafe fn GetNetworkAdministrationAccess(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetNetworkAdministrationAccess)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetNetworkAdministrationAccess<P0>(&self, bnetworkadministrationaccess: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetNetworkAdministrationAccess)(windows_core::Interface::as_raw(self), bnetworkadministrationaccess.param().abi()).ok()
-    }
-    pub unsafe fn GetNetworkTransactionAccess(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetNetworkTransactionAccess)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetNetworkTransactionAccess<P0>(&self, bnetworktransactionaccess: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetNetworkTransactionAccess)(windows_core::Interface::as_raw(self), bnetworktransactionaccess.param().abi()).ok()
-    }
-    pub unsafe fn GetNetworkClientAccess(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetNetworkClientAccess)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetNetworkClientAccess<P0>(&self, bnetworkclientaccess: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetNetworkClientAccess)(windows_core::Interface::as_raw(self), bnetworkclientaccess.param().abi()).ok()
-    }
-    pub unsafe fn GetNetworkTIPAccess(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetNetworkTIPAccess)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetNetworkTIPAccess<P0>(&self, bnetworktipaccess: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetNetworkTIPAccess)(windows_core::Interface::as_raw(self), bnetworktipaccess.param().abi()).ok()
-    }
-    pub unsafe fn GetXAAccess(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetXAAccess)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetXAAccess<P0>(&self, bxaaccess: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetXAAccess)(windows_core::Interface::as_raw(self), bxaaccess.param().abi()).ok()
-    }
-    pub unsafe fn RestartDtcService(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.RestartDtcService)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn GetNetworkInboundAccess(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetNetworkInboundAccess)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetNetworkOutboundAccess(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetNetworkOutboundAccess)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetNetworkInboundAccess<P0>(&self, binbound: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetNetworkInboundAccess)(windows_core::Interface::as_raw(self), binbound.param().abi()).ok()
-    }
-    pub unsafe fn SetNetworkOutboundAccess<P0>(&self, boutbound: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetNetworkOutboundAccess)(windows_core::Interface::as_raw(self), boutbound.param().abi()).ok()
-    }
-    pub unsafe fn GetAuthenticationLevel(&self) -> windows_core::Result<AUTHENTICATION_LEVEL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetAuthenticationLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetAuthenticationLevel(&self, authlevel: AUTHENTICATION_LEVEL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetAuthenticationLevel)(windows_core::Interface::as_raw(self), authlevel).ok()
-    }
     pub unsafe fn GetLUAccess(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLUAccess)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -697,6 +646,12 @@ pub struct IDtcNetworkAccessConfig3_Vtbl {
     pub SetLUAccess: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDtcToXaHelper, IDtcToXaHelper_Vtbl, 0xa9861611_304a_11d1_9813_00a0c905416e);
+impl std::ops::Deref for IDtcToXaHelper {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDtcToXaHelper, windows_core::IUnknown);
 impl IDtcToXaHelper {
     pub unsafe fn Close<P0>(&self, i_fdorecovery: P0) -> windows_core::Result<()>
@@ -719,6 +674,12 @@ pub struct IDtcToXaHelper_Vtbl {
     pub TranslateTridToXid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut XID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDtcToXaHelperFactory, IDtcToXaHelperFactory_Vtbl, 0xa9861610_304a_11d1_9813_00a0c905416e);
+impl std::ops::Deref for IDtcToXaHelperFactory {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDtcToXaHelperFactory, windows_core::IUnknown);
 impl IDtcToXaHelperFactory {
     pub unsafe fn Create<P0, P1>(&self, pszdsn: P0, pszclientdllname: P1, pguidrm: *mut windows_core::GUID, ppxahelper: *mut Option<IDtcToXaHelper>) -> windows_core::Result<()>
@@ -735,6 +696,12 @@ pub struct IDtcToXaHelperFactory_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, windows_core::PCSTR, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDtcToXaHelperSinglePipe, IDtcToXaHelperSinglePipe_Vtbl, 0x47ed4971_53b3_11d1_bbb9_00c04fd658f6);
+impl std::ops::Deref for IDtcToXaHelperSinglePipe {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDtcToXaHelperSinglePipe, windows_core::IUnknown);
 impl IDtcToXaHelperSinglePipe {
     pub unsafe fn XARMCreate<P0, P1>(&self, pszdsn: P0, pszclientdll: P1, pdwrmcookie: *mut u32) -> windows_core::Result<()>
@@ -771,6 +738,12 @@ pub struct IDtcToXaHelperSinglePipe_Vtbl {
     pub ReleaseRMCookie: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::BOOL),
 }
 windows_core::imp::define_interface!(IDtcToXaMapper, IDtcToXaMapper_Vtbl, 0x64ffabe0_7ce9_11d0_8ce6_00c04fdc877e);
+impl std::ops::Deref for IDtcToXaMapper {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDtcToXaMapper, windows_core::IUnknown);
 impl IDtcToXaMapper {
     pub unsafe fn RequestNewResourceManager<P0, P1>(&self, pszdsn: P0, pszclientdllname: P1, pdwrmcookie: *mut u32) -> windows_core::Result<()>
@@ -799,6 +772,12 @@ pub struct IDtcToXaMapper_Vtbl {
     pub ReleaseResourceManager: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGetDispenser, IGetDispenser_Vtbl, 0xc23cc370_87ef_11ce_8081_0080c758527e);
+impl std::ops::Deref for IGetDispenser {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IGetDispenser, windows_core::IUnknown);
 impl IGetDispenser {
     pub unsafe fn GetDispenser(&self, iid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -811,6 +790,12 @@ pub struct IGetDispenser_Vtbl {
     pub GetDispenser: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKernelTransaction, IKernelTransaction_Vtbl, 0x79427a2b_f895_40e0_be79_b57dc82ed231);
+impl std::ops::Deref for IKernelTransaction {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IKernelTransaction, windows_core::IUnknown);
 impl IKernelTransaction {
     pub unsafe fn GetHandle(&self) -> windows_core::Result<super::super::Foundation::HANDLE> {
@@ -824,6 +809,12 @@ pub struct IKernelTransaction_Vtbl {
     pub GetHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::HANDLE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILastResourceManager, ILastResourceManager_Vtbl, 0x4d964ad4_5b33_11d3_8a91_00c04f79eb6d);
+impl std::ops::Deref for ILastResourceManager {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ILastResourceManager, windows_core::IUnknown);
 impl ILastResourceManager {
     pub unsafe fn TransactionCommitted(&self, pprepinfo: &[u8]) -> windows_core::Result<()> {
@@ -840,6 +831,12 @@ pub struct ILastResourceManager_Vtbl {
     pub RecoveryDone: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrepareInfo, IPrepareInfo_Vtbl, 0x80c7bfd0_87ee_11ce_8081_0080c758527e);
+impl std::ops::Deref for IPrepareInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPrepareInfo, windows_core::IUnknown);
 impl IPrepareInfo {
     pub unsafe fn GetPrepareInfoSize(&self, pcbprepinfo: *mut u32) -> windows_core::Result<()> {
@@ -856,6 +853,12 @@ pub struct IPrepareInfo_Vtbl {
     pub GetPrepareInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrepareInfo2, IPrepareInfo2_Vtbl, 0x5fab2547_9779_11d1_b886_00c04fb9618a);
+impl std::ops::Deref for IPrepareInfo2 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPrepareInfo2, windows_core::IUnknown);
 impl IPrepareInfo2 {
     pub unsafe fn GetPrepareInfoSize(&self) -> windows_core::Result<u32> {
@@ -873,6 +876,12 @@ pub struct IPrepareInfo2_Vtbl {
     pub GetPrepareInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRMHelper, IRMHelper_Vtbl, 0xe793f6d1_f53d_11cf_a60d_00a0c905416e);
+impl std::ops::Deref for IRMHelper {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IRMHelper, windows_core::IUnknown);
 impl IRMHelper {
     pub unsafe fn RMCount(&self, dwctotalnumberofrms: u32) -> windows_core::Result<()> {
@@ -894,6 +903,12 @@ pub struct IRMHelper_Vtbl {
     pub RMInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut xa_switch_t, super::super::Foundation::BOOL, windows_core::PCSTR, windows_core::PCSTR, windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IResourceManager, IResourceManager_Vtbl, 0x13741d21_87eb_11ce_8081_0080c758527e);
+impl std::ops::Deref for IResourceManager {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IResourceManager, windows_core::IUnknown);
 impl IResourceManager {
     pub unsafe fn Enlist<P0, P1>(&self, ptransaction: P0, pres: P1, puow: *mut BOID, pisolevel: *mut i32, ppenlist: *mut Option<ITransactionEnlistmentAsync>) -> windows_core::Result<()>
@@ -923,25 +938,14 @@ pub struct IResourceManager_Vtbl {
     pub GetDistributedTransactionManager: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IResourceManager2, IResourceManager2_Vtbl, 0xd136c69a_f749_11d1_8f47_00c04f8ee57d);
+impl std::ops::Deref for IResourceManager2 {
+    type Target = IResourceManager;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IResourceManager2, windows_core::IUnknown, IResourceManager);
 impl IResourceManager2 {
-    pub unsafe fn Enlist<P0, P1>(&self, ptransaction: P0, pres: P1, puow: *mut BOID, pisolevel: *mut i32, ppenlist: *mut Option<ITransactionEnlistmentAsync>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<ITransaction>,
-        P1: windows_core::Param<ITransactionResourceAsync>,
-    {
-        (windows_core::Interface::vtable(self).base__.Enlist)(windows_core::Interface::as_raw(self), ptransaction.param().abi(), pres.param().abi(), puow, pisolevel, core::mem::transmute(ppenlist)).ok()
-    }
-    pub unsafe fn Reenlist(&self, pprepinfo: &[u8], ltimeout: u32) -> windows_core::Result<XACTSTAT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Reenlist)(windows_core::Interface::as_raw(self), core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len().try_into().unwrap(), ltimeout, &mut result__).map(|| result__)
-    }
-    pub unsafe fn ReenlistmentComplete(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.ReenlistmentComplete)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn GetDistributedTransactionManager(&self, iid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetDistributedTransactionManager)(windows_core::Interface::as_raw(self), iid, ppvobject).ok()
-    }
     pub unsafe fn Enlist2<P0, P1>(&self, ptransaction: P0, presasync: P1, puow: *mut BOID, pisolevel: *mut i32, pxid: *mut XID, ppenlist: *mut Option<ITransactionEnlistmentAsync>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ITransaction>,
@@ -961,6 +965,12 @@ pub struct IResourceManager2_Vtbl {
     pub Reenlist2: unsafe extern "system" fn(*mut core::ffi::c_void, *const XID, u32, *mut XACTSTAT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IResourceManagerFactory, IResourceManagerFactory_Vtbl, 0x13741d20_87eb_11ce_8081_0080c758527e);
+impl std::ops::Deref for IResourceManagerFactory {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IResourceManagerFactory, windows_core::IUnknown);
 impl IResourceManagerFactory {
     pub unsafe fn Create<P0, P1>(&self, pguidrm: *const windows_core::GUID, pszrmname: P0, piresmgrsink: P1) -> windows_core::Result<IResourceManager>
@@ -978,16 +988,14 @@ pub struct IResourceManagerFactory_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCSTR, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IResourceManagerFactory2, IResourceManagerFactory2_Vtbl, 0x6b369c21_fbd2_11d1_8f47_00c04f8ee57d);
+impl std::ops::Deref for IResourceManagerFactory2 {
+    type Target = IResourceManagerFactory;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IResourceManagerFactory2, windows_core::IUnknown, IResourceManagerFactory);
 impl IResourceManagerFactory2 {
-    pub unsafe fn Create<P0, P1>(&self, pguidrm: *const windows_core::GUID, pszrmname: P0, piresmgrsink: P1) -> windows_core::Result<IResourceManager>
-    where
-        P0: windows_core::Param<windows_core::PCSTR>,
-        P1: windows_core::Param<IResourceManagerSink>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Create)(windows_core::Interface::as_raw(self), pguidrm, pszrmname.param().abi(), piresmgrsink.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn CreateEx<P0, P1>(&self, pguidrm: *const windows_core::GUID, pszrmname: P0, piresmgrsink: P1, riidrequested: *const windows_core::GUID, ppvresmgr: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
@@ -1002,36 +1010,14 @@ pub struct IResourceManagerFactory2_Vtbl {
     pub CreateEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCSTR, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IResourceManagerRejoinable, IResourceManagerRejoinable_Vtbl, 0x6f6de620_b5df_4f3e_9cfa_c8aebd05172b);
+impl std::ops::Deref for IResourceManagerRejoinable {
+    type Target = IResourceManager2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IResourceManagerRejoinable, windows_core::IUnknown, IResourceManager, IResourceManager2);
 impl IResourceManagerRejoinable {
-    pub unsafe fn Enlist<P0, P1>(&self, ptransaction: P0, pres: P1, puow: *mut BOID, pisolevel: *mut i32, ppenlist: *mut Option<ITransactionEnlistmentAsync>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<ITransaction>,
-        P1: windows_core::Param<ITransactionResourceAsync>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.Enlist)(windows_core::Interface::as_raw(self), ptransaction.param().abi(), pres.param().abi(), puow, pisolevel, core::mem::transmute(ppenlist)).ok()
-    }
-    pub unsafe fn Reenlist(&self, pprepinfo: &[u8], ltimeout: u32) -> windows_core::Result<XACTSTAT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Reenlist)(windows_core::Interface::as_raw(self), core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len().try_into().unwrap(), ltimeout, &mut result__).map(|| result__)
-    }
-    pub unsafe fn ReenlistmentComplete(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.ReenlistmentComplete)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn GetDistributedTransactionManager(&self, iid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GetDistributedTransactionManager)(windows_core::Interface::as_raw(self), iid, ppvobject).ok()
-    }
-    pub unsafe fn Enlist2<P0, P1>(&self, ptransaction: P0, presasync: P1, puow: *mut BOID, pisolevel: *mut i32, pxid: *mut XID, ppenlist: *mut Option<ITransactionEnlistmentAsync>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<ITransaction>,
-        P1: windows_core::Param<ITransactionResourceAsync>,
-    {
-        (windows_core::Interface::vtable(self).base__.Enlist2)(windows_core::Interface::as_raw(self), ptransaction.param().abi(), presasync.param().abi(), puow, pisolevel, pxid, core::mem::transmute(ppenlist)).ok()
-    }
-    pub unsafe fn Reenlist2(&self, pxid: *const XID, dwtimeout: u32) -> windows_core::Result<XACTSTAT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Reenlist2)(windows_core::Interface::as_raw(self), pxid, dwtimeout, &mut result__).map(|| result__)
-    }
     pub unsafe fn Rejoin(&self, pprepinfo: &[u8], ltimeout: u32) -> windows_core::Result<XACTSTAT> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).Rejoin)(windows_core::Interface::as_raw(self), core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len().try_into().unwrap(), ltimeout, &mut result__).map(|| result__)
@@ -1043,6 +1029,12 @@ pub struct IResourceManagerRejoinable_Vtbl {
     pub Rejoin: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, u32, *mut XACTSTAT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IResourceManagerSink, IResourceManagerSink_Vtbl, 0x0d563181_defb_11ce_aed1_00aa0051e2c4);
+impl std::ops::Deref for IResourceManagerSink {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IResourceManagerSink, windows_core::IUnknown);
 impl IResourceManagerSink {
     pub unsafe fn TMDown(&self) -> windows_core::Result<()> {
@@ -1055,6 +1047,12 @@ pub struct IResourceManagerSink_Vtbl {
     pub TMDown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITipHelper, ITipHelper_Vtbl, 0x17cf72d1_bac5_11d1_b1bf_00c04fc2f3ef);
+impl std::ops::Deref for ITipHelper {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITipHelper, windows_core::IUnknown);
 impl ITipHelper {
     pub unsafe fn Pull(&self, i_psztxurl: *const u8) -> windows_core::Result<ITransaction> {
@@ -1081,6 +1079,12 @@ pub struct ITipHelper_Vtbl {
     pub GetLocalTmUrl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITipPullSink, ITipPullSink_Vtbl, 0x17cf72d2_bac5_11d1_b1bf_00c04fc2f3ef);
+impl std::ops::Deref for ITipPullSink {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITipPullSink, windows_core::IUnknown);
 impl ITipPullSink {
     pub unsafe fn PullComplete(&self, i_hrpull: windows_core::HRESULT) -> windows_core::Result<()> {
@@ -1093,6 +1097,12 @@ pub struct ITipPullSink_Vtbl {
     pub PullComplete: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITipTransaction, ITipTransaction_Vtbl, 0x17cf72d0_bac5_11d1_b1bf_00c04fc2f3ef);
+impl std::ops::Deref for ITipTransaction {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITipTransaction, windows_core::IUnknown);
 impl ITipTransaction {
     pub unsafe fn Push(&self, i_pszremotetmurl: *const u8) -> windows_core::Result<windows_core::PSTR> {
@@ -1111,6 +1121,12 @@ pub struct ITipTransaction_Vtbl {
     pub GetTransactionUrl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITmNodeName, ITmNodeName_Vtbl, 0x30274f88_6ee4_474e_9b95_7807bc9ef8cf);
+impl std::ops::Deref for ITmNodeName {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITmNodeName, windows_core::IUnknown);
 impl ITmNodeName {
     pub unsafe fn GetNodeNameSize(&self) -> windows_core::Result<u32> {
@@ -1128,6 +1144,12 @@ pub struct ITmNodeName_Vtbl {
     pub GetNodeName: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITransaction, ITransaction_Vtbl, 0x0fb15084_af41_11ce_bd2b_204c4f4f5020);
+impl std::ops::Deref for ITransaction {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransaction, windows_core::IUnknown);
 impl ITransaction {
     pub unsafe fn Commit<P0>(&self, fretaining: P0, grftc: u32, grfrm: u32) -> windows_core::Result<()>
@@ -1155,28 +1177,14 @@ pub struct ITransaction_Vtbl {
     pub GetTransactionInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XACTTRANSINFO) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITransaction2, ITransaction2_Vtbl, 0x34021548_0065_11d3_bac1_00c04f797be2);
+impl std::ops::Deref for ITransaction2 {
+    type Target = ITransactionCloner;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransaction2, windows_core::IUnknown, ITransaction, ITransactionCloner);
 impl ITransaction2 {
-    pub unsafe fn Commit<P0>(&self, fretaining: P0, grftc: u32, grfrm: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.Commit)(windows_core::Interface::as_raw(self), fretaining.param().abi(), grftc, grfrm).ok()
-    }
-    pub unsafe fn Abort<P0, P1>(&self, pboidreason: *const BOID, fretaining: P0, fasync: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.Abort)(windows_core::Interface::as_raw(self), pboidreason, fretaining.param().abi(), fasync.param().abi()).ok()
-    }
-    pub unsafe fn GetTransactionInfo(&self, pinfo: *mut XACTTRANSINFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GetTransactionInfo)(windows_core::Interface::as_raw(self), pinfo).ok()
-    }
-    pub unsafe fn CloneWithCommitDisabled(&self) -> windows_core::Result<ITransaction> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CloneWithCommitDisabled)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn GetTransactionInfo2(&self, pinfo: *mut XACTTRANSINFO) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetTransactionInfo2)(windows_core::Interface::as_raw(self), pinfo).ok()
     }
@@ -1187,24 +1195,14 @@ pub struct ITransaction2_Vtbl {
     pub GetTransactionInfo2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XACTTRANSINFO) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITransactionCloner, ITransactionCloner_Vtbl, 0x02656950_2152_11d0_944c_00a0c905416e);
+impl std::ops::Deref for ITransactionCloner {
+    type Target = ITransaction;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransactionCloner, windows_core::IUnknown, ITransaction);
 impl ITransactionCloner {
-    pub unsafe fn Commit<P0>(&self, fretaining: P0, grftc: u32, grfrm: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.Commit)(windows_core::Interface::as_raw(self), fretaining.param().abi(), grftc, grfrm).ok()
-    }
-    pub unsafe fn Abort<P0, P1>(&self, pboidreason: *const BOID, fretaining: P0, fasync: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.Abort)(windows_core::Interface::as_raw(self), pboidreason, fretaining.param().abi(), fasync.param().abi()).ok()
-    }
-    pub unsafe fn GetTransactionInfo(&self, pinfo: *mut XACTTRANSINFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetTransactionInfo)(windows_core::Interface::as_raw(self), pinfo).ok()
-    }
     pub unsafe fn CloneWithCommitDisabled(&self) -> windows_core::Result<ITransaction> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).CloneWithCommitDisabled)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1216,6 +1214,12 @@ pub struct ITransactionCloner_Vtbl {
     pub CloneWithCommitDisabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITransactionDispenser, ITransactionDispenser_Vtbl, 0x3a6ad9e1_23b9_11cf_ad60_00aa00a74ccd);
+impl std::ops::Deref for ITransactionDispenser {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransactionDispenser, windows_core::IUnknown);
 impl ITransactionDispenser {
     pub unsafe fn GetOptionsObject(&self) -> windows_core::Result<ITransactionOptions> {
@@ -1238,6 +1242,12 @@ pub struct ITransactionDispenser_Vtbl {
     pub BeginTransaction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITransactionEnlistmentAsync, ITransactionEnlistmentAsync_Vtbl, 0x0fb15081_af41_11ce_bd2b_204c4f4f5020);
+impl std::ops::Deref for ITransactionEnlistmentAsync {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransactionEnlistmentAsync, windows_core::IUnknown);
 impl ITransactionEnlistmentAsync {
     #[cfg(feature = "Win32_System_Com")]
@@ -1265,6 +1275,12 @@ pub struct ITransactionEnlistmentAsync_Vtbl {
     pub AbortRequestDone: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITransactionExport, ITransactionExport_Vtbl, 0x0141fda5_8fc0_11ce_bd18_204c4f4f5020);
+impl std::ops::Deref for ITransactionExport {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransactionExport, windows_core::IUnknown);
 impl ITransactionExport {
     pub unsafe fn Export<P0>(&self, punktransaction: P0) -> windows_core::Result<u32>
@@ -1288,6 +1304,12 @@ pub struct ITransactionExport_Vtbl {
     pub GetTransactionCookie: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITransactionExportFactory, ITransactionExportFactory_Vtbl, 0xe1cf9b53_8745_11ce_a9ba_00aa006c3706);
+impl std::ops::Deref for ITransactionExportFactory {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransactionExportFactory, windows_core::IUnknown);
 impl ITransactionExportFactory {
     pub unsafe fn GetRemoteClassId(&self) -> windows_core::Result<windows_core::GUID> {
@@ -1306,6 +1328,12 @@ pub struct ITransactionExportFactory_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITransactionImport, ITransactionImport_Vtbl, 0xe1cf9b5a_8745_11ce_a9ba_00aa006c3706);
+impl std::ops::Deref for ITransactionImport {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransactionImport, windows_core::IUnknown);
 impl ITransactionImport {
     pub unsafe fn Import<T>(&self, rgbtransactioncookie: &[u8]) -> windows_core::Result<T>
@@ -1322,6 +1350,12 @@ pub struct ITransactionImport_Vtbl {
     pub Import: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITransactionImportWhereabouts, ITransactionImportWhereabouts_Vtbl, 0x0141fda4_8fc0_11ce_bd18_204c4f4f5020);
+impl std::ops::Deref for ITransactionImportWhereabouts {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransactionImportWhereabouts, windows_core::IUnknown);
 impl ITransactionImportWhereabouts {
     pub unsafe fn GetWhereaboutsSize(&self) -> windows_core::Result<u32> {
@@ -1339,6 +1373,12 @@ pub struct ITransactionImportWhereabouts_Vtbl {
     pub GetWhereabouts: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITransactionLastEnlistmentAsync, ITransactionLastEnlistmentAsync_Vtbl, 0xc82bd533_5b30_11d3_8a91_00c04f79eb6d);
+impl std::ops::Deref for ITransactionLastEnlistmentAsync {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransactionLastEnlistmentAsync, windows_core::IUnknown);
 impl ITransactionLastEnlistmentAsync {
     pub unsafe fn TransactionOutcome(&self, xactstat: XACTSTAT, pboidreason: *const BOID) -> windows_core::Result<()> {
@@ -1351,6 +1391,12 @@ pub struct ITransactionLastEnlistmentAsync_Vtbl {
     pub TransactionOutcome: unsafe extern "system" fn(*mut core::ffi::c_void, XACTSTAT, *const BOID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITransactionLastResourceAsync, ITransactionLastResourceAsync_Vtbl, 0xc82bd532_5b30_11d3_8a91_00c04f79eb6d);
+impl std::ops::Deref for ITransactionLastResourceAsync {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransactionLastResourceAsync, windows_core::IUnknown);
 impl ITransactionLastResourceAsync {
     pub unsafe fn DelegateCommit(&self, grfrm: u32) -> windows_core::Result<()> {
@@ -1367,6 +1413,12 @@ pub struct ITransactionLastResourceAsync_Vtbl {
     pub ForgetRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *const BOID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITransactionOptions, ITransactionOptions_Vtbl, 0x3a6ad9e0_23b9_11cf_ad60_00aa00a74ccd);
+impl std::ops::Deref for ITransactionOptions {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransactionOptions, windows_core::IUnknown);
 impl ITransactionOptions {
     pub unsafe fn SetOptions(&self, poptions: *const XACTOPT) -> windows_core::Result<()> {
@@ -1383,6 +1435,12 @@ pub struct ITransactionOptions_Vtbl {
     pub GetOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XACTOPT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITransactionOutcomeEvents, ITransactionOutcomeEvents_Vtbl, 0x3a6ad9e2_23b9_11cf_ad60_00aa00a74ccd);
+impl std::ops::Deref for ITransactionOutcomeEvents {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransactionOutcomeEvents, windows_core::IUnknown);
 impl ITransactionOutcomeEvents {
     pub unsafe fn Committed<P0>(&self, fretaining: P0, pnewuow: *const BOID, hr: windows_core::HRESULT) -> windows_core::Result<()>
@@ -1413,6 +1471,12 @@ pub struct ITransactionOutcomeEvents_Vtbl {
     pub Indoubt: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITransactionPhase0EnlistmentAsync, ITransactionPhase0EnlistmentAsync_Vtbl, 0x82dc88e1_a954_11d1_8f88_00600895e7d5);
+impl std::ops::Deref for ITransactionPhase0EnlistmentAsync {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransactionPhase0EnlistmentAsync, windows_core::IUnknown);
 impl ITransactionPhase0EnlistmentAsync {
     pub unsafe fn Enable(&self) -> windows_core::Result<()> {
@@ -1442,6 +1506,12 @@ pub struct ITransactionPhase0EnlistmentAsync_Vtbl {
     pub GetTransaction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITransactionPhase0Factory, ITransactionPhase0Factory_Vtbl, 0x82dc88e0_a954_11d1_8f88_00600895e7d5);
+impl std::ops::Deref for ITransactionPhase0Factory {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransactionPhase0Factory, windows_core::IUnknown);
 impl ITransactionPhase0Factory {
     pub unsafe fn Create<P0>(&self, pphase0notify: P0) -> windows_core::Result<ITransactionPhase0EnlistmentAsync>
@@ -1458,6 +1528,12 @@ pub struct ITransactionPhase0Factory_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITransactionPhase0NotifyAsync, ITransactionPhase0NotifyAsync_Vtbl, 0xef081809_0c76_11d2_87a6_00c04f990f34);
+impl std::ops::Deref for ITransactionPhase0NotifyAsync {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransactionPhase0NotifyAsync, windows_core::IUnknown);
 impl ITransactionPhase0NotifyAsync {
     pub unsafe fn Phase0Request<P0>(&self, fabortinghint: P0) -> windows_core::Result<()>
@@ -1477,6 +1553,12 @@ pub struct ITransactionPhase0NotifyAsync_Vtbl {
     pub EnlistCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITransactionReceiver, ITransactionReceiver_Vtbl, 0x59313e03_b36c_11cf_a539_00aa006887c3);
+impl std::ops::Deref for ITransactionReceiver {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransactionReceiver, windows_core::IUnknown);
 impl ITransactionReceiver {
     pub unsafe fn UnmarshalPropagationToken(&self, rgbtoken: &[u8]) -> windows_core::Result<ITransaction> {
@@ -1503,6 +1585,12 @@ pub struct ITransactionReceiver_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITransactionReceiverFactory, ITransactionReceiverFactory_Vtbl, 0x59313e02_b36c_11cf_a539_00aa006887c3);
+impl std::ops::Deref for ITransactionReceiverFactory {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransactionReceiverFactory, windows_core::IUnknown);
 impl ITransactionReceiverFactory {
     pub unsafe fn Create(&self) -> windows_core::Result<ITransactionReceiver> {
@@ -1516,6 +1604,12 @@ pub struct ITransactionReceiverFactory_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITransactionResource, ITransactionResource_Vtbl, 0xee5ff7b3_4572_11d0_9452_00a0c905416e);
+impl std::ops::Deref for ITransactionResource {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransactionResource, windows_core::IUnknown);
 impl ITransactionResource {
     pub unsafe fn PrepareRequest<P0, P1, P2>(&self, fretaining: P0, grfrm: u32, fwantmoniker: P1, fsinglephase: P2) -> windows_core::Result<()>
@@ -1548,6 +1642,12 @@ pub struct ITransactionResource_Vtbl {
     pub TMDown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITransactionResourceAsync, ITransactionResourceAsync_Vtbl, 0x69e971f0_23ce_11cf_ad60_00aa00a74ccd);
+impl std::ops::Deref for ITransactionResourceAsync {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransactionResourceAsync, windows_core::IUnknown);
 impl ITransactionResourceAsync {
     pub unsafe fn PrepareRequest<P0, P1, P2>(&self, fretaining: P0, grfrm: u32, fwantmoniker: P1, fsinglephase: P2) -> windows_core::Result<()>
@@ -1580,6 +1680,12 @@ pub struct ITransactionResourceAsync_Vtbl {
     pub TMDown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITransactionTransmitter, ITransactionTransmitter_Vtbl, 0x59313e01_b36c_11cf_a539_00aa006887c3);
+impl std::ops::Deref for ITransactionTransmitter {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransactionTransmitter, windows_core::IUnknown);
 impl ITransactionTransmitter {
     pub unsafe fn Set<P0>(&self, ptransaction: P0) -> windows_core::Result<()>
@@ -1612,6 +1718,12 @@ pub struct ITransactionTransmitter_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITransactionTransmitterFactory, ITransactionTransmitterFactory_Vtbl, 0x59313e00_b36c_11cf_a539_00aa006887c3);
+impl std::ops::Deref for ITransactionTransmitterFactory {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransactionTransmitterFactory, windows_core::IUnknown);
 impl ITransactionTransmitterFactory {
     pub unsafe fn Create(&self) -> windows_core::Result<ITransactionTransmitter> {
@@ -1625,6 +1737,12 @@ pub struct ITransactionTransmitterFactory_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITransactionVoterBallotAsync2, ITransactionVoterBallotAsync2_Vtbl, 0x5433376c_414d_11d3_b206_00c04fc2f3ef);
+impl std::ops::Deref for ITransactionVoterBallotAsync2 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransactionVoterBallotAsync2, windows_core::IUnknown);
 impl ITransactionVoterBallotAsync2 {
     pub unsafe fn VoteRequestDone(&self, hr: windows_core::HRESULT, pboidreason: Option<*const BOID>) -> windows_core::Result<()> {
@@ -1637,6 +1755,12 @@ pub struct ITransactionVoterBallotAsync2_Vtbl {
     pub VoteRequestDone: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, *const BOID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITransactionVoterFactory2, ITransactionVoterFactory2_Vtbl, 0x5433376a_414d_11d3_b206_00c04fc2f3ef);
+impl std::ops::Deref for ITransactionVoterFactory2 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransactionVoterFactory2, windows_core::IUnknown);
 impl ITransactionVoterFactory2 {
     pub unsafe fn Create<P0, P1>(&self, ptransaction: P0, pvoternotify: P1) -> windows_core::Result<ITransactionVoterBallotAsync2>
@@ -1654,26 +1778,14 @@ pub struct ITransactionVoterFactory2_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITransactionVoterNotifyAsync2, ITransactionVoterNotifyAsync2_Vtbl, 0x5433376b_414d_11d3_b206_00c04fc2f3ef);
+impl std::ops::Deref for ITransactionVoterNotifyAsync2 {
+    type Target = ITransactionOutcomeEvents;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransactionVoterNotifyAsync2, windows_core::IUnknown, ITransactionOutcomeEvents);
 impl ITransactionVoterNotifyAsync2 {
-    pub unsafe fn Committed<P0>(&self, fretaining: P0, pnewuow: *const BOID, hr: windows_core::HRESULT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.Committed)(windows_core::Interface::as_raw(self), fretaining.param().abi(), pnewuow, hr).ok()
-    }
-    pub unsafe fn Aborted<P0>(&self, pboidreason: *const BOID, fretaining: P0, pnewuow: *const BOID, hr: windows_core::HRESULT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.Aborted)(windows_core::Interface::as_raw(self), pboidreason, fretaining.param().abi(), pnewuow, hr).ok()
-    }
-    pub unsafe fn HeuristicDecision(&self, dwdecision: u32, pboidreason: *const BOID, hr: windows_core::HRESULT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.HeuristicDecision)(windows_core::Interface::as_raw(self), dwdecision, pboidreason, hr).ok()
-    }
-    pub unsafe fn Indoubt(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Indoubt)(windows_core::Interface::as_raw(self)).ok()
-    }
     pub unsafe fn VoteRequest(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).VoteRequest)(windows_core::Interface::as_raw(self)).ok()
     }
@@ -1684,6 +1796,12 @@ pub struct ITransactionVoterNotifyAsync2_Vtbl {
     pub VoteRequest: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXAConfig, IXAConfig_Vtbl, 0xc8a6e3a1_9a8c_11cf_a308_00a0c905416e);
+impl std::ops::Deref for IXAConfig {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IXAConfig, windows_core::IUnknown);
 impl IXAConfig {
     pub unsafe fn Initialize(&self, clsidhelperdll: windows_core::GUID) -> windows_core::Result<()> {
@@ -1700,6 +1818,12 @@ pub struct IXAConfig_Vtbl {
     pub Terminate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXAObtainRMInfo, IXAObtainRMInfo_Vtbl, 0xe793f6d2_f53d_11cf_a60d_00a0c905416e);
+impl std::ops::Deref for IXAObtainRMInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IXAObtainRMInfo, windows_core::IUnknown);
 impl IXAObtainRMInfo {
     pub unsafe fn ObtainRMInfo<P0>(&self, pirmhelper: P0) -> windows_core::Result<()>
@@ -1715,6 +1839,12 @@ pub struct IXAObtainRMInfo_Vtbl {
     pub ObtainRMInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXATransLookup, IXATransLookup_Vtbl, 0xf3b1f131_eeda_11ce_aed4_00aa0051e2c4);
+impl std::ops::Deref for IXATransLookup {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IXATransLookup, windows_core::IUnknown);
 impl IXATransLookup {
     pub unsafe fn Lookup(&self) -> windows_core::Result<ITransaction> {
@@ -1728,6 +1858,12 @@ pub struct IXATransLookup_Vtbl {
     pub Lookup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXATransLookup2, IXATransLookup2_Vtbl, 0xbf193c85_0d1a_4290_b88f_d2cb8873d1e7);
+impl std::ops::Deref for IXATransLookup2 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IXATransLookup2, windows_core::IUnknown);
 impl IXATransLookup2 {
     pub unsafe fn Lookup(&self, pxid: *const XID) -> windows_core::Result<ITransaction> {

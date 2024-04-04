@@ -88,6 +88,12 @@ pub unsafe fn RoResolveNamespace(name: &windows_core::HSTRING, windowsmetadatadi
     .ok()
 }
 windows_core::imp::define_interface!(ICeeGen, ICeeGen_Vtbl, 0x7ed1bdff_8e36_11d2_9c56_00a0c9b7cc45);
+impl std::ops::Deref for ICeeGen {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICeeGen, windows_core::IUnknown);
 impl ICeeGen {
     pub unsafe fn EmitString<P0>(&self, lpstring: P0, rva: *mut u32) -> windows_core::Result<()>
@@ -163,6 +169,12 @@ pub struct ICeeGen_Vtbl {
     pub ComputePointer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHostFilter, IHostFilter_Vtbl, 0xd0e80dd3_12d4_11d3_b39d_00c04ff81795);
+impl std::ops::Deref for IHostFilter {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IHostFilter, windows_core::IUnknown);
 impl IHostFilter {
     pub unsafe fn MarkToken(&self, tk: u32) -> windows_core::Result<()> {
@@ -175,6 +187,12 @@ pub struct IHostFilter_Vtbl {
     pub MarkToken: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMapToken, IMapToken_Vtbl, 0x06a3ea8b_0225_11d1_bf72_00c04fc31e12);
+impl std::ops::Deref for IMapToken {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMapToken, windows_core::IUnknown);
 impl IMapToken {
     pub unsafe fn Map(&self, tkimp: u32, tkemit: u32) -> windows_core::Result<()> {
@@ -187,6 +205,12 @@ pub struct IMapToken_Vtbl {
     pub Map: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataAssemblyEmit, IMetaDataAssemblyEmit_Vtbl, 0x211ef15b_5317_4438_b196_dec87b887693);
+impl std::ops::Deref for IMetaDataAssemblyEmit {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMetaDataAssemblyEmit, windows_core::IUnknown);
 impl IMetaDataAssemblyEmit {
     pub unsafe fn DefineAssembly<P0>(&self, pbpublickey: *const core::ffi::c_void, cbpublickey: u32, ulhashalgid: u32, szname: P0, pmetadata: *const ASSEMBLYMETADATA, dwassemblyflags: u32, pma: *mut u32) -> windows_core::Result<()>
@@ -256,6 +280,12 @@ pub struct IMetaDataAssemblyEmit_Vtbl {
     pub SetManifestResourceProps: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataAssemblyImport, IMetaDataAssemblyImport_Vtbl, 0xee62470b_e94b_424e_9b7c_2f00c9249f93);
+impl std::ops::Deref for IMetaDataAssemblyImport {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMetaDataAssemblyImport, windows_core::IUnknown);
 impl IMetaDataAssemblyImport {
     pub unsafe fn GetAssemblyProps(&self, mda: u32, ppbpublickey: *const *const core::ffi::c_void, pcbpublickey: *mut u32, pulhashalgid: *mut u32, szname: Option<&mut [u16]>, pchname: *mut u32, pmetadata: *mut ASSEMBLYMETADATA, pdwassemblyflags: *mut u32) -> windows_core::Result<()> {
@@ -331,6 +361,12 @@ pub struct IMetaDataAssemblyImport_Vtbl {
     pub FindAssembliesByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataDispenser, IMetaDataDispenser_Vtbl, 0x809c652e_7396_11d2_9771_00a0c9b4d50c);
+impl std::ops::Deref for IMetaDataDispenser {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMetaDataDispenser, windows_core::IUnknown);
 impl IMetaDataDispenser {
     pub unsafe fn DefineScope(&self, rclsid: *const windows_core::GUID, dwcreateflags: u32, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown> {
@@ -357,23 +393,14 @@ pub struct IMetaDataDispenser_Vtbl {
     pub OpenScopeOnMemory: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataDispenserEx, IMetaDataDispenserEx_Vtbl, 0x31bcfce2_dafb_11d2_9f81_00c04f79a0a3);
+impl std::ops::Deref for IMetaDataDispenserEx {
+    type Target = IMetaDataDispenser;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMetaDataDispenserEx, windows_core::IUnknown, IMetaDataDispenser);
 impl IMetaDataDispenserEx {
-    pub unsafe fn DefineScope(&self, rclsid: *const windows_core::GUID, dwcreateflags: u32, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DefineScope)(windows_core::Interface::as_raw(self), rclsid, dwcreateflags, riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn OpenScope<P0>(&self, szscope: P0, dwopenflags: u32, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.OpenScope)(windows_core::Interface::as_raw(self), szscope.param().abi(), dwopenflags, riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn OpenScopeOnMemory(&self, pdata: *const core::ffi::c_void, cbdata: u32, dwopenflags: u32, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.OpenScopeOnMemory)(windows_core::Interface::as_raw(self), pdata, cbdata, dwopenflags, riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn SetOption(&self, optionid: *const windows_core::GUID, value: *const windows_core::VARIANT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetOption)(windows_core::Interface::as_raw(self), optionid, core::mem::transmute(value)).ok()
     }
@@ -426,6 +453,12 @@ pub struct IMetaDataDispenserEx_Vtbl {
     pub FindAssemblyModule: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataEmit, IMetaDataEmit_Vtbl, 0xba3fee4c_ecb9_4e41_83b7_183fa41cd859);
+impl std::ops::Deref for IMetaDataEmit {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMetaDataEmit, windows_core::IUnknown);
 impl IMetaDataEmit {
     pub unsafe fn SetModuleProps<P0>(&self, szname: P0) -> windows_core::Result<()>
@@ -712,234 +745,14 @@ pub struct IMetaDataEmit_Vtbl {
     pub MergeEnd: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataEmit2, IMetaDataEmit2_Vtbl, 0xf5dd9950_f693_42e6_830e_7b833e8146a9);
+impl std::ops::Deref for IMetaDataEmit2 {
+    type Target = IMetaDataEmit;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMetaDataEmit2, windows_core::IUnknown, IMetaDataEmit);
 impl IMetaDataEmit2 {
-    pub unsafe fn SetModuleProps<P0>(&self, szname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetModuleProps)(windows_core::Interface::as_raw(self), szname.param().abi()).ok()
-    }
-    pub unsafe fn Save<P0>(&self, szfile: P0, dwsaveflags: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.Save)(windows_core::Interface::as_raw(self), szfile.param().abi(), dwsaveflags).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SaveToStream<P0>(&self, pistream: P0, dwsaveflags: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Com::IStream>,
-    {
-        (windows_core::Interface::vtable(self).base__.SaveToStream)(windows_core::Interface::as_raw(self), pistream.param().abi(), dwsaveflags).ok()
-    }
-    pub unsafe fn GetSaveSize(&self, fsave: CorSaveSize, pdwsavesize: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetSaveSize)(windows_core::Interface::as_raw(self), fsave, pdwsavesize).ok()
-    }
-    pub unsafe fn DefineTypeDef<P0>(&self, sztypedef: P0, dwtypedefflags: u32, tkextends: u32, rtkimplements: *mut u32, ptd: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.DefineTypeDef)(windows_core::Interface::as_raw(self), sztypedef.param().abi(), dwtypedefflags, tkextends, rtkimplements, ptd).ok()
-    }
-    pub unsafe fn DefineNestedType<P0>(&self, sztypedef: P0, dwtypedefflags: u32, tkextends: u32, rtkimplements: *mut u32, tdencloser: u32, ptd: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.DefineNestedType)(windows_core::Interface::as_raw(self), sztypedef.param().abi(), dwtypedefflags, tkextends, rtkimplements, tdencloser, ptd).ok()
-    }
-    pub unsafe fn SetHandler<P0>(&self, punk: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetHandler)(windows_core::Interface::as_raw(self), punk.param().abi()).ok()
-    }
-    pub unsafe fn DefineMethod<P0>(&self, td: u32, szname: P0, dwmethodflags: u32, pvsigblob: *mut u8, cbsigblob: u32, ulcoderva: u32, dwimplflags: u32, pmd: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.DefineMethod)(windows_core::Interface::as_raw(self), td, szname.param().abi(), dwmethodflags, pvsigblob, cbsigblob, ulcoderva, dwimplflags, pmd).ok()
-    }
-    pub unsafe fn DefineMethodImpl(&self, td: u32, tkbody: u32, tkdecl: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.DefineMethodImpl)(windows_core::Interface::as_raw(self), td, tkbody, tkdecl).ok()
-    }
-    pub unsafe fn DefineTypeRefByName<P0>(&self, tkresolutionscope: u32, szname: P0, ptr: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.DefineTypeRefByName)(windows_core::Interface::as_raw(self), tkresolutionscope, szname.param().abi(), ptr).ok()
-    }
-    pub unsafe fn DefineImportType<P0, P1, P2>(&self, passemimport: P0, pbhashvalue: *const core::ffi::c_void, cbhashvalue: u32, pimport: P1, tdimport: u32, passememit: P2, ptr: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IMetaDataAssemblyImport>,
-        P1: windows_core::Param<IMetaDataImport>,
-        P2: windows_core::Param<IMetaDataAssemblyEmit>,
-    {
-        (windows_core::Interface::vtable(self).base__.DefineImportType)(windows_core::Interface::as_raw(self), passemimport.param().abi(), pbhashvalue, cbhashvalue, pimport.param().abi(), tdimport, passememit.param().abi(), ptr).ok()
-    }
-    pub unsafe fn DefineMemberRef<P0>(&self, tkimport: u32, szname: P0, pvsigblob: *mut u8, cbsigblob: u32, pmr: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.DefineMemberRef)(windows_core::Interface::as_raw(self), tkimport, szname.param().abi(), pvsigblob, cbsigblob, pmr).ok()
-    }
-    pub unsafe fn DefineImportMember<P0, P1, P2>(&self, passemimport: P0, pbhashvalue: *const core::ffi::c_void, cbhashvalue: u32, pimport: P1, mbmember: u32, passememit: P2, tkparent: u32, pmr: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IMetaDataAssemblyImport>,
-        P1: windows_core::Param<IMetaDataImport>,
-        P2: windows_core::Param<IMetaDataAssemblyEmit>,
-    {
-        (windows_core::Interface::vtable(self).base__.DefineImportMember)(windows_core::Interface::as_raw(self), passemimport.param().abi(), pbhashvalue, cbhashvalue, pimport.param().abi(), mbmember, passememit.param().abi(), tkparent, pmr).ok()
-    }
-    pub unsafe fn DefineEvent<P0>(&self, td: u32, szevent: P0, dweventflags: u32, tkeventtype: u32, mdaddon: u32, mdremoveon: u32, mdfire: u32, rmdothermethods: *mut u32, pmdevent: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.DefineEvent)(windows_core::Interface::as_raw(self), td, szevent.param().abi(), dweventflags, tkeventtype, mdaddon, mdremoveon, mdfire, rmdothermethods, pmdevent).ok()
-    }
-    pub unsafe fn SetClassLayout(&self, td: u32, dwpacksize: u32, rfieldoffsets: *mut COR_FIELD_OFFSET, ulclasssize: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetClassLayout)(windows_core::Interface::as_raw(self), td, dwpacksize, rfieldoffsets, ulclasssize).ok()
-    }
-    pub unsafe fn DeleteClassLayout(&self, td: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.DeleteClassLayout)(windows_core::Interface::as_raw(self), td).ok()
-    }
-    pub unsafe fn SetFieldMarshal(&self, tk: u32, pvnativetype: *mut u8, cbnativetype: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetFieldMarshal)(windows_core::Interface::as_raw(self), tk, pvnativetype, cbnativetype).ok()
-    }
-    pub unsafe fn DeleteFieldMarshal(&self, tk: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.DeleteFieldMarshal)(windows_core::Interface::as_raw(self), tk).ok()
-    }
-    pub unsafe fn DefinePermissionSet(&self, tk: u32, dwaction: u32, pvpermission: *const core::ffi::c_void, cbpermission: u32, ppm: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.DefinePermissionSet)(windows_core::Interface::as_raw(self), tk, dwaction, pvpermission, cbpermission, ppm).ok()
-    }
-    pub unsafe fn SetRVA(&self, md: u32, ulrva: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetRVA)(windows_core::Interface::as_raw(self), md, ulrva).ok()
-    }
-    pub unsafe fn GetTokenFromSig(&self, pvsig: *mut u8, cbsig: u32, pmsig: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetTokenFromSig)(windows_core::Interface::as_raw(self), pvsig, cbsig, pmsig).ok()
-    }
-    pub unsafe fn DefineModuleRef<P0>(&self, szname: P0, pmur: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.DefineModuleRef)(windows_core::Interface::as_raw(self), szname.param().abi(), pmur).ok()
-    }
-    pub unsafe fn SetParent(&self, mr: u32, tk: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetParent)(windows_core::Interface::as_raw(self), mr, tk).ok()
-    }
-    pub unsafe fn GetTokenFromTypeSpec(&self, pvsig: *mut u8, cbsig: u32, ptypespec: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetTokenFromTypeSpec)(windows_core::Interface::as_raw(self), pvsig, cbsig, ptypespec).ok()
-    }
-    pub unsafe fn SaveToMemory(&self, pbdata: *mut core::ffi::c_void, cbdata: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SaveToMemory)(windows_core::Interface::as_raw(self), pbdata, cbdata).ok()
-    }
-    pub unsafe fn DefineUserString<P0>(&self, szstring: P0, cchstring: u32, pstk: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.DefineUserString)(windows_core::Interface::as_raw(self), szstring.param().abi(), cchstring, pstk).ok()
-    }
-    pub unsafe fn DeleteToken(&self, tkobj: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.DeleteToken)(windows_core::Interface::as_raw(self), tkobj).ok()
-    }
-    pub unsafe fn SetMethodProps(&self, md: u32, dwmethodflags: u32, ulcoderva: u32, dwimplflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetMethodProps)(windows_core::Interface::as_raw(self), md, dwmethodflags, ulcoderva, dwimplflags).ok()
-    }
-    pub unsafe fn SetTypeDefProps(&self, td: u32, dwtypedefflags: u32, tkextends: u32, rtkimplements: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetTypeDefProps)(windows_core::Interface::as_raw(self), td, dwtypedefflags, tkextends, rtkimplements).ok()
-    }
-    pub unsafe fn SetEventProps(&self, ev: u32, dweventflags: u32, tkeventtype: u32, mdaddon: u32, mdremoveon: u32, mdfire: u32, rmdothermethods: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetEventProps)(windows_core::Interface::as_raw(self), ev, dweventflags, tkeventtype, mdaddon, mdremoveon, mdfire, rmdothermethods).ok()
-    }
-    pub unsafe fn SetPermissionSetProps(&self, tk: u32, dwaction: u32, pvpermission: *const core::ffi::c_void, cbpermission: u32, ppm: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetPermissionSetProps)(windows_core::Interface::as_raw(self), tk, dwaction, pvpermission, cbpermission, ppm).ok()
-    }
-    pub unsafe fn DefinePinvokeMap<P0>(&self, tk: u32, dwmappingflags: u32, szimportname: P0, mrimportdll: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.DefinePinvokeMap)(windows_core::Interface::as_raw(self), tk, dwmappingflags, szimportname.param().abi(), mrimportdll).ok()
-    }
-    pub unsafe fn SetPinvokeMap<P0>(&self, tk: u32, dwmappingflags: u32, szimportname: P0, mrimportdll: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetPinvokeMap)(windows_core::Interface::as_raw(self), tk, dwmappingflags, szimportname.param().abi(), mrimportdll).ok()
-    }
-    pub unsafe fn DeletePinvokeMap(&self, tk: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.DeletePinvokeMap)(windows_core::Interface::as_raw(self), tk).ok()
-    }
-    pub unsafe fn DefineCustomAttribute(&self, tkowner: u32, tkctor: u32, pcustomattribute: *const core::ffi::c_void, cbcustomattribute: u32, pcv: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.DefineCustomAttribute)(windows_core::Interface::as_raw(self), tkowner, tkctor, pcustomattribute, cbcustomattribute, pcv).ok()
-    }
-    pub unsafe fn SetCustomAttributeValue(&self, pcv: u32, pcustomattribute: *const core::ffi::c_void, cbcustomattribute: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetCustomAttributeValue)(windows_core::Interface::as_raw(self), pcv, pcustomattribute, cbcustomattribute).ok()
-    }
-    pub unsafe fn DefineField<P0>(&self, td: u32, szname: P0, dwfieldflags: u32, pvsigblob: *mut u8, cbsigblob: u32, dwcplustypeflag: u32, pvalue: *const core::ffi::c_void, cchvalue: u32, pmd: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.DefineField)(windows_core::Interface::as_raw(self), td, szname.param().abi(), dwfieldflags, pvsigblob, cbsigblob, dwcplustypeflag, pvalue, cchvalue, pmd).ok()
-    }
-    pub unsafe fn DefineProperty<P0>(&self, td: u32, szproperty: P0, dwpropflags: u32, pvsig: *mut u8, cbsig: u32, dwcplustypeflag: u32, pvalue: *const core::ffi::c_void, cchvalue: u32, mdsetter: u32, mdgetter: u32, rmdothermethods: *mut u32, pmdprop: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.DefineProperty)(windows_core::Interface::as_raw(self), td, szproperty.param().abi(), dwpropflags, pvsig, cbsig, dwcplustypeflag, pvalue, cchvalue, mdsetter, mdgetter, rmdothermethods, pmdprop).ok()
-    }
-    pub unsafe fn DefineParam<P0>(&self, md: u32, ulparamseq: u32, szname: P0, dwparamflags: u32, dwcplustypeflag: u32, pvalue: *const core::ffi::c_void, cchvalue: u32, ppd: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.DefineParam)(windows_core::Interface::as_raw(self), md, ulparamseq, szname.param().abi(), dwparamflags, dwcplustypeflag, pvalue, cchvalue, ppd).ok()
-    }
-    pub unsafe fn SetFieldProps(&self, fd: u32, dwfieldflags: u32, dwcplustypeflag: u32, pvalue: *const core::ffi::c_void, cchvalue: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetFieldProps)(windows_core::Interface::as_raw(self), fd, dwfieldflags, dwcplustypeflag, pvalue, cchvalue).ok()
-    }
-    pub unsafe fn SetPropertyProps(&self, pr: u32, dwpropflags: u32, dwcplustypeflag: u32, pvalue: *const core::ffi::c_void, cchvalue: u32, mdsetter: u32, mdgetter: u32, rmdothermethods: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetPropertyProps)(windows_core::Interface::as_raw(self), pr, dwpropflags, dwcplustypeflag, pvalue, cchvalue, mdsetter, mdgetter, rmdothermethods).ok()
-    }
-    pub unsafe fn SetParamProps<P0>(&self, pd: u32, szname: P0, dwparamflags: u32, dwcplustypeflag: u32, pvalue: *const core::ffi::c_void, cchvalue: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetParamProps)(windows_core::Interface::as_raw(self), pd, szname.param().abi(), dwparamflags, dwcplustypeflag, pvalue, cchvalue).ok()
-    }
-    pub unsafe fn DefineSecurityAttributeSet(&self, tkobj: u32, rsecattrs: *mut COR_SECATTR, csecattrs: u32, pulerrorattr: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.DefineSecurityAttributeSet)(windows_core::Interface::as_raw(self), tkobj, rsecattrs, csecattrs, pulerrorattr).ok()
-    }
-    pub unsafe fn ApplyEditAndContinue<P0>(&self, pimport: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-    {
-        (windows_core::Interface::vtable(self).base__.ApplyEditAndContinue)(windows_core::Interface::as_raw(self), pimport.param().abi()).ok()
-    }
-    pub unsafe fn TranslateSigWithScope<P0, P1, P2, P3>(&self, passemimport: P0, pbhashvalue: *const core::ffi::c_void, cbhashvalue: u32, import: P1, pbsigblob: *mut u8, cbsigblob: u32, passememit: P2, emit: P3, pvtranslatedsig: *mut u8, cbtranslatedsigmax: u32, pcbtranslatedsig: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IMetaDataAssemblyImport>,
-        P1: windows_core::Param<IMetaDataImport>,
-        P2: windows_core::Param<IMetaDataAssemblyEmit>,
-        P3: windows_core::Param<IMetaDataEmit>,
-    {
-        (windows_core::Interface::vtable(self).base__.TranslateSigWithScope)(windows_core::Interface::as_raw(self), passemimport.param().abi(), pbhashvalue, cbhashvalue, import.param().abi(), pbsigblob, cbsigblob, passememit.param().abi(), emit.param().abi(), pvtranslatedsig, cbtranslatedsigmax, pcbtranslatedsig).ok()
-    }
-    pub unsafe fn SetMethodImplFlags(&self, md: u32, dwimplflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetMethodImplFlags)(windows_core::Interface::as_raw(self), md, dwimplflags).ok()
-    }
-    pub unsafe fn SetFieldRVA(&self, fd: u32, ulrva: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetFieldRVA)(windows_core::Interface::as_raw(self), fd, ulrva).ok()
-    }
-    pub unsafe fn Merge<P0, P1, P2>(&self, pimport: P0, phostmaptoken: P1, phandler: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IMetaDataImport>,
-        P1: windows_core::Param<IMapToken>,
-        P2: windows_core::Param<windows_core::IUnknown>,
-    {
-        (windows_core::Interface::vtable(self).base__.Merge)(windows_core::Interface::as_raw(self), pimport.param().abi(), phostmaptoken.param().abi(), phandler.param().abi()).ok()
-    }
-    pub unsafe fn MergeEnd(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.MergeEnd)(windows_core::Interface::as_raw(self)).ok()
-    }
     pub unsafe fn DefineMethodSpec(&self, tkparent: u32, pvsigblob: *mut u8, cbsigblob: u32, pmi: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DefineMethodSpec)(windows_core::Interface::as_raw(self), tkparent, pvsigblob, cbsigblob, pmi).ok()
     }
@@ -994,6 +807,12 @@ pub struct IMetaDataEmit2_Vtbl {
     pub ResetENCLog: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataError, IMetaDataError_Vtbl, 0xb81ff171_20f3_11d2_8dcc_00a0c9b09c19);
+impl std::ops::Deref for IMetaDataError {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMetaDataError, windows_core::IUnknown);
 impl IMetaDataError {
     pub unsafe fn OnError(&self, hrerror: windows_core::HRESULT, token: u32) -> windows_core::Result<()> {
@@ -1006,6 +825,12 @@ pub struct IMetaDataError_Vtbl {
     pub OnError: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataFilter, IMetaDataFilter_Vtbl, 0xd0e80dd1_12d4_11d3_b39d_00c04ff81795);
+impl std::ops::Deref for IMetaDataFilter {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMetaDataFilter, windows_core::IUnknown);
 impl IMetaDataFilter {
     pub unsafe fn UnmarkAll(&self) -> windows_core::Result<()> {
@@ -1026,6 +851,12 @@ pub struct IMetaDataFilter_Vtbl {
     pub IsTokenMarked: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataImport, IMetaDataImport_Vtbl, 0x7dac8207_d3ae_4c75_9b67_92801a497d44);
+impl std::ops::Deref for IMetaDataImport {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMetaDataImport, windows_core::IUnknown);
 impl IMetaDataImport {
     pub unsafe fn CloseEnum(&self, henum: *mut core::ffi::c_void) {
@@ -1318,230 +1149,14 @@ pub struct IMetaDataImport_Vtbl {
     pub IsGlobal: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataImport2, IMetaDataImport2_Vtbl, 0xfce5efa0_8bba_4f8e_a036_8f2022b08466);
+impl std::ops::Deref for IMetaDataImport2 {
+    type Target = IMetaDataImport;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMetaDataImport2, windows_core::IUnknown, IMetaDataImport);
 impl IMetaDataImport2 {
-    pub unsafe fn CloseEnum(&self, henum: *mut core::ffi::c_void) {
-        (windows_core::Interface::vtable(self).base__.CloseEnum)(windows_core::Interface::as_raw(self), henum)
-    }
-    pub unsafe fn CountEnum(&self, henum: *mut core::ffi::c_void, pulcount: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.CountEnum)(windows_core::Interface::as_raw(self), henum, pulcount).ok()
-    }
-    pub unsafe fn ResetEnum(&self, henum: *mut core::ffi::c_void, ulpos: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.ResetEnum)(windows_core::Interface::as_raw(self), henum, ulpos).ok()
-    }
-    pub unsafe fn EnumTypeDefs(&self, phenum: *mut *mut core::ffi::c_void, rtypedefs: *mut u32, cmax: u32, pctypedefs: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.EnumTypeDefs)(windows_core::Interface::as_raw(self), phenum, rtypedefs, cmax, pctypedefs).ok()
-    }
-    pub unsafe fn EnumInterfaceImpls(&self, phenum: *mut *mut core::ffi::c_void, td: u32, rimpls: *mut u32, cmax: u32, pcimpls: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.EnumInterfaceImpls)(windows_core::Interface::as_raw(self), phenum, td, rimpls, cmax, pcimpls).ok()
-    }
-    pub unsafe fn EnumTypeRefs(&self, phenum: *mut *mut core::ffi::c_void, rtyperefs: *mut u32, cmax: u32, pctyperefs: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.EnumTypeRefs)(windows_core::Interface::as_raw(self), phenum, rtyperefs, cmax, pctyperefs).ok()
-    }
-    pub unsafe fn FindTypeDefByName<P0>(&self, sztypedef: P0, tkenclosingclass: u32, ptd: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.FindTypeDefByName)(windows_core::Interface::as_raw(self), sztypedef.param().abi(), tkenclosingclass, ptd).ok()
-    }
-    pub unsafe fn GetScopeProps(&self, szname: Option<&mut [u16]>, pchname: *mut u32, pmvid: *mut windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetScopeProps)(windows_core::Interface::as_raw(self), core::mem::transmute(szname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pchname, pmvid).ok()
-    }
-    pub unsafe fn GetModuleFromScope(&self, pmd: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetModuleFromScope)(windows_core::Interface::as_raw(self), pmd).ok()
-    }
-    pub unsafe fn GetTypeDefProps(&self, td: u32, sztypedef: Option<&mut [u16]>, pchtypedef: *mut u32, pdwtypedefflags: *mut u32, ptkextends: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetTypeDefProps)(windows_core::Interface::as_raw(self), td, core::mem::transmute(sztypedef.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), sztypedef.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pchtypedef, pdwtypedefflags, ptkextends).ok()
-    }
-    pub unsafe fn GetInterfaceImplProps(&self, iiimpl: u32, pclass: *mut u32, ptkiface: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetInterfaceImplProps)(windows_core::Interface::as_raw(self), iiimpl, pclass, ptkiface).ok()
-    }
-    pub unsafe fn GetTypeRefProps(&self, tr: u32, ptkresolutionscope: *mut u32, szname: Option<&mut [u16]>, pchname: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetTypeRefProps)(windows_core::Interface::as_raw(self), tr, ptkresolutionscope, core::mem::transmute(szname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pchname).ok()
-    }
-    pub unsafe fn ResolveTypeRef(&self, tr: u32, riid: *const windows_core::GUID, ppiscope: *mut Option<windows_core::IUnknown>, ptd: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.ResolveTypeRef)(windows_core::Interface::as_raw(self), tr, riid, core::mem::transmute(ppiscope), ptd).ok()
-    }
-    pub unsafe fn EnumMembers(&self, phenum: *mut *mut core::ffi::c_void, cl: u32, rmembers: *mut u32, cmax: u32, pctokens: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.EnumMembers)(windows_core::Interface::as_raw(self), phenum, cl, rmembers, cmax, pctokens).ok()
-    }
-    pub unsafe fn EnumMembersWithName<P0>(&self, phenum: *mut *mut core::ffi::c_void, cl: u32, szname: P0, rmembers: *mut u32, cmax: u32, pctokens: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.EnumMembersWithName)(windows_core::Interface::as_raw(self), phenum, cl, szname.param().abi(), rmembers, cmax, pctokens).ok()
-    }
-    pub unsafe fn EnumMethods(&self, phenum: *mut *mut core::ffi::c_void, cl: u32, rmethods: *mut u32, cmax: u32, pctokens: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.EnumMethods)(windows_core::Interface::as_raw(self), phenum, cl, rmethods, cmax, pctokens).ok()
-    }
-    pub unsafe fn EnumMethodsWithName<P0>(&self, phenum: *mut *mut core::ffi::c_void, cl: u32, szname: P0, rmethods: *mut u32, cmax: u32, pctokens: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.EnumMethodsWithName)(windows_core::Interface::as_raw(self), phenum, cl, szname.param().abi(), rmethods, cmax, pctokens).ok()
-    }
-    pub unsafe fn EnumFields(&self, phenum: *mut *mut core::ffi::c_void, cl: u32, rfields: *mut u32, cmax: u32, pctokens: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.EnumFields)(windows_core::Interface::as_raw(self), phenum, cl, rfields, cmax, pctokens).ok()
-    }
-    pub unsafe fn EnumFieldsWithName<P0>(&self, phenum: *mut *mut core::ffi::c_void, cl: u32, szname: P0, rfields: *mut u32, cmax: u32, pctokens: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.EnumFieldsWithName)(windows_core::Interface::as_raw(self), phenum, cl, szname.param().abi(), rfields, cmax, pctokens).ok()
-    }
-    pub unsafe fn EnumParams(&self, phenum: *mut *mut core::ffi::c_void, mb: u32, rparams: *mut u32, cmax: u32, pctokens: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.EnumParams)(windows_core::Interface::as_raw(self), phenum, mb, rparams, cmax, pctokens).ok()
-    }
-    pub unsafe fn EnumMemberRefs(&self, phenum: *mut *mut core::ffi::c_void, tkparent: u32, rmemberrefs: *mut u32, cmax: u32, pctokens: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.EnumMemberRefs)(windows_core::Interface::as_raw(self), phenum, tkparent, rmemberrefs, cmax, pctokens).ok()
-    }
-    pub unsafe fn EnumMethodImpls(&self, phenum: *mut *mut core::ffi::c_void, td: u32, rmethodbody: *mut u32, rmethoddecl: *mut u32, cmax: u32, pctokens: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.EnumMethodImpls)(windows_core::Interface::as_raw(self), phenum, td, rmethodbody, rmethoddecl, cmax, pctokens).ok()
-    }
-    pub unsafe fn EnumPermissionSets(&self, phenum: *mut *mut core::ffi::c_void, tk: u32, dwactions: u32, rpermission: *mut u32, cmax: u32, pctokens: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.EnumPermissionSets)(windows_core::Interface::as_raw(self), phenum, tk, dwactions, rpermission, cmax, pctokens).ok()
-    }
-    pub unsafe fn FindMember<P0>(&self, td: u32, szname: P0, pvsigblob: *mut u8, cbsigblob: u32, pmb: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.FindMember)(windows_core::Interface::as_raw(self), td, szname.param().abi(), pvsigblob, cbsigblob, pmb).ok()
-    }
-    pub unsafe fn FindMethod<P0>(&self, td: u32, szname: P0, pvsigblob: *mut u8, cbsigblob: u32, pmb: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.FindMethod)(windows_core::Interface::as_raw(self), td, szname.param().abi(), pvsigblob, cbsigblob, pmb).ok()
-    }
-    pub unsafe fn FindField<P0>(&self, td: u32, szname: P0, pvsigblob: *mut u8, cbsigblob: u32, pmb: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.FindField)(windows_core::Interface::as_raw(self), td, szname.param().abi(), pvsigblob, cbsigblob, pmb).ok()
-    }
-    pub unsafe fn FindMemberRef<P0>(&self, td: u32, szname: P0, pvsigblob: *mut u8, cbsigblob: u32, pmr: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.FindMemberRef)(windows_core::Interface::as_raw(self), td, szname.param().abi(), pvsigblob, cbsigblob, pmr).ok()
-    }
-    pub unsafe fn GetMethodProps(&self, mb: u32, pclass: *mut u32, szmethod: Option<&mut [u16]>, pchmethod: *mut u32, pdwattr: *mut u32, ppvsigblob: *mut *mut u8, pcbsigblob: *mut u32, pulcoderva: *mut u32, pdwimplflags: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetMethodProps)(windows_core::Interface::as_raw(self), mb, pclass, core::mem::transmute(szmethod.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szmethod.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pchmethod, pdwattr, ppvsigblob, pcbsigblob, pulcoderva, pdwimplflags).ok()
-    }
-    pub unsafe fn GetMemberRefProps(&self, mr: u32, ptk: *mut u32, szmember: Option<&mut [u16]>, pchmember: *mut u32, ppvsigblob: *mut *mut u8, pbsig: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetMemberRefProps)(windows_core::Interface::as_raw(self), mr, ptk, core::mem::transmute(szmember.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szmember.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pchmember, ppvsigblob, pbsig).ok()
-    }
-    pub unsafe fn EnumProperties(&self, phenum: *mut *mut core::ffi::c_void, td: u32, rproperties: *mut u32, cmax: u32, pcproperties: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.EnumProperties)(windows_core::Interface::as_raw(self), phenum, td, rproperties, cmax, pcproperties).ok()
-    }
-    pub unsafe fn EnumEvents(&self, phenum: *mut *mut core::ffi::c_void, td: u32, revents: *mut u32, cmax: u32, pcevents: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.EnumEvents)(windows_core::Interface::as_raw(self), phenum, td, revents, cmax, pcevents).ok()
-    }
-    pub unsafe fn GetEventProps<P0>(&self, ev: u32, pclass: *mut u32, szevent: P0, cchevent: u32, pchevent: *mut u32, pdweventflags: *mut u32, ptkeventtype: *mut u32, pmdaddon: *mut u32, pmdremoveon: *mut u32, pmdfire: *mut u32, rmdothermethod: *mut u32, cmax: u32, pcothermethod: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.GetEventProps)(windows_core::Interface::as_raw(self), ev, pclass, szevent.param().abi(), cchevent, pchevent, pdweventflags, ptkeventtype, pmdaddon, pmdremoveon, pmdfire, rmdothermethod, cmax, pcothermethod).ok()
-    }
-    pub unsafe fn EnumMethodSemantics(&self, phenum: *mut *mut core::ffi::c_void, mb: u32, reventprop: *mut u32, cmax: u32, pceventprop: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.EnumMethodSemantics)(windows_core::Interface::as_raw(self), phenum, mb, reventprop, cmax, pceventprop).ok()
-    }
-    pub unsafe fn GetMethodSemantics(&self, mb: u32, tkeventprop: u32, pdwsemanticsflags: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetMethodSemantics)(windows_core::Interface::as_raw(self), mb, tkeventprop, pdwsemanticsflags).ok()
-    }
-    pub unsafe fn GetClassLayout(&self, td: u32, pdwpacksize: *mut u32, rfieldoffset: *mut COR_FIELD_OFFSET, cmax: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetClassLayout)(windows_core::Interface::as_raw(self), td, pdwpacksize, rfieldoffset, cmax, pcfieldoffset, pulclasssize).ok()
-    }
-    pub unsafe fn GetFieldMarshal(&self, tk: u32, ppvnativetype: *mut *mut u8, pcbnativetype: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetFieldMarshal)(windows_core::Interface::as_raw(self), tk, ppvnativetype, pcbnativetype).ok()
-    }
-    pub unsafe fn GetRVA(&self, tk: u32, pulcoderva: *mut u32, pdwimplflags: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetRVA)(windows_core::Interface::as_raw(self), tk, pulcoderva, pdwimplflags).ok()
-    }
-    pub unsafe fn GetPermissionSetProps(&self, pm: u32, pdwaction: *mut u32, ppvpermission: *const *const core::ffi::c_void, pcbpermission: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetPermissionSetProps)(windows_core::Interface::as_raw(self), pm, pdwaction, ppvpermission, pcbpermission).ok()
-    }
-    pub unsafe fn GetSigFromToken(&self, mdsig: u32, ppvsig: *mut *mut u8, pcbsig: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetSigFromToken)(windows_core::Interface::as_raw(self), mdsig, ppvsig, pcbsig).ok()
-    }
-    pub unsafe fn GetModuleRefProps(&self, mur: u32, szname: Option<&mut [u16]>, pchname: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetModuleRefProps)(windows_core::Interface::as_raw(self), mur, core::mem::transmute(szname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pchname).ok()
-    }
-    pub unsafe fn EnumModuleRefs(&self, phenum: *mut *mut core::ffi::c_void, rmodulerefs: *mut u32, cmax: u32, pcmodulerefs: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.EnumModuleRefs)(windows_core::Interface::as_raw(self), phenum, rmodulerefs, cmax, pcmodulerefs).ok()
-    }
-    pub unsafe fn GetTypeSpecFromToken(&self, typespec: u32, ppvsig: *mut *mut u8, pcbsig: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetTypeSpecFromToken)(windows_core::Interface::as_raw(self), typespec, ppvsig, pcbsig).ok()
-    }
-    pub unsafe fn GetNameFromToken(&self, tk: u32, pszutf8nameptr: *mut *mut i8) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetNameFromToken)(windows_core::Interface::as_raw(self), tk, pszutf8nameptr).ok()
-    }
-    pub unsafe fn EnumUnresolvedMethods(&self, phenum: *mut *mut core::ffi::c_void, rmethods: *mut u32, cmax: u32, pctokens: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.EnumUnresolvedMethods)(windows_core::Interface::as_raw(self), phenum, rmethods, cmax, pctokens).ok()
-    }
-    pub unsafe fn GetUserString(&self, stk: u32, szstring: Option<&mut [u16]>, pchstring: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetUserString)(windows_core::Interface::as_raw(self), stk, core::mem::transmute(szstring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pchstring).ok()
-    }
-    pub unsafe fn GetPinvokeMap(&self, tk: u32, pdwmappingflags: *mut u32, szimportname: Option<&mut [u16]>, pchimportname: *mut u32, pmrimportdll: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetPinvokeMap)(windows_core::Interface::as_raw(self), tk, pdwmappingflags, core::mem::transmute(szimportname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szimportname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pchimportname, pmrimportdll).ok()
-    }
-    pub unsafe fn EnumSignatures(&self, phenum: *mut *mut core::ffi::c_void, rsignatures: *mut u32, cmax: u32, pcsignatures: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.EnumSignatures)(windows_core::Interface::as_raw(self), phenum, rsignatures, cmax, pcsignatures).ok()
-    }
-    pub unsafe fn EnumTypeSpecs(&self, phenum: *mut *mut core::ffi::c_void, rtypespecs: *mut u32, cmax: u32, pctypespecs: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.EnumTypeSpecs)(windows_core::Interface::as_raw(self), phenum, rtypespecs, cmax, pctypespecs).ok()
-    }
-    pub unsafe fn EnumUserStrings(&self, phenum: *mut *mut core::ffi::c_void, rstrings: *mut u32, cmax: u32, pcstrings: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.EnumUserStrings)(windows_core::Interface::as_raw(self), phenum, rstrings, cmax, pcstrings).ok()
-    }
-    pub unsafe fn GetParamForMethodIndex(&self, md: u32, ulparamseq: u32, ppd: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetParamForMethodIndex)(windows_core::Interface::as_raw(self), md, ulparamseq, ppd).ok()
-    }
-    pub unsafe fn EnumCustomAttributes(&self, phenum: *mut *mut core::ffi::c_void, tk: u32, tktype: u32, rcustomattributes: *mut u32, cmax: u32, pccustomattributes: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.EnumCustomAttributes)(windows_core::Interface::as_raw(self), phenum, tk, tktype, rcustomattributes, cmax, pccustomattributes).ok()
-    }
-    pub unsafe fn GetCustomAttributeProps(&self, cv: u32, ptkobj: *mut u32, ptktype: *mut u32, ppblob: *const *const core::ffi::c_void, pcbsize: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetCustomAttributeProps)(windows_core::Interface::as_raw(self), cv, ptkobj, ptktype, ppblob, pcbsize).ok()
-    }
-    pub unsafe fn FindTypeRef<P0>(&self, tkresolutionscope: u32, szname: P0, ptr: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.FindTypeRef)(windows_core::Interface::as_raw(self), tkresolutionscope, szname.param().abi(), ptr).ok()
-    }
-    pub unsafe fn GetMemberProps(&self, mb: u32, pclass: *mut u32, szmember: Option<&mut [u16]>, pchmember: *mut u32, pdwattr: *mut u32, ppvsigblob: *mut *mut u8, pcbsigblob: *mut u32, pulcoderva: *mut u32, pdwimplflags: *mut u32, pdwcplustypeflag: *mut u32, ppvalue: *mut *mut core::ffi::c_void, pcchvalue: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetMemberProps)(windows_core::Interface::as_raw(self), mb, pclass, core::mem::transmute(szmember.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szmember.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pchmember, pdwattr, ppvsigblob, pcbsigblob, pulcoderva, pdwimplflags, pdwcplustypeflag, ppvalue, pcchvalue).ok()
-    }
-    pub unsafe fn GetFieldProps(&self, mb: u32, pclass: *mut u32, szfield: Option<&mut [u16]>, pchfield: *mut u32, pdwattr: *mut u32, ppvsigblob: *mut *mut u8, pcbsigblob: *mut u32, pdwcplustypeflag: *mut u32, ppvalue: *mut *mut core::ffi::c_void, pcchvalue: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetFieldProps)(windows_core::Interface::as_raw(self), mb, pclass, core::mem::transmute(szfield.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szfield.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pchfield, pdwattr, ppvsigblob, pcbsigblob, pdwcplustypeflag, ppvalue, pcchvalue).ok()
-    }
-    pub unsafe fn GetPropertyProps<P0>(&self, prop: u32, pclass: *mut u32, szproperty: P0, cchproperty: u32, pchproperty: *mut u32, pdwpropflags: *mut u32, ppvsig: *mut *mut u8, pbsig: *mut u32, pdwcplustypeflag: *mut u32, ppdefaultvalue: *mut *mut core::ffi::c_void, pcchdefaultvalue: *mut u32, pmdsetter: *mut u32, pmdgetter: *mut u32, rmdothermethod: *mut u32, cmax: u32, pcothermethod: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.GetPropertyProps)(windows_core::Interface::as_raw(self), prop, pclass, szproperty.param().abi(), cchproperty, pchproperty, pdwpropflags, ppvsig, pbsig, pdwcplustypeflag, ppdefaultvalue, pcchdefaultvalue, pmdsetter, pmdgetter, rmdothermethod, cmax, pcothermethod).ok()
-    }
-    pub unsafe fn GetParamProps(&self, tk: u32, pmd: *mut u32, pulsequence: *mut u32, szname: Option<&mut [u16]>, pchname: *mut u32, pdwattr: *mut u32, pdwcplustypeflag: *mut u32, ppvalue: *mut *mut core::ffi::c_void, pcchvalue: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetParamProps)(windows_core::Interface::as_raw(self), tk, pmd, pulsequence, core::mem::transmute(szname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pchname, pdwattr, pdwcplustypeflag, ppvalue, pcchvalue).ok()
-    }
-    pub unsafe fn GetCustomAttributeByName<P0>(&self, tkobj: u32, szname: P0, ppdata: *const *const core::ffi::c_void, pcbdata: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.GetCustomAttributeByName)(windows_core::Interface::as_raw(self), tkobj, szname.param().abi(), ppdata, pcbdata).ok()
-    }
-    pub unsafe fn IsValidToken(&self, tk: u32) -> super::super::super::Foundation::BOOL {
-        (windows_core::Interface::vtable(self).base__.IsValidToken)(windows_core::Interface::as_raw(self), tk)
-    }
-    pub unsafe fn GetNestedClassProps(&self, tdnestedclass: u32, ptdenclosingclass: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetNestedClassProps)(windows_core::Interface::as_raw(self), tdnestedclass, ptdenclosingclass).ok()
-    }
-    pub unsafe fn GetNativeCallConvFromSig(&self, pvsig: *const core::ffi::c_void, cbsig: u32, pcallconv: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetNativeCallConvFromSig)(windows_core::Interface::as_raw(self), pvsig, cbsig, pcallconv).ok()
-    }
-    pub unsafe fn IsGlobal(&self, pd: u32, pbglobal: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.IsGlobal)(windows_core::Interface::as_raw(self), pd, pbglobal).ok()
-    }
     pub unsafe fn EnumGenericParams(&self, phenum: *mut *mut core::ffi::c_void, tk: u32, rgenericparams: *mut u32, cmax: u32, pcgenericparams: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EnumGenericParams)(windows_core::Interface::as_raw(self), phenum, tk, rgenericparams, cmax, pcgenericparams).ok()
     }
@@ -1580,6 +1195,12 @@ pub struct IMetaDataImport2_Vtbl {
     pub EnumMethodSpecs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, u32, *mut u32, u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataInfo, IMetaDataInfo_Vtbl, 0x7998ea64_7f95_48b8_86fc_17caf48bf5cb);
+impl std::ops::Deref for IMetaDataInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMetaDataInfo, windows_core::IUnknown);
 impl IMetaDataInfo {
     pub unsafe fn GetFileMapping(&self, ppvdata: *const *const core::ffi::c_void, pcbdata: *mut u64, pdwmappingtype: *mut u32) -> windows_core::Result<()> {
@@ -1592,6 +1213,12 @@ pub struct IMetaDataInfo_Vtbl {
     pub GetFileMapping: unsafe extern "system" fn(*mut core::ffi::c_void, *const *const core::ffi::c_void, *mut u64, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataTables, IMetaDataTables_Vtbl, 0xd8f579ab_402d_4b8e_82d9_5d63b1065c68);
+impl std::ops::Deref for IMetaDataTables {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMetaDataTables, windows_core::IUnknown);
 impl IMetaDataTables {
     pub unsafe fn GetStringHeapSize(&self, pcbstrings: *mut u32) -> windows_core::Result<()> {
@@ -1676,65 +1303,14 @@ pub struct IMetaDataTables_Vtbl {
     pub GetNextUserString: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataTables2, IMetaDataTables2_Vtbl, 0xbadb5f70_58da_43a9_a1c6_d74819f19b15);
+impl std::ops::Deref for IMetaDataTables2 {
+    type Target = IMetaDataTables;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMetaDataTables2, windows_core::IUnknown, IMetaDataTables);
 impl IMetaDataTables2 {
-    pub unsafe fn GetStringHeapSize(&self, pcbstrings: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetStringHeapSize)(windows_core::Interface::as_raw(self), pcbstrings).ok()
-    }
-    pub unsafe fn GetBlobHeapSize(&self, pcbblobs: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetBlobHeapSize)(windows_core::Interface::as_raw(self), pcbblobs).ok()
-    }
-    pub unsafe fn GetGuidHeapSize(&self, pcbguids: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetGuidHeapSize)(windows_core::Interface::as_raw(self), pcbguids).ok()
-    }
-    pub unsafe fn GetUserStringHeapSize(&self, pcbblobs: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetUserStringHeapSize)(windows_core::Interface::as_raw(self), pcbblobs).ok()
-    }
-    pub unsafe fn GetNumTables(&self, pctables: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetNumTables)(windows_core::Interface::as_raw(self), pctables).ok()
-    }
-    pub unsafe fn GetTableIndex(&self, token: u32, pixtbl: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetTableIndex)(windows_core::Interface::as_raw(self), token, pixtbl).ok()
-    }
-    pub unsafe fn GetTableInfo(&self, ixtbl: u32, pcbrow: *mut u32, pcrows: *mut u32, pccols: *mut u32, pikey: *mut u32, ppname: *const *const i8) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetTableInfo)(windows_core::Interface::as_raw(self), ixtbl, pcbrow, pcrows, pccols, pikey, ppname).ok()
-    }
-    pub unsafe fn GetColumnInfo(&self, ixtbl: u32, ixcol: u32, pocol: *mut u32, pcbcol: *mut u32, ptype: *mut u32, ppname: *const *const i8) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetColumnInfo)(windows_core::Interface::as_raw(self), ixtbl, ixcol, pocol, pcbcol, ptype, ppname).ok()
-    }
-    pub unsafe fn GetCodedTokenInfo(&self, ixcdtkn: u32, pctokens: *mut u32, pptokens: *mut *mut u32, ppname: *const *const i8) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetCodedTokenInfo)(windows_core::Interface::as_raw(self), ixcdtkn, pctokens, pptokens, ppname).ok()
-    }
-    pub unsafe fn GetRow(&self, ixtbl: u32, rid: u32, pprow: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetRow)(windows_core::Interface::as_raw(self), ixtbl, rid, pprow).ok()
-    }
-    pub unsafe fn GetColumn(&self, ixtbl: u32, ixcol: u32, rid: u32, pval: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetColumn)(windows_core::Interface::as_raw(self), ixtbl, ixcol, rid, pval).ok()
-    }
-    pub unsafe fn GetString(&self, ixstring: u32, ppstring: *const *const i8) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetString)(windows_core::Interface::as_raw(self), ixstring, ppstring).ok()
-    }
-    pub unsafe fn GetBlob(&self, ixblob: u32, pcbdata: *mut u32, ppdata: *const *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetBlob)(windows_core::Interface::as_raw(self), ixblob, pcbdata, ppdata).ok()
-    }
-    pub unsafe fn GetGuid(&self, ixguid: u32, ppguid: *const *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetGuid)(windows_core::Interface::as_raw(self), ixguid, ppguid).ok()
-    }
-    pub unsafe fn GetUserString(&self, ixuserstring: u32, pcbdata: *mut u32, ppdata: *const *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetUserString)(windows_core::Interface::as_raw(self), ixuserstring, pcbdata, ppdata).ok()
-    }
-    pub unsafe fn GetNextString(&self, ixstring: u32, pnext: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetNextString)(windows_core::Interface::as_raw(self), ixstring, pnext).ok()
-    }
-    pub unsafe fn GetNextBlob(&self, ixblob: u32, pnext: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetNextBlob)(windows_core::Interface::as_raw(self), ixblob, pnext).ok()
-    }
-    pub unsafe fn GetNextGuid(&self, ixguid: u32, pnext: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetNextGuid)(windows_core::Interface::as_raw(self), ixguid, pnext).ok()
-    }
-    pub unsafe fn GetNextUserString(&self, ixuserstring: u32, pnext: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetNextUserString)(windows_core::Interface::as_raw(self), ixuserstring, pnext).ok()
-    }
     pub unsafe fn GetMetaDataStorage(&self, ppvmd: *const *const core::ffi::c_void, pcbmd: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetMetaDataStorage)(windows_core::Interface::as_raw(self), ppvmd, pcbmd).ok()
     }
@@ -1749,6 +1325,12 @@ pub struct IMetaDataTables2_Vtbl {
     pub GetMetaDataStreamInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *const i8, *const *const core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataValidate, IMetaDataValidate_Vtbl, 0x4709c9c6_81ff_11d3_9fc7_00c04f79a0a3);
+impl std::ops::Deref for IMetaDataValidate {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMetaDataValidate, windows_core::IUnknown);
 impl IMetaDataValidate {
     pub unsafe fn ValidatorInit<P0>(&self, dwmoduletype: u32, punk: P0) -> windows_core::Result<()>
@@ -1768,6 +1350,12 @@ pub struct IMetaDataValidate_Vtbl {
     pub ValidateMetaData: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMetaDataWinMDImport, IMetaDataWinMDImport_Vtbl, 0x969ea0c5_964e_411b_a807_b0f3c2dfcbd4);
+impl std::ops::Deref for IMetaDataWinMDImport {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMetaDataWinMDImport, windows_core::IUnknown);
 impl IMetaDataWinMDImport {
     pub unsafe fn GetUntransformedTypeRefProps(&self, tr: u32, ptkresolutionscope: *mut u32, szname: Option<&mut [u16]>, pchname: *mut u32) -> windows_core::Result<()> {

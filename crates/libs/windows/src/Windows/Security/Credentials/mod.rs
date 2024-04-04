@@ -127,6 +127,12 @@ pub struct IPasswordVault_Vtbl {
     RetrieveAll: usize,
 }
 windows_core::imp::define_interface!(IWebAccount, IWebAccount_Vtbl, 0x69473eb2_8031_49be_80bb_96cb46d99aba);
+impl std::ops::Deref for IWebAccount {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWebAccount, windows_core::IUnknown, windows_core::IInspectable);
 impl IWebAccount {
     pub fn WebAccountProvider(&self) -> windows_core::Result<WebAccountProvider> {

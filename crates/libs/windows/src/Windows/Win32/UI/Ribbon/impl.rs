@@ -9,12 +9,12 @@ impl IUIApplication_Vtbl {
         unsafe extern "system" fn OnViewChanged<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, viewid: u32, typeid: UI_VIEWTYPE, view: *mut core::ffi::c_void, verb: UI_VIEWVERB, ureasoncode: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnViewChanged(core::mem::transmute_copy(&viewid), core::mem::transmute_copy(&typeid), windows_core::from_raw_borrowed(&view), core::mem::transmute_copy(&verb), core::mem::transmute_copy(&ureasoncode)).into()
+            IUIApplication_Impl::OnViewChanged(this, core::mem::transmute_copy(&viewid), core::mem::transmute_copy(&typeid), windows_core::from_raw_borrowed(&view), core::mem::transmute_copy(&verb), core::mem::transmute_copy(&ureasoncode)).into()
         }
         unsafe extern "system" fn OnCreateUICommand<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OnCreateUICommand(core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&typeid)) {
+            match IUIApplication_Impl::OnCreateUICommand(this, core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&typeid)) {
                 Ok(ok__) => {
                     core::ptr::write(commandhandler, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -25,7 +25,7 @@ impl IUIApplication_Vtbl {
         unsafe extern "system" fn OnDestroyUICommand<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnDestroyUICommand(core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&typeid), windows_core::from_raw_borrowed(&commandhandler)).into()
+            IUIApplication_Impl::OnDestroyUICommand(this, core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&typeid), windows_core::from_raw_borrowed(&commandhandler)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -53,7 +53,7 @@ impl IUICollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUICollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCount() {
+            match IUICollection_Impl::GetCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -64,7 +64,7 @@ impl IUICollection_Vtbl {
         unsafe extern "system" fn GetItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUICollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, item: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetItem(core::mem::transmute_copy(&index)) {
+            match IUICollection_Impl::GetItem(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(item, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -75,27 +75,27 @@ impl IUICollection_Vtbl {
         unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUICollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Add(windows_core::from_raw_borrowed(&item)).into()
+            IUICollection_Impl::Add(this, windows_core::from_raw_borrowed(&item)).into()
         }
         unsafe extern "system" fn Insert<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUICollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, item: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Insert(core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&item)).into()
+            IUICollection_Impl::Insert(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&item)).into()
         }
         unsafe extern "system" fn RemoveAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUICollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAt(core::mem::transmute_copy(&index)).into()
+            IUICollection_Impl::RemoveAt(this, core::mem::transmute_copy(&index)).into()
         }
         unsafe extern "system" fn Replace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUICollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, indexreplaced: u32, itemreplacewith: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Replace(core::mem::transmute_copy(&indexreplaced), windows_core::from_raw_borrowed(&itemreplacewith)).into()
+            IUICollection_Impl::Replace(this, core::mem::transmute_copy(&indexreplaced), windows_core::from_raw_borrowed(&itemreplacewith)).into()
         }
         unsafe extern "system" fn Clear<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUICollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Clear().into()
+            IUICollection_Impl::Clear(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -121,7 +121,7 @@ impl IUICollectionChangedEvent_Vtbl {
         unsafe extern "system" fn OnChanged<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUICollectionChangedEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, action: UI_COLLECTIONCHANGE, oldindex: u32, olditem: *mut core::ffi::c_void, newindex: u32, newitem: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnChanged(core::mem::transmute_copy(&action), core::mem::transmute_copy(&oldindex), windows_core::from_raw_borrowed(&olditem), core::mem::transmute_copy(&newindex), windows_core::from_raw_borrowed(&newitem)).into()
+            IUICollectionChangedEvent_Impl::OnChanged(this, core::mem::transmute_copy(&action), core::mem::transmute_copy(&oldindex), windows_core::from_raw_borrowed(&olditem), core::mem::transmute_copy(&newindex), windows_core::from_raw_borrowed(&newitem)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnChanged: OnChanged::<Identity, Impl, OFFSET> }
     }
@@ -142,12 +142,12 @@ impl IUICommandHandler_Vtbl {
         unsafe extern "system" fn Execute<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUICommandHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandid: u32, verb: UI_EXECUTIONVERB, key: *const super::Shell::PropertiesSystem::PROPERTYKEY, currentvalue: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>, commandexecutionproperties: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Execute(core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&verb), core::mem::transmute_copy(&key), core::mem::transmute_copy(&currentvalue), windows_core::from_raw_borrowed(&commandexecutionproperties)).into()
+            IUICommandHandler_Impl::Execute(this, core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&verb), core::mem::transmute_copy(&key), core::mem::transmute_copy(&currentvalue), windows_core::from_raw_borrowed(&commandexecutionproperties)).into()
         }
         unsafe extern "system" fn UpdateProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUICommandHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandid: u32, key: *const super::Shell::PropertiesSystem::PROPERTYKEY, currentvalue: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>, newvalue: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UpdateProperty(core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&key), core::mem::transmute_copy(&currentvalue)) {
+            match IUICommandHandler_Impl::UpdateProperty(this, core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&key), core::mem::transmute_copy(&currentvalue)) {
                 Ok(ok__) => {
                     core::ptr::write(newvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -174,7 +174,7 @@ impl IUIContextualUI_Vtbl {
         unsafe extern "system" fn ShowAtLocation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIContextualUI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, x: i32, y: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ShowAtLocation(core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)).into()
+            IUIContextualUI_Impl::ShowAtLocation(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ShowAtLocation: ShowAtLocation::<Identity, Impl, OFFSET> }
     }
@@ -191,7 +191,7 @@ impl IUIEventLogger_Vtbl {
         unsafe extern "system" fn OnUIEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIEventLogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventparams: *const UI_EVENTPARAMS) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnUIEvent(core::mem::transmute_copy(&peventparams))
+            IUIEventLogger_Impl::OnUIEvent(this, core::mem::transmute_copy(&peventparams))
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnUIEvent: OnUIEvent::<Identity, Impl, OFFSET> }
     }
@@ -208,7 +208,7 @@ impl IUIEventingManager_Vtbl {
         unsafe extern "system" fn SetEventLogger<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIEventingManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventlogger: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEventLogger(windows_core::from_raw_borrowed(&eventlogger)).into()
+            IUIEventingManager_Impl::SetEventLogger(this, windows_core::from_raw_borrowed(&eventlogger)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetEventLogger: SetEventLogger::<Identity, Impl, OFFSET> }
     }
@@ -236,27 +236,27 @@ impl IUIFramework_Vtbl {
         unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIFramework_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, framewnd: super::super::Foundation::HWND, application: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(core::mem::transmute_copy(&framewnd), windows_core::from_raw_borrowed(&application)).into()
+            IUIFramework_Impl::Initialize(this, core::mem::transmute_copy(&framewnd), windows_core::from_raw_borrowed(&application)).into()
         }
         unsafe extern "system" fn Destroy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIFramework_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Destroy().into()
+            IUIFramework_Impl::Destroy(this).into()
         }
         unsafe extern "system" fn LoadUI<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIFramework_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, instance: super::super::Foundation::HINSTANCE, resourcename: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.LoadUI(core::mem::transmute_copy(&instance), core::mem::transmute(&resourcename)).into()
+            IUIFramework_Impl::LoadUI(this, core::mem::transmute_copy(&instance), core::mem::transmute(&resourcename)).into()
         }
         unsafe extern "system" fn GetView<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIFramework_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, viewid: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetView(core::mem::transmute_copy(&viewid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            IUIFramework_Impl::GetView(this, core::mem::transmute_copy(&viewid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
         unsafe extern "system" fn GetUICommandProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIFramework_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandid: u32, key: *const super::Shell::PropertiesSystem::PROPERTYKEY, value: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetUICommandProperty(core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&key)) {
+            match IUIFramework_Impl::GetUICommandProperty(this, core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
                     core::ptr::write(value, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -267,22 +267,22 @@ impl IUIFramework_Vtbl {
         unsafe extern "system" fn SetUICommandProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIFramework_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandid: u32, key: *const super::Shell::PropertiesSystem::PROPERTYKEY, value: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetUICommandProperty(core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&key), core::mem::transmute_copy(&value)).into()
+            IUIFramework_Impl::SetUICommandProperty(this, core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&key), core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn InvalidateUICommand<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIFramework_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandid: u32, flags: UI_INVALIDATIONS, key: *const super::Shell::PropertiesSystem::PROPERTYKEY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InvalidateUICommand(core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&key)).into()
+            IUIFramework_Impl::InvalidateUICommand(this, core::mem::transmute_copy(&commandid), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&key)).into()
         }
         unsafe extern "system" fn FlushPendingInvalidations<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIFramework_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.FlushPendingInvalidations().into()
+            IUIFramework_Impl::FlushPendingInvalidations(this).into()
         }
         unsafe extern "system" fn SetModes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIFramework_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imodes: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetModes(core::mem::transmute_copy(&imodes)).into()
+            IUIFramework_Impl::SetModes(this, core::mem::transmute_copy(&imodes)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -313,7 +313,7 @@ impl IUIImage_Vtbl {
         unsafe extern "system" fn GetBitmap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmap: *mut super::super::Graphics::Gdi::HBITMAP) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetBitmap() {
+            match IUIImage_Impl::GetBitmap(this) {
                 Ok(ok__) => {
                     core::ptr::write(bitmap, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -339,7 +339,7 @@ impl IUIImageFromBitmap_Vtbl {
         unsafe extern "system" fn CreateImage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIImageFromBitmap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmap: super::super::Graphics::Gdi::HBITMAP, options: UI_OWNERSHIP, image: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateImage(core::mem::transmute_copy(&bitmap), core::mem::transmute_copy(&options)) {
+            match IUIImageFromBitmap_Impl::CreateImage(this, core::mem::transmute_copy(&bitmap), core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(image, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -367,7 +367,7 @@ impl IUIRibbon_Vtbl {
         unsafe extern "system" fn GetHeight<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIRibbon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cy: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetHeight() {
+            match IUIRibbon_Impl::GetHeight(this) {
                 Ok(ok__) => {
                     core::ptr::write(cy, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -378,12 +378,12 @@ impl IUIRibbon_Vtbl {
         unsafe extern "system" fn LoadSettingsFromStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIRibbon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.LoadSettingsFromStream(windows_core::from_raw_borrowed(&pstream)).into()
+            IUIRibbon_Impl::LoadSettingsFromStream(this, windows_core::from_raw_borrowed(&pstream)).into()
         }
         unsafe extern "system" fn SaveSettingsToStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIRibbon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SaveSettingsToStream(windows_core::from_raw_borrowed(&pstream)).into()
+            IUIRibbon_Impl::SaveSettingsToStream(this, windows_core::from_raw_borrowed(&pstream)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -408,7 +408,7 @@ impl IUISimplePropertySet_Vtbl {
         unsafe extern "system" fn GetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUISimplePropertySet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::Shell::PropertiesSystem::PROPERTYKEY, value: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetValue(core::mem::transmute_copy(&key)) {
+            match IUISimplePropertySet_Impl::GetValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
                     core::ptr::write(value, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

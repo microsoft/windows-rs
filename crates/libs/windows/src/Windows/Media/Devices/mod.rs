@@ -290,6 +290,12 @@ pub struct ICameraOcclusionStateChangedEventArgs_Vtbl {
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDefaultAudioDeviceChangedEventArgs, IDefaultAudioDeviceChangedEventArgs_Vtbl, 0x110f882f_1c05_4657_a18e_47c9b69f07ab);
+impl std::ops::Deref for IDefaultAudioDeviceChangedEventArgs {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDefaultAudioDeviceChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl IDefaultAudioDeviceChangedEventArgs {
     pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -686,6 +692,12 @@ pub struct IMediaDeviceControlCapabilities_Vtbl {
     pub AutoModeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaDeviceController, IMediaDeviceController_Vtbl, 0xf6f8f5ce_209a_48fb_86fc_d44578f317e6);
+impl std::ops::Deref for IMediaDeviceController {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMediaDeviceController, windows_core::IUnknown, windows_core::IInspectable);
 impl IMediaDeviceController {
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
@@ -4696,8 +4708,8 @@ impl<F: FnMut(Option<&CallControl>) -> windows_core::Result<()> + Send + 'static
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&sender)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender)).into()
     }
 }
 impl windows_core::RuntimeType for CallControlEventHandler {
@@ -4757,8 +4769,8 @@ impl<F: FnMut(Option<&CallControl>, Option<&DialRequestedEventArgs>) -> windows_
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&e)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&e)).into()
     }
 }
 impl windows_core::RuntimeType for DialRequestedEventHandler {
@@ -4818,8 +4830,8 @@ impl<F: FnMut(Option<&CallControl>, Option<&KeypadPressedEventArgs>) -> windows_
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&e)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&e)).into()
     }
 }
 impl windows_core::RuntimeType for KeypadPressedEventHandler {
@@ -4879,8 +4891,8 @@ impl<F: FnMut(Option<&CallControl>, Option<&RedialRequestedEventArgs>) -> window
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&e)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&e)).into()
     }
 }
 impl windows_core::RuntimeType for RedialRequestedEventHandler {

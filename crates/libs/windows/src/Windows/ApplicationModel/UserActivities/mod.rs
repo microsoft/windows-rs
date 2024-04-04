@@ -127,6 +127,12 @@ pub struct IUserActivityChannelStatics3_Vtbl {
     GetForUser: usize,
 }
 windows_core::imp::define_interface!(IUserActivityContentInfo, IUserActivityContentInfo_Vtbl, 0xb399e5ad_137f_409d_822d_e1af27ce08dc);
+impl std::ops::Deref for IUserActivityContentInfo {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IUserActivityContentInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl IUserActivityContentInfo {
     pub fn ToJson(&self) -> windows_core::Result<windows_core::HSTRING> {

@@ -7,7 +7,7 @@ impl ICreateObject_Vtbl {
         unsafe extern "system" fn CreateObject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICreateObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clsid: *const windows_core::GUID, punkouter: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateObject(core::mem::transmute_copy(&clsid), windows_core::from_raw_borrowed(&punkouter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            ICreateObject_Impl::CreateObject(this, core::mem::transmute_copy(&clsid), windows_core::from_raw_borrowed(&punkouter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateObject: CreateObject::<Identity, Impl, OFFSET> }
     }
@@ -24,7 +24,7 @@ impl IDelayedPropertyStoreFactory_Vtbl {
         unsafe extern "system" fn GetDelayedPropertyStore<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDelayedPropertyStoreFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: GETPROPERTYSTOREFLAGS, dwstoreid: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDelayedPropertyStore(core::mem::transmute_copy(&flags), core::mem::transmute_copy(&dwstoreid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            IDelayedPropertyStoreFactory_Impl::GetDelayedPropertyStore(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&dwstoreid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
         Self { base__: IPropertyStoreFactory_Vtbl::new::<Identity, Impl, OFFSET>(), GetDelayedPropertyStore: GetDelayedPropertyStore::<Identity, Impl, OFFSET> }
     }
@@ -41,7 +41,7 @@ impl IInitializeWithFile_Vtbl {
         unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IInitializeWithFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszfilepath: windows_core::PCWSTR, grfmode: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(core::mem::transmute(&pszfilepath), core::mem::transmute_copy(&grfmode)).into()
+            IInitializeWithFile_Impl::Initialize(this, core::mem::transmute(&pszfilepath), core::mem::transmute_copy(&grfmode)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
@@ -61,7 +61,7 @@ impl IInitializeWithStream_Vtbl {
         unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IInitializeWithStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void, grfmode: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(windows_core::from_raw_borrowed(&pstream), core::mem::transmute_copy(&grfmode)).into()
+            IInitializeWithStream_Impl::Initialize(this, windows_core::from_raw_borrowed(&pstream), core::mem::transmute_copy(&grfmode)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
@@ -81,7 +81,7 @@ impl INamedPropertyStore_Vtbl {
         unsafe extern "system" fn GetNamedValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INamedPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, ppropvar: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetNamedValue(core::mem::transmute(&pszname)) {
+            match INamedPropertyStore_Impl::GetNamedValue(this, core::mem::transmute(&pszname)) {
                 Ok(ok__) => {
                     core::ptr::write(ppropvar, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -92,12 +92,12 @@ impl INamedPropertyStore_Vtbl {
         unsafe extern "system" fn SetNamedValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INamedPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, propvar: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetNamedValue(core::mem::transmute(&pszname), core::mem::transmute_copy(&propvar)).into()
+            INamedPropertyStore_Impl::SetNamedValue(this, core::mem::transmute(&pszname), core::mem::transmute_copy(&propvar)).into()
         }
         unsafe extern "system" fn GetNameCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INamedPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcount: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetNameCount() {
+            match INamedPropertyStore_Impl::GetNameCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdwcount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -108,7 +108,7 @@ impl INamedPropertyStore_Vtbl {
         unsafe extern "system" fn GetNameAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: INamedPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iprop: u32, pbstrname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetNameAt(core::mem::transmute_copy(&iprop)) {
+            match INamedPropertyStore_Impl::GetNameAt(this, core::mem::transmute_copy(&iprop)) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -138,12 +138,12 @@ impl IObjectWithPropertyKey_Vtbl {
         unsafe extern "system" fn SetPropertyKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IObjectWithPropertyKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const PROPERTYKEY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPropertyKey(core::mem::transmute_copy(&key)).into()
+            IObjectWithPropertyKey_Impl::SetPropertyKey(this, core::mem::transmute_copy(&key)).into()
         }
         unsafe extern "system" fn GetPropertyKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IObjectWithPropertyKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pkey: *mut PROPERTYKEY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPropertyKey(core::mem::transmute_copy(&pkey)).into()
+            IObjectWithPropertyKey_Impl::GetPropertyKey(this, core::mem::transmute_copy(&pkey)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -166,17 +166,17 @@ impl IPersistSerializedPropStorage_Vtbl {
         unsafe extern "system" fn SetFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPersistSerializedPropStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFlags(core::mem::transmute_copy(&flags)).into()
+            IPersistSerializedPropStorage_Impl::SetFlags(this, core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn SetPropertyStorage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPersistSerializedPropStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psps: PCUSERIALIZEDPROPSTORAGE, cb: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPropertyStorage(core::mem::transmute_copy(&psps), core::mem::transmute_copy(&cb)).into()
+            IPersistSerializedPropStorage_Impl::SetPropertyStorage(this, core::mem::transmute_copy(&psps), core::mem::transmute_copy(&cb)).into()
         }
         unsafe extern "system" fn GetPropertyStorage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPersistSerializedPropStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsps: *mut *mut SERIALIZEDPROPSTORAGE, pcb: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPropertyStorage(core::mem::transmute_copy(&ppsps), core::mem::transmute_copy(&pcb)).into()
+            IPersistSerializedPropStorage_Impl::GetPropertyStorage(this, core::mem::transmute_copy(&ppsps), core::mem::transmute_copy(&pcb)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -199,7 +199,7 @@ impl IPersistSerializedPropStorage2_Vtbl {
         unsafe extern "system" fn GetPropertyStorageSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPersistSerializedPropStorage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcb: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPropertyStorageSize() {
+            match IPersistSerializedPropStorage2_Impl::GetPropertyStorageSize(this) {
                 Ok(ok__) => {
                     core::ptr::write(pcb, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -210,7 +210,7 @@ impl IPersistSerializedPropStorage2_Vtbl {
         unsafe extern "system" fn GetPropertyStorageBuffer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPersistSerializedPropStorage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psps: *mut SERIALIZEDPROPSTORAGE, cb: u32, pcbwritten: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPropertyStorageBuffer(core::mem::transmute_copy(&psps), core::mem::transmute_copy(&cb), core::mem::transmute_copy(&pcbwritten)).into()
+            IPersistSerializedPropStorage2_Impl::GetPropertyStorageBuffer(this, core::mem::transmute_copy(&psps), core::mem::transmute_copy(&cb), core::mem::transmute_copy(&pcbwritten)).into()
         }
         Self {
             base__: IPersistSerializedPropStorage_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -231,7 +231,7 @@ impl IPropertyChange_Vtbl {
         unsafe extern "system" fn ApplyToPropVariant<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyChange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propvarin: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>, ppropvarout: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ApplyToPropVariant(core::mem::transmute_copy(&propvarin)) {
+            match IPropertyChange_Impl::ApplyToPropVariant(this, core::mem::transmute_copy(&propvarin)) {
                 Ok(ok__) => {
                     core::ptr::write(ppropvarout, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -260,7 +260,7 @@ impl IPropertyChangeArray_Vtbl {
         unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyChangeArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcoperations: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCount() {
+            match IPropertyChangeArray_Impl::GetCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(pcoperations, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -271,32 +271,32 @@ impl IPropertyChangeArray_Vtbl {
         unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyChangeArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iindex: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetAt(core::mem::transmute_copy(&iindex), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            IPropertyChangeArray_Impl::GetAt(this, core::mem::transmute_copy(&iindex), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
         unsafe extern "system" fn InsertAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyChangeArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iindex: u32, ppropchange: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InsertAt(core::mem::transmute_copy(&iindex), windows_core::from_raw_borrowed(&ppropchange)).into()
+            IPropertyChangeArray_Impl::InsertAt(this, core::mem::transmute_copy(&iindex), windows_core::from_raw_borrowed(&ppropchange)).into()
         }
         unsafe extern "system" fn Append<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyChangeArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppropchange: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Append(windows_core::from_raw_borrowed(&ppropchange)).into()
+            IPropertyChangeArray_Impl::Append(this, windows_core::from_raw_borrowed(&ppropchange)).into()
         }
         unsafe extern "system" fn AppendOrReplace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyChangeArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppropchange: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AppendOrReplace(windows_core::from_raw_borrowed(&ppropchange)).into()
+            IPropertyChangeArray_Impl::AppendOrReplace(this, windows_core::from_raw_borrowed(&ppropchange)).into()
         }
         unsafe extern "system" fn RemoveAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyChangeArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iindex: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAt(core::mem::transmute_copy(&iindex)).into()
+            IPropertyChangeArray_Impl::RemoveAt(this, core::mem::transmute_copy(&iindex)).into()
         }
         unsafe extern "system" fn IsKeyInArray<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyChangeArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const PROPERTYKEY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsKeyInArray(core::mem::transmute_copy(&key)).into()
+            IPropertyChangeArray_Impl::IsKeyInArray(this, core::mem::transmute_copy(&key)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -345,12 +345,12 @@ impl IPropertyDescription_Vtbl {
         unsafe extern "system" fn GetPropertyKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pkey: *mut PROPERTYKEY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPropertyKey(core::mem::transmute_copy(&pkey)).into()
+            IPropertyDescription_Impl::GetPropertyKey(this, core::mem::transmute_copy(&pkey)).into()
         }
         unsafe extern "system" fn GetCanonicalName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCanonicalName() {
+            match IPropertyDescription_Impl::GetCanonicalName(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppszname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -361,7 +361,7 @@ impl IPropertyDescription_Vtbl {
         unsafe extern "system" fn GetPropertyType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvartype: *mut u16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPropertyType() {
+            match IPropertyDescription_Impl::GetPropertyType(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvartype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -372,7 +372,7 @@ impl IPropertyDescription_Vtbl {
         unsafe extern "system" fn GetDisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDisplayName() {
+            match IPropertyDescription_Impl::GetDisplayName(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppszname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -383,7 +383,7 @@ impl IPropertyDescription_Vtbl {
         unsafe extern "system" fn GetEditInvitation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszinvite: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetEditInvitation() {
+            match IPropertyDescription_Impl::GetEditInvitation(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppszinvite, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -394,7 +394,7 @@ impl IPropertyDescription_Vtbl {
         unsafe extern "system" fn GetTypeFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: PROPDESC_TYPE_FLAGS, ppdtflags: *mut PROPDESC_TYPE_FLAGS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetTypeFlags(core::mem::transmute_copy(&mask)) {
+            match IPropertyDescription_Impl::GetTypeFlags(this, core::mem::transmute_copy(&mask)) {
                 Ok(ok__) => {
                     core::ptr::write(ppdtflags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -405,7 +405,7 @@ impl IPropertyDescription_Vtbl {
         unsafe extern "system" fn GetViewFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdvflags: *mut PROPDESC_VIEW_FLAGS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetViewFlags() {
+            match IPropertyDescription_Impl::GetViewFlags(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppdvflags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -416,7 +416,7 @@ impl IPropertyDescription_Vtbl {
         unsafe extern "system" fn GetDefaultColumnWidth<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcxchars: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDefaultColumnWidth() {
+            match IPropertyDescription_Impl::GetDefaultColumnWidth(this) {
                 Ok(ok__) => {
                     core::ptr::write(pcxchars, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -427,7 +427,7 @@ impl IPropertyDescription_Vtbl {
         unsafe extern "system" fn GetDisplayType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdisplaytype: *mut PROPDESC_DISPLAYTYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDisplayType() {
+            match IPropertyDescription_Impl::GetDisplayType(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdisplaytype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -438,7 +438,7 @@ impl IPropertyDescription_Vtbl {
         unsafe extern "system" fn GetColumnState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcsflags: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetColumnState() {
+            match IPropertyDescription_Impl::GetColumnState(this) {
                 Ok(ok__) => {
                     core::ptr::write(pcsflags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -449,7 +449,7 @@ impl IPropertyDescription_Vtbl {
         unsafe extern "system" fn GetGroupingRange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgr: *mut PROPDESC_GROUPING_RANGE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetGroupingRange() {
+            match IPropertyDescription_Impl::GetGroupingRange(this) {
                 Ok(ok__) => {
                     core::ptr::write(pgr, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -460,7 +460,7 @@ impl IPropertyDescription_Vtbl {
         unsafe extern "system" fn GetRelativeDescriptionType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prdt: *mut PROPDESC_RELATIVEDESCRIPTION_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRelativeDescriptionType() {
+            match IPropertyDescription_Impl::GetRelativeDescriptionType(this) {
                 Ok(ok__) => {
                     core::ptr::write(prdt, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -471,12 +471,12 @@ impl IPropertyDescription_Vtbl {
         unsafe extern "system" fn GetRelativeDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propvar1: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>, propvar2: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>, ppszdesc1: *mut windows_core::PWSTR, ppszdesc2: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetRelativeDescription(core::mem::transmute_copy(&propvar1), core::mem::transmute_copy(&propvar2), core::mem::transmute_copy(&ppszdesc1), core::mem::transmute_copy(&ppszdesc2)).into()
+            IPropertyDescription_Impl::GetRelativeDescription(this, core::mem::transmute_copy(&propvar1), core::mem::transmute_copy(&propvar2), core::mem::transmute_copy(&ppszdesc1), core::mem::transmute_copy(&ppszdesc2)).into()
         }
         unsafe extern "system" fn GetSortDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psd: *mut PROPDESC_SORTDESCRIPTION) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSortDescription() {
+            match IPropertyDescription_Impl::GetSortDescription(this) {
                 Ok(ok__) => {
                     core::ptr::write(psd, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -487,7 +487,7 @@ impl IPropertyDescription_Vtbl {
         unsafe extern "system" fn GetSortDescriptionLabel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fdescending: super::super::super::Foundation::BOOL, ppszdescription: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSortDescriptionLabel(core::mem::transmute_copy(&fdescending)) {
+            match IPropertyDescription_Impl::GetSortDescriptionLabel(this, core::mem::transmute_copy(&fdescending)) {
                 Ok(ok__) => {
                     core::ptr::write(ppszdescription, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -498,7 +498,7 @@ impl IPropertyDescription_Vtbl {
         unsafe extern "system" fn GetAggregationType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paggtype: *mut PROPDESC_AGGREGATION_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAggregationType() {
+            match IPropertyDescription_Impl::GetAggregationType(this) {
                 Ok(ok__) => {
                     core::ptr::write(paggtype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -509,22 +509,22 @@ impl IPropertyDescription_Vtbl {
         unsafe extern "system" fn GetConditionType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcontype: *mut PROPDESC_CONDITION_TYPE, popdefault: *mut super::super::super::System::Search::Common::CONDITION_OPERATION) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetConditionType(core::mem::transmute_copy(&pcontype), core::mem::transmute_copy(&popdefault)).into()
+            IPropertyDescription_Impl::GetConditionType(this, core::mem::transmute_copy(&pcontype), core::mem::transmute_copy(&popdefault)).into()
         }
         unsafe extern "system" fn GetEnumTypeList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetEnumTypeList(core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            IPropertyDescription_Impl::GetEnumTypeList(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
         unsafe extern "system" fn CoerceToCanonicalValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppropvar: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CoerceToCanonicalValue(core::mem::transmute_copy(&ppropvar)).into()
+            IPropertyDescription_Impl::CoerceToCanonicalValue(this, core::mem::transmute_copy(&ppropvar)).into()
         }
         unsafe extern "system" fn FormatForDisplay<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propvar: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>, pdfflags: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FormatForDisplay(core::mem::transmute_copy(&propvar), core::mem::transmute_copy(&pdfflags)) {
+            match IPropertyDescription_Impl::FormatForDisplay(this, core::mem::transmute_copy(&propvar), core::mem::transmute_copy(&pdfflags)) {
                 Ok(ok__) => {
                     core::ptr::write(ppszdisplay, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -535,7 +535,7 @@ impl IPropertyDescription_Vtbl {
         unsafe extern "system" fn IsValueCanonical<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propvar: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsValueCanonical(core::mem::transmute_copy(&propvar)).into()
+            IPropertyDescription_Impl::IsValueCanonical(this, core::mem::transmute_copy(&propvar)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -578,7 +578,7 @@ impl IPropertyDescription2_Vtbl {
         unsafe extern "system" fn GetImageReferenceForValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propvar: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>, ppszimageres: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetImageReferenceForValue(core::mem::transmute_copy(&propvar)) {
+            match IPropertyDescription2_Impl::GetImageReferenceForValue(this, core::mem::transmute_copy(&propvar)) {
                 Ok(ok__) => {
                     core::ptr::write(ppszimageres, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -608,12 +608,12 @@ impl IPropertyDescriptionAliasInfo_Vtbl {
         unsafe extern "system" fn GetSortByAlias<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescriptionAliasInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSortByAlias(core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            IPropertyDescriptionAliasInfo_Impl::GetSortByAlias(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
         unsafe extern "system" fn GetAdditionalSortByAliases<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescriptionAliasInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetAdditionalSortByAliases(core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            IPropertyDescriptionAliasInfo_Impl::GetAdditionalSortByAliases(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
         Self {
             base__: IPropertyDescription_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -635,7 +635,7 @@ impl IPropertyDescriptionList_Vtbl {
         unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescriptionList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelem: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCount() {
+            match IPropertyDescriptionList_Impl::GetCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(pcelem, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -646,7 +646,7 @@ impl IPropertyDescriptionList_Vtbl {
         unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescriptionList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ielem: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetAt(core::mem::transmute_copy(&ielem), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            IPropertyDescriptionList_Impl::GetAt(this, core::mem::transmute_copy(&ielem), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -670,7 +670,7 @@ impl IPropertyDescriptionRelatedPropertyInfo_Vtbl {
         unsafe extern "system" fn GetRelatedProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescriptionRelatedPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszrelationshipname: windows_core::PCWSTR, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetRelatedProperty(core::mem::transmute(&pszrelationshipname), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            IPropertyDescriptionRelatedPropertyInfo_Impl::GetRelatedProperty(this, core::mem::transmute(&pszrelationshipname), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
         Self { base__: IPropertyDescription_Vtbl::new::<Identity, Impl, OFFSET>(), GetRelatedProperty: GetRelatedProperty::<Identity, Impl, OFFSET> }
     }
@@ -693,7 +693,7 @@ impl IPropertyDescriptionSearchInfo_Vtbl {
         unsafe extern "system" fn GetSearchInfoFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescriptionSearchInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdsiflags: *mut PROPDESC_SEARCHINFO_FLAGS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSearchInfoFlags() {
+            match IPropertyDescriptionSearchInfo_Impl::GetSearchInfoFlags(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppdsiflags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -704,7 +704,7 @@ impl IPropertyDescriptionSearchInfo_Vtbl {
         unsafe extern "system" fn GetColumnIndexType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescriptionSearchInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdcitype: *mut PROPDESC_COLUMNINDEX_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetColumnIndexType() {
+            match IPropertyDescriptionSearchInfo_Impl::GetColumnIndexType(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppdcitype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -715,7 +715,7 @@ impl IPropertyDescriptionSearchInfo_Vtbl {
         unsafe extern "system" fn GetProjectionString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescriptionSearchInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszprojection: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProjectionString() {
+            match IPropertyDescriptionSearchInfo_Impl::GetProjectionString(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppszprojection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -726,7 +726,7 @@ impl IPropertyDescriptionSearchInfo_Vtbl {
         unsafe extern "system" fn GetMaxSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescriptionSearchInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbmaxsize: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetMaxSize() {
+            match IPropertyDescriptionSearchInfo_Impl::GetMaxSize(this) {
                 Ok(ok__) => {
                     core::ptr::write(pcbmaxsize, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -759,7 +759,7 @@ impl IPropertyEnumType_Vtbl {
         unsafe extern "system" fn GetEnumType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyEnumType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penumtype: *mut PROPENUMTYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetEnumType() {
+            match IPropertyEnumType_Impl::GetEnumType(this) {
                 Ok(ok__) => {
                     core::ptr::write(penumtype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -770,7 +770,7 @@ impl IPropertyEnumType_Vtbl {
         unsafe extern "system" fn GetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyEnumType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppropvar: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetValue() {
+            match IPropertyEnumType_Impl::GetValue(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppropvar, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -781,7 +781,7 @@ impl IPropertyEnumType_Vtbl {
         unsafe extern "system" fn GetRangeMinValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyEnumType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppropvarmin: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRangeMinValue() {
+            match IPropertyEnumType_Impl::GetRangeMinValue(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppropvarmin, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -792,7 +792,7 @@ impl IPropertyEnumType_Vtbl {
         unsafe extern "system" fn GetRangeSetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyEnumType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppropvarset: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRangeSetValue() {
+            match IPropertyEnumType_Impl::GetRangeSetValue(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppropvarset, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -803,7 +803,7 @@ impl IPropertyEnumType_Vtbl {
         unsafe extern "system" fn GetDisplayText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyEnumType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszdisplay: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDisplayText() {
+            match IPropertyEnumType_Impl::GetDisplayText(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppszdisplay, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -833,7 +833,7 @@ impl IPropertyEnumType2_Vtbl {
         unsafe extern "system" fn GetImageReference<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyEnumType2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszimageres: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetImageReference() {
+            match IPropertyEnumType2_Impl::GetImageReference(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppszimageres, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -859,7 +859,7 @@ impl IPropertyEnumTypeList_Vtbl {
         unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyEnumTypeList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pctypes: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCount() {
+            match IPropertyEnumTypeList_Impl::GetCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(pctypes, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -870,17 +870,17 @@ impl IPropertyEnumTypeList_Vtbl {
         unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyEnumTypeList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, itype: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetAt(core::mem::transmute_copy(&itype), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            IPropertyEnumTypeList_Impl::GetAt(this, core::mem::transmute_copy(&itype), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
         unsafe extern "system" fn GetConditionAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyEnumTypeList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetConditionAt(core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            IPropertyEnumTypeList_Impl::GetConditionAt(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
         unsafe extern "system" fn FindMatchingIndex<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyEnumTypeList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propvarcmp: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>, pnindex: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FindMatchingIndex(core::mem::transmute_copy(&propvarcmp)) {
+            match IPropertyEnumTypeList_Impl::FindMatchingIndex(this, core::mem::transmute_copy(&propvarcmp)) {
                 Ok(ok__) => {
                     core::ptr::write(pnindex, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -913,7 +913,7 @@ impl IPropertyStore_Vtbl {
         unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cprops: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCount() {
+            match IPropertyStore_Impl::GetCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(cprops, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -924,12 +924,12 @@ impl IPropertyStore_Vtbl {
         unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iprop: u32, pkey: *mut PROPERTYKEY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetAt(core::mem::transmute_copy(&iprop), core::mem::transmute_copy(&pkey)).into()
+            IPropertyStore_Impl::GetAt(this, core::mem::transmute_copy(&iprop), core::mem::transmute_copy(&pkey)).into()
         }
         unsafe extern "system" fn GetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const PROPERTYKEY, pv: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetValue(core::mem::transmute_copy(&key)) {
+            match IPropertyStore_Impl::GetValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
                     core::ptr::write(pv, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -940,12 +940,12 @@ impl IPropertyStore_Vtbl {
         unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const PROPERTYKEY, propvar: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetValue(core::mem::transmute_copy(&key), core::mem::transmute_copy(&propvar)).into()
+            IPropertyStore_Impl::SetValue(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&propvar)).into()
         }
         unsafe extern "system" fn Commit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Commit().into()
+            IPropertyStore_Impl::Commit(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -972,7 +972,7 @@ impl IPropertyStoreCache_Vtbl {
         unsafe extern "system" fn GetState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStoreCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const PROPERTYKEY, pstate: *mut PSC_STATE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetState(core::mem::transmute_copy(&key)) {
+            match IPropertyStoreCache_Impl::GetState(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
                     core::ptr::write(pstate, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -983,17 +983,17 @@ impl IPropertyStoreCache_Vtbl {
         unsafe extern "system" fn GetValueAndState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStoreCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const PROPERTYKEY, ppropvar: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>, pstate: *mut PSC_STATE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetValueAndState(core::mem::transmute_copy(&key), core::mem::transmute_copy(&ppropvar), core::mem::transmute_copy(&pstate)).into()
+            IPropertyStoreCache_Impl::GetValueAndState(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&ppropvar), core::mem::transmute_copy(&pstate)).into()
         }
         unsafe extern "system" fn SetState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStoreCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const PROPERTYKEY, state: PSC_STATE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetState(core::mem::transmute_copy(&key), core::mem::transmute_copy(&state)).into()
+            IPropertyStoreCache_Impl::SetState(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&state)).into()
         }
         unsafe extern "system" fn SetValueAndState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStoreCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const PROPERTYKEY, ppropvar: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>, state: PSC_STATE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetValueAndState(core::mem::transmute_copy(&key), core::mem::transmute_copy(&ppropvar), core::mem::transmute_copy(&state)).into()
+            IPropertyStoreCache_Impl::SetValueAndState(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&ppropvar), core::mem::transmute_copy(&state)).into()
         }
         Self {
             base__: IPropertyStore_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1016,7 +1016,7 @@ impl IPropertyStoreCapabilities_Vtbl {
         unsafe extern "system" fn IsPropertyWritable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStoreCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const PROPERTYKEY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsPropertyWritable(core::mem::transmute_copy(&key)).into()
+            IPropertyStoreCapabilities_Impl::IsPropertyWritable(this, core::mem::transmute_copy(&key)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsPropertyWritable: IsPropertyWritable::<Identity, Impl, OFFSET> }
     }
@@ -1034,12 +1034,12 @@ impl IPropertyStoreFactory_Vtbl {
         unsafe extern "system" fn GetPropertyStore<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStoreFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: GETPROPERTYSTOREFLAGS, punkfactory: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPropertyStore(core::mem::transmute_copy(&flags), windows_core::from_raw_borrowed(&punkfactory), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            IPropertyStoreFactory_Impl::GetPropertyStore(this, core::mem::transmute_copy(&flags), windows_core::from_raw_borrowed(&punkfactory), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
         unsafe extern "system" fn GetPropertyStoreForKeys<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStoreFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rgkeys: *const PROPERTYKEY, ckeys: u32, flags: GETPROPERTYSTOREFLAGS, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPropertyStoreForKeys(core::mem::transmute_copy(&rgkeys), core::mem::transmute_copy(&ckeys), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            IPropertyStoreFactory_Impl::GetPropertyStoreForKeys(this, core::mem::transmute_copy(&rgkeys), core::mem::transmute_copy(&ckeys), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1068,32 +1068,32 @@ impl IPropertySystem_Vtbl {
         unsafe extern "system" fn GetPropertyDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertySystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propkey: *const PROPERTYKEY, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPropertyDescription(core::mem::transmute_copy(&propkey), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            IPropertySystem_Impl::GetPropertyDescription(this, core::mem::transmute_copy(&propkey), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
         unsafe extern "system" fn GetPropertyDescriptionByName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertySystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszcanonicalname: windows_core::PCWSTR, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPropertyDescriptionByName(core::mem::transmute(&pszcanonicalname), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            IPropertySystem_Impl::GetPropertyDescriptionByName(this, core::mem::transmute(&pszcanonicalname), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
         unsafe extern "system" fn GetPropertyDescriptionListFromString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertySystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszproplist: windows_core::PCWSTR, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPropertyDescriptionListFromString(core::mem::transmute(&pszproplist), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            IPropertySystem_Impl::GetPropertyDescriptionListFromString(this, core::mem::transmute(&pszproplist), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
         unsafe extern "system" fn EnumeratePropertyDescriptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertySystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filteron: PROPDESC_ENUMFILTER, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EnumeratePropertyDescriptions(core::mem::transmute_copy(&filteron), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            IPropertySystem_Impl::EnumeratePropertyDescriptions(this, core::mem::transmute_copy(&filteron), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
         unsafe extern "system" fn FormatForDisplay<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertySystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const PROPERTYKEY, propvar: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>, pdff: PROPDESC_FORMAT_FLAGS, psztext: windows_core::PWSTR, cchtext: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.FormatForDisplay(core::mem::transmute_copy(&key), core::mem::transmute_copy(&propvar), core::mem::transmute_copy(&pdff), core::mem::transmute_copy(&psztext), core::mem::transmute_copy(&cchtext)).into()
+            IPropertySystem_Impl::FormatForDisplay(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&propvar), core::mem::transmute_copy(&pdff), core::mem::transmute_copy(&psztext), core::mem::transmute_copy(&cchtext)).into()
         }
         unsafe extern "system" fn FormatForDisplayAlloc<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertySystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const PROPERTYKEY, propvar: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>, pdff: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FormatForDisplayAlloc(core::mem::transmute_copy(&key), core::mem::transmute_copy(&propvar), core::mem::transmute_copy(&pdff)) {
+            match IPropertySystem_Impl::FormatForDisplayAlloc(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&propvar), core::mem::transmute_copy(&pdff)) {
                 Ok(ok__) => {
                     core::ptr::write(ppszdisplay, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1104,17 +1104,17 @@ impl IPropertySystem_Vtbl {
         unsafe extern "system" fn RegisterPropertySchema<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertySystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpath: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RegisterPropertySchema(core::mem::transmute(&pszpath)).into()
+            IPropertySystem_Impl::RegisterPropertySchema(this, core::mem::transmute(&pszpath)).into()
         }
         unsafe extern "system" fn UnregisterPropertySchema<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertySystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpath: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.UnregisterPropertySchema(core::mem::transmute(&pszpath)).into()
+            IPropertySystem_Impl::UnregisterPropertySchema(this, core::mem::transmute(&pszpath)).into()
         }
         unsafe extern "system" fn RefreshPropertySchema<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertySystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RefreshPropertySchema().into()
+            IPropertySystem_Impl::RefreshPropertySchema(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1142,7 +1142,7 @@ impl IPropertySystemChangeNotify_Vtbl {
         unsafe extern "system" fn SchemaRefreshed<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertySystemChangeNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SchemaRefreshed().into()
+            IPropertySystemChangeNotify_Impl::SchemaRefreshed(this).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SchemaRefreshed: SchemaRefreshed::<Identity, Impl, OFFSET> }
     }
@@ -1166,27 +1166,27 @@ impl IPropertyUI_Vtbl {
         unsafe extern "system" fn ParsePropertyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyUI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, pfmtid: *mut windows_core::GUID, ppid: *mut u32, pcheaten: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ParsePropertyName(core::mem::transmute(&pszname), core::mem::transmute_copy(&pfmtid), core::mem::transmute_copy(&ppid), core::mem::transmute_copy(&pcheaten)).into()
+            IPropertyUI_Impl::ParsePropertyName(this, core::mem::transmute(&pszname), core::mem::transmute_copy(&pfmtid), core::mem::transmute_copy(&ppid), core::mem::transmute_copy(&pcheaten)).into()
         }
         unsafe extern "system" fn GetCannonicalName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyUI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fmtid: *const windows_core::GUID, pid: u32, pwsztext: windows_core::PWSTR, cchtext: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetCannonicalName(core::mem::transmute_copy(&fmtid), core::mem::transmute_copy(&pid), core::mem::transmute_copy(&pwsztext), core::mem::transmute_copy(&cchtext)).into()
+            IPropertyUI_Impl::GetCannonicalName(this, core::mem::transmute_copy(&fmtid), core::mem::transmute_copy(&pid), core::mem::transmute_copy(&pwsztext), core::mem::transmute_copy(&cchtext)).into()
         }
         unsafe extern "system" fn GetDisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyUI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fmtid: *const windows_core::GUID, pid: u32, flags: PROPERTYUI_NAME_FLAGS, pwsztext: windows_core::PWSTR, cchtext: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDisplayName(core::mem::transmute_copy(&fmtid), core::mem::transmute_copy(&pid), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&pwsztext), core::mem::transmute_copy(&cchtext)).into()
+            IPropertyUI_Impl::GetDisplayName(this, core::mem::transmute_copy(&fmtid), core::mem::transmute_copy(&pid), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&pwsztext), core::mem::transmute_copy(&cchtext)).into()
         }
         unsafe extern "system" fn GetPropertyDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyUI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fmtid: *const windows_core::GUID, pid: u32, pwsztext: windows_core::PWSTR, cchtext: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPropertyDescription(core::mem::transmute_copy(&fmtid), core::mem::transmute_copy(&pid), core::mem::transmute_copy(&pwsztext), core::mem::transmute_copy(&cchtext)).into()
+            IPropertyUI_Impl::GetPropertyDescription(this, core::mem::transmute_copy(&fmtid), core::mem::transmute_copy(&pid), core::mem::transmute_copy(&pwsztext), core::mem::transmute_copy(&cchtext)).into()
         }
         unsafe extern "system" fn GetDefaultWidth<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyUI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fmtid: *const windows_core::GUID, pid: u32, pcxchars: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDefaultWidth(core::mem::transmute_copy(&fmtid), core::mem::transmute_copy(&pid)) {
+            match IPropertyUI_Impl::GetDefaultWidth(this, core::mem::transmute_copy(&fmtid), core::mem::transmute_copy(&pid)) {
                 Ok(ok__) => {
                     core::ptr::write(pcxchars, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1197,7 +1197,7 @@ impl IPropertyUI_Vtbl {
         unsafe extern "system" fn GetFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyUI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fmtid: *const windows_core::GUID, pid: u32, pflags: *mut PROPERTYUI_FLAGS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFlags(core::mem::transmute_copy(&fmtid), core::mem::transmute_copy(&pid)) {
+            match IPropertyUI_Impl::GetFlags(this, core::mem::transmute_copy(&fmtid), core::mem::transmute_copy(&pid)) {
                 Ok(ok__) => {
                     core::ptr::write(pflags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1208,12 +1208,12 @@ impl IPropertyUI_Vtbl {
         unsafe extern "system" fn FormatForDisplay<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyUI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fmtid: *const windows_core::GUID, pid: u32, ppropvar: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>, puiff: PROPERTYUI_FORMAT_FLAGS, pwsztext: windows_core::PWSTR, cchtext: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.FormatForDisplay(core::mem::transmute_copy(&fmtid), core::mem::transmute_copy(&pid), core::mem::transmute_copy(&ppropvar), core::mem::transmute_copy(&puiff), core::mem::transmute_copy(&pwsztext), core::mem::transmute_copy(&cchtext)).into()
+            IPropertyUI_Impl::FormatForDisplay(this, core::mem::transmute_copy(&fmtid), core::mem::transmute_copy(&pid), core::mem::transmute_copy(&ppropvar), core::mem::transmute_copy(&puiff), core::mem::transmute_copy(&pwsztext), core::mem::transmute_copy(&cchtext)).into()
         }
         unsafe extern "system" fn GetHelpInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyUI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fmtid: *const windows_core::GUID, pid: u32, pwszhelpfile: windows_core::PWSTR, cch: u32, puhelpid: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetHelpInfo(core::mem::transmute_copy(&fmtid), core::mem::transmute_copy(&pid), core::mem::transmute_copy(&pwszhelpfile), core::mem::transmute_copy(&cch), core::mem::transmute_copy(&puhelpid)).into()
+            IPropertyUI_Impl::GetHelpInfo(this, core::mem::transmute_copy(&fmtid), core::mem::transmute_copy(&pid), core::mem::transmute_copy(&pwszhelpfile), core::mem::transmute_copy(&cch), core::mem::transmute_copy(&puhelpid)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

@@ -7,7 +7,7 @@ impl IOplockBreakingHandler_Vtbl {
         unsafe extern "system" fn OplockBreaking<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IOplockBreakingHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OplockBreaking().into()
+            IOplockBreakingHandler_Impl::OplockBreaking(this).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OplockBreaking: OplockBreaking::<Identity, Impl, OFFSET> }
     }
@@ -24,7 +24,7 @@ impl IRandomAccessStreamFileAccessMode_Vtbl {
         unsafe extern "system" fn GetMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRandomAccessStreamFileAccessMode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fileaccessmode: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetMode() {
+            match IRandomAccessStreamFileAccessMode_Impl::GetMode(this) {
                 Ok(ok__) => {
                     core::ptr::write(fileaccessmode, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -47,7 +47,7 @@ impl IStorageFolderHandleAccess_Vtbl {
         unsafe extern "system" fn Create<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageFolderHandleAccess_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: *mut core::ffi::c_void, interophandle: *mut super::super::super::Foundation::HANDLE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Create(core::mem::transmute(&filename), core::mem::transmute_copy(&creationoptions), core::mem::transmute_copy(&accessoptions), core::mem::transmute_copy(&sharingoptions), core::mem::transmute_copy(&options), windows_core::from_raw_borrowed(&oplockbreakinghandler)) {
+            match IStorageFolderHandleAccess_Impl::Create(this, core::mem::transmute(&filename), core::mem::transmute_copy(&creationoptions), core::mem::transmute_copy(&accessoptions), core::mem::transmute_copy(&sharingoptions), core::mem::transmute_copy(&options), windows_core::from_raw_borrowed(&oplockbreakinghandler)) {
                 Ok(ok__) => {
                     core::ptr::write(interophandle, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -70,7 +70,7 @@ impl IStorageItemHandleAccess_Vtbl {
         unsafe extern "system" fn Create<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageItemHandleAccess_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: *mut core::ffi::c_void, interophandle: *mut super::super::super::Foundation::HANDLE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Create(core::mem::transmute_copy(&accessoptions), core::mem::transmute_copy(&sharingoptions), core::mem::transmute_copy(&options), windows_core::from_raw_borrowed(&oplockbreakinghandler)) {
+            match IStorageItemHandleAccess_Impl::Create(this, core::mem::transmute_copy(&accessoptions), core::mem::transmute_copy(&sharingoptions), core::mem::transmute_copy(&options), windows_core::from_raw_borrowed(&oplockbreakinghandler)) {
                 Ok(ok__) => {
                     core::ptr::write(interophandle, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -93,7 +93,7 @@ impl IUnbufferedFileHandleOplockCallback_Vtbl {
         unsafe extern "system" fn OnBrokenCallback<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUnbufferedFileHandleOplockCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnBrokenCallback().into()
+            IUnbufferedFileHandleOplockCallback_Impl::OnBrokenCallback(this).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnBrokenCallback: OnBrokenCallback::<Identity, Impl, OFFSET> }
     }
@@ -111,7 +111,7 @@ impl IUnbufferedFileHandleProvider_Vtbl {
         unsafe extern "system" fn OpenUnbufferedFileHandle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUnbufferedFileHandleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, oplockbreakcallback: *mut core::ffi::c_void, filehandle: *mut usize) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OpenUnbufferedFileHandle(windows_core::from_raw_borrowed(&oplockbreakcallback)) {
+            match IUnbufferedFileHandleProvider_Impl::OpenUnbufferedFileHandle(this, windows_core::from_raw_borrowed(&oplockbreakcallback)) {
                 Ok(ok__) => {
                     core::ptr::write(filehandle, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -122,7 +122,7 @@ impl IUnbufferedFileHandleProvider_Vtbl {
         unsafe extern "system" fn CloseUnbufferedFileHandle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUnbufferedFileHandleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CloseUnbufferedFileHandle().into()
+            IUnbufferedFileHandleProvider_Impl::CloseUnbufferedFileHandle(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

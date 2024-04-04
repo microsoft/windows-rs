@@ -1,6 +1,13 @@
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFeed, IFeed_Vtbl, 0xf7f915d8_2ede_42bc_98e7_a5d05063a757);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IFeed {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IFeed, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFeed {
@@ -252,192 +259,16 @@ pub struct IFeed_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFeed2, IFeed2_Vtbl, 0x33f2ea09_1398_4ab9_b6a4_f94b49d0a42e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IFeed2 {
+    type Target = IFeed;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IFeed2, windows_core::IUnknown, super::super::System::Com::IDispatch, IFeed);
 #[cfg(feature = "Win32_System_Com")]
 impl IFeed2 {
-    pub unsafe fn Xml(&self, count: i32, sortproperty: FEEDS_XML_SORT_PROPERTY, sortorder: FEEDS_XML_SORT_ORDER, filterflags: FEEDS_XML_FILTER_FLAGS, includeflags: FEEDS_XML_INCLUDE_FLAGS) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Xml)(windows_core::Interface::as_raw(self), count, sortproperty, sortorder, filterflags, includeflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Rename<P0>(&self, name: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.Rename)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
-    }
-    pub unsafe fn Url(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Url)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetUrl<P0>(&self, feedurl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetUrl)(windows_core::Interface::as_raw(self), feedurl.param().abi()).ok()
-    }
-    pub unsafe fn LocalId(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LocalId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Path(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Path)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Move<P0>(&self, newparentpath: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.Move)(windows_core::Interface::as_raw(self), newparentpath.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Parent(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn LastWriteTime(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LastWriteTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Delete(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Delete)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Download(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Download)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn AsyncDownload(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.AsyncDownload)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn CancelAsyncDownload(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.CancelAsyncDownload)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SyncSetting(&self) -> windows_core::Result<FEEDS_SYNC_SETTING> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SyncSetting)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetSyncSetting(&self, syncsetting: FEEDS_SYNC_SETTING) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetSyncSetting)(windows_core::Interface::as_raw(self), syncsetting).ok()
-    }
-    pub unsafe fn Interval(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Interval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetInterval(&self, minutes: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetInterval)(windows_core::Interface::as_raw(self), minutes).ok()
-    }
-    pub unsafe fn LastDownloadTime(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LastDownloadTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn LocalEnclosurePath(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LocalEnclosurePath)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Items(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Items)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetItem(&self, itemid: i32) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetItem)(windows_core::Interface::as_raw(self), itemid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Title(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Title)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Description)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Link(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Link)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Image(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Image)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn LastBuildDate(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LastBuildDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn PubDate(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.PubDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Ttl(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Ttl)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Language(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Language)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Copyright(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Copyright)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn MaxItemCount(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.MaxItemCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetMaxItemCount(&self, count: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetMaxItemCount)(windows_core::Interface::as_raw(self), count).ok()
-    }
-    pub unsafe fn DownloadEnclosuresAutomatically(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DownloadEnclosuresAutomatically)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetDownloadEnclosuresAutomatically<P0>(&self, downloadenclosuresautomatically: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetDownloadEnclosuresAutomatically)(windows_core::Interface::as_raw(self), downloadenclosuresautomatically.param().abi()).ok()
-    }
-    pub unsafe fn DownloadStatus(&self) -> windows_core::Result<FEEDS_DOWNLOAD_STATUS> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DownloadStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn LastDownloadError(&self) -> windows_core::Result<FEEDS_DOWNLOAD_ERROR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LastDownloadError)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Merge<P0, P1>(&self, feedxml: P0, feedurl: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.Merge)(windows_core::Interface::as_raw(self), feedxml.param().abi(), feedurl.param().abi()).ok()
-    }
-    pub unsafe fn DownloadUrl(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DownloadUrl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn IsList(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsList)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn MarkAllItemsRead(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.MarkAllItemsRead)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetWatcher(&self, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetWatcher)(windows_core::Interface::as_raw(self), scope, mask, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn UnreadItemCount(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.UnreadItemCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ItemCount(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ItemCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetItemByEffectiveId(&self, itemeffectiveid: i32) -> windows_core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = std::mem::zeroed();
@@ -482,6 +313,13 @@ pub struct IFeed2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFeedEnclosure, IFeedEnclosure_Vtbl, 0x361c26f7_90a4_4e67_ae09_3a36a546436a);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IFeedEnclosure {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IFeedEnclosure, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -566,6 +404,13 @@ pub struct IFeedEnclosure_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFeedEvents, IFeedEvents_Vtbl, 0xabf35c99_0681_47ea_9a8c_1436a375a99e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IFeedEvents {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IFeedEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFeedEvents {
@@ -632,6 +477,13 @@ pub struct IFeedEvents_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFeedFolder, IFeedFolder_Vtbl, 0x81f04ad1_4194_4d7d_86d6_11813cec163c);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IFeedFolder {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IFeedFolder, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -789,6 +641,13 @@ pub struct IFeedFolder_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFeedFolderEvents, IFeedFolderEvents_Vtbl, 0x20a59fa6_a844_4630_9e98_175f70b4d55b);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IFeedFolderEvents {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IFeedFolderEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFeedFolderEvents {
@@ -916,6 +775,13 @@ pub struct IFeedFolderEvents_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFeedItem, IFeedItem_Vtbl, 0x0a1e6cad_0a47_4da2_a13d_5baaa5c8bd4f);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IFeedItem {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IFeedItem, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFeedItem {
@@ -1022,80 +888,16 @@ pub struct IFeedItem_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFeedItem2, IFeedItem2_Vtbl, 0x79ac9ef4_f9c1_4d2b_a50b_a7ffba4dcf37);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IFeedItem2 {
+    type Target = IFeedItem;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IFeedItem2, windows_core::IUnknown, super::super::System::Com::IDispatch, IFeedItem);
 #[cfg(feature = "Win32_System_Com")]
 impl IFeedItem2 {
-    pub unsafe fn Xml(&self, includeflags: FEEDS_XML_INCLUDE_FLAGS) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Xml)(windows_core::Interface::as_raw(self), includeflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Title(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Title)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Link(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Link)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Guid(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Guid)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Description)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn PubDate(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.PubDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Comments(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Comments)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Author(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Author)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Enclosure(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Enclosure)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn IsRead(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsRead)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetIsRead<P0>(&self, isread: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetIsRead)(windows_core::Interface::as_raw(self), isread.param().abi()).ok()
-    }
-    pub unsafe fn LocalId(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LocalId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Parent(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Delete(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Delete)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn DownloadUrl(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DownloadUrl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn LastDownloadTime(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LastDownloadTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Modified(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Modified)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     pub unsafe fn EffectiveId(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).EffectiveId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1109,6 +911,13 @@ pub struct IFeedItem2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFeedsEnum, IFeedsEnum_Vtbl, 0xe3cd0028_2eed_4c60_8fae_a3225309a836);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IFeedsEnum {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IFeedsEnum, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1144,6 +953,13 @@ pub struct IFeedsEnum_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFeedsManager, IFeedsManager_Vtbl, 0xa74029cc_1f1a_4906_88f0_810638d86591);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IFeedsManager {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IFeedsManager, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1273,6 +1089,12 @@ pub struct IFeedsManager_Vtbl {
     pub ItemCountLimit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPAudioRenderConfig, IWMPAudioRenderConfig_Vtbl, 0xe79c6349_5997_4ce4_917c_22a3391ec564);
+impl std::ops::Deref for IWMPAudioRenderConfig {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPAudioRenderConfig, windows_core::IUnknown);
 impl IWMPAudioRenderConfig {
     pub unsafe fn audioOutputDevice(&self, pbstroutputdevice: *mut windows_core::BSTR) -> windows_core::Result<()> {
@@ -1293,6 +1115,13 @@ pub struct IWMPAudioRenderConfig_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPCdrom, IWMPCdrom_Vtbl, 0xcfab6e98_8730_11d3_b388_00c04f68574b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPCdrom {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPCdrom, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1321,6 +1150,12 @@ pub struct IWMPCdrom_Vtbl {
     pub eject: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPCdromBurn, IWMPCdromBurn_Vtbl, 0xbd94dbeb_417f_4928_aa06_087d56ed9b59);
+impl std::ops::Deref for IWMPCdromBurn {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPCdromBurn, windows_core::IUnknown);
 impl IWMPCdromBurn {
     pub unsafe fn isAvailable<P0>(&self, bstritem: P0, pisavailable: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
@@ -1408,6 +1243,13 @@ pub struct IWMPCdromBurn_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPCdromCollection, IWMPCdromCollection_Vtbl, 0xee4c8fe2_34b2_11d3_a3bf_006097c9b344);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPCdromCollection {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPCdromCollection, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPCdromCollection {
@@ -1443,6 +1285,12 @@ pub struct IWMPCdromCollection_Vtbl {
     getByDriveSpecifier: usize,
 }
 windows_core::imp::define_interface!(IWMPCdromRip, IWMPCdromRip_Vtbl, 0x56e2294f_69ed_4629_a869_aea72c0dcc2c);
+impl std::ops::Deref for IWMPCdromRip {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPCdromRip, windows_core::IUnknown);
 impl IWMPCdromRip {
     pub unsafe fn ripState(&self, pwmprs: *mut WMPRipState) -> windows_core::Result<()> {
@@ -1468,6 +1316,13 @@ pub struct IWMPCdromRip_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPClosedCaption, IWMPClosedCaption_Vtbl, 0x4f2df574_c588_11d3_9ed0_00c04fb6e937);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPClosedCaption {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPClosedCaption, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1525,45 +1380,16 @@ pub struct IWMPClosedCaption_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPClosedCaption2, IWMPClosedCaption2_Vtbl, 0x350ba78b_6bc8_4113_a5f5_312056934eb6);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPClosedCaption2 {
+    type Target = IWMPClosedCaption;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPClosedCaption2, windows_core::IUnknown, super::super::System::Com::IDispatch, IWMPClosedCaption);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPClosedCaption2 {
-    pub unsafe fn SAMIStyle(&self, pbstrsamistyle: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SAMIStyle)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrsamistyle)).ok()
-    }
-    pub unsafe fn SetSAMIStyle<P0>(&self, bstrsamistyle: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetSAMIStyle)(windows_core::Interface::as_raw(self), bstrsamistyle.param().abi()).ok()
-    }
-    pub unsafe fn SAMILang(&self, pbstrsamilang: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SAMILang)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrsamilang)).ok()
-    }
-    pub unsafe fn SetSAMILang<P0>(&self, bstrsamilang: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetSAMILang)(windows_core::Interface::as_raw(self), bstrsamilang.param().abi()).ok()
-    }
-    pub unsafe fn SAMIFileName(&self, pbstrsamifilename: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SAMIFileName)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrsamifilename)).ok()
-    }
-    pub unsafe fn SetSAMIFileName<P0>(&self, bstrsamifilename: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetSAMIFileName)(windows_core::Interface::as_raw(self), bstrsamifilename.param().abi()).ok()
-    }
-    pub unsafe fn captioningId(&self, pbstrcaptioningid: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.captioningId)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrcaptioningid)).ok()
-    }
-    pub unsafe fn SetcaptioningId<P0>(&self, bstrcaptioningid: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetcaptioningId)(windows_core::Interface::as_raw(self), bstrcaptioningid.param().abi()).ok()
-    }
     pub unsafe fn SAMILangCount(&self, plcount: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SAMILangCount)(windows_core::Interface::as_raw(self), plcount).ok()
     }
@@ -1591,6 +1417,12 @@ pub struct IWMPClosedCaption2_Vtbl {
     pub getSAMIStyleName: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPContentContainer, IWMPContentContainer_Vtbl, 0xad7f4d9c_1a9f_4ed2_9815_ecc0b58cb616);
+impl std::ops::Deref for IWMPContentContainer {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPContentContainer, windows_core::IUnknown);
 impl IWMPContentContainer {
     pub unsafe fn GetID(&self) -> windows_core::Result<u32> {
@@ -1629,6 +1461,12 @@ pub struct IWMPContentContainer_Vtbl {
     pub GetContentID: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPContentContainerList, IWMPContentContainerList_Vtbl, 0xa9937f78_0802_4af8_8b8d_e3f045bc8ab5);
+impl std::ops::Deref for IWMPContentContainerList {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPContentContainerList, windows_core::IUnknown);
 impl IWMPContentContainerList {
     pub unsafe fn GetTransactionType(&self) -> windows_core::Result<WMPTransactionType> {
@@ -1652,6 +1490,12 @@ pub struct IWMPContentContainerList_Vtbl {
     pub GetContainer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPContentPartner, IWMPContentPartner_Vtbl, 0x55455073_41b5_4e75_87b8_f13bdb291d08);
+impl std::ops::Deref for IWMPContentPartner {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPContentPartner, windows_core::IUnknown);
 impl IWMPContentPartner {
     pub unsafe fn SetCallback<P0>(&self, pcallback: P0) -> windows_core::Result<()>
@@ -1831,6 +1675,12 @@ pub struct IWMPContentPartner_Vtbl {
     pub VerifyPermission: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPContentPartnerCallback, IWMPContentPartnerCallback_Vtbl, 0x9e8f7da2_0695_403c_b697_da10fafaa676);
+impl std::ops::Deref for IWMPContentPartnerCallback {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPContentPartnerCallback, windows_core::IUnknown);
 impl IWMPContentPartnerCallback {
     pub unsafe fn Notify(&self, r#type: WMPCallbackNotification, pcontext: *const windows_core::VARIANT) -> windows_core::Result<()> {
@@ -1915,6 +1765,13 @@ pub struct IWMPContentPartnerCallback_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPControls, IWMPControls_Vtbl, 0x74c09e02_f828_11d2_a74b_00a0c905f36e);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPControls {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPControls, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2014,70 +1871,16 @@ pub struct IWMPControls_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPControls2, IWMPControls2_Vtbl, 0x6f030d25_0890_480f_9775_1f7e40ab5b8e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPControls2 {
+    type Target = IWMPControls;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPControls2, windows_core::IUnknown, super::super::System::Com::IDispatch, IWMPControls);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPControls2 {
-    pub unsafe fn get_isAvailable<P0>(&self, bstritem: P0, pisavailable: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.get_isAvailable)(windows_core::Interface::as_raw(self), bstritem.param().abi(), pisavailable).ok()
-    }
-    pub unsafe fn play(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.play)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn stop(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.stop)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn pause(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.pause)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn fastForward(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.fastForward)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn fastReverse(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.fastReverse)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn currentPosition(&self, pdcurrentposition: *mut f64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.currentPosition)(windows_core::Interface::as_raw(self), pdcurrentposition).ok()
-    }
-    pub unsafe fn SetcurrentPosition(&self, dcurrentposition: f64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetcurrentPosition)(windows_core::Interface::as_raw(self), dcurrentposition).ok()
-    }
-    pub unsafe fn currentPositionString(&self, pbstrcurrentposition: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.currentPositionString)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrcurrentposition)).ok()
-    }
-    pub unsafe fn next(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.next)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn previous(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.previous)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn currentItem(&self) -> windows_core::Result<IWMPMedia> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.currentItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentItem<P0>(&self, piwmpmedia: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMPMedia>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetcurrentItem)(windows_core::Interface::as_raw(self), piwmpmedia.param().abi()).ok()
-    }
-    pub unsafe fn currentMarker(&self, plmarker: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.currentMarker)(windows_core::Interface::as_raw(self), plmarker).ok()
-    }
-    pub unsafe fn SetcurrentMarker(&self, lmarker: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetcurrentMarker)(windows_core::Interface::as_raw(self), lmarker).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn playItem<P0>(&self, piwmpmedia: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMPMedia>,
-    {
-        (windows_core::Interface::vtable(self).base__.playItem)(windows_core::Interface::as_raw(self), piwmpmedia.param().abi()).ok()
-    }
     pub unsafe fn step(&self, lstep: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).step)(windows_core::Interface::as_raw(self), lstep).ok()
     }
@@ -2091,73 +1894,16 @@ pub struct IWMPControls2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPControls3, IWMPControls3_Vtbl, 0xa1d1110e_d545_476a_9a78_ac3e4cb1e6bd);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPControls3 {
+    type Target = IWMPControls2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPControls3, windows_core::IUnknown, super::super::System::Com::IDispatch, IWMPControls, IWMPControls2);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPControls3 {
-    pub unsafe fn get_isAvailable<P0>(&self, bstritem: P0, pisavailable: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.get_isAvailable)(windows_core::Interface::as_raw(self), bstritem.param().abi(), pisavailable).ok()
-    }
-    pub unsafe fn play(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.play)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn stop(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.stop)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn pause(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.pause)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn fastForward(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.fastForward)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn fastReverse(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.fastReverse)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn currentPosition(&self, pdcurrentposition: *mut f64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.currentPosition)(windows_core::Interface::as_raw(self), pdcurrentposition).ok()
-    }
-    pub unsafe fn SetcurrentPosition(&self, dcurrentposition: f64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetcurrentPosition)(windows_core::Interface::as_raw(self), dcurrentposition).ok()
-    }
-    pub unsafe fn currentPositionString(&self, pbstrcurrentposition: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.currentPositionString)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrcurrentposition)).ok()
-    }
-    pub unsafe fn next(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.next)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn previous(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.previous)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn currentItem(&self) -> windows_core::Result<IWMPMedia> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.currentItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentItem<P0>(&self, piwmpmedia: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMPMedia>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetcurrentItem)(windows_core::Interface::as_raw(self), piwmpmedia.param().abi()).ok()
-    }
-    pub unsafe fn currentMarker(&self, plmarker: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.currentMarker)(windows_core::Interface::as_raw(self), plmarker).ok()
-    }
-    pub unsafe fn SetcurrentMarker(&self, lmarker: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetcurrentMarker)(windows_core::Interface::as_raw(self), lmarker).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn playItem<P0>(&self, piwmpmedia: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMPMedia>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.playItem)(windows_core::Interface::as_raw(self), piwmpmedia.param().abi()).ok()
-    }
-    pub unsafe fn step(&self, lstep: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.step)(windows_core::Interface::as_raw(self), lstep).ok()
-    }
     pub unsafe fn audioLanguageCount(&self, plcount: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).audioLanguageCount)(windows_core::Interface::as_raw(self), plcount).ok()
     }
@@ -2208,6 +1954,12 @@ pub struct IWMPControls3_Vtbl {
     pub SetcurrentPositionTimecode: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPConvert, IWMPConvert_Vtbl, 0xd683162f_57d4_4108_8373_4a9676d1c2e9);
+impl std::ops::Deref for IWMPConvert {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPConvert, windows_core::IUnknown);
 impl IWMPConvert {
     pub unsafe fn ConvertFile<P0, P1>(&self, bstrinputfile: P0, bstrdestinationfolder: P1, pbstroutputfile: *mut windows_core::BSTR) -> windows_core::Result<()>
@@ -2229,6 +1981,13 @@ pub struct IWMPConvert_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPCore, IWMPCore_Vtbl, 0xd84cca99_cce2_11d2_9ecc_0000f8085981);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPCore {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPCore, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2396,106 +2155,16 @@ pub struct IWMPCore_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPCore2, IWMPCore2_Vtbl, 0xbc17e5b7_7561_4c18_bb90_17d485775659);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPCore2 {
+    type Target = IWMPCore;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPCore2, windows_core::IUnknown, super::super::System::Com::IDispatch, IWMPCore);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPCore2 {
-    pub unsafe fn close(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.close)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn URL(&self, pbstrurl: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.URL)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrurl)).ok()
-    }
-    pub unsafe fn SetURL<P0>(&self, bstrurl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetURL)(windows_core::Interface::as_raw(self), bstrurl.param().abi()).ok()
-    }
-    pub unsafe fn openState(&self, pwmpos: *mut WMPOpenState) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.openState)(windows_core::Interface::as_raw(self), pwmpos).ok()
-    }
-    pub unsafe fn playState(&self, pwmpps: *mut WMPPlayState) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.playState)(windows_core::Interface::as_raw(self), pwmpps).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn controls(&self) -> windows_core::Result<IWMPControls> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.controls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn settings(&self) -> windows_core::Result<IWMPSettings> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.settings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn currentMedia(&self) -> windows_core::Result<IWMPMedia> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.currentMedia)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentMedia<P0>(&self, pmedia: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMPMedia>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetcurrentMedia)(windows_core::Interface::as_raw(self), pmedia.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn mediaCollection(&self) -> windows_core::Result<IWMPMediaCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.mediaCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn playlistCollection(&self) -> windows_core::Result<IWMPPlaylistCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.playlistCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn versionInfo(&self, pbstrversioninfo: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.versionInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrversioninfo)).ok()
-    }
-    pub unsafe fn launchURL<P0>(&self, bstrurl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.launchURL)(windows_core::Interface::as_raw(self), bstrurl.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn network(&self) -> windows_core::Result<IWMPNetwork> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.network)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn currentPlaylist(&self) -> windows_core::Result<IWMPPlaylist> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.currentPlaylist)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentPlaylist<P0>(&self, ppl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMPPlaylist>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetcurrentPlaylist)(windows_core::Interface::as_raw(self), ppl.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn cdromCollection(&self) -> windows_core::Result<IWMPCdromCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.cdromCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn closedCaption(&self) -> windows_core::Result<IWMPClosedCaption> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.closedCaption)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn isOnline(&self, pfonline: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.isOnline)(windows_core::Interface::as_raw(self), pfonline).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn error(&self) -> windows_core::Result<IWMPError> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.error)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn status(&self, pbstrstatus: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.status)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrstatus)).ok()
-    }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn dvd(&self) -> windows_core::Result<IWMPDVD> {
         let mut result__ = std::mem::zeroed();
@@ -2514,111 +2183,16 @@ pub struct IWMPCore2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPCore3, IWMPCore3_Vtbl, 0x7587c667_628f_499f_88e7_6a6f4e888464);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPCore3 {
+    type Target = IWMPCore2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPCore3, windows_core::IUnknown, super::super::System::Com::IDispatch, IWMPCore, IWMPCore2);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPCore3 {
-    pub unsafe fn close(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.close)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn URL(&self, pbstrurl: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.URL)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrurl)).ok()
-    }
-    pub unsafe fn SetURL<P0>(&self, bstrurl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetURL)(windows_core::Interface::as_raw(self), bstrurl.param().abi()).ok()
-    }
-    pub unsafe fn openState(&self, pwmpos: *mut WMPOpenState) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.openState)(windows_core::Interface::as_raw(self), pwmpos).ok()
-    }
-    pub unsafe fn playState(&self, pwmpps: *mut WMPPlayState) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.playState)(windows_core::Interface::as_raw(self), pwmpps).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn controls(&self) -> windows_core::Result<IWMPControls> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.controls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn settings(&self) -> windows_core::Result<IWMPSettings> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.settings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn currentMedia(&self) -> windows_core::Result<IWMPMedia> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.currentMedia)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentMedia<P0>(&self, pmedia: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMPMedia>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetcurrentMedia)(windows_core::Interface::as_raw(self), pmedia.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn mediaCollection(&self) -> windows_core::Result<IWMPMediaCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.mediaCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn playlistCollection(&self) -> windows_core::Result<IWMPPlaylistCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.playlistCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn versionInfo(&self, pbstrversioninfo: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.versionInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrversioninfo)).ok()
-    }
-    pub unsafe fn launchURL<P0>(&self, bstrurl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.launchURL)(windows_core::Interface::as_raw(self), bstrurl.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn network(&self) -> windows_core::Result<IWMPNetwork> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.network)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn currentPlaylist(&self) -> windows_core::Result<IWMPPlaylist> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.currentPlaylist)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentPlaylist<P0>(&self, ppl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMPPlaylist>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetcurrentPlaylist)(windows_core::Interface::as_raw(self), ppl.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn cdromCollection(&self) -> windows_core::Result<IWMPCdromCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.cdromCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn closedCaption(&self) -> windows_core::Result<IWMPClosedCaption> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.closedCaption)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn isOnline(&self, pfonline: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.isOnline)(windows_core::Interface::as_raw(self), pfonline).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn error(&self) -> windows_core::Result<IWMPError> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.error)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn status(&self, pbstrstatus: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.status)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrstatus)).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn dvd(&self) -> windows_core::Result<IWMPDVD> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.dvd)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn newPlaylist<P0, P1>(&self, bstrname: P0, bstrurl: P1) -> windows_core::Result<IWMPPlaylist>
     where
@@ -2652,6 +2226,13 @@ pub struct IWMPCore3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPDVD, IWMPDVD_Vtbl, 0x8da61686_4668_4a5c_ae5d_803193293dbe);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPDVD {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPDVD, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2691,6 +2272,13 @@ pub struct IWMPDVD_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPDownloadCollection, IWMPDownloadCollection_Vtbl, 0x0a319c7f_85f9_436c_b88e_82fd88000e1c);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPDownloadCollection {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPDownloadCollection, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2742,6 +2330,13 @@ pub struct IWMPDownloadCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPDownloadItem, IWMPDownloadItem_Vtbl, 0xc9470e8e_3f6b_46a9_a0a9_452815c34297);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPDownloadItem {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPDownloadItem, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPDownloadItem {
@@ -2786,33 +2381,16 @@ pub struct IWMPDownloadItem_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPDownloadItem2, IWMPDownloadItem2_Vtbl, 0x9fbb3336_6da3_479d_b8ff_67d46e20a987);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPDownloadItem2 {
+    type Target = IWMPDownloadItem;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPDownloadItem2, windows_core::IUnknown, super::super::System::Com::IDispatch, IWMPDownloadItem);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPDownloadItem2 {
-    pub unsafe fn sourceURL(&self, pbstrurl: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.sourceURL)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrurl)).ok()
-    }
-    pub unsafe fn size(&self, plsize: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.size)(windows_core::Interface::as_raw(self), plsize).ok()
-    }
-    pub unsafe fn r#type(&self, pbstrtype: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.r#type)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrtype)).ok()
-    }
-    pub unsafe fn progress(&self, plprogress: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.progress)(windows_core::Interface::as_raw(self), plprogress).ok()
-    }
-    pub unsafe fn downloadState(&self, pwmpsdls: *mut WMPSubscriptionDownloadState) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.downloadState)(windows_core::Interface::as_raw(self), pwmpsdls).ok()
-    }
-    pub unsafe fn pause(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.pause)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn resume(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.resume)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn cancel(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.cancel)(windows_core::Interface::as_raw(self)).ok()
-    }
     pub unsafe fn getItemInfo<P0>(&self, bstritemname: P0, pbstrval: *mut windows_core::BSTR) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -2828,6 +2406,13 @@ pub struct IWMPDownloadItem2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPDownloadManager, IWMPDownloadManager_Vtbl, 0xe15e9ad1_8f20_4cc4_9ec7_1a328ca86a0d);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPDownloadManager {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPDownloadManager, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2857,6 +2442,12 @@ pub struct IWMPDownloadManager_Vtbl {
     createDownloadCollection: usize,
 }
 windows_core::imp::define_interface!(IWMPEffects, IWMPEffects_Vtbl, 0xd3984c13_c3cb_48e2_8be5_5168340b4f35);
+impl std::ops::Deref for IWMPEffects {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPEffects, windows_core::IUnknown);
 impl IWMPEffects {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2925,54 +2516,14 @@ pub struct IWMPEffects_Vtbl {
     pub RenderFullScreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TimedLevel) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPEffects2, IWMPEffects2_Vtbl, 0x695386ec_aa3c_4618_a5e1_dd9a8b987632);
+impl std::ops::Deref for IWMPEffects2 {
+    type Target = IWMPEffects;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPEffects2, windows_core::IUnknown, IWMPEffects);
 impl IWMPEffects2 {
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn Render<P0>(&self, plevels: *mut TimedLevel, hdc: P0, prc: *mut super::super::Foundation::RECT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-    {
-        (windows_core::Interface::vtable(self).base__.Render)(windows_core::Interface::as_raw(self), plevels, hdc.param().abi(), prc).ok()
-    }
-    pub unsafe fn MediaInfo<P0>(&self, lchannelcount: i32, lsamplerate: i32, bstrtitle: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.MediaInfo)(windows_core::Interface::as_raw(self), lchannelcount, lsamplerate, bstrtitle.param().abi()).ok()
-    }
-    pub unsafe fn GetCapabilities(&self, pdwcapabilities: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetCapabilities)(windows_core::Interface::as_raw(self), pdwcapabilities).ok()
-    }
-    pub unsafe fn GetTitle(&self, bstrtitle: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetTitle)(windows_core::Interface::as_raw(self), core::mem::transmute(bstrtitle)).ok()
-    }
-    pub unsafe fn GetPresetTitle(&self, npreset: i32, bstrpresettitle: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetPresetTitle)(windows_core::Interface::as_raw(self), npreset, core::mem::transmute(bstrpresettitle)).ok()
-    }
-    pub unsafe fn GetPresetCount(&self, pnpresetcount: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetPresetCount)(windows_core::Interface::as_raw(self), pnpresetcount).ok()
-    }
-    pub unsafe fn SetCurrentPreset(&self, npreset: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetCurrentPreset)(windows_core::Interface::as_raw(self), npreset).ok()
-    }
-    pub unsafe fn GetCurrentPreset(&self, pnpreset: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetCurrentPreset)(windows_core::Interface::as_raw(self), pnpreset).ok()
-    }
-    pub unsafe fn DisplayPropertyPage<P0>(&self, hwndowner: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.DisplayPropertyPage)(windows_core::Interface::as_raw(self), hwndowner.param().abi()).ok()
-    }
-    pub unsafe fn GoFullscreen<P0>(&self, ffullscreen: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.GoFullscreen)(windows_core::Interface::as_raw(self), ffullscreen.param().abi()).ok()
-    }
-    pub unsafe fn RenderFullScreen(&self, plevels: *mut TimedLevel) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.RenderFullScreen)(windows_core::Interface::as_raw(self), plevels).ok()
-    }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetCore<P0>(&self, pplayer: P0) -> windows_core::Result<()>
     where
@@ -3029,6 +2580,13 @@ pub struct IWMPEffects2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPError, IWMPError_Vtbl, 0xa12dcf7d_14ab_4c1b_a8cd_63909f06025b);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPError {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPError, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPError {
@@ -3062,6 +2620,13 @@ pub struct IWMPError_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPErrorItem, IWMPErrorItem_Vtbl, 0x3614c646_3b3b_4de7_a81e_930e3f2127b3);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPErrorItem {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPErrorItem, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPErrorItem {
@@ -3094,24 +2659,16 @@ pub struct IWMPErrorItem_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPErrorItem2, IWMPErrorItem2_Vtbl, 0xf75ccec0_c67c_475c_931e_8719870bee7d);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPErrorItem2 {
+    type Target = IWMPErrorItem;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPErrorItem2, windows_core::IUnknown, super::super::System::Com::IDispatch, IWMPErrorItem);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPErrorItem2 {
-    pub unsafe fn errorCode(&self, phr: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.errorCode)(windows_core::Interface::as_raw(self), phr).ok()
-    }
-    pub unsafe fn errorDescription(&self, pbstrdescription: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.errorDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrdescription)).ok()
-    }
-    pub unsafe fn errorContext(&self, pvarcontext: *mut windows_core::VARIANT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.errorContext)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarcontext)).ok()
-    }
-    pub unsafe fn remedy(&self, plremedy: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.remedy)(windows_core::Interface::as_raw(self), plremedy).ok()
-    }
-    pub unsafe fn customUrl(&self, pbstrcustomurl: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.customUrl)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrcustomurl)).ok()
-    }
     pub unsafe fn condition(&self, plcondition: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).condition)(windows_core::Interface::as_raw(self), plcondition).ok()
     }
@@ -3123,6 +2680,12 @@ pub struct IWMPErrorItem2_Vtbl {
     pub condition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPEvents, IWMPEvents_Vtbl, 0x19a6627b_da9e_47c1_bb23_00b5e668236a);
+impl std::ops::Deref for IWMPEvents {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPEvents, windows_core::IUnknown);
 impl IWMPEvents {
     pub unsafe fn OpenStateChange(&self, newstate: i32) {
@@ -3392,209 +2955,14 @@ pub struct IWMPEvents_Vtbl {
     pub MouseUp: unsafe extern "system" fn(*mut core::ffi::c_void, i16, i16, i32, i32),
 }
 windows_core::imp::define_interface!(IWMPEvents2, IWMPEvents2_Vtbl, 0x1e7601fa_47ea_4107_9ea9_9004ed9684ff);
+impl std::ops::Deref for IWMPEvents2 {
+    type Target = IWMPEvents;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPEvents2, windows_core::IUnknown, IWMPEvents);
 impl IWMPEvents2 {
-    pub unsafe fn OpenStateChange(&self, newstate: i32) {
-        (windows_core::Interface::vtable(self).base__.OpenStateChange)(windows_core::Interface::as_raw(self), newstate)
-    }
-    pub unsafe fn PlayStateChange(&self, newstate: i32) {
-        (windows_core::Interface::vtable(self).base__.PlayStateChange)(windows_core::Interface::as_raw(self), newstate)
-    }
-    pub unsafe fn AudioLanguageChange(&self, langid: i32) {
-        (windows_core::Interface::vtable(self).base__.AudioLanguageChange)(windows_core::Interface::as_raw(self), langid)
-    }
-    pub unsafe fn StatusChange(&self) {
-        (windows_core::Interface::vtable(self).base__.StatusChange)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn ScriptCommand<P0, P1>(&self, sctype: P0, param: P1)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.ScriptCommand)(windows_core::Interface::as_raw(self), sctype.param().abi(), param.param().abi())
-    }
-    pub unsafe fn NewStream(&self) {
-        (windows_core::Interface::vtable(self).base__.NewStream)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn Disconnect(&self, result: i32) {
-        (windows_core::Interface::vtable(self).base__.Disconnect)(windows_core::Interface::as_raw(self), result)
-    }
-    pub unsafe fn Buffering<P0>(&self, start: P0)
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.Buffering)(windows_core::Interface::as_raw(self), start.param().abi())
-    }
-    pub unsafe fn Error(&self) {
-        (windows_core::Interface::vtable(self).base__.Error)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn Warning<P0>(&self, warningtype: i32, param: i32, description: P0)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.Warning)(windows_core::Interface::as_raw(self), warningtype, param, description.param().abi())
-    }
-    pub unsafe fn EndOfStream(&self, result: i32) {
-        (windows_core::Interface::vtable(self).base__.EndOfStream)(windows_core::Interface::as_raw(self), result)
-    }
-    pub unsafe fn PositionChange(&self, oldposition: f64, newposition: f64) {
-        (windows_core::Interface::vtable(self).base__.PositionChange)(windows_core::Interface::as_raw(self), oldposition, newposition)
-    }
-    pub unsafe fn MarkerHit(&self, markernum: i32) {
-        (windows_core::Interface::vtable(self).base__.MarkerHit)(windows_core::Interface::as_raw(self), markernum)
-    }
-    pub unsafe fn DurationUnitChange(&self, newdurationunit: i32) {
-        (windows_core::Interface::vtable(self).base__.DurationUnitChange)(windows_core::Interface::as_raw(self), newdurationunit)
-    }
-    pub unsafe fn CdromMediaChange(&self, cdromnum: i32) {
-        (windows_core::Interface::vtable(self).base__.CdromMediaChange)(windows_core::Interface::as_raw(self), cdromnum)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn PlaylistChange<P0>(&self, playlist: P0, change: WMPPlaylistChangeEventType)
-    where
-        P0: windows_core::Param<super::super::System::Com::IDispatch>,
-    {
-        (windows_core::Interface::vtable(self).base__.PlaylistChange)(windows_core::Interface::as_raw(self), playlist.param().abi(), change)
-    }
-    pub unsafe fn CurrentPlaylistChange(&self, change: WMPPlaylistChangeEventType) {
-        (windows_core::Interface::vtable(self).base__.CurrentPlaylistChange)(windows_core::Interface::as_raw(self), change)
-    }
-    pub unsafe fn CurrentPlaylistItemAvailable<P0>(&self, bstritemname: P0)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.CurrentPlaylistItemAvailable)(windows_core::Interface::as_raw(self), bstritemname.param().abi())
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaChange<P0>(&self, item: P0)
-    where
-        P0: windows_core::Param<super::super::System::Com::IDispatch>,
-    {
-        (windows_core::Interface::vtable(self).base__.MediaChange)(windows_core::Interface::as_raw(self), item.param().abi())
-    }
-    pub unsafe fn CurrentMediaItemAvailable<P0>(&self, bstritemname: P0)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.CurrentMediaItemAvailable)(windows_core::Interface::as_raw(self), bstritemname.param().abi())
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CurrentItemChange<P0>(&self, pdispmedia: P0)
-    where
-        P0: windows_core::Param<super::super::System::Com::IDispatch>,
-    {
-        (windows_core::Interface::vtable(self).base__.CurrentItemChange)(windows_core::Interface::as_raw(self), pdispmedia.param().abi())
-    }
-    pub unsafe fn MediaCollectionChange(&self) {
-        (windows_core::Interface::vtable(self).base__.MediaCollectionChange)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn MediaCollectionAttributeStringAdded<P0, P1>(&self, bstrattribname: P0, bstrattribval: P1)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.MediaCollectionAttributeStringAdded)(windows_core::Interface::as_raw(self), bstrattribname.param().abi(), bstrattribval.param().abi())
-    }
-    pub unsafe fn MediaCollectionAttributeStringRemoved<P0, P1>(&self, bstrattribname: P0, bstrattribval: P1)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.MediaCollectionAttributeStringRemoved)(windows_core::Interface::as_raw(self), bstrattribname.param().abi(), bstrattribval.param().abi())
-    }
-    pub unsafe fn MediaCollectionAttributeStringChanged<P0, P1, P2>(&self, bstrattribname: P0, bstroldattribval: P1, bstrnewattribval: P2)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.MediaCollectionAttributeStringChanged)(windows_core::Interface::as_raw(self), bstrattribname.param().abi(), bstroldattribval.param().abi(), bstrnewattribval.param().abi())
-    }
-    pub unsafe fn PlaylistCollectionChange(&self) {
-        (windows_core::Interface::vtable(self).base__.PlaylistCollectionChange)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn PlaylistCollectionPlaylistAdded<P0>(&self, bstrplaylistname: P0)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.PlaylistCollectionPlaylistAdded)(windows_core::Interface::as_raw(self), bstrplaylistname.param().abi())
-    }
-    pub unsafe fn PlaylistCollectionPlaylistRemoved<P0>(&self, bstrplaylistname: P0)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.PlaylistCollectionPlaylistRemoved)(windows_core::Interface::as_raw(self), bstrplaylistname.param().abi())
-    }
-    pub unsafe fn PlaylistCollectionPlaylistSetAsDeleted<P0, P1>(&self, bstrplaylistname: P0, varfisdeleted: P1)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.PlaylistCollectionPlaylistSetAsDeleted)(windows_core::Interface::as_raw(self), bstrplaylistname.param().abi(), varfisdeleted.param().abi())
-    }
-    pub unsafe fn ModeChange<P0, P1>(&self, modename: P0, newvalue: P1)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.ModeChange)(windows_core::Interface::as_raw(self), modename.param().abi(), newvalue.param().abi())
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaError<P0>(&self, pmediaobject: P0)
-    where
-        P0: windows_core::Param<super::super::System::Com::IDispatch>,
-    {
-        (windows_core::Interface::vtable(self).base__.MediaError)(windows_core::Interface::as_raw(self), pmediaobject.param().abi())
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OpenPlaylistSwitch<P0>(&self, pitem: P0)
-    where
-        P0: windows_core::Param<super::super::System::Com::IDispatch>,
-    {
-        (windows_core::Interface::vtable(self).base__.OpenPlaylistSwitch)(windows_core::Interface::as_raw(self), pitem.param().abi())
-    }
-    pub unsafe fn DomainChange<P0>(&self, strdomain: P0)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.DomainChange)(windows_core::Interface::as_raw(self), strdomain.param().abi())
-    }
-    pub unsafe fn SwitchedToPlayerApplication(&self) {
-        (windows_core::Interface::vtable(self).base__.SwitchedToPlayerApplication)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn SwitchedToControl(&self) {
-        (windows_core::Interface::vtable(self).base__.SwitchedToControl)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn PlayerDockedStateChange(&self) {
-        (windows_core::Interface::vtable(self).base__.PlayerDockedStateChange)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn PlayerReconnect(&self) {
-        (windows_core::Interface::vtable(self).base__.PlayerReconnect)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn Click(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (windows_core::Interface::vtable(self).base__.Click)(windows_core::Interface::as_raw(self), nbutton, nshiftstate, fx, fy)
-    }
-    pub unsafe fn DoubleClick(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (windows_core::Interface::vtable(self).base__.DoubleClick)(windows_core::Interface::as_raw(self), nbutton, nshiftstate, fx, fy)
-    }
-    pub unsafe fn KeyDown(&self, nkeycode: i16, nshiftstate: i16) {
-        (windows_core::Interface::vtable(self).base__.KeyDown)(windows_core::Interface::as_raw(self), nkeycode, nshiftstate)
-    }
-    pub unsafe fn KeyPress(&self, nkeyascii: i16) {
-        (windows_core::Interface::vtable(self).base__.KeyPress)(windows_core::Interface::as_raw(self), nkeyascii)
-    }
-    pub unsafe fn KeyUp(&self, nkeycode: i16, nshiftstate: i16) {
-        (windows_core::Interface::vtable(self).base__.KeyUp)(windows_core::Interface::as_raw(self), nkeycode, nshiftstate)
-    }
-    pub unsafe fn MouseDown(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (windows_core::Interface::vtable(self).base__.MouseDown)(windows_core::Interface::as_raw(self), nbutton, nshiftstate, fx, fy)
-    }
-    pub unsafe fn MouseMove(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (windows_core::Interface::vtable(self).base__.MouseMove)(windows_core::Interface::as_raw(self), nbutton, nshiftstate, fx, fy)
-    }
-    pub unsafe fn MouseUp(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (windows_core::Interface::vtable(self).base__.MouseUp)(windows_core::Interface::as_raw(self), nbutton, nshiftstate, fx, fy)
-    }
     pub unsafe fn DeviceConnect<P0>(&self, pdevice: P0)
     where
         P0: windows_core::Param<IWMPSyncDevice>,
@@ -3648,247 +3016,14 @@ pub struct IWMPEvents2_Vtbl {
     pub CreatePartnershipComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::HRESULT),
 }
 windows_core::imp::define_interface!(IWMPEvents3, IWMPEvents3_Vtbl, 0x1f504270_a66b_4223_8e96_26a06c63d69f);
+impl std::ops::Deref for IWMPEvents3 {
+    type Target = IWMPEvents2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPEvents3, windows_core::IUnknown, IWMPEvents, IWMPEvents2);
 impl IWMPEvents3 {
-    pub unsafe fn OpenStateChange(&self, newstate: i32) {
-        (windows_core::Interface::vtable(self).base__.base__.OpenStateChange)(windows_core::Interface::as_raw(self), newstate)
-    }
-    pub unsafe fn PlayStateChange(&self, newstate: i32) {
-        (windows_core::Interface::vtable(self).base__.base__.PlayStateChange)(windows_core::Interface::as_raw(self), newstate)
-    }
-    pub unsafe fn AudioLanguageChange(&self, langid: i32) {
-        (windows_core::Interface::vtable(self).base__.base__.AudioLanguageChange)(windows_core::Interface::as_raw(self), langid)
-    }
-    pub unsafe fn StatusChange(&self) {
-        (windows_core::Interface::vtable(self).base__.base__.StatusChange)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn ScriptCommand<P0, P1>(&self, sctype: P0, param: P1)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.ScriptCommand)(windows_core::Interface::as_raw(self), sctype.param().abi(), param.param().abi())
-    }
-    pub unsafe fn NewStream(&self) {
-        (windows_core::Interface::vtable(self).base__.base__.NewStream)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn Disconnect(&self, result: i32) {
-        (windows_core::Interface::vtable(self).base__.base__.Disconnect)(windows_core::Interface::as_raw(self), result)
-    }
-    pub unsafe fn Buffering<P0>(&self, start: P0)
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.Buffering)(windows_core::Interface::as_raw(self), start.param().abi())
-    }
-    pub unsafe fn Error(&self) {
-        (windows_core::Interface::vtable(self).base__.base__.Error)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn Warning<P0>(&self, warningtype: i32, param: i32, description: P0)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.Warning)(windows_core::Interface::as_raw(self), warningtype, param, description.param().abi())
-    }
-    pub unsafe fn EndOfStream(&self, result: i32) {
-        (windows_core::Interface::vtable(self).base__.base__.EndOfStream)(windows_core::Interface::as_raw(self), result)
-    }
-    pub unsafe fn PositionChange(&self, oldposition: f64, newposition: f64) {
-        (windows_core::Interface::vtable(self).base__.base__.PositionChange)(windows_core::Interface::as_raw(self), oldposition, newposition)
-    }
-    pub unsafe fn MarkerHit(&self, markernum: i32) {
-        (windows_core::Interface::vtable(self).base__.base__.MarkerHit)(windows_core::Interface::as_raw(self), markernum)
-    }
-    pub unsafe fn DurationUnitChange(&self, newdurationunit: i32) {
-        (windows_core::Interface::vtable(self).base__.base__.DurationUnitChange)(windows_core::Interface::as_raw(self), newdurationunit)
-    }
-    pub unsafe fn CdromMediaChange(&self, cdromnum: i32) {
-        (windows_core::Interface::vtable(self).base__.base__.CdromMediaChange)(windows_core::Interface::as_raw(self), cdromnum)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn PlaylistChange<P0>(&self, playlist: P0, change: WMPPlaylistChangeEventType)
-    where
-        P0: windows_core::Param<super::super::System::Com::IDispatch>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.PlaylistChange)(windows_core::Interface::as_raw(self), playlist.param().abi(), change)
-    }
-    pub unsafe fn CurrentPlaylistChange(&self, change: WMPPlaylistChangeEventType) {
-        (windows_core::Interface::vtable(self).base__.base__.CurrentPlaylistChange)(windows_core::Interface::as_raw(self), change)
-    }
-    pub unsafe fn CurrentPlaylistItemAvailable<P0>(&self, bstritemname: P0)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.CurrentPlaylistItemAvailable)(windows_core::Interface::as_raw(self), bstritemname.param().abi())
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaChange<P0>(&self, item: P0)
-    where
-        P0: windows_core::Param<super::super::System::Com::IDispatch>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.MediaChange)(windows_core::Interface::as_raw(self), item.param().abi())
-    }
-    pub unsafe fn CurrentMediaItemAvailable<P0>(&self, bstritemname: P0)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.CurrentMediaItemAvailable)(windows_core::Interface::as_raw(self), bstritemname.param().abi())
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CurrentItemChange<P0>(&self, pdispmedia: P0)
-    where
-        P0: windows_core::Param<super::super::System::Com::IDispatch>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.CurrentItemChange)(windows_core::Interface::as_raw(self), pdispmedia.param().abi())
-    }
-    pub unsafe fn MediaCollectionChange(&self) {
-        (windows_core::Interface::vtable(self).base__.base__.MediaCollectionChange)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn MediaCollectionAttributeStringAdded<P0, P1>(&self, bstrattribname: P0, bstrattribval: P1)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.MediaCollectionAttributeStringAdded)(windows_core::Interface::as_raw(self), bstrattribname.param().abi(), bstrattribval.param().abi())
-    }
-    pub unsafe fn MediaCollectionAttributeStringRemoved<P0, P1>(&self, bstrattribname: P0, bstrattribval: P1)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.MediaCollectionAttributeStringRemoved)(windows_core::Interface::as_raw(self), bstrattribname.param().abi(), bstrattribval.param().abi())
-    }
-    pub unsafe fn MediaCollectionAttributeStringChanged<P0, P1, P2>(&self, bstrattribname: P0, bstroldattribval: P1, bstrnewattribval: P2)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.MediaCollectionAttributeStringChanged)(windows_core::Interface::as_raw(self), bstrattribname.param().abi(), bstroldattribval.param().abi(), bstrnewattribval.param().abi())
-    }
-    pub unsafe fn PlaylistCollectionChange(&self) {
-        (windows_core::Interface::vtable(self).base__.base__.PlaylistCollectionChange)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn PlaylistCollectionPlaylistAdded<P0>(&self, bstrplaylistname: P0)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.PlaylistCollectionPlaylistAdded)(windows_core::Interface::as_raw(self), bstrplaylistname.param().abi())
-    }
-    pub unsafe fn PlaylistCollectionPlaylistRemoved<P0>(&self, bstrplaylistname: P0)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.PlaylistCollectionPlaylistRemoved)(windows_core::Interface::as_raw(self), bstrplaylistname.param().abi())
-    }
-    pub unsafe fn PlaylistCollectionPlaylistSetAsDeleted<P0, P1>(&self, bstrplaylistname: P0, varfisdeleted: P1)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.PlaylistCollectionPlaylistSetAsDeleted)(windows_core::Interface::as_raw(self), bstrplaylistname.param().abi(), varfisdeleted.param().abi())
-    }
-    pub unsafe fn ModeChange<P0, P1>(&self, modename: P0, newvalue: P1)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.ModeChange)(windows_core::Interface::as_raw(self), modename.param().abi(), newvalue.param().abi())
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaError<P0>(&self, pmediaobject: P0)
-    where
-        P0: windows_core::Param<super::super::System::Com::IDispatch>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.MediaError)(windows_core::Interface::as_raw(self), pmediaobject.param().abi())
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OpenPlaylistSwitch<P0>(&self, pitem: P0)
-    where
-        P0: windows_core::Param<super::super::System::Com::IDispatch>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.OpenPlaylistSwitch)(windows_core::Interface::as_raw(self), pitem.param().abi())
-    }
-    pub unsafe fn DomainChange<P0>(&self, strdomain: P0)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.DomainChange)(windows_core::Interface::as_raw(self), strdomain.param().abi())
-    }
-    pub unsafe fn SwitchedToPlayerApplication(&self) {
-        (windows_core::Interface::vtable(self).base__.base__.SwitchedToPlayerApplication)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn SwitchedToControl(&self) {
-        (windows_core::Interface::vtable(self).base__.base__.SwitchedToControl)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn PlayerDockedStateChange(&self) {
-        (windows_core::Interface::vtable(self).base__.base__.PlayerDockedStateChange)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn PlayerReconnect(&self) {
-        (windows_core::Interface::vtable(self).base__.base__.PlayerReconnect)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn Click(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (windows_core::Interface::vtable(self).base__.base__.Click)(windows_core::Interface::as_raw(self), nbutton, nshiftstate, fx, fy)
-    }
-    pub unsafe fn DoubleClick(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (windows_core::Interface::vtable(self).base__.base__.DoubleClick)(windows_core::Interface::as_raw(self), nbutton, nshiftstate, fx, fy)
-    }
-    pub unsafe fn KeyDown(&self, nkeycode: i16, nshiftstate: i16) {
-        (windows_core::Interface::vtable(self).base__.base__.KeyDown)(windows_core::Interface::as_raw(self), nkeycode, nshiftstate)
-    }
-    pub unsafe fn KeyPress(&self, nkeyascii: i16) {
-        (windows_core::Interface::vtable(self).base__.base__.KeyPress)(windows_core::Interface::as_raw(self), nkeyascii)
-    }
-    pub unsafe fn KeyUp(&self, nkeycode: i16, nshiftstate: i16) {
-        (windows_core::Interface::vtable(self).base__.base__.KeyUp)(windows_core::Interface::as_raw(self), nkeycode, nshiftstate)
-    }
-    pub unsafe fn MouseDown(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (windows_core::Interface::vtable(self).base__.base__.MouseDown)(windows_core::Interface::as_raw(self), nbutton, nshiftstate, fx, fy)
-    }
-    pub unsafe fn MouseMove(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (windows_core::Interface::vtable(self).base__.base__.MouseMove)(windows_core::Interface::as_raw(self), nbutton, nshiftstate, fx, fy)
-    }
-    pub unsafe fn MouseUp(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (windows_core::Interface::vtable(self).base__.base__.MouseUp)(windows_core::Interface::as_raw(self), nbutton, nshiftstate, fx, fy)
-    }
-    pub unsafe fn DeviceConnect<P0>(&self, pdevice: P0)
-    where
-        P0: windows_core::Param<IWMPSyncDevice>,
-    {
-        (windows_core::Interface::vtable(self).base__.DeviceConnect)(windows_core::Interface::as_raw(self), pdevice.param().abi())
-    }
-    pub unsafe fn DeviceDisconnect<P0>(&self, pdevice: P0)
-    where
-        P0: windows_core::Param<IWMPSyncDevice>,
-    {
-        (windows_core::Interface::vtable(self).base__.DeviceDisconnect)(windows_core::Interface::as_raw(self), pdevice.param().abi())
-    }
-    pub unsafe fn DeviceStatusChange<P0>(&self, pdevice: P0, newstatus: WMPDeviceStatus)
-    where
-        P0: windows_core::Param<IWMPSyncDevice>,
-    {
-        (windows_core::Interface::vtable(self).base__.DeviceStatusChange)(windows_core::Interface::as_raw(self), pdevice.param().abi(), newstatus)
-    }
-    pub unsafe fn DeviceSyncStateChange<P0>(&self, pdevice: P0, newstate: WMPSyncState)
-    where
-        P0: windows_core::Param<IWMPSyncDevice>,
-    {
-        (windows_core::Interface::vtable(self).base__.DeviceSyncStateChange)(windows_core::Interface::as_raw(self), pdevice.param().abi(), newstate)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DeviceSyncError<P0, P1>(&self, pdevice: P0, pmedia: P1)
-    where
-        P0: windows_core::Param<IWMPSyncDevice>,
-        P1: windows_core::Param<super::super::System::Com::IDispatch>,
-    {
-        (windows_core::Interface::vtable(self).base__.DeviceSyncError)(windows_core::Interface::as_raw(self), pdevice.param().abi(), pmedia.param().abi())
-    }
-    pub unsafe fn CreatePartnershipComplete<P0>(&self, pdevice: P0, hrresult: windows_core::HRESULT)
-    where
-        P0: windows_core::Param<IWMPSyncDevice>,
-    {
-        (windows_core::Interface::vtable(self).base__.CreatePartnershipComplete)(windows_core::Interface::as_raw(self), pdevice.param().abi(), hrresult)
-    }
     pub unsafe fn CdromRipStateChange<P0>(&self, pcdromrip: P0, wmprs: WMPRipState)
     where
         P0: windows_core::Param<IWMPCdromRip>,
@@ -3991,317 +3126,14 @@ pub struct IWMPEvents3_Vtbl {
     MediaCollectionMediaRemoved: usize,
 }
 windows_core::imp::define_interface!(IWMPEvents4, IWMPEvents4_Vtbl, 0x26dabcfa_306b_404d_9a6f_630a8405048d);
+impl std::ops::Deref for IWMPEvents4 {
+    type Target = IWMPEvents3;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPEvents4, windows_core::IUnknown, IWMPEvents, IWMPEvents2, IWMPEvents3);
 impl IWMPEvents4 {
-    pub unsafe fn OpenStateChange(&self, newstate: i32) {
-        (windows_core::Interface::vtable(self).base__.base__.base__.OpenStateChange)(windows_core::Interface::as_raw(self), newstate)
-    }
-    pub unsafe fn PlayStateChange(&self, newstate: i32) {
-        (windows_core::Interface::vtable(self).base__.base__.base__.PlayStateChange)(windows_core::Interface::as_raw(self), newstate)
-    }
-    pub unsafe fn AudioLanguageChange(&self, langid: i32) {
-        (windows_core::Interface::vtable(self).base__.base__.base__.AudioLanguageChange)(windows_core::Interface::as_raw(self), langid)
-    }
-    pub unsafe fn StatusChange(&self) {
-        (windows_core::Interface::vtable(self).base__.base__.base__.StatusChange)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn ScriptCommand<P0, P1>(&self, sctype: P0, param: P1)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.ScriptCommand)(windows_core::Interface::as_raw(self), sctype.param().abi(), param.param().abi())
-    }
-    pub unsafe fn NewStream(&self) {
-        (windows_core::Interface::vtable(self).base__.base__.base__.NewStream)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn Disconnect(&self, result: i32) {
-        (windows_core::Interface::vtable(self).base__.base__.base__.Disconnect)(windows_core::Interface::as_raw(self), result)
-    }
-    pub unsafe fn Buffering<P0>(&self, start: P0)
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.Buffering)(windows_core::Interface::as_raw(self), start.param().abi())
-    }
-    pub unsafe fn Error(&self) {
-        (windows_core::Interface::vtable(self).base__.base__.base__.Error)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn Warning<P0>(&self, warningtype: i32, param: i32, description: P0)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.Warning)(windows_core::Interface::as_raw(self), warningtype, param, description.param().abi())
-    }
-    pub unsafe fn EndOfStream(&self, result: i32) {
-        (windows_core::Interface::vtable(self).base__.base__.base__.EndOfStream)(windows_core::Interface::as_raw(self), result)
-    }
-    pub unsafe fn PositionChange(&self, oldposition: f64, newposition: f64) {
-        (windows_core::Interface::vtable(self).base__.base__.base__.PositionChange)(windows_core::Interface::as_raw(self), oldposition, newposition)
-    }
-    pub unsafe fn MarkerHit(&self, markernum: i32) {
-        (windows_core::Interface::vtable(self).base__.base__.base__.MarkerHit)(windows_core::Interface::as_raw(self), markernum)
-    }
-    pub unsafe fn DurationUnitChange(&self, newdurationunit: i32) {
-        (windows_core::Interface::vtable(self).base__.base__.base__.DurationUnitChange)(windows_core::Interface::as_raw(self), newdurationunit)
-    }
-    pub unsafe fn CdromMediaChange(&self, cdromnum: i32) {
-        (windows_core::Interface::vtable(self).base__.base__.base__.CdromMediaChange)(windows_core::Interface::as_raw(self), cdromnum)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn PlaylistChange<P0>(&self, playlist: P0, change: WMPPlaylistChangeEventType)
-    where
-        P0: windows_core::Param<super::super::System::Com::IDispatch>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.PlaylistChange)(windows_core::Interface::as_raw(self), playlist.param().abi(), change)
-    }
-    pub unsafe fn CurrentPlaylistChange(&self, change: WMPPlaylistChangeEventType) {
-        (windows_core::Interface::vtable(self).base__.base__.base__.CurrentPlaylistChange)(windows_core::Interface::as_raw(self), change)
-    }
-    pub unsafe fn CurrentPlaylistItemAvailable<P0>(&self, bstritemname: P0)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.CurrentPlaylistItemAvailable)(windows_core::Interface::as_raw(self), bstritemname.param().abi())
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaChange<P0>(&self, item: P0)
-    where
-        P0: windows_core::Param<super::super::System::Com::IDispatch>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.MediaChange)(windows_core::Interface::as_raw(self), item.param().abi())
-    }
-    pub unsafe fn CurrentMediaItemAvailable<P0>(&self, bstritemname: P0)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.CurrentMediaItemAvailable)(windows_core::Interface::as_raw(self), bstritemname.param().abi())
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CurrentItemChange<P0>(&self, pdispmedia: P0)
-    where
-        P0: windows_core::Param<super::super::System::Com::IDispatch>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.CurrentItemChange)(windows_core::Interface::as_raw(self), pdispmedia.param().abi())
-    }
-    pub unsafe fn MediaCollectionChange(&self) {
-        (windows_core::Interface::vtable(self).base__.base__.base__.MediaCollectionChange)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn MediaCollectionAttributeStringAdded<P0, P1>(&self, bstrattribname: P0, bstrattribval: P1)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.MediaCollectionAttributeStringAdded)(windows_core::Interface::as_raw(self), bstrattribname.param().abi(), bstrattribval.param().abi())
-    }
-    pub unsafe fn MediaCollectionAttributeStringRemoved<P0, P1>(&self, bstrattribname: P0, bstrattribval: P1)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.MediaCollectionAttributeStringRemoved)(windows_core::Interface::as_raw(self), bstrattribname.param().abi(), bstrattribval.param().abi())
-    }
-    pub unsafe fn MediaCollectionAttributeStringChanged<P0, P1, P2>(&self, bstrattribname: P0, bstroldattribval: P1, bstrnewattribval: P2)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.MediaCollectionAttributeStringChanged)(windows_core::Interface::as_raw(self), bstrattribname.param().abi(), bstroldattribval.param().abi(), bstrnewattribval.param().abi())
-    }
-    pub unsafe fn PlaylistCollectionChange(&self) {
-        (windows_core::Interface::vtable(self).base__.base__.base__.PlaylistCollectionChange)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn PlaylistCollectionPlaylistAdded<P0>(&self, bstrplaylistname: P0)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.PlaylistCollectionPlaylistAdded)(windows_core::Interface::as_raw(self), bstrplaylistname.param().abi())
-    }
-    pub unsafe fn PlaylistCollectionPlaylistRemoved<P0>(&self, bstrplaylistname: P0)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.PlaylistCollectionPlaylistRemoved)(windows_core::Interface::as_raw(self), bstrplaylistname.param().abi())
-    }
-    pub unsafe fn PlaylistCollectionPlaylistSetAsDeleted<P0, P1>(&self, bstrplaylistname: P0, varfisdeleted: P1)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.PlaylistCollectionPlaylistSetAsDeleted)(windows_core::Interface::as_raw(self), bstrplaylistname.param().abi(), varfisdeleted.param().abi())
-    }
-    pub unsafe fn ModeChange<P0, P1>(&self, modename: P0, newvalue: P1)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.ModeChange)(windows_core::Interface::as_raw(self), modename.param().abi(), newvalue.param().abi())
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaError<P0>(&self, pmediaobject: P0)
-    where
-        P0: windows_core::Param<super::super::System::Com::IDispatch>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.MediaError)(windows_core::Interface::as_raw(self), pmediaobject.param().abi())
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OpenPlaylistSwitch<P0>(&self, pitem: P0)
-    where
-        P0: windows_core::Param<super::super::System::Com::IDispatch>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.OpenPlaylistSwitch)(windows_core::Interface::as_raw(self), pitem.param().abi())
-    }
-    pub unsafe fn DomainChange<P0>(&self, strdomain: P0)
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.DomainChange)(windows_core::Interface::as_raw(self), strdomain.param().abi())
-    }
-    pub unsafe fn SwitchedToPlayerApplication(&self) {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SwitchedToPlayerApplication)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn SwitchedToControl(&self) {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SwitchedToControl)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn PlayerDockedStateChange(&self) {
-        (windows_core::Interface::vtable(self).base__.base__.base__.PlayerDockedStateChange)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn PlayerReconnect(&self) {
-        (windows_core::Interface::vtable(self).base__.base__.base__.PlayerReconnect)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn Click(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (windows_core::Interface::vtable(self).base__.base__.base__.Click)(windows_core::Interface::as_raw(self), nbutton, nshiftstate, fx, fy)
-    }
-    pub unsafe fn DoubleClick(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (windows_core::Interface::vtable(self).base__.base__.base__.DoubleClick)(windows_core::Interface::as_raw(self), nbutton, nshiftstate, fx, fy)
-    }
-    pub unsafe fn KeyDown(&self, nkeycode: i16, nshiftstate: i16) {
-        (windows_core::Interface::vtable(self).base__.base__.base__.KeyDown)(windows_core::Interface::as_raw(self), nkeycode, nshiftstate)
-    }
-    pub unsafe fn KeyPress(&self, nkeyascii: i16) {
-        (windows_core::Interface::vtable(self).base__.base__.base__.KeyPress)(windows_core::Interface::as_raw(self), nkeyascii)
-    }
-    pub unsafe fn KeyUp(&self, nkeycode: i16, nshiftstate: i16) {
-        (windows_core::Interface::vtable(self).base__.base__.base__.KeyUp)(windows_core::Interface::as_raw(self), nkeycode, nshiftstate)
-    }
-    pub unsafe fn MouseDown(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (windows_core::Interface::vtable(self).base__.base__.base__.MouseDown)(windows_core::Interface::as_raw(self), nbutton, nshiftstate, fx, fy)
-    }
-    pub unsafe fn MouseMove(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (windows_core::Interface::vtable(self).base__.base__.base__.MouseMove)(windows_core::Interface::as_raw(self), nbutton, nshiftstate, fx, fy)
-    }
-    pub unsafe fn MouseUp(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (windows_core::Interface::vtable(self).base__.base__.base__.MouseUp)(windows_core::Interface::as_raw(self), nbutton, nshiftstate, fx, fy)
-    }
-    pub unsafe fn DeviceConnect<P0>(&self, pdevice: P0)
-    where
-        P0: windows_core::Param<IWMPSyncDevice>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.DeviceConnect)(windows_core::Interface::as_raw(self), pdevice.param().abi())
-    }
-    pub unsafe fn DeviceDisconnect<P0>(&self, pdevice: P0)
-    where
-        P0: windows_core::Param<IWMPSyncDevice>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.DeviceDisconnect)(windows_core::Interface::as_raw(self), pdevice.param().abi())
-    }
-    pub unsafe fn DeviceStatusChange<P0>(&self, pdevice: P0, newstatus: WMPDeviceStatus)
-    where
-        P0: windows_core::Param<IWMPSyncDevice>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.DeviceStatusChange)(windows_core::Interface::as_raw(self), pdevice.param().abi(), newstatus)
-    }
-    pub unsafe fn DeviceSyncStateChange<P0>(&self, pdevice: P0, newstate: WMPSyncState)
-    where
-        P0: windows_core::Param<IWMPSyncDevice>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.DeviceSyncStateChange)(windows_core::Interface::as_raw(self), pdevice.param().abi(), newstate)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DeviceSyncError<P0, P1>(&self, pdevice: P0, pmedia: P1)
-    where
-        P0: windows_core::Param<IWMPSyncDevice>,
-        P1: windows_core::Param<super::super::System::Com::IDispatch>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.DeviceSyncError)(windows_core::Interface::as_raw(self), pdevice.param().abi(), pmedia.param().abi())
-    }
-    pub unsafe fn CreatePartnershipComplete<P0>(&self, pdevice: P0, hrresult: windows_core::HRESULT)
-    where
-        P0: windows_core::Param<IWMPSyncDevice>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.CreatePartnershipComplete)(windows_core::Interface::as_raw(self), pdevice.param().abi(), hrresult)
-    }
-    pub unsafe fn CdromRipStateChange<P0>(&self, pcdromrip: P0, wmprs: WMPRipState)
-    where
-        P0: windows_core::Param<IWMPCdromRip>,
-    {
-        (windows_core::Interface::vtable(self).base__.CdromRipStateChange)(windows_core::Interface::as_raw(self), pcdromrip.param().abi(), wmprs)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CdromRipMediaError<P0, P1>(&self, pcdromrip: P0, pmedia: P1)
-    where
-        P0: windows_core::Param<IWMPCdromRip>,
-        P1: windows_core::Param<super::super::System::Com::IDispatch>,
-    {
-        (windows_core::Interface::vtable(self).base__.CdromRipMediaError)(windows_core::Interface::as_raw(self), pcdromrip.param().abi(), pmedia.param().abi())
-    }
-    pub unsafe fn CdromBurnStateChange<P0>(&self, pcdromburn: P0, wmpbs: WMPBurnState)
-    where
-        P0: windows_core::Param<IWMPCdromBurn>,
-    {
-        (windows_core::Interface::vtable(self).base__.CdromBurnStateChange)(windows_core::Interface::as_raw(self), pcdromburn.param().abi(), wmpbs)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CdromBurnMediaError<P0, P1>(&self, pcdromburn: P0, pmedia: P1)
-    where
-        P0: windows_core::Param<IWMPCdromBurn>,
-        P1: windows_core::Param<super::super::System::Com::IDispatch>,
-    {
-        (windows_core::Interface::vtable(self).base__.CdromBurnMediaError)(windows_core::Interface::as_raw(self), pcdromburn.param().abi(), pmedia.param().abi())
-    }
-    pub unsafe fn CdromBurnError<P0>(&self, pcdromburn: P0, hrerror: windows_core::HRESULT)
-    where
-        P0: windows_core::Param<IWMPCdromBurn>,
-    {
-        (windows_core::Interface::vtable(self).base__.CdromBurnError)(windows_core::Interface::as_raw(self), pcdromburn.param().abi(), hrerror)
-    }
-    pub unsafe fn LibraryConnect<P0>(&self, plibrary: P0)
-    where
-        P0: windows_core::Param<IWMPLibrary>,
-    {
-        (windows_core::Interface::vtable(self).base__.LibraryConnect)(windows_core::Interface::as_raw(self), plibrary.param().abi())
-    }
-    pub unsafe fn LibraryDisconnect<P0>(&self, plibrary: P0)
-    where
-        P0: windows_core::Param<IWMPLibrary>,
-    {
-        (windows_core::Interface::vtable(self).base__.LibraryDisconnect)(windows_core::Interface::as_raw(self), plibrary.param().abi())
-    }
-    pub unsafe fn FolderScanStateChange(&self, wmpfss: WMPFolderScanState) {
-        (windows_core::Interface::vtable(self).base__.FolderScanStateChange)(windows_core::Interface::as_raw(self), wmpfss)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn StringCollectionChange<P0>(&self, pdispstringcollection: P0, change: WMPStringCollectionChangeEventType, lcollectionindex: i32)
-    where
-        P0: windows_core::Param<super::super::System::Com::IDispatch>,
-    {
-        (windows_core::Interface::vtable(self).base__.StringCollectionChange)(windows_core::Interface::as_raw(self), pdispstringcollection.param().abi(), change, lcollectionindex)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaCollectionMediaAdded<P0>(&self, pdispmedia: P0)
-    where
-        P0: windows_core::Param<super::super::System::Com::IDispatch>,
-    {
-        (windows_core::Interface::vtable(self).base__.MediaCollectionMediaAdded)(windows_core::Interface::as_raw(self), pdispmedia.param().abi())
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaCollectionMediaRemoved<P0>(&self, pdispmedia: P0)
-    where
-        P0: windows_core::Param<super::super::System::Com::IDispatch>,
-    {
-        (windows_core::Interface::vtable(self).base__.MediaCollectionMediaRemoved)(windows_core::Interface::as_raw(self), pdispmedia.param().abi())
-    }
     pub unsafe fn DeviceEstimation<P0>(&self, pdevice: P0, hrresult: windows_core::HRESULT, qwestimatedusedspace: i64, qwestimatedspace: i64)
     where
         P0: windows_core::Param<IWMPSyncDevice>,
@@ -4315,6 +3147,12 @@ pub struct IWMPEvents4_Vtbl {
     pub DeviceEstimation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::HRESULT, i64, i64),
 }
 windows_core::imp::define_interface!(IWMPFolderMonitorServices, IWMPFolderMonitorServices_Vtbl, 0x788c8743_e57f_439d_a468_5bc77f2e59c6);
+impl std::ops::Deref for IWMPFolderMonitorServices {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPFolderMonitorServices, windows_core::IUnknown);
 impl IWMPFolderMonitorServices {
     pub unsafe fn count(&self, plcount: *mut i32) -> windows_core::Result<()> {
@@ -4370,6 +3208,12 @@ pub struct IWMPFolderMonitorServices_Vtbl {
     pub stopScan: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPGraphCreation, IWMPGraphCreation_Vtbl, 0xbfb377e5_c594_4369_a970_de896d5ece74);
+impl std::ops::Deref for IWMPGraphCreation {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPGraphCreation, windows_core::IUnknown);
 impl IWMPGraphCreation {
     pub unsafe fn GraphCreationPreRender<P0, P1>(&self, pfiltergraph: P0, preserved: P1) -> windows_core::Result<()>
@@ -4397,6 +3241,12 @@ pub struct IWMPGraphCreation_Vtbl {
     pub GetGraphCreationFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPLibrary, IWMPLibrary_Vtbl, 0x3df47861_7df1_4c1f_a81b_4c26f0f7a7c6);
+impl std::ops::Deref for IWMPLibrary {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPLibrary, windows_core::IUnknown);
 impl IWMPLibrary {
     pub unsafe fn name(&self, pbstrname: *mut windows_core::BSTR) -> windows_core::Result<()> {
@@ -4429,25 +3279,14 @@ pub struct IWMPLibrary_Vtbl {
     pub isIdentical: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPLibrary2, IWMPLibrary2_Vtbl, 0xdd578a4e_79b1_426c_bf8f_3add9072500b);
+impl std::ops::Deref for IWMPLibrary2 {
+    type Target = IWMPLibrary;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPLibrary2, windows_core::IUnknown, IWMPLibrary);
 impl IWMPLibrary2 {
-    pub unsafe fn name(&self, pbstrname: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.name)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrname)).ok()
-    }
-    pub unsafe fn r#type(&self, pwmplt: *mut WMPLibraryType) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.r#type)(windows_core::Interface::as_raw(self), pwmplt).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn mediaCollection(&self) -> windows_core::Result<IWMPMediaCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.mediaCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn isIdentical<P0>(&self, piwmplibrary: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMPLibrary>,
-    {
-        (windows_core::Interface::vtable(self).base__.isIdentical)(windows_core::Interface::as_raw(self), piwmplibrary.param().abi(), pvbool).ok()
-    }
     pub unsafe fn getItemInfo<P0>(&self, bstritemname: P0, pbstrval: *mut windows_core::BSTR) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -4461,6 +3300,12 @@ pub struct IWMPLibrary2_Vtbl {
     pub getItemInfo: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPLibraryServices, IWMPLibraryServices_Vtbl, 0x39c2f8d5_1cf2_4d5e_ae09_d73492cf9eaa);
+impl std::ops::Deref for IWMPLibraryServices {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPLibraryServices, windows_core::IUnknown);
 impl IWMPLibraryServices {
     pub unsafe fn getCountByType(&self, wmplt: WMPLibraryType, plcount: *mut i32) -> windows_core::Result<()> {
@@ -4478,6 +3323,12 @@ pub struct IWMPLibraryServices_Vtbl {
     pub getLibraryByType: unsafe extern "system" fn(*mut core::ffi::c_void, WMPLibraryType, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPLibrarySharingServices, IWMPLibrarySharingServices_Vtbl, 0x82cba86b_9f04_474b_a365_d6dd1466e541);
+impl std::ops::Deref for IWMPLibrarySharingServices {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPLibrarySharingServices, windows_core::IUnknown);
 impl IWMPLibrarySharingServices {
     pub unsafe fn isLibraryShared(&self, pvbshared: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
@@ -4499,6 +3350,13 @@ pub struct IWMPLibrarySharingServices_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPMedia, IWMPMedia_Vtbl, 0x94d55e95_3fac_11d3_b155_00c04f79faa6);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPMedia {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPMedia, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4611,84 +3469,16 @@ pub struct IWMPMedia_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPMedia2, IWMPMedia2_Vtbl, 0xab7c88bb_143e_4ea4_acc3_e4350b2106c3);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPMedia2 {
+    type Target = IWMPMedia;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPMedia2, windows_core::IUnknown, super::super::System::Com::IDispatch, IWMPMedia);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPMedia2 {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn get_isIdentical<P0>(&self, piwmpmedia: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMPMedia>,
-    {
-        (windows_core::Interface::vtable(self).base__.get_isIdentical)(windows_core::Interface::as_raw(self), piwmpmedia.param().abi(), pvbool).ok()
-    }
-    pub unsafe fn sourceURL(&self, pbstrsourceurl: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.sourceURL)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrsourceurl)).ok()
-    }
-    pub unsafe fn name(&self, pbstrname: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.name)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrname)).ok()
-    }
-    pub unsafe fn Setname<P0>(&self, bstrname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.Setname)(windows_core::Interface::as_raw(self), bstrname.param().abi()).ok()
-    }
-    pub unsafe fn imageSourceWidth(&self, pwidth: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.imageSourceWidth)(windows_core::Interface::as_raw(self), pwidth).ok()
-    }
-    pub unsafe fn imageSourceHeight(&self, pheight: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.imageSourceHeight)(windows_core::Interface::as_raw(self), pheight).ok()
-    }
-    pub unsafe fn markerCount(&self, pmarkercount: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.markerCount)(windows_core::Interface::as_raw(self), pmarkercount).ok()
-    }
-    pub unsafe fn getMarkerTime(&self, markernum: i32, pmarkertime: *mut f64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.getMarkerTime)(windows_core::Interface::as_raw(self), markernum, pmarkertime).ok()
-    }
-    pub unsafe fn getMarkerName(&self, markernum: i32, pbstrmarkername: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.getMarkerName)(windows_core::Interface::as_raw(self), markernum, core::mem::transmute(pbstrmarkername)).ok()
-    }
-    pub unsafe fn duration(&self, pduration: *mut f64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.duration)(windows_core::Interface::as_raw(self), pduration).ok()
-    }
-    pub unsafe fn durationString(&self, pbstrduration: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.durationString)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrduration)).ok()
-    }
-    pub unsafe fn attributeCount(&self, plcount: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.attributeCount)(windows_core::Interface::as_raw(self), plcount).ok()
-    }
-    pub unsafe fn getAttributeName(&self, lindex: i32, pbstritemname: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.getAttributeName)(windows_core::Interface::as_raw(self), lindex, core::mem::transmute(pbstritemname)).ok()
-    }
-    pub unsafe fn getItemInfo<P0>(&self, bstritemname: P0, pbstrval: *mut windows_core::BSTR) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.getItemInfo)(windows_core::Interface::as_raw(self), bstritemname.param().abi(), core::mem::transmute(pbstrval)).ok()
-    }
-    pub unsafe fn setItemInfo<P0, P1>(&self, bstritemname: P0, bstrval: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.setItemInfo)(windows_core::Interface::as_raw(self), bstritemname.param().abi(), bstrval.param().abi()).ok()
-    }
-    pub unsafe fn getItemInfoByAtom(&self, latom: i32, pbstrval: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.getItemInfoByAtom)(windows_core::Interface::as_raw(self), latom, core::mem::transmute(pbstrval)).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn isMemberOf<P0>(&self, pplaylist: P0, pvarfismemberof: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMPPlaylist>,
-    {
-        (windows_core::Interface::vtable(self).base__.isMemberOf)(windows_core::Interface::as_raw(self), pplaylist.param().abi(), pvarfismemberof).ok()
-    }
-    pub unsafe fn isReadOnlyItem<P0>(&self, bstritemname: P0, pvarfisreadonly: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.isReadOnlyItem)(windows_core::Interface::as_raw(self), bstritemname.param().abi(), pvarfisreadonly).ok()
-    }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn error(&self) -> windows_core::Result<IWMPErrorItem> {
         let mut result__ = std::mem::zeroed();
@@ -4707,89 +3497,16 @@ pub struct IWMPMedia2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPMedia3, IWMPMedia3_Vtbl, 0xf118efc7_f03a_4fb4_99c9_1c02a5c1065b);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPMedia3 {
+    type Target = IWMPMedia2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPMedia3, windows_core::IUnknown, super::super::System::Com::IDispatch, IWMPMedia, IWMPMedia2);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPMedia3 {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn get_isIdentical<P0>(&self, piwmpmedia: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMPMedia>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.get_isIdentical)(windows_core::Interface::as_raw(self), piwmpmedia.param().abi(), pvbool).ok()
-    }
-    pub unsafe fn sourceURL(&self, pbstrsourceurl: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.sourceURL)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrsourceurl)).ok()
-    }
-    pub unsafe fn name(&self, pbstrname: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.name)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrname)).ok()
-    }
-    pub unsafe fn Setname<P0>(&self, bstrname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.Setname)(windows_core::Interface::as_raw(self), bstrname.param().abi()).ok()
-    }
-    pub unsafe fn imageSourceWidth(&self, pwidth: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.imageSourceWidth)(windows_core::Interface::as_raw(self), pwidth).ok()
-    }
-    pub unsafe fn imageSourceHeight(&self, pheight: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.imageSourceHeight)(windows_core::Interface::as_raw(self), pheight).ok()
-    }
-    pub unsafe fn markerCount(&self, pmarkercount: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.markerCount)(windows_core::Interface::as_raw(self), pmarkercount).ok()
-    }
-    pub unsafe fn getMarkerTime(&self, markernum: i32, pmarkertime: *mut f64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.getMarkerTime)(windows_core::Interface::as_raw(self), markernum, pmarkertime).ok()
-    }
-    pub unsafe fn getMarkerName(&self, markernum: i32, pbstrmarkername: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.getMarkerName)(windows_core::Interface::as_raw(self), markernum, core::mem::transmute(pbstrmarkername)).ok()
-    }
-    pub unsafe fn duration(&self, pduration: *mut f64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.duration)(windows_core::Interface::as_raw(self), pduration).ok()
-    }
-    pub unsafe fn durationString(&self, pbstrduration: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.durationString)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrduration)).ok()
-    }
-    pub unsafe fn attributeCount(&self, plcount: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.attributeCount)(windows_core::Interface::as_raw(self), plcount).ok()
-    }
-    pub unsafe fn getAttributeName(&self, lindex: i32, pbstritemname: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.getAttributeName)(windows_core::Interface::as_raw(self), lindex, core::mem::transmute(pbstritemname)).ok()
-    }
-    pub unsafe fn getItemInfo<P0>(&self, bstritemname: P0, pbstrval: *mut windows_core::BSTR) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.getItemInfo)(windows_core::Interface::as_raw(self), bstritemname.param().abi(), core::mem::transmute(pbstrval)).ok()
-    }
-    pub unsafe fn setItemInfo<P0, P1>(&self, bstritemname: P0, bstrval: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.setItemInfo)(windows_core::Interface::as_raw(self), bstritemname.param().abi(), bstrval.param().abi()).ok()
-    }
-    pub unsafe fn getItemInfoByAtom(&self, latom: i32, pbstrval: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.getItemInfoByAtom)(windows_core::Interface::as_raw(self), latom, core::mem::transmute(pbstrval)).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn isMemberOf<P0>(&self, pplaylist: P0, pvarfismemberof: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMPPlaylist>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.isMemberOf)(windows_core::Interface::as_raw(self), pplaylist.param().abi(), pvarfismemberof).ok()
-    }
-    pub unsafe fn isReadOnlyItem<P0>(&self, bstritemname: P0, pvarfisreadonly: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.isReadOnlyItem)(windows_core::Interface::as_raw(self), bstritemname.param().abi(), pvarfisreadonly).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn error(&self) -> windows_core::Result<IWMPErrorItem> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.error)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn getAttributeCountByType<P0, P1>(&self, bstrtype: P0, bstrlanguage: P1, plcount: *mut i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -4814,6 +3531,13 @@ pub struct IWMPMedia3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPMediaCollection, IWMPMediaCollection_Vtbl, 0x8363bc22_b4b4_4b19_989d_1cd765749dd1);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPMediaCollection {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPMediaCollection, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4964,101 +3688,16 @@ pub struct IWMPMediaCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPMediaCollection2, IWMPMediaCollection2_Vtbl, 0x8ba957f5_fd8c_4791_b82d_f840401ee474);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPMediaCollection2 {
+    type Target = IWMPMediaCollection;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPMediaCollection2, windows_core::IUnknown, super::super::System::Com::IDispatch, IWMPMediaCollection);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPMediaCollection2 {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn add<P0>(&self, bstrurl: P0) -> windows_core::Result<IWMPMedia>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.add)(windows_core::Interface::as_raw(self), bstrurl.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn getAll(&self) -> windows_core::Result<IWMPPlaylist> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.getAll)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn getByName<P0>(&self, bstrname: P0) -> windows_core::Result<IWMPPlaylist>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.getByName)(windows_core::Interface::as_raw(self), bstrname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn getByGenre<P0>(&self, bstrgenre: P0) -> windows_core::Result<IWMPPlaylist>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.getByGenre)(windows_core::Interface::as_raw(self), bstrgenre.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn getByAuthor<P0>(&self, bstrauthor: P0) -> windows_core::Result<IWMPPlaylist>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.getByAuthor)(windows_core::Interface::as_raw(self), bstrauthor.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn getByAlbum<P0>(&self, bstralbum: P0) -> windows_core::Result<IWMPPlaylist>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.getByAlbum)(windows_core::Interface::as_raw(self), bstralbum.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn getByAttribute<P0, P1>(&self, bstrattribute: P0, bstrvalue: P1) -> windows_core::Result<IWMPPlaylist>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.getByAttribute)(windows_core::Interface::as_raw(self), bstrattribute.param().abi(), bstrvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn remove<P0, P1>(&self, pitem: P0, varfdeletefile: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMPMedia>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.remove)(windows_core::Interface::as_raw(self), pitem.param().abi(), varfdeletefile.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn getAttributeStringCollection<P0, P1>(&self, bstrattribute: P0, bstrmediatype: P1) -> windows_core::Result<IWMPStringCollection>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.getAttributeStringCollection)(windows_core::Interface::as_raw(self), bstrattribute.param().abi(), bstrmediatype.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn getMediaAtom<P0>(&self, bstritemname: P0, platom: *mut i32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.getMediaAtom)(windows_core::Interface::as_raw(self), bstritemname.param().abi(), platom).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn setDeleted<P0, P1>(&self, pitem: P0, varfisdeleted: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMPMedia>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.setDeleted)(windows_core::Interface::as_raw(self), pitem.param().abi(), varfisdeleted.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn isDeleted<P0>(&self, pitem: P0, pvarfisdeleted: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMPMedia>,
-    {
-        (windows_core::Interface::vtable(self).base__.isDeleted)(windows_core::Interface::as_raw(self), pitem.param().abi(), pvarfisdeleted).ok()
-    }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn createQuery(&self) -> windows_core::Result<IWMPQuery> {
         let mut result__ = std::mem::zeroed();
@@ -5120,6 +3759,12 @@ pub struct IWMPMediaCollection2_Vtbl {
     getByAttributeAndMediaType: usize,
 }
 windows_core::imp::define_interface!(IWMPMediaPluginRegistrar, IWMPMediaPluginRegistrar_Vtbl, 0x68e27045_05bd_40b2_9720_23088c78e390);
+impl std::ops::Deref for IWMPMediaPluginRegistrar {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPMediaPluginRegistrar, windows_core::IUnknown);
 impl IWMPMediaPluginRegistrar {
     pub unsafe fn WMPRegisterPlayerPlugin<P0, P1, P2>(&self, pwszfriendlyname: P0, pwszdescription: P1, pwszuninstallstring: P2, dwpriority: u32, guidplugintype: windows_core::GUID, clsid: windows_core::GUID, cmediatypes: u32, pmediatypes: *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -5142,6 +3787,13 @@ pub struct IWMPMediaPluginRegistrar_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPMetadataPicture, IWMPMetadataPicture_Vtbl, 0x5c29bbe0_f87d_4c45_aa28_a70f0230ffa9);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPMetadataPicture {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPMetadataPicture, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5171,6 +3823,13 @@ pub struct IWMPMetadataPicture_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPMetadataText, IWMPMetadataText_Vtbl, 0x769a72db_13d2_45e2_9c48_53ca9d5b7450);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPMetadataText {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPMetadataText, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPMetadataText {
@@ -5190,6 +3849,13 @@ pub struct IWMPMetadataText_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPNetwork, IWMPNetwork_Vtbl, 0xec21b779_edef_462d_bba4_ad9dde2b29a7);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPNetwork {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPNetwork, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5346,6 +4012,12 @@ pub struct IWMPNetwork_Vtbl {
     pub framesSkipped: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPNodeRealEstate, IWMPNodeRealEstate_Vtbl, 0x42751198_5a50_4460_bcb4_709f8bdc8e59);
+impl std::ops::Deref for IWMPNodeRealEstate {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPNodeRealEstate, windows_core::IUnknown);
 impl IWMPNodeRealEstate {
     pub unsafe fn GetDesiredSize(&self, psize: *mut super::super::Foundation::SIZE) -> windows_core::Result<()> {
@@ -5388,6 +4060,12 @@ pub struct IWMPNodeRealEstate_Vtbl {
     pub GetFullScreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPNodeRealEstateHost, IWMPNodeRealEstateHost_Vtbl, 0x1491087d_2c6b_44c8_b019_b3c929d2ada9);
+impl std::ops::Deref for IWMPNodeRealEstateHost {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPNodeRealEstateHost, windows_core::IUnknown);
 impl IWMPNodeRealEstateHost {
     pub unsafe fn OnDesiredSizeChange(&self, psize: *mut super::super::Foundation::SIZE) -> windows_core::Result<()> {
@@ -5407,6 +4085,12 @@ pub struct IWMPNodeRealEstateHost_Vtbl {
     pub OnFullScreenTransition: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPNodeWindowed, IWMPNodeWindowed_Vtbl, 0x96740bfa_c56a_45d1_a3a4_762914d4ade9);
+impl std::ops::Deref for IWMPNodeWindowed {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPNodeWindowed, windows_core::IUnknown);
 impl IWMPNodeWindowed {
     pub unsafe fn SetOwnerWindow(&self, hwnd: isize) -> windows_core::Result<()> {
@@ -5423,6 +4107,12 @@ pub struct IWMPNodeWindowed_Vtbl {
     pub GetOwnerWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut isize) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPNodeWindowedHost, IWMPNodeWindowedHost_Vtbl, 0xa300415a_54aa_4081_adbf_3b13610d8958);
+impl std::ops::Deref for IWMPNodeWindowedHost {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPNodeWindowedHost, windows_core::IUnknown);
 impl IWMPNodeWindowedHost {
     pub unsafe fn OnWindowMessageFromRenderer<P0, P1>(&self, umsg: u32, wparam: P0, lparam: P1, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
@@ -5439,15 +4129,14 @@ pub struct IWMPNodeWindowedHost_Vtbl {
     pub OnWindowMessageFromRenderer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::WPARAM, super::super::Foundation::LPARAM, *mut super::super::Foundation::LRESULT, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPNodeWindowless, IWMPNodeWindowless_Vtbl, 0x9b9199ad_780c_4eda_b816_261eba5d1575);
+impl std::ops::Deref for IWMPNodeWindowless {
+    type Target = IWMPWindowMessageSink;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPNodeWindowless, windows_core::IUnknown, IWMPWindowMessageSink);
 impl IWMPNodeWindowless {
-    pub unsafe fn OnWindowMessage<P0, P1>(&self, umsg: u32, wparam: P0, lparam: P1, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::WPARAM>,
-        P1: windows_core::Param<super::super::Foundation::LPARAM>,
-    {
-        (windows_core::Interface::vtable(self).base__.OnWindowMessage)(windows_core::Interface::as_raw(self), umsg, wparam.param().abi(), lparam.param().abi(), plret, pfhandled).ok()
-    }
     pub unsafe fn OnDraw(&self, hdc: isize, prcdraw: *const super::super::Foundation::RECT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OnDraw)(windows_core::Interface::as_raw(self), hdc, prcdraw).ok()
     }
@@ -5458,6 +4147,12 @@ pub struct IWMPNodeWindowless_Vtbl {
     pub OnDraw: unsafe extern "system" fn(*mut core::ffi::c_void, isize, *const super::super::Foundation::RECT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPNodeWindowlessHost, IWMPNodeWindowlessHost_Vtbl, 0xbe7017c6_ce34_4901_8106_770381aa6e3e);
+impl std::ops::Deref for IWMPNodeWindowlessHost {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPNodeWindowlessHost, windows_core::IUnknown);
 impl IWMPNodeWindowlessHost {
     pub unsafe fn InvalidateRect<P0>(&self, prc: *const super::super::Foundation::RECT, ferase: P0) -> windows_core::Result<()>
@@ -5475,106 +4170,16 @@ pub struct IWMPNodeWindowlessHost_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPPlayer, IWMPPlayer_Vtbl, 0x6bf52a4f_394a_11d3_b153_00c04f79faa6);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPPlayer {
+    type Target = IWMPCore;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPPlayer, windows_core::IUnknown, super::super::System::Com::IDispatch, IWMPCore);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPPlayer {
-    pub unsafe fn close(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.close)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn URL(&self, pbstrurl: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.URL)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrurl)).ok()
-    }
-    pub unsafe fn SetURL<P0>(&self, bstrurl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetURL)(windows_core::Interface::as_raw(self), bstrurl.param().abi()).ok()
-    }
-    pub unsafe fn openState(&self, pwmpos: *mut WMPOpenState) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.openState)(windows_core::Interface::as_raw(self), pwmpos).ok()
-    }
-    pub unsafe fn playState(&self, pwmpps: *mut WMPPlayState) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.playState)(windows_core::Interface::as_raw(self), pwmpps).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn controls(&self) -> windows_core::Result<IWMPControls> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.controls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn settings(&self) -> windows_core::Result<IWMPSettings> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.settings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn currentMedia(&self) -> windows_core::Result<IWMPMedia> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.currentMedia)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentMedia<P0>(&self, pmedia: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMPMedia>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetcurrentMedia)(windows_core::Interface::as_raw(self), pmedia.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn mediaCollection(&self) -> windows_core::Result<IWMPMediaCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.mediaCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn playlistCollection(&self) -> windows_core::Result<IWMPPlaylistCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.playlistCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn versionInfo(&self, pbstrversioninfo: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.versionInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrversioninfo)).ok()
-    }
-    pub unsafe fn launchURL<P0>(&self, bstrurl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.launchURL)(windows_core::Interface::as_raw(self), bstrurl.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn network(&self) -> windows_core::Result<IWMPNetwork> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.network)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn currentPlaylist(&self) -> windows_core::Result<IWMPPlaylist> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.currentPlaylist)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentPlaylist<P0>(&self, ppl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMPPlaylist>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetcurrentPlaylist)(windows_core::Interface::as_raw(self), ppl.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn cdromCollection(&self) -> windows_core::Result<IWMPCdromCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.cdromCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn closedCaption(&self) -> windows_core::Result<IWMPClosedCaption> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.closedCaption)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn isOnline(&self, pfonline: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.isOnline)(windows_core::Interface::as_raw(self), pfonline).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn error(&self) -> windows_core::Result<IWMPError> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.error)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn status(&self, pbstrstatus: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.status)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrstatus)).ok()
-    }
     pub unsafe fn enabled(&self, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).enabled)(windows_core::Interface::as_raw(self), pbenabled).ok()
     }
@@ -5628,106 +4233,16 @@ pub struct IWMPPlayer_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPPlayer2, IWMPPlayer2_Vtbl, 0x0e6b01d1_d407_4c85_bf5f_1c01f6150280);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPPlayer2 {
+    type Target = IWMPCore;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPPlayer2, windows_core::IUnknown, super::super::System::Com::IDispatch, IWMPCore);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPPlayer2 {
-    pub unsafe fn close(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.close)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn URL(&self, pbstrurl: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.URL)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrurl)).ok()
-    }
-    pub unsafe fn SetURL<P0>(&self, bstrurl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetURL)(windows_core::Interface::as_raw(self), bstrurl.param().abi()).ok()
-    }
-    pub unsafe fn openState(&self, pwmpos: *mut WMPOpenState) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.openState)(windows_core::Interface::as_raw(self), pwmpos).ok()
-    }
-    pub unsafe fn playState(&self, pwmpps: *mut WMPPlayState) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.playState)(windows_core::Interface::as_raw(self), pwmpps).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn controls(&self) -> windows_core::Result<IWMPControls> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.controls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn settings(&self) -> windows_core::Result<IWMPSettings> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.settings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn currentMedia(&self) -> windows_core::Result<IWMPMedia> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.currentMedia)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentMedia<P0>(&self, pmedia: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMPMedia>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetcurrentMedia)(windows_core::Interface::as_raw(self), pmedia.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn mediaCollection(&self) -> windows_core::Result<IWMPMediaCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.mediaCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn playlistCollection(&self) -> windows_core::Result<IWMPPlaylistCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.playlistCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn versionInfo(&self, pbstrversioninfo: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.versionInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrversioninfo)).ok()
-    }
-    pub unsafe fn launchURL<P0>(&self, bstrurl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.launchURL)(windows_core::Interface::as_raw(self), bstrurl.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn network(&self) -> windows_core::Result<IWMPNetwork> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.network)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn currentPlaylist(&self) -> windows_core::Result<IWMPPlaylist> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.currentPlaylist)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentPlaylist<P0>(&self, ppl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMPPlaylist>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetcurrentPlaylist)(windows_core::Interface::as_raw(self), ppl.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn cdromCollection(&self) -> windows_core::Result<IWMPCdromCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.cdromCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn closedCaption(&self) -> windows_core::Result<IWMPClosedCaption> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.closedCaption)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn isOnline(&self, pfonline: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.isOnline)(windows_core::Interface::as_raw(self), pfonline).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn error(&self) -> windows_core::Result<IWMPError> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.error)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn status(&self, pbstrstatus: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.status)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrstatus)).ok()
-    }
     pub unsafe fn enabled(&self, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).enabled)(windows_core::Interface::as_raw(self), pbenabled).ok()
     }
@@ -5803,111 +4318,16 @@ pub struct IWMPPlayer2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPPlayer3, IWMPPlayer3_Vtbl, 0x54062b68_052a_4c25_a39f_8b63346511d4);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPPlayer3 {
+    type Target = IWMPCore2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPPlayer3, windows_core::IUnknown, super::super::System::Com::IDispatch, IWMPCore, IWMPCore2);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPPlayer3 {
-    pub unsafe fn close(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.close)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn URL(&self, pbstrurl: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.URL)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrurl)).ok()
-    }
-    pub unsafe fn SetURL<P0>(&self, bstrurl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetURL)(windows_core::Interface::as_raw(self), bstrurl.param().abi()).ok()
-    }
-    pub unsafe fn openState(&self, pwmpos: *mut WMPOpenState) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.openState)(windows_core::Interface::as_raw(self), pwmpos).ok()
-    }
-    pub unsafe fn playState(&self, pwmpps: *mut WMPPlayState) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.playState)(windows_core::Interface::as_raw(self), pwmpps).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn controls(&self) -> windows_core::Result<IWMPControls> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.controls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn settings(&self) -> windows_core::Result<IWMPSettings> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.settings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn currentMedia(&self) -> windows_core::Result<IWMPMedia> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.currentMedia)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentMedia<P0>(&self, pmedia: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMPMedia>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetcurrentMedia)(windows_core::Interface::as_raw(self), pmedia.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn mediaCollection(&self) -> windows_core::Result<IWMPMediaCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.mediaCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn playlistCollection(&self) -> windows_core::Result<IWMPPlaylistCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.playlistCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn versionInfo(&self, pbstrversioninfo: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.versionInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrversioninfo)).ok()
-    }
-    pub unsafe fn launchURL<P0>(&self, bstrurl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.launchURL)(windows_core::Interface::as_raw(self), bstrurl.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn network(&self) -> windows_core::Result<IWMPNetwork> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.network)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn currentPlaylist(&self) -> windows_core::Result<IWMPPlaylist> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.currentPlaylist)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentPlaylist<P0>(&self, ppl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMPPlaylist>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetcurrentPlaylist)(windows_core::Interface::as_raw(self), ppl.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn cdromCollection(&self) -> windows_core::Result<IWMPCdromCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.cdromCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn closedCaption(&self) -> windows_core::Result<IWMPClosedCaption> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.closedCaption)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn isOnline(&self, pfonline: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.isOnline)(windows_core::Interface::as_raw(self), pfonline).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn error(&self) -> windows_core::Result<IWMPError> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.error)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn status(&self, pbstrstatus: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.status)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrstatus)).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn dvd(&self) -> windows_core::Result<IWMPDVD> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.dvd)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn enabled(&self, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).enabled)(windows_core::Interface::as_raw(self), pbenabled).ok()
     }
@@ -5983,128 +4403,16 @@ pub struct IWMPPlayer3_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPPlayer4, IWMPPlayer4_Vtbl, 0x6c497d62_8919_413c_82db_e935fb3ec584);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPPlayer4 {
+    type Target = IWMPCore3;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPPlayer4, windows_core::IUnknown, super::super::System::Com::IDispatch, IWMPCore, IWMPCore2, IWMPCore3);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPPlayer4 {
-    pub unsafe fn close(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.close)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn URL(&self, pbstrurl: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.URL)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrurl)).ok()
-    }
-    pub unsafe fn SetURL<P0>(&self, bstrurl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetURL)(windows_core::Interface::as_raw(self), bstrurl.param().abi()).ok()
-    }
-    pub unsafe fn openState(&self, pwmpos: *mut WMPOpenState) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.openState)(windows_core::Interface::as_raw(self), pwmpos).ok()
-    }
-    pub unsafe fn playState(&self, pwmpps: *mut WMPPlayState) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.playState)(windows_core::Interface::as_raw(self), pwmpps).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn controls(&self) -> windows_core::Result<IWMPControls> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.controls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn settings(&self) -> windows_core::Result<IWMPSettings> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.settings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn currentMedia(&self) -> windows_core::Result<IWMPMedia> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.currentMedia)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentMedia<P0>(&self, pmedia: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMPMedia>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetcurrentMedia)(windows_core::Interface::as_raw(self), pmedia.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn mediaCollection(&self) -> windows_core::Result<IWMPMediaCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.mediaCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn playlistCollection(&self) -> windows_core::Result<IWMPPlaylistCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.playlistCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn versionInfo(&self, pbstrversioninfo: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.versionInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrversioninfo)).ok()
-    }
-    pub unsafe fn launchURL<P0>(&self, bstrurl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.launchURL)(windows_core::Interface::as_raw(self), bstrurl.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn network(&self) -> windows_core::Result<IWMPNetwork> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.network)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn currentPlaylist(&self) -> windows_core::Result<IWMPPlaylist> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.currentPlaylist)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentPlaylist<P0>(&self, ppl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMPPlaylist>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetcurrentPlaylist)(windows_core::Interface::as_raw(self), ppl.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn cdromCollection(&self) -> windows_core::Result<IWMPCdromCollection> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.cdromCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn closedCaption(&self) -> windows_core::Result<IWMPClosedCaption> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.closedCaption)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn isOnline(&self, pfonline: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.isOnline)(windows_core::Interface::as_raw(self), pfonline).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn error(&self) -> windows_core::Result<IWMPError> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.error)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn status(&self, pbstrstatus: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.status)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrstatus)).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn dvd(&self) -> windows_core::Result<IWMPDVD> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.dvd)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn newPlaylist<P0, P1>(&self, bstrname: P0, bstrurl: P1) -> windows_core::Result<IWMPPlaylist>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.newPlaylist)(windows_core::Interface::as_raw(self), bstrname.param().abi(), bstrurl.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn newMedia<P0>(&self, bstrurl: P0) -> windows_core::Result<IWMPMedia>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.newMedia)(windows_core::Interface::as_raw(self), bstrurl.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn enabled(&self, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).enabled)(windows_core::Interface::as_raw(self), pbenabled).ok()
     }
@@ -6200,6 +4508,13 @@ pub struct IWMPPlayer4_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPPlayerApplication, IWMPPlayerApplication_Vtbl, 0x40897764_ceab_47be_ad4a_8e28537f9bbf);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPPlayerApplication {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPPlayerApplication, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPPlayerApplication {
@@ -6226,6 +4541,12 @@ pub struct IWMPPlayerApplication_Vtbl {
     pub hasDisplay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPPlayerServices, IWMPPlayerServices_Vtbl, 0x1d01fbdb_ade2_4c8d_9842_c190b95c3306);
+impl std::ops::Deref for IWMPPlayerServices {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPPlayerServices, windows_core::IUnknown);
 impl IWMPPlayerServices {
     pub unsafe fn activateUIPlugin<P0>(&self, bstrplugin: P0) -> windows_core::Result<()>
@@ -6257,28 +4578,14 @@ pub struct IWMPPlayerServices_Vtbl {
     pub setTaskPaneURL: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPPlayerServices2, IWMPPlayerServices2_Vtbl, 0x1bb1592f_f040_418a_9f71_17c7512b4d70);
+impl std::ops::Deref for IWMPPlayerServices2 {
+    type Target = IWMPPlayerServices;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPPlayerServices2, windows_core::IUnknown, IWMPPlayerServices);
 impl IWMPPlayerServices2 {
-    pub unsafe fn activateUIPlugin<P0>(&self, bstrplugin: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.activateUIPlugin)(windows_core::Interface::as_raw(self), bstrplugin.param().abi()).ok()
-    }
-    pub unsafe fn setTaskPane<P0>(&self, bstrtaskpane: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.setTaskPane)(windows_core::Interface::as_raw(self), bstrtaskpane.param().abi()).ok()
-    }
-    pub unsafe fn setTaskPaneURL<P0, P1, P2>(&self, bstrtaskpane: P0, bstrurl: P1, bstrfriendlyname: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.setTaskPaneURL)(windows_core::Interface::as_raw(self), bstrtaskpane.param().abi(), bstrurl.param().abi(), bstrfriendlyname.param().abi()).ok()
-    }
     pub unsafe fn setBackgroundProcessingPriority<P0>(&self, bstrpriority: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -6293,6 +4600,13 @@ pub struct IWMPPlayerServices2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPPlaylist, IWMPPlaylist_Vtbl, 0xd5f0f4f1_130c_11d3_b14e_00c04f79faa6);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPPlaylist {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPPlaylist, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -6405,6 +4719,13 @@ pub struct IWMPPlaylist_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPPlaylistArray, IWMPPlaylistArray_Vtbl, 0x679409c0_99f7_11d3_9fb7_00105aa620bb);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPPlaylistArray {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPPlaylistArray, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPPlaylistArray {
@@ -6429,6 +4750,13 @@ pub struct IWMPPlaylistArray_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPPlaylistCollection, IWMPPlaylistCollection_Vtbl, 0x10a13217_23a7_439b_b1c0_d847c79b7774);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPPlaylistCollection {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPPlaylistCollection, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -6519,6 +4847,12 @@ pub struct IWMPPlaylistCollection_Vtbl {
     importPlaylist: usize,
 }
 windows_core::imp::define_interface!(IWMPPlugin, IWMPPlugin_Vtbl, 0xf1392a70_024c_42bb_a998_73dfdfe7d5a7);
+impl std::ops::Deref for IWMPPlugin {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPPlugin, windows_core::IUnknown);
 impl IWMPPlugin {
     pub unsafe fn Init(&self, dwplaybackcontext: usize) -> windows_core::Result<()> {
@@ -6554,6 +4888,12 @@ pub struct IWMPPlugin_Vtbl {
     pub UnAdviseWMPServices: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPPluginEnable, IWMPPluginEnable_Vtbl, 0x5fca444c_7ad1_479d_a4ef_40566a5309d6);
+impl std::ops::Deref for IWMPPluginEnable {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPPluginEnable, windows_core::IUnknown);
 impl IWMPPluginEnable {
     pub unsafe fn SetEnable<P0>(&self, fenable: P0) -> windows_core::Result<()>
@@ -6573,6 +4913,12 @@ pub struct IWMPPluginEnable_Vtbl {
     pub GetEnable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPPluginUI, IWMPPluginUI_Vtbl, 0x4c5e8f9f_ad3e_4bf9_9753_fcd30d6d38dd);
+impl std::ops::Deref for IWMPPluginUI {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPPluginUI, windows_core::IUnknown);
 impl IWMPPluginUI {
     #[cfg(feature = "Win32_System_Com")]
@@ -6634,6 +4980,13 @@ pub struct IWMPPluginUI_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPQuery, IWMPQuery_Vtbl, 0xa00918f3_a6b0_4bfb_9189_fd834c7bc5a5);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPQuery {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPQuery, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPQuery {
@@ -6657,6 +5010,12 @@ pub struct IWMPQuery_Vtbl {
     pub beginNextGroup: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPRemoteMediaServices, IWMPRemoteMediaServices_Vtbl, 0xcbb92747_741f_44fe_ab5b_f1a48f3b2a59);
+impl std::ops::Deref for IWMPRemoteMediaServices {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPRemoteMediaServices, windows_core::IUnknown);
 impl IWMPRemoteMediaServices {
     pub unsafe fn GetServiceType(&self, pbstrtype: *mut windows_core::BSTR) -> windows_core::Result<()> {
@@ -6685,6 +5044,12 @@ pub struct IWMPRemoteMediaServices_Vtbl {
     pub GetCustomUIMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPRenderConfig, IWMPRenderConfig_Vtbl, 0x959506c1_0314_4ec5_9e61_8528db5e5478);
+impl std::ops::Deref for IWMPRenderConfig {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPRenderConfig, windows_core::IUnknown);
 impl IWMPRenderConfig {
     pub unsafe fn SetinProcOnly<P0>(&self, finproc: P0) -> windows_core::Result<()>
@@ -6704,6 +5069,12 @@ pub struct IWMPRenderConfig_Vtbl {
     pub inProcOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPServices, IWMPServices_Vtbl, 0xafb6b76b_1e20_4198_83b3_191db6e0b149);
+impl std::ops::Deref for IWMPServices {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPServices, windows_core::IUnknown);
 impl IWMPServices {
     pub unsafe fn GetStreamTime(&self, prt: *mut i64) -> windows_core::Result<()> {
@@ -6721,6 +5092,13 @@ pub struct IWMPServices_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPSettings, IWMPSettings_Vtbl, 0x9104d1ab_80c9_4fed_abf0_2e6417a6df14);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPSettings {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPSettings, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -6854,106 +5232,16 @@ pub struct IWMPSettings_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPSettings2, IWMPSettings2_Vtbl, 0xfda937a4_eece_4da5_a0b6_39bf89ade2c2);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPSettings2 {
+    type Target = IWMPSettings;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPSettings2, windows_core::IUnknown, super::super::System::Com::IDispatch, IWMPSettings);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPSettings2 {
-    pub unsafe fn get_isAvailable<P0>(&self, bstritem: P0, pisavailable: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.get_isAvailable)(windows_core::Interface::as_raw(self), bstritem.param().abi(), pisavailable).ok()
-    }
-    pub unsafe fn autoStart(&self, pfautostart: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.autoStart)(windows_core::Interface::as_raw(self), pfautostart).ok()
-    }
-    pub unsafe fn SetautoStart<P0>(&self, fautostart: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetautoStart)(windows_core::Interface::as_raw(self), fautostart.param().abi()).ok()
-    }
-    pub unsafe fn baseURL(&self, pbstrbaseurl: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.baseURL)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrbaseurl)).ok()
-    }
-    pub unsafe fn SetbaseURL<P0>(&self, bstrbaseurl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetbaseURL)(windows_core::Interface::as_raw(self), bstrbaseurl.param().abi()).ok()
-    }
-    pub unsafe fn defaultFrame(&self, pbstrdefaultframe: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.defaultFrame)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrdefaultframe)).ok()
-    }
-    pub unsafe fn SetdefaultFrame<P0>(&self, bstrdefaultframe: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetdefaultFrame)(windows_core::Interface::as_raw(self), bstrdefaultframe.param().abi()).ok()
-    }
-    pub unsafe fn invokeURLs(&self, pfinvokeurls: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.invokeURLs)(windows_core::Interface::as_raw(self), pfinvokeurls).ok()
-    }
-    pub unsafe fn SetinvokeURLs<P0>(&self, finvokeurls: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetinvokeURLs)(windows_core::Interface::as_raw(self), finvokeurls.param().abi()).ok()
-    }
-    pub unsafe fn mute(&self, pfmute: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.mute)(windows_core::Interface::as_raw(self), pfmute).ok()
-    }
-    pub unsafe fn Setmute<P0>(&self, fmute: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.Setmute)(windows_core::Interface::as_raw(self), fmute.param().abi()).ok()
-    }
-    pub unsafe fn playCount(&self, plcount: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.playCount)(windows_core::Interface::as_raw(self), plcount).ok()
-    }
-    pub unsafe fn SetplayCount(&self, lcount: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetplayCount)(windows_core::Interface::as_raw(self), lcount).ok()
-    }
-    pub unsafe fn rate(&self, pdrate: *mut f64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.rate)(windows_core::Interface::as_raw(self), pdrate).ok()
-    }
-    pub unsafe fn Setrate(&self, drate: f64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Setrate)(windows_core::Interface::as_raw(self), drate).ok()
-    }
-    pub unsafe fn balance(&self, plbalance: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.balance)(windows_core::Interface::as_raw(self), plbalance).ok()
-    }
-    pub unsafe fn Setbalance(&self, lbalance: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Setbalance)(windows_core::Interface::as_raw(self), lbalance).ok()
-    }
-    pub unsafe fn volume(&self, plvolume: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.volume)(windows_core::Interface::as_raw(self), plvolume).ok()
-    }
-    pub unsafe fn Setvolume(&self, lvolume: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Setvolume)(windows_core::Interface::as_raw(self), lvolume).ok()
-    }
-    pub unsafe fn getMode<P0>(&self, bstrmode: P0, pvarfmode: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.getMode)(windows_core::Interface::as_raw(self), bstrmode.param().abi(), pvarfmode).ok()
-    }
-    pub unsafe fn setMode<P0, P1>(&self, bstrmode: P0, varfmode: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.setMode)(windows_core::Interface::as_raw(self), bstrmode.param().abi(), varfmode.param().abi()).ok()
-    }
-    pub unsafe fn enableErrorDialogs(&self, pfenableerrordialogs: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.enableErrorDialogs)(windows_core::Interface::as_raw(self), pfenableerrordialogs).ok()
-    }
-    pub unsafe fn SetenableErrorDialogs<P0>(&self, fenableerrordialogs: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetenableErrorDialogs)(windows_core::Interface::as_raw(self), fenableerrordialogs.param().abi()).ok()
-    }
     pub unsafe fn defaultAudioLanguage(&self, pllangid: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).defaultAudioLanguage)(windows_core::Interface::as_raw(self), pllangid).ok()
     }
@@ -6976,6 +5264,12 @@ pub struct IWMPSettings2_Vtbl {
     pub requestMediaAccessRights: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPSkinManager, IWMPSkinManager_Vtbl, 0x076f2fa6_ed30_448b_8cc5_3f3ef3529c7a);
+impl std::ops::Deref for IWMPSkinManager {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPSkinManager, windows_core::IUnknown);
 impl IWMPSkinManager {
     pub unsafe fn SetVisualStyle<P0>(&self, bstrpath: P0) -> windows_core::Result<()>
@@ -6992,6 +5286,13 @@ pub struct IWMPSkinManager_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPStringCollection, IWMPStringCollection_Vtbl, 0x4a976298_8c0d_11d3_b389_00c04f68574b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPStringCollection {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPStringCollection, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -7013,15 +5314,16 @@ pub struct IWMPStringCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWMPStringCollection2, IWMPStringCollection2_Vtbl, 0x46ad648d_53f1_4a74_92e2_2a1b68d63fd4);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWMPStringCollection2 {
+    type Target = IWMPStringCollection;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWMPStringCollection2, windows_core::IUnknown, super::super::System::Com::IDispatch, IWMPStringCollection);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMPStringCollection2 {
-    pub unsafe fn count(&self, plcount: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.count)(windows_core::Interface::as_raw(self), plcount).ok()
-    }
-    pub unsafe fn item(&self, lindex: i32, pbstrstring: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.item)(windows_core::Interface::as_raw(self), lindex, core::mem::transmute(pbstrstring)).ok()
-    }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn isIdentical<P0>(&self, piwmpstringcollection2: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
     where
@@ -7063,6 +5365,12 @@ pub struct IWMPStringCollection2_Vtbl {
     pub getItemInfoByType: unsafe extern "system" fn(*mut core::ffi::c_void, i32, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, i32, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPSubscriptionService, IWMPSubscriptionService_Vtbl, 0x376055f8_2a59_4a73_9501_dca5273a7a10);
+impl std::ops::Deref for IWMPSubscriptionService {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPSubscriptionService, windows_core::IUnknown);
 impl IWMPSubscriptionService {
     #[cfg(feature = "Win32_System_Com")]
@@ -7114,38 +5422,14 @@ pub struct IWMPSubscriptionService_Vtbl {
     pub startBackgroundProcessing: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPSubscriptionService2, IWMPSubscriptionService2_Vtbl, 0xa94c120e_d600_4ec6_b05e_ec9d56d84de0);
+impl std::ops::Deref for IWMPSubscriptionService2 {
+    type Target = IWMPSubscriptionService;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPSubscriptionService2, windows_core::IUnknown, IWMPSubscriptionService);
 impl IWMPSubscriptionService2 {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn allowPlay<P0, P1>(&self, hwnd: P0, pmedia: P1, pfallowplay: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-        P1: windows_core::Param<IWMPMedia>,
-    {
-        (windows_core::Interface::vtable(self).base__.allowPlay)(windows_core::Interface::as_raw(self), hwnd.param().abi(), pmedia.param().abi(), pfallowplay).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn allowCDBurn<P0, P1>(&self, hwnd: P0, pplaylist: P1, pfallowburn: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-        P1: windows_core::Param<IWMPPlaylist>,
-    {
-        (windows_core::Interface::vtable(self).base__.allowCDBurn)(windows_core::Interface::as_raw(self), hwnd.param().abi(), pplaylist.param().abi(), pfallowburn).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn allowPDATransfer<P0, P1>(&self, hwnd: P0, pplaylist: P1, pfallowtransfer: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-        P1: windows_core::Param<IWMPPlaylist>,
-    {
-        (windows_core::Interface::vtable(self).base__.allowPDATransfer)(windows_core::Interface::as_raw(self), hwnd.param().abi(), pplaylist.param().abi(), pfallowtransfer).ok()
-    }
-    pub unsafe fn startBackgroundProcessing<P0>(&self, hwnd: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.startBackgroundProcessing)(windows_core::Interface::as_raw(self), hwnd.param().abi()).ok()
-    }
     pub unsafe fn stopBackgroundProcessing(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).stopBackgroundProcessing)(windows_core::Interface::as_raw(self)).ok()
     }
@@ -7177,6 +5461,12 @@ pub struct IWMPSubscriptionService2_Vtbl {
     pub prepareForSync: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPSubscriptionServiceCallback, IWMPSubscriptionServiceCallback_Vtbl, 0xdd01d127_2dc2_4c3a_876e_63312079f9b0);
+impl std::ops::Deref for IWMPSubscriptionServiceCallback {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPSubscriptionServiceCallback, windows_core::IUnknown);
 impl IWMPSubscriptionServiceCallback {
     pub unsafe fn onComplete(&self, hrresult: windows_core::HRESULT) -> windows_core::Result<()> {
@@ -7189,6 +5479,12 @@ pub struct IWMPSubscriptionServiceCallback_Vtbl {
     pub onComplete: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPSyncDevice, IWMPSyncDevice_Vtbl, 0x82a2986c_0293_4fd0_b279_b21b86c058be);
+impl std::ops::Deref for IWMPSyncDevice {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPSyncDevice, windows_core::IUnknown);
 impl IWMPSyncDevice {
     pub unsafe fn friendlyName(&self, pbstrname: *mut windows_core::BSTR) -> windows_core::Result<()> {
@@ -7273,68 +5569,14 @@ pub struct IWMPSyncDevice_Vtbl {
     pub isIdentical: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPSyncDevice2, IWMPSyncDevice2_Vtbl, 0x88afb4b2_140a_44d2_91e6_4543da467cd1);
+impl std::ops::Deref for IWMPSyncDevice2 {
+    type Target = IWMPSyncDevice;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPSyncDevice2, windows_core::IUnknown, IWMPSyncDevice);
 impl IWMPSyncDevice2 {
-    pub unsafe fn friendlyName(&self, pbstrname: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.friendlyName)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrname)).ok()
-    }
-    pub unsafe fn SetfriendlyName<P0>(&self, bstrname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetfriendlyName)(windows_core::Interface::as_raw(self), bstrname.param().abi()).ok()
-    }
-    pub unsafe fn deviceName(&self, pbstrname: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.deviceName)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrname)).ok()
-    }
-    pub unsafe fn deviceId(&self, pbstrdeviceid: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.deviceId)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrdeviceid)).ok()
-    }
-    pub unsafe fn partnershipIndex(&self, plindex: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.partnershipIndex)(windows_core::Interface::as_raw(self), plindex).ok()
-    }
-    pub unsafe fn connected(&self, pvbconnected: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.connected)(windows_core::Interface::as_raw(self), pvbconnected).ok()
-    }
-    pub unsafe fn status(&self, pwmpds: *mut WMPDeviceStatus) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.status)(windows_core::Interface::as_raw(self), pwmpds).ok()
-    }
-    pub unsafe fn syncState(&self, pwmpss: *mut WMPSyncState) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.syncState)(windows_core::Interface::as_raw(self), pwmpss).ok()
-    }
-    pub unsafe fn progress(&self, plprogress: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.progress)(windows_core::Interface::as_raw(self), plprogress).ok()
-    }
-    pub unsafe fn getItemInfo<P0>(&self, bstritemname: P0, pbstrval: *mut windows_core::BSTR) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.getItemInfo)(windows_core::Interface::as_raw(self), bstritemname.param().abi(), core::mem::transmute(pbstrval)).ok()
-    }
-    pub unsafe fn createPartnership<P0>(&self, vbshowui: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.createPartnership)(windows_core::Interface::as_raw(self), vbshowui.param().abi()).ok()
-    }
-    pub unsafe fn deletePartnership(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.deletePartnership)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn start(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.start)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn stop(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.stop)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn showSettings(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.showSettings)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn isIdentical<P0>(&self, pdevice: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMPSyncDevice>,
-    {
-        (windows_core::Interface::vtable(self).base__.isIdentical)(windows_core::Interface::as_raw(self), pdevice.param().abi(), pvbool).ok()
-    }
     pub unsafe fn setItemInfo<P0, P1>(&self, bstritemname: P0, bstrval: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -7349,75 +5591,14 @@ pub struct IWMPSyncDevice2_Vtbl {
     pub setItemInfo: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPSyncDevice3, IWMPSyncDevice3_Vtbl, 0xb22c85f9_263c_4372_a0da_b518db9b4098);
+impl std::ops::Deref for IWMPSyncDevice3 {
+    type Target = IWMPSyncDevice2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPSyncDevice3, windows_core::IUnknown, IWMPSyncDevice, IWMPSyncDevice2);
 impl IWMPSyncDevice3 {
-    pub unsafe fn friendlyName(&self, pbstrname: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.friendlyName)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrname)).ok()
-    }
-    pub unsafe fn SetfriendlyName<P0>(&self, bstrname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetfriendlyName)(windows_core::Interface::as_raw(self), bstrname.param().abi()).ok()
-    }
-    pub unsafe fn deviceName(&self, pbstrname: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.deviceName)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrname)).ok()
-    }
-    pub unsafe fn deviceId(&self, pbstrdeviceid: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.deviceId)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrdeviceid)).ok()
-    }
-    pub unsafe fn partnershipIndex(&self, plindex: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.partnershipIndex)(windows_core::Interface::as_raw(self), plindex).ok()
-    }
-    pub unsafe fn connected(&self, pvbconnected: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.connected)(windows_core::Interface::as_raw(self), pvbconnected).ok()
-    }
-    pub unsafe fn status(&self, pwmpds: *mut WMPDeviceStatus) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.status)(windows_core::Interface::as_raw(self), pwmpds).ok()
-    }
-    pub unsafe fn syncState(&self, pwmpss: *mut WMPSyncState) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.syncState)(windows_core::Interface::as_raw(self), pwmpss).ok()
-    }
-    pub unsafe fn progress(&self, plprogress: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.progress)(windows_core::Interface::as_raw(self), plprogress).ok()
-    }
-    pub unsafe fn getItemInfo<P0>(&self, bstritemname: P0, pbstrval: *mut windows_core::BSTR) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.getItemInfo)(windows_core::Interface::as_raw(self), bstritemname.param().abi(), core::mem::transmute(pbstrval)).ok()
-    }
-    pub unsafe fn createPartnership<P0>(&self, vbshowui: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.createPartnership)(windows_core::Interface::as_raw(self), vbshowui.param().abi()).ok()
-    }
-    pub unsafe fn deletePartnership(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.deletePartnership)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn start(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.start)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn stop(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.stop)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn showSettings(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.showSettings)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn isIdentical<P0>(&self, pdevice: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMPSyncDevice>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.isIdentical)(windows_core::Interface::as_raw(self), pdevice.param().abi(), pvbool).ok()
-    }
-    pub unsafe fn setItemInfo<P0, P1>(&self, bstritemname: P0, bstrval: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.setItemInfo)(windows_core::Interface::as_raw(self), bstritemname.param().abi(), bstrval.param().abi()).ok()
-    }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn estimateSyncSize<P0, P1>(&self, pnonruleplaylist: P0, prulesplaylist: P1) -> windows_core::Result<()>
     where
@@ -7440,6 +5621,12 @@ pub struct IWMPSyncDevice3_Vtbl {
     pub cancelEstimation: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPSyncServices, IWMPSyncServices_Vtbl, 0x8b5050ff_e0a4_4808_b3a8_893a9e1ed894);
+impl std::ops::Deref for IWMPSyncServices {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPSyncServices, windows_core::IUnknown);
 impl IWMPSyncServices {
     pub unsafe fn deviceCount(&self, plcount: *mut i32) -> windows_core::Result<()> {
@@ -7457,6 +5644,12 @@ pub struct IWMPSyncServices_Vtbl {
     pub getDevice: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPTranscodePolicy, IWMPTranscodePolicy_Vtbl, 0xb64cbac3_401c_4327_a3e8_b9feb3a8c25c);
+impl std::ops::Deref for IWMPTranscodePolicy {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPTranscodePolicy, windows_core::IUnknown);
 impl IWMPTranscodePolicy {
     pub unsafe fn allowTranscode(&self, pvballow: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
@@ -7469,6 +5662,12 @@ pub struct IWMPTranscodePolicy_Vtbl {
     pub allowTranscode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPUserEventSink, IWMPUserEventSink_Vtbl, 0xcfccfa72_c343_48c3_a2de_b7a4402e39f2);
+impl std::ops::Deref for IWMPUserEventSink {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPUserEventSink, windows_core::IUnknown);
 impl IWMPUserEventSink {
     pub unsafe fn NotifyUserEvent(&self, eventcode: i32) -> windows_core::Result<()> {
@@ -7481,6 +5680,12 @@ pub struct IWMPUserEventSink_Vtbl {
     pub NotifyUserEvent: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPVideoRenderConfig, IWMPVideoRenderConfig_Vtbl, 0x6d6cf803_1ec0_4c8d_b3ca_f18e27282074);
+impl std::ops::Deref for IWMPVideoRenderConfig {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPVideoRenderConfig, windows_core::IUnknown);
 impl IWMPVideoRenderConfig {
     #[cfg(feature = "Win32_Media_MediaFoundation")]
@@ -7500,6 +5705,12 @@ pub struct IWMPVideoRenderConfig_Vtbl {
     SetpresenterActivate: usize,
 }
 windows_core::imp::define_interface!(IWMPWindowMessageSink, IWMPWindowMessageSink_Vtbl, 0x3a0daa30_908d_4789_ba87_aed879b5c49b);
+impl std::ops::Deref for IWMPWindowMessageSink {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPWindowMessageSink, windows_core::IUnknown);
 impl IWMPWindowMessageSink {
     pub unsafe fn OnWindowMessage<P0, P1>(&self, umsg: u32, wparam: P0, lparam: P1, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
@@ -7516,6 +5727,12 @@ pub struct IWMPWindowMessageSink_Vtbl {
     pub OnWindowMessage: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::WPARAM, super::super::Foundation::LPARAM, *mut super::super::Foundation::LRESULT, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXFeed, IXFeed_Vtbl, 0xa44179a4_e0f6_403b_af8d_d080f425a451);
+impl std::ops::Deref for IXFeed {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IXFeed, windows_core::IUnknown);
 impl IXFeed {
     #[cfg(feature = "Win32_System_Com")]
@@ -7764,198 +5981,14 @@ pub struct IXFeed_Vtbl {
     pub ItemCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXFeed2, IXFeed2_Vtbl, 0xce528e77_3716_4eb7_956d_f5e37502e12a);
+impl std::ops::Deref for IXFeed2 {
+    type Target = IXFeed;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IXFeed2, windows_core::IUnknown, IXFeed);
 impl IXFeed2 {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Xml(&self, uiitemcount: u32, sortproperty: FEEDS_XML_SORT_PROPERTY, sortorder: FEEDS_XML_SORT_ORDER, filterflags: FEEDS_XML_FILTER_FLAGS, includeflags: FEEDS_XML_INCLUDE_FLAGS) -> windows_core::Result<super::super::System::Com::IStream> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Xml)(windows_core::Interface::as_raw(self), uiitemcount, sortproperty, sortorder, filterflags, includeflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Rename<P0>(&self, pszname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.Rename)(windows_core::Interface::as_raw(self), pszname.param().abi()).ok()
-    }
-    pub unsafe fn Url(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Url)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetUrl<P0>(&self, pszurl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetUrl)(windows_core::Interface::as_raw(self), pszurl.param().abi()).ok()
-    }
-    pub unsafe fn LocalId(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LocalId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Path(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Path)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Move<P0>(&self, pszpath: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.Move)(windows_core::Interface::as_raw(self), pszpath.param().abi()).ok()
-    }
-    pub unsafe fn Parent<T>(&self) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).base__.Parent)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn LastWriteTime(&self) -> windows_core::Result<super::super::Foundation::SYSTEMTIME> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LastWriteTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Delete(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Delete)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Download(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Download)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn AsyncDownload(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.AsyncDownload)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn CancelAsyncDownload(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.CancelAsyncDownload)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SyncSetting(&self) -> windows_core::Result<FEEDS_SYNC_SETTING> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SyncSetting)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetSyncSetting(&self, fss: FEEDS_SYNC_SETTING) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetSyncSetting)(windows_core::Interface::as_raw(self), fss).ok()
-    }
-    pub unsafe fn Interval(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Interval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetInterval(&self, uiinterval: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetInterval)(windows_core::Interface::as_raw(self), uiinterval).ok()
-    }
-    pub unsafe fn LastDownloadTime(&self) -> windows_core::Result<super::super::Foundation::SYSTEMTIME> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LastDownloadTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn LocalEnclosurePath(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LocalEnclosurePath)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Items(&self) -> windows_core::Result<IXFeedsEnum> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Items)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetItem<T>(&self, uiid: u32) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).base__.GetItem)(windows_core::Interface::as_raw(self), uiid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn MarkAllItemsRead(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.MarkAllItemsRead)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn MaxItemCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.MaxItemCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetMaxItemCount(&self, uimaxitemcount: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetMaxItemCount)(windows_core::Interface::as_raw(self), uimaxitemcount).ok()
-    }
-    pub unsafe fn DownloadEnclosuresAutomatically(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DownloadEnclosuresAutomatically)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetDownloadEnclosuresAutomatically<P0>(&self, bdownloadenclosuresautomatically: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetDownloadEnclosuresAutomatically)(windows_core::Interface::as_raw(self), bdownloadenclosuresautomatically.param().abi()).ok()
-    }
-    pub unsafe fn DownloadStatus(&self) -> windows_core::Result<FEEDS_DOWNLOAD_STATUS> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DownloadStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn LastDownloadError(&self) -> windows_core::Result<FEEDS_DOWNLOAD_ERROR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LastDownloadError)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Merge<P0, P1>(&self, pstream: P0, pszurl: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::System::Com::IStream>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.Merge)(windows_core::Interface::as_raw(self), pstream.param().abi(), pszurl.param().abi()).ok()
-    }
-    pub unsafe fn DownloadUrl(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DownloadUrl)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Title(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Title)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Link(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Link)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Image(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Image)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn LastBuildDate(&self) -> windows_core::Result<super::super::Foundation::SYSTEMTIME> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LastBuildDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn PubDate(&self) -> windows_core::Result<super::super::Foundation::SYSTEMTIME> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.PubDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Ttl(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Ttl)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Language(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Language)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Copyright(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Copyright)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsList(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsList)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetWatcher<T>(&self, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).base__.GetWatcher)(windows_core::Interface::as_raw(self), scope, mask, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn UnreadItemCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.UnreadItemCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ItemCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ItemCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     pub unsafe fn GetItemByEffectiveId<T>(&self, uieffectiveid: u32) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -7997,6 +6030,12 @@ pub struct IXFeed2_Vtbl {
     pub ClearCredentials: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXFeedEnclosure, IXFeedEnclosure_Vtbl, 0xbfbfb953_644f_4792_b69c_dfaca4cbf89a);
+impl std::ops::Deref for IXFeedEnclosure {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IXFeedEnclosure, windows_core::IUnknown);
 impl IXFeedEnclosure {
     pub unsafe fn Url(&self) -> windows_core::Result<windows_core::PWSTR> {
@@ -8075,6 +6114,12 @@ pub struct IXFeedEnclosure_Vtbl {
     pub SetFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXFeedEvents, IXFeedEvents_Vtbl, 0x1630852e_1263_465b_98e5_fe60ffec4ac2);
+impl std::ops::Deref for IXFeedEvents {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IXFeedEvents, windows_core::IUnknown);
 impl IXFeedEvents {
     pub unsafe fn Error(&self) -> windows_core::Result<()> {
@@ -8138,6 +6183,12 @@ pub struct IXFeedEvents_Vtbl {
     pub FeedItemCountChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXFeedFolder, IXFeedFolder_Vtbl, 0x4c963678_3a51_4b88_8531_98b90b6508f2);
+impl std::ops::Deref for IXFeedFolder {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IXFeedFolder, windows_core::IUnknown);
 impl IXFeedFolder {
     pub unsafe fn Feeds(&self) -> windows_core::Result<IXFeedsEnum> {
@@ -8266,6 +6317,12 @@ pub struct IXFeedFolder_Vtbl {
     pub TotalItemCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXFeedFolderEvents, IXFeedFolderEvents_Vtbl, 0x7964b769_234a_4bb1_a5f4_90454c8ad07e);
+impl std::ops::Deref for IXFeedFolderEvents {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IXFeedFolderEvents, windows_core::IUnknown);
 impl IXFeedFolderEvents {
     pub unsafe fn Error(&self) -> windows_core::Result<()> {
@@ -8389,6 +6446,12 @@ pub struct IXFeedFolderEvents_Vtbl {
     pub FeedItemCountChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXFeedItem, IXFeedItem_Vtbl, 0xe757b2f5_e73e_434e_a1bf_2bd7c3e60fcb);
+impl std::ops::Deref for IXFeedItem {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IXFeedItem, windows_core::IUnknown);
 impl IXFeedItem {
     #[cfg(feature = "Win32_System_Com")]
@@ -8493,84 +6556,14 @@ pub struct IXFeedItem_Vtbl {
     pub Modified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::SYSTEMTIME) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXFeedItem2, IXFeedItem2_Vtbl, 0x6cda2dc7_9013_4522_9970_2a9dd9ead5a3);
+impl std::ops::Deref for IXFeedItem2 {
+    type Target = IXFeedItem;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IXFeedItem2, windows_core::IUnknown, IXFeedItem);
 impl IXFeedItem2 {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Xml(&self, fxif: FEEDS_XML_INCLUDE_FLAGS) -> windows_core::Result<super::super::System::Com::IStream> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Xml)(windows_core::Interface::as_raw(self), fxif, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Title(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Title)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Link(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Link)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Guid(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Guid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn PubDate(&self) -> windows_core::Result<super::super::Foundation::SYSTEMTIME> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.PubDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Comments(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Comments)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Author(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Author)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Enclosure<T>(&self) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).base__.Enclosure)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn IsRead(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsRead)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetIsRead<P0>(&self, bisread: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetIsRead)(windows_core::Interface::as_raw(self), bisread.param().abi()).ok()
-    }
-    pub unsafe fn LocalId(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LocalId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Parent<T>(&self) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).base__.Parent)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Delete(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Delete)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn DownloadUrl(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DownloadUrl)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn LastDownloadTime(&self) -> windows_core::Result<super::super::Foundation::SYSTEMTIME> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LastDownloadTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Modified(&self) -> windows_core::Result<super::super::Foundation::SYSTEMTIME> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Modified)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     pub unsafe fn EffectiveId(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).EffectiveId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -8582,6 +6575,12 @@ pub struct IXFeedItem2_Vtbl {
     pub EffectiveId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXFeedsEnum, IXFeedsEnum_Vtbl, 0xdc43a9d5_5015_4301_8c96_a47434b4d658);
+impl std::ops::Deref for IXFeedsEnum {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IXFeedsEnum, windows_core::IUnknown);
 impl IXFeedsEnum {
     pub unsafe fn Count(&self) -> windows_core::Result<u32> {
@@ -8603,6 +6602,12 @@ pub struct IXFeedsEnum_Vtbl {
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IXFeedsManager, IXFeedsManager_Vtbl, 0x5357e238_fb12_4aca_a930_cab7832b84bf);
+impl std::ops::Deref for IXFeedsManager {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IXFeedsManager, windows_core::IUnknown);
 impl IXFeedsManager {
     pub unsafe fn RootFolder<T>(&self) -> windows_core::Result<T>
@@ -8724,6 +6729,13 @@ pub struct IXFeedsManager_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(_WMPOCXEvents, _WMPOCXEvents_Vtbl, 0x6bf52a51_394a_11d3_b153_00c04f79faa6);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for _WMPOCXEvents {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(_WMPOCXEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]

@@ -79,6 +79,12 @@ pub struct ISpiDevice_Vtbl {
     pub TransferFullDuplex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpiDeviceStatics, ISpiDeviceStatics_Vtbl, 0xa278e559_5720_4d3f_bd93_56f5ff5a5879);
+impl std::ops::Deref for ISpiDeviceStatics {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISpiDeviceStatics, windows_core::IUnknown, windows_core::IInspectable);
 impl ISpiDeviceStatics {
     pub fn GetDeviceSelector(&self) -> windows_core::Result<windows_core::HSTRING> {

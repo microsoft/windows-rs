@@ -7,7 +7,7 @@ impl IConnectionRequestCallback_Vtbl {
         unsafe extern "system" fn OnComplete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IConnectionRequestCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrstatus: windows_core::HRESULT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnComplete(core::mem::transmute_copy(&hrstatus)).into()
+            IConnectionRequestCallback_Impl::OnComplete(this, core::mem::transmute_copy(&hrstatus)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnComplete: OnComplete::<Identity, Impl, OFFSET> }
     }
@@ -27,22 +27,22 @@ impl IEnumPortableDeviceConnectors_Vtbl {
         unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumPortableDeviceConnectors_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crequested: u32, pconnectors: *mut *mut core::ffi::c_void, pcfetched: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Next(core::mem::transmute_copy(&crequested), core::mem::transmute_copy(&pconnectors), core::mem::transmute_copy(&pcfetched)).into()
+            IEnumPortableDeviceConnectors_Impl::Next(this, core::mem::transmute_copy(&crequested), core::mem::transmute_copy(&pconnectors), core::mem::transmute_copy(&pcfetched)).into()
         }
         unsafe extern "system" fn Skip<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumPortableDeviceConnectors_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cconnectors: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Skip(core::mem::transmute_copy(&cconnectors)).into()
+            IEnumPortableDeviceConnectors_Impl::Skip(this, core::mem::transmute_copy(&cconnectors)).into()
         }
         unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumPortableDeviceConnectors_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Reset().into()
+            IEnumPortableDeviceConnectors_Impl::Reset(this).into()
         }
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumPortableDeviceConnectors_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IEnumPortableDeviceConnectors_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppenum, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -75,22 +75,22 @@ impl IEnumPortableDeviceObjectIDs_Vtbl {
         unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumPortableDeviceObjectIDs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cobjects: u32, pobjids: *mut windows_core::PWSTR, pcfetched: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Next(core::mem::transmute_copy(&cobjects), core::mem::transmute_copy(&pobjids), core::mem::transmute_copy(&pcfetched))
+            IEnumPortableDeviceObjectIDs_Impl::Next(this, core::mem::transmute_copy(&cobjects), core::mem::transmute_copy(&pobjids), core::mem::transmute_copy(&pcfetched))
         }
         unsafe extern "system" fn Skip<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumPortableDeviceObjectIDs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cobjects: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Skip(core::mem::transmute_copy(&cobjects))
+            IEnumPortableDeviceObjectIDs_Impl::Skip(this, core::mem::transmute_copy(&cobjects))
         }
         unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumPortableDeviceObjectIDs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Reset().into()
+            IEnumPortableDeviceObjectIDs_Impl::Reset(this).into()
         }
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumPortableDeviceObjectIDs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IEnumPortableDeviceObjectIDs_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppenum, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -101,7 +101,7 @@ impl IEnumPortableDeviceObjectIDs_Vtbl {
         unsafe extern "system" fn Cancel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumPortableDeviceObjectIDs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Cancel().into()
+            IEnumPortableDeviceObjectIDs_Impl::Cancel(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -126,7 +126,7 @@ impl IMediaRadioManager_Vtbl {
         unsafe extern "system" fn GetRadioInstances<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaRadioManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRadioInstances() {
+            match IMediaRadioManager_Impl::GetRadioInstances(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -137,7 +137,7 @@ impl IMediaRadioManager_Vtbl {
         unsafe extern "system" fn OnSystemRadioStateChange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaRadioManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sysradiostate: SYSTEM_RADIO_STATE, utimeoutsec: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnSystemRadioStateChange(core::mem::transmute_copy(&sysradiostate), core::mem::transmute_copy(&utimeoutsec)).into()
+            IMediaRadioManager_Impl::OnSystemRadioStateChange(this, core::mem::transmute_copy(&sysradiostate), core::mem::transmute_copy(&utimeoutsec)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -160,17 +160,17 @@ impl IMediaRadioManagerNotifySink_Vtbl {
         unsafe extern "system" fn OnInstanceAdd<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaRadioManagerNotifySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pradioinstance: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnInstanceAdd(windows_core::from_raw_borrowed(&pradioinstance)).into()
+            IMediaRadioManagerNotifySink_Impl::OnInstanceAdd(this, windows_core::from_raw_borrowed(&pradioinstance)).into()
         }
         unsafe extern "system" fn OnInstanceRemove<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaRadioManagerNotifySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrradioinstanceid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnInstanceRemove(core::mem::transmute(&bstrradioinstanceid)).into()
+            IMediaRadioManagerNotifySink_Impl::OnInstanceRemove(this, core::mem::transmute(&bstrradioinstanceid)).into()
         }
         unsafe extern "system" fn OnInstanceRadioChange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaRadioManagerNotifySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrradioinstanceid: std::mem::MaybeUninit<windows_core::BSTR>, radiostate: DEVICE_RADIO_STATE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnInstanceRadioChange(core::mem::transmute(&bstrradioinstanceid), core::mem::transmute_copy(&radiostate)).into()
+            IMediaRadioManagerNotifySink_Impl::OnInstanceRadioChange(this, core::mem::transmute(&bstrradioinstanceid), core::mem::transmute_copy(&radiostate)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -200,12 +200,12 @@ impl IPortableDevice_Vtbl {
         unsafe extern "system" fn Open<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpnpdeviceid: windows_core::PCWSTR, pclientinfo: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Open(core::mem::transmute(&pszpnpdeviceid), windows_core::from_raw_borrowed(&pclientinfo)).into()
+            IPortableDevice_Impl::Open(this, core::mem::transmute(&pszpnpdeviceid), windows_core::from_raw_borrowed(&pclientinfo)).into()
         }
         unsafe extern "system" fn SendCommand<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, pparameters: *mut core::ffi::c_void, ppresults: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SendCommand(core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&pparameters)) {
+            match IPortableDevice_Impl::SendCommand(this, core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&pparameters)) {
                 Ok(ok__) => {
                     core::ptr::write(ppresults, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -216,7 +216,7 @@ impl IPortableDevice_Vtbl {
         unsafe extern "system" fn Content<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcontent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Content() {
+            match IPortableDevice_Impl::Content(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcontent, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -227,7 +227,7 @@ impl IPortableDevice_Vtbl {
         unsafe extern "system" fn Capabilities<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcapabilities: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Capabilities() {
+            match IPortableDevice_Impl::Capabilities(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcapabilities, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -238,17 +238,17 @@ impl IPortableDevice_Vtbl {
         unsafe extern "system" fn Cancel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Cancel().into()
+            IPortableDevice_Impl::Cancel(this).into()
         }
         unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Close().into()
+            IPortableDevice_Impl::Close(this).into()
         }
         unsafe extern "system" fn Advise<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, pcallback: *mut core::ffi::c_void, pparameters: *mut core::ffi::c_void, ppszcookie: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Advise(core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&pcallback), windows_core::from_raw_borrowed(&pparameters)) {
+            match IPortableDevice_Impl::Advise(this, core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&pcallback), windows_core::from_raw_borrowed(&pparameters)) {
                 Ok(ok__) => {
                     core::ptr::write(ppszcookie, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -259,12 +259,12 @@ impl IPortableDevice_Vtbl {
         unsafe extern "system" fn Unadvise<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszcookie: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Unadvise(core::mem::transmute(&pszcookie)).into()
+            IPortableDevice_Impl::Unadvise(this, core::mem::transmute(&pszcookie)).into()
         }
         unsafe extern "system" fn GetPnPDeviceID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszpnpdeviceid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPnPDeviceID() {
+            match IPortableDevice_Impl::GetPnPDeviceID(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppszpnpdeviceid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -311,7 +311,7 @@ impl IPortableDeviceCapabilities_Vtbl {
         unsafe extern "system" fn GetSupportedCommands<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcommands: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSupportedCommands() {
+            match IPortableDeviceCapabilities_Impl::GetSupportedCommands(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcommands, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -322,7 +322,7 @@ impl IPortableDeviceCapabilities_Vtbl {
         unsafe extern "system" fn GetCommandOptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, command: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppoptions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCommandOptions(core::mem::transmute_copy(&command)) {
+            match IPortableDeviceCapabilities_Impl::GetCommandOptions(this, core::mem::transmute_copy(&command)) {
                 Ok(ok__) => {
                     core::ptr::write(ppoptions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -333,7 +333,7 @@ impl IPortableDeviceCapabilities_Vtbl {
         unsafe extern "system" fn GetFunctionalCategories<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcategories: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFunctionalCategories() {
+            match IPortableDeviceCapabilities_Impl::GetFunctionalCategories(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcategories, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -344,7 +344,7 @@ impl IPortableDeviceCapabilities_Vtbl {
         unsafe extern "system" fn GetFunctionalObjects<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: *const windows_core::GUID, ppobjectids: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFunctionalObjects(core::mem::transmute_copy(&category)) {
+            match IPortableDeviceCapabilities_Impl::GetFunctionalObjects(this, core::mem::transmute_copy(&category)) {
                 Ok(ok__) => {
                     core::ptr::write(ppobjectids, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -355,7 +355,7 @@ impl IPortableDeviceCapabilities_Vtbl {
         unsafe extern "system" fn GetSupportedContentTypes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: *const windows_core::GUID, ppcontenttypes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSupportedContentTypes(core::mem::transmute_copy(&category)) {
+            match IPortableDeviceCapabilities_Impl::GetSupportedContentTypes(this, core::mem::transmute_copy(&category)) {
                 Ok(ok__) => {
                     core::ptr::write(ppcontenttypes, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -366,7 +366,7 @@ impl IPortableDeviceCapabilities_Vtbl {
         unsafe extern "system" fn GetSupportedFormats<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contenttype: *const windows_core::GUID, ppformats: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSupportedFormats(core::mem::transmute_copy(&contenttype)) {
+            match IPortableDeviceCapabilities_Impl::GetSupportedFormats(this, core::mem::transmute_copy(&contenttype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppformats, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -377,7 +377,7 @@ impl IPortableDeviceCapabilities_Vtbl {
         unsafe extern "system" fn GetSupportedFormatProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: *const windows_core::GUID, ppkeys: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSupportedFormatProperties(core::mem::transmute_copy(&format)) {
+            match IPortableDeviceCapabilities_Impl::GetSupportedFormatProperties(this, core::mem::transmute_copy(&format)) {
                 Ok(ok__) => {
                     core::ptr::write(ppkeys, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -388,7 +388,7 @@ impl IPortableDeviceCapabilities_Vtbl {
         unsafe extern "system" fn GetFixedPropertyAttributes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: *const windows_core::GUID, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppattributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFixedPropertyAttributes(core::mem::transmute_copy(&format), core::mem::transmute_copy(&key)) {
+            match IPortableDeviceCapabilities_Impl::GetFixedPropertyAttributes(this, core::mem::transmute_copy(&format), core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
                     core::ptr::write(ppattributes, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -399,12 +399,12 @@ impl IPortableDeviceCapabilities_Vtbl {
         unsafe extern "system" fn Cancel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Cancel().into()
+            IPortableDeviceCapabilities_Impl::Cancel(this).into()
         }
         unsafe extern "system" fn GetSupportedEvents<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppevents: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSupportedEvents() {
+            match IPortableDeviceCapabilities_Impl::GetSupportedEvents(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppevents, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -415,7 +415,7 @@ impl IPortableDeviceCapabilities_Vtbl {
         unsafe extern "system" fn GetEventOptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *const windows_core::GUID, ppoptions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetEventOptions(core::mem::transmute_copy(&event)) {
+            match IPortableDeviceCapabilities_Impl::GetEventOptions(this, core::mem::transmute_copy(&event)) {
                 Ok(ok__) => {
                     core::ptr::write(ppoptions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -459,32 +459,32 @@ impl IPortableDeviceConnector_Vtbl {
         unsafe extern "system" fn Connect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Connect(windows_core::from_raw_borrowed(&pcallback)).into()
+            IPortableDeviceConnector_Impl::Connect(this, windows_core::from_raw_borrowed(&pcallback)).into()
         }
         unsafe extern "system" fn Disconnect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Disconnect(windows_core::from_raw_borrowed(&pcallback)).into()
+            IPortableDeviceConnector_Impl::Disconnect(this, windows_core::from_raw_borrowed(&pcallback)).into()
         }
         unsafe extern "system" fn Cancel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Cancel(windows_core::from_raw_borrowed(&pcallback)).into()
+            IPortableDeviceConnector_Impl::Cancel(this, windows_core::from_raw_borrowed(&pcallback)).into()
         }
         unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppropertykey: *const super::Properties::DEVPROPKEY, ppropertytype: *mut super::Properties::DEVPROPTYPE, ppdata: *mut *mut u8, pcbdata: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetProperty(core::mem::transmute_copy(&ppropertykey), core::mem::transmute_copy(&ppropertytype), core::mem::transmute_copy(&ppdata), core::mem::transmute_copy(&pcbdata)).into()
+            IPortableDeviceConnector_Impl::GetProperty(this, core::mem::transmute_copy(&ppropertykey), core::mem::transmute_copy(&ppropertytype), core::mem::transmute_copy(&ppdata), core::mem::transmute_copy(&pcbdata)).into()
         }
         unsafe extern "system" fn SetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppropertykey: *const super::Properties::DEVPROPKEY, propertytype: super::Properties::DEVPROPTYPE, pdata: *const u8, cbdata: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetProperty(core::mem::transmute_copy(&ppropertykey), core::mem::transmute_copy(&propertytype), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&cbdata)).into()
+            IPortableDeviceConnector_Impl::SetProperty(this, core::mem::transmute_copy(&ppropertykey), core::mem::transmute_copy(&propertytype), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&cbdata)).into()
         }
         unsafe extern "system" fn GetPnPID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwszpnpid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPnPID() {
+            match IPortableDeviceConnector_Impl::GetPnPID(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppwszpnpid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -527,7 +527,7 @@ impl IPortableDeviceContent_Vtbl {
         unsafe extern "system" fn EnumObjects<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, pszparentobjectid: windows_core::PCWSTR, pfilter: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumObjects(core::mem::transmute_copy(&dwflags), core::mem::transmute(&pszparentobjectid), windows_core::from_raw_borrowed(&pfilter)) {
+            match IPortableDeviceContent_Impl::EnumObjects(this, core::mem::transmute_copy(&dwflags), core::mem::transmute(&pszparentobjectid), windows_core::from_raw_borrowed(&pfilter)) {
                 Ok(ok__) => {
                     core::ptr::write(ppenum, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -538,7 +538,7 @@ impl IPortableDeviceContent_Vtbl {
         unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Properties() {
+            match IPortableDeviceContent_Impl::Properties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -549,7 +549,7 @@ impl IPortableDeviceContent_Vtbl {
         unsafe extern "system" fn Transfer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresources: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Transfer() {
+            match IPortableDeviceContent_Impl::Transfer(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppresources, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -560,22 +560,22 @@ impl IPortableDeviceContent_Vtbl {
         unsafe extern "system" fn CreateObjectWithPropertiesOnly<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalues: *mut core::ffi::c_void, ppszobjectid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateObjectWithPropertiesOnly(windows_core::from_raw_borrowed(&pvalues), core::mem::transmute_copy(&ppszobjectid)).into()
+            IPortableDeviceContent_Impl::CreateObjectWithPropertiesOnly(this, windows_core::from_raw_borrowed(&pvalues), core::mem::transmute_copy(&ppszobjectid)).into()
         }
         unsafe extern "system" fn CreateObjectWithPropertiesAndData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalues: *mut core::ffi::c_void, ppdata: *mut *mut core::ffi::c_void, pdwoptimalwritebuffersize: *mut u32, ppszcookie: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateObjectWithPropertiesAndData(windows_core::from_raw_borrowed(&pvalues), core::mem::transmute_copy(&ppdata), core::mem::transmute_copy(&pdwoptimalwritebuffersize), core::mem::transmute_copy(&ppszcookie)).into()
+            IPortableDeviceContent_Impl::CreateObjectWithPropertiesAndData(this, windows_core::from_raw_borrowed(&pvalues), core::mem::transmute_copy(&ppdata), core::mem::transmute_copy(&pdwoptimalwritebuffersize), core::mem::transmute_copy(&ppszcookie)).into()
         }
         unsafe extern "system" fn Delete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoptions: u32, pobjectids: *mut core::ffi::c_void, ppresults: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Delete(core::mem::transmute_copy(&dwoptions), windows_core::from_raw_borrowed(&pobjectids), core::mem::transmute_copy(&ppresults)).into()
+            IPortableDeviceContent_Impl::Delete(this, core::mem::transmute_copy(&dwoptions), windows_core::from_raw_borrowed(&pobjectids), core::mem::transmute_copy(&ppresults)).into()
         }
         unsafe extern "system" fn GetObjectIDsFromPersistentUniqueIDs<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppersistentuniqueids: *mut core::ffi::c_void, ppobjectids: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetObjectIDsFromPersistentUniqueIDs(windows_core::from_raw_borrowed(&ppersistentuniqueids)) {
+            match IPortableDeviceContent_Impl::GetObjectIDsFromPersistentUniqueIDs(this, windows_core::from_raw_borrowed(&ppersistentuniqueids)) {
                 Ok(ok__) => {
                     core::ptr::write(ppobjectids, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -586,17 +586,17 @@ impl IPortableDeviceContent_Vtbl {
         unsafe extern "system" fn Cancel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Cancel().into()
+            IPortableDeviceContent_Impl::Cancel(this).into()
         }
         unsafe extern "system" fn Move<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobjectids: *mut core::ffi::c_void, pszdestinationfolderobjectid: windows_core::PCWSTR, ppresults: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Move(windows_core::from_raw_borrowed(&pobjectids), core::mem::transmute(&pszdestinationfolderobjectid), core::mem::transmute_copy(&ppresults)).into()
+            IPortableDeviceContent_Impl::Move(this, windows_core::from_raw_borrowed(&pobjectids), core::mem::transmute(&pszdestinationfolderobjectid), core::mem::transmute_copy(&ppresults)).into()
         }
         unsafe extern "system" fn Copy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobjectids: *mut core::ffi::c_void, pszdestinationfolderobjectid: windows_core::PCWSTR, ppresults: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Copy(windows_core::from_raw_borrowed(&pobjectids), core::mem::transmute(&pszdestinationfolderobjectid), core::mem::transmute_copy(&ppresults)).into()
+            IPortableDeviceContent_Impl::Copy(this, windows_core::from_raw_borrowed(&pobjectids), core::mem::transmute(&pszdestinationfolderobjectid), core::mem::transmute_copy(&ppresults)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -628,7 +628,7 @@ impl IPortableDeviceContent2_Vtbl {
         unsafe extern "system" fn UpdateObjectWithPropertiesAndData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceContent2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszobjectid: windows_core::PCWSTR, pproperties: *mut core::ffi::c_void, ppdata: *mut *mut core::ffi::c_void, pdwoptimalwritebuffersize: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.UpdateObjectWithPropertiesAndData(core::mem::transmute(&pszobjectid), windows_core::from_raw_borrowed(&pproperties), core::mem::transmute_copy(&ppdata), core::mem::transmute_copy(&pdwoptimalwritebuffersize)).into()
+            IPortableDeviceContent2_Impl::UpdateObjectWithPropertiesAndData(this, core::mem::transmute(&pszobjectid), windows_core::from_raw_borrowed(&pproperties), core::mem::transmute_copy(&ppdata), core::mem::transmute_copy(&pdwoptimalwritebuffersize)).into()
         }
         Self {
             base__: IPortableDeviceContent_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -652,7 +652,7 @@ impl IPortableDeviceDataStream_Vtbl {
         unsafe extern "system" fn GetObjectID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceDataStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszobjectid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetObjectID() {
+            match IPortableDeviceDataStream_Impl::GetObjectID(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppszobjectid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -663,7 +663,7 @@ impl IPortableDeviceDataStream_Vtbl {
         unsafe extern "system" fn Cancel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceDataStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Cancel().into()
+            IPortableDeviceDataStream_Impl::Cancel(this).into()
         }
         Self {
             base__: super::super::System::Com::IStream_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -687,7 +687,7 @@ impl IPortableDeviceDispatchFactory_Vtbl {
         unsafe extern "system" fn GetDeviceDispatch<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceDispatchFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpnpdeviceid: windows_core::PCWSTR, ppdevicedispatch: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDeviceDispatch(core::mem::transmute(&pszpnpdeviceid)) {
+            match IPortableDeviceDispatchFactory_Impl::GetDeviceDispatch(this, core::mem::transmute(&pszpnpdeviceid)) {
                 Ok(ok__) => {
                     core::ptr::write(ppdevicedispatch, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -710,7 +710,7 @@ impl IPortableDeviceEventCallback_Vtbl {
         unsafe extern "system" fn OnEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceEventCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventparameters: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnEvent(windows_core::from_raw_borrowed(&peventparameters)).into()
+            IPortableDeviceEventCallback_Impl::OnEvent(this, windows_core::from_raw_borrowed(&peventparameters)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnEvent: OnEvent::<Identity, Impl, OFFSET> }
     }
@@ -734,27 +734,27 @@ impl IPortableDeviceKeyCollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceKeyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelems: *const u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetCount(core::mem::transmute_copy(&pcelems)).into()
+            IPortableDeviceKeyCollection_Impl::GetCount(this, core::mem::transmute_copy(&pcelems)).into()
         }
         unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceKeyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: u32, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetAt(core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&pkey)).into()
+            IPortableDeviceKeyCollection_Impl::GetAt(this, core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&pkey)).into()
         }
         unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceKeyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Add(core::mem::transmute_copy(&key)).into()
+            IPortableDeviceKeyCollection_Impl::Add(this, core::mem::transmute_copy(&key)).into()
         }
         unsafe extern "system" fn Clear<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceKeyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Clear().into()
+            IPortableDeviceKeyCollection_Impl::Clear(this).into()
         }
         unsafe extern "system" fn RemoveAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceKeyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAt(core::mem::transmute_copy(&dwindex)).into()
+            IPortableDeviceKeyCollection_Impl::RemoveAt(this, core::mem::transmute_copy(&dwindex)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -784,37 +784,37 @@ impl IPortableDeviceManager_Vtbl {
         unsafe extern "system" fn GetDevices<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppnpdeviceids: *mut windows_core::PWSTR, pcpnpdeviceids: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDevices(core::mem::transmute_copy(&ppnpdeviceids), core::mem::transmute_copy(&pcpnpdeviceids)).into()
+            IPortableDeviceManager_Impl::GetDevices(this, core::mem::transmute_copy(&ppnpdeviceids), core::mem::transmute_copy(&pcpnpdeviceids)).into()
         }
         unsafe extern "system" fn RefreshDeviceList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RefreshDeviceList().into()
+            IPortableDeviceManager_Impl::RefreshDeviceList(this).into()
         }
         unsafe extern "system" fn GetDeviceFriendlyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpnpdeviceid: windows_core::PCWSTR, pdevicefriendlyname: windows_core::PWSTR, pcchdevicefriendlyname: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDeviceFriendlyName(core::mem::transmute(&pszpnpdeviceid), core::mem::transmute(&pdevicefriendlyname), core::mem::transmute_copy(&pcchdevicefriendlyname)).into()
+            IPortableDeviceManager_Impl::GetDeviceFriendlyName(this, core::mem::transmute(&pszpnpdeviceid), core::mem::transmute(&pdevicefriendlyname), core::mem::transmute_copy(&pcchdevicefriendlyname)).into()
         }
         unsafe extern "system" fn GetDeviceDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpnpdeviceid: windows_core::PCWSTR, pdevicedescription: windows_core::PWSTR, pcchdevicedescription: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDeviceDescription(core::mem::transmute(&pszpnpdeviceid), core::mem::transmute(&pdevicedescription), core::mem::transmute_copy(&pcchdevicedescription)).into()
+            IPortableDeviceManager_Impl::GetDeviceDescription(this, core::mem::transmute(&pszpnpdeviceid), core::mem::transmute(&pdevicedescription), core::mem::transmute_copy(&pcchdevicedescription)).into()
         }
         unsafe extern "system" fn GetDeviceManufacturer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpnpdeviceid: windows_core::PCWSTR, pdevicemanufacturer: windows_core::PWSTR, pcchdevicemanufacturer: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDeviceManufacturer(core::mem::transmute(&pszpnpdeviceid), core::mem::transmute(&pdevicemanufacturer), core::mem::transmute_copy(&pcchdevicemanufacturer)).into()
+            IPortableDeviceManager_Impl::GetDeviceManufacturer(this, core::mem::transmute(&pszpnpdeviceid), core::mem::transmute(&pdevicemanufacturer), core::mem::transmute_copy(&pcchdevicemanufacturer)).into()
         }
         unsafe extern "system" fn GetDeviceProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpnpdeviceid: windows_core::PCWSTR, pszdevicepropertyname: windows_core::PCWSTR, pdata: *mut u8, pcbdata: *mut u32, pdwtype: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDeviceProperty(core::mem::transmute(&pszpnpdeviceid), core::mem::transmute(&pszdevicepropertyname), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&pcbdata), core::mem::transmute_copy(&pdwtype)).into()
+            IPortableDeviceManager_Impl::GetDeviceProperty(this, core::mem::transmute(&pszpnpdeviceid), core::mem::transmute(&pszdevicepropertyname), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&pcbdata), core::mem::transmute_copy(&pdwtype)).into()
         }
         unsafe extern "system" fn GetPrivateDevices<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppnpdeviceids: *mut windows_core::PWSTR, pcpnpdeviceids: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPrivateDevices(core::mem::transmute_copy(&ppnpdeviceids), core::mem::transmute_copy(&pcpnpdeviceids)).into()
+            IPortableDeviceManager_Impl::GetPrivateDevices(this, core::mem::transmute_copy(&ppnpdeviceids), core::mem::transmute_copy(&pcpnpdeviceids)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -846,22 +846,22 @@ impl IPortableDevicePropVariantCollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDevicePropVariantCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelems: *const u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetCount(core::mem::transmute_copy(&pcelems)).into()
+            IPortableDevicePropVariantCollection_Impl::GetCount(this, core::mem::transmute_copy(&pcelems)).into()
         }
         unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDevicePropVariantCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: u32, pvalue: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetAt(core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&pvalue)).into()
+            IPortableDevicePropVariantCollection_Impl::GetAt(this, core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&pvalue)).into()
         }
         unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDevicePropVariantCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Add(core::mem::transmute_copy(&pvalue)).into()
+            IPortableDevicePropVariantCollection_Impl::Add(this, core::mem::transmute_copy(&pvalue)).into()
         }
         unsafe extern "system" fn GetType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDevicePropVariantCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvt: *mut u16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetType() {
+            match IPortableDevicePropVariantCollection_Impl::GetType(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvt, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -872,17 +872,17 @@ impl IPortableDevicePropVariantCollection_Vtbl {
         unsafe extern "system" fn ChangeType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDevicePropVariantCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vt: u16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ChangeType(core::mem::transmute_copy(&vt)).into()
+            IPortableDevicePropVariantCollection_Impl::ChangeType(this, core::mem::transmute_copy(&vt)).into()
         }
         unsafe extern "system" fn Clear<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDevicePropVariantCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Clear().into()
+            IPortableDevicePropVariantCollection_Impl::Clear(this).into()
         }
         unsafe extern "system" fn RemoveAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDevicePropVariantCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAt(core::mem::transmute_copy(&dwindex)).into()
+            IPortableDevicePropVariantCollection_Impl::RemoveAt(this, core::mem::transmute_copy(&dwindex)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -916,7 +916,7 @@ impl IPortableDeviceProperties_Vtbl {
         unsafe extern "system" fn GetSupportedProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszobjectid: windows_core::PCWSTR, ppkeys: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSupportedProperties(core::mem::transmute(&pszobjectid)) {
+            match IPortableDeviceProperties_Impl::GetSupportedProperties(this, core::mem::transmute(&pszobjectid)) {
                 Ok(ok__) => {
                     core::ptr::write(ppkeys, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -927,7 +927,7 @@ impl IPortableDeviceProperties_Vtbl {
         unsafe extern "system" fn GetPropertyAttributes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszobjectid: windows_core::PCWSTR, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppattributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPropertyAttributes(core::mem::transmute(&pszobjectid), core::mem::transmute_copy(&key)) {
+            match IPortableDeviceProperties_Impl::GetPropertyAttributes(this, core::mem::transmute(&pszobjectid), core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
                     core::ptr::write(ppattributes, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -938,7 +938,7 @@ impl IPortableDeviceProperties_Vtbl {
         unsafe extern "system" fn GetValues<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszobjectid: windows_core::PCWSTR, pkeys: *mut core::ffi::c_void, ppvalues: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetValues(core::mem::transmute(&pszobjectid), windows_core::from_raw_borrowed(&pkeys)) {
+            match IPortableDeviceProperties_Impl::GetValues(this, core::mem::transmute(&pszobjectid), windows_core::from_raw_borrowed(&pkeys)) {
                 Ok(ok__) => {
                     core::ptr::write(ppvalues, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -949,7 +949,7 @@ impl IPortableDeviceProperties_Vtbl {
         unsafe extern "system" fn SetValues<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszobjectid: windows_core::PCWSTR, pvalues: *mut core::ffi::c_void, ppresults: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SetValues(core::mem::transmute(&pszobjectid), windows_core::from_raw_borrowed(&pvalues)) {
+            match IPortableDeviceProperties_Impl::SetValues(this, core::mem::transmute(&pszobjectid), windows_core::from_raw_borrowed(&pvalues)) {
                 Ok(ok__) => {
                     core::ptr::write(ppresults, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -960,12 +960,12 @@ impl IPortableDeviceProperties_Vtbl {
         unsafe extern "system" fn Delete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszobjectid: windows_core::PCWSTR, pkeys: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Delete(core::mem::transmute(&pszobjectid), windows_core::from_raw_borrowed(&pkeys)).into()
+            IPortableDeviceProperties_Impl::Delete(this, core::mem::transmute(&pszobjectid), windows_core::from_raw_borrowed(&pkeys)).into()
         }
         unsafe extern "system" fn Cancel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Cancel().into()
+            IPortableDeviceProperties_Impl::Cancel(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -994,7 +994,7 @@ impl IPortableDevicePropertiesBulk_Vtbl {
         unsafe extern "system" fn QueueGetValuesByObjectList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDevicePropertiesBulk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobjectids: *mut core::ffi::c_void, pkeys: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void, pcontext: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.QueueGetValuesByObjectList(windows_core::from_raw_borrowed(&pobjectids), windows_core::from_raw_borrowed(&pkeys), windows_core::from_raw_borrowed(&pcallback)) {
+            match IPortableDevicePropertiesBulk_Impl::QueueGetValuesByObjectList(this, windows_core::from_raw_borrowed(&pobjectids), windows_core::from_raw_borrowed(&pkeys), windows_core::from_raw_borrowed(&pcallback)) {
                 Ok(ok__) => {
                     core::ptr::write(pcontext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1005,7 +1005,7 @@ impl IPortableDevicePropertiesBulk_Vtbl {
         unsafe extern "system" fn QueueGetValuesByObjectFormat<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDevicePropertiesBulk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidobjectformat: *const windows_core::GUID, pszparentobjectid: windows_core::PCWSTR, dwdepth: u32, pkeys: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void, pcontext: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.QueueGetValuesByObjectFormat(core::mem::transmute_copy(&pguidobjectformat), core::mem::transmute(&pszparentobjectid), core::mem::transmute_copy(&dwdepth), windows_core::from_raw_borrowed(&pkeys), windows_core::from_raw_borrowed(&pcallback)) {
+            match IPortableDevicePropertiesBulk_Impl::QueueGetValuesByObjectFormat(this, core::mem::transmute_copy(&pguidobjectformat), core::mem::transmute(&pszparentobjectid), core::mem::transmute_copy(&dwdepth), windows_core::from_raw_borrowed(&pkeys), windows_core::from_raw_borrowed(&pcallback)) {
                 Ok(ok__) => {
                     core::ptr::write(pcontext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1016,7 +1016,7 @@ impl IPortableDevicePropertiesBulk_Vtbl {
         unsafe extern "system" fn QueueSetValuesByObjectList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDevicePropertiesBulk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobjectvalues: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void, pcontext: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.QueueSetValuesByObjectList(windows_core::from_raw_borrowed(&pobjectvalues), windows_core::from_raw_borrowed(&pcallback)) {
+            match IPortableDevicePropertiesBulk_Impl::QueueSetValuesByObjectList(this, windows_core::from_raw_borrowed(&pobjectvalues), windows_core::from_raw_borrowed(&pcallback)) {
                 Ok(ok__) => {
                     core::ptr::write(pcontext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1027,12 +1027,12 @@ impl IPortableDevicePropertiesBulk_Vtbl {
         unsafe extern "system" fn Start<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDevicePropertiesBulk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcontext: *const windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Start(core::mem::transmute_copy(&pcontext)).into()
+            IPortableDevicePropertiesBulk_Impl::Start(this, core::mem::transmute_copy(&pcontext)).into()
         }
         unsafe extern "system" fn Cancel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDevicePropertiesBulk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcontext: *const windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Cancel(core::mem::transmute_copy(&pcontext)).into()
+            IPortableDevicePropertiesBulk_Impl::Cancel(this, core::mem::transmute_copy(&pcontext)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1058,17 +1058,17 @@ impl IPortableDevicePropertiesBulkCallback_Vtbl {
         unsafe extern "system" fn OnStart<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDevicePropertiesBulkCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcontext: *const windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnStart(core::mem::transmute_copy(&pcontext)).into()
+            IPortableDevicePropertiesBulkCallback_Impl::OnStart(this, core::mem::transmute_copy(&pcontext)).into()
         }
         unsafe extern "system" fn OnProgress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDevicePropertiesBulkCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcontext: *const windows_core::GUID, presults: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnProgress(core::mem::transmute_copy(&pcontext), windows_core::from_raw_borrowed(&presults)).into()
+            IPortableDevicePropertiesBulkCallback_Impl::OnProgress(this, core::mem::transmute_copy(&pcontext), windows_core::from_raw_borrowed(&presults)).into()
         }
         unsafe extern "system" fn OnEnd<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDevicePropertiesBulkCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcontext: *const windows_core::GUID, hrstatus: windows_core::HRESULT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnEnd(core::mem::transmute_copy(&pcontext), core::mem::transmute_copy(&hrstatus)).into()
+            IPortableDevicePropertiesBulkCallback_Impl::OnEnd(this, core::mem::transmute_copy(&pcontext), core::mem::transmute_copy(&hrstatus)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1098,7 +1098,7 @@ impl IPortableDeviceResources_Vtbl {
         unsafe extern "system" fn GetSupportedResources<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszobjectid: windows_core::PCWSTR, ppkeys: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSupportedResources(core::mem::transmute(&pszobjectid)) {
+            match IPortableDeviceResources_Impl::GetSupportedResources(this, core::mem::transmute(&pszobjectid)) {
                 Ok(ok__) => {
                     core::ptr::write(ppkeys, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1109,7 +1109,7 @@ impl IPortableDeviceResources_Vtbl {
         unsafe extern "system" fn GetResourceAttributes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszobjectid: windows_core::PCWSTR, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppresourceattributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetResourceAttributes(core::mem::transmute(&pszobjectid), core::mem::transmute_copy(&key)) {
+            match IPortableDeviceResources_Impl::GetResourceAttributes(this, core::mem::transmute(&pszobjectid), core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
                     core::ptr::write(ppresourceattributes, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1120,22 +1120,22 @@ impl IPortableDeviceResources_Vtbl {
         unsafe extern "system" fn GetStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszobjectid: windows_core::PCWSTR, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, dwmode: u32, pdwoptimalbuffersize: *mut u32, ppstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetStream(core::mem::transmute(&pszobjectid), core::mem::transmute_copy(&key), core::mem::transmute_copy(&dwmode), core::mem::transmute_copy(&pdwoptimalbuffersize), core::mem::transmute_copy(&ppstream)).into()
+            IPortableDeviceResources_Impl::GetStream(this, core::mem::transmute(&pszobjectid), core::mem::transmute_copy(&key), core::mem::transmute_copy(&dwmode), core::mem::transmute_copy(&pdwoptimalbuffersize), core::mem::transmute_copy(&ppstream)).into()
         }
         unsafe extern "system" fn Delete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszobjectid: windows_core::PCWSTR, pkeys: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Delete(core::mem::transmute(&pszobjectid), windows_core::from_raw_borrowed(&pkeys)).into()
+            IPortableDeviceResources_Impl::Delete(this, core::mem::transmute(&pszobjectid), windows_core::from_raw_borrowed(&pkeys)).into()
         }
         unsafe extern "system" fn Cancel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Cancel().into()
+            IPortableDeviceResources_Impl::Cancel(this).into()
         }
         unsafe extern "system" fn CreateResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presourceattributes: *mut core::ffi::c_void, ppdata: *mut *mut core::ffi::c_void, pdwoptimalwritebuffersize: *mut u32, ppszcookie: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateResource(windows_core::from_raw_borrowed(&presourceattributes), core::mem::transmute_copy(&ppdata), core::mem::transmute_copy(&pdwoptimalwritebuffersize), core::mem::transmute_copy(&ppszcookie)).into()
+            IPortableDeviceResources_Impl::CreateResource(this, windows_core::from_raw_borrowed(&presourceattributes), core::mem::transmute_copy(&ppdata), core::mem::transmute_copy(&pdwoptimalwritebuffersize), core::mem::transmute_copy(&ppszcookie)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1170,12 +1170,12 @@ impl IPortableDeviceService_Vtbl {
         unsafe extern "system" fn Open<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpnpserviceid: windows_core::PCWSTR, pclientinfo: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Open(core::mem::transmute(&pszpnpserviceid), windows_core::from_raw_borrowed(&pclientinfo)).into()
+            IPortableDeviceService_Impl::Open(this, core::mem::transmute(&pszpnpserviceid), windows_core::from_raw_borrowed(&pclientinfo)).into()
         }
         unsafe extern "system" fn Capabilities<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcapabilities: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Capabilities() {
+            match IPortableDeviceService_Impl::Capabilities(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcapabilities, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1186,7 +1186,7 @@ impl IPortableDeviceService_Vtbl {
         unsafe extern "system" fn Content<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcontent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Content() {
+            match IPortableDeviceService_Impl::Content(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcontent, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1197,7 +1197,7 @@ impl IPortableDeviceService_Vtbl {
         unsafe extern "system" fn Methods<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmethods: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Methods() {
+            match IPortableDeviceService_Impl::Methods(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppmethods, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1208,17 +1208,17 @@ impl IPortableDeviceService_Vtbl {
         unsafe extern "system" fn Cancel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Cancel().into()
+            IPortableDeviceService_Impl::Cancel(this).into()
         }
         unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Close().into()
+            IPortableDeviceService_Impl::Close(this).into()
         }
         unsafe extern "system" fn GetServiceObjectID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszserviceobjectid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetServiceObjectID() {
+            match IPortableDeviceService_Impl::GetServiceObjectID(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppszserviceobjectid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1229,7 +1229,7 @@ impl IPortableDeviceService_Vtbl {
         unsafe extern "system" fn GetPnPServiceID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszpnpserviceid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPnPServiceID() {
+            match IPortableDeviceService_Impl::GetPnPServiceID(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppszpnpserviceid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1240,7 +1240,7 @@ impl IPortableDeviceService_Vtbl {
         unsafe extern "system" fn Advise<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, pcallback: *mut core::ffi::c_void, pparameters: *mut core::ffi::c_void, ppszcookie: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Advise(core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&pcallback), windows_core::from_raw_borrowed(&pparameters)) {
+            match IPortableDeviceService_Impl::Advise(this, core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&pcallback), windows_core::from_raw_borrowed(&pparameters)) {
                 Ok(ok__) => {
                     core::ptr::write(ppszcookie, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1251,12 +1251,12 @@ impl IPortableDeviceService_Vtbl {
         unsafe extern "system" fn Unadvise<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszcookie: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Unadvise(core::mem::transmute(&pszcookie)).into()
+            IPortableDeviceService_Impl::Unadvise(this, core::mem::transmute(&pszcookie)).into()
         }
         unsafe extern "system" fn SendCommand<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, pparameters: *mut core::ffi::c_void, ppresults: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SendCommand(core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&pparameters)) {
+            match IPortableDeviceService_Impl::SendCommand(this, core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&pparameters)) {
                 Ok(ok__) => {
                     core::ptr::write(ppresults, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1293,12 +1293,12 @@ impl IPortableDeviceServiceActivation_Vtbl {
         unsafe extern "system" fn OpenAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceServiceActivation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpnpserviceid: windows_core::PCWSTR, pclientinfo: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OpenAsync(core::mem::transmute(&pszpnpserviceid), windows_core::from_raw_borrowed(&pclientinfo), windows_core::from_raw_borrowed(&pcallback)).into()
+            IPortableDeviceServiceActivation_Impl::OpenAsync(this, core::mem::transmute(&pszpnpserviceid), windows_core::from_raw_borrowed(&pclientinfo), windows_core::from_raw_borrowed(&pcallback)).into()
         }
         unsafe extern "system" fn CancelOpenAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceServiceActivation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CancelOpenAsync().into()
+            IPortableDeviceServiceActivation_Impl::CancelOpenAsync(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1337,7 +1337,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
         unsafe extern "system" fn GetSupportedMethods<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceServiceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmethods: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSupportedMethods() {
+            match IPortableDeviceServiceCapabilities_Impl::GetSupportedMethods(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppmethods, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1348,7 +1348,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
         unsafe extern "system" fn GetSupportedMethodsByFormat<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceServiceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: *const windows_core::GUID, ppmethods: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSupportedMethodsByFormat(core::mem::transmute_copy(&format)) {
+            match IPortableDeviceServiceCapabilities_Impl::GetSupportedMethodsByFormat(this, core::mem::transmute_copy(&format)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmethods, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1359,7 +1359,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
         unsafe extern "system" fn GetMethodAttributes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceServiceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, method: *const windows_core::GUID, ppattributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetMethodAttributes(core::mem::transmute_copy(&method)) {
+            match IPortableDeviceServiceCapabilities_Impl::GetMethodAttributes(this, core::mem::transmute_copy(&method)) {
                 Ok(ok__) => {
                     core::ptr::write(ppattributes, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1370,7 +1370,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
         unsafe extern "system" fn GetMethodParameterAttributes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceServiceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, method: *const windows_core::GUID, parameter: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppattributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetMethodParameterAttributes(core::mem::transmute_copy(&method), core::mem::transmute_copy(&parameter)) {
+            match IPortableDeviceServiceCapabilities_Impl::GetMethodParameterAttributes(this, core::mem::transmute_copy(&method), core::mem::transmute_copy(&parameter)) {
                 Ok(ok__) => {
                     core::ptr::write(ppattributes, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1381,7 +1381,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
         unsafe extern "system" fn GetSupportedFormats<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceServiceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppformats: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSupportedFormats() {
+            match IPortableDeviceServiceCapabilities_Impl::GetSupportedFormats(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppformats, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1392,7 +1392,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
         unsafe extern "system" fn GetFormatAttributes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceServiceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: *const windows_core::GUID, ppattributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFormatAttributes(core::mem::transmute_copy(&format)) {
+            match IPortableDeviceServiceCapabilities_Impl::GetFormatAttributes(this, core::mem::transmute_copy(&format)) {
                 Ok(ok__) => {
                     core::ptr::write(ppattributes, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1403,7 +1403,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
         unsafe extern "system" fn GetSupportedFormatProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceServiceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: *const windows_core::GUID, ppkeys: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSupportedFormatProperties(core::mem::transmute_copy(&format)) {
+            match IPortableDeviceServiceCapabilities_Impl::GetSupportedFormatProperties(this, core::mem::transmute_copy(&format)) {
                 Ok(ok__) => {
                     core::ptr::write(ppkeys, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1414,7 +1414,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
         unsafe extern "system" fn GetFormatPropertyAttributes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceServiceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: *const windows_core::GUID, property: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppattributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFormatPropertyAttributes(core::mem::transmute_copy(&format), core::mem::transmute_copy(&property)) {
+            match IPortableDeviceServiceCapabilities_Impl::GetFormatPropertyAttributes(this, core::mem::transmute_copy(&format), core::mem::transmute_copy(&property)) {
                 Ok(ok__) => {
                     core::ptr::write(ppattributes, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1425,7 +1425,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
         unsafe extern "system" fn GetSupportedEvents<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceServiceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppevents: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSupportedEvents() {
+            match IPortableDeviceServiceCapabilities_Impl::GetSupportedEvents(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppevents, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1436,7 +1436,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
         unsafe extern "system" fn GetEventAttributes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceServiceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *const windows_core::GUID, ppattributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetEventAttributes(core::mem::transmute_copy(&event)) {
+            match IPortableDeviceServiceCapabilities_Impl::GetEventAttributes(this, core::mem::transmute_copy(&event)) {
                 Ok(ok__) => {
                     core::ptr::write(ppattributes, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1447,7 +1447,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
         unsafe extern "system" fn GetEventParameterAttributes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceServiceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *const windows_core::GUID, parameter: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppattributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetEventParameterAttributes(core::mem::transmute_copy(&event), core::mem::transmute_copy(&parameter)) {
+            match IPortableDeviceServiceCapabilities_Impl::GetEventParameterAttributes(this, core::mem::transmute_copy(&event), core::mem::transmute_copy(&parameter)) {
                 Ok(ok__) => {
                     core::ptr::write(ppattributes, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1458,7 +1458,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
         unsafe extern "system" fn GetInheritedServices<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceServiceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinheritancetype: u32, ppservices: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetInheritedServices(core::mem::transmute_copy(&dwinheritancetype)) {
+            match IPortableDeviceServiceCapabilities_Impl::GetInheritedServices(this, core::mem::transmute_copy(&dwinheritancetype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppservices, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1469,7 +1469,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
         unsafe extern "system" fn GetFormatRenderingProfiles<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceServiceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: *const windows_core::GUID, pprenderingprofiles: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFormatRenderingProfiles(core::mem::transmute_copy(&format)) {
+            match IPortableDeviceServiceCapabilities_Impl::GetFormatRenderingProfiles(this, core::mem::transmute_copy(&format)) {
                 Ok(ok__) => {
                     core::ptr::write(pprenderingprofiles, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1480,7 +1480,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
         unsafe extern "system" fn GetSupportedCommands<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceServiceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcommands: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSupportedCommands() {
+            match IPortableDeviceServiceCapabilities_Impl::GetSupportedCommands(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcommands, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1491,7 +1491,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
         unsafe extern "system" fn GetCommandOptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceServiceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, command: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppoptions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCommandOptions(core::mem::transmute_copy(&command)) {
+            match IPortableDeviceServiceCapabilities_Impl::GetCommandOptions(this, core::mem::transmute_copy(&command)) {
                 Ok(ok__) => {
                     core::ptr::write(ppoptions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1502,7 +1502,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
         unsafe extern "system" fn Cancel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceServiceCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Cancel().into()
+            IPortableDeviceServiceCapabilities_Impl::Cancel(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1538,12 +1538,12 @@ impl IPortableDeviceServiceManager_Vtbl {
         unsafe extern "system" fn GetDeviceServices<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceServiceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpnpdeviceid: windows_core::PCWSTR, guidservicecategory: *const windows_core::GUID, pservices: *mut windows_core::PWSTR, pcservices: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDeviceServices(core::mem::transmute(&pszpnpdeviceid), core::mem::transmute_copy(&guidservicecategory), core::mem::transmute_copy(&pservices), core::mem::transmute_copy(&pcservices)).into()
+            IPortableDeviceServiceManager_Impl::GetDeviceServices(this, core::mem::transmute(&pszpnpdeviceid), core::mem::transmute_copy(&guidservicecategory), core::mem::transmute_copy(&pservices), core::mem::transmute_copy(&pcservices)).into()
         }
         unsafe extern "system" fn GetDeviceForService<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceServiceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpnpserviceid: windows_core::PCWSTR, ppszpnpdeviceid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDeviceForService(core::mem::transmute(&pszpnpserviceid)) {
+            match IPortableDeviceServiceManager_Impl::GetDeviceForService(this, core::mem::transmute(&pszpnpserviceid)) {
                 Ok(ok__) => {
                     core::ptr::write(ppszpnpdeviceid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1570,7 +1570,7 @@ impl IPortableDeviceServiceMethodCallback_Vtbl {
         unsafe extern "system" fn OnComplete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceServiceMethodCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrstatus: windows_core::HRESULT, presults: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnComplete(core::mem::transmute_copy(&hrstatus), windows_core::from_raw_borrowed(&presults)).into()
+            IPortableDeviceServiceMethodCallback_Impl::OnComplete(this, core::mem::transmute_copy(&hrstatus), windows_core::from_raw_borrowed(&presults)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnComplete: OnComplete::<Identity, Impl, OFFSET> }
     }
@@ -1589,17 +1589,17 @@ impl IPortableDeviceServiceMethods_Vtbl {
         unsafe extern "system" fn Invoke<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceServiceMethods_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, method: *const windows_core::GUID, pparameters: *mut core::ffi::c_void, ppresults: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Invoke(core::mem::transmute_copy(&method), windows_core::from_raw_borrowed(&pparameters), core::mem::transmute_copy(&ppresults)).into()
+            IPortableDeviceServiceMethods_Impl::Invoke(this, core::mem::transmute_copy(&method), windows_core::from_raw_borrowed(&pparameters), core::mem::transmute_copy(&ppresults)).into()
         }
         unsafe extern "system" fn InvokeAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceServiceMethods_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, method: *const windows_core::GUID, pparameters: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InvokeAsync(core::mem::transmute_copy(&method), windows_core::from_raw_borrowed(&pparameters), windows_core::from_raw_borrowed(&pcallback)).into()
+            IPortableDeviceServiceMethods_Impl::InvokeAsync(this, core::mem::transmute_copy(&method), windows_core::from_raw_borrowed(&pparameters), windows_core::from_raw_borrowed(&pcallback)).into()
         }
         unsafe extern "system" fn Cancel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceServiceMethods_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Cancel(windows_core::from_raw_borrowed(&pcallback)).into()
+            IPortableDeviceServiceMethods_Impl::Cancel(this, windows_core::from_raw_borrowed(&pcallback)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1621,7 +1621,7 @@ impl IPortableDeviceServiceOpenCallback_Vtbl {
         unsafe extern "system" fn OnComplete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceServiceOpenCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrstatus: windows_core::HRESULT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnComplete(core::mem::transmute_copy(&hrstatus)).into()
+            IPortableDeviceServiceOpenCallback_Impl::OnComplete(this, core::mem::transmute_copy(&hrstatus)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnComplete: OnComplete::<Identity, Impl, OFFSET> }
     }
@@ -1639,12 +1639,12 @@ impl IPortableDeviceUnitsStream_Vtbl {
         unsafe extern "system" fn SeekInUnits<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceUnitsStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dlibmove: i64, units: WPD_STREAM_UNITS, dworigin: u32, plibnewposition: *mut u64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SeekInUnits(core::mem::transmute_copy(&dlibmove), core::mem::transmute_copy(&units), core::mem::transmute_copy(&dworigin), core::mem::transmute_copy(&plibnewposition)).into()
+            IPortableDeviceUnitsStream_Impl::SeekInUnits(this, core::mem::transmute_copy(&dlibmove), core::mem::transmute_copy(&units), core::mem::transmute_copy(&dworigin), core::mem::transmute_copy(&plibnewposition)).into()
         }
         unsafe extern "system" fn Cancel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceUnitsStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Cancel().into()
+            IPortableDeviceUnitsStream_Impl::Cancel(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1707,22 +1707,22 @@ impl IPortableDeviceValues_Vtbl {
         unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *const u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetCount(core::mem::transmute_copy(&pcelt)).into()
+            IPortableDeviceValues_Impl::GetCount(this, core::mem::transmute_copy(&pcelt)).into()
         }
         unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetAt(core::mem::transmute_copy(&index), core::mem::transmute_copy(&pkey), core::mem::transmute_copy(&pvalue)).into()
+            IPortableDeviceValues_Impl::GetAt(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pkey), core::mem::transmute_copy(&pvalue)).into()
         }
         unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *const std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetValue(core::mem::transmute_copy(&key), core::mem::transmute_copy(&pvalue)).into()
+            IPortableDeviceValues_Impl::SetValue(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&pvalue)).into()
         }
         unsafe extern "system" fn GetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetValue(core::mem::transmute_copy(&key)) {
+            match IPortableDeviceValues_Impl::GetValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
                     core::ptr::write(pvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1733,12 +1733,12 @@ impl IPortableDeviceValues_Vtbl {
         unsafe extern "system" fn SetStringValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetStringValue(core::mem::transmute_copy(&key), core::mem::transmute(&value)).into()
+            IPortableDeviceValues_Impl::SetStringValue(this, core::mem::transmute_copy(&key), core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn GetStringValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStringValue(core::mem::transmute_copy(&key)) {
+            match IPortableDeviceValues_Impl::GetStringValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
                     core::ptr::write(pvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1749,12 +1749,12 @@ impl IPortableDeviceValues_Vtbl {
         unsafe extern "system" fn SetUnsignedIntegerValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetUnsignedIntegerValue(core::mem::transmute_copy(&key), core::mem::transmute_copy(&value)).into()
+            IPortableDeviceValues_Impl::SetUnsignedIntegerValue(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn GetUnsignedIntegerValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetUnsignedIntegerValue(core::mem::transmute_copy(&key)) {
+            match IPortableDeviceValues_Impl::GetUnsignedIntegerValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
                     core::ptr::write(pvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1765,12 +1765,12 @@ impl IPortableDeviceValues_Vtbl {
         unsafe extern "system" fn SetSignedIntegerValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSignedIntegerValue(core::mem::transmute_copy(&key), core::mem::transmute_copy(&value)).into()
+            IPortableDeviceValues_Impl::SetSignedIntegerValue(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn GetSignedIntegerValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSignedIntegerValue(core::mem::transmute_copy(&key)) {
+            match IPortableDeviceValues_Impl::GetSignedIntegerValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
                     core::ptr::write(pvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1781,12 +1781,12 @@ impl IPortableDeviceValues_Vtbl {
         unsafe extern "system" fn SetUnsignedLargeIntegerValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: u64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetUnsignedLargeIntegerValue(core::mem::transmute_copy(&key), core::mem::transmute_copy(&value)).into()
+            IPortableDeviceValues_Impl::SetUnsignedLargeIntegerValue(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn GetUnsignedLargeIntegerValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut u64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetUnsignedLargeIntegerValue(core::mem::transmute_copy(&key)) {
+            match IPortableDeviceValues_Impl::GetUnsignedLargeIntegerValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
                     core::ptr::write(pvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1797,12 +1797,12 @@ impl IPortableDeviceValues_Vtbl {
         unsafe extern "system" fn SetSignedLargeIntegerValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: i64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSignedLargeIntegerValue(core::mem::transmute_copy(&key), core::mem::transmute_copy(&value)).into()
+            IPortableDeviceValues_Impl::SetSignedLargeIntegerValue(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn GetSignedLargeIntegerValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut i64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSignedLargeIntegerValue(core::mem::transmute_copy(&key)) {
+            match IPortableDeviceValues_Impl::GetSignedLargeIntegerValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
                     core::ptr::write(pvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1813,12 +1813,12 @@ impl IPortableDeviceValues_Vtbl {
         unsafe extern "system" fn SetFloatValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFloatValue(core::mem::transmute_copy(&key), core::mem::transmute_copy(&value)).into()
+            IPortableDeviceValues_Impl::SetFloatValue(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn GetFloatValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFloatValue(core::mem::transmute_copy(&key)) {
+            match IPortableDeviceValues_Impl::GetFloatValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
                     core::ptr::write(pvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1829,12 +1829,12 @@ impl IPortableDeviceValues_Vtbl {
         unsafe extern "system" fn SetErrorValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: windows_core::HRESULT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetErrorValue(core::mem::transmute_copy(&key), core::mem::transmute_copy(&value)).into()
+            IPortableDeviceValues_Impl::SetErrorValue(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn GetErrorValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut windows_core::HRESULT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetErrorValue(core::mem::transmute_copy(&key)) {
+            match IPortableDeviceValues_Impl::GetErrorValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
                     core::ptr::write(pvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1845,22 +1845,22 @@ impl IPortableDeviceValues_Vtbl {
         unsafe extern "system" fn SetKeyValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetKeyValue(core::mem::transmute_copy(&key), core::mem::transmute_copy(&value)).into()
+            IPortableDeviceValues_Impl::SetKeyValue(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn GetKeyValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetKeyValue(core::mem::transmute_copy(&key), core::mem::transmute_copy(&pvalue)).into()
+            IPortableDeviceValues_Impl::GetKeyValue(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&pvalue)).into()
         }
         unsafe extern "system" fn SetBoolValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBoolValue(core::mem::transmute_copy(&key), core::mem::transmute_copy(&value)).into()
+            IPortableDeviceValues_Impl::SetBoolValue(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn GetBoolValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetBoolValue(core::mem::transmute_copy(&key)) {
+            match IPortableDeviceValues_Impl::GetBoolValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
                     core::ptr::write(pvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1871,12 +1871,12 @@ impl IPortableDeviceValues_Vtbl {
         unsafe extern "system" fn SetIUnknownValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetIUnknownValue(core::mem::transmute_copy(&key), windows_core::from_raw_borrowed(&pvalue)).into()
+            IPortableDeviceValues_Impl::SetIUnknownValue(this, core::mem::transmute_copy(&key), windows_core::from_raw_borrowed(&pvalue)).into()
         }
         unsafe extern "system" fn GetIUnknownValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetIUnknownValue(core::mem::transmute_copy(&key)) {
+            match IPortableDeviceValues_Impl::GetIUnknownValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
                     core::ptr::write(ppvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1887,12 +1887,12 @@ impl IPortableDeviceValues_Vtbl {
         unsafe extern "system" fn SetGuidValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: *const windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetGuidValue(core::mem::transmute_copy(&key), core::mem::transmute_copy(&value)).into()
+            IPortableDeviceValues_Impl::SetGuidValue(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn GetGuidValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetGuidValue(core::mem::transmute_copy(&key)) {
+            match IPortableDeviceValues_Impl::GetGuidValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
                     core::ptr::write(pvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1903,22 +1903,22 @@ impl IPortableDeviceValues_Vtbl {
         unsafe extern "system" fn SetBufferValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *const u8, cbvalue: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBufferValue(core::mem::transmute_copy(&key), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&cbvalue)).into()
+            IPortableDeviceValues_Impl::SetBufferValue(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&cbvalue)).into()
         }
         unsafe extern "system" fn GetBufferValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppvalue: *mut *mut u8, pcbvalue: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetBufferValue(core::mem::transmute_copy(&key), core::mem::transmute_copy(&ppvalue), core::mem::transmute_copy(&pcbvalue)).into()
+            IPortableDeviceValues_Impl::GetBufferValue(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&ppvalue), core::mem::transmute_copy(&pcbvalue)).into()
         }
         unsafe extern "system" fn SetIPortableDeviceValuesValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetIPortableDeviceValuesValue(core::mem::transmute_copy(&key), windows_core::from_raw_borrowed(&pvalue)).into()
+            IPortableDeviceValues_Impl::SetIPortableDeviceValuesValue(this, core::mem::transmute_copy(&key), windows_core::from_raw_borrowed(&pvalue)).into()
         }
         unsafe extern "system" fn GetIPortableDeviceValuesValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetIPortableDeviceValuesValue(core::mem::transmute_copy(&key)) {
+            match IPortableDeviceValues_Impl::GetIPortableDeviceValuesValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
                     core::ptr::write(ppvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1929,12 +1929,12 @@ impl IPortableDeviceValues_Vtbl {
         unsafe extern "system" fn SetIPortableDevicePropVariantCollectionValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetIPortableDevicePropVariantCollectionValue(core::mem::transmute_copy(&key), windows_core::from_raw_borrowed(&pvalue)).into()
+            IPortableDeviceValues_Impl::SetIPortableDevicePropVariantCollectionValue(this, core::mem::transmute_copy(&key), windows_core::from_raw_borrowed(&pvalue)).into()
         }
         unsafe extern "system" fn GetIPortableDevicePropVariantCollectionValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetIPortableDevicePropVariantCollectionValue(core::mem::transmute_copy(&key)) {
+            match IPortableDeviceValues_Impl::GetIPortableDevicePropVariantCollectionValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
                     core::ptr::write(ppvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1945,12 +1945,12 @@ impl IPortableDeviceValues_Vtbl {
         unsafe extern "system" fn SetIPortableDeviceKeyCollectionValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetIPortableDeviceKeyCollectionValue(core::mem::transmute_copy(&key), windows_core::from_raw_borrowed(&pvalue)).into()
+            IPortableDeviceValues_Impl::SetIPortableDeviceKeyCollectionValue(this, core::mem::transmute_copy(&key), windows_core::from_raw_borrowed(&pvalue)).into()
         }
         unsafe extern "system" fn GetIPortableDeviceKeyCollectionValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetIPortableDeviceKeyCollectionValue(core::mem::transmute_copy(&key)) {
+            match IPortableDeviceValues_Impl::GetIPortableDeviceKeyCollectionValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
                     core::ptr::write(ppvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1961,12 +1961,12 @@ impl IPortableDeviceValues_Vtbl {
         unsafe extern "system" fn SetIPortableDeviceValuesCollectionValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetIPortableDeviceValuesCollectionValue(core::mem::transmute_copy(&key), windows_core::from_raw_borrowed(&pvalue)).into()
+            IPortableDeviceValues_Impl::SetIPortableDeviceValuesCollectionValue(this, core::mem::transmute_copy(&key), windows_core::from_raw_borrowed(&pvalue)).into()
         }
         unsafe extern "system" fn GetIPortableDeviceValuesCollectionValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetIPortableDeviceValuesCollectionValue(core::mem::transmute_copy(&key)) {
+            match IPortableDeviceValues_Impl::GetIPortableDeviceValuesCollectionValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
                     core::ptr::write(ppvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1977,22 +1977,22 @@ impl IPortableDeviceValues_Vtbl {
         unsafe extern "system" fn RemoveValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveValue(core::mem::transmute_copy(&key)).into()
+            IPortableDeviceValues_Impl::RemoveValue(this, core::mem::transmute_copy(&key)).into()
         }
         unsafe extern "system" fn CopyValuesFromPropertyStore<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstore: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CopyValuesFromPropertyStore(windows_core::from_raw_borrowed(&pstore)).into()
+            IPortableDeviceValues_Impl::CopyValuesFromPropertyStore(this, windows_core::from_raw_borrowed(&pstore)).into()
         }
         unsafe extern "system" fn CopyValuesToPropertyStore<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstore: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CopyValuesToPropertyStore(windows_core::from_raw_borrowed(&pstore)).into()
+            IPortableDeviceValues_Impl::CopyValuesToPropertyStore(this, windows_core::from_raw_borrowed(&pstore)).into()
         }
         unsafe extern "system" fn Clear<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Clear().into()
+            IPortableDeviceValues_Impl::Clear(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -2055,12 +2055,12 @@ impl IPortableDeviceValuesCollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValuesCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelems: *const u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetCount(core::mem::transmute_copy(&pcelems)).into()
+            IPortableDeviceValuesCollection_Impl::GetCount(this, core::mem::transmute_copy(&pcelems)).into()
         }
         unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValuesCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: u32, ppvalues: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAt(core::mem::transmute_copy(&dwindex)) {
+            match IPortableDeviceValuesCollection_Impl::GetAt(this, core::mem::transmute_copy(&dwindex)) {
                 Ok(ok__) => {
                     core::ptr::write(ppvalues, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2071,17 +2071,17 @@ impl IPortableDeviceValuesCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValuesCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalues: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Add(windows_core::from_raw_borrowed(&pvalues)).into()
+            IPortableDeviceValuesCollection_Impl::Add(this, windows_core::from_raw_borrowed(&pvalues)).into()
         }
         unsafe extern "system" fn Clear<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValuesCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Clear().into()
+            IPortableDeviceValuesCollection_Impl::Clear(this).into()
         }
         unsafe extern "system" fn RemoveAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceValuesCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAt(core::mem::transmute_copy(&dwindex)).into()
+            IPortableDeviceValuesCollection_Impl::RemoveAt(this, core::mem::transmute_copy(&dwindex)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -2109,7 +2109,7 @@ impl IPortableDeviceWebControl_Vtbl {
         unsafe extern "system" fn GetDeviceFromId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceWebControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceid: std::mem::MaybeUninit<windows_core::BSTR>, ppdevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDeviceFromId(core::mem::transmute(&deviceid)) {
+            match IPortableDeviceWebControl_Impl::GetDeviceFromId(this, core::mem::transmute(&deviceid)) {
                 Ok(ok__) => {
                     core::ptr::write(ppdevice, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2120,7 +2120,7 @@ impl IPortableDeviceWebControl_Vtbl {
         unsafe extern "system" fn GetDeviceFromIdAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceWebControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceid: std::mem::MaybeUninit<windows_core::BSTR>, pcompletionhandler: *mut core::ffi::c_void, perrorhandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDeviceFromIdAsync(core::mem::transmute(&deviceid), windows_core::from_raw_borrowed(&pcompletionhandler), windows_core::from_raw_borrowed(&perrorhandler)).into()
+            IPortableDeviceWebControl_Impl::GetDeviceFromIdAsync(this, core::mem::transmute(&deviceid), windows_core::from_raw_borrowed(&pcompletionhandler), windows_core::from_raw_borrowed(&perrorhandler)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2147,7 +2147,7 @@ impl IRadioInstance_Vtbl {
         unsafe extern "system" fn GetRadioManagerSignature<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRadioInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidsignature: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRadioManagerSignature() {
+            match IRadioInstance_Impl::GetRadioManagerSignature(this) {
                 Ok(ok__) => {
                     core::ptr::write(pguidsignature, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2158,7 +2158,7 @@ impl IRadioInstance_Vtbl {
         unsafe extern "system" fn GetInstanceSignature<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRadioInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetInstanceSignature() {
+            match IRadioInstance_Impl::GetInstanceSignature(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2169,7 +2169,7 @@ impl IRadioInstance_Vtbl {
         unsafe extern "system" fn GetFriendlyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRadioInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcid: u32, pbstrname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFriendlyName(core::mem::transmute_copy(&lcid)) {
+            match IRadioInstance_Impl::GetFriendlyName(this, core::mem::transmute_copy(&lcid)) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2180,7 +2180,7 @@ impl IRadioInstance_Vtbl {
         unsafe extern "system" fn GetRadioState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRadioInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pradiostate: *mut DEVICE_RADIO_STATE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRadioState() {
+            match IRadioInstance_Impl::GetRadioState(this) {
                 Ok(ok__) => {
                     core::ptr::write(pradiostate, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2191,17 +2191,17 @@ impl IRadioInstance_Vtbl {
         unsafe extern "system" fn SetRadioState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRadioInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, radiostate: DEVICE_RADIO_STATE, utimeoutsec: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRadioState(core::mem::transmute_copy(&radiostate), core::mem::transmute_copy(&utimeoutsec)).into()
+            IRadioInstance_Impl::SetRadioState(this, core::mem::transmute_copy(&radiostate), core::mem::transmute_copy(&utimeoutsec)).into()
         }
         unsafe extern "system" fn IsMultiComm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRadioInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsMultiComm()
+            IRadioInstance_Impl::IsMultiComm(this)
         }
         unsafe extern "system" fn IsAssociatingDevice<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRadioInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::BOOL {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsAssociatingDevice()
+            IRadioInstance_Impl::IsAssociatingDevice(this)
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -2228,7 +2228,7 @@ impl IRadioInstanceCollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRadioInstanceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcinstance: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCount() {
+            match IRadioInstanceCollection_Impl::GetCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(pcinstance, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2239,7 +2239,7 @@ impl IRadioInstanceCollection_Vtbl {
         unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRadioInstanceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uindex: u32, ppradioinstance: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAt(core::mem::transmute_copy(&uindex)) {
+            match IRadioInstanceCollection_Impl::GetAt(this, core::mem::transmute_copy(&uindex)) {
                 Ok(ok__) => {
                     core::ptr::write(ppradioinstance, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2269,7 +2269,7 @@ impl IWpdSerializer_Vtbl {
         unsafe extern "system" fn GetIPortableDeviceValuesFromBuffer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWpdSerializer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: *const u8, dwinputbufferlength: u32, ppparams: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetIPortableDeviceValuesFromBuffer(core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&dwinputbufferlength)) {
+            match IWpdSerializer_Impl::GetIPortableDeviceValuesFromBuffer(this, core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&dwinputbufferlength)) {
                 Ok(ok__) => {
                     core::ptr::write(ppparams, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2280,17 +2280,17 @@ impl IWpdSerializer_Vtbl {
         unsafe extern "system" fn WriteIPortableDeviceValuesToBuffer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWpdSerializer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoutputbufferlength: u32, presults: *mut core::ffi::c_void, pbuffer: *mut u8, pdwbyteswritten: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.WriteIPortableDeviceValuesToBuffer(core::mem::transmute_copy(&dwoutputbufferlength), windows_core::from_raw_borrowed(&presults), core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&pdwbyteswritten)).into()
+            IWpdSerializer_Impl::WriteIPortableDeviceValuesToBuffer(this, core::mem::transmute_copy(&dwoutputbufferlength), windows_core::from_raw_borrowed(&presults), core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&pdwbyteswritten)).into()
         }
         unsafe extern "system" fn GetBufferFromIPortableDeviceValues<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWpdSerializer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psource: *mut core::ffi::c_void, ppbuffer: *mut *mut u8, pdwbuffersize: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetBufferFromIPortableDeviceValues(windows_core::from_raw_borrowed(&psource), core::mem::transmute_copy(&ppbuffer), core::mem::transmute_copy(&pdwbuffersize)).into()
+            IWpdSerializer_Impl::GetBufferFromIPortableDeviceValues(this, windows_core::from_raw_borrowed(&psource), core::mem::transmute_copy(&ppbuffer), core::mem::transmute_copy(&pdwbuffersize)).into()
         }
         unsafe extern "system" fn GetSerializedSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWpdSerializer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psource: *mut core::ffi::c_void, pdwsize: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSerializedSize(windows_core::from_raw_borrowed(&psource)) {
+            match IWpdSerializer_Impl::GetSerializedSize(this, windows_core::from_raw_borrowed(&psource)) {
                 Ok(ok__) => {
                     core::ptr::write(pdwsize, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

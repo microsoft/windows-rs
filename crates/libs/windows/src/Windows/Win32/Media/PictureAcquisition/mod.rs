@@ -1,4 +1,10 @@
 windows_core::imp::define_interface!(IPhotoAcquire, IPhotoAcquire_Vtbl, 0x00f23353_e31b_4955_a8ad_ca5ebf31e2ce);
+impl std::ops::Deref for IPhotoAcquire {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPhotoAcquire, windows_core::IUnknown);
 impl IPhotoAcquire {
     pub unsafe fn CreatePhotoSource<P0>(&self, pszdevice: P0) -> windows_core::Result<IPhotoAcquireSource>
@@ -35,6 +41,12 @@ pub struct IPhotoAcquire_Vtbl {
     EnumResults: usize,
 }
 windows_core::imp::define_interface!(IPhotoAcquireDeviceSelectionDialog, IPhotoAcquireDeviceSelectionDialog_Vtbl, 0x00f28837_55dd_4f37_aaf5_6855a9640467);
+impl std::ops::Deref for IPhotoAcquireDeviceSelectionDialog {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPhotoAcquireDeviceSelectionDialog, windows_core::IUnknown);
 impl IPhotoAcquireDeviceSelectionDialog {
     pub unsafe fn SetTitle<P0>(&self, psztitle: P0) -> windows_core::Result<()>
@@ -64,6 +76,12 @@ pub struct IPhotoAcquireDeviceSelectionDialog_Vtbl {
     pub DoModal: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, u32, *mut std::mem::MaybeUninit<windows_core::BSTR>, *mut DEVICE_SELECTION_DEVICE_TYPE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhotoAcquireItem, IPhotoAcquireItem_Vtbl, 0x00f21c97_28bf_4c02_b842_5e4e90139a30);
+impl std::ops::Deref for IPhotoAcquireItem {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPhotoAcquireItem, windows_core::IUnknown);
 impl IPhotoAcquireItem {
     pub unsafe fn GetItemName(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -131,6 +149,12 @@ pub struct IPhotoAcquireItem_Vtbl {
     pub GetSubItemAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhotoAcquireOptionsDialog, IPhotoAcquireOptionsDialog_Vtbl, 0x00f2b3ee_bf64_47ee_89f4_4dedd79643f2);
+impl std::ops::Deref for IPhotoAcquireOptionsDialog {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPhotoAcquireOptionsDialog, windows_core::IUnknown);
 impl IPhotoAcquireOptionsDialog {
     pub unsafe fn Initialize<P0>(&self, pszregistryroot: P0) -> windows_core::Result<()>
@@ -169,6 +193,12 @@ pub struct IPhotoAcquireOptionsDialog_Vtbl {
     pub SaveData: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhotoAcquirePlugin, IPhotoAcquirePlugin_Vtbl, 0x00f2dceb_ecb8_4f77_8e47_e7a987c83dd0);
+impl std::ops::Deref for IPhotoAcquirePlugin {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPhotoAcquirePlugin, windows_core::IUnknown);
 impl IPhotoAcquirePlugin {
     pub unsafe fn Initialize<P0, P1>(&self, pphotoacquiresource: P0, pphotoacquireprogresscb: P1) -> windows_core::Result<()>
@@ -210,6 +240,12 @@ pub struct IPhotoAcquirePlugin_Vtbl {
     pub DisplayConfigureDialog: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhotoAcquireProgressCB, IPhotoAcquireProgressCB_Vtbl, 0x00f2ce1e_935e_4248_892c_130f32c45cb4);
+impl std::ops::Deref for IPhotoAcquireProgressCB {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPhotoAcquireProgressCB, windows_core::IUnknown);
 impl IPhotoAcquireProgressCB {
     pub unsafe fn Cancelled(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
@@ -333,6 +369,12 @@ pub struct IPhotoAcquireProgressCB_Vtbl {
     pub GetUserInput: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>, *const std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhotoAcquireSettings, IPhotoAcquireSettings_Vtbl, 0x00f2b868_dd67_487c_9553_049240767e91);
+impl std::ops::Deref for IPhotoAcquireSettings {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPhotoAcquireSettings, windows_core::IUnknown);
 impl IPhotoAcquireSettings {
     pub unsafe fn InitializeFromRegistry<P0>(&self, pszregistrykey: P0) -> windows_core::Result<()>
@@ -411,6 +453,12 @@ pub struct IPhotoAcquireSettings_Vtbl {
     pub GetAcquisitionTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::FILETIME) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhotoAcquireSource, IPhotoAcquireSource_Vtbl, 0x00f2c703_8613_4282_a53b_6ec59c5883ac);
+impl std::ops::Deref for IPhotoAcquireSource {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPhotoAcquireSource, windows_core::IUnknown);
 impl IPhotoAcquireSource {
     pub unsafe fn GetFriendlyName(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -464,6 +512,12 @@ pub struct IPhotoAcquireSource_Vtbl {
     pub BindToObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhotoProgressActionCB, IPhotoProgressActionCB_Vtbl, 0x00f242d0_b206_4e7d_b4c1_4755bcbb9c9f);
+impl std::ops::Deref for IPhotoProgressActionCB {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPhotoProgressActionCB, windows_core::IUnknown);
 impl IPhotoProgressActionCB {
     pub unsafe fn DoAction<P0>(&self, hwndparent: P0) -> windows_core::Result<()>
@@ -479,6 +533,12 @@ pub struct IPhotoProgressActionCB_Vtbl {
     pub DoAction: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhotoProgressDialog, IPhotoProgressDialog_Vtbl, 0x00f246f9_0750_4f08_9381_2cd8e906a4ae);
+impl std::ops::Deref for IPhotoProgressDialog {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPhotoProgressDialog, windows_core::IUnknown);
 impl IPhotoProgressDialog {
     pub unsafe fn Create<P0>(&self, hwndparent: P0) -> windows_core::Result<()>
@@ -606,6 +666,12 @@ pub struct IPhotoProgressDialog_Vtbl {
     pub GetUserInput: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::PROPVARIANT>, *const std::mem::MaybeUninit<windows_core::PROPVARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUserInputString, IUserInputString_Vtbl, 0x00f243a1_205b_45ba_ae26_abbc53aa7a6f);
+impl std::ops::Deref for IUserInputString {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IUserInputString, windows_core::IUnknown);
 impl IUserInputString {
     pub unsafe fn GetSubmitButtonText(&self) -> windows_core::Result<windows_core::BSTR> {

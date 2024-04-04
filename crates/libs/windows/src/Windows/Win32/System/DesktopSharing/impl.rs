@@ -15,7 +15,7 @@ impl IRDPSRAPIApplication_Vtbl {
         unsafe extern "system" fn Windows<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwindowlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Windows() {
+            match IRDPSRAPIApplication_Impl::Windows(this) {
                 Ok(ok__) => {
                     core::ptr::write(pwindowlist, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -26,7 +26,7 @@ impl IRDPSRAPIApplication_Vtbl {
         unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Id() {
+            match IRDPSRAPIApplication_Impl::Id(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -37,7 +37,7 @@ impl IRDPSRAPIApplication_Vtbl {
         unsafe extern "system" fn Shared<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Shared() {
+            match IRDPSRAPIApplication_Impl::Shared(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -48,12 +48,12 @@ impl IRDPSRAPIApplication_Vtbl {
         unsafe extern "system" fn SetShared<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetShared(core::mem::transmute_copy(&newval)).into()
+            IRDPSRAPIApplication_Impl::SetShared(this, core::mem::transmute_copy(&newval)).into()
         }
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IRDPSRAPIApplication_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -64,7 +64,7 @@ impl IRDPSRAPIApplication_Vtbl {
         unsafe extern "system" fn Flags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwflags: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Flags() {
+            match IRDPSRAPIApplication_Impl::Flags(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdwflags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -101,7 +101,7 @@ impl IRDPSRAPIApplicationFilter_Vtbl {
         unsafe extern "system" fn Applications<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIApplicationFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, papplications: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Applications() {
+            match IRDPSRAPIApplicationFilter_Impl::Applications(this) {
                 Ok(ok__) => {
                     core::ptr::write(papplications, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -112,7 +112,7 @@ impl IRDPSRAPIApplicationFilter_Vtbl {
         unsafe extern "system" fn Windows<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIApplicationFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwindows: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Windows() {
+            match IRDPSRAPIApplicationFilter_Impl::Windows(this) {
                 Ok(ok__) => {
                     core::ptr::write(pwindows, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -123,7 +123,7 @@ impl IRDPSRAPIApplicationFilter_Vtbl {
         unsafe extern "system" fn Enabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIApplicationFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Enabled() {
+            match IRDPSRAPIApplicationFilter_Impl::Enabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -134,7 +134,7 @@ impl IRDPSRAPIApplicationFilter_Vtbl {
         unsafe extern "system" fn SetEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIApplicationFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEnabled(core::mem::transmute_copy(&newval)).into()
+            IRDPSRAPIApplicationFilter_Impl::SetEnabled(this, core::mem::transmute_copy(&newval)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -161,7 +161,7 @@ impl IRDPSRAPIApplicationList_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIApplicationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IRDPSRAPIApplicationList_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -172,7 +172,7 @@ impl IRDPSRAPIApplicationList_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIApplicationList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: i32, papplication: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute_copy(&item)) {
+            match IRDPSRAPIApplicationList_Impl::get_Item(this, core::mem::transmute_copy(&item)) {
                 Ok(ok__) => {
                     core::ptr::write(papplication, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -209,7 +209,7 @@ impl IRDPSRAPIAttendee_Vtbl {
         unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIAttendee_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pid: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Id() {
+            match IRDPSRAPIAttendee_Impl::Id(this) {
                 Ok(ok__) => {
                     core::ptr::write(pid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -220,7 +220,7 @@ impl IRDPSRAPIAttendee_Vtbl {
         unsafe extern "system" fn RemoteName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIAttendee_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RemoteName() {
+            match IRDPSRAPIAttendee_Impl::RemoteName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -231,7 +231,7 @@ impl IRDPSRAPIAttendee_Vtbl {
         unsafe extern "system" fn ControlLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIAttendee_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut CTRL_LEVEL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ControlLevel() {
+            match IRDPSRAPIAttendee_Impl::ControlLevel(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -242,12 +242,12 @@ impl IRDPSRAPIAttendee_Vtbl {
         unsafe extern "system" fn SetControlLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIAttendee_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnewval: CTRL_LEVEL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetControlLevel(core::mem::transmute_copy(&pnewval)).into()
+            IRDPSRAPIAttendee_Impl::SetControlLevel(this, core::mem::transmute_copy(&pnewval)).into()
         }
         unsafe extern "system" fn Invitation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIAttendee_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Invitation() {
+            match IRDPSRAPIAttendee_Impl::Invitation(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -258,12 +258,12 @@ impl IRDPSRAPIAttendee_Vtbl {
         unsafe extern "system" fn TerminateConnection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIAttendee_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.TerminateConnection().into()
+            IRDPSRAPIAttendee_Impl::TerminateConnection(this).into()
         }
         unsafe extern "system" fn Flags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIAttendee_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plflags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Flags() {
+            match IRDPSRAPIAttendee_Impl::Flags(this) {
                 Ok(ok__) => {
                     core::ptr::write(plflags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -274,7 +274,7 @@ impl IRDPSRAPIAttendee_Vtbl {
         unsafe extern "system" fn ConnectivityInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIAttendee_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ConnectivityInfo() {
+            match IRDPSRAPIAttendee_Impl::ConnectivityInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -312,7 +312,7 @@ impl IRDPSRAPIAttendeeDisconnectInfo_Vtbl {
         unsafe extern "system" fn Attendee<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIAttendeeDisconnectInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Attendee() {
+            match IRDPSRAPIAttendeeDisconnectInfo_Impl::Attendee(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -323,7 +323,7 @@ impl IRDPSRAPIAttendeeDisconnectInfo_Vtbl {
         unsafe extern "system" fn Reason<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIAttendeeDisconnectInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, preason: *mut ATTENDEE_DISCONNECT_REASON) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Reason() {
+            match IRDPSRAPIAttendeeDisconnectInfo_Impl::Reason(this) {
                 Ok(ok__) => {
                     core::ptr::write(preason, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -334,7 +334,7 @@ impl IRDPSRAPIAttendeeDisconnectInfo_Vtbl {
         unsafe extern "system" fn Code<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIAttendeeDisconnectInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Code() {
+            match IRDPSRAPIAttendeeDisconnectInfo_Impl::Code(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -366,7 +366,7 @@ impl IRDPSRAPIAttendeeManager_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIAttendeeManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IRDPSRAPIAttendeeManager_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -377,7 +377,7 @@ impl IRDPSRAPIAttendeeManager_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIAttendeeManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: i32, ppitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute_copy(&id)) {
+            match IRDPSRAPIAttendeeManager_Impl::get_Item(this, core::mem::transmute_copy(&id)) {
                 Ok(ok__) => {
                     core::ptr::write(ppitem, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -408,7 +408,7 @@ impl IRDPSRAPIAudioStream_Vtbl {
         unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIAudioStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnperiodinhundrednsintervals: *mut i64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Initialize() {
+            match IRDPSRAPIAudioStream_Impl::Initialize(this) {
                 Ok(ok__) => {
                     core::ptr::write(pnperiodinhundrednsintervals, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -419,22 +419,22 @@ impl IRDPSRAPIAudioStream_Vtbl {
         unsafe extern "system" fn Start<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIAudioStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Start().into()
+            IRDPSRAPIAudioStream_Impl::Start(this).into()
         }
         unsafe extern "system" fn Stop<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIAudioStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Stop().into()
+            IRDPSRAPIAudioStream_Impl::Stop(this).into()
         }
         unsafe extern "system" fn GetBuffer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIAudioStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppbdata: *mut *mut u8, pcbdata: *mut u32, ptimestamp: *mut u64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetBuffer(core::mem::transmute_copy(&ppbdata), core::mem::transmute_copy(&pcbdata), core::mem::transmute_copy(&ptimestamp)).into()
+            IRDPSRAPIAudioStream_Impl::GetBuffer(this, core::mem::transmute_copy(&ppbdata), core::mem::transmute_copy(&pcbdata), core::mem::transmute_copy(&ptimestamp)).into()
         }
         unsafe extern "system" fn FreeBuffer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIAudioStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.FreeBuffer().into()
+            IRDPSRAPIAudioStream_Impl::FreeBuffer(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -461,7 +461,7 @@ impl IRDPSRAPIClipboardUseEvents_Vtbl {
         unsafe extern "system" fn OnPasteFromClipboard<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIClipboardUseEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clipboardformat: u32, pattendee: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OnPasteFromClipboard(core::mem::transmute_copy(&clipboardformat), windows_core::from_raw_borrowed(&pattendee)) {
+            match IRDPSRAPIClipboardUseEvents_Impl::OnPasteFromClipboard(this, core::mem::transmute_copy(&clipboardformat), windows_core::from_raw_borrowed(&pattendee)) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -485,12 +485,12 @@ impl IRDPSRAPIDebug_Vtbl {
         unsafe extern "system" fn SetCLXCmdLine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIDebug_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clxcmdline: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCLXCmdLine(core::mem::transmute(&clxcmdline)).into()
+            IRDPSRAPIDebug_Impl::SetCLXCmdLine(this, core::mem::transmute(&clxcmdline)).into()
         }
         unsafe extern "system" fn CLXCmdLine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIDebug_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclxcmdline: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CLXCmdLine() {
+            match IRDPSRAPIDebug_Impl::CLXCmdLine(this) {
                 Ok(ok__) => {
                     core::ptr::write(pclxcmdline, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -523,7 +523,7 @@ impl IRDPSRAPIFrameBuffer_Vtbl {
         unsafe extern "system" fn Width<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIFrameBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plwidth: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Width() {
+            match IRDPSRAPIFrameBuffer_Impl::Width(this) {
                 Ok(ok__) => {
                     core::ptr::write(plwidth, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -534,7 +534,7 @@ impl IRDPSRAPIFrameBuffer_Vtbl {
         unsafe extern "system" fn Height<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIFrameBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plheight: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Height() {
+            match IRDPSRAPIFrameBuffer_Impl::Height(this) {
                 Ok(ok__) => {
                     core::ptr::write(plheight, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -545,7 +545,7 @@ impl IRDPSRAPIFrameBuffer_Vtbl {
         unsafe extern "system" fn Bpp<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIFrameBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plbpp: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Bpp() {
+            match IRDPSRAPIFrameBuffer_Impl::Bpp(this) {
                 Ok(ok__) => {
                     core::ptr::write(plbpp, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -556,7 +556,7 @@ impl IRDPSRAPIFrameBuffer_Vtbl {
         unsafe extern "system" fn GetFrameBufferBits<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIFrameBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, x: i32, y: i32, width: i32, heigth: i32, ppbits: *mut *mut super::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFrameBufferBits(core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&width), core::mem::transmute_copy(&heigth)) {
+            match IRDPSRAPIFrameBuffer_Impl::GetFrameBufferBits(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&width), core::mem::transmute_copy(&heigth)) {
                 Ok(ok__) => {
                     core::ptr::write(ppbits, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -594,7 +594,7 @@ impl IRDPSRAPIInvitation_Vtbl {
         unsafe extern "system" fn ConnectionString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIInvitation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ConnectionString() {
+            match IRDPSRAPIInvitation_Impl::ConnectionString(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -605,7 +605,7 @@ impl IRDPSRAPIInvitation_Vtbl {
         unsafe extern "system" fn GroupName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIInvitation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GroupName() {
+            match IRDPSRAPIInvitation_Impl::GroupName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -616,7 +616,7 @@ impl IRDPSRAPIInvitation_Vtbl {
         unsafe extern "system" fn Password<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIInvitation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Password() {
+            match IRDPSRAPIInvitation_Impl::Password(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -627,7 +627,7 @@ impl IRDPSRAPIInvitation_Vtbl {
         unsafe extern "system" fn AttendeeLimit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIInvitation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AttendeeLimit() {
+            match IRDPSRAPIInvitation_Impl::AttendeeLimit(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -638,12 +638,12 @@ impl IRDPSRAPIInvitation_Vtbl {
         unsafe extern "system" fn SetAttendeeLimit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIInvitation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAttendeeLimit(core::mem::transmute_copy(&newval)).into()
+            IRDPSRAPIInvitation_Impl::SetAttendeeLimit(this, core::mem::transmute_copy(&newval)).into()
         }
         unsafe extern "system" fn Revoked<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIInvitation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Revoked() {
+            match IRDPSRAPIInvitation_Impl::Revoked(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -654,7 +654,7 @@ impl IRDPSRAPIInvitation_Vtbl {
         unsafe extern "system" fn SetRevoked<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIInvitation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRevoked(core::mem::transmute_copy(&newval)).into()
+            IRDPSRAPIInvitation_Impl::SetRevoked(this, core::mem::transmute_copy(&newval)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -686,7 +686,7 @@ impl IRDPSRAPIInvitationManager_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIInvitationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IRDPSRAPIInvitationManager_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -697,7 +697,7 @@ impl IRDPSRAPIInvitationManager_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIInvitationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: std::mem::MaybeUninit<windows_core::VARIANT>, ppinvitation: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute(&item)) {
+            match IRDPSRAPIInvitationManager_Impl::get_Item(this, core::mem::transmute(&item)) {
                 Ok(ok__) => {
                     core::ptr::write(ppinvitation, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -708,7 +708,7 @@ impl IRDPSRAPIInvitationManager_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIInvitationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IRDPSRAPIInvitationManager_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -719,7 +719,7 @@ impl IRDPSRAPIInvitationManager_Vtbl {
         unsafe extern "system" fn CreateInvitation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIInvitationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrauthstring: std::mem::MaybeUninit<windows_core::BSTR>, bstrgroupname: std::mem::MaybeUninit<windows_core::BSTR>, bstrpassword: std::mem::MaybeUninit<windows_core::BSTR>, attendeelimit: i32, ppinvitation: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateInvitation(core::mem::transmute(&bstrauthstring), core::mem::transmute(&bstrgroupname), core::mem::transmute(&bstrpassword), core::mem::transmute_copy(&attendeelimit)) {
+            match IRDPSRAPIInvitationManager_Impl::CreateInvitation(this, core::mem::transmute(&bstrauthstring), core::mem::transmute(&bstrgroupname), core::mem::transmute(&bstrpassword), core::mem::transmute_copy(&attendeelimit)) {
                 Ok(ok__) => {
                     core::ptr::write(ppinvitation, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -748,7 +748,7 @@ impl IRDPSRAPIPerfCounterLogger_Vtbl {
         unsafe extern "system" fn LogValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIPerfCounterLogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lvalue: i64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.LogValue(core::mem::transmute_copy(&lvalue)).into()
+            IRDPSRAPIPerfCounterLogger_Impl::LogValue(this, core::mem::transmute_copy(&lvalue)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), LogValue: LogValue::<Identity, Impl, OFFSET> }
     }
@@ -765,7 +765,7 @@ impl IRDPSRAPIPerfCounterLoggingManager_Vtbl {
         unsafe extern "system" fn CreateLogger<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIPerfCounterLoggingManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcountername: std::mem::MaybeUninit<windows_core::BSTR>, pplogger: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateLogger(core::mem::transmute(&bstrcountername)) {
+            match IRDPSRAPIPerfCounterLoggingManager_Impl::CreateLogger(this, core::mem::transmute(&bstrcountername)) {
                 Ok(ok__) => {
                     core::ptr::write(pplogger, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -792,7 +792,7 @@ impl IRDPSRAPISessionProperties_Vtbl {
         unsafe extern "system" fn get_Property<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPISessionProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyname: std::mem::MaybeUninit<windows_core::BSTR>, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Property(core::mem::transmute(&propertyname)) {
+            match IRDPSRAPISessionProperties_Impl::get_Property(this, core::mem::transmute(&propertyname)) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -803,7 +803,7 @@ impl IRDPSRAPISessionProperties_Vtbl {
         unsafe extern "system" fn put_Property<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPISessionProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyname: std::mem::MaybeUninit<windows_core::BSTR>, newval: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.put_Property(core::mem::transmute(&propertyname), core::mem::transmute(&newval)).into()
+            IRDPSRAPISessionProperties_Impl::put_Property(this, core::mem::transmute(&propertyname), core::mem::transmute(&newval)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -840,22 +840,22 @@ impl IRDPSRAPISharingSession_Vtbl {
         unsafe extern "system" fn Open<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPISharingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Open().into()
+            IRDPSRAPISharingSession_Impl::Open(this).into()
         }
         unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPISharingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Close().into()
+            IRDPSRAPISharingSession_Impl::Close(this).into()
         }
         unsafe extern "system" fn SetColorDepth<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPISharingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, colordepth: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetColorDepth(core::mem::transmute_copy(&colordepth)).into()
+            IRDPSRAPISharingSession_Impl::SetColorDepth(this, core::mem::transmute_copy(&colordepth)).into()
         }
         unsafe extern "system" fn ColorDepth<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPISharingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcolordepth: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ColorDepth() {
+            match IRDPSRAPISharingSession_Impl::ColorDepth(this) {
                 Ok(ok__) => {
                     core::ptr::write(pcolordepth, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -866,7 +866,7 @@ impl IRDPSRAPISharingSession_Vtbl {
         unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPISharingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Properties() {
+            match IRDPSRAPISharingSession_Impl::Properties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -877,7 +877,7 @@ impl IRDPSRAPISharingSession_Vtbl {
         unsafe extern "system" fn Attendees<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPISharingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Attendees() {
+            match IRDPSRAPISharingSession_Impl::Attendees(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -888,7 +888,7 @@ impl IRDPSRAPISharingSession_Vtbl {
         unsafe extern "system" fn Invitations<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPISharingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Invitations() {
+            match IRDPSRAPISharingSession_Impl::Invitations(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -899,7 +899,7 @@ impl IRDPSRAPISharingSession_Vtbl {
         unsafe extern "system" fn ApplicationFilter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPISharingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ApplicationFilter() {
+            match IRDPSRAPISharingSession_Impl::ApplicationFilter(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -910,7 +910,7 @@ impl IRDPSRAPISharingSession_Vtbl {
         unsafe extern "system" fn VirtualChannelManager<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPISharingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.VirtualChannelManager() {
+            match IRDPSRAPISharingSession_Impl::VirtualChannelManager(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -921,27 +921,27 @@ impl IRDPSRAPISharingSession_Vtbl {
         unsafe extern "system" fn Pause<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPISharingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Pause().into()
+            IRDPSRAPISharingSession_Impl::Pause(this).into()
         }
         unsafe extern "system" fn Resume<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPISharingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Resume().into()
+            IRDPSRAPISharingSession_Impl::Resume(this).into()
         }
         unsafe extern "system" fn ConnectToClient<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPISharingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrconnectionstring: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ConnectToClient(core::mem::transmute(&bstrconnectionstring)).into()
+            IRDPSRAPISharingSession_Impl::ConnectToClient(this, core::mem::transmute(&bstrconnectionstring)).into()
         }
         unsafe extern "system" fn SetDesktopSharedRect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPISharingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, left: i32, top: i32, right: i32, bottom: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDesktopSharedRect(core::mem::transmute_copy(&left), core::mem::transmute_copy(&top), core::mem::transmute_copy(&right), core::mem::transmute_copy(&bottom)).into()
+            IRDPSRAPISharingSession_Impl::SetDesktopSharedRect(this, core::mem::transmute_copy(&left), core::mem::transmute_copy(&top), core::mem::transmute_copy(&right), core::mem::transmute_copy(&bottom)).into()
         }
         unsafe extern "system" fn GetDesktopSharedRect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPISharingSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDesktopSharedRect(core::mem::transmute_copy(&pleft), core::mem::transmute_copy(&ptop), core::mem::transmute_copy(&pright), core::mem::transmute_copy(&pbottom)).into()
+            IRDPSRAPISharingSession_Impl::GetDesktopSharedRect(this, core::mem::transmute_copy(&pleft), core::mem::transmute_copy(&ptop), core::mem::transmute_copy(&pright), core::mem::transmute_copy(&pbottom)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -979,12 +979,12 @@ impl IRDPSRAPISharingSession2_Vtbl {
         unsafe extern "system" fn ConnectUsingTransportStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPISharingSession2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void, bstrgroup: std::mem::MaybeUninit<windows_core::BSTR>, bstrauthenticatedattendeename: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ConnectUsingTransportStream(windows_core::from_raw_borrowed(&pstream), core::mem::transmute(&bstrgroup), core::mem::transmute(&bstrauthenticatedattendeename)).into()
+            IRDPSRAPISharingSession2_Impl::ConnectUsingTransportStream(this, windows_core::from_raw_borrowed(&pstream), core::mem::transmute(&bstrgroup), core::mem::transmute(&bstrauthenticatedattendeename)).into()
         }
         unsafe extern "system" fn FrameBuffer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPISharingSession2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FrameBuffer() {
+            match IRDPSRAPISharingSession2_Impl::FrameBuffer(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -995,7 +995,7 @@ impl IRDPSRAPISharingSession2_Vtbl {
         unsafe extern "system" fn SendControlLevelChangeResponse<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPISharingSession2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pattendee: *mut core::ffi::c_void, requestedlevel: CTRL_LEVEL, reasoncode: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SendControlLevelChangeResponse(windows_core::from_raw_borrowed(&pattendee), core::mem::transmute_copy(&requestedlevel), core::mem::transmute_copy(&reasoncode)).into()
+            IRDPSRAPISharingSession2_Impl::SendControlLevelChangeResponse(this, windows_core::from_raw_borrowed(&pattendee), core::mem::transmute_copy(&requestedlevel), core::mem::transmute_copy(&reasoncode)).into()
         }
         Self {
             base__: IRDPSRAPISharingSession_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1024,7 +1024,7 @@ impl IRDPSRAPITcpConnectionInfo_Vtbl {
         unsafe extern "system" fn Protocol<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPITcpConnectionInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plprotocol: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Protocol() {
+            match IRDPSRAPITcpConnectionInfo_Impl::Protocol(this) {
                 Ok(ok__) => {
                     core::ptr::write(plprotocol, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1035,7 +1035,7 @@ impl IRDPSRAPITcpConnectionInfo_Vtbl {
         unsafe extern "system" fn LocalPort<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPITcpConnectionInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plport: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LocalPort() {
+            match IRDPSRAPITcpConnectionInfo_Impl::LocalPort(this) {
                 Ok(ok__) => {
                     core::ptr::write(plport, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1046,7 +1046,7 @@ impl IRDPSRAPITcpConnectionInfo_Vtbl {
         unsafe extern "system" fn LocalIP<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPITcpConnectionInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbsrlocalip: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LocalIP() {
+            match IRDPSRAPITcpConnectionInfo_Impl::LocalIP(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbsrlocalip, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1057,7 +1057,7 @@ impl IRDPSRAPITcpConnectionInfo_Vtbl {
         unsafe extern "system" fn PeerPort<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPITcpConnectionInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plport: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PeerPort() {
+            match IRDPSRAPITcpConnectionInfo_Impl::PeerPort(this) {
                 Ok(ok__) => {
                     core::ptr::write(plport, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1068,7 +1068,7 @@ impl IRDPSRAPITcpConnectionInfo_Vtbl {
         unsafe extern "system" fn PeerIP<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPITcpConnectionInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrip: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PeerIP() {
+            match IRDPSRAPITcpConnectionInfo_Impl::PeerIP(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrip, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1103,7 +1103,7 @@ impl IRDPSRAPITransportStream_Vtbl {
         unsafe extern "system" fn AllocBuffer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPITransportStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxpayload: i32, ppbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AllocBuffer(core::mem::transmute_copy(&maxpayload)) {
+            match IRDPSRAPITransportStream_Impl::AllocBuffer(this, core::mem::transmute_copy(&maxpayload)) {
                 Ok(ok__) => {
                     core::ptr::write(ppbuffer, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1114,27 +1114,27 @@ impl IRDPSRAPITransportStream_Vtbl {
         unsafe extern "system" fn FreeBuffer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPITransportStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.FreeBuffer(windows_core::from_raw_borrowed(&pbuffer)).into()
+            IRDPSRAPITransportStream_Impl::FreeBuffer(this, windows_core::from_raw_borrowed(&pbuffer)).into()
         }
         unsafe extern "system" fn WriteBuffer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPITransportStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.WriteBuffer(windows_core::from_raw_borrowed(&pbuffer)).into()
+            IRDPSRAPITransportStream_Impl::WriteBuffer(this, windows_core::from_raw_borrowed(&pbuffer)).into()
         }
         unsafe extern "system" fn ReadBuffer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPITransportStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ReadBuffer(windows_core::from_raw_borrowed(&pbuffer)).into()
+            IRDPSRAPITransportStream_Impl::ReadBuffer(this, windows_core::from_raw_borrowed(&pbuffer)).into()
         }
         unsafe extern "system" fn Open<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPITransportStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallbacks: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Open(windows_core::from_raw_borrowed(&pcallbacks)).into()
+            IRDPSRAPITransportStream_Impl::Open(this, windows_core::from_raw_borrowed(&pcallbacks)).into()
         }
         unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPITransportStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Close().into()
+            IRDPSRAPITransportStream_Impl::Close(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1168,7 +1168,7 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
         unsafe extern "system" fn Storage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPITransportStreamBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppbstorage: *mut *mut u8) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Storage() {
+            match IRDPSRAPITransportStreamBuffer_Impl::Storage(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppbstorage, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1179,7 +1179,7 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
         unsafe extern "system" fn StorageSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPITransportStreamBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmaxstore: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.StorageSize() {
+            match IRDPSRAPITransportStreamBuffer_Impl::StorageSize(this) {
                 Ok(ok__) => {
                     core::ptr::write(plmaxstore, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1190,7 +1190,7 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
         unsafe extern "system" fn PayloadSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPITransportStreamBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plretval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PayloadSize() {
+            match IRDPSRAPITransportStreamBuffer_Impl::PayloadSize(this) {
                 Ok(ok__) => {
                     core::ptr::write(plretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1201,12 +1201,12 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
         unsafe extern "system" fn SetPayloadSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPITransportStreamBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lval: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPayloadSize(core::mem::transmute_copy(&lval)).into()
+            IRDPSRAPITransportStreamBuffer_Impl::SetPayloadSize(this, core::mem::transmute_copy(&lval)).into()
         }
         unsafe extern "system" fn PayloadOffset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPITransportStreamBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plretval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PayloadOffset() {
+            match IRDPSRAPITransportStreamBuffer_Impl::PayloadOffset(this) {
                 Ok(ok__) => {
                     core::ptr::write(plretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1217,12 +1217,12 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
         unsafe extern "system" fn SetPayloadOffset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPITransportStreamBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lretval: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPayloadOffset(core::mem::transmute_copy(&lretval)).into()
+            IRDPSRAPITransportStreamBuffer_Impl::SetPayloadOffset(this, core::mem::transmute_copy(&lretval)).into()
         }
         unsafe extern "system" fn Flags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPITransportStreamBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plflags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Flags() {
+            match IRDPSRAPITransportStreamBuffer_Impl::Flags(this) {
                 Ok(ok__) => {
                     core::ptr::write(plflags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1233,12 +1233,12 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
         unsafe extern "system" fn SetFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPITransportStreamBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFlags(core::mem::transmute_copy(&lflags)).into()
+            IRDPSRAPITransportStreamBuffer_Impl::SetFlags(this, core::mem::transmute_copy(&lflags)).into()
         }
         unsafe extern "system" fn Context<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPITransportStreamBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Context() {
+            match IRDPSRAPITransportStreamBuffer_Impl::Context(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcontext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1249,7 +1249,7 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
         unsafe extern "system" fn SetContext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPITransportStreamBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetContext(windows_core::from_raw_borrowed(&pcontext)).into()
+            IRDPSRAPITransportStreamBuffer_Impl::SetContext(this, windows_core::from_raw_borrowed(&pcontext)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1280,17 +1280,17 @@ impl IRDPSRAPITransportStreamEvents_Vtbl {
         unsafe extern "system" fn OnWriteCompleted<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPITransportStreamEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnWriteCompleted(windows_core::from_raw_borrowed(&pbuffer))
+            IRDPSRAPITransportStreamEvents_Impl::OnWriteCompleted(this, windows_core::from_raw_borrowed(&pbuffer))
         }
         unsafe extern "system" fn OnReadCompleted<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPITransportStreamEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: *mut core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnReadCompleted(windows_core::from_raw_borrowed(&pbuffer))
+            IRDPSRAPITransportStreamEvents_Impl::OnReadCompleted(this, windows_core::from_raw_borrowed(&pbuffer))
         }
         unsafe extern "system" fn OnStreamClosed<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPITransportStreamEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrreason: windows_core::HRESULT) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnStreamClosed(core::mem::transmute_copy(&hrreason))
+            IRDPSRAPITransportStreamEvents_Impl::OnStreamClosed(this, core::mem::transmute_copy(&hrreason))
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1328,17 +1328,17 @@ impl IRDPSRAPIViewer_Vtbl {
         unsafe extern "system" fn Connect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIViewer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrconnectionstring: std::mem::MaybeUninit<windows_core::BSTR>, bstrname: std::mem::MaybeUninit<windows_core::BSTR>, bstrpassword: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Connect(core::mem::transmute(&bstrconnectionstring), core::mem::transmute(&bstrname), core::mem::transmute(&bstrpassword)).into()
+            IRDPSRAPIViewer_Impl::Connect(this, core::mem::transmute(&bstrconnectionstring), core::mem::transmute(&bstrname), core::mem::transmute(&bstrpassword)).into()
         }
         unsafe extern "system" fn Disconnect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIViewer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Disconnect().into()
+            IRDPSRAPIViewer_Impl::Disconnect(this).into()
         }
         unsafe extern "system" fn Attendees<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIViewer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Attendees() {
+            match IRDPSRAPIViewer_Impl::Attendees(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1349,7 +1349,7 @@ impl IRDPSRAPIViewer_Vtbl {
         unsafe extern "system" fn Invitations<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIViewer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Invitations() {
+            match IRDPSRAPIViewer_Impl::Invitations(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1360,7 +1360,7 @@ impl IRDPSRAPIViewer_Vtbl {
         unsafe extern "system" fn ApplicationFilter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIViewer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ApplicationFilter() {
+            match IRDPSRAPIViewer_Impl::ApplicationFilter(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1371,7 +1371,7 @@ impl IRDPSRAPIViewer_Vtbl {
         unsafe extern "system" fn VirtualChannelManager<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIViewer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.VirtualChannelManager() {
+            match IRDPSRAPIViewer_Impl::VirtualChannelManager(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1382,12 +1382,12 @@ impl IRDPSRAPIViewer_Vtbl {
         unsafe extern "system" fn SetSmartSizing<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIViewer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vbsmartsizing: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSmartSizing(core::mem::transmute_copy(&vbsmartsizing)).into()
+            IRDPSRAPIViewer_Impl::SetSmartSizing(this, core::mem::transmute_copy(&vbsmartsizing)).into()
         }
         unsafe extern "system" fn SmartSizing<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIViewer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvbsmartsizing: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SmartSizing() {
+            match IRDPSRAPIViewer_Impl::SmartSizing(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvbsmartsizing, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1398,17 +1398,17 @@ impl IRDPSRAPIViewer_Vtbl {
         unsafe extern "system" fn RequestControl<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIViewer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ctrllevel: CTRL_LEVEL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RequestControl(core::mem::transmute_copy(&ctrllevel)).into()
+            IRDPSRAPIViewer_Impl::RequestControl(this, core::mem::transmute_copy(&ctrllevel)).into()
         }
         unsafe extern "system" fn SetDisconnectedText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIViewer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdisconnectedtext: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDisconnectedText(core::mem::transmute(&bstrdisconnectedtext)).into()
+            IRDPSRAPIViewer_Impl::SetDisconnectedText(this, core::mem::transmute(&bstrdisconnectedtext)).into()
         }
         unsafe extern "system" fn DisconnectedText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIViewer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdisconnectedtext: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DisconnectedText() {
+            match IRDPSRAPIViewer_Impl::DisconnectedText(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrdisconnectedtext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1419,12 +1419,12 @@ impl IRDPSRAPIViewer_Vtbl {
         unsafe extern "system" fn RequestColorDepthChange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIViewer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bpp: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RequestColorDepthChange(core::mem::transmute_copy(&bpp)).into()
+            IRDPSRAPIViewer_Impl::RequestColorDepthChange(this, core::mem::transmute_copy(&bpp)).into()
         }
         unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIViewer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Properties() {
+            match IRDPSRAPIViewer_Impl::Properties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1435,7 +1435,7 @@ impl IRDPSRAPIViewer_Vtbl {
         unsafe extern "system" fn StartReverseConnectListener<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIViewer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrconnectionstring: std::mem::MaybeUninit<windows_core::BSTR>, bstrusername: std::mem::MaybeUninit<windows_core::BSTR>, bstrpassword: std::mem::MaybeUninit<windows_core::BSTR>, pbstrreverseconnectstring: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.StartReverseConnectListener(core::mem::transmute(&bstrconnectionstring), core::mem::transmute(&bstrusername), core::mem::transmute(&bstrpassword)) {
+            match IRDPSRAPIViewer_Impl::StartReverseConnectListener(this, core::mem::transmute(&bstrconnectionstring), core::mem::transmute(&bstrusername), core::mem::transmute(&bstrpassword)) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrreverseconnectstring, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1481,17 +1481,17 @@ impl IRDPSRAPIVirtualChannel_Vtbl {
         unsafe extern "system" fn SendData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIVirtualChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdata: std::mem::MaybeUninit<windows_core::BSTR>, lattendeeid: i32, channelsendflags: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SendData(core::mem::transmute(&bstrdata), core::mem::transmute_copy(&lattendeeid), core::mem::transmute_copy(&channelsendflags)).into()
+            IRDPSRAPIVirtualChannel_Impl::SendData(this, core::mem::transmute(&bstrdata), core::mem::transmute_copy(&lattendeeid), core::mem::transmute_copy(&channelsendflags)).into()
         }
         unsafe extern "system" fn SetAccess<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIVirtualChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lattendeeid: i32, accesstype: CHANNEL_ACCESS_ENUM) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAccess(core::mem::transmute_copy(&lattendeeid), core::mem::transmute_copy(&accesstype)).into()
+            IRDPSRAPIVirtualChannel_Impl::SetAccess(this, core::mem::transmute_copy(&lattendeeid), core::mem::transmute_copy(&accesstype)).into()
         }
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIVirtualChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IRDPSRAPIVirtualChannel_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1502,7 +1502,7 @@ impl IRDPSRAPIVirtualChannel_Vtbl {
         unsafe extern "system" fn Flags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIVirtualChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plflags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Flags() {
+            match IRDPSRAPIVirtualChannel_Impl::Flags(this) {
                 Ok(ok__) => {
                     core::ptr::write(plflags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1513,7 +1513,7 @@ impl IRDPSRAPIVirtualChannel_Vtbl {
         unsafe extern "system" fn Priority<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIVirtualChannel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppriority: *mut CHANNEL_PRIORITY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Priority() {
+            match IRDPSRAPIVirtualChannel_Impl::Priority(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppriority, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1548,7 +1548,7 @@ impl IRDPSRAPIVirtualChannelManager_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIVirtualChannelManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IRDPSRAPIVirtualChannelManager_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1559,7 +1559,7 @@ impl IRDPSRAPIVirtualChannelManager_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIVirtualChannelManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: std::mem::MaybeUninit<windows_core::VARIANT>, pchannel: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute(&item)) {
+            match IRDPSRAPIVirtualChannelManager_Impl::get_Item(this, core::mem::transmute(&item)) {
                 Ok(ok__) => {
                     core::ptr::write(pchannel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1570,7 +1570,7 @@ impl IRDPSRAPIVirtualChannelManager_Vtbl {
         unsafe extern "system" fn CreateVirtualChannel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIVirtualChannelManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrchannelname: std::mem::MaybeUninit<windows_core::BSTR>, priority: CHANNEL_PRIORITY, channelflags: u32, ppchannel: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateVirtualChannel(core::mem::transmute(&bstrchannelname), core::mem::transmute_copy(&priority), core::mem::transmute_copy(&channelflags)) {
+            match IRDPSRAPIVirtualChannelManager_Impl::CreateVirtualChannel(this, core::mem::transmute(&bstrchannelname), core::mem::transmute_copy(&priority), core::mem::transmute_copy(&channelflags)) {
                 Ok(ok__) => {
                     core::ptr::write(ppchannel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1607,7 +1607,7 @@ impl IRDPSRAPIWindow_Vtbl {
         unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Id() {
+            match IRDPSRAPIWindow_Impl::Id(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1618,7 +1618,7 @@ impl IRDPSRAPIWindow_Vtbl {
         unsafe extern "system" fn Application<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, papplication: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Application() {
+            match IRDPSRAPIWindow_Impl::Application(this) {
                 Ok(ok__) => {
                     core::ptr::write(papplication, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1629,7 +1629,7 @@ impl IRDPSRAPIWindow_Vtbl {
         unsafe extern "system" fn Shared<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Shared() {
+            match IRDPSRAPIWindow_Impl::Shared(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1640,12 +1640,12 @@ impl IRDPSRAPIWindow_Vtbl {
         unsafe extern "system" fn SetShared<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetShared(core::mem::transmute_copy(&newval)).into()
+            IRDPSRAPIWindow_Impl::SetShared(this, core::mem::transmute_copy(&newval)).into()
         }
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IRDPSRAPIWindow_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(pretval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1656,12 +1656,12 @@ impl IRDPSRAPIWindow_Vtbl {
         unsafe extern "system" fn Show<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Show().into()
+            IRDPSRAPIWindow_Impl::Show(this).into()
         }
         unsafe extern "system" fn Flags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwflags: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Flags() {
+            match IRDPSRAPIWindow_Impl::Flags(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdwflags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1697,7 +1697,7 @@ impl IRDPSRAPIWindowList_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIWindowList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IRDPSRAPIWindowList_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(retval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1708,7 +1708,7 @@ impl IRDPSRAPIWindowList_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPSRAPIWindowList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: i32, pwindow: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute_copy(&item)) {
+            match IRDPSRAPIWindowList_Impl::get_Item(this, core::mem::transmute_copy(&item)) {
                 Ok(ok__) => {
                     core::ptr::write(pwindow, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1742,42 +1742,42 @@ impl IRDPViewerInputSink_Vtbl {
         unsafe extern "system" fn SendMouseButtonEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPViewerInputSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buttontype: RDPSRAPI_MOUSE_BUTTON_TYPE, vbbuttondown: super::super::Foundation::VARIANT_BOOL, xpos: u32, ypos: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SendMouseButtonEvent(core::mem::transmute_copy(&buttontype), core::mem::transmute_copy(&vbbuttondown), core::mem::transmute_copy(&xpos), core::mem::transmute_copy(&ypos)).into()
+            IRDPViewerInputSink_Impl::SendMouseButtonEvent(this, core::mem::transmute_copy(&buttontype), core::mem::transmute_copy(&vbbuttondown), core::mem::transmute_copy(&xpos), core::mem::transmute_copy(&ypos)).into()
         }
         unsafe extern "system" fn SendMouseMoveEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPViewerInputSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xpos: u32, ypos: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SendMouseMoveEvent(core::mem::transmute_copy(&xpos), core::mem::transmute_copy(&ypos)).into()
+            IRDPViewerInputSink_Impl::SendMouseMoveEvent(this, core::mem::transmute_copy(&xpos), core::mem::transmute_copy(&ypos)).into()
         }
         unsafe extern "system" fn SendMouseWheelEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPViewerInputSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wheelrotation: u16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SendMouseWheelEvent(core::mem::transmute_copy(&wheelrotation)).into()
+            IRDPViewerInputSink_Impl::SendMouseWheelEvent(this, core::mem::transmute_copy(&wheelrotation)).into()
         }
         unsafe extern "system" fn SendKeyboardEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPViewerInputSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, codetype: RDPSRAPI_KBD_CODE_TYPE, keycode: u16, vbkeyup: super::super::Foundation::VARIANT_BOOL, vbrepeat: super::super::Foundation::VARIANT_BOOL, vbextended: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SendKeyboardEvent(core::mem::transmute_copy(&codetype), core::mem::transmute_copy(&keycode), core::mem::transmute_copy(&vbkeyup), core::mem::transmute_copy(&vbrepeat), core::mem::transmute_copy(&vbextended)).into()
+            IRDPViewerInputSink_Impl::SendKeyboardEvent(this, core::mem::transmute_copy(&codetype), core::mem::transmute_copy(&keycode), core::mem::transmute_copy(&vbkeyup), core::mem::transmute_copy(&vbrepeat), core::mem::transmute_copy(&vbextended)).into()
         }
         unsafe extern "system" fn SendSyncEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPViewerInputSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, syncflags: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SendSyncEvent(core::mem::transmute_copy(&syncflags)).into()
+            IRDPViewerInputSink_Impl::SendSyncEvent(this, core::mem::transmute_copy(&syncflags)).into()
         }
         unsafe extern "system" fn BeginTouchFrame<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPViewerInputSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.BeginTouchFrame().into()
+            IRDPViewerInputSink_Impl::BeginTouchFrame(this).into()
         }
         unsafe extern "system" fn AddTouchInput<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPViewerInputSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contactid: u32, event: u32, x: i32, y: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddTouchInput(core::mem::transmute_copy(&contactid), core::mem::transmute_copy(&event), core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)).into()
+            IRDPViewerInputSink_Impl::AddTouchInput(this, core::mem::transmute_copy(&contactid), core::mem::transmute_copy(&event), core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)).into()
         }
         unsafe extern "system" fn EndTouchFrame<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRDPViewerInputSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EndTouchFrame().into()
+            IRDPViewerInputSink_Impl::EndTouchFrame(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

@@ -11,7 +11,7 @@ impl IActivatedEventArgs_Vtbl {
         unsafe extern "system" fn Kind<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ActivationKind) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Kind() {
+            match IActivatedEventArgs_Impl::Kind(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -22,7 +22,7 @@ impl IActivatedEventArgs_Vtbl {
         unsafe extern "system" fn PreviousExecutionState<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ApplicationExecutionState) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PreviousExecutionState() {
+            match IActivatedEventArgs_Impl::PreviousExecutionState(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -33,7 +33,7 @@ impl IActivatedEventArgs_Vtbl {
         unsafe extern "system" fn SplashScreen<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SplashScreen() {
+            match IActivatedEventArgs_Impl::SplashScreen(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -67,7 +67,7 @@ impl IActivatedEventArgsWithUser_Vtbl {
         unsafe extern "system" fn User<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IActivatedEventArgsWithUser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.User() {
+            match IActivatedEventArgsWithUser_Impl::User(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -93,7 +93,7 @@ impl IApplicationViewActivatedEventArgs_Vtbl {
         unsafe extern "system" fn CurrentlyShownApplicationViewId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IApplicationViewActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentlyShownApplicationViewId() {
+            match IApplicationViewActivatedEventArgs_Impl::CurrentlyShownApplicationViewId(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -121,7 +121,7 @@ impl IAppointmentsProviderActivatedEventArgs_Vtbl {
         unsafe extern "system" fn Verb<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppointmentsProviderActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Verb() {
+            match IAppointmentsProviderActivatedEventArgs_Impl::Verb(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -153,7 +153,7 @@ impl IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl {
         unsafe extern "system" fn AddAppointmentOperation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppointmentsProviderAddAppointmentActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AddAppointmentOperation() {
+            match IAppointmentsProviderAddAppointmentActivatedEventArgs_Impl::AddAppointmentOperation(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -185,7 +185,7 @@ impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl {
         unsafe extern "system" fn RemoveAppointmentOperation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RemoveAppointmentOperation() {
+            match IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Impl::RemoveAppointmentOperation(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -217,7 +217,7 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl {
         unsafe extern "system" fn ReplaceAppointmentOperation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReplaceAppointmentOperation() {
+            match IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Impl::ReplaceAppointmentOperation(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -248,7 +248,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
         unsafe extern "system" fn InstanceStartDate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.InstanceStartDate() {
+            match IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl::InstanceStartDate(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -260,7 +260,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
         unsafe extern "system" fn LocalId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LocalId() {
+            match IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl::LocalId(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -272,7 +272,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
         unsafe extern "system" fn RoamingId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RoamingId() {
+            match IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl::RoamingId(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -304,7 +304,7 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
         unsafe extern "system" fn TimeToShow<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TimeToShow() {
+            match IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl::TimeToShow(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -315,7 +315,7 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
         unsafe extern "system" fn Duration<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Duration() {
+            match IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl::Duration(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -347,7 +347,7 @@ impl IBackgroundActivatedEventArgs_Vtbl {
         unsafe extern "system" fn TaskInstance<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TaskInstance() {
+            match IBackgroundActivatedEventArgs_Impl::TaskInstance(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -376,7 +376,7 @@ impl IBarcodeScannerPreviewActivatedEventArgs_Vtbl {
         unsafe extern "system" fn ConnectionId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IBarcodeScannerPreviewActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ConnectionId() {
+            match IBarcodeScannerPreviewActivatedEventArgs_Impl::ConnectionId(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -408,7 +408,7 @@ impl ICachedFileUpdaterActivatedEventArgs_Vtbl {
         unsafe extern "system" fn CachedFileUpdaterUI<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICachedFileUpdaterActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CachedFileUpdaterUI() {
+            match ICachedFileUpdaterActivatedEventArgs_Impl::CachedFileUpdaterUI(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -438,7 +438,7 @@ impl ICameraSettingsActivatedEventArgs_Vtbl {
         unsafe extern "system" fn VideoDeviceController<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICameraSettingsActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.VideoDeviceController() {
+            match ICameraSettingsActivatedEventArgs_Impl::VideoDeviceController(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -450,7 +450,7 @@ impl ICameraSettingsActivatedEventArgs_Vtbl {
         unsafe extern "system" fn VideoDeviceExtension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICameraSettingsActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.VideoDeviceExtension() {
+            match ICameraSettingsActivatedEventArgs_Impl::VideoDeviceExtension(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -480,7 +480,7 @@ impl ICommandLineActivatedEventArgs_Vtbl {
         unsafe extern "system" fn Operation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICommandLineActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Operation() {
+            match ICommandLineActivatedEventArgs_Impl::Operation(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -509,7 +509,7 @@ impl IContactActivatedEventArgs_Vtbl {
         unsafe extern "system" fn Verb<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Verb() {
+            match IContactActivatedEventArgs_Impl::Verb(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -540,7 +540,7 @@ impl IContactCallActivatedEventArgs_Vtbl {
         unsafe extern "system" fn ServiceId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactCallActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ServiceId() {
+            match IContactCallActivatedEventArgs_Impl::ServiceId(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -552,7 +552,7 @@ impl IContactCallActivatedEventArgs_Vtbl {
         unsafe extern "system" fn ServiceUserId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactCallActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ServiceUserId() {
+            match IContactCallActivatedEventArgs_Impl::ServiceUserId(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -564,7 +564,7 @@ impl IContactCallActivatedEventArgs_Vtbl {
         unsafe extern "system" fn Contact<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactCallActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Contact() {
+            match IContactCallActivatedEventArgs_Impl::Contact(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -599,7 +599,7 @@ impl IContactMapActivatedEventArgs_Vtbl {
         unsafe extern "system" fn Address<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactMapActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Address() {
+            match IContactMapActivatedEventArgs_Impl::Address(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -611,7 +611,7 @@ impl IContactMapActivatedEventArgs_Vtbl {
         unsafe extern "system" fn Contact<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactMapActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Contact() {
+            match IContactMapActivatedEventArgs_Impl::Contact(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -646,7 +646,7 @@ impl IContactMessageActivatedEventArgs_Vtbl {
         unsafe extern "system" fn ServiceId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactMessageActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ServiceId() {
+            match IContactMessageActivatedEventArgs_Impl::ServiceId(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -658,7 +658,7 @@ impl IContactMessageActivatedEventArgs_Vtbl {
         unsafe extern "system" fn ServiceUserId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactMessageActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ServiceUserId() {
+            match IContactMessageActivatedEventArgs_Impl::ServiceUserId(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -670,7 +670,7 @@ impl IContactMessageActivatedEventArgs_Vtbl {
         unsafe extern "system" fn Contact<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactMessageActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Contact() {
+            match IContactMessageActivatedEventArgs_Impl::Contact(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -705,7 +705,7 @@ impl IContactPanelActivatedEventArgs_Vtbl {
         unsafe extern "system" fn ContactPanel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactPanelActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ContactPanel() {
+            match IContactPanelActivatedEventArgs_Impl::ContactPanel(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -717,7 +717,7 @@ impl IContactPanelActivatedEventArgs_Vtbl {
         unsafe extern "system" fn Contact<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactPanelActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Contact() {
+            match IContactPanelActivatedEventArgs_Impl::Contact(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -750,7 +750,7 @@ impl IContactPickerActivatedEventArgs_Vtbl {
         unsafe extern "system" fn ContactPickerUI<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactPickerActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ContactPickerUI() {
+            match IContactPickerActivatedEventArgs_Impl::ContactPickerUI(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -784,7 +784,7 @@ impl IContactPostActivatedEventArgs_Vtbl {
         unsafe extern "system" fn ServiceId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactPostActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ServiceId() {
+            match IContactPostActivatedEventArgs_Impl::ServiceId(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -796,7 +796,7 @@ impl IContactPostActivatedEventArgs_Vtbl {
         unsafe extern "system" fn ServiceUserId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactPostActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ServiceUserId() {
+            match IContactPostActivatedEventArgs_Impl::ServiceUserId(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -808,7 +808,7 @@ impl IContactPostActivatedEventArgs_Vtbl {
         unsafe extern "system" fn Contact<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactPostActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Contact() {
+            match IContactPostActivatedEventArgs_Impl::Contact(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -844,7 +844,7 @@ impl IContactVideoCallActivatedEventArgs_Vtbl {
         unsafe extern "system" fn ServiceId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactVideoCallActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ServiceId() {
+            match IContactVideoCallActivatedEventArgs_Impl::ServiceId(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -856,7 +856,7 @@ impl IContactVideoCallActivatedEventArgs_Vtbl {
         unsafe extern "system" fn ServiceUserId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactVideoCallActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ServiceUserId() {
+            match IContactVideoCallActivatedEventArgs_Impl::ServiceUserId(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -868,7 +868,7 @@ impl IContactVideoCallActivatedEventArgs_Vtbl {
         unsafe extern "system" fn Contact<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactVideoCallActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Contact() {
+            match IContactVideoCallActivatedEventArgs_Impl::Contact(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -899,7 +899,7 @@ impl IContactsProviderActivatedEventArgs_Vtbl {
         unsafe extern "system" fn Verb<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactsProviderActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Verb() {
+            match IContactsProviderActivatedEventArgs_Impl::Verb(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -928,7 +928,7 @@ impl IContinuationActivatedEventArgs_Vtbl {
         unsafe extern "system" fn ContinuationData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IContinuationActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ContinuationData() {
+            match IContinuationActivatedEventArgs_Impl::ContinuationData(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -958,7 +958,7 @@ impl IDeviceActivatedEventArgs_Vtbl {
         unsafe extern "system" fn DeviceInformationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDeviceActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DeviceInformationId() {
+            match IDeviceActivatedEventArgs_Impl::DeviceInformationId(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -970,7 +970,7 @@ impl IDeviceActivatedEventArgs_Vtbl {
         unsafe extern "system" fn Verb<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDeviceActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Verb() {
+            match IDeviceActivatedEventArgs_Impl::Verb(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1003,7 +1003,7 @@ impl IDevicePairingActivatedEventArgs_Vtbl {
         unsafe extern "system" fn DeviceInformation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDevicePairingActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DeviceInformation() {
+            match IDevicePairingActivatedEventArgs_Impl::DeviceInformation(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1032,7 +1032,7 @@ impl IDialReceiverActivatedEventArgs_Vtbl {
         unsafe extern "system" fn AppName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDialReceiverActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AppName() {
+            match IDialReceiverActivatedEventArgs_Impl::AppName(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1062,7 +1062,7 @@ impl IFileActivatedEventArgs_Vtbl {
         unsafe extern "system" fn Files<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Files() {
+            match IFileActivatedEventArgs_Impl::Files(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1074,7 +1074,7 @@ impl IFileActivatedEventArgs_Vtbl {
         unsafe extern "system" fn Verb<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Verb() {
+            match IFileActivatedEventArgs_Impl::Verb(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1104,7 +1104,7 @@ impl IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl {
         unsafe extern "system" fn CallerPackageFamilyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileActivatedEventArgsWithCallerPackageFamilyName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CallerPackageFamilyName() {
+            match IFileActivatedEventArgsWithCallerPackageFamilyName_Impl::CallerPackageFamilyName(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1136,7 +1136,7 @@ impl IFileActivatedEventArgsWithNeighboringFiles_Vtbl {
         unsafe extern "system" fn NeighboringFilesQuery<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileActivatedEventArgsWithNeighboringFiles_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.NeighboringFilesQuery() {
+            match IFileActivatedEventArgsWithNeighboringFiles_Impl::NeighboringFilesQuery(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1168,7 +1168,7 @@ impl IFileOpenPickerActivatedEventArgs_Vtbl {
         unsafe extern "system" fn FileOpenPickerUI<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileOpenPickerActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FileOpenPickerUI() {
+            match IFileOpenPickerActivatedEventArgs_Impl::FileOpenPickerUI(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1197,7 +1197,7 @@ impl IFileOpenPickerActivatedEventArgs2_Vtbl {
         unsafe extern "system" fn CallerPackageFamilyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileOpenPickerActivatedEventArgs2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CallerPackageFamilyName() {
+            match IFileOpenPickerActivatedEventArgs2_Impl::CallerPackageFamilyName(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1229,7 +1229,7 @@ impl IFileOpenPickerContinuationEventArgs_Vtbl {
         unsafe extern "system" fn Files<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileOpenPickerContinuationEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Files() {
+            match IFileOpenPickerContinuationEventArgs_Impl::Files(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1258,7 +1258,7 @@ impl IFileSavePickerActivatedEventArgs_Vtbl {
         unsafe extern "system" fn FileSavePickerUI<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileSavePickerActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FileSavePickerUI() {
+            match IFileSavePickerActivatedEventArgs_Impl::FileSavePickerUI(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1288,7 +1288,7 @@ impl IFileSavePickerActivatedEventArgs2_Vtbl {
         unsafe extern "system" fn CallerPackageFamilyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileSavePickerActivatedEventArgs2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CallerPackageFamilyName() {
+            match IFileSavePickerActivatedEventArgs2_Impl::CallerPackageFamilyName(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1300,7 +1300,7 @@ impl IFileSavePickerActivatedEventArgs2_Vtbl {
         unsafe extern "system" fn EnterpriseId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileSavePickerActivatedEventArgs2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnterpriseId() {
+            match IFileSavePickerActivatedEventArgs2_Impl::EnterpriseId(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1333,7 +1333,7 @@ impl IFileSavePickerContinuationEventArgs_Vtbl {
         unsafe extern "system" fn File<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileSavePickerContinuationEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.File() {
+            match IFileSavePickerContinuationEventArgs_Impl::File(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1362,7 +1362,7 @@ impl IFolderPickerContinuationEventArgs_Vtbl {
         unsafe extern "system" fn Folder<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFolderPickerContinuationEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Folder() {
+            match IFolderPickerContinuationEventArgs_Impl::Folder(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1389,7 +1389,7 @@ impl ILaunchActivatedEventArgs_Vtbl {
         unsafe extern "system" fn Arguments<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILaunchActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Arguments() {
+            match ILaunchActivatedEventArgs_Impl::Arguments(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1401,7 +1401,7 @@ impl ILaunchActivatedEventArgs_Vtbl {
         unsafe extern "system" fn TileId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILaunchActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TileId() {
+            match ILaunchActivatedEventArgs_Impl::TileId(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1431,7 +1431,7 @@ impl ILaunchActivatedEventArgs2_Vtbl {
         unsafe extern "system" fn TileActivatedInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILaunchActivatedEventArgs2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TileActivatedInfo() {
+            match ILaunchActivatedEventArgs2_Impl::TileActivatedInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1460,7 +1460,7 @@ impl ILockScreenActivatedEventArgs_Vtbl {
         unsafe extern "system" fn Info<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILockScreenActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Info() {
+            match ILockScreenActivatedEventArgs_Impl::Info(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1489,7 +1489,7 @@ impl ILockScreenCallActivatedEventArgs_Vtbl {
         unsafe extern "system" fn CallUI<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ILockScreenCallActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CallUI() {
+            match ILockScreenCallActivatedEventArgs_Impl::CallUI(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1515,7 +1515,7 @@ impl IPhoneCallActivatedEventArgs_Vtbl {
         unsafe extern "system" fn LineId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPhoneCallActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LineId() {
+            match IPhoneCallActivatedEventArgs_Impl::LineId(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -1540,7 +1540,7 @@ impl IPickerReturnedActivatedEventArgs_Vtbl {
         unsafe extern "system" fn PickerOperationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPickerReturnedActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PickerOperationId() {
+            match IPickerReturnedActivatedEventArgs_Impl::PickerOperationId(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1569,7 +1569,7 @@ impl IPrelaunchActivatedEventArgs_Vtbl {
         unsafe extern "system" fn PrelaunchActivated<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPrelaunchActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PrelaunchActivated() {
+            match IPrelaunchActivatedEventArgs_Impl::PrelaunchActivated(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -1600,7 +1600,7 @@ impl IPrint3DWorkflowActivatedEventArgs_Vtbl {
         unsafe extern "system" fn Workflow<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPrint3DWorkflowActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Workflow() {
+            match IPrint3DWorkflowActivatedEventArgs_Impl::Workflow(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1632,7 +1632,7 @@ impl IPrintTaskSettingsActivatedEventArgs_Vtbl {
         unsafe extern "system" fn Configuration<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskSettingsActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Configuration() {
+            match IPrintTaskSettingsActivatedEventArgs_Impl::Configuration(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1661,7 +1661,7 @@ impl IProtocolActivatedEventArgs_Vtbl {
         unsafe extern "system" fn Uri<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProtocolActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Uri() {
+            match IProtocolActivatedEventArgs_Impl::Uri(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1691,7 +1691,7 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
         unsafe extern "system" fn CallerPackageFamilyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CallerPackageFamilyName() {
+            match IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Impl::CallerPackageFamilyName(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1703,7 +1703,7 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
         unsafe extern "system" fn Data<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Data() {
+            match IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Impl::Data(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1736,7 +1736,7 @@ impl IProtocolForResultsActivatedEventArgs_Vtbl {
         unsafe extern "system" fn ProtocolForResultsOperation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IProtocolForResultsActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ProtocolForResultsOperation() {
+            match IProtocolForResultsActivatedEventArgs_Impl::ProtocolForResultsOperation(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1765,7 +1765,7 @@ impl IRestrictedLaunchActivatedEventArgs_Vtbl {
         unsafe extern "system" fn SharedContext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IRestrictedLaunchActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SharedContext() {
+            match IRestrictedLaunchActivatedEventArgs_Impl::SharedContext(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1795,7 +1795,7 @@ impl ISearchActivatedEventArgs_Vtbl {
         unsafe extern "system" fn QueryText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISearchActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.QueryText() {
+            match ISearchActivatedEventArgs_Impl::QueryText(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1807,7 +1807,7 @@ impl ISearchActivatedEventArgs_Vtbl {
         unsafe extern "system" fn Language<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISearchActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Language() {
+            match ISearchActivatedEventArgs_Impl::Language(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1840,7 +1840,7 @@ impl ISearchActivatedEventArgsWithLinguisticDetails_Vtbl {
         unsafe extern "system" fn LinguisticDetails<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISearchActivatedEventArgsWithLinguisticDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LinguisticDetails() {
+            match ISearchActivatedEventArgsWithLinguisticDetails_Impl::LinguisticDetails(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1872,7 +1872,7 @@ impl IShareTargetActivatedEventArgs_Vtbl {
         unsafe extern "system" fn ShareOperation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IShareTargetActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ShareOperation() {
+            match IShareTargetActivatedEventArgs_Impl::ShareOperation(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1901,7 +1901,7 @@ impl IStartupTaskActivatedEventArgs_Vtbl {
         unsafe extern "system" fn TaskId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStartupTaskActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TaskId() {
+            match IStartupTaskActivatedEventArgs_Impl::TaskId(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1931,7 +1931,7 @@ impl IToastNotificationActivatedEventArgs_Vtbl {
         unsafe extern "system" fn Argument<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IToastNotificationActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Argument() {
+            match IToastNotificationActivatedEventArgs_Impl::Argument(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1943,7 +1943,7 @@ impl IToastNotificationActivatedEventArgs_Vtbl {
         unsafe extern "system" fn UserInput<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IToastNotificationActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UserInput() {
+            match IToastNotificationActivatedEventArgs_Impl::UserInput(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -1976,7 +1976,7 @@ impl IUserDataAccountProviderActivatedEventArgs_Vtbl {
         unsafe extern "system" fn Operation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IUserDataAccountProviderActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Operation() {
+            match IUserDataAccountProviderActivatedEventArgs_Impl::Operation(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -2008,7 +2008,7 @@ impl IViewSwitcherProvider_Vtbl {
         unsafe extern "system" fn ViewSwitcher<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IViewSwitcherProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ViewSwitcher() {
+            match IViewSwitcherProvider_Impl::ViewSwitcher(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -2037,7 +2037,7 @@ impl IVoiceCommandActivatedEventArgs_Vtbl {
         unsafe extern "system" fn Result<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IVoiceCommandActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Result() {
+            match IVoiceCommandActivatedEventArgs_Impl::Result(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -2068,7 +2068,7 @@ impl IWalletActionActivatedEventArgs_Vtbl {
         unsafe extern "system" fn ItemId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWalletActionActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ItemId() {
+            match IWalletActionActivatedEventArgs_Impl::ItemId(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -2080,7 +2080,7 @@ impl IWalletActionActivatedEventArgs_Vtbl {
         unsafe extern "system" fn ActionKind<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWalletActionActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::Wallet::WalletActionKind) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ActionKind() {
+            match IWalletActionActivatedEventArgs_Impl::ActionKind(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -2091,7 +2091,7 @@ impl IWalletActionActivatedEventArgs_Vtbl {
         unsafe extern "system" fn ActionId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWalletActionActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ActionId() {
+            match IWalletActionActivatedEventArgs_Impl::ActionId(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -2125,7 +2125,7 @@ impl IWebAccountProviderActivatedEventArgs_Vtbl {
         unsafe extern "system" fn Operation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebAccountProviderActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Operation() {
+            match IWebAccountProviderActivatedEventArgs_Impl::Operation(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -2157,7 +2157,7 @@ impl IWebAuthenticationBrokerContinuationEventArgs_Vtbl {
         unsafe extern "system" fn WebAuthenticationResult<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebAuthenticationBrokerContinuationEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.WebAuthenticationResult() {
+            match IWebAuthenticationBrokerContinuationEventArgs_Impl::WebAuthenticationResult(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);

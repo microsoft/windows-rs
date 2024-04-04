@@ -239,6 +239,12 @@ pub unsafe fn SerializationBufferFree(buffer: Option<*const u8>) {
     SerializationBufferFree(core::mem::transmute(buffer.unwrap_or(std::ptr::null())))
 }
 windows_core::imp::define_interface!(ILocationPermissions, ILocationPermissions_Vtbl, 0xd5fb0a7f_e74e_44f5_8e02_4806863a274f);
+impl std::ops::Deref for ILocationPermissions {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ILocationPermissions, windows_core::IUnknown);
 impl ILocationPermissions {
     pub unsafe fn GetGlobalLocationPermission(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
@@ -256,6 +262,12 @@ pub struct ILocationPermissions_Vtbl {
     pub CheckLocationCapability: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISensor, ISensor_Vtbl, 0x5fa08f80_2657_458e_af75_46f73fa6ac5c);
+impl std::ops::Deref for ISensor {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISensor, windows_core::IUnknown);
 impl ISensor {
     pub unsafe fn GetID(&self) -> windows_core::Result<windows_core::GUID> {
@@ -365,6 +377,12 @@ pub struct ISensor_Vtbl {
     pub SetEventSink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISensorCollection, ISensorCollection_Vtbl, 0x23571e11_e545_4dd8_a337_b89bf44b10df);
+impl std::ops::Deref for ISensorCollection {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISensorCollection, windows_core::IUnknown);
 impl ISensorCollection {
     pub unsafe fn GetAt(&self, ulindex: u32) -> windows_core::Result<ISensor> {
@@ -405,6 +423,12 @@ pub struct ISensorCollection_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISensorDataReport, ISensorDataReport_Vtbl, 0x0ab9df9b_c4b5_4796_8898_0470706a2e1d);
+impl std::ops::Deref for ISensorDataReport {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISensorDataReport, windows_core::IUnknown);
 impl ISensorDataReport {
     pub unsafe fn GetTimestamp(&self) -> windows_core::Result<super::super::Foundation::SYSTEMTIME> {
@@ -439,6 +463,12 @@ pub struct ISensorDataReport_Vtbl {
     GetSensorValues: usize,
 }
 windows_core::imp::define_interface!(ISensorEvents, ISensorEvents_Vtbl, 0x5d8dcc91_4641_47e7_b7c3_b74f48a6c391);
+impl std::ops::Deref for ISensorEvents {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISensorEvents, windows_core::IUnknown);
 impl ISensorEvents {
     pub unsafe fn OnStateChanged<P0>(&self, psensor: P0, state: SensorState) -> windows_core::Result<()>
@@ -478,6 +508,12 @@ pub struct ISensorEvents_Vtbl {
     pub OnLeave: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISensorManager, ISensorManager_Vtbl, 0xbd77db67_45a8_42dc_8d00_6dcf15f8377a);
+impl std::ops::Deref for ISensorManager {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISensorManager, windows_core::IUnknown);
 impl ISensorManager {
     pub unsafe fn GetSensorsByCategory(&self, sensorcategory: *const windows_core::GUID) -> windows_core::Result<ISensorCollection> {
@@ -517,6 +553,12 @@ pub struct ISensorManager_Vtbl {
     pub RequestPermissions: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISensorManagerEvents, ISensorManagerEvents_Vtbl, 0x9b3b0b86_266a_4aad_b21f_fde5501001b7);
+impl std::ops::Deref for ISensorManagerEvents {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISensorManagerEvents, windows_core::IUnknown);
 impl ISensorManagerEvents {
     pub unsafe fn OnSensorEnter<P0>(&self, psensor: P0, state: SensorState) -> windows_core::Result<()>

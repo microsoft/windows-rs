@@ -12,17 +12,17 @@ impl IDirect3DDevice9On12_Vtbl {
         unsafe extern "system" fn GetD3D12Device<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirect3DDevice9On12_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvdevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetD3D12Device(core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvdevice)).into()
+            IDirect3DDevice9On12_Impl::GetD3D12Device(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvdevice)).into()
         }
         unsafe extern "system" fn UnwrapUnderlyingResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirect3DDevice9On12_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, pcommandqueue: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvresource12: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.UnwrapUnderlyingResource(windows_core::from_raw_borrowed(&presource), windows_core::from_raw_borrowed(&pcommandqueue), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvresource12)).into()
+            IDirect3DDevice9On12_Impl::UnwrapUnderlyingResource(this, windows_core::from_raw_borrowed(&presource), windows_core::from_raw_borrowed(&pcommandqueue), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvresource12)).into()
         }
         unsafe extern "system" fn ReturnUnderlyingResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirect3DDevice9On12_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, numsync: u32, psignalvalues: *mut u64, ppfences: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ReturnUnderlyingResource(windows_core::from_raw_borrowed(&presource), core::mem::transmute_copy(&numsync), core::mem::transmute_copy(&psignalvalues), core::mem::transmute_copy(&ppfences)).into()
+            IDirect3DDevice9On12_Impl::ReturnUnderlyingResource(this, windows_core::from_raw_borrowed(&presource), core::mem::transmute_copy(&numsync), core::mem::transmute_copy(&psignalvalues), core::mem::transmute_copy(&ppfences)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

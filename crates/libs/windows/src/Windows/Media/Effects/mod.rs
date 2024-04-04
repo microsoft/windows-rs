@@ -22,6 +22,12 @@ pub struct IAudioEffect_Vtbl {
     pub AudioEffectType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AudioEffectType) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAudioEffectDefinition, IAudioEffectDefinition_Vtbl, 0xe4d7f974_7d80_4f73_9089_e31c9db9c294);
+impl std::ops::Deref for IAudioEffectDefinition {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAudioEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
 impl IAudioEffectDefinition {
     pub fn ActivatableClassId(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -127,6 +133,12 @@ pub struct IAudioRenderEffectsManager2_Vtbl {
     ShowSettingsUI: usize,
 }
 windows_core::imp::define_interface!(IBasicAudioEffect, IBasicAudioEffect_Vtbl, 0x8c062c53_6bc0_48b8_a99a_4b41550f1359);
+impl std::ops::Deref for IBasicAudioEffect {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IBasicAudioEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IBasicAudioEffect, super::IMediaExtension);
 impl IBasicAudioEffect {
@@ -197,6 +209,12 @@ pub struct IBasicAudioEffect_Vtbl {
     pub DiscardQueuedFrames: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBasicVideoEffect, IBasicVideoEffect_Vtbl, 0x8262c7ef_b360_40be_949b_2ff42ff35693);
+impl std::ops::Deref for IBasicVideoEffect {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IBasicVideoEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IBasicVideoEffect, super::IMediaExtension);
 impl IBasicVideoEffect {
@@ -332,6 +350,12 @@ pub struct ISlowMotionEffectDefinition_Vtbl {
     pub SetTimeStretchRate: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVideoCompositor, IVideoCompositor_Vtbl, 0x8510b43e_420c_420f_96c7_7c98bba1fc55);
+impl std::ops::Deref for IVideoCompositor {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IVideoCompositor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IVideoCompositor, super::IMediaExtension);
 impl IVideoCompositor {
@@ -391,6 +415,12 @@ pub struct IVideoCompositor_Vtbl {
     pub DiscardQueuedFrames: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVideoCompositorDefinition, IVideoCompositorDefinition_Vtbl, 0x7946b8d0_2010_4ae3_9ab2_2cef42edd4d2);
+impl std::ops::Deref for IVideoCompositorDefinition {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IVideoCompositorDefinition, windows_core::IUnknown, windows_core::IInspectable);
 impl IVideoCompositorDefinition {
     pub fn ActivatableClassId(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -435,6 +465,12 @@ pub struct IVideoCompositorDefinitionFactory_Vtbl {
     CreateWithProperties: usize,
 }
 windows_core::imp::define_interface!(IVideoEffectDefinition, IVideoEffectDefinition_Vtbl, 0x39f38cf0_8d0f_4f3e_84fc_2d46a5297943);
+impl std::ops::Deref for IVideoEffectDefinition {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IVideoEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
 impl IVideoEffectDefinition {
     pub fn ActivatableClassId(&self) -> windows_core::Result<windows_core::HSTRING> {

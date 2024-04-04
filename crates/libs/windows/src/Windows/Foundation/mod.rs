@@ -7,6 +7,12 @@ pub mod Metadata;
 #[cfg(feature = "Foundation_Numerics")]
 pub mod Numerics;
 windows_core::imp::define_interface!(IAsyncAction, IAsyncAction_Vtbl, 0x5a648006_843a_4da9_865b_9d26e5dfad7b);
+impl std::ops::Deref for IAsyncAction {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAsyncAction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IAsyncAction, IAsyncInfo);
 impl IAsyncAction {
@@ -104,6 +110,12 @@ pub struct IAsyncAction_Vtbl {
 pub struct IAsyncActionWithProgress<TProgress>(windows_core::IUnknown, core::marker::PhantomData<TProgress>)
 where
     TProgress: windows_core::RuntimeType + 'static;
+impl<TProgress: windows_core::RuntimeType + 'static> std::ops::Deref for IAsyncActionWithProgress<TProgress> {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 impl<TProgress: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IAsyncActionWithProgress<TProgress> {}
 impl<TProgress: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IAsyncActionWithProgress<TProgress> {}
 impl<TProgress: windows_core::RuntimeType + 'static> windows_core::CanInto<IAsyncInfo> for IAsyncActionWithProgress<TProgress> {
@@ -224,6 +236,12 @@ where
     pub TProgress: core::marker::PhantomData<TProgress>,
 }
 windows_core::imp::define_interface!(IAsyncInfo, IAsyncInfo_Vtbl, 0x00000036_0000_0000_c000_000000000046);
+impl std::ops::Deref for IAsyncInfo {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAsyncInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl IAsyncInfo {
     pub fn Id(&self) -> windows_core::Result<u32> {
@@ -273,6 +291,12 @@ pub struct IAsyncInfo_Vtbl {
 pub struct IAsyncOperation<TResult>(windows_core::IUnknown, core::marker::PhantomData<TResult>)
 where
     TResult: windows_core::RuntimeType + 'static;
+impl<TResult: windows_core::RuntimeType + 'static> std::ops::Deref for IAsyncOperation<TResult> {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 impl<TResult: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IAsyncOperation<TResult> {}
 impl<TResult: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IAsyncOperation<TResult> {}
 impl<TResult: windows_core::RuntimeType + 'static> windows_core::CanInto<IAsyncInfo> for IAsyncOperation<TResult> {
@@ -385,6 +409,12 @@ pub struct IAsyncOperationWithProgress<TResult, TProgress>(windows_core::IUnknow
 where
     TResult: windows_core::RuntimeType + 'static,
     TProgress: windows_core::RuntimeType + 'static;
+impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> std::ops::Deref for IAsyncOperationWithProgress<TResult, TProgress> {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IAsyncOperationWithProgress<TResult, TProgress> {}
 impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IAsyncOperationWithProgress<TResult, TProgress> {}
 impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> windows_core::CanInto<IAsyncInfo> for IAsyncOperationWithProgress<TResult, TProgress> {
@@ -510,6 +540,12 @@ where
     pub TProgress: core::marker::PhantomData<TProgress>,
 }
 windows_core::imp::define_interface!(IClosable, IClosable_Vtbl, 0x30d5a829_7fa4_4026_83bb_d75bae4ea99e);
+impl std::ops::Deref for IClosable {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IClosable, windows_core::IUnknown, windows_core::IInspectable);
 impl IClosable {
     pub fn Close(&self) -> windows_core::Result<()> {
@@ -544,6 +580,12 @@ pub struct IDeferralFactory_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGetActivationFactory, IGetActivationFactory_Vtbl, 0x4edb8ee2_96dd_49a7_94f7_4607ddab8e3c);
+impl std::ops::Deref for IGetActivationFactory {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IGetActivationFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IGetActivationFactory {
     pub fn GetActivationFactory(&self, activatableclassid: &windows_core::HSTRING) -> windows_core::Result<windows_core::IInspectable> {
@@ -574,6 +616,12 @@ pub struct IGuidHelperStatics_Vtbl {
     pub Equals: unsafe extern "system" fn(*mut core::ffi::c_void, &windows_core::GUID, &windows_core::GUID, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMemoryBuffer, IMemoryBuffer_Vtbl, 0xfbc4dd2a_245b_11e4_af98_689423260cf8);
+impl std::ops::Deref for IMemoryBuffer {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMemoryBuffer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IMemoryBuffer, IClosable);
 impl IMemoryBuffer {
@@ -607,6 +655,12 @@ pub struct IMemoryBufferFactory_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMemoryBufferReference, IMemoryBufferReference_Vtbl, 0xfbc4dd29_245b_11e4_af98_689423260cf8);
+impl std::ops::Deref for IMemoryBufferReference {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMemoryBufferReference, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IMemoryBufferReference, IClosable);
 impl IMemoryBufferReference {
@@ -647,6 +701,12 @@ pub struct IMemoryBufferReference_Vtbl {
     pub RemoveClosed: unsafe extern "system" fn(*mut core::ffi::c_void, EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPropertyValue, IPropertyValue_Vtbl, 0x4bd682dd_7554_40e9_9a9b_82654ede7e62);
+impl std::ops::Deref for IPropertyValue {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPropertyValue, windows_core::IUnknown, windows_core::IInspectable);
 impl IPropertyValue {
     pub fn Type(&self) -> windows_core::Result<PropertyType> {
@@ -964,6 +1024,12 @@ pub struct IPropertyValueStatics_Vtbl {
 pub struct IReference<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
+impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IReference<T> {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IReference<T> {}
 impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IReference<T> {}
 impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<IPropertyValue> for IReference<T> {
@@ -1215,6 +1281,12 @@ where
 pub struct IReferenceArray<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
+impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IReferenceArray<T> {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IReferenceArray<T> {}
 impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IReferenceArray<T> {}
 impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<IPropertyValue> for IReferenceArray<T> {
@@ -1462,6 +1534,12 @@ where
     pub T: core::marker::PhantomData<T>,
 }
 windows_core::imp::define_interface!(IStringable, IStringable_Vtbl, 0x96369f54_8eb6_48f0_abce_c1b211e627c3);
+impl std::ops::Deref for IStringable {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IStringable, windows_core::IUnknown, windows_core::IInspectable);
 impl IStringable {
     pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1536,6 +1614,12 @@ pub struct IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl {
     pub DisplayIri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWwwFormUrlDecoderEntry, IWwwFormUrlDecoderEntry_Vtbl, 0x125e7431_f678_4e8e_b670_20a9b06c512d);
+impl std::ops::Deref for IWwwFormUrlDecoderEntry {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWwwFormUrlDecoderEntry, windows_core::IUnknown, windows_core::IInspectable);
 impl IWwwFormUrlDecoderEntry {
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -2587,8 +2671,8 @@ impl<F: FnMut(Option<&IAsyncAction>, AsyncStatus) -> windows_core::Result<()> + 
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, asyncstatus: AsyncStatus) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&asyncinfo), asyncstatus).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&asyncinfo), asyncstatus).into()
     }
 }
 impl windows_core::RuntimeType for AsyncActionCompletedHandler {
@@ -2659,8 +2743,8 @@ impl<TProgress: windows_core::RuntimeType + 'static, F: FnMut(Option<&IAsyncActi
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, progressinfo: windows_core::AbiType<TProgress>) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&asyncinfo), core::mem::transmute(&progressinfo)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&asyncinfo), core::mem::transmute(&progressinfo)).into()
     }
 }
 unsafe impl<TProgress: windows_core::RuntimeType + 'static> windows_core::Interface for AsyncActionProgressHandler<TProgress> {
@@ -2738,8 +2822,8 @@ impl<TProgress: windows_core::RuntimeType + 'static, F: FnMut(Option<&IAsyncActi
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, asyncstatus: AsyncStatus) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&asyncinfo), asyncstatus).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&asyncinfo), asyncstatus).into()
     }
 }
 unsafe impl<TProgress: windows_core::RuntimeType + 'static> windows_core::Interface for AsyncActionWithProgressCompletedHandler<TProgress> {
@@ -2817,8 +2901,8 @@ impl<TResult: windows_core::RuntimeType + 'static, F: FnMut(Option<&IAsyncOperat
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, asyncstatus: AsyncStatus) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&asyncinfo), asyncstatus).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&asyncinfo), asyncstatus).into()
     }
 }
 unsafe impl<TResult: windows_core::RuntimeType + 'static> windows_core::Interface for AsyncOperationCompletedHandler<TResult> {
@@ -2900,8 +2984,8 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, progressinfo: windows_core::AbiType<TProgress>) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&asyncinfo), core::mem::transmute(&progressinfo)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&asyncinfo), core::mem::transmute(&progressinfo)).into()
     }
 }
 unsafe impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> windows_core::Interface for AsyncOperationProgressHandler<TResult, TProgress> {
@@ -2984,8 +3068,8 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, asyncinfo: *mut core::ffi::c_void, asyncstatus: AsyncStatus) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&asyncinfo), asyncstatus).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&asyncinfo), asyncstatus).into()
     }
 }
 unsafe impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> windows_core::Interface for AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {
@@ -3051,8 +3135,8 @@ impl<F: FnMut() -> windows_core::Result<()> + Send + 'static> DeferralCompletedH
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)().into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)().into()
     }
 }
 impl windows_core::RuntimeType for DeferralCompletedHandler {
@@ -3123,8 +3207,8 @@ impl<T: windows_core::RuntimeType + 'static, F: FnMut(Option<&windows_core::IIns
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: windows_core::AbiType<T>) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&sender), core::mem::transmute(&args)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender), core::mem::transmute(&args)).into()
     }
 }
 unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for EventHandler<T> {
@@ -3206,8 +3290,8 @@ impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::Runtim
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: windows_core::AbiType<TSender>, args: windows_core::AbiType<TResult>) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(core::mem::transmute(&sender), core::mem::transmute(&args)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(core::mem::transmute(&sender), core::mem::transmute(&args)).into()
     }
 }
 unsafe impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::RuntimeType + 'static> windows_core::Interface for TypedEventHandler<TSender, TResult> {

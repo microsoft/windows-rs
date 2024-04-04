@@ -18,7 +18,7 @@ impl IInkAnalysisNode_Vtbl {
         unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Id() {
+            match IInkAnalysisNode_Impl::Id(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -29,7 +29,7 @@ impl IInkAnalysisNode_Vtbl {
         unsafe extern "system" fn Kind<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut InkAnalysisNodeKind) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Kind() {
+            match IInkAnalysisNode_Impl::Kind(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -40,7 +40,7 @@ impl IInkAnalysisNode_Vtbl {
         unsafe extern "system" fn BoundingRect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Rect) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BoundingRect() {
+            match IInkAnalysisNode_Impl::BoundingRect(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -51,7 +51,7 @@ impl IInkAnalysisNode_Vtbl {
         unsafe extern "system" fn RotatedBoundingRect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RotatedBoundingRect() {
+            match IInkAnalysisNode_Impl::RotatedBoundingRect(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -63,7 +63,7 @@ impl IInkAnalysisNode_Vtbl {
         unsafe extern "system" fn Children<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Children() {
+            match IInkAnalysisNode_Impl::Children(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -75,7 +75,7 @@ impl IInkAnalysisNode_Vtbl {
         unsafe extern "system" fn Parent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Parent() {
+            match IInkAnalysisNode_Impl::Parent(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -87,7 +87,7 @@ impl IInkAnalysisNode_Vtbl {
         unsafe extern "system" fn GetStrokeIds<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkAnalysisNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStrokeIds() {
+            match IInkAnalysisNode_Impl::GetStrokeIds(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -122,7 +122,7 @@ impl IInkAnalyzerFactory_Vtbl {
         unsafe extern "system" fn CreateAnalyzer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkAnalyzerFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateAnalyzer() {
+            match IInkAnalyzerFactory_Impl::CreateAnalyzer(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);

@@ -29,7 +29,7 @@ impl ICertSrvSetup_Vtbl {
         unsafe extern "system" fn CAErrorId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CAErrorId() {
+            match ICertSrvSetup_Impl::CAErrorId(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -40,7 +40,7 @@ impl ICertSrvSetup_Vtbl {
         unsafe extern "system" fn CAErrorString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CAErrorString() {
+            match ICertSrvSetup_Impl::CAErrorString(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -51,12 +51,12 @@ impl ICertSrvSetup_Vtbl {
         unsafe extern "system" fn InitializeDefaults<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bserver: super::super::Foundation::VARIANT_BOOL, bclient: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InitializeDefaults(core::mem::transmute_copy(&bserver), core::mem::transmute_copy(&bclient)).into()
+            ICertSrvSetup_Impl::InitializeDefaults(this, core::mem::transmute_copy(&bserver), core::mem::transmute_copy(&bclient)).into()
         }
         unsafe extern "system" fn GetCASetupProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: CASetupProperty, ppropertyvalue: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCASetupProperty(core::mem::transmute_copy(&propertyid)) {
+            match ICertSrvSetup_Impl::GetCASetupProperty(this, core::mem::transmute_copy(&propertyid)) {
                 Ok(ok__) => {
                     core::ptr::write(ppropertyvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -67,12 +67,12 @@ impl ICertSrvSetup_Vtbl {
         unsafe extern "system" fn SetCASetupProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: CASetupProperty, ppropertyvalue: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCASetupProperty(core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&ppropertyvalue)).into()
+            ICertSrvSetup_Impl::SetCASetupProperty(this, core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&ppropertyvalue)).into()
         }
         unsafe extern "system" fn IsPropertyEditable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: CASetupProperty, pbeditable: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsPropertyEditable(core::mem::transmute_copy(&propertyid)) {
+            match ICertSrvSetup_Impl::IsPropertyEditable(this, core::mem::transmute_copy(&propertyid)) {
                 Ok(ok__) => {
                     core::ptr::write(pbeditable, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -83,7 +83,7 @@ impl ICertSrvSetup_Vtbl {
         unsafe extern "system" fn GetSupportedCATypes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcatypes: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSupportedCATypes() {
+            match ICertSrvSetup_Impl::GetSupportedCATypes(this) {
                 Ok(ok__) => {
                     core::ptr::write(pcatypes, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -94,7 +94,7 @@ impl ICertSrvSetup_Vtbl {
         unsafe extern "system" fn GetProviderNameList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProviderNameList() {
+            match ICertSrvSetup_Impl::GetProviderNameList(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -105,7 +105,7 @@ impl ICertSrvSetup_Vtbl {
         unsafe extern "system" fn GetKeyLengthList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprovidername: std::mem::MaybeUninit<windows_core::BSTR>, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetKeyLengthList(core::mem::transmute(&bstrprovidername)) {
+            match ICertSrvSetup_Impl::GetKeyLengthList(this, core::mem::transmute(&bstrprovidername)) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -116,7 +116,7 @@ impl ICertSrvSetup_Vtbl {
         unsafe extern "system" fn GetHashAlgorithmList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprovidername: std::mem::MaybeUninit<windows_core::BSTR>, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetHashAlgorithmList(core::mem::transmute(&bstrprovidername)) {
+            match ICertSrvSetup_Impl::GetHashAlgorithmList(this, core::mem::transmute(&bstrprovidername)) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -127,7 +127,7 @@ impl ICertSrvSetup_Vtbl {
         unsafe extern "system" fn GetPrivateKeyContainerList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprovidername: std::mem::MaybeUninit<windows_core::BSTR>, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPrivateKeyContainerList(core::mem::transmute(&bstrprovidername)) {
+            match ICertSrvSetup_Impl::GetPrivateKeyContainerList(this, core::mem::transmute(&bstrprovidername)) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -138,7 +138,7 @@ impl ICertSrvSetup_Vtbl {
         unsafe extern "system" fn GetExistingCACertificates<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetExistingCACertificates() {
+            match ICertSrvSetup_Impl::GetExistingCACertificates(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -149,7 +149,7 @@ impl ICertSrvSetup_Vtbl {
         unsafe extern "system" fn CAImportPFX<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrfilename: std::mem::MaybeUninit<windows_core::BSTR>, bstrpasswd: std::mem::MaybeUninit<windows_core::BSTR>, boverwriteexistingkey: super::super::Foundation::VARIANT_BOOL, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CAImportPFX(core::mem::transmute(&bstrfilename), core::mem::transmute(&bstrpasswd), core::mem::transmute_copy(&boverwriteexistingkey)) {
+            match ICertSrvSetup_Impl::CAImportPFX(this, core::mem::transmute(&bstrfilename), core::mem::transmute(&bstrpasswd), core::mem::transmute_copy(&boverwriteexistingkey)) {
                 Ok(ok__) => {
                     core::ptr::write(ppval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -160,37 +160,37 @@ impl ICertSrvSetup_Vtbl {
         unsafe extern "system" fn SetCADistinguishedName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcadn: std::mem::MaybeUninit<windows_core::BSTR>, bignoreunicode: super::super::Foundation::VARIANT_BOOL, boverwriteexistingkey: super::super::Foundation::VARIANT_BOOL, boverwriteexistingcainds: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCADistinguishedName(core::mem::transmute(&bstrcadn), core::mem::transmute_copy(&bignoreunicode), core::mem::transmute_copy(&boverwriteexistingkey), core::mem::transmute_copy(&boverwriteexistingcainds)).into()
+            ICertSrvSetup_Impl::SetCADistinguishedName(this, core::mem::transmute(&bstrcadn), core::mem::transmute_copy(&bignoreunicode), core::mem::transmute_copy(&boverwriteexistingkey), core::mem::transmute_copy(&boverwriteexistingcainds)).into()
         }
         unsafe extern "system" fn SetDatabaseInformation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdbdirectory: std::mem::MaybeUninit<windows_core::BSTR>, bstrlogdirectory: std::mem::MaybeUninit<windows_core::BSTR>, bstrsharedfolder: std::mem::MaybeUninit<windows_core::BSTR>, bforceoverwrite: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDatabaseInformation(core::mem::transmute(&bstrdbdirectory), core::mem::transmute(&bstrlogdirectory), core::mem::transmute(&bstrsharedfolder), core::mem::transmute_copy(&bforceoverwrite)).into()
+            ICertSrvSetup_Impl::SetDatabaseInformation(this, core::mem::transmute(&bstrdbdirectory), core::mem::transmute(&bstrlogdirectory), core::mem::transmute(&bstrsharedfolder), core::mem::transmute_copy(&bforceoverwrite)).into()
         }
         unsafe extern "system" fn SetParentCAInformation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcaconfiguration: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetParentCAInformation(core::mem::transmute(&bstrcaconfiguration)).into()
+            ICertSrvSetup_Impl::SetParentCAInformation(this, core::mem::transmute(&bstrcaconfiguration)).into()
         }
         unsafe extern "system" fn SetWebCAInformation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcaconfiguration: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetWebCAInformation(core::mem::transmute(&bstrcaconfiguration)).into()
+            ICertSrvSetup_Impl::SetWebCAInformation(this, core::mem::transmute(&bstrcaconfiguration)).into()
         }
         unsafe extern "system" fn Install<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Install().into()
+            ICertSrvSetup_Impl::Install(this).into()
         }
         unsafe extern "system" fn PreUnInstall<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bclientonly: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PreUnInstall(core::mem::transmute_copy(&bclientonly)).into()
+            ICertSrvSetup_Impl::PreUnInstall(this, core::mem::transmute_copy(&bclientonly)).into()
         }
         unsafe extern "system" fn PostUnInstall<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PostUnInstall().into()
+            ICertSrvSetup_Impl::PostUnInstall(this).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -243,7 +243,7 @@ impl ICertSrvSetupKeyInformation_Vtbl {
         unsafe extern "system" fn ProviderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ProviderName() {
+            match ICertSrvSetupKeyInformation_Impl::ProviderName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -254,12 +254,12 @@ impl ICertSrvSetupKeyInformation_Vtbl {
         unsafe extern "system" fn SetProviderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetProviderName(core::mem::transmute(&bstrval)).into()
+            ICertSrvSetupKeyInformation_Impl::SetProviderName(this, core::mem::transmute(&bstrval)).into()
         }
         unsafe extern "system" fn Length<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Length() {
+            match ICertSrvSetupKeyInformation_Impl::Length(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -270,12 +270,12 @@ impl ICertSrvSetupKeyInformation_Vtbl {
         unsafe extern "system" fn SetLength<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lval: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLength(core::mem::transmute_copy(&lval)).into()
+            ICertSrvSetupKeyInformation_Impl::SetLength(this, core::mem::transmute_copy(&lval)).into()
         }
         unsafe extern "system" fn Existing<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Existing() {
+            match ICertSrvSetupKeyInformation_Impl::Existing(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -286,12 +286,12 @@ impl ICertSrvSetupKeyInformation_Vtbl {
         unsafe extern "system" fn SetExisting<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bval: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetExisting(core::mem::transmute_copy(&bval)).into()
+            ICertSrvSetupKeyInformation_Impl::SetExisting(this, core::mem::transmute_copy(&bval)).into()
         }
         unsafe extern "system" fn ContainerName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ContainerName() {
+            match ICertSrvSetupKeyInformation_Impl::ContainerName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -302,12 +302,12 @@ impl ICertSrvSetupKeyInformation_Vtbl {
         unsafe extern "system" fn SetContainerName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetContainerName(core::mem::transmute(&bstrval)).into()
+            ICertSrvSetupKeyInformation_Impl::SetContainerName(this, core::mem::transmute(&bstrval)).into()
         }
         unsafe extern "system" fn HashAlgorithm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.HashAlgorithm() {
+            match ICertSrvSetupKeyInformation_Impl::HashAlgorithm(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -318,12 +318,12 @@ impl ICertSrvSetupKeyInformation_Vtbl {
         unsafe extern "system" fn SetHashAlgorithm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetHashAlgorithm(core::mem::transmute(&bstrval)).into()
+            ICertSrvSetupKeyInformation_Impl::SetHashAlgorithm(this, core::mem::transmute(&bstrval)).into()
         }
         unsafe extern "system" fn ExistingCACertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ExistingCACertificate() {
+            match ICertSrvSetupKeyInformation_Impl::ExistingCACertificate(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -334,7 +334,7 @@ impl ICertSrvSetupKeyInformation_Vtbl {
         unsafe extern "system" fn SetExistingCACertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetExistingCACertificate(core::mem::transmute(&varval)).into()
+            ICertSrvSetupKeyInformation_Impl::SetExistingCACertificate(this, core::mem::transmute(&varval)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -371,7 +371,7 @@ impl ICertSrvSetupKeyInformationCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetupKeyInformationCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match ICertSrvSetupKeyInformationCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -382,7 +382,7 @@ impl ICertSrvSetupKeyInformationCollection_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetupKeyInformationCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute_copy(&index)) {
+            match ICertSrvSetupKeyInformationCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -393,7 +393,7 @@ impl ICertSrvSetupKeyInformationCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetupKeyInformationCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match ICertSrvSetupKeyInformationCollection_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -404,7 +404,7 @@ impl ICertSrvSetupKeyInformationCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetupKeyInformationCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pikeyinformation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Add(windows_core::from_raw_borrowed(&pikeyinformation)).into()
+            ICertSrvSetupKeyInformationCollection_Impl::Add(this, windows_core::from_raw_borrowed(&pikeyinformation)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -435,7 +435,7 @@ impl ICertificateEnrollmentPolicyServerSetup_Vtbl {
         unsafe extern "system" fn ErrorString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertificateEnrollmentPolicyServerSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ErrorString() {
+            match ICertificateEnrollmentPolicyServerSetup_Impl::ErrorString(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -446,12 +446,12 @@ impl ICertificateEnrollmentPolicyServerSetup_Vtbl {
         unsafe extern "system" fn InitializeInstallDefaults<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertificateEnrollmentPolicyServerSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InitializeInstallDefaults().into()
+            ICertificateEnrollmentPolicyServerSetup_Impl::InitializeInstallDefaults(this).into()
         }
         unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertificateEnrollmentPolicyServerSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: CEPSetupProperty, ppropertyvalue: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProperty(core::mem::transmute_copy(&propertyid)) {
+            match ICertificateEnrollmentPolicyServerSetup_Impl::GetProperty(this, core::mem::transmute_copy(&propertyid)) {
                 Ok(ok__) => {
                     core::ptr::write(ppropertyvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -462,17 +462,17 @@ impl ICertificateEnrollmentPolicyServerSetup_Vtbl {
         unsafe extern "system" fn SetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertificateEnrollmentPolicyServerSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: CEPSetupProperty, ppropertyvalue: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetProperty(core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&ppropertyvalue)).into()
+            ICertificateEnrollmentPolicyServerSetup_Impl::SetProperty(this, core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&ppropertyvalue)).into()
         }
         unsafe extern "system" fn Install<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertificateEnrollmentPolicyServerSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Install().into()
+            ICertificateEnrollmentPolicyServerSetup_Impl::Install(this).into()
         }
         unsafe extern "system" fn UnInstall<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertificateEnrollmentPolicyServerSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pauthkeybasedrenewal: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.UnInstall(core::mem::transmute_copy(&pauthkeybasedrenewal)).into()
+            ICertificateEnrollmentPolicyServerSetup_Impl::UnInstall(this, core::mem::transmute_copy(&pauthkeybasedrenewal)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -506,7 +506,7 @@ impl ICertificateEnrollmentServerSetup_Vtbl {
         unsafe extern "system" fn ErrorString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertificateEnrollmentServerSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ErrorString() {
+            match ICertificateEnrollmentServerSetup_Impl::ErrorString(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -517,12 +517,12 @@ impl ICertificateEnrollmentServerSetup_Vtbl {
         unsafe extern "system" fn InitializeInstallDefaults<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertificateEnrollmentServerSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InitializeInstallDefaults().into()
+            ICertificateEnrollmentServerSetup_Impl::InitializeInstallDefaults(this).into()
         }
         unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertificateEnrollmentServerSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: CESSetupProperty, ppropertyvalue: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProperty(core::mem::transmute_copy(&propertyid)) {
+            match ICertificateEnrollmentServerSetup_Impl::GetProperty(this, core::mem::transmute_copy(&propertyid)) {
                 Ok(ok__) => {
                     core::ptr::write(ppropertyvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -533,22 +533,22 @@ impl ICertificateEnrollmentServerSetup_Vtbl {
         unsafe extern "system" fn SetProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertificateEnrollmentServerSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: CESSetupProperty, ppropertyvalue: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetProperty(core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&ppropertyvalue)).into()
+            ICertificateEnrollmentServerSetup_Impl::SetProperty(this, core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&ppropertyvalue)).into()
         }
         unsafe extern "system" fn SetApplicationPoolCredentials<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertificateEnrollmentServerSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: std::mem::MaybeUninit<windows_core::BSTR>, bstrpassword: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetApplicationPoolCredentials(core::mem::transmute(&bstrusername), core::mem::transmute(&bstrpassword)).into()
+            ICertificateEnrollmentServerSetup_Impl::SetApplicationPoolCredentials(this, core::mem::transmute(&bstrusername), core::mem::transmute(&bstrpassword)).into()
         }
         unsafe extern "system" fn Install<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertificateEnrollmentServerSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Install().into()
+            ICertificateEnrollmentServerSetup_Impl::Install(this).into()
         }
         unsafe extern "system" fn UnInstall<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICertificateEnrollmentServerSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcaconfig: *const std::mem::MaybeUninit<windows_core::VARIANT>, pauthentication: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.UnInstall(core::mem::transmute_copy(&pcaconfig), core::mem::transmute_copy(&pauthentication)).into()
+            ICertificateEnrollmentServerSetup_Impl::UnInstall(this, core::mem::transmute_copy(&pcaconfig), core::mem::transmute_copy(&pauthentication)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -588,7 +588,7 @@ impl IMSCEPSetup_Vtbl {
         unsafe extern "system" fn MSCEPErrorId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSCEPSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MSCEPErrorId() {
+            match IMSCEPSetup_Impl::MSCEPErrorId(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -599,7 +599,7 @@ impl IMSCEPSetup_Vtbl {
         unsafe extern "system" fn MSCEPErrorString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSCEPSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MSCEPErrorString() {
+            match IMSCEPSetup_Impl::MSCEPErrorString(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -610,12 +610,12 @@ impl IMSCEPSetup_Vtbl {
         unsafe extern "system" fn InitializeDefaults<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSCEPSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InitializeDefaults().into()
+            IMSCEPSetup_Impl::InitializeDefaults(this).into()
         }
         unsafe extern "system" fn GetMSCEPSetupProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSCEPSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: MSCEPSetupProperty, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetMSCEPSetupProperty(core::mem::transmute_copy(&propertyid)) {
+            match IMSCEPSetup_Impl::GetMSCEPSetupProperty(this, core::mem::transmute_copy(&propertyid)) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -626,17 +626,17 @@ impl IMSCEPSetup_Vtbl {
         unsafe extern "system" fn SetMSCEPSetupProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSCEPSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: MSCEPSetupProperty, ppropertyvalue: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMSCEPSetupProperty(core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&ppropertyvalue)).into()
+            IMSCEPSetup_Impl::SetMSCEPSetupProperty(this, core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&ppropertyvalue)).into()
         }
         unsafe extern "system" fn SetAccountInformation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSCEPSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: std::mem::MaybeUninit<windows_core::BSTR>, bstrpassword: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAccountInformation(core::mem::transmute(&bstrusername), core::mem::transmute(&bstrpassword)).into()
+            IMSCEPSetup_Impl::SetAccountInformation(this, core::mem::transmute(&bstrusername), core::mem::transmute(&bstrpassword)).into()
         }
         unsafe extern "system" fn IsMSCEPStoreEmpty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSCEPSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbempty: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsMSCEPStoreEmpty() {
+            match IMSCEPSetup_Impl::IsMSCEPStoreEmpty(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbempty, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -647,7 +647,7 @@ impl IMSCEPSetup_Vtbl {
         unsafe extern "system" fn GetProviderNameList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSCEPSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bexchange: super::super::Foundation::VARIANT_BOOL, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProviderNameList(core::mem::transmute_copy(&bexchange)) {
+            match IMSCEPSetup_Impl::GetProviderNameList(this, core::mem::transmute_copy(&bexchange)) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -658,7 +658,7 @@ impl IMSCEPSetup_Vtbl {
         unsafe extern "system" fn GetKeyLengthList<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSCEPSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bexchange: super::super::Foundation::VARIANT_BOOL, bstrprovidername: std::mem::MaybeUninit<windows_core::BSTR>, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetKeyLengthList(core::mem::transmute_copy(&bexchange), core::mem::transmute(&bstrprovidername)) {
+            match IMSCEPSetup_Impl::GetKeyLengthList(this, core::mem::transmute_copy(&bexchange), core::mem::transmute(&bstrprovidername)) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -669,17 +669,17 @@ impl IMSCEPSetup_Vtbl {
         unsafe extern "system" fn Install<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSCEPSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Install().into()
+            IMSCEPSetup_Impl::Install(this).into()
         }
         unsafe extern "system" fn PreUnInstall<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSCEPSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PreUnInstall().into()
+            IMSCEPSetup_Impl::PreUnInstall(this).into()
         }
         unsafe extern "system" fn PostUnInstall<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSCEPSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PostUnInstall().into()
+            IMSCEPSetup_Impl::PostUnInstall(this).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),

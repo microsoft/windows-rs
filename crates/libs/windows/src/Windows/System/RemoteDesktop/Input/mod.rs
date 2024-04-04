@@ -128,8 +128,8 @@ impl<F: FnMut(&[u8]) -> windows_core::Result<bool> + Send + 'static> RemoteTextC
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, pduData_array_size: u32, pdudata: *const u8, result__: *mut bool) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        match ((*this).invoke)(core::slice::from_raw_parts(core::mem::transmute_copy(&pdudata), pduData_array_size as usize)) {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        match (this.invoke)(core::slice::from_raw_parts(core::mem::transmute_copy(&pdudata), pduData_array_size as usize)) {
             Ok(ok__) => {
                 core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                 windows_core::HRESULT(0)

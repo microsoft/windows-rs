@@ -343,6 +343,12 @@ pub struct IAppointmentManagerStatics3_Vtbl {
     GetForUser: usize,
 }
 windows_core::imp::define_interface!(IAppointmentParticipant, IAppointmentParticipant_Vtbl, 0x615e2902_9718_467b_83fb_b293a19121de);
+impl std::ops::Deref for IAppointmentParticipant {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAppointmentParticipant, windows_core::IUnknown, windows_core::IInspectable);
 impl IAppointmentParticipant {
     pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {

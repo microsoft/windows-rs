@@ -7,7 +7,7 @@ impl IWPCGamesSettings_Vtbl {
         unsafe extern "system" fn IsBlocked<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWPCGamesSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidappid: windows_core::GUID, pdwreasons: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsBlocked(core::mem::transmute(&guidappid)) {
+            match IWPCGamesSettings_Impl::IsBlocked(this, core::mem::transmute(&guidappid)) {
                 Ok(ok__) => {
                     core::ptr::write(pdwreasons, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -32,7 +32,7 @@ impl IWPCProviderConfig_Vtbl {
         unsafe extern "system" fn GetUserSummary<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWPCProviderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsid: std::mem::MaybeUninit<windows_core::BSTR>, pbstrusersummary: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetUserSummary(core::mem::transmute(&bstrsid)) {
+            match IWPCProviderConfig_Impl::GetUserSummary(this, core::mem::transmute(&bstrsid)) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrusersummary, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -43,12 +43,12 @@ impl IWPCProviderConfig_Vtbl {
         unsafe extern "system" fn Configure<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWPCProviderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, bstrsid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Configure(core::mem::transmute_copy(&hwnd), core::mem::transmute(&bstrsid)).into()
+            IWPCProviderConfig_Impl::Configure(this, core::mem::transmute_copy(&hwnd), core::mem::transmute(&bstrsid)).into()
         }
         unsafe extern "system" fn RequestOverride<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWPCProviderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, bstrpath: std::mem::MaybeUninit<windows_core::BSTR>, dwflags: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RequestOverride(core::mem::transmute_copy(&hwnd), core::mem::transmute(&bstrpath), core::mem::transmute(&dwflags)).into()
+            IWPCProviderConfig_Impl::RequestOverride(this, core::mem::transmute_copy(&hwnd), core::mem::transmute(&bstrpath), core::mem::transmute(&dwflags)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -71,12 +71,12 @@ impl IWPCProviderState_Vtbl {
         unsafe extern "system" fn Enable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWPCProviderState_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Enable().into()
+            IWPCProviderState_Impl::Enable(this).into()
         }
         unsafe extern "system" fn Disable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWPCProviderState_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Disable().into()
+            IWPCProviderState_Impl::Disable(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -97,7 +97,7 @@ impl IWPCProviderSupport_Vtbl {
         unsafe extern "system" fn GetCurrent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWPCProviderSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidprovider: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCurrent() {
+            match IWPCProviderSupport_Impl::GetCurrent(this) {
                 Ok(ok__) => {
                     core::ptr::write(pguidprovider, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -122,7 +122,7 @@ impl IWPCSettings_Vtbl {
         unsafe extern "system" fn IsLoggingRequired<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWPCSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfrequired: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsLoggingRequired() {
+            match IWPCSettings_Impl::IsLoggingRequired(this) {
                 Ok(ok__) => {
                     core::ptr::write(pfrequired, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -133,7 +133,7 @@ impl IWPCSettings_Vtbl {
         unsafe extern "system" fn GetLastSettingsChangeTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWPCSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptime: *mut super::super::Foundation::SYSTEMTIME) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetLastSettingsChangeTime() {
+            match IWPCSettings_Impl::GetLastSettingsChangeTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(ptime, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -144,7 +144,7 @@ impl IWPCSettings_Vtbl {
         unsafe extern "system" fn GetRestrictions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWPCSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwrestrictions: *mut WPCFLAG_RESTRICTION) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRestrictions() {
+            match IWPCSettings_Impl::GetRestrictions(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdwrestrictions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -173,7 +173,7 @@ impl IWPCWebSettings_Vtbl {
         unsafe extern "system" fn GetSettings<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWPCWebSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwsettings: *mut WPCFLAG_WEB_SETTING) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSettings() {
+            match IWPCWebSettings_Impl::GetSettings(this) {
                 Ok(ok__) => {
                     core::ptr::write(pdwsettings, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -184,7 +184,7 @@ impl IWPCWebSettings_Vtbl {
         unsafe extern "system" fn RequestURLOverride<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWPCWebSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, pcszurl: windows_core::PCWSTR, curls: u32, ppcszsuburls: *const windows_core::PCWSTR, pfchanged: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RequestURLOverride(core::mem::transmute_copy(&hwnd), core::mem::transmute(&pcszurl), core::mem::transmute_copy(&curls), core::mem::transmute_copy(&ppcszsuburls)) {
+            match IWPCWebSettings_Impl::RequestURLOverride(this, core::mem::transmute_copy(&hwnd), core::mem::transmute(&pcszurl), core::mem::transmute_copy(&curls), core::mem::transmute_copy(&ppcszsuburls)) {
                 Ok(ok__) => {
                     core::ptr::write(pfchanged, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -211,7 +211,7 @@ impl IWindowsParentalControls_Vtbl {
         unsafe extern "system" fn GetGamesSettings<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsParentalControls_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcszsid: windows_core::PCWSTR, ppsettings: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetGamesSettings(core::mem::transmute(&pcszsid)) {
+            match IWindowsParentalControls_Impl::GetGamesSettings(this, core::mem::transmute(&pcszsid)) {
                 Ok(ok__) => {
                     core::ptr::write(ppsettings, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -237,7 +237,7 @@ impl IWindowsParentalControlsCore_Vtbl {
         unsafe extern "system" fn GetVisibility<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsParentalControlsCore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pevisibility: *mut WPCFLAG_VISIBILITY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetVisibility() {
+            match IWindowsParentalControlsCore_Impl::GetVisibility(this) {
                 Ok(ok__) => {
                     core::ptr::write(pevisibility, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -248,7 +248,7 @@ impl IWindowsParentalControlsCore_Vtbl {
         unsafe extern "system" fn GetUserSettings<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsParentalControlsCore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcszsid: windows_core::PCWSTR, ppsettings: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetUserSettings(core::mem::transmute(&pcszsid)) {
+            match IWindowsParentalControlsCore_Impl::GetUserSettings(this, core::mem::transmute(&pcszsid)) {
                 Ok(ok__) => {
                     core::ptr::write(ppsettings, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -259,7 +259,7 @@ impl IWindowsParentalControlsCore_Vtbl {
         unsafe extern "system" fn GetWebSettings<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsParentalControlsCore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcszsid: windows_core::PCWSTR, ppsettings: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetWebSettings(core::mem::transmute(&pcszsid)) {
+            match IWindowsParentalControlsCore_Impl::GetWebSettings(this, core::mem::transmute(&pcszsid)) {
                 Ok(ok__) => {
                     core::ptr::write(ppsettings, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -270,7 +270,7 @@ impl IWindowsParentalControlsCore_Vtbl {
         unsafe extern "system" fn GetWebFilterInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWindowsParentalControlsCore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidid: *mut windows_core::GUID, ppszname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetWebFilterInfo(core::mem::transmute_copy(&pguidid), core::mem::transmute_copy(&ppszname)).into()
+            IWindowsParentalControlsCore_Impl::GetWebFilterInfo(this, core::mem::transmute_copy(&pguidid), core::mem::transmute_copy(&ppszname)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

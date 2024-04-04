@@ -13,7 +13,7 @@ impl IMediaEnginePlaybackSource_Vtbl {
         unsafe extern "system" fn CurrentItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaEnginePlaybackSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CurrentItem() {
+            match IMediaEnginePlaybackSource_Impl::CurrentItem(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -25,7 +25,7 @@ impl IMediaEnginePlaybackSource_Vtbl {
         unsafe extern "system" fn SetPlaybackSource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaEnginePlaybackSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, source: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPlaybackSource(windows_core::from_raw_borrowed(&source)).into()
+            IMediaEnginePlaybackSource_Impl::SetPlaybackSource(this, windows_core::from_raw_borrowed(&source)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IMediaEnginePlaybackSource, OFFSET>(),

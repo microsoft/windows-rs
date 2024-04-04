@@ -101,6 +101,12 @@ pub struct ICoreApplicationExit_Vtbl {
     pub RemoveExiting: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreApplicationUnhandledError, ICoreApplicationUnhandledError_Vtbl, 0xf0e24ab0_dd09_42e1_b0bc_e0e131f78d7e);
+impl std::ops::Deref for ICoreApplicationUnhandledError {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICoreApplicationUnhandledError, windows_core::IUnknown, windows_core::IInspectable);
 impl ICoreApplicationUnhandledError {
     pub fn UnhandledErrorDetected<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
@@ -255,6 +261,12 @@ pub struct ICoreImmersiveApplication3_Vtbl {
     pub CreateNewViewWithViewSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFrameworkView, IFrameworkView_Vtbl, 0xfaab5cd0_8924_45ac_ad0f_a08fae5d0324);
+impl std::ops::Deref for IFrameworkView {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFrameworkView, windows_core::IUnknown, windows_core::IInspectable);
 impl IFrameworkView {
     pub fn Initialize<P0>(&self, applicationview: P0) -> windows_core::Result<()>
@@ -301,6 +313,12 @@ pub struct IFrameworkView_Vtbl {
     pub Uninitialize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFrameworkViewSource, IFrameworkViewSource_Vtbl, 0xcd770614_65c4_426c_9494_34fc43554862);
+impl std::ops::Deref for IFrameworkViewSource {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFrameworkViewSource, windows_core::IUnknown, windows_core::IInspectable);
 impl IFrameworkViewSource {
     pub fn CreateView(&self) -> windows_core::Result<IFrameworkView> {

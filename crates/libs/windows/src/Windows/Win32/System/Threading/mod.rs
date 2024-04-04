@@ -2440,6 +2440,12 @@ where
     Wow64SuspendThread(hthread.param().abi())
 }
 windows_core::imp::define_interface!(IRtwqAsyncCallback, IRtwqAsyncCallback_Vtbl, 0xa27003cf_2354_4f2a_8d6a_ab7cff15437e);
+impl std::ops::Deref for IRtwqAsyncCallback {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IRtwqAsyncCallback, windows_core::IUnknown);
 impl IRtwqAsyncCallback {
     pub unsafe fn GetParameters(&self, pdwflags: *mut u32, pdwqueue: *mut u32) -> windows_core::Result<()> {
@@ -2459,6 +2465,12 @@ pub struct IRtwqAsyncCallback_Vtbl {
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRtwqAsyncResult, IRtwqAsyncResult_Vtbl, 0xac6b7889_0740_4d51_8619_905994a55cc6);
+impl std::ops::Deref for IRtwqAsyncResult {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IRtwqAsyncResult, windows_core::IUnknown);
 impl IRtwqAsyncResult {
     pub unsafe fn GetState(&self) -> windows_core::Result<windows_core::IUnknown> {
@@ -2489,6 +2501,12 @@ pub struct IRtwqAsyncResult_Vtbl {
     pub GetStateNoAddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> Option<windows_core::IUnknown>,
 }
 windows_core::imp::define_interface!(IRtwqPlatformEvents, IRtwqPlatformEvents_Vtbl, 0x63d9255a_7ff1_4b61_8faf_ed6460dacf2b);
+impl std::ops::Deref for IRtwqPlatformEvents {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IRtwqPlatformEvents, windows_core::IUnknown);
 impl IRtwqPlatformEvents {
     pub unsafe fn InitializationComplete(&self) -> windows_core::Result<()> {
@@ -2509,26 +2527,14 @@ pub struct IRtwqPlatformEvents_Vtbl {
     pub ShutdownComplete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(RTWQASYNCRESULT, RTWQASYNCRESULT_Vtbl, 0);
-windows_core::imp::interface_hierarchy!(RTWQASYNCRESULT, windows_core::IUnknown, IRtwqAsyncResult);
-impl RTWQASYNCRESULT {
-    pub unsafe fn GetState(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetState)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetStatus(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetStatus)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetStatus(&self, hrstatus: windows_core::HRESULT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetStatus)(windows_core::Interface::as_raw(self), hrstatus).ok()
-    }
-    pub unsafe fn GetObject(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetStateNoAddRef(&self) -> Option<windows_core::IUnknown> {
-        (windows_core::Interface::vtable(self).base__.GetStateNoAddRef)(windows_core::Interface::as_raw(self))
+impl std::ops::Deref for RTWQASYNCRESULT {
+    type Target = IRtwqAsyncResult;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
     }
 }
+windows_core::imp::interface_hierarchy!(RTWQASYNCRESULT, windows_core::IUnknown, IRtwqAsyncResult);
+impl RTWQASYNCRESULT {}
 #[repr(C)]
 pub struct RTWQASYNCRESULT_Vtbl {
     pub base__: IRtwqAsyncResult_Vtbl,

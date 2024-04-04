@@ -7,7 +7,7 @@ impl IInkCommitRequestHandler_Vtbl {
         unsafe extern "system" fn OnCommitRequested<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkCommitRequestHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnCommitRequested().into()
+            IInkCommitRequestHandler_Impl::OnCommitRequested(this).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnCommitRequested: OnCommitRequested::<Identity, Impl, OFFSET> }
     }
@@ -24,7 +24,7 @@ impl IInkD2DRenderer_Vtbl {
         unsafe extern "system" fn Draw<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkD2DRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pd2d1devicecontext: *mut core::ffi::c_void, pinkstrokeiterable: *mut core::ffi::c_void, fhighcontrast: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Draw(windows_core::from_raw_borrowed(&pd2d1devicecontext), windows_core::from_raw_borrowed(&pinkstrokeiterable), core::mem::transmute_copy(&fhighcontrast)).into()
+            IInkD2DRenderer_Impl::Draw(this, windows_core::from_raw_borrowed(&pd2d1devicecontext), windows_core::from_raw_borrowed(&pinkstrokeiterable), core::mem::transmute_copy(&fhighcontrast)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Draw: Draw::<Identity, Impl, OFFSET> }
     }
@@ -41,7 +41,7 @@ impl IInkD2DRenderer2_Vtbl {
         unsafe extern "system" fn Draw<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkD2DRenderer2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pd2d1devicecontext: *mut core::ffi::c_void, pinkstrokeiterable: *mut core::ffi::c_void, highcontrastadjustment: INK_HIGH_CONTRAST_ADJUSTMENT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Draw(windows_core::from_raw_borrowed(&pd2d1devicecontext), windows_core::from_raw_borrowed(&pinkstrokeiterable), core::mem::transmute_copy(&highcontrastadjustment)).into()
+            IInkD2DRenderer2_Impl::Draw(this, windows_core::from_raw_borrowed(&pd2d1devicecontext), windows_core::from_raw_borrowed(&pinkstrokeiterable), core::mem::transmute_copy(&highcontrastadjustment)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Draw: Draw::<Identity, Impl, OFFSET> }
     }
@@ -60,17 +60,17 @@ impl IInkDesktopHost_Vtbl {
         unsafe extern "system" fn QueueWorkItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkDesktopHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, workitem: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.QueueWorkItem(windows_core::from_raw_borrowed(&workitem)).into()
+            IInkDesktopHost_Impl::QueueWorkItem(this, windows_core::from_raw_borrowed(&workitem)).into()
         }
         unsafe extern "system" fn CreateInkPresenter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkDesktopHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateInkPresenter(core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            IInkDesktopHost_Impl::CreateInkPresenter(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
         unsafe extern "system" fn CreateAndInitializeInkPresenter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkDesktopHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rootvisual: *mut core::ffi::c_void, width: f32, height: f32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateAndInitializeInkPresenter(windows_core::from_raw_borrowed(&rootvisual), core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            IInkDesktopHost_Impl::CreateAndInitializeInkPresenter(this, windows_core::from_raw_borrowed(&rootvisual), core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -92,7 +92,7 @@ impl IInkHostWorkItem_Vtbl {
         unsafe extern "system" fn Invoke<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkHostWorkItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Invoke().into()
+            IInkHostWorkItem_Impl::Invoke(this).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
@@ -113,27 +113,27 @@ impl IInkPresenterDesktop_Vtbl {
         unsafe extern "system" fn SetRootVisual<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkPresenterDesktop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rootvisual: *mut core::ffi::c_void, device: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRootVisual(windows_core::from_raw_borrowed(&rootvisual), windows_core::from_raw_borrowed(&device)).into()
+            IInkPresenterDesktop_Impl::SetRootVisual(this, windows_core::from_raw_borrowed(&rootvisual), windows_core::from_raw_borrowed(&device)).into()
         }
         unsafe extern "system" fn SetCommitRequestHandler<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkPresenterDesktop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCommitRequestHandler(windows_core::from_raw_borrowed(&handler)).into()
+            IInkPresenterDesktop_Impl::SetCommitRequestHandler(this, windows_core::from_raw_borrowed(&handler)).into()
         }
         unsafe extern "system" fn GetSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkPresenterDesktop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: *mut f32, height: *mut f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSize(core::mem::transmute_copy(&width), core::mem::transmute_copy(&height)).into()
+            IInkPresenterDesktop_Impl::GetSize(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height)).into()
         }
         unsafe extern "system" fn SetSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkPresenterDesktop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: f32, height: f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSize(core::mem::transmute_copy(&width), core::mem::transmute_copy(&height)).into()
+            IInkPresenterDesktop_Impl::SetSize(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height)).into()
         }
         unsafe extern "system" fn OnHighContrastChanged<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkPresenterDesktop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnHighContrastChanged().into()
+            IInkPresenterDesktop_Impl::OnHighContrastChanged(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

@@ -195,6 +195,12 @@ pub unsafe fn EapHostPeerUninitialize() {
     EapHostPeerUninitialize()
 }
 windows_core::imp::define_interface!(IAccountingProviderConfig, IAccountingProviderConfig_Vtbl, 0x66a2db18_d706_11d0_a37b_00c04fc9da04);
+impl std::ops::Deref for IAccountingProviderConfig {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAccountingProviderConfig, windows_core::IUnknown);
 impl IAccountingProviderConfig {
     pub unsafe fn Initialize<P0>(&self, pszmachinename: P0) -> windows_core::Result<usize>
@@ -230,6 +236,12 @@ pub struct IAccountingProviderConfig_Vtbl {
     pub Deactivate: unsafe extern "system" fn(*mut core::ffi::c_void, usize, usize, usize) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAuthenticationProviderConfig, IAuthenticationProviderConfig_Vtbl, 0x66a2db17_d706_11d0_a37b_00c04fc9da04);
+impl std::ops::Deref for IAuthenticationProviderConfig {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAuthenticationProviderConfig, windows_core::IUnknown);
 impl IAuthenticationProviderConfig {
     pub unsafe fn Initialize<P0>(&self, pszmachinename: P0) -> windows_core::Result<usize>
@@ -265,6 +277,12 @@ pub struct IAuthenticationProviderConfig_Vtbl {
     pub Deactivate: unsafe extern "system" fn(*mut core::ffi::c_void, usize, usize, usize) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEAPProviderConfig, IEAPProviderConfig_Vtbl, 0x66a2db19_d706_11d0_a37b_00c04fc9da04);
+impl std::ops::Deref for IEAPProviderConfig {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEAPProviderConfig, windows_core::IUnknown);
 impl IEAPProviderConfig {
     pub unsafe fn Initialize<P0>(&self, pszmachinename: P0, dweaptypeid: u32) -> windows_core::Result<usize>
@@ -306,36 +324,14 @@ pub struct IEAPProviderConfig_Vtbl {
     pub RouterInvokeCredentialsUI: unsafe extern "system" fn(*mut core::ffi::c_void, u32, usize, super::super::Foundation::HWND, u32, *const u8, u32, *const u8, u32, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEAPProviderConfig2, IEAPProviderConfig2_Vtbl, 0xd565917a_85c4_4466_856e_671c3742ea9a);
+impl std::ops::Deref for IEAPProviderConfig2 {
+    type Target = IEAPProviderConfig;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEAPProviderConfig2, windows_core::IUnknown, IEAPProviderConfig);
 impl IEAPProviderConfig2 {
-    pub unsafe fn Initialize<P0>(&self, pszmachinename: P0, dweaptypeid: u32) -> windows_core::Result<usize>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Initialize)(windows_core::Interface::as_raw(self), pszmachinename.param().abi(), dweaptypeid, &mut result__).map(|| result__)
-    }
-    pub unsafe fn Uninitialize(&self, dweaptypeid: u32, uconnectionparam: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Uninitialize)(windows_core::Interface::as_raw(self), dweaptypeid, uconnectionparam).ok()
-    }
-    pub unsafe fn ServerInvokeConfigUI<P0>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: P0, ureserved1: usize, ureserved2: usize) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.ServerInvokeConfigUI)(windows_core::Interface::as_raw(self), dweaptypeid, uconnectionparam, hwnd.param().abi(), ureserved1, ureserved2).ok()
-    }
-    pub unsafe fn RouterInvokeConfigUI<P0>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: P0, dwflags: u32, pconnectiondatain: &[u8], ppconnectiondataout: *mut *mut u8, pdwsizeofconnectiondataout: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.RouterInvokeConfigUI)(windows_core::Interface::as_raw(self), dweaptypeid, uconnectionparam, hwndparent.param().abi(), dwflags, core::mem::transmute(pconnectiondatain.as_ptr()), pconnectiondatain.len().try_into().unwrap(), ppconnectiondataout, pdwsizeofconnectiondataout).ok()
-    }
-    pub unsafe fn RouterInvokeCredentialsUI<P0>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: P0, dwflags: u32, pconnectiondatain: &[u8], puserdatain: &[u8], ppuserdataout: *mut *mut u8, pdwsizeofuserdataout: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.RouterInvokeCredentialsUI)(windows_core::Interface::as_raw(self), dweaptypeid, uconnectionparam, hwndparent.param().abi(), dwflags, core::mem::transmute(pconnectiondatain.as_ptr()), pconnectiondatain.len().try_into().unwrap(), core::mem::transmute(puserdatain.as_ptr()), puserdatain.len().try_into().unwrap(), ppuserdataout, pdwsizeofuserdataout).ok()
-    }
     pub unsafe fn ServerInvokeConfigUI2<P0>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: P0, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::HWND>,
@@ -353,45 +349,14 @@ pub struct IEAPProviderConfig2_Vtbl {
     pub GetGlobalConfig: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEAPProviderConfig3, IEAPProviderConfig3_Vtbl, 0xb78ecd12_68bb_4f86_9bf0_8438dd3be982);
+impl std::ops::Deref for IEAPProviderConfig3 {
+    type Target = IEAPProviderConfig2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEAPProviderConfig3, windows_core::IUnknown, IEAPProviderConfig, IEAPProviderConfig2);
 impl IEAPProviderConfig3 {
-    pub unsafe fn Initialize<P0>(&self, pszmachinename: P0, dweaptypeid: u32) -> windows_core::Result<usize>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Initialize)(windows_core::Interface::as_raw(self), pszmachinename.param().abi(), dweaptypeid, &mut result__).map(|| result__)
-    }
-    pub unsafe fn Uninitialize(&self, dweaptypeid: u32, uconnectionparam: usize) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.Uninitialize)(windows_core::Interface::as_raw(self), dweaptypeid, uconnectionparam).ok()
-    }
-    pub unsafe fn ServerInvokeConfigUI<P0>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: P0, ureserved1: usize, ureserved2: usize) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.ServerInvokeConfigUI)(windows_core::Interface::as_raw(self), dweaptypeid, uconnectionparam, hwnd.param().abi(), ureserved1, ureserved2).ok()
-    }
-    pub unsafe fn RouterInvokeConfigUI<P0>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: P0, dwflags: u32, pconnectiondatain: &[u8], ppconnectiondataout: *mut *mut u8, pdwsizeofconnectiondataout: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.RouterInvokeConfigUI)(windows_core::Interface::as_raw(self), dweaptypeid, uconnectionparam, hwndparent.param().abi(), dwflags, core::mem::transmute(pconnectiondatain.as_ptr()), pconnectiondatain.len().try_into().unwrap(), ppconnectiondataout, pdwsizeofconnectiondataout).ok()
-    }
-    pub unsafe fn RouterInvokeCredentialsUI<P0>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: P0, dwflags: u32, pconnectiondatain: &[u8], puserdatain: &[u8], ppuserdataout: *mut *mut u8, pdwsizeofuserdataout: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.RouterInvokeCredentialsUI)(windows_core::Interface::as_raw(self), dweaptypeid, uconnectionparam, hwndparent.param().abi(), dwflags, core::mem::transmute(pconnectiondatain.as_ptr()), pconnectiondatain.len().try_into().unwrap(), core::mem::transmute(puserdatain.as_ptr()), puserdatain.len().try_into().unwrap(), ppuserdataout, pdwsizeofuserdataout).ok()
-    }
-    pub unsafe fn ServerInvokeConfigUI2<P0>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: P0, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.ServerInvokeConfigUI2)(windows_core::Interface::as_raw(self), dweaptypeid, uconnectionparam, hwnd.param().abi(), pconfigdatain, dwsizeofconfigdatain, ppconfigdataout, pdwsizeofconfigdataout).ok()
-    }
-    pub unsafe fn GetGlobalConfig(&self, dweaptypeid: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetGlobalConfig)(windows_core::Interface::as_raw(self), dweaptypeid, ppconfigdataout, pdwsizeofconfigdataout).ok()
-    }
     pub unsafe fn ServerInvokeCertificateConfigUI<P0>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: P0, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32, ureserved: usize) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::HWND>,
@@ -405,6 +370,12 @@ pub struct IEAPProviderConfig3_Vtbl {
     pub ServerInvokeCertificateConfigUI: unsafe extern "system" fn(*mut core::ffi::c_void, u32, usize, super::super::Foundation::HWND, *const u8, u32, *mut *mut u8, *mut u32, usize) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRouterProtocolConfig, IRouterProtocolConfig_Vtbl, 0x66a2db16_d706_11d0_a37b_00c04fc9da04);
+impl std::ops::Deref for IRouterProtocolConfig {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IRouterProtocolConfig, windows_core::IUnknown);
 impl IRouterProtocolConfig {
     pub unsafe fn AddProtocol<P0, P1, P2>(&self, pszmachinename: P0, dwtransportid: u32, dwprotocolid: u32, hwnd: P1, dwflags: u32, prouter: P2, ureserved1: usize) -> windows_core::Result<()>

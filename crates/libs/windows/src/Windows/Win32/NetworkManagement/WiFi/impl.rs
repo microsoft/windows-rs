@@ -15,12 +15,12 @@ impl IDot11AdHocInterface_Vtbl {
         unsafe extern "system" fn GetDeviceSignature<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocInterface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psignature: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDeviceSignature(core::mem::transmute_copy(&psignature)).into()
+            IDot11AdHocInterface_Impl::GetDeviceSignature(this, core::mem::transmute_copy(&psignature)).into()
         }
         unsafe extern "system" fn GetFriendlyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocInterface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFriendlyName() {
+            match IDot11AdHocInterface_Impl::GetFriendlyName(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppszname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -31,22 +31,22 @@ impl IDot11AdHocInterface_Vtbl {
         unsafe extern "system" fn IsDot11d<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocInterface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pf11d: *mut u8) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsDot11d(core::mem::transmute_copy(&pf11d)).into()
+            IDot11AdHocInterface_Impl::IsDot11d(this, core::mem::transmute_copy(&pf11d)).into()
         }
         unsafe extern "system" fn IsAdHocCapable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocInterface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfadhoccapable: *mut u8) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsAdHocCapable(core::mem::transmute_copy(&pfadhoccapable)).into()
+            IDot11AdHocInterface_Impl::IsAdHocCapable(this, core::mem::transmute_copy(&pfadhoccapable)).into()
         }
         unsafe extern "system" fn IsRadioOn<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocInterface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfisradioon: *mut u8) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsRadioOn(core::mem::transmute_copy(&pfisradioon)).into()
+            IDot11AdHocInterface_Impl::IsRadioOn(this, core::mem::transmute_copy(&pfisradioon)).into()
         }
         unsafe extern "system" fn GetActiveNetwork<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocInterface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppnetwork: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetActiveNetwork() {
+            match IDot11AdHocInterface_Impl::GetActiveNetwork(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppnetwork, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -57,7 +57,7 @@ impl IDot11AdHocInterface_Vtbl {
         unsafe extern "system" fn GetIEnumSecuritySettings<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocInterface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetIEnumSecuritySettings() {
+            match IDot11AdHocInterface_Impl::GetIEnumSecuritySettings(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppenum, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -68,7 +68,7 @@ impl IDot11AdHocInterface_Vtbl {
         unsafe extern "system" fn GetIEnumDot11AdHocNetworks<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocInterface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfilterguid: *const windows_core::GUID, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetIEnumDot11AdHocNetworks(core::mem::transmute_copy(&pfilterguid)) {
+            match IDot11AdHocInterface_Impl::GetIEnumDot11AdHocNetworks(this, core::mem::transmute_copy(&pfilterguid)) {
                 Ok(ok__) => {
                     core::ptr::write(ppenum, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -79,7 +79,7 @@ impl IDot11AdHocInterface_Vtbl {
         unsafe extern "system" fn GetStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocInterface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstate: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetStatus(core::mem::transmute_copy(&pstate)).into()
+            IDot11AdHocInterface_Impl::GetStatus(this, core::mem::transmute_copy(&pstate)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -107,7 +107,7 @@ impl IDot11AdHocInterfaceNotificationSink_Vtbl {
         unsafe extern "system" fn OnConnectionStatusChange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocInterfaceNotificationSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnConnectionStatusChange(core::mem::transmute_copy(&estatus)).into()
+            IDot11AdHocInterfaceNotificationSink_Impl::OnConnectionStatusChange(this, core::mem::transmute_copy(&estatus)).into()
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnConnectionStatusChange: OnConnectionStatusChange::<Identity, Impl, OFFSET> }
     }
@@ -128,7 +128,7 @@ impl IDot11AdHocManager_Vtbl {
         unsafe extern "system" fn CreateNetwork<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, password: windows_core::PCWSTR, geographicalid: i32, pinterface: *mut core::ffi::c_void, psecurity: *mut core::ffi::c_void, pcontextguid: *const windows_core::GUID, piadhoc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateNetwork(core::mem::transmute(&name), core::mem::transmute(&password), core::mem::transmute_copy(&geographicalid), windows_core::from_raw_borrowed(&pinterface), windows_core::from_raw_borrowed(&psecurity), core::mem::transmute_copy(&pcontextguid)) {
+            match IDot11AdHocManager_Impl::CreateNetwork(this, core::mem::transmute(&name), core::mem::transmute(&password), core::mem::transmute_copy(&geographicalid), windows_core::from_raw_borrowed(&pinterface), windows_core::from_raw_borrowed(&psecurity), core::mem::transmute_copy(&pcontextguid)) {
                 Ok(ok__) => {
                     core::ptr::write(piadhoc, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -139,12 +139,12 @@ impl IDot11AdHocManager_Vtbl {
         unsafe extern "system" fn CommitCreatedNetwork<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piadhoc: *mut core::ffi::c_void, fsaveprofile: super::super::Foundation::BOOLEAN, fmakesavedprofileuserspecific: super::super::Foundation::BOOLEAN) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CommitCreatedNetwork(windows_core::from_raw_borrowed(&piadhoc), core::mem::transmute_copy(&fsaveprofile), core::mem::transmute_copy(&fmakesavedprofileuserspecific)).into()
+            IDot11AdHocManager_Impl::CommitCreatedNetwork(this, windows_core::from_raw_borrowed(&piadhoc), core::mem::transmute_copy(&fsaveprofile), core::mem::transmute_copy(&fmakesavedprofileuserspecific)).into()
         }
         unsafe extern "system" fn GetIEnumDot11AdHocNetworks<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcontextguid: *const windows_core::GUID, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetIEnumDot11AdHocNetworks(core::mem::transmute_copy(&pcontextguid)) {
+            match IDot11AdHocManager_Impl::GetIEnumDot11AdHocNetworks(this, core::mem::transmute_copy(&pcontextguid)) {
                 Ok(ok__) => {
                     core::ptr::write(ppenum, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -155,7 +155,7 @@ impl IDot11AdHocManager_Vtbl {
         unsafe extern "system" fn GetIEnumDot11AdHocInterfaces<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetIEnumDot11AdHocInterfaces() {
+            match IDot11AdHocManager_Impl::GetIEnumDot11AdHocInterfaces(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppenum, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -166,7 +166,7 @@ impl IDot11AdHocManager_Vtbl {
         unsafe extern "system" fn GetNetwork<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, networksignature: *const windows_core::GUID, pnetwork: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetNetwork(core::mem::transmute_copy(&networksignature)) {
+            match IDot11AdHocManager_Impl::GetNetwork(this, core::mem::transmute_copy(&networksignature)) {
                 Ok(ok__) => {
                     core::ptr::write(pnetwork, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -199,22 +199,22 @@ impl IDot11AdHocManagerNotificationSink_Vtbl {
         unsafe extern "system" fn OnNetworkAdd<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocManagerNotificationSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piadhocnetwork: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnNetworkAdd(windows_core::from_raw_borrowed(&piadhocnetwork)).into()
+            IDot11AdHocManagerNotificationSink_Impl::OnNetworkAdd(this, windows_core::from_raw_borrowed(&piadhocnetwork)).into()
         }
         unsafe extern "system" fn OnNetworkRemove<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocManagerNotificationSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, signature: *const windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnNetworkRemove(core::mem::transmute_copy(&signature)).into()
+            IDot11AdHocManagerNotificationSink_Impl::OnNetworkRemove(this, core::mem::transmute_copy(&signature)).into()
         }
         unsafe extern "system" fn OnInterfaceAdd<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocManagerNotificationSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piadhocinterface: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnInterfaceAdd(windows_core::from_raw_borrowed(&piadhocinterface)).into()
+            IDot11AdHocManagerNotificationSink_Impl::OnInterfaceAdd(this, windows_core::from_raw_borrowed(&piadhocinterface)).into()
         }
         unsafe extern "system" fn OnInterfaceRemove<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocManagerNotificationSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, signature: *const windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnInterfaceRemove(core::mem::transmute_copy(&signature)).into()
+            IDot11AdHocManagerNotificationSink_Impl::OnInterfaceRemove(this, core::mem::transmute_copy(&signature)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -248,12 +248,12 @@ impl IDot11AdHocNetwork_Vtbl {
         unsafe extern "system" fn GetStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, estatus: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetStatus(core::mem::transmute_copy(&estatus)).into()
+            IDot11AdHocNetwork_Impl::GetStatus(this, core::mem::transmute_copy(&estatus)).into()
         }
         unsafe extern "system" fn GetSSID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszwssid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSSID() {
+            match IDot11AdHocNetwork_Impl::GetSSID(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppszwssid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -264,12 +264,12 @@ impl IDot11AdHocNetwork_Vtbl {
         unsafe extern "system" fn HasProfile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pf11d: *mut u8) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.HasProfile(core::mem::transmute_copy(&pf11d)).into()
+            IDot11AdHocNetwork_Impl::HasProfile(this, core::mem::transmute_copy(&pf11d)).into()
         }
         unsafe extern "system" fn GetProfileName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszwprofilename: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProfileName() {
+            match IDot11AdHocNetwork_Impl::GetProfileName(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppszwprofilename, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -280,17 +280,17 @@ impl IDot11AdHocNetwork_Vtbl {
         unsafe extern "system" fn DeleteProfile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteProfile().into()
+            IDot11AdHocNetwork_Impl::DeleteProfile(this).into()
         }
         unsafe extern "system" fn GetSignalQuality<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pustrengthvalue: *mut u32, pustrengthmax: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSignalQuality(core::mem::transmute_copy(&pustrengthvalue), core::mem::transmute_copy(&pustrengthmax)).into()
+            IDot11AdHocNetwork_Impl::GetSignalQuality(this, core::mem::transmute_copy(&pustrengthvalue), core::mem::transmute_copy(&pustrengthmax)).into()
         }
         unsafe extern "system" fn GetSecuritySetting<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, padhocsecuritysetting: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSecuritySetting() {
+            match IDot11AdHocNetwork_Impl::GetSecuritySetting(this) {
                 Ok(ok__) => {
                     core::ptr::write(padhocsecuritysetting, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -301,17 +301,17 @@ impl IDot11AdHocNetwork_Vtbl {
         unsafe extern "system" fn GetContextGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcontextguid: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetContextGuid(core::mem::transmute_copy(&pcontextguid)).into()
+            IDot11AdHocNetwork_Impl::GetContextGuid(this, core::mem::transmute_copy(&pcontextguid)).into()
         }
         unsafe extern "system" fn GetSignature<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psignature: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSignature(core::mem::transmute_copy(&psignature)).into()
+            IDot11AdHocNetwork_Impl::GetSignature(this, core::mem::transmute_copy(&psignature)).into()
         }
         unsafe extern "system" fn GetInterface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, padhocinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetInterface() {
+            match IDot11AdHocNetwork_Impl::GetInterface(this) {
                 Ok(ok__) => {
                     core::ptr::write(padhocinterface, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -322,12 +322,12 @@ impl IDot11AdHocNetwork_Vtbl {
         unsafe extern "system" fn Connect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, passphrase: windows_core::PCWSTR, geographicalid: i32, fsaveprofile: super::super::Foundation::BOOLEAN, fmakesavedprofileuserspecific: super::super::Foundation::BOOLEAN) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Connect(core::mem::transmute(&passphrase), core::mem::transmute_copy(&geographicalid), core::mem::transmute_copy(&fsaveprofile), core::mem::transmute_copy(&fmakesavedprofileuserspecific)).into()
+            IDot11AdHocNetwork_Impl::Connect(this, core::mem::transmute(&passphrase), core::mem::transmute_copy(&geographicalid), core::mem::transmute_copy(&fsaveprofile), core::mem::transmute_copy(&fmakesavedprofileuserspecific)).into()
         }
         unsafe extern "system" fn Disconnect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Disconnect().into()
+            IDot11AdHocNetwork_Impl::Disconnect(this).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -359,12 +359,12 @@ impl IDot11AdHocNetworkNotificationSink_Vtbl {
         unsafe extern "system" fn OnStatusChange<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocNetworkNotificationSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnStatusChange(core::mem::transmute_copy(&estatus)).into()
+            IDot11AdHocNetworkNotificationSink_Impl::OnStatusChange(this, core::mem::transmute_copy(&estatus)).into()
         }
         unsafe extern "system" fn OnConnectFail<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocNetworkNotificationSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, efailreason: DOT11_ADHOC_CONNECT_FAIL_REASON) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnConnectFail(core::mem::transmute_copy(&efailreason)).into()
+            IDot11AdHocNetworkNotificationSink_Impl::OnConnectFail(this, core::mem::transmute_copy(&efailreason)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -386,12 +386,12 @@ impl IDot11AdHocSecuritySettings_Vtbl {
         unsafe extern "system" fn GetDot11AuthAlgorithm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocSecuritySettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pauth: *mut DOT11_ADHOC_AUTH_ALGORITHM) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDot11AuthAlgorithm(core::mem::transmute_copy(&pauth)).into()
+            IDot11AdHocSecuritySettings_Impl::GetDot11AuthAlgorithm(this, core::mem::transmute_copy(&pauth)).into()
         }
         unsafe extern "system" fn GetDot11CipherAlgorithm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IDot11AdHocSecuritySettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcipher: *mut DOT11_ADHOC_CIPHER_ALGORITHM) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDot11CipherAlgorithm(core::mem::transmute_copy(&pcipher)).into()
+            IDot11AdHocSecuritySettings_Impl::GetDot11CipherAlgorithm(this, core::mem::transmute_copy(&pcipher)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -415,22 +415,22 @@ impl IEnumDot11AdHocInterfaces_Vtbl {
         unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumDot11AdHocInterfaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Next(core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
+            IEnumDot11AdHocInterfaces_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Skip<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumDot11AdHocInterfaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Skip(core::mem::transmute_copy(&celt)).into()
+            IEnumDot11AdHocInterfaces_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumDot11AdHocInterfaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Reset().into()
+            IEnumDot11AdHocInterfaces_Impl::Reset(this).into()
         }
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumDot11AdHocInterfaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IEnumDot11AdHocInterfaces_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppenum, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -462,22 +462,22 @@ impl IEnumDot11AdHocNetworks_Vtbl {
         unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumDot11AdHocNetworks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Next(core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
+            IEnumDot11AdHocNetworks_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Skip<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumDot11AdHocNetworks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Skip(core::mem::transmute_copy(&celt)).into()
+            IEnumDot11AdHocNetworks_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumDot11AdHocNetworks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Reset().into()
+            IEnumDot11AdHocNetworks_Impl::Reset(this).into()
         }
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumDot11AdHocNetworks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IEnumDot11AdHocNetworks_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppenum, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -509,22 +509,22 @@ impl IEnumDot11AdHocSecuritySettings_Vtbl {
         unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumDot11AdHocSecuritySettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Next(core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
+            IEnumDot11AdHocSecuritySettings_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Skip<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumDot11AdHocSecuritySettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Skip(core::mem::transmute_copy(&celt)).into()
+            IEnumDot11AdHocSecuritySettings_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumDot11AdHocSecuritySettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Reset().into()
+            IEnumDot11AdHocSecuritySettings_Impl::Reset(this).into()
         }
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumDot11AdHocSecuritySettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IEnumDot11AdHocSecuritySettings_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppenum, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

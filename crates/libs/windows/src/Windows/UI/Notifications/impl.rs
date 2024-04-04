@@ -13,7 +13,7 @@ impl IAdaptiveNotificationContent_Vtbl {
         unsafe extern "system" fn Kind<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAdaptiveNotificationContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut AdaptiveNotificationContentKind) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Kind() {
+            match IAdaptiveNotificationContent_Impl::Kind(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -24,7 +24,7 @@ impl IAdaptiveNotificationContent_Vtbl {
         unsafe extern "system" fn Hints<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IAdaptiveNotificationContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Hints() {
+            match IAdaptiveNotificationContent_Impl::Hints(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);

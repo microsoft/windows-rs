@@ -12,7 +12,7 @@ impl IXpsDocumentPackageTarget_Vtbl {
         unsafe extern "system" fn GetXpsOMPackageWriter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsDocumentPackageTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documentsequencepartname: *mut core::ffi::c_void, discardcontrolpartname: *mut core::ffi::c_void, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetXpsOMPackageWriter(windows_core::from_raw_borrowed(&documentsequencepartname), windows_core::from_raw_borrowed(&discardcontrolpartname)) {
+            match IXpsDocumentPackageTarget_Impl::GetXpsOMPackageWriter(this, windows_core::from_raw_borrowed(&documentsequencepartname), windows_core::from_raw_borrowed(&discardcontrolpartname)) {
                 Ok(ok__) => {
                     core::ptr::write(packagewriter, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -23,7 +23,7 @@ impl IXpsDocumentPackageTarget_Vtbl {
         unsafe extern "system" fn GetXpsOMFactory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsDocumentPackageTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xpsfactory: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetXpsOMFactory() {
+            match IXpsDocumentPackageTarget_Impl::GetXpsOMFactory(this) {
                 Ok(ok__) => {
                     core::ptr::write(xpsfactory, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -34,7 +34,7 @@ impl IXpsDocumentPackageTarget_Vtbl {
         unsafe extern "system" fn GetXpsType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsDocumentPackageTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documenttype: *mut XPS_DOCUMENT_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetXpsType() {
+            match IXpsDocumentPackageTarget_Impl::GetXpsType(this) {
                 Ok(ok__) => {
                     core::ptr::write(documenttype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -66,7 +66,7 @@ impl IXpsDocumentPackageTarget3D_Vtbl {
         unsafe extern "system" fn GetXpsOMPackageWriter3D<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsDocumentPackageTarget3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documentsequencepartname: *mut core::ffi::c_void, discardcontrolpartname: *mut core::ffi::c_void, modelpartname: *mut core::ffi::c_void, modeldata: *mut core::ffi::c_void, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetXpsOMPackageWriter3D(windows_core::from_raw_borrowed(&documentsequencepartname), windows_core::from_raw_borrowed(&discardcontrolpartname), windows_core::from_raw_borrowed(&modelpartname), windows_core::from_raw_borrowed(&modeldata)) {
+            match IXpsDocumentPackageTarget3D_Impl::GetXpsOMPackageWriter3D(this, windows_core::from_raw_borrowed(&documentsequencepartname), windows_core::from_raw_borrowed(&discardcontrolpartname), windows_core::from_raw_borrowed(&modelpartname), windows_core::from_raw_borrowed(&modeldata)) {
                 Ok(ok__) => {
                     core::ptr::write(packagewriter, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -77,7 +77,7 @@ impl IXpsDocumentPackageTarget3D_Vtbl {
         unsafe extern "system" fn GetXpsOMFactory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsDocumentPackageTarget3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xpsfactory: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetXpsOMFactory() {
+            match IXpsDocumentPackageTarget3D_Impl::GetXpsOMFactory(this) {
                 Ok(ok__) => {
                     core::ptr::write(xpsfactory, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -105,7 +105,7 @@ impl IXpsOMBrush_Vtbl {
         unsafe extern "system" fn GetOpacity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opacity: *mut f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetOpacity() {
+            match IXpsOMBrush_Impl::GetOpacity(this) {
                 Ok(ok__) => {
                     core::ptr::write(opacity, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -116,7 +116,7 @@ impl IXpsOMBrush_Vtbl {
         unsafe extern "system" fn SetOpacity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opacity: f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetOpacity(core::mem::transmute_copy(&opacity)).into()
+            IXpsOMBrush_Impl::SetOpacity(this, core::mem::transmute_copy(&opacity)).into()
         }
         Self {
             base__: IXpsOMShareable_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -152,7 +152,7 @@ impl IXpsOMCanvas_Vtbl {
         unsafe extern "system" fn GetVisuals<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCanvas_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, visuals: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetVisuals() {
+            match IXpsOMCanvas_Impl::GetVisuals(this) {
                 Ok(ok__) => {
                     core::ptr::write(visuals, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -163,7 +163,7 @@ impl IXpsOMCanvas_Vtbl {
         unsafe extern "system" fn GetUseAliasedEdgeMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCanvas_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usealiasededgemode: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetUseAliasedEdgeMode() {
+            match IXpsOMCanvas_Impl::GetUseAliasedEdgeMode(this) {
                 Ok(ok__) => {
                     core::ptr::write(usealiasededgemode, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -174,12 +174,12 @@ impl IXpsOMCanvas_Vtbl {
         unsafe extern "system" fn SetUseAliasedEdgeMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCanvas_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usealiasededgemode: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetUseAliasedEdgeMode(core::mem::transmute_copy(&usealiasededgemode)).into()
+            IXpsOMCanvas_Impl::SetUseAliasedEdgeMode(this, core::mem::transmute_copy(&usealiasededgemode)).into()
         }
         unsafe extern "system" fn GetAccessibilityShortDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCanvas_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, shortdescription: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAccessibilityShortDescription() {
+            match IXpsOMCanvas_Impl::GetAccessibilityShortDescription(this) {
                 Ok(ok__) => {
                     core::ptr::write(shortdescription, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -190,12 +190,12 @@ impl IXpsOMCanvas_Vtbl {
         unsafe extern "system" fn SetAccessibilityShortDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCanvas_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, shortdescription: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAccessibilityShortDescription(core::mem::transmute(&shortdescription)).into()
+            IXpsOMCanvas_Impl::SetAccessibilityShortDescription(this, core::mem::transmute(&shortdescription)).into()
         }
         unsafe extern "system" fn GetAccessibilityLongDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCanvas_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, longdescription: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAccessibilityLongDescription() {
+            match IXpsOMCanvas_Impl::GetAccessibilityLongDescription(this) {
                 Ok(ok__) => {
                     core::ptr::write(longdescription, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -206,12 +206,12 @@ impl IXpsOMCanvas_Vtbl {
         unsafe extern "system" fn SetAccessibilityLongDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCanvas_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, longdescription: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAccessibilityLongDescription(core::mem::transmute(&longdescription)).into()
+            IXpsOMCanvas_Impl::SetAccessibilityLongDescription(this, core::mem::transmute(&longdescription)).into()
         }
         unsafe extern "system" fn GetDictionary<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCanvas_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourcedictionary: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDictionary() {
+            match IXpsOMCanvas_Impl::GetDictionary(this) {
                 Ok(ok__) => {
                     core::ptr::write(resourcedictionary, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -222,7 +222,7 @@ impl IXpsOMCanvas_Vtbl {
         unsafe extern "system" fn GetDictionaryLocal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCanvas_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourcedictionary: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDictionaryLocal() {
+            match IXpsOMCanvas_Impl::GetDictionaryLocal(this) {
                 Ok(ok__) => {
                     core::ptr::write(resourcedictionary, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -233,12 +233,12 @@ impl IXpsOMCanvas_Vtbl {
         unsafe extern "system" fn SetDictionaryLocal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCanvas_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourcedictionary: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDictionaryLocal(windows_core::from_raw_borrowed(&resourcedictionary)).into()
+            IXpsOMCanvas_Impl::SetDictionaryLocal(this, windows_core::from_raw_borrowed(&resourcedictionary)).into()
         }
         unsafe extern "system" fn GetDictionaryResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCanvas_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remotedictionaryresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDictionaryResource() {
+            match IXpsOMCanvas_Impl::GetDictionaryResource(this) {
                 Ok(ok__) => {
                     core::ptr::write(remotedictionaryresource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -249,12 +249,12 @@ impl IXpsOMCanvas_Vtbl {
         unsafe extern "system" fn SetDictionaryResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCanvas_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remotedictionaryresource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDictionaryResource(windows_core::from_raw_borrowed(&remotedictionaryresource)).into()
+            IXpsOMCanvas_Impl::SetDictionaryResource(this, windows_core::from_raw_borrowed(&remotedictionaryresource)).into()
         }
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCanvas_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, canvas: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IXpsOMCanvas_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(canvas, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -296,7 +296,7 @@ impl IXpsOMColorProfileResource_Vtbl {
         unsafe extern "system" fn GetStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMColorProfileResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStream() {
+            match IXpsOMColorProfileResource_Impl::GetStream(this) {
                 Ok(ok__) => {
                     core::ptr::write(stream, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -307,7 +307,7 @@ impl IXpsOMColorProfileResource_Vtbl {
         unsafe extern "system" fn SetContent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMColorProfileResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcestream: *mut core::ffi::c_void, partname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetContent(windows_core::from_raw_borrowed(&sourcestream), windows_core::from_raw_borrowed(&partname)).into()
+            IXpsOMColorProfileResource_Impl::SetContent(this, windows_core::from_raw_borrowed(&sourcestream), windows_core::from_raw_borrowed(&partname)).into()
         }
         Self {
             base__: IXpsOMResource_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -337,7 +337,7 @@ impl IXpsOMColorProfileResourceCollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMColorProfileResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCount() {
+            match IXpsOMColorProfileResourceCollection_Impl::GetCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -348,7 +348,7 @@ impl IXpsOMColorProfileResourceCollection_Vtbl {
         unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMColorProfileResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, object: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAt(core::mem::transmute_copy(&index)) {
+            match IXpsOMColorProfileResourceCollection_Impl::GetAt(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(object, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -359,27 +359,27 @@ impl IXpsOMColorProfileResourceCollection_Vtbl {
         unsafe extern "system" fn InsertAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMColorProfileResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, object: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InsertAt(core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&object)).into()
+            IXpsOMColorProfileResourceCollection_Impl::InsertAt(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&object)).into()
         }
         unsafe extern "system" fn RemoveAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMColorProfileResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAt(core::mem::transmute_copy(&index)).into()
+            IXpsOMColorProfileResourceCollection_Impl::RemoveAt(this, core::mem::transmute_copy(&index)).into()
         }
         unsafe extern "system" fn SetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMColorProfileResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, object: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAt(core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&object)).into()
+            IXpsOMColorProfileResourceCollection_Impl::SetAt(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&object)).into()
         }
         unsafe extern "system" fn Append<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMColorProfileResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, object: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Append(windows_core::from_raw_borrowed(&object)).into()
+            IXpsOMColorProfileResourceCollection_Impl::Append(this, windows_core::from_raw_borrowed(&object)).into()
         }
         unsafe extern "system" fn GetByPartName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMColorProfileResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, partname: *mut core::ffi::c_void, part: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetByPartName(windows_core::from_raw_borrowed(&partname)) {
+            match IXpsOMColorProfileResourceCollection_Impl::GetByPartName(this, windows_core::from_raw_borrowed(&partname)) {
                 Ok(ok__) => {
                     core::ptr::write(part, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -447,7 +447,7 @@ impl IXpsOMCoreProperties_Vtbl {
         unsafe extern "system" fn GetOwner<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, package: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetOwner() {
+            match IXpsOMCoreProperties_Impl::GetOwner(this) {
                 Ok(ok__) => {
                     core::ptr::write(package, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -458,7 +458,7 @@ impl IXpsOMCoreProperties_Vtbl {
         unsafe extern "system" fn GetCategory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCategory() {
+            match IXpsOMCoreProperties_Impl::GetCategory(this) {
                 Ok(ok__) => {
                     core::ptr::write(category, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -469,12 +469,12 @@ impl IXpsOMCoreProperties_Vtbl {
         unsafe extern "system" fn SetCategory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCategory(core::mem::transmute(&category)).into()
+            IXpsOMCoreProperties_Impl::SetCategory(this, core::mem::transmute(&category)).into()
         }
         unsafe extern "system" fn GetContentStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contentstatus: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetContentStatus() {
+            match IXpsOMCoreProperties_Impl::GetContentStatus(this) {
                 Ok(ok__) => {
                     core::ptr::write(contentstatus, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -485,12 +485,12 @@ impl IXpsOMCoreProperties_Vtbl {
         unsafe extern "system" fn SetContentStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contentstatus: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetContentStatus(core::mem::transmute(&contentstatus)).into()
+            IXpsOMCoreProperties_Impl::SetContentStatus(this, core::mem::transmute(&contentstatus)).into()
         }
         unsafe extern "system" fn GetContentType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contenttype: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetContentType() {
+            match IXpsOMCoreProperties_Impl::GetContentType(this) {
                 Ok(ok__) => {
                     core::ptr::write(contenttype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -501,12 +501,12 @@ impl IXpsOMCoreProperties_Vtbl {
         unsafe extern "system" fn SetContentType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contenttype: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetContentType(core::mem::transmute(&contenttype)).into()
+            IXpsOMCoreProperties_Impl::SetContentType(this, core::mem::transmute(&contenttype)).into()
         }
         unsafe extern "system" fn GetCreated<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, created: *mut super::super::Foundation::SYSTEMTIME) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCreated() {
+            match IXpsOMCoreProperties_Impl::GetCreated(this) {
                 Ok(ok__) => {
                     core::ptr::write(created, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -517,12 +517,12 @@ impl IXpsOMCoreProperties_Vtbl {
         unsafe extern "system" fn SetCreated<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, created: *const super::super::Foundation::SYSTEMTIME) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCreated(core::mem::transmute_copy(&created)).into()
+            IXpsOMCoreProperties_Impl::SetCreated(this, core::mem::transmute_copy(&created)).into()
         }
         unsafe extern "system" fn GetCreator<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, creator: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCreator() {
+            match IXpsOMCoreProperties_Impl::GetCreator(this) {
                 Ok(ok__) => {
                     core::ptr::write(creator, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -533,12 +533,12 @@ impl IXpsOMCoreProperties_Vtbl {
         unsafe extern "system" fn SetCreator<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, creator: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCreator(core::mem::transmute(&creator)).into()
+            IXpsOMCoreProperties_Impl::SetCreator(this, core::mem::transmute(&creator)).into()
         }
         unsafe extern "system" fn GetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDescription() {
+            match IXpsOMCoreProperties_Impl::GetDescription(this) {
                 Ok(ok__) => {
                     core::ptr::write(description, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -549,12 +549,12 @@ impl IXpsOMCoreProperties_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDescription(core::mem::transmute(&description)).into()
+            IXpsOMCoreProperties_Impl::SetDescription(this, core::mem::transmute(&description)).into()
         }
         unsafe extern "system" fn GetIdentifier<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, identifier: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetIdentifier() {
+            match IXpsOMCoreProperties_Impl::GetIdentifier(this) {
                 Ok(ok__) => {
                     core::ptr::write(identifier, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -565,12 +565,12 @@ impl IXpsOMCoreProperties_Vtbl {
         unsafe extern "system" fn SetIdentifier<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, identifier: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetIdentifier(core::mem::transmute(&identifier)).into()
+            IXpsOMCoreProperties_Impl::SetIdentifier(this, core::mem::transmute(&identifier)).into()
         }
         unsafe extern "system" fn GetKeywords<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, keywords: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetKeywords() {
+            match IXpsOMCoreProperties_Impl::GetKeywords(this) {
                 Ok(ok__) => {
                     core::ptr::write(keywords, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -581,12 +581,12 @@ impl IXpsOMCoreProperties_Vtbl {
         unsafe extern "system" fn SetKeywords<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, keywords: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetKeywords(core::mem::transmute(&keywords)).into()
+            IXpsOMCoreProperties_Impl::SetKeywords(this, core::mem::transmute(&keywords)).into()
         }
         unsafe extern "system" fn GetLanguage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, language: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetLanguage() {
+            match IXpsOMCoreProperties_Impl::GetLanguage(this) {
                 Ok(ok__) => {
                     core::ptr::write(language, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -597,12 +597,12 @@ impl IXpsOMCoreProperties_Vtbl {
         unsafe extern "system" fn SetLanguage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, language: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLanguage(core::mem::transmute(&language)).into()
+            IXpsOMCoreProperties_Impl::SetLanguage(this, core::mem::transmute(&language)).into()
         }
         unsafe extern "system" fn GetLastModifiedBy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lastmodifiedby: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetLastModifiedBy() {
+            match IXpsOMCoreProperties_Impl::GetLastModifiedBy(this) {
                 Ok(ok__) => {
                     core::ptr::write(lastmodifiedby, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -613,12 +613,12 @@ impl IXpsOMCoreProperties_Vtbl {
         unsafe extern "system" fn SetLastModifiedBy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lastmodifiedby: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLastModifiedBy(core::mem::transmute(&lastmodifiedby)).into()
+            IXpsOMCoreProperties_Impl::SetLastModifiedBy(this, core::mem::transmute(&lastmodifiedby)).into()
         }
         unsafe extern "system" fn GetLastPrinted<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lastprinted: *mut super::super::Foundation::SYSTEMTIME) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetLastPrinted() {
+            match IXpsOMCoreProperties_Impl::GetLastPrinted(this) {
                 Ok(ok__) => {
                     core::ptr::write(lastprinted, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -629,12 +629,12 @@ impl IXpsOMCoreProperties_Vtbl {
         unsafe extern "system" fn SetLastPrinted<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lastprinted: *const super::super::Foundation::SYSTEMTIME) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLastPrinted(core::mem::transmute_copy(&lastprinted)).into()
+            IXpsOMCoreProperties_Impl::SetLastPrinted(this, core::mem::transmute_copy(&lastprinted)).into()
         }
         unsafe extern "system" fn GetModified<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, modified: *mut super::super::Foundation::SYSTEMTIME) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetModified() {
+            match IXpsOMCoreProperties_Impl::GetModified(this) {
                 Ok(ok__) => {
                     core::ptr::write(modified, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -645,12 +645,12 @@ impl IXpsOMCoreProperties_Vtbl {
         unsafe extern "system" fn SetModified<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, modified: *const super::super::Foundation::SYSTEMTIME) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetModified(core::mem::transmute_copy(&modified)).into()
+            IXpsOMCoreProperties_Impl::SetModified(this, core::mem::transmute_copy(&modified)).into()
         }
         unsafe extern "system" fn GetRevision<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, revision: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRevision() {
+            match IXpsOMCoreProperties_Impl::GetRevision(this) {
                 Ok(ok__) => {
                     core::ptr::write(revision, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -661,12 +661,12 @@ impl IXpsOMCoreProperties_Vtbl {
         unsafe extern "system" fn SetRevision<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, revision: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRevision(core::mem::transmute(&revision)).into()
+            IXpsOMCoreProperties_Impl::SetRevision(this, core::mem::transmute(&revision)).into()
         }
         unsafe extern "system" fn GetSubject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, subject: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSubject() {
+            match IXpsOMCoreProperties_Impl::GetSubject(this) {
                 Ok(ok__) => {
                     core::ptr::write(subject, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -677,12 +677,12 @@ impl IXpsOMCoreProperties_Vtbl {
         unsafe extern "system" fn SetSubject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, subject: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSubject(core::mem::transmute(&subject)).into()
+            IXpsOMCoreProperties_Impl::SetSubject(this, core::mem::transmute(&subject)).into()
         }
         unsafe extern "system" fn GetTitle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, title: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetTitle() {
+            match IXpsOMCoreProperties_Impl::GetTitle(this) {
                 Ok(ok__) => {
                     core::ptr::write(title, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -693,12 +693,12 @@ impl IXpsOMCoreProperties_Vtbl {
         unsafe extern "system" fn SetTitle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, title: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTitle(core::mem::transmute(&title)).into()
+            IXpsOMCoreProperties_Impl::SetTitle(this, core::mem::transmute(&title)).into()
         }
         unsafe extern "system" fn GetVersion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, version: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetVersion() {
+            match IXpsOMCoreProperties_Impl::GetVersion(this) {
                 Ok(ok__) => {
                     core::ptr::write(version, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -709,12 +709,12 @@ impl IXpsOMCoreProperties_Vtbl {
         unsafe extern "system" fn SetVersion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, version: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetVersion(core::mem::transmute(&version)).into()
+            IXpsOMCoreProperties_Impl::SetVersion(this, core::mem::transmute(&version)).into()
         }
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMCoreProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, coreproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IXpsOMCoreProperties_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(coreproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -778,7 +778,7 @@ impl IXpsOMDashCollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDashCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCount() {
+            match IXpsOMDashCollection_Impl::GetCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -789,7 +789,7 @@ impl IXpsOMDashCollection_Vtbl {
         unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDashCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, dash: *mut XPS_DASH) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAt(core::mem::transmute_copy(&index)) {
+            match IXpsOMDashCollection_Impl::GetAt(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(dash, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -800,22 +800,22 @@ impl IXpsOMDashCollection_Vtbl {
         unsafe extern "system" fn InsertAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDashCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, dash: *const XPS_DASH) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InsertAt(core::mem::transmute_copy(&index), core::mem::transmute_copy(&dash)).into()
+            IXpsOMDashCollection_Impl::InsertAt(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&dash)).into()
         }
         unsafe extern "system" fn RemoveAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDashCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAt(core::mem::transmute_copy(&index)).into()
+            IXpsOMDashCollection_Impl::RemoveAt(this, core::mem::transmute_copy(&index)).into()
         }
         unsafe extern "system" fn SetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDashCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, dash: *const XPS_DASH) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAt(core::mem::transmute_copy(&index), core::mem::transmute_copy(&dash)).into()
+            IXpsOMDashCollection_Impl::SetAt(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&dash)).into()
         }
         unsafe extern "system" fn Append<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDashCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dash: *const XPS_DASH) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Append(core::mem::transmute_copy(&dash)).into()
+            IXpsOMDashCollection_Impl::Append(this, core::mem::transmute_copy(&dash)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -849,7 +849,7 @@ impl IXpsOMDictionary_Vtbl {
         unsafe extern "system" fn GetOwner<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDictionary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, owner: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetOwner() {
+            match IXpsOMDictionary_Impl::GetOwner(this) {
                 Ok(ok__) => {
                     core::ptr::write(owner, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -860,7 +860,7 @@ impl IXpsOMDictionary_Vtbl {
         unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDictionary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCount() {
+            match IXpsOMDictionary_Impl::GetCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -871,7 +871,7 @@ impl IXpsOMDictionary_Vtbl {
         unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDictionary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, key: *mut windows_core::PWSTR, entry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAt(core::mem::transmute_copy(&index), core::mem::transmute_copy(&key)) {
+            match IXpsOMDictionary_Impl::GetAt(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
                     core::ptr::write(entry, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -882,7 +882,7 @@ impl IXpsOMDictionary_Vtbl {
         unsafe extern "system" fn GetByKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDictionary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::PCWSTR, beforeentry: *mut core::ffi::c_void, entry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetByKey(core::mem::transmute(&key), windows_core::from_raw_borrowed(&beforeentry)) {
+            match IXpsOMDictionary_Impl::GetByKey(this, core::mem::transmute(&key), windows_core::from_raw_borrowed(&beforeentry)) {
                 Ok(ok__) => {
                     core::ptr::write(entry, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -893,7 +893,7 @@ impl IXpsOMDictionary_Vtbl {
         unsafe extern "system" fn GetIndex<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDictionary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entry: *mut core::ffi::c_void, index: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetIndex(windows_core::from_raw_borrowed(&entry)) {
+            match IXpsOMDictionary_Impl::GetIndex(this, windows_core::from_raw_borrowed(&entry)) {
                 Ok(ok__) => {
                     core::ptr::write(index, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -904,27 +904,27 @@ impl IXpsOMDictionary_Vtbl {
         unsafe extern "system" fn Append<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDictionary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::PCWSTR, entry: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Append(core::mem::transmute(&key), windows_core::from_raw_borrowed(&entry)).into()
+            IXpsOMDictionary_Impl::Append(this, core::mem::transmute(&key), windows_core::from_raw_borrowed(&entry)).into()
         }
         unsafe extern "system" fn InsertAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDictionary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, key: windows_core::PCWSTR, entry: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InsertAt(core::mem::transmute_copy(&index), core::mem::transmute(&key), windows_core::from_raw_borrowed(&entry)).into()
+            IXpsOMDictionary_Impl::InsertAt(this, core::mem::transmute_copy(&index), core::mem::transmute(&key), windows_core::from_raw_borrowed(&entry)).into()
         }
         unsafe extern "system" fn RemoveAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDictionary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAt(core::mem::transmute_copy(&index)).into()
+            IXpsOMDictionary_Impl::RemoveAt(this, core::mem::transmute_copy(&index)).into()
         }
         unsafe extern "system" fn SetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDictionary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, key: windows_core::PCWSTR, entry: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAt(core::mem::transmute_copy(&index), core::mem::transmute(&key), windows_core::from_raw_borrowed(&entry)).into()
+            IXpsOMDictionary_Impl::SetAt(this, core::mem::transmute_copy(&index), core::mem::transmute(&key), windows_core::from_raw_borrowed(&entry)).into()
         }
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDictionary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dictionary: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IXpsOMDictionary_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(dictionary, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -969,7 +969,7 @@ impl IXpsOMDocument_Vtbl {
         unsafe extern "system" fn GetOwner<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documentsequence: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetOwner() {
+            match IXpsOMDocument_Impl::GetOwner(this) {
                 Ok(ok__) => {
                     core::ptr::write(documentsequence, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -980,7 +980,7 @@ impl IXpsOMDocument_Vtbl {
         unsafe extern "system" fn GetPageReferences<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pagereferences: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPageReferences() {
+            match IXpsOMDocument_Impl::GetPageReferences(this) {
                 Ok(ok__) => {
                     core::ptr::write(pagereferences, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -991,7 +991,7 @@ impl IXpsOMDocument_Vtbl {
         unsafe extern "system" fn GetPrintTicketResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, printticketresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPrintTicketResource() {
+            match IXpsOMDocument_Impl::GetPrintTicketResource(this) {
                 Ok(ok__) => {
                     core::ptr::write(printticketresource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1002,12 +1002,12 @@ impl IXpsOMDocument_Vtbl {
         unsafe extern "system" fn SetPrintTicketResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, printticketresource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPrintTicketResource(windows_core::from_raw_borrowed(&printticketresource)).into()
+            IXpsOMDocument_Impl::SetPrintTicketResource(this, windows_core::from_raw_borrowed(&printticketresource)).into()
         }
         unsafe extern "system" fn GetDocumentStructureResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documentstructureresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDocumentStructureResource() {
+            match IXpsOMDocument_Impl::GetDocumentStructureResource(this) {
                 Ok(ok__) => {
                     core::ptr::write(documentstructureresource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1018,12 +1018,12 @@ impl IXpsOMDocument_Vtbl {
         unsafe extern "system" fn SetDocumentStructureResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documentstructureresource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDocumentStructureResource(windows_core::from_raw_borrowed(&documentstructureresource)).into()
+            IXpsOMDocument_Impl::SetDocumentStructureResource(this, windows_core::from_raw_borrowed(&documentstructureresource)).into()
         }
         unsafe extern "system" fn GetSignatureBlockResources<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, signatureblockresources: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSignatureBlockResources() {
+            match IXpsOMDocument_Impl::GetSignatureBlockResources(this) {
                 Ok(ok__) => {
                     core::ptr::write(signatureblockresources, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1034,7 +1034,7 @@ impl IXpsOMDocument_Vtbl {
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, document: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IXpsOMDocument_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(document, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1072,7 +1072,7 @@ impl IXpsOMDocumentCollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDocumentCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCount() {
+            match IXpsOMDocumentCollection_Impl::GetCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1083,7 +1083,7 @@ impl IXpsOMDocumentCollection_Vtbl {
         unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDocumentCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, document: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAt(core::mem::transmute_copy(&index)) {
+            match IXpsOMDocumentCollection_Impl::GetAt(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(document, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1094,22 +1094,22 @@ impl IXpsOMDocumentCollection_Vtbl {
         unsafe extern "system" fn InsertAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDocumentCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, document: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InsertAt(core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&document)).into()
+            IXpsOMDocumentCollection_Impl::InsertAt(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&document)).into()
         }
         unsafe extern "system" fn RemoveAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDocumentCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAt(core::mem::transmute_copy(&index)).into()
+            IXpsOMDocumentCollection_Impl::RemoveAt(this, core::mem::transmute_copy(&index)).into()
         }
         unsafe extern "system" fn SetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDocumentCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, document: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAt(core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&document)).into()
+            IXpsOMDocumentCollection_Impl::SetAt(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&document)).into()
         }
         unsafe extern "system" fn Append<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDocumentCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, document: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Append(windows_core::from_raw_borrowed(&document)).into()
+            IXpsOMDocumentCollection_Impl::Append(this, windows_core::from_raw_borrowed(&document)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1140,7 +1140,7 @@ impl IXpsOMDocumentSequence_Vtbl {
         unsafe extern "system" fn GetOwner<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDocumentSequence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, package: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetOwner() {
+            match IXpsOMDocumentSequence_Impl::GetOwner(this) {
                 Ok(ok__) => {
                     core::ptr::write(package, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1151,7 +1151,7 @@ impl IXpsOMDocumentSequence_Vtbl {
         unsafe extern "system" fn GetDocuments<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDocumentSequence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documents: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDocuments() {
+            match IXpsOMDocumentSequence_Impl::GetDocuments(this) {
                 Ok(ok__) => {
                     core::ptr::write(documents, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1162,7 +1162,7 @@ impl IXpsOMDocumentSequence_Vtbl {
         unsafe extern "system" fn GetPrintTicketResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDocumentSequence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, printticketresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPrintTicketResource() {
+            match IXpsOMDocumentSequence_Impl::GetPrintTicketResource(this) {
                 Ok(ok__) => {
                     core::ptr::write(printticketresource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1173,7 +1173,7 @@ impl IXpsOMDocumentSequence_Vtbl {
         unsafe extern "system" fn SetPrintTicketResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDocumentSequence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, printticketresource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPrintTicketResource(windows_core::from_raw_borrowed(&printticketresource)).into()
+            IXpsOMDocumentSequence_Impl::SetPrintTicketResource(this, windows_core::from_raw_borrowed(&printticketresource)).into()
         }
         Self {
             base__: IXpsOMPart_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1201,7 +1201,7 @@ impl IXpsOMDocumentStructureResource_Vtbl {
         unsafe extern "system" fn GetOwner<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDocumentStructureResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, owner: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetOwner() {
+            match IXpsOMDocumentStructureResource_Impl::GetOwner(this) {
                 Ok(ok__) => {
                     core::ptr::write(owner, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1212,7 +1212,7 @@ impl IXpsOMDocumentStructureResource_Vtbl {
         unsafe extern "system" fn GetStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDocumentStructureResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStream() {
+            match IXpsOMDocumentStructureResource_Impl::GetStream(this) {
                 Ok(ok__) => {
                     core::ptr::write(stream, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1223,7 +1223,7 @@ impl IXpsOMDocumentStructureResource_Vtbl {
         unsafe extern "system" fn SetContent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDocumentStructureResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcestream: *mut core::ffi::c_void, partname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetContent(windows_core::from_raw_borrowed(&sourcestream), windows_core::from_raw_borrowed(&partname)).into()
+            IXpsOMDocumentStructureResource_Impl::SetContent(this, windows_core::from_raw_borrowed(&sourcestream), windows_core::from_raw_borrowed(&partname)).into()
         }
         Self {
             base__: IXpsOMResource_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1250,7 +1250,7 @@ impl IXpsOMFontResource_Vtbl {
         unsafe extern "system" fn GetStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMFontResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, readerstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStream() {
+            match IXpsOMFontResource_Impl::GetStream(this) {
                 Ok(ok__) => {
                     core::ptr::write(readerstream, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1261,12 +1261,12 @@ impl IXpsOMFontResource_Vtbl {
         unsafe extern "system" fn SetContent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMFontResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcestream: *mut core::ffi::c_void, embeddingoption: XPS_FONT_EMBEDDING, partname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetContent(windows_core::from_raw_borrowed(&sourcestream), core::mem::transmute_copy(&embeddingoption), windows_core::from_raw_borrowed(&partname)).into()
+            IXpsOMFontResource_Impl::SetContent(this, windows_core::from_raw_borrowed(&sourcestream), core::mem::transmute_copy(&embeddingoption), windows_core::from_raw_borrowed(&partname)).into()
         }
         unsafe extern "system" fn GetEmbeddingOption<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMFontResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, embeddingoption: *mut XPS_FONT_EMBEDDING) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetEmbeddingOption() {
+            match IXpsOMFontResource_Impl::GetEmbeddingOption(this) {
                 Ok(ok__) => {
                     core::ptr::write(embeddingoption, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1303,7 +1303,7 @@ impl IXpsOMFontResourceCollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMFontResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCount() {
+            match IXpsOMFontResourceCollection_Impl::GetCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1314,7 +1314,7 @@ impl IXpsOMFontResourceCollection_Vtbl {
         unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMFontResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAt(core::mem::transmute_copy(&index)) {
+            match IXpsOMFontResourceCollection_Impl::GetAt(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(value, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1325,27 +1325,27 @@ impl IXpsOMFontResourceCollection_Vtbl {
         unsafe extern "system" fn SetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMFontResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAt(core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&value)).into()
+            IXpsOMFontResourceCollection_Impl::SetAt(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&value)).into()
         }
         unsafe extern "system" fn InsertAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMFontResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InsertAt(core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&value)).into()
+            IXpsOMFontResourceCollection_Impl::InsertAt(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&value)).into()
         }
         unsafe extern "system" fn Append<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMFontResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Append(windows_core::from_raw_borrowed(&value)).into()
+            IXpsOMFontResourceCollection_Impl::Append(this, windows_core::from_raw_borrowed(&value)).into()
         }
         unsafe extern "system" fn RemoveAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMFontResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAt(core::mem::transmute_copy(&index)).into()
+            IXpsOMFontResourceCollection_Impl::RemoveAt(this, core::mem::transmute_copy(&index)).into()
         }
         unsafe extern "system" fn GetByPartName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMFontResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, partname: *mut core::ffi::c_void, part: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetByPartName(windows_core::from_raw_borrowed(&partname)) {
+            match IXpsOMFontResourceCollection_Impl::GetByPartName(this, windows_core::from_raw_borrowed(&partname)) {
                 Ok(ok__) => {
                     core::ptr::write(part, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1385,7 +1385,7 @@ impl IXpsOMGeometry_Vtbl {
         unsafe extern "system" fn GetFigures<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, figures: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFigures() {
+            match IXpsOMGeometry_Impl::GetFigures(this) {
                 Ok(ok__) => {
                     core::ptr::write(figures, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1396,7 +1396,7 @@ impl IXpsOMGeometry_Vtbl {
         unsafe extern "system" fn GetFillRule<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fillrule: *mut XPS_FILL_RULE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFillRule() {
+            match IXpsOMGeometry_Impl::GetFillRule(this) {
                 Ok(ok__) => {
                     core::ptr::write(fillrule, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1407,12 +1407,12 @@ impl IXpsOMGeometry_Vtbl {
         unsafe extern "system" fn SetFillRule<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fillrule: XPS_FILL_RULE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFillRule(core::mem::transmute_copy(&fillrule)).into()
+            IXpsOMGeometry_Impl::SetFillRule(this, core::mem::transmute_copy(&fillrule)).into()
         }
         unsafe extern "system" fn GetTransform<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetTransform() {
+            match IXpsOMGeometry_Impl::GetTransform(this) {
                 Ok(ok__) => {
                     core::ptr::write(transform, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1423,7 +1423,7 @@ impl IXpsOMGeometry_Vtbl {
         unsafe extern "system" fn GetTransformLocal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetTransformLocal() {
+            match IXpsOMGeometry_Impl::GetTransformLocal(this) {
                 Ok(ok__) => {
                     core::ptr::write(transform, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1434,12 +1434,12 @@ impl IXpsOMGeometry_Vtbl {
         unsafe extern "system" fn SetTransformLocal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTransformLocal(windows_core::from_raw_borrowed(&transform)).into()
+            IXpsOMGeometry_Impl::SetTransformLocal(this, windows_core::from_raw_borrowed(&transform)).into()
         }
         unsafe extern "system" fn GetTransformLookup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookup: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetTransformLookup() {
+            match IXpsOMGeometry_Impl::GetTransformLookup(this) {
                 Ok(ok__) => {
                     core::ptr::write(lookup, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1450,12 +1450,12 @@ impl IXpsOMGeometry_Vtbl {
         unsafe extern "system" fn SetTransformLookup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookup: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTransformLookup(core::mem::transmute(&lookup)).into()
+            IXpsOMGeometry_Impl::SetTransformLookup(this, core::mem::transmute(&lookup)).into()
         }
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, geometry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IXpsOMGeometry_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(geometry, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1503,7 +1503,7 @@ impl IXpsOMGeometryFigure_Vtbl {
         unsafe extern "system" fn GetOwner<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, owner: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetOwner() {
+            match IXpsOMGeometryFigure_Impl::GetOwner(this) {
                 Ok(ok__) => {
                     core::ptr::write(owner, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1514,27 +1514,27 @@ impl IXpsOMGeometryFigure_Vtbl {
         unsafe extern "system" fn GetSegmentData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, datacount: *mut u32, segmentdata: *mut f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSegmentData(core::mem::transmute_copy(&datacount), core::mem::transmute_copy(&segmentdata)).into()
+            IXpsOMGeometryFigure_Impl::GetSegmentData(this, core::mem::transmute_copy(&datacount), core::mem::transmute_copy(&segmentdata)).into()
         }
         unsafe extern "system" fn GetSegmentTypes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, segmentcount: *mut u32, segmenttypes: *mut XPS_SEGMENT_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSegmentTypes(core::mem::transmute_copy(&segmentcount), core::mem::transmute_copy(&segmenttypes)).into()
+            IXpsOMGeometryFigure_Impl::GetSegmentTypes(this, core::mem::transmute_copy(&segmentcount), core::mem::transmute_copy(&segmenttypes)).into()
         }
         unsafe extern "system" fn GetSegmentStrokes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, segmentcount: *mut u32, segmentstrokes: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSegmentStrokes(core::mem::transmute_copy(&segmentcount), core::mem::transmute_copy(&segmentstrokes)).into()
+            IXpsOMGeometryFigure_Impl::GetSegmentStrokes(this, core::mem::transmute_copy(&segmentcount), core::mem::transmute_copy(&segmentstrokes)).into()
         }
         unsafe extern "system" fn SetSegments<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, segmentcount: u32, segmentdatacount: u32, segmenttypes: *const XPS_SEGMENT_TYPE, segmentdata: *const f32, segmentstrokes: *const super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSegments(core::mem::transmute_copy(&segmentcount), core::mem::transmute_copy(&segmentdatacount), core::mem::transmute_copy(&segmenttypes), core::mem::transmute_copy(&segmentdata), core::mem::transmute_copy(&segmentstrokes)).into()
+            IXpsOMGeometryFigure_Impl::SetSegments(this, core::mem::transmute_copy(&segmentcount), core::mem::transmute_copy(&segmentdatacount), core::mem::transmute_copy(&segmenttypes), core::mem::transmute_copy(&segmentdata), core::mem::transmute_copy(&segmentstrokes)).into()
         }
         unsafe extern "system" fn GetStartPoint<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startpoint: *mut XPS_POINT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStartPoint() {
+            match IXpsOMGeometryFigure_Impl::GetStartPoint(this) {
                 Ok(ok__) => {
                     core::ptr::write(startpoint, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1545,12 +1545,12 @@ impl IXpsOMGeometryFigure_Vtbl {
         unsafe extern "system" fn SetStartPoint<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startpoint: *const XPS_POINT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetStartPoint(core::mem::transmute_copy(&startpoint)).into()
+            IXpsOMGeometryFigure_Impl::SetStartPoint(this, core::mem::transmute_copy(&startpoint)).into()
         }
         unsafe extern "system" fn GetIsClosed<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isclosed: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetIsClosed() {
+            match IXpsOMGeometryFigure_Impl::GetIsClosed(this) {
                 Ok(ok__) => {
                     core::ptr::write(isclosed, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1561,12 +1561,12 @@ impl IXpsOMGeometryFigure_Vtbl {
         unsafe extern "system" fn SetIsClosed<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isclosed: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetIsClosed(core::mem::transmute_copy(&isclosed)).into()
+            IXpsOMGeometryFigure_Impl::SetIsClosed(this, core::mem::transmute_copy(&isclosed)).into()
         }
         unsafe extern "system" fn GetIsFilled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isfilled: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetIsFilled() {
+            match IXpsOMGeometryFigure_Impl::GetIsFilled(this) {
                 Ok(ok__) => {
                     core::ptr::write(isfilled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1577,12 +1577,12 @@ impl IXpsOMGeometryFigure_Vtbl {
         unsafe extern "system" fn SetIsFilled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isfilled: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetIsFilled(core::mem::transmute_copy(&isfilled)).into()
+            IXpsOMGeometryFigure_Impl::SetIsFilled(this, core::mem::transmute_copy(&isfilled)).into()
         }
         unsafe extern "system" fn GetSegmentCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, segmentcount: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSegmentCount() {
+            match IXpsOMGeometryFigure_Impl::GetSegmentCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(segmentcount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1593,7 +1593,7 @@ impl IXpsOMGeometryFigure_Vtbl {
         unsafe extern "system" fn GetSegmentDataCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, segmentdatacount: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSegmentDataCount() {
+            match IXpsOMGeometryFigure_Impl::GetSegmentDataCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(segmentdatacount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1604,7 +1604,7 @@ impl IXpsOMGeometryFigure_Vtbl {
         unsafe extern "system" fn GetSegmentStrokePattern<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, segmentstrokepattern: *mut XPS_SEGMENT_STROKE_PATTERN) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSegmentStrokePattern() {
+            match IXpsOMGeometryFigure_Impl::GetSegmentStrokePattern(this) {
                 Ok(ok__) => {
                     core::ptr::write(segmentstrokepattern, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1615,7 +1615,7 @@ impl IXpsOMGeometryFigure_Vtbl {
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometryFigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, geometryfigure: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IXpsOMGeometryFigure_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(geometryfigure, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1660,7 +1660,7 @@ impl IXpsOMGeometryFigureCollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometryFigureCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCount() {
+            match IXpsOMGeometryFigureCollection_Impl::GetCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1671,7 +1671,7 @@ impl IXpsOMGeometryFigureCollection_Vtbl {
         unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometryFigureCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, geometryfigure: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAt(core::mem::transmute_copy(&index)) {
+            match IXpsOMGeometryFigureCollection_Impl::GetAt(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(geometryfigure, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1682,22 +1682,22 @@ impl IXpsOMGeometryFigureCollection_Vtbl {
         unsafe extern "system" fn InsertAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometryFigureCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, geometryfigure: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InsertAt(core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&geometryfigure)).into()
+            IXpsOMGeometryFigureCollection_Impl::InsertAt(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&geometryfigure)).into()
         }
         unsafe extern "system" fn RemoveAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometryFigureCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAt(core::mem::transmute_copy(&index)).into()
+            IXpsOMGeometryFigureCollection_Impl::RemoveAt(this, core::mem::transmute_copy(&index)).into()
         }
         unsafe extern "system" fn SetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometryFigureCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, geometryfigure: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAt(core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&geometryfigure)).into()
+            IXpsOMGeometryFigureCollection_Impl::SetAt(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&geometryfigure)).into()
         }
         unsafe extern "system" fn Append<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGeometryFigureCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, geometryfigure: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Append(windows_core::from_raw_borrowed(&geometryfigure)).into()
+            IXpsOMGeometryFigureCollection_Impl::Append(this, windows_core::from_raw_borrowed(&geometryfigure)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1751,7 +1751,7 @@ impl IXpsOMGlyphs_Vtbl {
         unsafe extern "system" fn GetUnicodeString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unicodestring: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetUnicodeString() {
+            match IXpsOMGlyphs_Impl::GetUnicodeString(this) {
                 Ok(ok__) => {
                     core::ptr::write(unicodestring, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1762,7 +1762,7 @@ impl IXpsOMGlyphs_Vtbl {
         unsafe extern "system" fn GetGlyphIndexCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, indexcount: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetGlyphIndexCount() {
+            match IXpsOMGlyphs_Impl::GetGlyphIndexCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(indexcount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1773,12 +1773,12 @@ impl IXpsOMGlyphs_Vtbl {
         unsafe extern "system" fn GetGlyphIndices<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, indexcount: *mut u32, glyphindices: *mut XPS_GLYPH_INDEX) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetGlyphIndices(core::mem::transmute_copy(&indexcount), core::mem::transmute_copy(&glyphindices)).into()
+            IXpsOMGlyphs_Impl::GetGlyphIndices(this, core::mem::transmute_copy(&indexcount), core::mem::transmute_copy(&glyphindices)).into()
         }
         unsafe extern "system" fn GetGlyphMappingCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphmappingcount: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetGlyphMappingCount() {
+            match IXpsOMGlyphs_Impl::GetGlyphMappingCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(glyphmappingcount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1789,12 +1789,12 @@ impl IXpsOMGlyphs_Vtbl {
         unsafe extern "system" fn GetGlyphMappings<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphmappingcount: *mut u32, glyphmappings: *mut XPS_GLYPH_MAPPING) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetGlyphMappings(core::mem::transmute_copy(&glyphmappingcount), core::mem::transmute_copy(&glyphmappings)).into()
+            IXpsOMGlyphs_Impl::GetGlyphMappings(this, core::mem::transmute_copy(&glyphmappingcount), core::mem::transmute_copy(&glyphmappings)).into()
         }
         unsafe extern "system" fn GetProhibitedCaretStopCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prohibitedcaretstopcount: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProhibitedCaretStopCount() {
+            match IXpsOMGlyphs_Impl::GetProhibitedCaretStopCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(prohibitedcaretstopcount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1805,12 +1805,12 @@ impl IXpsOMGlyphs_Vtbl {
         unsafe extern "system" fn GetProhibitedCaretStops<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prohibitedcaretstopcount: *mut u32, prohibitedcaretstops: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetProhibitedCaretStops(core::mem::transmute_copy(&prohibitedcaretstopcount), core::mem::transmute_copy(&prohibitedcaretstops)).into()
+            IXpsOMGlyphs_Impl::GetProhibitedCaretStops(this, core::mem::transmute_copy(&prohibitedcaretstopcount), core::mem::transmute_copy(&prohibitedcaretstops)).into()
         }
         unsafe extern "system" fn GetBidiLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bidilevel: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetBidiLevel() {
+            match IXpsOMGlyphs_Impl::GetBidiLevel(this) {
                 Ok(ok__) => {
                     core::ptr::write(bidilevel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1821,7 +1821,7 @@ impl IXpsOMGlyphs_Vtbl {
         unsafe extern "system" fn GetIsSideways<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, issideways: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetIsSideways() {
+            match IXpsOMGlyphs_Impl::GetIsSideways(this) {
                 Ok(ok__) => {
                     core::ptr::write(issideways, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1832,7 +1832,7 @@ impl IXpsOMGlyphs_Vtbl {
         unsafe extern "system" fn GetDeviceFontName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, devicefontname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDeviceFontName() {
+            match IXpsOMGlyphs_Impl::GetDeviceFontName(this) {
                 Ok(ok__) => {
                     core::ptr::write(devicefontname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1843,7 +1843,7 @@ impl IXpsOMGlyphs_Vtbl {
         unsafe extern "system" fn GetStyleSimulations<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stylesimulations: *mut XPS_STYLE_SIMULATION) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStyleSimulations() {
+            match IXpsOMGlyphs_Impl::GetStyleSimulations(this) {
                 Ok(ok__) => {
                     core::ptr::write(stylesimulations, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1854,12 +1854,12 @@ impl IXpsOMGlyphs_Vtbl {
         unsafe extern "system" fn SetStyleSimulations<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stylesimulations: XPS_STYLE_SIMULATION) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetStyleSimulations(core::mem::transmute_copy(&stylesimulations)).into()
+            IXpsOMGlyphs_Impl::SetStyleSimulations(this, core::mem::transmute_copy(&stylesimulations)).into()
         }
         unsafe extern "system" fn GetOrigin<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, origin: *mut XPS_POINT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetOrigin() {
+            match IXpsOMGlyphs_Impl::GetOrigin(this) {
                 Ok(ok__) => {
                     core::ptr::write(origin, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1870,12 +1870,12 @@ impl IXpsOMGlyphs_Vtbl {
         unsafe extern "system" fn SetOrigin<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, origin: *const XPS_POINT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetOrigin(core::mem::transmute_copy(&origin)).into()
+            IXpsOMGlyphs_Impl::SetOrigin(this, core::mem::transmute_copy(&origin)).into()
         }
         unsafe extern "system" fn GetFontRenderingEmSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontrenderingemsize: *mut f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFontRenderingEmSize() {
+            match IXpsOMGlyphs_Impl::GetFontRenderingEmSize(this) {
                 Ok(ok__) => {
                     core::ptr::write(fontrenderingemsize, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1886,12 +1886,12 @@ impl IXpsOMGlyphs_Vtbl {
         unsafe extern "system" fn SetFontRenderingEmSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontrenderingemsize: f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFontRenderingEmSize(core::mem::transmute_copy(&fontrenderingemsize)).into()
+            IXpsOMGlyphs_Impl::SetFontRenderingEmSize(this, core::mem::transmute_copy(&fontrenderingemsize)).into()
         }
         unsafe extern "system" fn GetFontResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFontResource() {
+            match IXpsOMGlyphs_Impl::GetFontResource(this) {
                 Ok(ok__) => {
                     core::ptr::write(fontresource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1902,12 +1902,12 @@ impl IXpsOMGlyphs_Vtbl {
         unsafe extern "system" fn SetFontResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontresource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFontResource(windows_core::from_raw_borrowed(&fontresource)).into()
+            IXpsOMGlyphs_Impl::SetFontResource(this, windows_core::from_raw_borrowed(&fontresource)).into()
         }
         unsafe extern "system" fn GetFontFaceIndex<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfaceindex: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFontFaceIndex() {
+            match IXpsOMGlyphs_Impl::GetFontFaceIndex(this) {
                 Ok(ok__) => {
                     core::ptr::write(fontfaceindex, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1918,12 +1918,12 @@ impl IXpsOMGlyphs_Vtbl {
         unsafe extern "system" fn SetFontFaceIndex<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontfaceindex: i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFontFaceIndex(core::mem::transmute_copy(&fontfaceindex)).into()
+            IXpsOMGlyphs_Impl::SetFontFaceIndex(this, core::mem::transmute_copy(&fontfaceindex)).into()
         }
         unsafe extern "system" fn GetFillBrush<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fillbrush: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFillBrush() {
+            match IXpsOMGlyphs_Impl::GetFillBrush(this) {
                 Ok(ok__) => {
                     core::ptr::write(fillbrush, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1934,7 +1934,7 @@ impl IXpsOMGlyphs_Vtbl {
         unsafe extern "system" fn GetFillBrushLocal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fillbrush: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFillBrushLocal() {
+            match IXpsOMGlyphs_Impl::GetFillBrushLocal(this) {
                 Ok(ok__) => {
                     core::ptr::write(fillbrush, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1945,12 +1945,12 @@ impl IXpsOMGlyphs_Vtbl {
         unsafe extern "system" fn SetFillBrushLocal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fillbrush: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFillBrushLocal(windows_core::from_raw_borrowed(&fillbrush)).into()
+            IXpsOMGlyphs_Impl::SetFillBrushLocal(this, windows_core::from_raw_borrowed(&fillbrush)).into()
         }
         unsafe extern "system" fn GetFillBrushLookup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFillBrushLookup() {
+            match IXpsOMGlyphs_Impl::GetFillBrushLookup(this) {
                 Ok(ok__) => {
                     core::ptr::write(key, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1961,12 +1961,12 @@ impl IXpsOMGlyphs_Vtbl {
         unsafe extern "system" fn SetFillBrushLookup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFillBrushLookup(core::mem::transmute(&key)).into()
+            IXpsOMGlyphs_Impl::SetFillBrushLookup(this, core::mem::transmute(&key)).into()
         }
         unsafe extern "system" fn GetGlyphsEditor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, editor: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetGlyphsEditor() {
+            match IXpsOMGlyphs_Impl::GetGlyphsEditor(this) {
                 Ok(ok__) => {
                     core::ptr::write(editor, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1977,7 +1977,7 @@ impl IXpsOMGlyphs_Vtbl {
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphs: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IXpsOMGlyphs_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(glyphs, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2046,12 +2046,12 @@ impl IXpsOMGlyphsEditor_Vtbl {
         unsafe extern "system" fn ApplyEdits<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ApplyEdits().into()
+            IXpsOMGlyphsEditor_Impl::ApplyEdits(this).into()
         }
         unsafe extern "system" fn GetUnicodeString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unicodestring: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetUnicodeString() {
+            match IXpsOMGlyphsEditor_Impl::GetUnicodeString(this) {
                 Ok(ok__) => {
                     core::ptr::write(unicodestring, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2062,12 +2062,12 @@ impl IXpsOMGlyphsEditor_Vtbl {
         unsafe extern "system" fn SetUnicodeString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unicodestring: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetUnicodeString(core::mem::transmute(&unicodestring)).into()
+            IXpsOMGlyphsEditor_Impl::SetUnicodeString(this, core::mem::transmute(&unicodestring)).into()
         }
         unsafe extern "system" fn GetGlyphIndexCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, indexcount: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetGlyphIndexCount() {
+            match IXpsOMGlyphsEditor_Impl::GetGlyphIndexCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(indexcount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2078,17 +2078,17 @@ impl IXpsOMGlyphsEditor_Vtbl {
         unsafe extern "system" fn GetGlyphIndices<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, indexcount: *mut u32, glyphindices: *mut XPS_GLYPH_INDEX) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetGlyphIndices(core::mem::transmute_copy(&indexcount), core::mem::transmute_copy(&glyphindices)).into()
+            IXpsOMGlyphsEditor_Impl::GetGlyphIndices(this, core::mem::transmute_copy(&indexcount), core::mem::transmute_copy(&glyphindices)).into()
         }
         unsafe extern "system" fn SetGlyphIndices<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, indexcount: u32, glyphindices: *const XPS_GLYPH_INDEX) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetGlyphIndices(core::mem::transmute_copy(&indexcount), core::mem::transmute_copy(&glyphindices)).into()
+            IXpsOMGlyphsEditor_Impl::SetGlyphIndices(this, core::mem::transmute_copy(&indexcount), core::mem::transmute_copy(&glyphindices)).into()
         }
         unsafe extern "system" fn GetGlyphMappingCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphmappingcount: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetGlyphMappingCount() {
+            match IXpsOMGlyphsEditor_Impl::GetGlyphMappingCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(glyphmappingcount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2099,17 +2099,17 @@ impl IXpsOMGlyphsEditor_Vtbl {
         unsafe extern "system" fn GetGlyphMappings<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphmappingcount: *mut u32, glyphmappings: *mut XPS_GLYPH_MAPPING) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetGlyphMappings(core::mem::transmute_copy(&glyphmappingcount), core::mem::transmute_copy(&glyphmappings)).into()
+            IXpsOMGlyphsEditor_Impl::GetGlyphMappings(this, core::mem::transmute_copy(&glyphmappingcount), core::mem::transmute_copy(&glyphmappings)).into()
         }
         unsafe extern "system" fn SetGlyphMappings<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, glyphmappingcount: u32, glyphmappings: *const XPS_GLYPH_MAPPING) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetGlyphMappings(core::mem::transmute_copy(&glyphmappingcount), core::mem::transmute_copy(&glyphmappings)).into()
+            IXpsOMGlyphsEditor_Impl::SetGlyphMappings(this, core::mem::transmute_copy(&glyphmappingcount), core::mem::transmute_copy(&glyphmappings)).into()
         }
         unsafe extern "system" fn GetProhibitedCaretStopCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prohibitedcaretstopcount: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProhibitedCaretStopCount() {
+            match IXpsOMGlyphsEditor_Impl::GetProhibitedCaretStopCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(prohibitedcaretstopcount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2120,17 +2120,17 @@ impl IXpsOMGlyphsEditor_Vtbl {
         unsafe extern "system" fn GetProhibitedCaretStops<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32, prohibitedcaretstops: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetProhibitedCaretStops(core::mem::transmute_copy(&count), core::mem::transmute_copy(&prohibitedcaretstops)).into()
+            IXpsOMGlyphsEditor_Impl::GetProhibitedCaretStops(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&prohibitedcaretstops)).into()
         }
         unsafe extern "system" fn SetProhibitedCaretStops<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, prohibitedcaretstops: *const u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetProhibitedCaretStops(core::mem::transmute_copy(&count), core::mem::transmute_copy(&prohibitedcaretstops)).into()
+            IXpsOMGlyphsEditor_Impl::SetProhibitedCaretStops(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&prohibitedcaretstops)).into()
         }
         unsafe extern "system" fn GetBidiLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bidilevel: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetBidiLevel() {
+            match IXpsOMGlyphsEditor_Impl::GetBidiLevel(this) {
                 Ok(ok__) => {
                     core::ptr::write(bidilevel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2141,12 +2141,12 @@ impl IXpsOMGlyphsEditor_Vtbl {
         unsafe extern "system" fn SetBidiLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bidilevel: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBidiLevel(core::mem::transmute_copy(&bidilevel)).into()
+            IXpsOMGlyphsEditor_Impl::SetBidiLevel(this, core::mem::transmute_copy(&bidilevel)).into()
         }
         unsafe extern "system" fn GetIsSideways<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, issideways: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetIsSideways() {
+            match IXpsOMGlyphsEditor_Impl::GetIsSideways(this) {
                 Ok(ok__) => {
                     core::ptr::write(issideways, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2157,12 +2157,12 @@ impl IXpsOMGlyphsEditor_Vtbl {
         unsafe extern "system" fn SetIsSideways<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, issideways: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetIsSideways(core::mem::transmute_copy(&issideways)).into()
+            IXpsOMGlyphsEditor_Impl::SetIsSideways(this, core::mem::transmute_copy(&issideways)).into()
         }
         unsafe extern "system" fn GetDeviceFontName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, devicefontname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDeviceFontName() {
+            match IXpsOMGlyphsEditor_Impl::GetDeviceFontName(this) {
                 Ok(ok__) => {
                     core::ptr::write(devicefontname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2173,7 +2173,7 @@ impl IXpsOMGlyphsEditor_Vtbl {
         unsafe extern "system" fn SetDeviceFontName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGlyphsEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, devicefontname: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDeviceFontName(core::mem::transmute(&devicefontname)).into()
+            IXpsOMGlyphsEditor_Impl::SetDeviceFontName(this, core::mem::transmute(&devicefontname)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -2219,7 +2219,7 @@ impl IXpsOMGradientBrush_Vtbl {
         unsafe extern "system" fn GetGradientStops<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gradientstops: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetGradientStops() {
+            match IXpsOMGradientBrush_Impl::GetGradientStops(this) {
                 Ok(ok__) => {
                     core::ptr::write(gradientstops, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2230,7 +2230,7 @@ impl IXpsOMGradientBrush_Vtbl {
         unsafe extern "system" fn GetTransform<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetTransform() {
+            match IXpsOMGradientBrush_Impl::GetTransform(this) {
                 Ok(ok__) => {
                     core::ptr::write(transform, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2241,7 +2241,7 @@ impl IXpsOMGradientBrush_Vtbl {
         unsafe extern "system" fn GetTransformLocal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetTransformLocal() {
+            match IXpsOMGradientBrush_Impl::GetTransformLocal(this) {
                 Ok(ok__) => {
                     core::ptr::write(transform, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2252,12 +2252,12 @@ impl IXpsOMGradientBrush_Vtbl {
         unsafe extern "system" fn SetTransformLocal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTransformLocal(windows_core::from_raw_borrowed(&transform)).into()
+            IXpsOMGradientBrush_Impl::SetTransformLocal(this, windows_core::from_raw_borrowed(&transform)).into()
         }
         unsafe extern "system" fn GetTransformLookup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetTransformLookup() {
+            match IXpsOMGradientBrush_Impl::GetTransformLookup(this) {
                 Ok(ok__) => {
                     core::ptr::write(key, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2268,12 +2268,12 @@ impl IXpsOMGradientBrush_Vtbl {
         unsafe extern "system" fn SetTransformLookup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTransformLookup(core::mem::transmute(&key)).into()
+            IXpsOMGradientBrush_Impl::SetTransformLookup(this, core::mem::transmute(&key)).into()
         }
         unsafe extern "system" fn GetSpreadMethod<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, spreadmethod: *mut XPS_SPREAD_METHOD) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSpreadMethod() {
+            match IXpsOMGradientBrush_Impl::GetSpreadMethod(this) {
                 Ok(ok__) => {
                     core::ptr::write(spreadmethod, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2284,12 +2284,12 @@ impl IXpsOMGradientBrush_Vtbl {
         unsafe extern "system" fn SetSpreadMethod<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, spreadmethod: XPS_SPREAD_METHOD) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSpreadMethod(core::mem::transmute_copy(&spreadmethod)).into()
+            IXpsOMGradientBrush_Impl::SetSpreadMethod(this, core::mem::transmute_copy(&spreadmethod)).into()
         }
         unsafe extern "system" fn GetColorInterpolationMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, colorinterpolationmode: *mut XPS_COLOR_INTERPOLATION) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetColorInterpolationMode() {
+            match IXpsOMGradientBrush_Impl::GetColorInterpolationMode(this) {
                 Ok(ok__) => {
                     core::ptr::write(colorinterpolationmode, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2300,7 +2300,7 @@ impl IXpsOMGradientBrush_Vtbl {
         unsafe extern "system" fn SetColorInterpolationMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, colorinterpolationmode: XPS_COLOR_INTERPOLATION) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetColorInterpolationMode(core::mem::transmute_copy(&colorinterpolationmode)).into()
+            IXpsOMGradientBrush_Impl::SetColorInterpolationMode(this, core::mem::transmute_copy(&colorinterpolationmode)).into()
         }
         Self {
             base__: IXpsOMBrush_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2334,7 +2334,7 @@ impl IXpsOMGradientStop_Vtbl {
         unsafe extern "system" fn GetOwner<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGradientStop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, owner: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetOwner() {
+            match IXpsOMGradientStop_Impl::GetOwner(this) {
                 Ok(ok__) => {
                     core::ptr::write(owner, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2345,7 +2345,7 @@ impl IXpsOMGradientStop_Vtbl {
         unsafe extern "system" fn GetOffset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGradientStop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: *mut f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetOffset() {
+            match IXpsOMGradientStop_Impl::GetOffset(this) {
                 Ok(ok__) => {
                     core::ptr::write(offset, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2356,12 +2356,12 @@ impl IXpsOMGradientStop_Vtbl {
         unsafe extern "system" fn SetOffset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGradientStop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetOffset(core::mem::transmute_copy(&offset)).into()
+            IXpsOMGradientStop_Impl::SetOffset(this, core::mem::transmute_copy(&offset)).into()
         }
         unsafe extern "system" fn GetColor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGradientStop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: *mut XPS_COLOR, colorprofile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetColor(core::mem::transmute_copy(&color)) {
+            match IXpsOMGradientStop_Impl::GetColor(this, core::mem::transmute_copy(&color)) {
                 Ok(ok__) => {
                     core::ptr::write(colorprofile, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2372,12 +2372,12 @@ impl IXpsOMGradientStop_Vtbl {
         unsafe extern "system" fn SetColor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGradientStop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: *const XPS_COLOR, colorprofile: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetColor(core::mem::transmute_copy(&color), windows_core::from_raw_borrowed(&colorprofile)).into()
+            IXpsOMGradientStop_Impl::SetColor(this, core::mem::transmute_copy(&color), windows_core::from_raw_borrowed(&colorprofile)).into()
         }
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGradientStop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gradientstop: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IXpsOMGradientStop_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(gradientstop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2413,7 +2413,7 @@ impl IXpsOMGradientStopCollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGradientStopCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCount() {
+            match IXpsOMGradientStopCollection_Impl::GetCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2424,7 +2424,7 @@ impl IXpsOMGradientStopCollection_Vtbl {
         unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGradientStopCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, stop: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAt(core::mem::transmute_copy(&index)) {
+            match IXpsOMGradientStopCollection_Impl::GetAt(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(stop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2435,22 +2435,22 @@ impl IXpsOMGradientStopCollection_Vtbl {
         unsafe extern "system" fn InsertAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGradientStopCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, stop: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InsertAt(core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&stop)).into()
+            IXpsOMGradientStopCollection_Impl::InsertAt(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&stop)).into()
         }
         unsafe extern "system" fn RemoveAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGradientStopCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAt(core::mem::transmute_copy(&index)).into()
+            IXpsOMGradientStopCollection_Impl::RemoveAt(this, core::mem::transmute_copy(&index)).into()
         }
         unsafe extern "system" fn SetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGradientStopCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, stop: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAt(core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&stop)).into()
+            IXpsOMGradientStopCollection_Impl::SetAt(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&stop)).into()
         }
         unsafe extern "system" fn Append<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGradientStopCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stop: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Append(windows_core::from_raw_borrowed(&stop)).into()
+            IXpsOMGradientStopCollection_Impl::Append(this, windows_core::from_raw_borrowed(&stop)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -2479,7 +2479,7 @@ impl IXpsOMImageBrush_Vtbl {
         unsafe extern "system" fn GetImageResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMImageBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imageresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetImageResource() {
+            match IXpsOMImageBrush_Impl::GetImageResource(this) {
                 Ok(ok__) => {
                     core::ptr::write(imageresource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2490,12 +2490,12 @@ impl IXpsOMImageBrush_Vtbl {
         unsafe extern "system" fn SetImageResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMImageBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imageresource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetImageResource(windows_core::from_raw_borrowed(&imageresource)).into()
+            IXpsOMImageBrush_Impl::SetImageResource(this, windows_core::from_raw_borrowed(&imageresource)).into()
         }
         unsafe extern "system" fn GetColorProfileResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMImageBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, colorprofileresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetColorProfileResource() {
+            match IXpsOMImageBrush_Impl::GetColorProfileResource(this) {
                 Ok(ok__) => {
                     core::ptr::write(colorprofileresource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2506,12 +2506,12 @@ impl IXpsOMImageBrush_Vtbl {
         unsafe extern "system" fn SetColorProfileResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMImageBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, colorprofileresource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetColorProfileResource(windows_core::from_raw_borrowed(&colorprofileresource)).into()
+            IXpsOMImageBrush_Impl::SetColorProfileResource(this, windows_core::from_raw_borrowed(&colorprofileresource)).into()
         }
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMImageBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagebrush: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IXpsOMImageBrush_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(imagebrush, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2546,7 +2546,7 @@ impl IXpsOMImageResource_Vtbl {
         unsafe extern "system" fn GetStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMImageResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, readerstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStream() {
+            match IXpsOMImageResource_Impl::GetStream(this) {
                 Ok(ok__) => {
                     core::ptr::write(readerstream, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2557,12 +2557,12 @@ impl IXpsOMImageResource_Vtbl {
         unsafe extern "system" fn SetContent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMImageResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcestream: *mut core::ffi::c_void, imagetype: XPS_IMAGE_TYPE, partname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetContent(windows_core::from_raw_borrowed(&sourcestream), core::mem::transmute_copy(&imagetype), windows_core::from_raw_borrowed(&partname)).into()
+            IXpsOMImageResource_Impl::SetContent(this, windows_core::from_raw_borrowed(&sourcestream), core::mem::transmute_copy(&imagetype), windows_core::from_raw_borrowed(&partname)).into()
         }
         unsafe extern "system" fn GetImageType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMImageResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagetype: *mut XPS_IMAGE_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetImageType() {
+            match IXpsOMImageResource_Impl::GetImageType(this) {
                 Ok(ok__) => {
                     core::ptr::write(imagetype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2599,7 +2599,7 @@ impl IXpsOMImageResourceCollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMImageResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCount() {
+            match IXpsOMImageResourceCollection_Impl::GetCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2610,7 +2610,7 @@ impl IXpsOMImageResourceCollection_Vtbl {
         unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMImageResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, object: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAt(core::mem::transmute_copy(&index)) {
+            match IXpsOMImageResourceCollection_Impl::GetAt(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(object, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2621,27 +2621,27 @@ impl IXpsOMImageResourceCollection_Vtbl {
         unsafe extern "system" fn InsertAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMImageResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, object: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InsertAt(core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&object)).into()
+            IXpsOMImageResourceCollection_Impl::InsertAt(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&object)).into()
         }
         unsafe extern "system" fn RemoveAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMImageResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAt(core::mem::transmute_copy(&index)).into()
+            IXpsOMImageResourceCollection_Impl::RemoveAt(this, core::mem::transmute_copy(&index)).into()
         }
         unsafe extern "system" fn SetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMImageResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, object: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAt(core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&object)).into()
+            IXpsOMImageResourceCollection_Impl::SetAt(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&object)).into()
         }
         unsafe extern "system" fn Append<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMImageResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, object: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Append(windows_core::from_raw_borrowed(&object)).into()
+            IXpsOMImageResourceCollection_Impl::Append(this, windows_core::from_raw_borrowed(&object)).into()
         }
         unsafe extern "system" fn GetByPartName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMImageResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, partname: *mut core::ffi::c_void, part: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetByPartName(windows_core::from_raw_borrowed(&partname)) {
+            match IXpsOMImageResourceCollection_Impl::GetByPartName(this, windows_core::from_raw_borrowed(&partname)) {
                 Ok(ok__) => {
                     core::ptr::write(part, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2677,7 +2677,7 @@ impl IXpsOMLinearGradientBrush_Vtbl {
         unsafe extern "system" fn GetStartPoint<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMLinearGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startpoint: *mut XPS_POINT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStartPoint() {
+            match IXpsOMLinearGradientBrush_Impl::GetStartPoint(this) {
                 Ok(ok__) => {
                     core::ptr::write(startpoint, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2688,12 +2688,12 @@ impl IXpsOMLinearGradientBrush_Vtbl {
         unsafe extern "system" fn SetStartPoint<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMLinearGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startpoint: *const XPS_POINT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetStartPoint(core::mem::transmute_copy(&startpoint)).into()
+            IXpsOMLinearGradientBrush_Impl::SetStartPoint(this, core::mem::transmute_copy(&startpoint)).into()
         }
         unsafe extern "system" fn GetEndPoint<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMLinearGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, endpoint: *mut XPS_POINT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetEndPoint() {
+            match IXpsOMLinearGradientBrush_Impl::GetEndPoint(this) {
                 Ok(ok__) => {
                     core::ptr::write(endpoint, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2704,12 +2704,12 @@ impl IXpsOMLinearGradientBrush_Vtbl {
         unsafe extern "system" fn SetEndPoint<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMLinearGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, endpoint: *const XPS_POINT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEndPoint(core::mem::transmute_copy(&endpoint)).into()
+            IXpsOMLinearGradientBrush_Impl::SetEndPoint(this, core::mem::transmute_copy(&endpoint)).into()
         }
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMLinearGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lineargradientbrush: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IXpsOMLinearGradientBrush_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(lineargradientbrush, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2741,7 +2741,7 @@ impl IXpsOMMatrixTransform_Vtbl {
         unsafe extern "system" fn GetMatrix<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMMatrixTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, matrix: *mut XPS_MATRIX) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetMatrix() {
+            match IXpsOMMatrixTransform_Impl::GetMatrix(this) {
                 Ok(ok__) => {
                     core::ptr::write(matrix, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2752,12 +2752,12 @@ impl IXpsOMMatrixTransform_Vtbl {
         unsafe extern "system" fn SetMatrix<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMMatrixTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, matrix: *const XPS_MATRIX) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMatrix(core::mem::transmute_copy(&matrix)).into()
+            IXpsOMMatrixTransform_Impl::SetMatrix(this, core::mem::transmute_copy(&matrix)).into()
         }
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMMatrixTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, matrixtransform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IXpsOMMatrixTransform_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(matrixtransform, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2786,7 +2786,7 @@ impl IXpsOMNameCollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMNameCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCount() {
+            match IXpsOMNameCollection_Impl::GetCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2797,7 +2797,7 @@ impl IXpsOMNameCollection_Vtbl {
         unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMNameCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, name: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAt(core::mem::transmute_copy(&index)) {
+            match IXpsOMNameCollection_Impl::GetAt(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(name, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2863,7 +2863,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreatePackage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, package: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePackage() {
+            match IXpsOMObjectFactory_Impl::CreatePackage(this) {
                 Ok(ok__) => {
                     core::ptr::write(package, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2874,7 +2874,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreatePackageFromFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, reuseobjects: super::super::Foundation::BOOL, package: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePackageFromFile(core::mem::transmute(&filename), core::mem::transmute_copy(&reuseobjects)) {
+            match IXpsOMObjectFactory_Impl::CreatePackageFromFile(this, core::mem::transmute(&filename), core::mem::transmute_copy(&reuseobjects)) {
                 Ok(ok__) => {
                     core::ptr::write(package, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2885,7 +2885,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreatePackageFromStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut core::ffi::c_void, reuseobjects: super::super::Foundation::BOOL, package: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePackageFromStream(windows_core::from_raw_borrowed(&stream), core::mem::transmute_copy(&reuseobjects)) {
+            match IXpsOMObjectFactory_Impl::CreatePackageFromStream(this, windows_core::from_raw_borrowed(&stream), core::mem::transmute_copy(&reuseobjects)) {
                 Ok(ok__) => {
                     core::ptr::write(package, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2896,7 +2896,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreateStoryFragmentsResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, acquiredstream: *mut core::ffi::c_void, parturi: *mut core::ffi::c_void, storyfragmentsresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateStoryFragmentsResource(windows_core::from_raw_borrowed(&acquiredstream), windows_core::from_raw_borrowed(&parturi)) {
+            match IXpsOMObjectFactory_Impl::CreateStoryFragmentsResource(this, windows_core::from_raw_borrowed(&acquiredstream), windows_core::from_raw_borrowed(&parturi)) {
                 Ok(ok__) => {
                     core::ptr::write(storyfragmentsresource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2907,7 +2907,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreateDocumentStructureResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, acquiredstream: *mut core::ffi::c_void, parturi: *mut core::ffi::c_void, documentstructureresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDocumentStructureResource(windows_core::from_raw_borrowed(&acquiredstream), windows_core::from_raw_borrowed(&parturi)) {
+            match IXpsOMObjectFactory_Impl::CreateDocumentStructureResource(this, windows_core::from_raw_borrowed(&acquiredstream), windows_core::from_raw_borrowed(&parturi)) {
                 Ok(ok__) => {
                     core::ptr::write(documentstructureresource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2918,7 +2918,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreateSignatureBlockResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, acquiredstream: *mut core::ffi::c_void, parturi: *mut core::ffi::c_void, signatureblockresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateSignatureBlockResource(windows_core::from_raw_borrowed(&acquiredstream), windows_core::from_raw_borrowed(&parturi)) {
+            match IXpsOMObjectFactory_Impl::CreateSignatureBlockResource(this, windows_core::from_raw_borrowed(&acquiredstream), windows_core::from_raw_borrowed(&parturi)) {
                 Ok(ok__) => {
                     core::ptr::write(signatureblockresource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2929,7 +2929,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreateRemoteDictionaryResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dictionary: *mut core::ffi::c_void, parturi: *mut core::ffi::c_void, remotedictionaryresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateRemoteDictionaryResource(windows_core::from_raw_borrowed(&dictionary), windows_core::from_raw_borrowed(&parturi)) {
+            match IXpsOMObjectFactory_Impl::CreateRemoteDictionaryResource(this, windows_core::from_raw_borrowed(&dictionary), windows_core::from_raw_borrowed(&parturi)) {
                 Ok(ok__) => {
                     core::ptr::write(remotedictionaryresource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2940,7 +2940,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreateRemoteDictionaryResourceFromStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dictionarymarkupstream: *mut core::ffi::c_void, dictionaryparturi: *mut core::ffi::c_void, resources: *mut core::ffi::c_void, dictionaryresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateRemoteDictionaryResourceFromStream(windows_core::from_raw_borrowed(&dictionarymarkupstream), windows_core::from_raw_borrowed(&dictionaryparturi), windows_core::from_raw_borrowed(&resources)) {
+            match IXpsOMObjectFactory_Impl::CreateRemoteDictionaryResourceFromStream(this, windows_core::from_raw_borrowed(&dictionarymarkupstream), windows_core::from_raw_borrowed(&dictionaryparturi), windows_core::from_raw_borrowed(&resources)) {
                 Ok(ok__) => {
                     core::ptr::write(dictionaryresource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2951,7 +2951,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreatePartResources<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, partresources: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePartResources() {
+            match IXpsOMObjectFactory_Impl::CreatePartResources(this) {
                 Ok(ok__) => {
                     core::ptr::write(partresources, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2962,7 +2962,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreateDocumentSequence<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parturi: *mut core::ffi::c_void, documentsequence: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDocumentSequence(windows_core::from_raw_borrowed(&parturi)) {
+            match IXpsOMObjectFactory_Impl::CreateDocumentSequence(this, windows_core::from_raw_borrowed(&parturi)) {
                 Ok(ok__) => {
                     core::ptr::write(documentsequence, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2973,7 +2973,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreateDocument<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parturi: *mut core::ffi::c_void, document: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDocument(windows_core::from_raw_borrowed(&parturi)) {
+            match IXpsOMObjectFactory_Impl::CreateDocument(this, windows_core::from_raw_borrowed(&parturi)) {
                 Ok(ok__) => {
                     core::ptr::write(document, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2984,7 +2984,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreatePageReference<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, advisorypagedimensions: *const XPS_SIZE, pagereference: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePageReference(core::mem::transmute_copy(&advisorypagedimensions)) {
+            match IXpsOMObjectFactory_Impl::CreatePageReference(this, core::mem::transmute_copy(&advisorypagedimensions)) {
                 Ok(ok__) => {
                     core::ptr::write(pagereference, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2995,7 +2995,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreatePage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pagedimensions: *const XPS_SIZE, language: windows_core::PCWSTR, parturi: *mut core::ffi::c_void, page: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePage(core::mem::transmute_copy(&pagedimensions), core::mem::transmute(&language), windows_core::from_raw_borrowed(&parturi)) {
+            match IXpsOMObjectFactory_Impl::CreatePage(this, core::mem::transmute_copy(&pagedimensions), core::mem::transmute(&language), windows_core::from_raw_borrowed(&parturi)) {
                 Ok(ok__) => {
                     core::ptr::write(page, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3006,7 +3006,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreatePageFromStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pagemarkupstream: *mut core::ffi::c_void, parturi: *mut core::ffi::c_void, resources: *mut core::ffi::c_void, reuseobjects: super::super::Foundation::BOOL, page: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePageFromStream(windows_core::from_raw_borrowed(&pagemarkupstream), windows_core::from_raw_borrowed(&parturi), windows_core::from_raw_borrowed(&resources), core::mem::transmute_copy(&reuseobjects)) {
+            match IXpsOMObjectFactory_Impl::CreatePageFromStream(this, windows_core::from_raw_borrowed(&pagemarkupstream), windows_core::from_raw_borrowed(&parturi), windows_core::from_raw_borrowed(&resources), core::mem::transmute_copy(&reuseobjects)) {
                 Ok(ok__) => {
                     core::ptr::write(page, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3017,7 +3017,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreateCanvas<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, canvas: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateCanvas() {
+            match IXpsOMObjectFactory_Impl::CreateCanvas(this) {
                 Ok(ok__) => {
                     core::ptr::write(canvas, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3028,7 +3028,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreateGlyphs<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontresource: *mut core::ffi::c_void, glyphs: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateGlyphs(windows_core::from_raw_borrowed(&fontresource)) {
+            match IXpsOMObjectFactory_Impl::CreateGlyphs(this, windows_core::from_raw_borrowed(&fontresource)) {
                 Ok(ok__) => {
                     core::ptr::write(glyphs, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3039,7 +3039,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreatePath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePath() {
+            match IXpsOMObjectFactory_Impl::CreatePath(this) {
                 Ok(ok__) => {
                     core::ptr::write(path, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3050,7 +3050,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreateGeometry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, geometry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateGeometry() {
+            match IXpsOMObjectFactory_Impl::CreateGeometry(this) {
                 Ok(ok__) => {
                     core::ptr::write(geometry, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3061,7 +3061,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreateGeometryFigure<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startpoint: *const XPS_POINT, figure: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateGeometryFigure(core::mem::transmute_copy(&startpoint)) {
+            match IXpsOMObjectFactory_Impl::CreateGeometryFigure(this, core::mem::transmute_copy(&startpoint)) {
                 Ok(ok__) => {
                     core::ptr::write(figure, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3072,7 +3072,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreateMatrixTransform<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, matrix: *const XPS_MATRIX, transform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateMatrixTransform(core::mem::transmute_copy(&matrix)) {
+            match IXpsOMObjectFactory_Impl::CreateMatrixTransform(this, core::mem::transmute_copy(&matrix)) {
                 Ok(ok__) => {
                     core::ptr::write(transform, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3083,7 +3083,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreateSolidColorBrush<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: *const XPS_COLOR, colorprofile: *mut core::ffi::c_void, solidcolorbrush: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateSolidColorBrush(core::mem::transmute_copy(&color), windows_core::from_raw_borrowed(&colorprofile)) {
+            match IXpsOMObjectFactory_Impl::CreateSolidColorBrush(this, core::mem::transmute_copy(&color), windows_core::from_raw_borrowed(&colorprofile)) {
                 Ok(ok__) => {
                     core::ptr::write(solidcolorbrush, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3094,7 +3094,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreateColorProfileResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, acquiredstream: *mut core::ffi::c_void, parturi: *mut core::ffi::c_void, colorprofileresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateColorProfileResource(windows_core::from_raw_borrowed(&acquiredstream), windows_core::from_raw_borrowed(&parturi)) {
+            match IXpsOMObjectFactory_Impl::CreateColorProfileResource(this, windows_core::from_raw_borrowed(&acquiredstream), windows_core::from_raw_borrowed(&parturi)) {
                 Ok(ok__) => {
                     core::ptr::write(colorprofileresource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3105,7 +3105,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreateImageBrush<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, image: *mut core::ffi::c_void, viewbox: *const XPS_RECT, viewport: *const XPS_RECT, imagebrush: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateImageBrush(windows_core::from_raw_borrowed(&image), core::mem::transmute_copy(&viewbox), core::mem::transmute_copy(&viewport)) {
+            match IXpsOMObjectFactory_Impl::CreateImageBrush(this, windows_core::from_raw_borrowed(&image), core::mem::transmute_copy(&viewbox), core::mem::transmute_copy(&viewport)) {
                 Ok(ok__) => {
                     core::ptr::write(imagebrush, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3116,7 +3116,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreateVisualBrush<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, viewbox: *const XPS_RECT, viewport: *const XPS_RECT, visualbrush: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateVisualBrush(core::mem::transmute_copy(&viewbox), core::mem::transmute_copy(&viewport)) {
+            match IXpsOMObjectFactory_Impl::CreateVisualBrush(this, core::mem::transmute_copy(&viewbox), core::mem::transmute_copy(&viewport)) {
                 Ok(ok__) => {
                     core::ptr::write(visualbrush, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3127,7 +3127,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreateImageResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, acquiredstream: *mut core::ffi::c_void, contenttype: XPS_IMAGE_TYPE, parturi: *mut core::ffi::c_void, imageresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateImageResource(windows_core::from_raw_borrowed(&acquiredstream), core::mem::transmute_copy(&contenttype), windows_core::from_raw_borrowed(&parturi)) {
+            match IXpsOMObjectFactory_Impl::CreateImageResource(this, windows_core::from_raw_borrowed(&acquiredstream), core::mem::transmute_copy(&contenttype), windows_core::from_raw_borrowed(&parturi)) {
                 Ok(ok__) => {
                     core::ptr::write(imageresource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3138,7 +3138,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreatePrintTicketResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, acquiredstream: *mut core::ffi::c_void, parturi: *mut core::ffi::c_void, printticketresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePrintTicketResource(windows_core::from_raw_borrowed(&acquiredstream), windows_core::from_raw_borrowed(&parturi)) {
+            match IXpsOMObjectFactory_Impl::CreatePrintTicketResource(this, windows_core::from_raw_borrowed(&acquiredstream), windows_core::from_raw_borrowed(&parturi)) {
                 Ok(ok__) => {
                     core::ptr::write(printticketresource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3149,7 +3149,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreateFontResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, acquiredstream: *mut core::ffi::c_void, fontembedding: XPS_FONT_EMBEDDING, parturi: *mut core::ffi::c_void, isobfsourcestream: super::super::Foundation::BOOL, fontresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateFontResource(windows_core::from_raw_borrowed(&acquiredstream), core::mem::transmute_copy(&fontembedding), windows_core::from_raw_borrowed(&parturi), core::mem::transmute_copy(&isobfsourcestream)) {
+            match IXpsOMObjectFactory_Impl::CreateFontResource(this, windows_core::from_raw_borrowed(&acquiredstream), core::mem::transmute_copy(&fontembedding), windows_core::from_raw_borrowed(&parturi), core::mem::transmute_copy(&isobfsourcestream)) {
                 Ok(ok__) => {
                     core::ptr::write(fontresource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3160,7 +3160,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreateGradientStop<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: *const XPS_COLOR, colorprofile: *mut core::ffi::c_void, offset: f32, gradientstop: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateGradientStop(core::mem::transmute_copy(&color), windows_core::from_raw_borrowed(&colorprofile), core::mem::transmute_copy(&offset)) {
+            match IXpsOMObjectFactory_Impl::CreateGradientStop(this, core::mem::transmute_copy(&color), windows_core::from_raw_borrowed(&colorprofile), core::mem::transmute_copy(&offset)) {
                 Ok(ok__) => {
                     core::ptr::write(gradientstop, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3171,7 +3171,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreateLinearGradientBrush<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gradstop1: *mut core::ffi::c_void, gradstop2: *mut core::ffi::c_void, startpoint: *const XPS_POINT, endpoint: *const XPS_POINT, lineargradientbrush: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateLinearGradientBrush(windows_core::from_raw_borrowed(&gradstop1), windows_core::from_raw_borrowed(&gradstop2), core::mem::transmute_copy(&startpoint), core::mem::transmute_copy(&endpoint)) {
+            match IXpsOMObjectFactory_Impl::CreateLinearGradientBrush(this, windows_core::from_raw_borrowed(&gradstop1), windows_core::from_raw_borrowed(&gradstop2), core::mem::transmute_copy(&startpoint), core::mem::transmute_copy(&endpoint)) {
                 Ok(ok__) => {
                     core::ptr::write(lineargradientbrush, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3182,7 +3182,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreateRadialGradientBrush<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gradstop1: *mut core::ffi::c_void, gradstop2: *mut core::ffi::c_void, centerpoint: *const XPS_POINT, gradientorigin: *const XPS_POINT, radiisizes: *const XPS_SIZE, radialgradientbrush: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateRadialGradientBrush(windows_core::from_raw_borrowed(&gradstop1), windows_core::from_raw_borrowed(&gradstop2), core::mem::transmute_copy(&centerpoint), core::mem::transmute_copy(&gradientorigin), core::mem::transmute_copy(&radiisizes)) {
+            match IXpsOMObjectFactory_Impl::CreateRadialGradientBrush(this, windows_core::from_raw_borrowed(&gradstop1), windows_core::from_raw_borrowed(&gradstop2), core::mem::transmute_copy(&centerpoint), core::mem::transmute_copy(&gradientorigin), core::mem::transmute_copy(&radiisizes)) {
                 Ok(ok__) => {
                     core::ptr::write(radialgradientbrush, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3193,7 +3193,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreateCoreProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parturi: *mut core::ffi::c_void, coreproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateCoreProperties(windows_core::from_raw_borrowed(&parturi)) {
+            match IXpsOMObjectFactory_Impl::CreateCoreProperties(this, windows_core::from_raw_borrowed(&parturi)) {
                 Ok(ok__) => {
                     core::ptr::write(coreproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3204,7 +3204,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreateDictionary<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dictionary: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDictionary() {
+            match IXpsOMObjectFactory_Impl::CreateDictionary(this) {
                 Ok(ok__) => {
                     core::ptr::write(dictionary, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3215,7 +3215,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreatePartUriCollection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parturicollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePartUriCollection() {
+            match IXpsOMObjectFactory_Impl::CreatePartUriCollection(this) {
                 Ok(ok__) => {
                     core::ptr::write(parturicollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3226,7 +3226,8 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreatePackageWriterOnFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: *mut core::ffi::c_void, coreproperties: *mut core::ffi::c_void, packagethumbnail: *mut core::ffi::c_void, documentsequenceprintticket: *mut core::ffi::c_void, discardcontrolpartname: *mut core::ffi::c_void, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePackageWriterOnFile(
+            match IXpsOMObjectFactory_Impl::CreatePackageWriterOnFile(
+                this,
                 core::mem::transmute(&filename),
                 core::mem::transmute_copy(&securityattributes),
                 core::mem::transmute_copy(&flagsandattributes),
@@ -3248,7 +3249,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreatePackageWriterOnStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: *mut core::ffi::c_void, coreproperties: *mut core::ffi::c_void, packagethumbnail: *mut core::ffi::c_void, documentsequenceprintticket: *mut core::ffi::c_void, discardcontrolpartname: *mut core::ffi::c_void, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePackageWriterOnStream(windows_core::from_raw_borrowed(&outputstream), core::mem::transmute_copy(&optimizemarkupsize), core::mem::transmute_copy(&interleaving), windows_core::from_raw_borrowed(&documentsequencepartname), windows_core::from_raw_borrowed(&coreproperties), windows_core::from_raw_borrowed(&packagethumbnail), windows_core::from_raw_borrowed(&documentsequenceprintticket), windows_core::from_raw_borrowed(&discardcontrolpartname)) {
+            match IXpsOMObjectFactory_Impl::CreatePackageWriterOnStream(this, windows_core::from_raw_borrowed(&outputstream), core::mem::transmute_copy(&optimizemarkupsize), core::mem::transmute_copy(&interleaving), windows_core::from_raw_borrowed(&documentsequencepartname), windows_core::from_raw_borrowed(&coreproperties), windows_core::from_raw_borrowed(&packagethumbnail), windows_core::from_raw_borrowed(&documentsequenceprintticket), windows_core::from_raw_borrowed(&discardcontrolpartname)) {
                 Ok(ok__) => {
                     core::ptr::write(packagewriter, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3259,7 +3260,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreatePartUri<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: windows_core::PCWSTR, parturi: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePartUri(core::mem::transmute(&uri)) {
+            match IXpsOMObjectFactory_Impl::CreatePartUri(this, core::mem::transmute(&uri)) {
                 Ok(ok__) => {
                     core::ptr::write(parturi, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3270,7 +3271,7 @@ impl IXpsOMObjectFactory_Vtbl {
         unsafe extern "system" fn CreateReadOnlyStreamOnFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, stream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateReadOnlyStreamOnFile(core::mem::transmute(&filename)) {
+            match IXpsOMObjectFactory_Impl::CreateReadOnlyStreamOnFile(this, core::mem::transmute(&filename)) {
                 Ok(ok__) => {
                     core::ptr::write(stream, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3346,7 +3347,7 @@ impl IXpsOMObjectFactory1_Vtbl {
         unsafe extern "system" fn GetDocumentTypeFromFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, documenttype: *mut XPS_DOCUMENT_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDocumentTypeFromFile(core::mem::transmute(&filename)) {
+            match IXpsOMObjectFactory1_Impl::GetDocumentTypeFromFile(this, core::mem::transmute(&filename)) {
                 Ok(ok__) => {
                     core::ptr::write(documenttype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3357,7 +3358,7 @@ impl IXpsOMObjectFactory1_Vtbl {
         unsafe extern "system" fn GetDocumentTypeFromStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xpsdocumentstream: *mut core::ffi::c_void, documenttype: *mut XPS_DOCUMENT_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDocumentTypeFromStream(windows_core::from_raw_borrowed(&xpsdocumentstream)) {
+            match IXpsOMObjectFactory1_Impl::GetDocumentTypeFromStream(this, windows_core::from_raw_borrowed(&xpsdocumentstream)) {
                 Ok(ok__) => {
                     core::ptr::write(documenttype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3368,17 +3369,18 @@ impl IXpsOMObjectFactory1_Vtbl {
         unsafe extern "system" fn ConvertHDPhotoToJpegXR<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imageresource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ConvertHDPhotoToJpegXR(windows_core::from_raw_borrowed(&imageresource)).into()
+            IXpsOMObjectFactory1_Impl::ConvertHDPhotoToJpegXR(this, windows_core::from_raw_borrowed(&imageresource)).into()
         }
         unsafe extern "system" fn ConvertJpegXRToHDPhoto<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imageresource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ConvertJpegXRToHDPhoto(windows_core::from_raw_borrowed(&imageresource)).into()
+            IXpsOMObjectFactory1_Impl::ConvertJpegXRToHDPhoto(this, windows_core::from_raw_borrowed(&imageresource)).into()
         }
         unsafe extern "system" fn CreatePackageWriterOnFile1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: *mut core::ffi::c_void, coreproperties: *mut core::ffi::c_void, packagethumbnail: *mut core::ffi::c_void, documentsequenceprintticket: *mut core::ffi::c_void, discardcontrolpartname: *mut core::ffi::c_void, documenttype: XPS_DOCUMENT_TYPE, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePackageWriterOnFile1(
+            match IXpsOMObjectFactory1_Impl::CreatePackageWriterOnFile1(
+                this,
                 core::mem::transmute(&filename),
                 core::mem::transmute_copy(&securityattributes),
                 core::mem::transmute_copy(&flagsandattributes),
@@ -3401,7 +3403,7 @@ impl IXpsOMObjectFactory1_Vtbl {
         unsafe extern "system" fn CreatePackageWriterOnStream1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: *mut core::ffi::c_void, coreproperties: *mut core::ffi::c_void, packagethumbnail: *mut core::ffi::c_void, documentsequenceprintticket: *mut core::ffi::c_void, discardcontrolpartname: *mut core::ffi::c_void, documenttype: XPS_DOCUMENT_TYPE, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePackageWriterOnStream1(windows_core::from_raw_borrowed(&outputstream), core::mem::transmute_copy(&optimizemarkupsize), core::mem::transmute_copy(&interleaving), windows_core::from_raw_borrowed(&documentsequencepartname), windows_core::from_raw_borrowed(&coreproperties), windows_core::from_raw_borrowed(&packagethumbnail), windows_core::from_raw_borrowed(&documentsequenceprintticket), windows_core::from_raw_borrowed(&discardcontrolpartname), core::mem::transmute_copy(&documenttype)) {
+            match IXpsOMObjectFactory1_Impl::CreatePackageWriterOnStream1(this, windows_core::from_raw_borrowed(&outputstream), core::mem::transmute_copy(&optimizemarkupsize), core::mem::transmute_copy(&interleaving), windows_core::from_raw_borrowed(&documentsequencepartname), windows_core::from_raw_borrowed(&coreproperties), windows_core::from_raw_borrowed(&packagethumbnail), windows_core::from_raw_borrowed(&documentsequenceprintticket), windows_core::from_raw_borrowed(&discardcontrolpartname), core::mem::transmute_copy(&documenttype)) {
                 Ok(ok__) => {
                     core::ptr::write(packagewriter, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3412,7 +3414,7 @@ impl IXpsOMObjectFactory1_Vtbl {
         unsafe extern "system" fn CreatePackage1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, package: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePackage1() {
+            match IXpsOMObjectFactory1_Impl::CreatePackage1(this) {
                 Ok(ok__) => {
                     core::ptr::write(package, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3423,7 +3425,7 @@ impl IXpsOMObjectFactory1_Vtbl {
         unsafe extern "system" fn CreatePackageFromStream1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut core::ffi::c_void, reuseobjects: super::super::Foundation::BOOL, package: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePackageFromStream1(windows_core::from_raw_borrowed(&stream), core::mem::transmute_copy(&reuseobjects)) {
+            match IXpsOMObjectFactory1_Impl::CreatePackageFromStream1(this, windows_core::from_raw_borrowed(&stream), core::mem::transmute_copy(&reuseobjects)) {
                 Ok(ok__) => {
                     core::ptr::write(package, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3434,7 +3436,7 @@ impl IXpsOMObjectFactory1_Vtbl {
         unsafe extern "system" fn CreatePackageFromFile1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, reuseobjects: super::super::Foundation::BOOL, package: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePackageFromFile1(core::mem::transmute(&filename), core::mem::transmute_copy(&reuseobjects)) {
+            match IXpsOMObjectFactory1_Impl::CreatePackageFromFile1(this, core::mem::transmute(&filename), core::mem::transmute_copy(&reuseobjects)) {
                 Ok(ok__) => {
                     core::ptr::write(package, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3445,7 +3447,7 @@ impl IXpsOMObjectFactory1_Vtbl {
         unsafe extern "system" fn CreatePage1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pagedimensions: *const XPS_SIZE, language: windows_core::PCWSTR, parturi: *mut core::ffi::c_void, page: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePage1(core::mem::transmute_copy(&pagedimensions), core::mem::transmute(&language), windows_core::from_raw_borrowed(&parturi)) {
+            match IXpsOMObjectFactory1_Impl::CreatePage1(this, core::mem::transmute_copy(&pagedimensions), core::mem::transmute(&language), windows_core::from_raw_borrowed(&parturi)) {
                 Ok(ok__) => {
                     core::ptr::write(page, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3456,7 +3458,7 @@ impl IXpsOMObjectFactory1_Vtbl {
         unsafe extern "system" fn CreatePageFromStream1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pagemarkupstream: *mut core::ffi::c_void, parturi: *mut core::ffi::c_void, resources: *mut core::ffi::c_void, reuseobjects: super::super::Foundation::BOOL, page: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePageFromStream1(windows_core::from_raw_borrowed(&pagemarkupstream), windows_core::from_raw_borrowed(&parturi), windows_core::from_raw_borrowed(&resources), core::mem::transmute_copy(&reuseobjects)) {
+            match IXpsOMObjectFactory1_Impl::CreatePageFromStream1(this, windows_core::from_raw_borrowed(&pagemarkupstream), windows_core::from_raw_borrowed(&parturi), windows_core::from_raw_borrowed(&resources), core::mem::transmute_copy(&reuseobjects)) {
                 Ok(ok__) => {
                     core::ptr::write(page, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3467,7 +3469,7 @@ impl IXpsOMObjectFactory1_Vtbl {
         unsafe extern "system" fn CreateRemoteDictionaryResourceFromStream1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMObjectFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dictionarymarkupstream: *mut core::ffi::c_void, parturi: *mut core::ffi::c_void, resources: *mut core::ffi::c_void, dictionaryresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateRemoteDictionaryResourceFromStream1(windows_core::from_raw_borrowed(&dictionarymarkupstream), windows_core::from_raw_borrowed(&parturi), windows_core::from_raw_borrowed(&resources)) {
+            match IXpsOMObjectFactory1_Impl::CreateRemoteDictionaryResourceFromStream1(this, windows_core::from_raw_borrowed(&dictionarymarkupstream), windows_core::from_raw_borrowed(&parturi), windows_core::from_raw_borrowed(&resources)) {
                 Ok(ok__) => {
                     core::ptr::write(dictionaryresource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3516,7 +3518,7 @@ impl IXpsOMPackage_Vtbl {
         unsafe extern "system" fn GetDocumentSequence<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documentsequence: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDocumentSequence() {
+            match IXpsOMPackage_Impl::GetDocumentSequence(this) {
                 Ok(ok__) => {
                     core::ptr::write(documentsequence, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3527,12 +3529,12 @@ impl IXpsOMPackage_Vtbl {
         unsafe extern "system" fn SetDocumentSequence<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documentsequence: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDocumentSequence(windows_core::from_raw_borrowed(&documentsequence)).into()
+            IXpsOMPackage_Impl::SetDocumentSequence(this, windows_core::from_raw_borrowed(&documentsequence)).into()
         }
         unsafe extern "system" fn GetCoreProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, coreproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCoreProperties() {
+            match IXpsOMPackage_Impl::GetCoreProperties(this) {
                 Ok(ok__) => {
                     core::ptr::write(coreproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3543,12 +3545,12 @@ impl IXpsOMPackage_Vtbl {
         unsafe extern "system" fn SetCoreProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, coreproperties: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCoreProperties(windows_core::from_raw_borrowed(&coreproperties)).into()
+            IXpsOMPackage_Impl::SetCoreProperties(this, windows_core::from_raw_borrowed(&coreproperties)).into()
         }
         unsafe extern "system" fn GetDiscardControlPartName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, discardcontrolparturi: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDiscardControlPartName() {
+            match IXpsOMPackage_Impl::GetDiscardControlPartName(this) {
                 Ok(ok__) => {
                     core::ptr::write(discardcontrolparturi, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3559,12 +3561,12 @@ impl IXpsOMPackage_Vtbl {
         unsafe extern "system" fn SetDiscardControlPartName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, discardcontrolparturi: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDiscardControlPartName(windows_core::from_raw_borrowed(&discardcontrolparturi)).into()
+            IXpsOMPackage_Impl::SetDiscardControlPartName(this, windows_core::from_raw_borrowed(&discardcontrolparturi)).into()
         }
         unsafe extern "system" fn GetThumbnailResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imageresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetThumbnailResource() {
+            match IXpsOMPackage_Impl::GetThumbnailResource(this) {
                 Ok(ok__) => {
                     core::ptr::write(imageresource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3575,17 +3577,17 @@ impl IXpsOMPackage_Vtbl {
         unsafe extern "system" fn SetThumbnailResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imageresource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetThumbnailResource(windows_core::from_raw_borrowed(&imageresource)).into()
+            IXpsOMPackage_Impl::SetThumbnailResource(this, windows_core::from_raw_borrowed(&imageresource)).into()
         }
         unsafe extern "system" fn WriteToFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.WriteToFile(core::mem::transmute(&filename), core::mem::transmute_copy(&securityattributes), core::mem::transmute_copy(&flagsandattributes), core::mem::transmute_copy(&optimizemarkupsize)).into()
+            IXpsOMPackage_Impl::WriteToFile(this, core::mem::transmute(&filename), core::mem::transmute_copy(&securityattributes), core::mem::transmute_copy(&flagsandattributes), core::mem::transmute_copy(&optimizemarkupsize)).into()
         }
         unsafe extern "system" fn WriteToStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut core::ffi::c_void, optimizemarkupsize: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.WriteToStream(windows_core::from_raw_borrowed(&stream), core::mem::transmute_copy(&optimizemarkupsize)).into()
+            IXpsOMPackage_Impl::WriteToStream(this, windows_core::from_raw_borrowed(&stream), core::mem::transmute_copy(&optimizemarkupsize)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -3619,7 +3621,7 @@ impl IXpsOMPackage1_Vtbl {
         unsafe extern "system" fn GetDocumentType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackage1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documenttype: *mut XPS_DOCUMENT_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDocumentType() {
+            match IXpsOMPackage1_Impl::GetDocumentType(this) {
                 Ok(ok__) => {
                     core::ptr::write(documenttype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3630,12 +3632,12 @@ impl IXpsOMPackage1_Vtbl {
         unsafe extern "system" fn WriteToFile1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackage1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: super::super::Foundation::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.WriteToFile1(core::mem::transmute(&filename), core::mem::transmute_copy(&securityattributes), core::mem::transmute_copy(&flagsandattributes), core::mem::transmute_copy(&optimizemarkupsize), core::mem::transmute_copy(&documenttype)).into()
+            IXpsOMPackage1_Impl::WriteToFile1(this, core::mem::transmute(&filename), core::mem::transmute_copy(&securityattributes), core::mem::transmute_copy(&flagsandattributes), core::mem::transmute_copy(&optimizemarkupsize), core::mem::transmute_copy(&documenttype)).into()
         }
         unsafe extern "system" fn WriteToStream1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackage1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, optimizemarkupsize: super::super::Foundation::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.WriteToStream1(windows_core::from_raw_borrowed(&outputstream), core::mem::transmute_copy(&optimizemarkupsize), core::mem::transmute_copy(&documenttype)).into()
+            IXpsOMPackage1_Impl::WriteToStream1(this, windows_core::from_raw_borrowed(&outputstream), core::mem::transmute_copy(&optimizemarkupsize), core::mem::transmute_copy(&documenttype)).into()
         }
         Self {
             base__: IXpsOMPackage_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3660,7 +3662,7 @@ impl IXpsOMPackageTarget_Vtbl {
         unsafe extern "system" fn CreateXpsOMPackageWriter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackageTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documentsequencepartname: *mut core::ffi::c_void, documentsequenceprintticket: *mut core::ffi::c_void, discardcontrolpartname: *mut core::ffi::c_void, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateXpsOMPackageWriter(windows_core::from_raw_borrowed(&documentsequencepartname), windows_core::from_raw_borrowed(&documentsequenceprintticket), windows_core::from_raw_borrowed(&discardcontrolpartname)) {
+            match IXpsOMPackageTarget_Impl::CreateXpsOMPackageWriter(this, windows_core::from_raw_borrowed(&documentsequencepartname), windows_core::from_raw_borrowed(&documentsequenceprintticket), windows_core::from_raw_borrowed(&discardcontrolpartname)) {
                 Ok(ok__) => {
                     core::ptr::write(packagewriter, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3690,27 +3692,27 @@ impl IXpsOMPackageWriter_Vtbl {
         unsafe extern "system" fn StartNewDocument<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackageWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documentpartname: *mut core::ffi::c_void, documentprintticket: *mut core::ffi::c_void, documentstructure: *mut core::ffi::c_void, signatureblockresources: *mut core::ffi::c_void, restrictedfonts: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.StartNewDocument(windows_core::from_raw_borrowed(&documentpartname), windows_core::from_raw_borrowed(&documentprintticket), windows_core::from_raw_borrowed(&documentstructure), windows_core::from_raw_borrowed(&signatureblockresources), windows_core::from_raw_borrowed(&restrictedfonts)).into()
+            IXpsOMPackageWriter_Impl::StartNewDocument(this, windows_core::from_raw_borrowed(&documentpartname), windows_core::from_raw_borrowed(&documentprintticket), windows_core::from_raw_borrowed(&documentstructure), windows_core::from_raw_borrowed(&signatureblockresources), windows_core::from_raw_borrowed(&restrictedfonts)).into()
         }
         unsafe extern "system" fn AddPage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackageWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, page: *mut core::ffi::c_void, advisorypagedimensions: *const XPS_SIZE, discardableresourceparts: *mut core::ffi::c_void, storyfragments: *mut core::ffi::c_void, pageprintticket: *mut core::ffi::c_void, pagethumbnail: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddPage(windows_core::from_raw_borrowed(&page), core::mem::transmute_copy(&advisorypagedimensions), windows_core::from_raw_borrowed(&discardableresourceparts), windows_core::from_raw_borrowed(&storyfragments), windows_core::from_raw_borrowed(&pageprintticket), windows_core::from_raw_borrowed(&pagethumbnail)).into()
+            IXpsOMPackageWriter_Impl::AddPage(this, windows_core::from_raw_borrowed(&page), core::mem::transmute_copy(&advisorypagedimensions), windows_core::from_raw_borrowed(&discardableresourceparts), windows_core::from_raw_borrowed(&storyfragments), windows_core::from_raw_borrowed(&pageprintticket), windows_core::from_raw_borrowed(&pagethumbnail)).into()
         }
         unsafe extern "system" fn AddResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackageWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddResource(windows_core::from_raw_borrowed(&resource)).into()
+            IXpsOMPackageWriter_Impl::AddResource(this, windows_core::from_raw_borrowed(&resource)).into()
         }
         unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackageWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Close().into()
+            IXpsOMPackageWriter_Impl::Close(this).into()
         }
         unsafe extern "system" fn IsClosed<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackageWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isclosed: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsClosed() {
+            match IXpsOMPackageWriter_Impl::IsClosed(this) {
                 Ok(ok__) => {
                     core::ptr::write(isclosed, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3744,12 +3746,12 @@ impl IXpsOMPackageWriter3D_Vtbl {
         unsafe extern "system" fn AddModelTexture<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackageWriter3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, texturepartname: *mut core::ffi::c_void, texturedata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddModelTexture(windows_core::from_raw_borrowed(&texturepartname), windows_core::from_raw_borrowed(&texturedata)).into()
+            IXpsOMPackageWriter3D_Impl::AddModelTexture(this, windows_core::from_raw_borrowed(&texturepartname), windows_core::from_raw_borrowed(&texturedata)).into()
         }
         unsafe extern "system" fn SetModelPrintTicket<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPackageWriter3D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, printticketpartname: *mut core::ffi::c_void, printticketdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetModelPrintTicket(windows_core::from_raw_borrowed(&printticketpartname), windows_core::from_raw_borrowed(&printticketdata)).into()
+            IXpsOMPackageWriter3D_Impl::SetModelPrintTicket(this, windows_core::from_raw_borrowed(&printticketpartname), windows_core::from_raw_borrowed(&printticketdata)).into()
         }
         Self {
             base__: IXpsOMPackageWriter_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3794,7 +3796,7 @@ impl IXpsOMPage_Vtbl {
         unsafe extern "system" fn GetOwner<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pagereference: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetOwner() {
+            match IXpsOMPage_Impl::GetOwner(this) {
                 Ok(ok__) => {
                     core::ptr::write(pagereference, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3805,7 +3807,7 @@ impl IXpsOMPage_Vtbl {
         unsafe extern "system" fn GetVisuals<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, visuals: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetVisuals() {
+            match IXpsOMPage_Impl::GetVisuals(this) {
                 Ok(ok__) => {
                     core::ptr::write(visuals, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3816,7 +3818,7 @@ impl IXpsOMPage_Vtbl {
         unsafe extern "system" fn GetPageDimensions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pagedimensions: *mut XPS_SIZE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPageDimensions() {
+            match IXpsOMPage_Impl::GetPageDimensions(this) {
                 Ok(ok__) => {
                     core::ptr::write(pagedimensions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3827,12 +3829,12 @@ impl IXpsOMPage_Vtbl {
         unsafe extern "system" fn SetPageDimensions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pagedimensions: *const XPS_SIZE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPageDimensions(core::mem::transmute_copy(&pagedimensions)).into()
+            IXpsOMPage_Impl::SetPageDimensions(this, core::mem::transmute_copy(&pagedimensions)).into()
         }
         unsafe extern "system" fn GetContentBox<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contentbox: *mut XPS_RECT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetContentBox() {
+            match IXpsOMPage_Impl::GetContentBox(this) {
                 Ok(ok__) => {
                     core::ptr::write(contentbox, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3843,12 +3845,12 @@ impl IXpsOMPage_Vtbl {
         unsafe extern "system" fn SetContentBox<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contentbox: *const XPS_RECT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetContentBox(core::mem::transmute_copy(&contentbox)).into()
+            IXpsOMPage_Impl::SetContentBox(this, core::mem::transmute_copy(&contentbox)).into()
         }
         unsafe extern "system" fn GetBleedBox<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bleedbox: *mut XPS_RECT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetBleedBox() {
+            match IXpsOMPage_Impl::GetBleedBox(this) {
                 Ok(ok__) => {
                     core::ptr::write(bleedbox, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3859,12 +3861,12 @@ impl IXpsOMPage_Vtbl {
         unsafe extern "system" fn SetBleedBox<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bleedbox: *const XPS_RECT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBleedBox(core::mem::transmute_copy(&bleedbox)).into()
+            IXpsOMPage_Impl::SetBleedBox(this, core::mem::transmute_copy(&bleedbox)).into()
         }
         unsafe extern "system" fn GetLanguage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, language: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetLanguage() {
+            match IXpsOMPage_Impl::GetLanguage(this) {
                 Ok(ok__) => {
                     core::ptr::write(language, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3875,12 +3877,12 @@ impl IXpsOMPage_Vtbl {
         unsafe extern "system" fn SetLanguage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, language: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLanguage(core::mem::transmute(&language)).into()
+            IXpsOMPage_Impl::SetLanguage(this, core::mem::transmute(&language)).into()
         }
         unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetName() {
+            match IXpsOMPage_Impl::GetName(this) {
                 Ok(ok__) => {
                     core::ptr::write(name, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3891,12 +3893,12 @@ impl IXpsOMPage_Vtbl {
         unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetName(core::mem::transmute(&name)).into()
+            IXpsOMPage_Impl::SetName(this, core::mem::transmute(&name)).into()
         }
         unsafe extern "system" fn GetIsHyperlinkTarget<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ishyperlinktarget: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetIsHyperlinkTarget() {
+            match IXpsOMPage_Impl::GetIsHyperlinkTarget(this) {
                 Ok(ok__) => {
                     core::ptr::write(ishyperlinktarget, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3907,12 +3909,12 @@ impl IXpsOMPage_Vtbl {
         unsafe extern "system" fn SetIsHyperlinkTarget<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ishyperlinktarget: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetIsHyperlinkTarget(core::mem::transmute_copy(&ishyperlinktarget)).into()
+            IXpsOMPage_Impl::SetIsHyperlinkTarget(this, core::mem::transmute_copy(&ishyperlinktarget)).into()
         }
         unsafe extern "system" fn GetDictionary<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourcedictionary: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDictionary() {
+            match IXpsOMPage_Impl::GetDictionary(this) {
                 Ok(ok__) => {
                     core::ptr::write(resourcedictionary, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3923,7 +3925,7 @@ impl IXpsOMPage_Vtbl {
         unsafe extern "system" fn GetDictionaryLocal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourcedictionary: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDictionaryLocal() {
+            match IXpsOMPage_Impl::GetDictionaryLocal(this) {
                 Ok(ok__) => {
                     core::ptr::write(resourcedictionary, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3934,12 +3936,12 @@ impl IXpsOMPage_Vtbl {
         unsafe extern "system" fn SetDictionaryLocal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourcedictionary: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDictionaryLocal(windows_core::from_raw_borrowed(&resourcedictionary)).into()
+            IXpsOMPage_Impl::SetDictionaryLocal(this, windows_core::from_raw_borrowed(&resourcedictionary)).into()
         }
         unsafe extern "system" fn GetDictionaryResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remotedictionaryresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDictionaryResource() {
+            match IXpsOMPage_Impl::GetDictionaryResource(this) {
                 Ok(ok__) => {
                     core::ptr::write(remotedictionaryresource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3950,17 +3952,17 @@ impl IXpsOMPage_Vtbl {
         unsafe extern "system" fn SetDictionaryResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, remotedictionaryresource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDictionaryResource(windows_core::from_raw_borrowed(&remotedictionaryresource)).into()
+            IXpsOMPage_Impl::SetDictionaryResource(this, windows_core::from_raw_borrowed(&remotedictionaryresource)).into()
         }
         unsafe extern "system" fn Write<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut core::ffi::c_void, optimizemarkupsize: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Write(windows_core::from_raw_borrowed(&stream), core::mem::transmute_copy(&optimizemarkupsize)).into()
+            IXpsOMPage_Impl::Write(this, windows_core::from_raw_borrowed(&stream), core::mem::transmute_copy(&optimizemarkupsize)).into()
         }
         unsafe extern "system" fn GenerateUnusedLookupKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: XPS_OBJECT_TYPE, key: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GenerateUnusedLookupKey(core::mem::transmute_copy(&r#type)) {
+            match IXpsOMPage_Impl::GenerateUnusedLookupKey(this, core::mem::transmute_copy(&r#type)) {
                 Ok(ok__) => {
                     core::ptr::write(key, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3971,7 +3973,7 @@ impl IXpsOMPage_Vtbl {
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, page: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IXpsOMPage_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(page, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4022,7 +4024,7 @@ impl IXpsOMPage1_Vtbl {
         unsafe extern "system" fn GetDocumentType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documenttype: *mut XPS_DOCUMENT_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDocumentType() {
+            match IXpsOMPage1_Impl::GetDocumentType(this) {
                 Ok(ok__) => {
                     core::ptr::write(documenttype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4033,7 +4035,7 @@ impl IXpsOMPage1_Vtbl {
         unsafe extern "system" fn Write1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPage1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut core::ffi::c_void, optimizemarkupsize: super::super::Foundation::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Write1(windows_core::from_raw_borrowed(&stream), core::mem::transmute_copy(&optimizemarkupsize), core::mem::transmute_copy(&documenttype)).into()
+            IXpsOMPage1_Impl::Write1(this, windows_core::from_raw_borrowed(&stream), core::mem::transmute_copy(&optimizemarkupsize), core::mem::transmute_copy(&documenttype)).into()
         }
         Self {
             base__: IXpsOMPage_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -4070,7 +4072,7 @@ impl IXpsOMPageReference_Vtbl {
         unsafe extern "system" fn GetOwner<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPageReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, document: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetOwner() {
+            match IXpsOMPageReference_Impl::GetOwner(this) {
                 Ok(ok__) => {
                     core::ptr::write(document, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4081,7 +4083,7 @@ impl IXpsOMPageReference_Vtbl {
         unsafe extern "system" fn GetPage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPageReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, page: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPage() {
+            match IXpsOMPageReference_Impl::GetPage(this) {
                 Ok(ok__) => {
                     core::ptr::write(page, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4092,17 +4094,17 @@ impl IXpsOMPageReference_Vtbl {
         unsafe extern "system" fn SetPage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPageReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, page: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPage(windows_core::from_raw_borrowed(&page)).into()
+            IXpsOMPageReference_Impl::SetPage(this, windows_core::from_raw_borrowed(&page)).into()
         }
         unsafe extern "system" fn DiscardPage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPageReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DiscardPage().into()
+            IXpsOMPageReference_Impl::DiscardPage(this).into()
         }
         unsafe extern "system" fn IsPageLoaded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPageReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ispageloaded: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsPageLoaded() {
+            match IXpsOMPageReference_Impl::IsPageLoaded(this) {
                 Ok(ok__) => {
                     core::ptr::write(ispageloaded, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4113,7 +4115,7 @@ impl IXpsOMPageReference_Vtbl {
         unsafe extern "system" fn GetAdvisoryPageDimensions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPageReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pagedimensions: *mut XPS_SIZE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAdvisoryPageDimensions() {
+            match IXpsOMPageReference_Impl::GetAdvisoryPageDimensions(this) {
                 Ok(ok__) => {
                     core::ptr::write(pagedimensions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4124,12 +4126,12 @@ impl IXpsOMPageReference_Vtbl {
         unsafe extern "system" fn SetAdvisoryPageDimensions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPageReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pagedimensions: *const XPS_SIZE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAdvisoryPageDimensions(core::mem::transmute_copy(&pagedimensions)).into()
+            IXpsOMPageReference_Impl::SetAdvisoryPageDimensions(this, core::mem::transmute_copy(&pagedimensions)).into()
         }
         unsafe extern "system" fn GetStoryFragmentsResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPageReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storyfragmentsresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStoryFragmentsResource() {
+            match IXpsOMPageReference_Impl::GetStoryFragmentsResource(this) {
                 Ok(ok__) => {
                     core::ptr::write(storyfragmentsresource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4140,12 +4142,12 @@ impl IXpsOMPageReference_Vtbl {
         unsafe extern "system" fn SetStoryFragmentsResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPageReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storyfragmentsresource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetStoryFragmentsResource(windows_core::from_raw_borrowed(&storyfragmentsresource)).into()
+            IXpsOMPageReference_Impl::SetStoryFragmentsResource(this, windows_core::from_raw_borrowed(&storyfragmentsresource)).into()
         }
         unsafe extern "system" fn GetPrintTicketResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPageReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, printticketresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPrintTicketResource() {
+            match IXpsOMPageReference_Impl::GetPrintTicketResource(this) {
                 Ok(ok__) => {
                     core::ptr::write(printticketresource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4156,12 +4158,12 @@ impl IXpsOMPageReference_Vtbl {
         unsafe extern "system" fn SetPrintTicketResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPageReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, printticketresource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPrintTicketResource(windows_core::from_raw_borrowed(&printticketresource)).into()
+            IXpsOMPageReference_Impl::SetPrintTicketResource(this, windows_core::from_raw_borrowed(&printticketresource)).into()
         }
         unsafe extern "system" fn GetThumbnailResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPageReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imageresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetThumbnailResource() {
+            match IXpsOMPageReference_Impl::GetThumbnailResource(this) {
                 Ok(ok__) => {
                     core::ptr::write(imageresource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4172,12 +4174,12 @@ impl IXpsOMPageReference_Vtbl {
         unsafe extern "system" fn SetThumbnailResource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPageReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imageresource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetThumbnailResource(windows_core::from_raw_borrowed(&imageresource)).into()
+            IXpsOMPageReference_Impl::SetThumbnailResource(this, windows_core::from_raw_borrowed(&imageresource)).into()
         }
         unsafe extern "system" fn CollectLinkTargets<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPageReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, linktargets: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CollectLinkTargets() {
+            match IXpsOMPageReference_Impl::CollectLinkTargets(this) {
                 Ok(ok__) => {
                     core::ptr::write(linktargets, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4188,7 +4190,7 @@ impl IXpsOMPageReference_Vtbl {
         unsafe extern "system" fn CollectPartResources<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPageReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, partresources: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CollectPartResources() {
+            match IXpsOMPageReference_Impl::CollectPartResources(this) {
                 Ok(ok__) => {
                     core::ptr::write(partresources, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4199,7 +4201,7 @@ impl IXpsOMPageReference_Vtbl {
         unsafe extern "system" fn HasRestrictedFonts<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPageReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, restrictedfonts: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.HasRestrictedFonts() {
+            match IXpsOMPageReference_Impl::HasRestrictedFonts(this) {
                 Ok(ok__) => {
                     core::ptr::write(restrictedfonts, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4210,7 +4212,7 @@ impl IXpsOMPageReference_Vtbl {
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPageReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pagereference: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IXpsOMPageReference_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(pagereference, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4257,7 +4259,7 @@ impl IXpsOMPageReferenceCollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPageReferenceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCount() {
+            match IXpsOMPageReferenceCollection_Impl::GetCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4268,7 +4270,7 @@ impl IXpsOMPageReferenceCollection_Vtbl {
         unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPageReferenceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, pagereference: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAt(core::mem::transmute_copy(&index)) {
+            match IXpsOMPageReferenceCollection_Impl::GetAt(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(pagereference, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4279,22 +4281,22 @@ impl IXpsOMPageReferenceCollection_Vtbl {
         unsafe extern "system" fn InsertAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPageReferenceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, pagereference: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InsertAt(core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&pagereference)).into()
+            IXpsOMPageReferenceCollection_Impl::InsertAt(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&pagereference)).into()
         }
         unsafe extern "system" fn RemoveAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPageReferenceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAt(core::mem::transmute_copy(&index)).into()
+            IXpsOMPageReferenceCollection_Impl::RemoveAt(this, core::mem::transmute_copy(&index)).into()
         }
         unsafe extern "system" fn SetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPageReferenceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, pagereference: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAt(core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&pagereference)).into()
+            IXpsOMPageReferenceCollection_Impl::SetAt(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&pagereference)).into()
         }
         unsafe extern "system" fn Append<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPageReferenceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pagereference: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Append(windows_core::from_raw_borrowed(&pagereference)).into()
+            IXpsOMPageReferenceCollection_Impl::Append(this, windows_core::from_raw_borrowed(&pagereference)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -4323,7 +4325,7 @@ impl IXpsOMPart_Vtbl {
         unsafe extern "system" fn GetPartName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPart_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parturi: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPartName() {
+            match IXpsOMPart_Impl::GetPartName(this) {
                 Ok(ok__) => {
                     core::ptr::write(parturi, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4334,7 +4336,7 @@ impl IXpsOMPart_Vtbl {
         unsafe extern "system" fn SetPartName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPart_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parturi: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPartName(windows_core::from_raw_borrowed(&parturi)).into()
+            IXpsOMPart_Impl::SetPartName(this, windows_core::from_raw_borrowed(&parturi)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -4358,7 +4360,7 @@ impl IXpsOMPartResources_Vtbl {
         unsafe extern "system" fn GetFontResources<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPartResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fontresources: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFontResources() {
+            match IXpsOMPartResources_Impl::GetFontResources(this) {
                 Ok(ok__) => {
                     core::ptr::write(fontresources, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4369,7 +4371,7 @@ impl IXpsOMPartResources_Vtbl {
         unsafe extern "system" fn GetImageResources<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPartResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imageresources: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetImageResources() {
+            match IXpsOMPartResources_Impl::GetImageResources(this) {
                 Ok(ok__) => {
                     core::ptr::write(imageresources, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4380,7 +4382,7 @@ impl IXpsOMPartResources_Vtbl {
         unsafe extern "system" fn GetColorProfileResources<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPartResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, colorprofileresources: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetColorProfileResources() {
+            match IXpsOMPartResources_Impl::GetColorProfileResources(this) {
                 Ok(ok__) => {
                     core::ptr::write(colorprofileresources, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4391,7 +4393,7 @@ impl IXpsOMPartResources_Vtbl {
         unsafe extern "system" fn GetRemoteDictionaryResources<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPartResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dictionaryresources: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRemoteDictionaryResources() {
+            match IXpsOMPartResources_Impl::GetRemoteDictionaryResources(this) {
                 Ok(ok__) => {
                     core::ptr::write(dictionaryresources, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4428,7 +4430,7 @@ impl IXpsOMPartUriCollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPartUriCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCount() {
+            match IXpsOMPartUriCollection_Impl::GetCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4439,7 +4441,7 @@ impl IXpsOMPartUriCollection_Vtbl {
         unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPartUriCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, parturi: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAt(core::mem::transmute_copy(&index)) {
+            match IXpsOMPartUriCollection_Impl::GetAt(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(parturi, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4450,22 +4452,22 @@ impl IXpsOMPartUriCollection_Vtbl {
         unsafe extern "system" fn InsertAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPartUriCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, parturi: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InsertAt(core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&parturi)).into()
+            IXpsOMPartUriCollection_Impl::InsertAt(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&parturi)).into()
         }
         unsafe extern "system" fn RemoveAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPartUriCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAt(core::mem::transmute_copy(&index)).into()
+            IXpsOMPartUriCollection_Impl::RemoveAt(this, core::mem::transmute_copy(&index)).into()
         }
         unsafe extern "system" fn SetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPartUriCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, parturi: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAt(core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&parturi)).into()
+            IXpsOMPartUriCollection_Impl::SetAt(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&parturi)).into()
         }
         unsafe extern "system" fn Append<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPartUriCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parturi: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Append(windows_core::from_raw_borrowed(&parturi)).into()
+            IXpsOMPartUriCollection_Impl::Append(this, windows_core::from_raw_borrowed(&parturi)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -4529,7 +4531,7 @@ impl IXpsOMPath_Vtbl {
         unsafe extern "system" fn GetGeometry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, geometry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetGeometry() {
+            match IXpsOMPath_Impl::GetGeometry(this) {
                 Ok(ok__) => {
                     core::ptr::write(geometry, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4540,7 +4542,7 @@ impl IXpsOMPath_Vtbl {
         unsafe extern "system" fn GetGeometryLocal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, geometry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetGeometryLocal() {
+            match IXpsOMPath_Impl::GetGeometryLocal(this) {
                 Ok(ok__) => {
                     core::ptr::write(geometry, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4551,12 +4553,12 @@ impl IXpsOMPath_Vtbl {
         unsafe extern "system" fn SetGeometryLocal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, geometry: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetGeometryLocal(windows_core::from_raw_borrowed(&geometry)).into()
+            IXpsOMPath_Impl::SetGeometryLocal(this, windows_core::from_raw_borrowed(&geometry)).into()
         }
         unsafe extern "system" fn GetGeometryLookup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookup: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetGeometryLookup() {
+            match IXpsOMPath_Impl::GetGeometryLookup(this) {
                 Ok(ok__) => {
                     core::ptr::write(lookup, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4567,12 +4569,12 @@ impl IXpsOMPath_Vtbl {
         unsafe extern "system" fn SetGeometryLookup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookup: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetGeometryLookup(core::mem::transmute(&lookup)).into()
+            IXpsOMPath_Impl::SetGeometryLookup(this, core::mem::transmute(&lookup)).into()
         }
         unsafe extern "system" fn GetAccessibilityShortDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, shortdescription: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAccessibilityShortDescription() {
+            match IXpsOMPath_Impl::GetAccessibilityShortDescription(this) {
                 Ok(ok__) => {
                     core::ptr::write(shortdescription, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4583,12 +4585,12 @@ impl IXpsOMPath_Vtbl {
         unsafe extern "system" fn SetAccessibilityShortDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, shortdescription: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAccessibilityShortDescription(core::mem::transmute(&shortdescription)).into()
+            IXpsOMPath_Impl::SetAccessibilityShortDescription(this, core::mem::transmute(&shortdescription)).into()
         }
         unsafe extern "system" fn GetAccessibilityLongDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, longdescription: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAccessibilityLongDescription() {
+            match IXpsOMPath_Impl::GetAccessibilityLongDescription(this) {
                 Ok(ok__) => {
                     core::ptr::write(longdescription, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4599,12 +4601,12 @@ impl IXpsOMPath_Vtbl {
         unsafe extern "system" fn SetAccessibilityLongDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, longdescription: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAccessibilityLongDescription(core::mem::transmute(&longdescription)).into()
+            IXpsOMPath_Impl::SetAccessibilityLongDescription(this, core::mem::transmute(&longdescription)).into()
         }
         unsafe extern "system" fn GetSnapsToPixels<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, snapstopixels: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSnapsToPixels() {
+            match IXpsOMPath_Impl::GetSnapsToPixels(this) {
                 Ok(ok__) => {
                     core::ptr::write(snapstopixels, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4615,12 +4617,12 @@ impl IXpsOMPath_Vtbl {
         unsafe extern "system" fn SetSnapsToPixels<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, snapstopixels: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSnapsToPixels(core::mem::transmute_copy(&snapstopixels)).into()
+            IXpsOMPath_Impl::SetSnapsToPixels(this, core::mem::transmute_copy(&snapstopixels)).into()
         }
         unsafe extern "system" fn GetStrokeBrush<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, brush: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStrokeBrush() {
+            match IXpsOMPath_Impl::GetStrokeBrush(this) {
                 Ok(ok__) => {
                     core::ptr::write(brush, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4631,7 +4633,7 @@ impl IXpsOMPath_Vtbl {
         unsafe extern "system" fn GetStrokeBrushLocal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, brush: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStrokeBrushLocal() {
+            match IXpsOMPath_Impl::GetStrokeBrushLocal(this) {
                 Ok(ok__) => {
                     core::ptr::write(brush, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4642,12 +4644,12 @@ impl IXpsOMPath_Vtbl {
         unsafe extern "system" fn SetStrokeBrushLocal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, brush: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetStrokeBrushLocal(windows_core::from_raw_borrowed(&brush)).into()
+            IXpsOMPath_Impl::SetStrokeBrushLocal(this, windows_core::from_raw_borrowed(&brush)).into()
         }
         unsafe extern "system" fn GetStrokeBrushLookup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookup: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStrokeBrushLookup() {
+            match IXpsOMPath_Impl::GetStrokeBrushLookup(this) {
                 Ok(ok__) => {
                     core::ptr::write(lookup, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4658,12 +4660,12 @@ impl IXpsOMPath_Vtbl {
         unsafe extern "system" fn SetStrokeBrushLookup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookup: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetStrokeBrushLookup(core::mem::transmute(&lookup)).into()
+            IXpsOMPath_Impl::SetStrokeBrushLookup(this, core::mem::transmute(&lookup)).into()
         }
         unsafe extern "system" fn GetStrokeDashes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokedashes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStrokeDashes() {
+            match IXpsOMPath_Impl::GetStrokeDashes(this) {
                 Ok(ok__) => {
                     core::ptr::write(strokedashes, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4674,7 +4676,7 @@ impl IXpsOMPath_Vtbl {
         unsafe extern "system" fn GetStrokeDashCap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokedashcap: *mut XPS_DASH_CAP) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStrokeDashCap() {
+            match IXpsOMPath_Impl::GetStrokeDashCap(this) {
                 Ok(ok__) => {
                     core::ptr::write(strokedashcap, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4685,12 +4687,12 @@ impl IXpsOMPath_Vtbl {
         unsafe extern "system" fn SetStrokeDashCap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokedashcap: XPS_DASH_CAP) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetStrokeDashCap(core::mem::transmute_copy(&strokedashcap)).into()
+            IXpsOMPath_Impl::SetStrokeDashCap(this, core::mem::transmute_copy(&strokedashcap)).into()
         }
         unsafe extern "system" fn GetStrokeDashOffset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokedashoffset: *mut f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStrokeDashOffset() {
+            match IXpsOMPath_Impl::GetStrokeDashOffset(this) {
                 Ok(ok__) => {
                     core::ptr::write(strokedashoffset, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4701,12 +4703,12 @@ impl IXpsOMPath_Vtbl {
         unsafe extern "system" fn SetStrokeDashOffset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokedashoffset: f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetStrokeDashOffset(core::mem::transmute_copy(&strokedashoffset)).into()
+            IXpsOMPath_Impl::SetStrokeDashOffset(this, core::mem::transmute_copy(&strokedashoffset)).into()
         }
         unsafe extern "system" fn GetStrokeStartLineCap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokestartlinecap: *mut XPS_LINE_CAP) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStrokeStartLineCap() {
+            match IXpsOMPath_Impl::GetStrokeStartLineCap(this) {
                 Ok(ok__) => {
                     core::ptr::write(strokestartlinecap, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4717,12 +4719,12 @@ impl IXpsOMPath_Vtbl {
         unsafe extern "system" fn SetStrokeStartLineCap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokestartlinecap: XPS_LINE_CAP) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetStrokeStartLineCap(core::mem::transmute_copy(&strokestartlinecap)).into()
+            IXpsOMPath_Impl::SetStrokeStartLineCap(this, core::mem::transmute_copy(&strokestartlinecap)).into()
         }
         unsafe extern "system" fn GetStrokeEndLineCap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokeendlinecap: *mut XPS_LINE_CAP) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStrokeEndLineCap() {
+            match IXpsOMPath_Impl::GetStrokeEndLineCap(this) {
                 Ok(ok__) => {
                     core::ptr::write(strokeendlinecap, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4733,12 +4735,12 @@ impl IXpsOMPath_Vtbl {
         unsafe extern "system" fn SetStrokeEndLineCap<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokeendlinecap: XPS_LINE_CAP) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetStrokeEndLineCap(core::mem::transmute_copy(&strokeendlinecap)).into()
+            IXpsOMPath_Impl::SetStrokeEndLineCap(this, core::mem::transmute_copy(&strokeendlinecap)).into()
         }
         unsafe extern "system" fn GetStrokeLineJoin<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokelinejoin: *mut XPS_LINE_JOIN) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStrokeLineJoin() {
+            match IXpsOMPath_Impl::GetStrokeLineJoin(this) {
                 Ok(ok__) => {
                     core::ptr::write(strokelinejoin, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4749,12 +4751,12 @@ impl IXpsOMPath_Vtbl {
         unsafe extern "system" fn SetStrokeLineJoin<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokelinejoin: XPS_LINE_JOIN) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetStrokeLineJoin(core::mem::transmute_copy(&strokelinejoin)).into()
+            IXpsOMPath_Impl::SetStrokeLineJoin(this, core::mem::transmute_copy(&strokelinejoin)).into()
         }
         unsafe extern "system" fn GetStrokeMiterLimit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokemiterlimit: *mut f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStrokeMiterLimit() {
+            match IXpsOMPath_Impl::GetStrokeMiterLimit(this) {
                 Ok(ok__) => {
                     core::ptr::write(strokemiterlimit, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4765,12 +4767,12 @@ impl IXpsOMPath_Vtbl {
         unsafe extern "system" fn SetStrokeMiterLimit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokemiterlimit: f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetStrokeMiterLimit(core::mem::transmute_copy(&strokemiterlimit)).into()
+            IXpsOMPath_Impl::SetStrokeMiterLimit(this, core::mem::transmute_copy(&strokemiterlimit)).into()
         }
         unsafe extern "system" fn GetStrokeThickness<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokethickness: *mut f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStrokeThickness() {
+            match IXpsOMPath_Impl::GetStrokeThickness(this) {
                 Ok(ok__) => {
                     core::ptr::write(strokethickness, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4781,12 +4783,12 @@ impl IXpsOMPath_Vtbl {
         unsafe extern "system" fn SetStrokeThickness<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokethickness: f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetStrokeThickness(core::mem::transmute_copy(&strokethickness)).into()
+            IXpsOMPath_Impl::SetStrokeThickness(this, core::mem::transmute_copy(&strokethickness)).into()
         }
         unsafe extern "system" fn GetFillBrush<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, brush: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFillBrush() {
+            match IXpsOMPath_Impl::GetFillBrush(this) {
                 Ok(ok__) => {
                     core::ptr::write(brush, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4797,7 +4799,7 @@ impl IXpsOMPath_Vtbl {
         unsafe extern "system" fn GetFillBrushLocal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, brush: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFillBrushLocal() {
+            match IXpsOMPath_Impl::GetFillBrushLocal(this) {
                 Ok(ok__) => {
                     core::ptr::write(brush, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4808,12 +4810,12 @@ impl IXpsOMPath_Vtbl {
         unsafe extern "system" fn SetFillBrushLocal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, brush: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFillBrushLocal(windows_core::from_raw_borrowed(&brush)).into()
+            IXpsOMPath_Impl::SetFillBrushLocal(this, windows_core::from_raw_borrowed(&brush)).into()
         }
         unsafe extern "system" fn GetFillBrushLookup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookup: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFillBrushLookup() {
+            match IXpsOMPath_Impl::GetFillBrushLookup(this) {
                 Ok(ok__) => {
                     core::ptr::write(lookup, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4824,12 +4826,12 @@ impl IXpsOMPath_Vtbl {
         unsafe extern "system" fn SetFillBrushLookup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookup: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFillBrushLookup(core::mem::transmute(&lookup)).into()
+            IXpsOMPath_Impl::SetFillBrushLookup(this, core::mem::transmute(&lookup)).into()
         }
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPath_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IXpsOMPath_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(path, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4895,7 +4897,7 @@ impl IXpsOMPrintTicketResource_Vtbl {
         unsafe extern "system" fn GetStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPrintTicketResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStream() {
+            match IXpsOMPrintTicketResource_Impl::GetStream(this) {
                 Ok(ok__) => {
                     core::ptr::write(stream, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4906,7 +4908,7 @@ impl IXpsOMPrintTicketResource_Vtbl {
         unsafe extern "system" fn SetContent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMPrintTicketResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcestream: *mut core::ffi::c_void, partname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetContent(windows_core::from_raw_borrowed(&sourcestream), windows_core::from_raw_borrowed(&partname)).into()
+            IXpsOMPrintTicketResource_Impl::SetContent(this, windows_core::from_raw_borrowed(&sourcestream), windows_core::from_raw_borrowed(&partname)).into()
         }
         Self {
             base__: IXpsOMResource_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -4933,7 +4935,7 @@ impl IXpsOMRadialGradientBrush_Vtbl {
         unsafe extern "system" fn GetCenter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMRadialGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, center: *mut XPS_POINT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCenter() {
+            match IXpsOMRadialGradientBrush_Impl::GetCenter(this) {
                 Ok(ok__) => {
                     core::ptr::write(center, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4944,12 +4946,12 @@ impl IXpsOMRadialGradientBrush_Vtbl {
         unsafe extern "system" fn SetCenter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMRadialGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, center: *const XPS_POINT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCenter(core::mem::transmute_copy(&center)).into()
+            IXpsOMRadialGradientBrush_Impl::SetCenter(this, core::mem::transmute_copy(&center)).into()
         }
         unsafe extern "system" fn GetRadiiSizes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMRadialGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, radiisizes: *mut XPS_SIZE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRadiiSizes() {
+            match IXpsOMRadialGradientBrush_Impl::GetRadiiSizes(this) {
                 Ok(ok__) => {
                     core::ptr::write(radiisizes, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4960,12 +4962,12 @@ impl IXpsOMRadialGradientBrush_Vtbl {
         unsafe extern "system" fn SetRadiiSizes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMRadialGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, radiisizes: *const XPS_SIZE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRadiiSizes(core::mem::transmute_copy(&radiisizes)).into()
+            IXpsOMRadialGradientBrush_Impl::SetRadiiSizes(this, core::mem::transmute_copy(&radiisizes)).into()
         }
         unsafe extern "system" fn GetGradientOrigin<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMRadialGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, origin: *mut XPS_POINT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetGradientOrigin() {
+            match IXpsOMRadialGradientBrush_Impl::GetGradientOrigin(this) {
                 Ok(ok__) => {
                     core::ptr::write(origin, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4976,12 +4978,12 @@ impl IXpsOMRadialGradientBrush_Vtbl {
         unsafe extern "system" fn SetGradientOrigin<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMRadialGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, origin: *const XPS_POINT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetGradientOrigin(core::mem::transmute_copy(&origin)).into()
+            IXpsOMRadialGradientBrush_Impl::SetGradientOrigin(this, core::mem::transmute_copy(&origin)).into()
         }
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMRadialGradientBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, radialgradientbrush: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IXpsOMRadialGradientBrush_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(radialgradientbrush, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5017,7 +5019,7 @@ impl IXpsOMRemoteDictionaryResource_Vtbl {
         unsafe extern "system" fn GetDictionary<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMRemoteDictionaryResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dictionary: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDictionary() {
+            match IXpsOMRemoteDictionaryResource_Impl::GetDictionary(this) {
                 Ok(ok__) => {
                     core::ptr::write(dictionary, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5028,7 +5030,7 @@ impl IXpsOMRemoteDictionaryResource_Vtbl {
         unsafe extern "system" fn SetDictionary<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMRemoteDictionaryResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dictionary: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDictionary(windows_core::from_raw_borrowed(&dictionary)).into()
+            IXpsOMRemoteDictionaryResource_Impl::SetDictionary(this, windows_core::from_raw_borrowed(&dictionary)).into()
         }
         Self {
             base__: IXpsOMResource_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -5053,7 +5055,7 @@ impl IXpsOMRemoteDictionaryResource1_Vtbl {
         unsafe extern "system" fn GetDocumentType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMRemoteDictionaryResource1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documenttype: *mut XPS_DOCUMENT_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDocumentType() {
+            match IXpsOMRemoteDictionaryResource1_Impl::GetDocumentType(this) {
                 Ok(ok__) => {
                     core::ptr::write(documenttype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5064,7 +5066,7 @@ impl IXpsOMRemoteDictionaryResource1_Vtbl {
         unsafe extern "system" fn Write1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMRemoteDictionaryResource1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut core::ffi::c_void, documenttype: XPS_DOCUMENT_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Write1(windows_core::from_raw_borrowed(&stream), core::mem::transmute_copy(&documenttype)).into()
+            IXpsOMRemoteDictionaryResource1_Impl::Write1(this, windows_core::from_raw_borrowed(&stream), core::mem::transmute_copy(&documenttype)).into()
         }
         Self {
             base__: IXpsOMRemoteDictionaryResource_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -5094,7 +5096,7 @@ impl IXpsOMRemoteDictionaryResourceCollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMRemoteDictionaryResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCount() {
+            match IXpsOMRemoteDictionaryResourceCollection_Impl::GetCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5105,7 +5107,7 @@ impl IXpsOMRemoteDictionaryResourceCollection_Vtbl {
         unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMRemoteDictionaryResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, object: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAt(core::mem::transmute_copy(&index)) {
+            match IXpsOMRemoteDictionaryResourceCollection_Impl::GetAt(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(object, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5116,27 +5118,27 @@ impl IXpsOMRemoteDictionaryResourceCollection_Vtbl {
         unsafe extern "system" fn InsertAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMRemoteDictionaryResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, object: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InsertAt(core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&object)).into()
+            IXpsOMRemoteDictionaryResourceCollection_Impl::InsertAt(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&object)).into()
         }
         unsafe extern "system" fn RemoveAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMRemoteDictionaryResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAt(core::mem::transmute_copy(&index)).into()
+            IXpsOMRemoteDictionaryResourceCollection_Impl::RemoveAt(this, core::mem::transmute_copy(&index)).into()
         }
         unsafe extern "system" fn SetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMRemoteDictionaryResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, object: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAt(core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&object)).into()
+            IXpsOMRemoteDictionaryResourceCollection_Impl::SetAt(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&object)).into()
         }
         unsafe extern "system" fn Append<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMRemoteDictionaryResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, object: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Append(windows_core::from_raw_borrowed(&object)).into()
+            IXpsOMRemoteDictionaryResourceCollection_Impl::Append(this, windows_core::from_raw_borrowed(&object)).into()
         }
         unsafe extern "system" fn GetByPartName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMRemoteDictionaryResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, partname: *mut core::ffi::c_void, remotedictionaryresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetByPartName(windows_core::from_raw_borrowed(&partname)) {
+            match IXpsOMRemoteDictionaryResourceCollection_Impl::GetByPartName(this, windows_core::from_raw_borrowed(&partname)) {
                 Ok(ok__) => {
                     core::ptr::write(remotedictionaryresource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5182,7 +5184,7 @@ impl IXpsOMShareable_Vtbl {
         unsafe extern "system" fn GetOwner<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMShareable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, owner: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetOwner() {
+            match IXpsOMShareable_Impl::GetOwner(this) {
                 Ok(ok__) => {
                     core::ptr::write(owner, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5193,7 +5195,7 @@ impl IXpsOMShareable_Vtbl {
         unsafe extern "system" fn GetType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMShareable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut XPS_OBJECT_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetType() {
+            match IXpsOMShareable_Impl::GetType(this) {
                 Ok(ok__) => {
                     core::ptr::write(r#type, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5225,7 +5227,7 @@ impl IXpsOMSignatureBlockResource_Vtbl {
         unsafe extern "system" fn GetOwner<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMSignatureBlockResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, owner: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetOwner() {
+            match IXpsOMSignatureBlockResource_Impl::GetOwner(this) {
                 Ok(ok__) => {
                     core::ptr::write(owner, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5236,7 +5238,7 @@ impl IXpsOMSignatureBlockResource_Vtbl {
         unsafe extern "system" fn GetStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMSignatureBlockResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStream() {
+            match IXpsOMSignatureBlockResource_Impl::GetStream(this) {
                 Ok(ok__) => {
                     core::ptr::write(stream, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5247,7 +5249,7 @@ impl IXpsOMSignatureBlockResource_Vtbl {
         unsafe extern "system" fn SetContent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMSignatureBlockResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcestream: *mut core::ffi::c_void, partname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetContent(windows_core::from_raw_borrowed(&sourcestream), windows_core::from_raw_borrowed(&partname)).into()
+            IXpsOMSignatureBlockResource_Impl::SetContent(this, windows_core::from_raw_borrowed(&sourcestream), windows_core::from_raw_borrowed(&partname)).into()
         }
         Self {
             base__: IXpsOMResource_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -5278,7 +5280,7 @@ impl IXpsOMSignatureBlockResourceCollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMSignatureBlockResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCount() {
+            match IXpsOMSignatureBlockResourceCollection_Impl::GetCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5289,7 +5291,7 @@ impl IXpsOMSignatureBlockResourceCollection_Vtbl {
         unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMSignatureBlockResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, signatureblockresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAt(core::mem::transmute_copy(&index)) {
+            match IXpsOMSignatureBlockResourceCollection_Impl::GetAt(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(signatureblockresource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5300,27 +5302,27 @@ impl IXpsOMSignatureBlockResourceCollection_Vtbl {
         unsafe extern "system" fn InsertAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMSignatureBlockResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, signatureblockresource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InsertAt(core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&signatureblockresource)).into()
+            IXpsOMSignatureBlockResourceCollection_Impl::InsertAt(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&signatureblockresource)).into()
         }
         unsafe extern "system" fn RemoveAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMSignatureBlockResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAt(core::mem::transmute_copy(&index)).into()
+            IXpsOMSignatureBlockResourceCollection_Impl::RemoveAt(this, core::mem::transmute_copy(&index)).into()
         }
         unsafe extern "system" fn SetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMSignatureBlockResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, signatureblockresource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAt(core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&signatureblockresource)).into()
+            IXpsOMSignatureBlockResourceCollection_Impl::SetAt(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&signatureblockresource)).into()
         }
         unsafe extern "system" fn Append<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMSignatureBlockResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, signatureblockresource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Append(windows_core::from_raw_borrowed(&signatureblockresource)).into()
+            IXpsOMSignatureBlockResourceCollection_Impl::Append(this, windows_core::from_raw_borrowed(&signatureblockresource)).into()
         }
         unsafe extern "system" fn GetByPartName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMSignatureBlockResourceCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, partname: *mut core::ffi::c_void, signatureblockresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetByPartName(windows_core::from_raw_borrowed(&partname)) {
+            match IXpsOMSignatureBlockResourceCollection_Impl::GetByPartName(this, windows_core::from_raw_borrowed(&partname)) {
                 Ok(ok__) => {
                     core::ptr::write(signatureblockresource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5354,7 +5356,7 @@ impl IXpsOMSolidColorBrush_Vtbl {
         unsafe extern "system" fn GetColor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMSolidColorBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: *mut XPS_COLOR, colorprofile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetColor(core::mem::transmute_copy(&color)) {
+            match IXpsOMSolidColorBrush_Impl::GetColor(this, core::mem::transmute_copy(&color)) {
                 Ok(ok__) => {
                     core::ptr::write(colorprofile, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5365,12 +5367,12 @@ impl IXpsOMSolidColorBrush_Vtbl {
         unsafe extern "system" fn SetColor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMSolidColorBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: *const XPS_COLOR, colorprofile: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetColor(core::mem::transmute_copy(&color), windows_core::from_raw_borrowed(&colorprofile)).into()
+            IXpsOMSolidColorBrush_Impl::SetColor(this, core::mem::transmute_copy(&color), windows_core::from_raw_borrowed(&colorprofile)).into()
         }
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMSolidColorBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, solidcolorbrush: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IXpsOMSolidColorBrush_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(solidcolorbrush, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5403,7 +5405,7 @@ impl IXpsOMStoryFragmentsResource_Vtbl {
         unsafe extern "system" fn GetOwner<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMStoryFragmentsResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, owner: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetOwner() {
+            match IXpsOMStoryFragmentsResource_Impl::GetOwner(this) {
                 Ok(ok__) => {
                     core::ptr::write(owner, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5414,7 +5416,7 @@ impl IXpsOMStoryFragmentsResource_Vtbl {
         unsafe extern "system" fn GetStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMStoryFragmentsResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStream() {
+            match IXpsOMStoryFragmentsResource_Impl::GetStream(this) {
                 Ok(ok__) => {
                     core::ptr::write(stream, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5425,7 +5427,7 @@ impl IXpsOMStoryFragmentsResource_Vtbl {
         unsafe extern "system" fn SetContent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMStoryFragmentsResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcestream: *mut core::ffi::c_void, partname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetContent(windows_core::from_raw_borrowed(&sourcestream), windows_core::from_raw_borrowed(&partname)).into()
+            IXpsOMStoryFragmentsResource_Impl::SetContent(this, windows_core::from_raw_borrowed(&sourcestream), windows_core::from_raw_borrowed(&partname)).into()
         }
         Self {
             base__: IXpsOMResource_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -5450,7 +5452,7 @@ impl IXpsOMThumbnailGenerator_Vtbl {
         unsafe extern "system" fn GenerateThumbnail<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMThumbnailGenerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, page: *mut core::ffi::c_void, thumbnailtype: XPS_IMAGE_TYPE, thumbnailsize: XPS_THUMBNAIL_SIZE, imageresourcepartname: *mut core::ffi::c_void, imageresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GenerateThumbnail(windows_core::from_raw_borrowed(&page), core::mem::transmute_copy(&thumbnailtype), core::mem::transmute_copy(&thumbnailsize), windows_core::from_raw_borrowed(&imageresourcepartname)) {
+            match IXpsOMThumbnailGenerator_Impl::GenerateThumbnail(this, windows_core::from_raw_borrowed(&page), core::mem::transmute_copy(&thumbnailtype), core::mem::transmute_copy(&thumbnailsize), windows_core::from_raw_borrowed(&imageresourcepartname)) {
                 Ok(ok__) => {
                     core::ptr::write(imageresource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5483,7 +5485,7 @@ impl IXpsOMTileBrush_Vtbl {
         unsafe extern "system" fn GetTransform<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMTileBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetTransform() {
+            match IXpsOMTileBrush_Impl::GetTransform(this) {
                 Ok(ok__) => {
                     core::ptr::write(transform, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5494,7 +5496,7 @@ impl IXpsOMTileBrush_Vtbl {
         unsafe extern "system" fn GetTransformLocal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMTileBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetTransformLocal() {
+            match IXpsOMTileBrush_Impl::GetTransformLocal(this) {
                 Ok(ok__) => {
                     core::ptr::write(transform, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5505,12 +5507,12 @@ impl IXpsOMTileBrush_Vtbl {
         unsafe extern "system" fn SetTransformLocal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMTileBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTransformLocal(windows_core::from_raw_borrowed(&transform)).into()
+            IXpsOMTileBrush_Impl::SetTransformLocal(this, windows_core::from_raw_borrowed(&transform)).into()
         }
         unsafe extern "system" fn GetTransformLookup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMTileBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetTransformLookup() {
+            match IXpsOMTileBrush_Impl::GetTransformLookup(this) {
                 Ok(ok__) => {
                     core::ptr::write(key, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5521,12 +5523,12 @@ impl IXpsOMTileBrush_Vtbl {
         unsafe extern "system" fn SetTransformLookup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMTileBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTransformLookup(core::mem::transmute(&key)).into()
+            IXpsOMTileBrush_Impl::SetTransformLookup(this, core::mem::transmute(&key)).into()
         }
         unsafe extern "system" fn GetViewbox<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMTileBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, viewbox: *mut XPS_RECT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetViewbox() {
+            match IXpsOMTileBrush_Impl::GetViewbox(this) {
                 Ok(ok__) => {
                     core::ptr::write(viewbox, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5537,12 +5539,12 @@ impl IXpsOMTileBrush_Vtbl {
         unsafe extern "system" fn SetViewbox<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMTileBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, viewbox: *const XPS_RECT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetViewbox(core::mem::transmute_copy(&viewbox)).into()
+            IXpsOMTileBrush_Impl::SetViewbox(this, core::mem::transmute_copy(&viewbox)).into()
         }
         unsafe extern "system" fn GetViewport<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMTileBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, viewport: *mut XPS_RECT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetViewport() {
+            match IXpsOMTileBrush_Impl::GetViewport(this) {
                 Ok(ok__) => {
                     core::ptr::write(viewport, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5553,12 +5555,12 @@ impl IXpsOMTileBrush_Vtbl {
         unsafe extern "system" fn SetViewport<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMTileBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, viewport: *const XPS_RECT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetViewport(core::mem::transmute_copy(&viewport)).into()
+            IXpsOMTileBrush_Impl::SetViewport(this, core::mem::transmute_copy(&viewport)).into()
         }
         unsafe extern "system" fn GetTileMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMTileBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tilemode: *mut XPS_TILE_MODE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetTileMode() {
+            match IXpsOMTileBrush_Impl::GetTileMode(this) {
                 Ok(ok__) => {
                     core::ptr::write(tilemode, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5569,7 +5571,7 @@ impl IXpsOMTileBrush_Vtbl {
         unsafe extern "system" fn SetTileMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMTileBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tilemode: XPS_TILE_MODE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTileMode(core::mem::transmute_copy(&tilemode)).into()
+            IXpsOMTileBrush_Impl::SetTileMode(this, core::mem::transmute_copy(&tilemode)).into()
         }
         Self {
             base__: IXpsOMBrush_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -5626,7 +5628,7 @@ impl IXpsOMVisual_Vtbl {
         unsafe extern "system" fn GetTransform<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, matrixtransform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetTransform() {
+            match IXpsOMVisual_Impl::GetTransform(this) {
                 Ok(ok__) => {
                     core::ptr::write(matrixtransform, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5637,7 +5639,7 @@ impl IXpsOMVisual_Vtbl {
         unsafe extern "system" fn GetTransformLocal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, matrixtransform: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetTransformLocal() {
+            match IXpsOMVisual_Impl::GetTransformLocal(this) {
                 Ok(ok__) => {
                     core::ptr::write(matrixtransform, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5648,12 +5650,12 @@ impl IXpsOMVisual_Vtbl {
         unsafe extern "system" fn SetTransformLocal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, matrixtransform: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTransformLocal(windows_core::from_raw_borrowed(&matrixtransform)).into()
+            IXpsOMVisual_Impl::SetTransformLocal(this, windows_core::from_raw_borrowed(&matrixtransform)).into()
         }
         unsafe extern "system" fn GetTransformLookup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetTransformLookup() {
+            match IXpsOMVisual_Impl::GetTransformLookup(this) {
                 Ok(ok__) => {
                     core::ptr::write(key, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5664,12 +5666,12 @@ impl IXpsOMVisual_Vtbl {
         unsafe extern "system" fn SetTransformLookup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTransformLookup(core::mem::transmute(&key)).into()
+            IXpsOMVisual_Impl::SetTransformLookup(this, core::mem::transmute(&key)).into()
         }
         unsafe extern "system" fn GetClipGeometry<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clipgeometry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetClipGeometry() {
+            match IXpsOMVisual_Impl::GetClipGeometry(this) {
                 Ok(ok__) => {
                     core::ptr::write(clipgeometry, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5680,7 +5682,7 @@ impl IXpsOMVisual_Vtbl {
         unsafe extern "system" fn GetClipGeometryLocal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clipgeometry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetClipGeometryLocal() {
+            match IXpsOMVisual_Impl::GetClipGeometryLocal(this) {
                 Ok(ok__) => {
                     core::ptr::write(clipgeometry, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5691,12 +5693,12 @@ impl IXpsOMVisual_Vtbl {
         unsafe extern "system" fn SetClipGeometryLocal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clipgeometry: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetClipGeometryLocal(windows_core::from_raw_borrowed(&clipgeometry)).into()
+            IXpsOMVisual_Impl::SetClipGeometryLocal(this, windows_core::from_raw_borrowed(&clipgeometry)).into()
         }
         unsafe extern "system" fn GetClipGeometryLookup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetClipGeometryLookup() {
+            match IXpsOMVisual_Impl::GetClipGeometryLookup(this) {
                 Ok(ok__) => {
                     core::ptr::write(key, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5707,12 +5709,12 @@ impl IXpsOMVisual_Vtbl {
         unsafe extern "system" fn SetClipGeometryLookup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetClipGeometryLookup(core::mem::transmute(&key)).into()
+            IXpsOMVisual_Impl::SetClipGeometryLookup(this, core::mem::transmute(&key)).into()
         }
         unsafe extern "system" fn GetOpacity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opacity: *mut f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetOpacity() {
+            match IXpsOMVisual_Impl::GetOpacity(this) {
                 Ok(ok__) => {
                     core::ptr::write(opacity, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5723,12 +5725,12 @@ impl IXpsOMVisual_Vtbl {
         unsafe extern "system" fn SetOpacity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opacity: f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetOpacity(core::mem::transmute_copy(&opacity)).into()
+            IXpsOMVisual_Impl::SetOpacity(this, core::mem::transmute_copy(&opacity)).into()
         }
         unsafe extern "system" fn GetOpacityMaskBrush<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opacitymaskbrush: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetOpacityMaskBrush() {
+            match IXpsOMVisual_Impl::GetOpacityMaskBrush(this) {
                 Ok(ok__) => {
                     core::ptr::write(opacitymaskbrush, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5739,7 +5741,7 @@ impl IXpsOMVisual_Vtbl {
         unsafe extern "system" fn GetOpacityMaskBrushLocal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opacitymaskbrush: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetOpacityMaskBrushLocal() {
+            match IXpsOMVisual_Impl::GetOpacityMaskBrushLocal(this) {
                 Ok(ok__) => {
                     core::ptr::write(opacitymaskbrush, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5750,12 +5752,12 @@ impl IXpsOMVisual_Vtbl {
         unsafe extern "system" fn SetOpacityMaskBrushLocal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, opacitymaskbrush: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetOpacityMaskBrushLocal(windows_core::from_raw_borrowed(&opacitymaskbrush)).into()
+            IXpsOMVisual_Impl::SetOpacityMaskBrushLocal(this, windows_core::from_raw_borrowed(&opacitymaskbrush)).into()
         }
         unsafe extern "system" fn GetOpacityMaskBrushLookup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetOpacityMaskBrushLookup() {
+            match IXpsOMVisual_Impl::GetOpacityMaskBrushLookup(this) {
                 Ok(ok__) => {
                     core::ptr::write(key, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5766,12 +5768,12 @@ impl IXpsOMVisual_Vtbl {
         unsafe extern "system" fn SetOpacityMaskBrushLookup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetOpacityMaskBrushLookup(core::mem::transmute(&key)).into()
+            IXpsOMVisual_Impl::SetOpacityMaskBrushLookup(this, core::mem::transmute(&key)).into()
         }
         unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetName() {
+            match IXpsOMVisual_Impl::GetName(this) {
                 Ok(ok__) => {
                     core::ptr::write(name, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5782,12 +5784,12 @@ impl IXpsOMVisual_Vtbl {
         unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetName(core::mem::transmute(&name)).into()
+            IXpsOMVisual_Impl::SetName(this, core::mem::transmute(&name)).into()
         }
         unsafe extern "system" fn GetIsHyperlinkTarget<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ishyperlink: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetIsHyperlinkTarget() {
+            match IXpsOMVisual_Impl::GetIsHyperlinkTarget(this) {
                 Ok(ok__) => {
                     core::ptr::write(ishyperlink, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5798,12 +5800,12 @@ impl IXpsOMVisual_Vtbl {
         unsafe extern "system" fn SetIsHyperlinkTarget<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ishyperlink: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetIsHyperlinkTarget(core::mem::transmute_copy(&ishyperlink)).into()
+            IXpsOMVisual_Impl::SetIsHyperlinkTarget(this, core::mem::transmute_copy(&ishyperlink)).into()
         }
         unsafe extern "system" fn GetHyperlinkNavigateUri<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hyperlinkuri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetHyperlinkNavigateUri() {
+            match IXpsOMVisual_Impl::GetHyperlinkNavigateUri(this) {
                 Ok(ok__) => {
                     core::ptr::write(hyperlinkuri, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5814,12 +5816,12 @@ impl IXpsOMVisual_Vtbl {
         unsafe extern "system" fn SetHyperlinkNavigateUri<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hyperlinkuri: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetHyperlinkNavigateUri(windows_core::from_raw_borrowed(&hyperlinkuri)).into()
+            IXpsOMVisual_Impl::SetHyperlinkNavigateUri(this, windows_core::from_raw_borrowed(&hyperlinkuri)).into()
         }
         unsafe extern "system" fn GetLanguage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, language: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetLanguage() {
+            match IXpsOMVisual_Impl::GetLanguage(this) {
                 Ok(ok__) => {
                     core::ptr::write(language, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5830,7 +5832,7 @@ impl IXpsOMVisual_Vtbl {
         unsafe extern "system" fn SetLanguage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisual_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, language: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLanguage(core::mem::transmute(&language)).into()
+            IXpsOMVisual_Impl::SetLanguage(this, core::mem::transmute(&language)).into()
         }
         Self {
             base__: IXpsOMShareable_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -5879,7 +5881,7 @@ impl IXpsOMVisualBrush_Vtbl {
         unsafe extern "system" fn GetVisual<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisualBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, visual: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetVisual() {
+            match IXpsOMVisualBrush_Impl::GetVisual(this) {
                 Ok(ok__) => {
                     core::ptr::write(visual, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5890,7 +5892,7 @@ impl IXpsOMVisualBrush_Vtbl {
         unsafe extern "system" fn GetVisualLocal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisualBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, visual: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetVisualLocal() {
+            match IXpsOMVisualBrush_Impl::GetVisualLocal(this) {
                 Ok(ok__) => {
                     core::ptr::write(visual, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5901,12 +5903,12 @@ impl IXpsOMVisualBrush_Vtbl {
         unsafe extern "system" fn SetVisualLocal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisualBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, visual: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetVisualLocal(windows_core::from_raw_borrowed(&visual)).into()
+            IXpsOMVisualBrush_Impl::SetVisualLocal(this, windows_core::from_raw_borrowed(&visual)).into()
         }
         unsafe extern "system" fn GetVisualLookup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisualBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookup: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetVisualLookup() {
+            match IXpsOMVisualBrush_Impl::GetVisualLookup(this) {
                 Ok(ok__) => {
                     core::ptr::write(lookup, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5917,12 +5919,12 @@ impl IXpsOMVisualBrush_Vtbl {
         unsafe extern "system" fn SetVisualLookup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisualBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookup: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetVisualLookup(core::mem::transmute(&lookup)).into()
+            IXpsOMVisualBrush_Impl::SetVisualLookup(this, core::mem::transmute(&lookup)).into()
         }
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisualBrush_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, visualbrush: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IXpsOMVisualBrush_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(visualbrush, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5958,7 +5960,7 @@ impl IXpsOMVisualCollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisualCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCount() {
+            match IXpsOMVisualCollection_Impl::GetCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5969,7 +5971,7 @@ impl IXpsOMVisualCollection_Vtbl {
         unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisualCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, object: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAt(core::mem::transmute_copy(&index)) {
+            match IXpsOMVisualCollection_Impl::GetAt(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(object, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5980,22 +5982,22 @@ impl IXpsOMVisualCollection_Vtbl {
         unsafe extern "system" fn InsertAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisualCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, object: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InsertAt(core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&object)).into()
+            IXpsOMVisualCollection_Impl::InsertAt(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&object)).into()
         }
         unsafe extern "system" fn RemoveAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisualCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAt(core::mem::transmute_copy(&index)).into()
+            IXpsOMVisualCollection_Impl::RemoveAt(this, core::mem::transmute_copy(&index)).into()
         }
         unsafe extern "system" fn SetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisualCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, object: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAt(core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&object)).into()
+            IXpsOMVisualCollection_Impl::SetAt(this, core::mem::transmute_copy(&index), windows_core::from_raw_borrowed(&object)).into()
         }
         unsafe extern "system" fn Append<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMVisualCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, object: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Append(windows_core::from_raw_borrowed(&object)).into()
+            IXpsOMVisualCollection_Impl::Append(this, windows_core::from_raw_borrowed(&object)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -6034,7 +6036,7 @@ impl IXpsSignature_Vtbl {
         unsafe extern "system" fn GetSignatureId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignature_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sigid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSignatureId() {
+            match IXpsSignature_Impl::GetSignatureId(this) {
                 Ok(ok__) => {
                     core::ptr::write(sigid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6045,12 +6047,12 @@ impl IXpsSignature_Vtbl {
         unsafe extern "system" fn GetSignatureValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignature_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, signaturehashvalue: *mut *mut u8, count: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSignatureValue(core::mem::transmute_copy(&signaturehashvalue), core::mem::transmute_copy(&count)).into()
+            IXpsSignature_Impl::GetSignatureValue(this, core::mem::transmute_copy(&signaturehashvalue), core::mem::transmute_copy(&count)).into()
         }
         unsafe extern "system" fn GetCertificateEnumerator<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignature_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, certificateenumerator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCertificateEnumerator() {
+            match IXpsSignature_Impl::GetCertificateEnumerator(this) {
                 Ok(ok__) => {
                     core::ptr::write(certificateenumerator, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6061,7 +6063,7 @@ impl IXpsSignature_Vtbl {
         unsafe extern "system" fn GetSigningTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignature_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sigdatetimestring: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSigningTime() {
+            match IXpsSignature_Impl::GetSigningTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(sigdatetimestring, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6072,7 +6074,7 @@ impl IXpsSignature_Vtbl {
         unsafe extern "system" fn GetSigningTimeFormat<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignature_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timeformat: *mut super::Packaging::Opc::OPC_SIGNATURE_TIME_FORMAT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSigningTimeFormat() {
+            match IXpsSignature_Impl::GetSigningTimeFormat(this) {
                 Ok(ok__) => {
                     core::ptr::write(timeformat, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6083,7 +6085,7 @@ impl IXpsSignature_Vtbl {
         unsafe extern "system" fn GetSignaturePartName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignature_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, signaturepartname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSignaturePartName() {
+            match IXpsSignature_Impl::GetSignaturePartName(this) {
                 Ok(ok__) => {
                     core::ptr::write(signaturepartname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6094,7 +6096,7 @@ impl IXpsSignature_Vtbl {
         unsafe extern "system" fn Verify<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignature_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, x509certificate: *const super::super::Security::Cryptography::CERT_CONTEXT, sigstatus: *mut XPS_SIGNATURE_STATUS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Verify(core::mem::transmute_copy(&x509certificate)) {
+            match IXpsSignature_Impl::Verify(this, core::mem::transmute_copy(&x509certificate)) {
                 Ok(ok__) => {
                     core::ptr::write(sigstatus, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6105,7 +6107,7 @@ impl IXpsSignature_Vtbl {
         unsafe extern "system" fn GetPolicy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignature_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, policy: *mut XPS_SIGN_POLICY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPolicy() {
+            match IXpsSignature_Impl::GetPolicy(this) {
                 Ok(ok__) => {
                     core::ptr::write(policy, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6116,7 +6118,7 @@ impl IXpsSignature_Vtbl {
         unsafe extern "system" fn GetCustomObjectEnumerator<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignature_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, customobjectenumerator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCustomObjectEnumerator() {
+            match IXpsSignature_Impl::GetCustomObjectEnumerator(this) {
                 Ok(ok__) => {
                     core::ptr::write(customobjectenumerator, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6127,7 +6129,7 @@ impl IXpsSignature_Vtbl {
         unsafe extern "system" fn GetCustomReferenceEnumerator<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignature_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, customreferenceenumerator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCustomReferenceEnumerator() {
+            match IXpsSignature_Impl::GetCustomReferenceEnumerator(this) {
                 Ok(ok__) => {
                     core::ptr::write(customreferenceenumerator, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6138,12 +6140,12 @@ impl IXpsSignature_Vtbl {
         unsafe extern "system" fn GetSignatureXml<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignature_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, signaturexml: *mut *mut u8, count: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSignatureXml(core::mem::transmute_copy(&signaturexml), core::mem::transmute_copy(&count)).into()
+            IXpsSignature_Impl::GetSignatureXml(this, core::mem::transmute_copy(&signaturexml), core::mem::transmute_copy(&count)).into()
         }
         unsafe extern "system" fn SetSignatureXml<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignature_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, signaturexml: *const u8, count: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSignatureXml(core::mem::transmute_copy(&signaturexml), core::mem::transmute_copy(&count)).into()
+            IXpsSignature_Impl::SetSignatureXml(this, core::mem::transmute_copy(&signaturexml), core::mem::transmute_copy(&count)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -6181,7 +6183,7 @@ impl IXpsSignatureBlock_Vtbl {
         unsafe extern "system" fn GetRequests<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureBlock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requests: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRequests() {
+            match IXpsSignatureBlock_Impl::GetRequests(this) {
                 Ok(ok__) => {
                     core::ptr::write(requests, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6192,7 +6194,7 @@ impl IXpsSignatureBlock_Vtbl {
         unsafe extern "system" fn GetPartName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureBlock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, partname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPartName() {
+            match IXpsSignatureBlock_Impl::GetPartName(this) {
                 Ok(ok__) => {
                     core::ptr::write(partname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6203,7 +6205,7 @@ impl IXpsSignatureBlock_Vtbl {
         unsafe extern "system" fn GetDocumentIndex<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureBlock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fixeddocumentindex: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDocumentIndex() {
+            match IXpsSignatureBlock_Impl::GetDocumentIndex(this) {
                 Ok(ok__) => {
                     core::ptr::write(fixeddocumentindex, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6214,7 +6216,7 @@ impl IXpsSignatureBlock_Vtbl {
         unsafe extern "system" fn GetDocumentName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureBlock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fixeddocumentname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDocumentName() {
+            match IXpsSignatureBlock_Impl::GetDocumentName(this) {
                 Ok(ok__) => {
                     core::ptr::write(fixeddocumentname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6225,7 +6227,7 @@ impl IXpsSignatureBlock_Vtbl {
         unsafe extern "system" fn CreateRequest<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureBlock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requestid: windows_core::PCWSTR, signaturerequest: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateRequest(core::mem::transmute(&requestid)) {
+            match IXpsSignatureBlock_Impl::CreateRequest(this, core::mem::transmute(&requestid)) {
                 Ok(ok__) => {
                     core::ptr::write(signaturerequest, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6257,7 +6259,7 @@ impl IXpsSignatureBlockCollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureBlockCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCount() {
+            match IXpsSignatureBlockCollection_Impl::GetCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6268,7 +6270,7 @@ impl IXpsSignatureBlockCollection_Vtbl {
         unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureBlockCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, signatureblock: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAt(core::mem::transmute_copy(&index)) {
+            match IXpsSignatureBlockCollection_Impl::GetAt(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(signatureblock, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6279,7 +6281,7 @@ impl IXpsSignatureBlockCollection_Vtbl {
         unsafe extern "system" fn RemoveAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureBlockCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAt(core::mem::transmute_copy(&index)).into()
+            IXpsSignatureBlockCollection_Impl::RemoveAt(this, core::mem::transmute_copy(&index)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -6303,7 +6305,7 @@ impl IXpsSignatureCollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCount() {
+            match IXpsSignatureCollection_Impl::GetCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6314,7 +6316,7 @@ impl IXpsSignatureCollection_Vtbl {
         unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, signature: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAt(core::mem::transmute_copy(&index)) {
+            match IXpsSignatureCollection_Impl::GetAt(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(signature, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6325,7 +6327,7 @@ impl IXpsSignatureCollection_Vtbl {
         unsafe extern "system" fn RemoveAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAt(core::mem::transmute_copy(&index)).into()
+            IXpsSignatureCollection_Impl::RemoveAt(this, core::mem::transmute_copy(&index)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -6360,17 +6362,17 @@ impl IXpsSignatureManager_Vtbl {
         unsafe extern "system" fn LoadPackageFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.LoadPackageFile(core::mem::transmute(&filename)).into()
+            IXpsSignatureManager_Impl::LoadPackageFile(this, core::mem::transmute(&filename)).into()
         }
         unsafe extern "system" fn LoadPackageStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.LoadPackageStream(windows_core::from_raw_borrowed(&stream)).into()
+            IXpsSignatureManager_Impl::LoadPackageStream(this, windows_core::from_raw_borrowed(&stream)).into()
         }
         unsafe extern "system" fn Sign<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, signoptions: *mut core::ffi::c_void, x509certificate: *const super::super::Security::Cryptography::CERT_CONTEXT, signature: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Sign(windows_core::from_raw_borrowed(&signoptions), core::mem::transmute_copy(&x509certificate)) {
+            match IXpsSignatureManager_Impl::Sign(this, windows_core::from_raw_borrowed(&signoptions), core::mem::transmute_copy(&x509certificate)) {
                 Ok(ok__) => {
                     core::ptr::write(signature, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6381,7 +6383,7 @@ impl IXpsSignatureManager_Vtbl {
         unsafe extern "system" fn GetSignatureOriginPartName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, signatureoriginpartname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSignatureOriginPartName() {
+            match IXpsSignatureManager_Impl::GetSignatureOriginPartName(this) {
                 Ok(ok__) => {
                     core::ptr::write(signatureoriginpartname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6392,12 +6394,12 @@ impl IXpsSignatureManager_Vtbl {
         unsafe extern "system" fn SetSignatureOriginPartName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, signatureoriginpartname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSignatureOriginPartName(windows_core::from_raw_borrowed(&signatureoriginpartname)).into()
+            IXpsSignatureManager_Impl::SetSignatureOriginPartName(this, windows_core::from_raw_borrowed(&signatureoriginpartname)).into()
         }
         unsafe extern "system" fn GetSignatures<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, signatures: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSignatures() {
+            match IXpsSignatureManager_Impl::GetSignatures(this) {
                 Ok(ok__) => {
                     core::ptr::write(signatures, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6408,7 +6410,7 @@ impl IXpsSignatureManager_Vtbl {
         unsafe extern "system" fn AddSignatureBlock<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, partname: *mut core::ffi::c_void, fixeddocumentindex: u32, signatureblock: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AddSignatureBlock(windows_core::from_raw_borrowed(&partname), core::mem::transmute_copy(&fixeddocumentindex)) {
+            match IXpsSignatureManager_Impl::AddSignatureBlock(this, windows_core::from_raw_borrowed(&partname), core::mem::transmute_copy(&fixeddocumentindex)) {
                 Ok(ok__) => {
                     core::ptr::write(signatureblock, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6419,7 +6421,7 @@ impl IXpsSignatureManager_Vtbl {
         unsafe extern "system" fn GetSignatureBlocks<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, signatureblocks: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSignatureBlocks() {
+            match IXpsSignatureManager_Impl::GetSignatureBlocks(this) {
                 Ok(ok__) => {
                     core::ptr::write(signatureblocks, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6430,7 +6432,7 @@ impl IXpsSignatureManager_Vtbl {
         unsafe extern "system" fn CreateSigningOptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, signingoptions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateSigningOptions() {
+            match IXpsSignatureManager_Impl::CreateSigningOptions(this) {
                 Ok(ok__) => {
                     core::ptr::write(signingoptions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6441,12 +6443,12 @@ impl IXpsSignatureManager_Vtbl {
         unsafe extern "system" fn SavePackageToFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SavePackageToFile(core::mem::transmute(&filename), core::mem::transmute_copy(&securityattributes), core::mem::transmute_copy(&flagsandattributes)).into()
+            IXpsSignatureManager_Impl::SavePackageToFile(this, core::mem::transmute(&filename), core::mem::transmute_copy(&securityattributes), core::mem::transmute_copy(&flagsandattributes)).into()
         }
         unsafe extern "system" fn SavePackageToStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SavePackageToStream(windows_core::from_raw_borrowed(&stream)).into()
+            IXpsSignatureManager_Impl::SavePackageToStream(this, windows_core::from_raw_borrowed(&stream)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -6490,7 +6492,7 @@ impl IXpsSignatureRequest_Vtbl {
         unsafe extern "system" fn GetIntent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, intent: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetIntent() {
+            match IXpsSignatureRequest_Impl::GetIntent(this) {
                 Ok(ok__) => {
                     core::ptr::write(intent, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6501,12 +6503,12 @@ impl IXpsSignatureRequest_Vtbl {
         unsafe extern "system" fn SetIntent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, intent: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetIntent(core::mem::transmute(&intent)).into()
+            IXpsSignatureRequest_Impl::SetIntent(this, core::mem::transmute(&intent)).into()
         }
         unsafe extern "system" fn GetRequestedSigner<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, signername: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRequestedSigner() {
+            match IXpsSignatureRequest_Impl::GetRequestedSigner(this) {
                 Ok(ok__) => {
                     core::ptr::write(signername, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6517,12 +6519,12 @@ impl IXpsSignatureRequest_Vtbl {
         unsafe extern "system" fn SetRequestedSigner<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, signername: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRequestedSigner(core::mem::transmute(&signername)).into()
+            IXpsSignatureRequest_Impl::SetRequestedSigner(this, core::mem::transmute(&signername)).into()
         }
         unsafe extern "system" fn GetRequestSignByDate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, datestring: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRequestSignByDate() {
+            match IXpsSignatureRequest_Impl::GetRequestSignByDate(this) {
                 Ok(ok__) => {
                     core::ptr::write(datestring, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6533,12 +6535,12 @@ impl IXpsSignatureRequest_Vtbl {
         unsafe extern "system" fn SetRequestSignByDate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, datestring: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRequestSignByDate(core::mem::transmute(&datestring)).into()
+            IXpsSignatureRequest_Impl::SetRequestSignByDate(this, core::mem::transmute(&datestring)).into()
         }
         unsafe extern "system" fn GetSigningLocale<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, place: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSigningLocale() {
+            match IXpsSignatureRequest_Impl::GetSigningLocale(this) {
                 Ok(ok__) => {
                     core::ptr::write(place, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6549,22 +6551,22 @@ impl IXpsSignatureRequest_Vtbl {
         unsafe extern "system" fn SetSigningLocale<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, place: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSigningLocale(core::mem::transmute(&place)).into()
+            IXpsSignatureRequest_Impl::SetSigningLocale(this, core::mem::transmute(&place)).into()
         }
         unsafe extern "system" fn GetSpotLocation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pageindex: *mut i32, pagepartname: *mut *mut core::ffi::c_void, x: *mut f32, y: *mut f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSpotLocation(core::mem::transmute_copy(&pageindex), core::mem::transmute_copy(&pagepartname), core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)).into()
+            IXpsSignatureRequest_Impl::GetSpotLocation(this, core::mem::transmute_copy(&pageindex), core::mem::transmute_copy(&pagepartname), core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)).into()
         }
         unsafe extern "system" fn SetSpotLocation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pageindex: i32, x: f32, y: f32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSpotLocation(core::mem::transmute_copy(&pageindex), core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)).into()
+            IXpsSignatureRequest_Impl::SetSpotLocation(this, core::mem::transmute_copy(&pageindex), core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)).into()
         }
         unsafe extern "system" fn GetRequestId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requestid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRequestId() {
+            match IXpsSignatureRequest_Impl::GetRequestId(this) {
                 Ok(ok__) => {
                     core::ptr::write(requestid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6575,7 +6577,7 @@ impl IXpsSignatureRequest_Vtbl {
         unsafe extern "system" fn GetSignature<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, signature: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSignature() {
+            match IXpsSignatureRequest_Impl::GetSignature(this) {
                 Ok(ok__) => {
                     core::ptr::write(signature, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6614,7 +6616,7 @@ impl IXpsSignatureRequestCollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureRequestCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCount() {
+            match IXpsSignatureRequestCollection_Impl::GetCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6625,7 +6627,7 @@ impl IXpsSignatureRequestCollection_Vtbl {
         unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureRequestCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, signaturerequest: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAt(core::mem::transmute_copy(&index)) {
+            match IXpsSignatureRequestCollection_Impl::GetAt(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(signaturerequest, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6636,7 +6638,7 @@ impl IXpsSignatureRequestCollection_Vtbl {
         unsafe extern "system" fn RemoveAt<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSignatureRequestCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveAt(core::mem::transmute_copy(&index)).into()
+            IXpsSignatureRequestCollection_Impl::RemoveAt(this, core::mem::transmute_copy(&index)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -6677,7 +6679,7 @@ impl IXpsSigningOptions_Vtbl {
         unsafe extern "system" fn GetSignatureId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSigningOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, signatureid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSignatureId() {
+            match IXpsSigningOptions_Impl::GetSignatureId(this) {
                 Ok(ok__) => {
                     core::ptr::write(signatureid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6688,12 +6690,12 @@ impl IXpsSigningOptions_Vtbl {
         unsafe extern "system" fn SetSignatureId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSigningOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, signatureid: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSignatureId(core::mem::transmute(&signatureid)).into()
+            IXpsSigningOptions_Impl::SetSignatureId(this, core::mem::transmute(&signatureid)).into()
         }
         unsafe extern "system" fn GetSignatureMethod<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSigningOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, signaturemethod: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSignatureMethod() {
+            match IXpsSigningOptions_Impl::GetSignatureMethod(this) {
                 Ok(ok__) => {
                     core::ptr::write(signaturemethod, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6704,12 +6706,12 @@ impl IXpsSigningOptions_Vtbl {
         unsafe extern "system" fn SetSignatureMethod<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSigningOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, signaturemethod: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSignatureMethod(core::mem::transmute(&signaturemethod)).into()
+            IXpsSigningOptions_Impl::SetSignatureMethod(this, core::mem::transmute(&signaturemethod)).into()
         }
         unsafe extern "system" fn GetDigestMethod<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSigningOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, digestmethod: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDigestMethod() {
+            match IXpsSigningOptions_Impl::GetDigestMethod(this) {
                 Ok(ok__) => {
                     core::ptr::write(digestmethod, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6720,12 +6722,12 @@ impl IXpsSigningOptions_Vtbl {
         unsafe extern "system" fn SetDigestMethod<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSigningOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, digestmethod: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDigestMethod(core::mem::transmute(&digestmethod)).into()
+            IXpsSigningOptions_Impl::SetDigestMethod(this, core::mem::transmute(&digestmethod)).into()
         }
         unsafe extern "system" fn GetSignaturePartName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSigningOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, signaturepartname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSignaturePartName() {
+            match IXpsSigningOptions_Impl::GetSignaturePartName(this) {
                 Ok(ok__) => {
                     core::ptr::write(signaturepartname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6736,12 +6738,12 @@ impl IXpsSigningOptions_Vtbl {
         unsafe extern "system" fn SetSignaturePartName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSigningOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, signaturepartname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSignaturePartName(windows_core::from_raw_borrowed(&signaturepartname)).into()
+            IXpsSigningOptions_Impl::SetSignaturePartName(this, windows_core::from_raw_borrowed(&signaturepartname)).into()
         }
         unsafe extern "system" fn GetPolicy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSigningOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, policy: *mut XPS_SIGN_POLICY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPolicy() {
+            match IXpsSigningOptions_Impl::GetPolicy(this) {
                 Ok(ok__) => {
                     core::ptr::write(policy, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6752,12 +6754,12 @@ impl IXpsSigningOptions_Vtbl {
         unsafe extern "system" fn SetPolicy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSigningOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, policy: XPS_SIGN_POLICY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPolicy(core::mem::transmute_copy(&policy)).into()
+            IXpsSigningOptions_Impl::SetPolicy(this, core::mem::transmute_copy(&policy)).into()
         }
         unsafe extern "system" fn GetSigningTimeFormat<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSigningOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timeformat: *mut super::Packaging::Opc::OPC_SIGNATURE_TIME_FORMAT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSigningTimeFormat() {
+            match IXpsSigningOptions_Impl::GetSigningTimeFormat(this) {
                 Ok(ok__) => {
                     core::ptr::write(timeformat, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6768,12 +6770,12 @@ impl IXpsSigningOptions_Vtbl {
         unsafe extern "system" fn SetSigningTimeFormat<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSigningOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timeformat: super::Packaging::Opc::OPC_SIGNATURE_TIME_FORMAT) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSigningTimeFormat(core::mem::transmute_copy(&timeformat)).into()
+            IXpsSigningOptions_Impl::SetSigningTimeFormat(this, core::mem::transmute_copy(&timeformat)).into()
         }
         unsafe extern "system" fn GetCustomObjects<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSigningOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, customobjectset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCustomObjects() {
+            match IXpsSigningOptions_Impl::GetCustomObjects(this) {
                 Ok(ok__) => {
                     core::ptr::write(customobjectset, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6784,7 +6786,7 @@ impl IXpsSigningOptions_Vtbl {
         unsafe extern "system" fn GetCustomReferences<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSigningOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, customreferenceset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCustomReferences() {
+            match IXpsSigningOptions_Impl::GetCustomReferences(this) {
                 Ok(ok__) => {
                     core::ptr::write(customreferenceset, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6795,7 +6797,7 @@ impl IXpsSigningOptions_Vtbl {
         unsafe extern "system" fn GetCertificateSet<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSigningOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, certificateset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetCertificateSet() {
+            match IXpsSigningOptions_Impl::GetCertificateSet(this) {
                 Ok(ok__) => {
                     core::ptr::write(certificateset, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6806,7 +6808,7 @@ impl IXpsSigningOptions_Vtbl {
         unsafe extern "system" fn GetFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSigningOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut XPS_SIGN_FLAGS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFlags() {
+            match IXpsSigningOptions_Impl::GetFlags(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6817,7 +6819,7 @@ impl IXpsSigningOptions_Vtbl {
         unsafe extern "system" fn SetFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsSigningOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: XPS_SIGN_FLAGS) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFlags(core::mem::transmute_copy(&flags)).into()
+            IXpsSigningOptions_Impl::SetFlags(this, core::mem::transmute_copy(&flags)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

@@ -34,6 +34,12 @@ pub struct IOpacityAnimation_Vtbl {
     pub FinalOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPropertyAnimation, IPropertyAnimation_Vtbl, 0x3a01b4da_4d8c_411e_b615_1ade683a9903);
+impl std::ops::Deref for IPropertyAnimation {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPropertyAnimation, windows_core::IUnknown, windows_core::IInspectable);
 impl IPropertyAnimation {
     pub fn Type(&self) -> windows_core::Result<PropertyAnimationType> {

@@ -13,7 +13,7 @@ impl IWSMan_Vtbl {
         unsafe extern "system" fn CreateSession<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSMan_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, connection: std::mem::MaybeUninit<windows_core::BSTR>, flags: i32, connectionoptions: *mut core::ffi::c_void, session: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateSession(core::mem::transmute(&connection), core::mem::transmute_copy(&flags), windows_core::from_raw_borrowed(&connectionoptions)) {
+            match IWSMan_Impl::CreateSession(this, core::mem::transmute(&connection), core::mem::transmute_copy(&flags), windows_core::from_raw_borrowed(&connectionoptions)) {
                 Ok(ok__) => {
                     core::ptr::write(session, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -24,7 +24,7 @@ impl IWSMan_Vtbl {
         unsafe extern "system" fn CreateConnectionOptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSMan_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, connectionoptions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateConnectionOptions() {
+            match IWSMan_Impl::CreateConnectionOptions(this) {
                 Ok(ok__) => {
                     core::ptr::write(connectionoptions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -35,7 +35,7 @@ impl IWSMan_Vtbl {
         unsafe extern "system" fn CommandLine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSMan_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CommandLine() {
+            match IWSMan_Impl::CommandLine(this) {
                 Ok(ok__) => {
                     core::ptr::write(value, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -46,7 +46,7 @@ impl IWSMan_Vtbl {
         unsafe extern "system" fn Error<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSMan_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Error() {
+            match IWSMan_Impl::Error(this) {
                 Ok(ok__) => {
                     core::ptr::write(value, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -80,7 +80,7 @@ impl IWSManConnectionOptions_Vtbl {
         unsafe extern "system" fn UserName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UserName() {
+            match IWSManConnectionOptions_Impl::UserName(this) {
                 Ok(ok__) => {
                     core::ptr::write(name, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -91,12 +91,12 @@ impl IWSManConnectionOptions_Vtbl {
         unsafe extern "system" fn SetUserName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetUserName(core::mem::transmute(&name)).into()
+            IWSManConnectionOptions_Impl::SetUserName(this, core::mem::transmute(&name)).into()
         }
         unsafe extern "system" fn SetPassword<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, password: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPassword(core::mem::transmute(&password)).into()
+            IWSManConnectionOptions_Impl::SetPassword(this, core::mem::transmute(&password)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -122,7 +122,7 @@ impl IWSManConnectionOptionsEx_Vtbl {
         unsafe extern "system" fn CertificateThumbprint<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptionsEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, thumbprint: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CertificateThumbprint() {
+            match IWSManConnectionOptionsEx_Impl::CertificateThumbprint(this) {
                 Ok(ok__) => {
                     core::ptr::write(thumbprint, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -133,7 +133,7 @@ impl IWSManConnectionOptionsEx_Vtbl {
         unsafe extern "system" fn SetCertificateThumbprint<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptionsEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, thumbprint: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCertificateThumbprint(core::mem::transmute(&thumbprint)).into()
+            IWSManConnectionOptionsEx_Impl::SetCertificateThumbprint(this, core::mem::transmute(&thumbprint)).into()
         }
         Self {
             base__: IWSManConnectionOptions_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -164,12 +164,12 @@ impl IWSManConnectionOptionsEx2_Vtbl {
         unsafe extern "system" fn SetProxy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptionsEx2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, accesstype: i32, authenticationmechanism: i32, username: std::mem::MaybeUninit<windows_core::BSTR>, password: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetProxy(core::mem::transmute_copy(&accesstype), core::mem::transmute_copy(&authenticationmechanism), core::mem::transmute(&username), core::mem::transmute(&password)).into()
+            IWSManConnectionOptionsEx2_Impl::SetProxy(this, core::mem::transmute_copy(&accesstype), core::mem::transmute_copy(&authenticationmechanism), core::mem::transmute(&username), core::mem::transmute(&password)).into()
         }
         unsafe extern "system" fn ProxyIEConfig<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptionsEx2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ProxyIEConfig() {
+            match IWSManConnectionOptionsEx2_Impl::ProxyIEConfig(this) {
                 Ok(ok__) => {
                     core::ptr::write(value, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -180,7 +180,7 @@ impl IWSManConnectionOptionsEx2_Vtbl {
         unsafe extern "system" fn ProxyWinHttpConfig<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptionsEx2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ProxyWinHttpConfig() {
+            match IWSManConnectionOptionsEx2_Impl::ProxyWinHttpConfig(this) {
                 Ok(ok__) => {
                     core::ptr::write(value, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -191,7 +191,7 @@ impl IWSManConnectionOptionsEx2_Vtbl {
         unsafe extern "system" fn ProxyAutoDetect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptionsEx2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ProxyAutoDetect() {
+            match IWSManConnectionOptionsEx2_Impl::ProxyAutoDetect(this) {
                 Ok(ok__) => {
                     core::ptr::write(value, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -202,7 +202,7 @@ impl IWSManConnectionOptionsEx2_Vtbl {
         unsafe extern "system" fn ProxyNoProxyServer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptionsEx2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ProxyNoProxyServer() {
+            match IWSManConnectionOptionsEx2_Impl::ProxyNoProxyServer(this) {
                 Ok(ok__) => {
                     core::ptr::write(value, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -213,7 +213,7 @@ impl IWSManConnectionOptionsEx2_Vtbl {
         unsafe extern "system" fn ProxyAuthenticationUseNegotiate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptionsEx2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ProxyAuthenticationUseNegotiate() {
+            match IWSManConnectionOptionsEx2_Impl::ProxyAuthenticationUseNegotiate(this) {
                 Ok(ok__) => {
                     core::ptr::write(value, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -224,7 +224,7 @@ impl IWSManConnectionOptionsEx2_Vtbl {
         unsafe extern "system" fn ProxyAuthenticationUseBasic<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptionsEx2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ProxyAuthenticationUseBasic() {
+            match IWSManConnectionOptionsEx2_Impl::ProxyAuthenticationUseBasic(this) {
                 Ok(ok__) => {
                     core::ptr::write(value, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -235,7 +235,7 @@ impl IWSManConnectionOptionsEx2_Vtbl {
         unsafe extern "system" fn ProxyAuthenticationUseDigest<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptionsEx2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ProxyAuthenticationUseDigest() {
+            match IWSManConnectionOptionsEx2_Impl::ProxyAuthenticationUseDigest(this) {
                 Ok(ok__) => {
                     core::ptr::write(value, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -273,7 +273,7 @@ impl IWSManEnumerator_Vtbl {
         unsafe extern "system" fn ReadItem<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resource: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReadItem() {
+            match IWSManEnumerator_Impl::ReadItem(this) {
                 Ok(ok__) => {
                     core::ptr::write(resource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -284,7 +284,7 @@ impl IWSManEnumerator_Vtbl {
         unsafe extern "system" fn AtEndOfStream<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eos: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AtEndOfStream() {
+            match IWSManEnumerator_Impl::AtEndOfStream(this) {
                 Ok(ok__) => {
                     core::ptr::write(eos, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -295,7 +295,7 @@ impl IWSManEnumerator_Vtbl {
         unsafe extern "system" fn Error<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEnumerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Error() {
+            match IWSManEnumerator_Impl::Error(this) {
                 Ok(ok__) => {
                     core::ptr::write(value, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -345,7 +345,7 @@ impl IWSManEx_Vtbl {
         unsafe extern "system" fn CreateResourceLocator<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strresourcelocator: std::mem::MaybeUninit<windows_core::BSTR>, newresourcelocator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateResourceLocator(core::mem::transmute(&strresourcelocator)) {
+            match IWSManEx_Impl::CreateResourceLocator(this, core::mem::transmute(&strresourcelocator)) {
                 Ok(ok__) => {
                     core::ptr::write(newresourcelocator, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -356,7 +356,7 @@ impl IWSManEx_Vtbl {
         unsafe extern "system" fn SessionFlagUTF8<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SessionFlagUTF8() {
+            match IWSManEx_Impl::SessionFlagUTF8(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -367,7 +367,7 @@ impl IWSManEx_Vtbl {
         unsafe extern "system" fn SessionFlagCredUsernamePassword<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SessionFlagCredUsernamePassword() {
+            match IWSManEx_Impl::SessionFlagCredUsernamePassword(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -378,7 +378,7 @@ impl IWSManEx_Vtbl {
         unsafe extern "system" fn SessionFlagSkipCACheck<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SessionFlagSkipCACheck() {
+            match IWSManEx_Impl::SessionFlagSkipCACheck(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -389,7 +389,7 @@ impl IWSManEx_Vtbl {
         unsafe extern "system" fn SessionFlagSkipCNCheck<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SessionFlagSkipCNCheck() {
+            match IWSManEx_Impl::SessionFlagSkipCNCheck(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -400,7 +400,7 @@ impl IWSManEx_Vtbl {
         unsafe extern "system" fn SessionFlagUseDigest<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SessionFlagUseDigest() {
+            match IWSManEx_Impl::SessionFlagUseDigest(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -411,7 +411,7 @@ impl IWSManEx_Vtbl {
         unsafe extern "system" fn SessionFlagUseNegotiate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SessionFlagUseNegotiate() {
+            match IWSManEx_Impl::SessionFlagUseNegotiate(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -422,7 +422,7 @@ impl IWSManEx_Vtbl {
         unsafe extern "system" fn SessionFlagUseBasic<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SessionFlagUseBasic() {
+            match IWSManEx_Impl::SessionFlagUseBasic(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -433,7 +433,7 @@ impl IWSManEx_Vtbl {
         unsafe extern "system" fn SessionFlagUseKerberos<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SessionFlagUseKerberos() {
+            match IWSManEx_Impl::SessionFlagUseKerberos(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -444,7 +444,7 @@ impl IWSManEx_Vtbl {
         unsafe extern "system" fn SessionFlagNoEncryption<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SessionFlagNoEncryption() {
+            match IWSManEx_Impl::SessionFlagNoEncryption(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -455,7 +455,7 @@ impl IWSManEx_Vtbl {
         unsafe extern "system" fn SessionFlagEnableSPNServerPort<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SessionFlagEnableSPNServerPort() {
+            match IWSManEx_Impl::SessionFlagEnableSPNServerPort(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -466,7 +466,7 @@ impl IWSManEx_Vtbl {
         unsafe extern "system" fn SessionFlagUseNoAuthentication<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SessionFlagUseNoAuthentication() {
+            match IWSManEx_Impl::SessionFlagUseNoAuthentication(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -477,7 +477,7 @@ impl IWSManEx_Vtbl {
         unsafe extern "system" fn EnumerationFlagNonXmlText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumerationFlagNonXmlText() {
+            match IWSManEx_Impl::EnumerationFlagNonXmlText(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -488,7 +488,7 @@ impl IWSManEx_Vtbl {
         unsafe extern "system" fn EnumerationFlagReturnEPR<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumerationFlagReturnEPR() {
+            match IWSManEx_Impl::EnumerationFlagReturnEPR(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -499,7 +499,7 @@ impl IWSManEx_Vtbl {
         unsafe extern "system" fn EnumerationFlagReturnObjectAndEPR<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumerationFlagReturnObjectAndEPR() {
+            match IWSManEx_Impl::EnumerationFlagReturnObjectAndEPR(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -510,7 +510,7 @@ impl IWSManEx_Vtbl {
         unsafe extern "system" fn GetErrorMessage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, errornumber: u32, errormessage: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetErrorMessage(core::mem::transmute_copy(&errornumber)) {
+            match IWSManEx_Impl::GetErrorMessage(this, core::mem::transmute_copy(&errornumber)) {
                 Ok(ok__) => {
                     core::ptr::write(errormessage, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -521,7 +521,7 @@ impl IWSManEx_Vtbl {
         unsafe extern "system" fn EnumerationFlagHierarchyDeep<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumerationFlagHierarchyDeep() {
+            match IWSManEx_Impl::EnumerationFlagHierarchyDeep(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -532,7 +532,7 @@ impl IWSManEx_Vtbl {
         unsafe extern "system" fn EnumerationFlagHierarchyShallow<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumerationFlagHierarchyShallow() {
+            match IWSManEx_Impl::EnumerationFlagHierarchyShallow(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -543,7 +543,7 @@ impl IWSManEx_Vtbl {
         unsafe extern "system" fn EnumerationFlagHierarchyDeepBasePropsOnly<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumerationFlagHierarchyDeepBasePropsOnly() {
+            match IWSManEx_Impl::EnumerationFlagHierarchyDeepBasePropsOnly(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -554,7 +554,7 @@ impl IWSManEx_Vtbl {
         unsafe extern "system" fn EnumerationFlagReturnObject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumerationFlagReturnObject() {
+            match IWSManEx_Impl::EnumerationFlagReturnObject(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -602,7 +602,7 @@ impl IWSManEx2_Vtbl {
         unsafe extern "system" fn SessionFlagUseClientCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SessionFlagUseClientCertificate() {
+            match IWSManEx2_Impl::SessionFlagUseClientCertificate(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -637,7 +637,7 @@ impl IWSManEx3_Vtbl {
         unsafe extern "system" fn SessionFlagUTF16<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SessionFlagUTF16() {
+            match IWSManEx3_Impl::SessionFlagUTF16(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -648,7 +648,7 @@ impl IWSManEx3_Vtbl {
         unsafe extern "system" fn SessionFlagUseCredSsp<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SessionFlagUseCredSsp() {
+            match IWSManEx3_Impl::SessionFlagUseCredSsp(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -659,7 +659,7 @@ impl IWSManEx3_Vtbl {
         unsafe extern "system" fn EnumerationFlagAssociationInstance<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumerationFlagAssociationInstance() {
+            match IWSManEx3_Impl::EnumerationFlagAssociationInstance(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -670,7 +670,7 @@ impl IWSManEx3_Vtbl {
         unsafe extern "system" fn EnumerationFlagAssociatedInstance<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumerationFlagAssociatedInstance() {
+            match IWSManEx3_Impl::EnumerationFlagAssociatedInstance(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -681,7 +681,7 @@ impl IWSManEx3_Vtbl {
         unsafe extern "system" fn SessionFlagSkipRevocationCheck<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SessionFlagSkipRevocationCheck() {
+            match IWSManEx3_Impl::SessionFlagSkipRevocationCheck(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -692,7 +692,7 @@ impl IWSManEx3_Vtbl {
         unsafe extern "system" fn SessionFlagAllowNegotiateImplicitCredentials<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SessionFlagAllowNegotiateImplicitCredentials() {
+            match IWSManEx3_Impl::SessionFlagAllowNegotiateImplicitCredentials(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -703,7 +703,7 @@ impl IWSManEx3_Vtbl {
         unsafe extern "system" fn SessionFlagUseSsl<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SessionFlagUseSsl() {
+            match IWSManEx3_Impl::SessionFlagUseSsl(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -738,7 +738,7 @@ impl IWSManInternal_Vtbl {
         unsafe extern "system" fn ConfigSDDL<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManInternal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, session: *mut core::ffi::c_void, resourceuri: std::mem::MaybeUninit<windows_core::VARIANT>, flags: i32, resource: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ConfigSDDL(windows_core::from_raw_borrowed(&session), core::mem::transmute(&resourceuri), core::mem::transmute_copy(&flags)) {
+            match IWSManInternal_Impl::ConfigSDDL(this, windows_core::from_raw_borrowed(&session), core::mem::transmute(&resourceuri), core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
                     core::ptr::write(resource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -776,12 +776,12 @@ impl IWSManResourceLocator_Vtbl {
         unsafe extern "system" fn SetResourceURI<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetResourceURI(core::mem::transmute(&uri)).into()
+            IWSManResourceLocator_Impl::SetResourceURI(this, core::mem::transmute(&uri)).into()
         }
         unsafe extern "system" fn ResourceURI<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ResourceURI() {
+            match IWSManResourceLocator_Impl::ResourceURI(this) {
                 Ok(ok__) => {
                     core::ptr::write(uri, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -792,17 +792,17 @@ impl IWSManResourceLocator_Vtbl {
         unsafe extern "system" fn AddSelector<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourceselname: std::mem::MaybeUninit<windows_core::BSTR>, selvalue: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddSelector(core::mem::transmute(&resourceselname), core::mem::transmute(&selvalue)).into()
+            IWSManResourceLocator_Impl::AddSelector(this, core::mem::transmute(&resourceselname), core::mem::transmute(&selvalue)).into()
         }
         unsafe extern "system" fn ClearSelectors<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ClearSelectors().into()
+            IWSManResourceLocator_Impl::ClearSelectors(this).into()
         }
         unsafe extern "system" fn FragmentPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FragmentPath() {
+            match IWSManResourceLocator_Impl::FragmentPath(this) {
                 Ok(ok__) => {
                     core::ptr::write(text, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -813,12 +813,12 @@ impl IWSManResourceLocator_Vtbl {
         unsafe extern "system" fn SetFragmentPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFragmentPath(core::mem::transmute(&text)).into()
+            IWSManResourceLocator_Impl::SetFragmentPath(this, core::mem::transmute(&text)).into()
         }
         unsafe extern "system" fn FragmentDialect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FragmentDialect() {
+            match IWSManResourceLocator_Impl::FragmentDialect(this) {
                 Ok(ok__) => {
                     core::ptr::write(text, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -829,22 +829,22 @@ impl IWSManResourceLocator_Vtbl {
         unsafe extern "system" fn SetFragmentDialect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFragmentDialect(core::mem::transmute(&text)).into()
+            IWSManResourceLocator_Impl::SetFragmentDialect(this, core::mem::transmute(&text)).into()
         }
         unsafe extern "system" fn AddOption<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, optionname: std::mem::MaybeUninit<windows_core::BSTR>, optionvalue: std::mem::MaybeUninit<windows_core::VARIANT>, mustcomply: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddOption(core::mem::transmute(&optionname), core::mem::transmute(&optionvalue), core::mem::transmute_copy(&mustcomply)).into()
+            IWSManResourceLocator_Impl::AddOption(this, core::mem::transmute(&optionname), core::mem::transmute(&optionvalue), core::mem::transmute_copy(&mustcomply)).into()
         }
         unsafe extern "system" fn SetMustUnderstandOptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mustunderstand: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMustUnderstandOptions(core::mem::transmute_copy(&mustunderstand)).into()
+            IWSManResourceLocator_Impl::SetMustUnderstandOptions(this, core::mem::transmute_copy(&mustunderstand)).into()
         }
         unsafe extern "system" fn MustUnderstandOptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mustunderstand: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MustUnderstandOptions() {
+            match IWSManResourceLocator_Impl::MustUnderstandOptions(this) {
                 Ok(ok__) => {
                     core::ptr::write(mustunderstand, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -855,12 +855,12 @@ impl IWSManResourceLocator_Vtbl {
         unsafe extern "system" fn ClearOptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ClearOptions().into()
+            IWSManResourceLocator_Impl::ClearOptions(this).into()
         }
         unsafe extern "system" fn Error<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Error() {
+            match IWSManResourceLocator_Impl::Error(this) {
                 Ok(ok__) => {
                     core::ptr::write(value, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -905,7 +905,7 @@ pub trait IWSManSession_Impl: Sized + super::Com::IDispatch_Impl {
     fn Put(&self, resourceuri: &windows_core::VARIANT, resource: &windows_core::BSTR, flags: i32) -> windows_core::Result<windows_core::BSTR>;
     fn Create(&self, resourceuri: &windows_core::VARIANT, resource: &windows_core::BSTR, flags: i32) -> windows_core::Result<windows_core::BSTR>;
     fn Delete(&self, resourceuri: &windows_core::VARIANT, flags: i32) -> windows_core::Result<()>;
-    fn Invoke2(&self, actionuri: &windows_core::BSTR, resourceuri: &windows_core::VARIANT, parameters: &windows_core::BSTR, flags: i32) -> windows_core::Result<windows_core::BSTR>;
+    fn Invoke(&self, actionuri: &windows_core::BSTR, resourceuri: &windows_core::VARIANT, parameters: &windows_core::BSTR, flags: i32) -> windows_core::Result<windows_core::BSTR>;
     fn Enumerate(&self, resourceuri: &windows_core::VARIANT, filter: &windows_core::BSTR, dialect: &windows_core::BSTR, flags: i32) -> windows_core::Result<super::Com::IDispatch>;
     fn Identify(&self, flags: i32) -> windows_core::Result<windows_core::BSTR>;
     fn Error(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -922,7 +922,7 @@ impl IWSManSession_Vtbl {
         unsafe extern "system" fn Get<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourceuri: std::mem::MaybeUninit<windows_core::VARIANT>, flags: i32, resource: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Get(core::mem::transmute(&resourceuri), core::mem::transmute_copy(&flags)) {
+            match IWSManSession_Impl::Get(this, core::mem::transmute(&resourceuri), core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
                     core::ptr::write(resource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -933,7 +933,7 @@ impl IWSManSession_Vtbl {
         unsafe extern "system" fn Put<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourceuri: std::mem::MaybeUninit<windows_core::VARIANT>, resource: std::mem::MaybeUninit<windows_core::BSTR>, flags: i32, resultresource: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Put(core::mem::transmute(&resourceuri), core::mem::transmute(&resource), core::mem::transmute_copy(&flags)) {
+            match IWSManSession_Impl::Put(this, core::mem::transmute(&resourceuri), core::mem::transmute(&resource), core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
                     core::ptr::write(resultresource, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -944,7 +944,7 @@ impl IWSManSession_Vtbl {
         unsafe extern "system" fn Create<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourceuri: std::mem::MaybeUninit<windows_core::VARIANT>, resource: std::mem::MaybeUninit<windows_core::BSTR>, flags: i32, newuri: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Create(core::mem::transmute(&resourceuri), core::mem::transmute(&resource), core::mem::transmute_copy(&flags)) {
+            match IWSManSession_Impl::Create(this, core::mem::transmute(&resourceuri), core::mem::transmute(&resource), core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
                     core::ptr::write(newuri, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -955,12 +955,12 @@ impl IWSManSession_Vtbl {
         unsafe extern "system" fn Delete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourceuri: std::mem::MaybeUninit<windows_core::VARIANT>, flags: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Delete(core::mem::transmute(&resourceuri), core::mem::transmute_copy(&flags)).into()
+            IWSManSession_Impl::Delete(this, core::mem::transmute(&resourceuri), core::mem::transmute_copy(&flags)).into()
         }
-        unsafe extern "system" fn Invoke2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, actionuri: std::mem::MaybeUninit<windows_core::BSTR>, resourceuri: std::mem::MaybeUninit<windows_core::VARIANT>, parameters: std::mem::MaybeUninit<windows_core::BSTR>, flags: i32, result: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Invoke<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, actionuri: std::mem::MaybeUninit<windows_core::BSTR>, resourceuri: std::mem::MaybeUninit<windows_core::VARIANT>, parameters: std::mem::MaybeUninit<windows_core::BSTR>, flags: i32, result: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Invoke2(core::mem::transmute(&actionuri), core::mem::transmute(&resourceuri), core::mem::transmute(&parameters), core::mem::transmute_copy(&flags)) {
+            match IWSManSession_Impl::Invoke(this, core::mem::transmute(&actionuri), core::mem::transmute(&resourceuri), core::mem::transmute(&parameters), core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
                     core::ptr::write(result, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -971,7 +971,7 @@ impl IWSManSession_Vtbl {
         unsafe extern "system" fn Enumerate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourceuri: std::mem::MaybeUninit<windows_core::VARIANT>, filter: std::mem::MaybeUninit<windows_core::BSTR>, dialect: std::mem::MaybeUninit<windows_core::BSTR>, flags: i32, resultset: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Enumerate(core::mem::transmute(&resourceuri), core::mem::transmute(&filter), core::mem::transmute(&dialect), core::mem::transmute_copy(&flags)) {
+            match IWSManSession_Impl::Enumerate(this, core::mem::transmute(&resourceuri), core::mem::transmute(&filter), core::mem::transmute(&dialect), core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
                     core::ptr::write(resultset, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -982,7 +982,7 @@ impl IWSManSession_Vtbl {
         unsafe extern "system" fn Identify<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: i32, result: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Identify(core::mem::transmute_copy(&flags)) {
+            match IWSManSession_Impl::Identify(this, core::mem::transmute_copy(&flags)) {
                 Ok(ok__) => {
                     core::ptr::write(result, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -993,7 +993,7 @@ impl IWSManSession_Vtbl {
         unsafe extern "system" fn Error<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Error() {
+            match IWSManSession_Impl::Error(this) {
                 Ok(ok__) => {
                     core::ptr::write(value, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1004,7 +1004,7 @@ impl IWSManSession_Vtbl {
         unsafe extern "system" fn BatchItems<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BatchItems() {
+            match IWSManSession_Impl::BatchItems(this) {
                 Ok(ok__) => {
                     core::ptr::write(value, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1015,12 +1015,12 @@ impl IWSManSession_Vtbl {
         unsafe extern "system" fn SetBatchItems<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBatchItems(core::mem::transmute_copy(&value)).into()
+            IWSManSession_Impl::SetBatchItems(this, core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn Timeout<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Timeout() {
+            match IWSManSession_Impl::Timeout(this) {
                 Ok(ok__) => {
                     core::ptr::write(value, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1031,7 +1031,7 @@ impl IWSManSession_Vtbl {
         unsafe extern "system" fn SetTimeout<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTimeout(core::mem::transmute_copy(&value)).into()
+            IWSManSession_Impl::SetTimeout(this, core::mem::transmute_copy(&value)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1039,7 +1039,7 @@ impl IWSManSession_Vtbl {
             Put: Put::<Identity, Impl, OFFSET>,
             Create: Create::<Identity, Impl, OFFSET>,
             Delete: Delete::<Identity, Impl, OFFSET>,
-            Invoke2: Invoke2::<Identity, Impl, OFFSET>,
+            Invoke: Invoke::<Identity, Impl, OFFSET>,
             Enumerate: Enumerate::<Identity, Impl, OFFSET>,
             Identify: Identify::<Identity, Impl, OFFSET>,
             Error: Error::<Identity, Impl, OFFSET>,

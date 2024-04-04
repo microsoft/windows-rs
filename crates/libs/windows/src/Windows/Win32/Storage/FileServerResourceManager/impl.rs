@@ -23,7 +23,7 @@ impl IFsrmAccessDeniedRemediationClient_Vtbl {
         unsafe extern "system" fn Show<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmAccessDeniedRemediationClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parentwnd: usize, accesspath: std::mem::MaybeUninit<windows_core::BSTR>, errortype: AdrClientErrorType, flags: i32, windowtitle: std::mem::MaybeUninit<windows_core::BSTR>, windowmessage: std::mem::MaybeUninit<windows_core::BSTR>, result: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Show(core::mem::transmute_copy(&parentwnd), core::mem::transmute(&accesspath), core::mem::transmute_copy(&errortype), core::mem::transmute_copy(&flags), core::mem::transmute(&windowtitle), core::mem::transmute(&windowmessage)) {
+            match IFsrmAccessDeniedRemediationClient_Impl::Show(this, core::mem::transmute_copy(&parentwnd), core::mem::transmute(&accesspath), core::mem::transmute_copy(&errortype), core::mem::transmute_copy(&flags), core::mem::transmute(&windowtitle), core::mem::transmute(&windowmessage)) {
                 Ok(ok__) => {
                     core::ptr::write(result, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -53,7 +53,7 @@ impl IFsrmAction_Vtbl {
         unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmAction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Id() {
+            match IFsrmAction_Impl::Id(this) {
                 Ok(ok__) => {
                     core::ptr::write(id, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -64,7 +64,7 @@ impl IFsrmAction_Vtbl {
         unsafe extern "system" fn ActionType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmAction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, actiontype: *mut FsrmActionType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ActionType() {
+            match IFsrmAction_Impl::ActionType(this) {
                 Ok(ok__) => {
                     core::ptr::write(actiontype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -75,7 +75,7 @@ impl IFsrmAction_Vtbl {
         unsafe extern "system" fn RunLimitInterval<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmAction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minutes: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RunLimitInterval() {
+            match IFsrmAction_Impl::RunLimitInterval(this) {
                 Ok(ok__) => {
                     core::ptr::write(minutes, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -86,12 +86,12 @@ impl IFsrmAction_Vtbl {
         unsafe extern "system" fn SetRunLimitInterval<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmAction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minutes: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRunLimitInterval(core::mem::transmute_copy(&minutes)).into()
+            IFsrmAction_Impl::SetRunLimitInterval(this, core::mem::transmute_copy(&minutes)).into()
         }
         unsafe extern "system" fn Delete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmAction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Delete().into()
+            IFsrmAction_Impl::Delete(this).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -131,7 +131,7 @@ impl IFsrmActionCommand_Vtbl {
         unsafe extern "system" fn ExecutablePath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, executablepath: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ExecutablePath() {
+            match IFsrmActionCommand_Impl::ExecutablePath(this) {
                 Ok(ok__) => {
                     core::ptr::write(executablepath, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -142,12 +142,12 @@ impl IFsrmActionCommand_Vtbl {
         unsafe extern "system" fn SetExecutablePath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, executablepath: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetExecutablePath(core::mem::transmute(&executablepath)).into()
+            IFsrmActionCommand_Impl::SetExecutablePath(this, core::mem::transmute(&executablepath)).into()
         }
         unsafe extern "system" fn Arguments<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, arguments: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Arguments() {
+            match IFsrmActionCommand_Impl::Arguments(this) {
                 Ok(ok__) => {
                     core::ptr::write(arguments, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -158,12 +158,12 @@ impl IFsrmActionCommand_Vtbl {
         unsafe extern "system" fn SetArguments<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, arguments: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetArguments(core::mem::transmute(&arguments)).into()
+            IFsrmActionCommand_Impl::SetArguments(this, core::mem::transmute(&arguments)).into()
         }
         unsafe extern "system" fn Account<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, account: *mut FsrmAccountType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Account() {
+            match IFsrmActionCommand_Impl::Account(this) {
                 Ok(ok__) => {
                     core::ptr::write(account, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -174,12 +174,12 @@ impl IFsrmActionCommand_Vtbl {
         unsafe extern "system" fn SetAccount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, account: FsrmAccountType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAccount(core::mem::transmute_copy(&account)).into()
+            IFsrmActionCommand_Impl::SetAccount(this, core::mem::transmute_copy(&account)).into()
         }
         unsafe extern "system" fn WorkingDirectory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, workingdirectory: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.WorkingDirectory() {
+            match IFsrmActionCommand_Impl::WorkingDirectory(this) {
                 Ok(ok__) => {
                     core::ptr::write(workingdirectory, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -190,12 +190,12 @@ impl IFsrmActionCommand_Vtbl {
         unsafe extern "system" fn SetWorkingDirectory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, workingdirectory: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetWorkingDirectory(core::mem::transmute(&workingdirectory)).into()
+            IFsrmActionCommand_Impl::SetWorkingDirectory(this, core::mem::transmute(&workingdirectory)).into()
         }
         unsafe extern "system" fn MonitorCommand<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, monitorcommand: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MonitorCommand() {
+            match IFsrmActionCommand_Impl::MonitorCommand(this) {
                 Ok(ok__) => {
                     core::ptr::write(monitorcommand, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -206,12 +206,12 @@ impl IFsrmActionCommand_Vtbl {
         unsafe extern "system" fn SetMonitorCommand<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, monitorcommand: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMonitorCommand(core::mem::transmute_copy(&monitorcommand)).into()
+            IFsrmActionCommand_Impl::SetMonitorCommand(this, core::mem::transmute_copy(&monitorcommand)).into()
         }
         unsafe extern "system" fn KillTimeOut<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minutes: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.KillTimeOut() {
+            match IFsrmActionCommand_Impl::KillTimeOut(this) {
                 Ok(ok__) => {
                     core::ptr::write(minutes, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -222,12 +222,12 @@ impl IFsrmActionCommand_Vtbl {
         unsafe extern "system" fn SetKillTimeOut<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minutes: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetKillTimeOut(core::mem::transmute_copy(&minutes)).into()
+            IFsrmActionCommand_Impl::SetKillTimeOut(this, core::mem::transmute_copy(&minutes)).into()
         }
         unsafe extern "system" fn LogResult<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logresults: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LogResult() {
+            match IFsrmActionCommand_Impl::LogResult(this) {
                 Ok(ok__) => {
                     core::ptr::write(logresults, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -238,7 +238,7 @@ impl IFsrmActionCommand_Vtbl {
         unsafe extern "system" fn SetLogResult<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logresults: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLogResult(core::mem::transmute_copy(&logresults)).into()
+            IFsrmActionCommand_Impl::SetLogResult(this, core::mem::transmute_copy(&logresults)).into()
         }
         Self {
             base__: IFsrmAction_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -287,7 +287,7 @@ impl IFsrmActionEmail_Vtbl {
         unsafe extern "system" fn MailFrom<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailfrom: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MailFrom() {
+            match IFsrmActionEmail_Impl::MailFrom(this) {
                 Ok(ok__) => {
                     core::ptr::write(mailfrom, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -298,12 +298,12 @@ impl IFsrmActionEmail_Vtbl {
         unsafe extern "system" fn SetMailFrom<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailfrom: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMailFrom(core::mem::transmute(&mailfrom)).into()
+            IFsrmActionEmail_Impl::SetMailFrom(this, core::mem::transmute(&mailfrom)).into()
         }
         unsafe extern "system" fn MailReplyTo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailreplyto: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MailReplyTo() {
+            match IFsrmActionEmail_Impl::MailReplyTo(this) {
                 Ok(ok__) => {
                     core::ptr::write(mailreplyto, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -314,12 +314,12 @@ impl IFsrmActionEmail_Vtbl {
         unsafe extern "system" fn SetMailReplyTo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailreplyto: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMailReplyTo(core::mem::transmute(&mailreplyto)).into()
+            IFsrmActionEmail_Impl::SetMailReplyTo(this, core::mem::transmute(&mailreplyto)).into()
         }
         unsafe extern "system" fn MailTo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailto: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MailTo() {
+            match IFsrmActionEmail_Impl::MailTo(this) {
                 Ok(ok__) => {
                     core::ptr::write(mailto, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -330,12 +330,12 @@ impl IFsrmActionEmail_Vtbl {
         unsafe extern "system" fn SetMailTo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailto: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMailTo(core::mem::transmute(&mailto)).into()
+            IFsrmActionEmail_Impl::SetMailTo(this, core::mem::transmute(&mailto)).into()
         }
         unsafe extern "system" fn MailCc<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailcc: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MailCc() {
+            match IFsrmActionEmail_Impl::MailCc(this) {
                 Ok(ok__) => {
                     core::ptr::write(mailcc, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -346,12 +346,12 @@ impl IFsrmActionEmail_Vtbl {
         unsafe extern "system" fn SetMailCc<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailcc: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMailCc(core::mem::transmute(&mailcc)).into()
+            IFsrmActionEmail_Impl::SetMailCc(this, core::mem::transmute(&mailcc)).into()
         }
         unsafe extern "system" fn MailBcc<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailbcc: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MailBcc() {
+            match IFsrmActionEmail_Impl::MailBcc(this) {
                 Ok(ok__) => {
                     core::ptr::write(mailbcc, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -362,12 +362,12 @@ impl IFsrmActionEmail_Vtbl {
         unsafe extern "system" fn SetMailBcc<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailbcc: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMailBcc(core::mem::transmute(&mailbcc)).into()
+            IFsrmActionEmail_Impl::SetMailBcc(this, core::mem::transmute(&mailbcc)).into()
         }
         unsafe extern "system" fn MailSubject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailsubject: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MailSubject() {
+            match IFsrmActionEmail_Impl::MailSubject(this) {
                 Ok(ok__) => {
                     core::ptr::write(mailsubject, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -378,12 +378,12 @@ impl IFsrmActionEmail_Vtbl {
         unsafe extern "system" fn SetMailSubject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailsubject: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMailSubject(core::mem::transmute(&mailsubject)).into()
+            IFsrmActionEmail_Impl::SetMailSubject(this, core::mem::transmute(&mailsubject)).into()
         }
         unsafe extern "system" fn MessageText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, messagetext: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MessageText() {
+            match IFsrmActionEmail_Impl::MessageText(this) {
                 Ok(ok__) => {
                     core::ptr::write(messagetext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -394,7 +394,7 @@ impl IFsrmActionEmail_Vtbl {
         unsafe extern "system" fn SetMessageText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionEmail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, messagetext: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMessageText(core::mem::transmute(&messagetext)).into()
+            IFsrmActionEmail_Impl::SetMessageText(this, core::mem::transmute(&messagetext)).into()
         }
         Self {
             base__: IFsrmAction_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -431,7 +431,7 @@ impl IFsrmActionEmail2_Vtbl {
         unsafe extern "system" fn AttachmentFileListSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionEmail2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attachmentfilelistsize: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AttachmentFileListSize() {
+            match IFsrmActionEmail2_Impl::AttachmentFileListSize(this) {
                 Ok(ok__) => {
                     core::ptr::write(attachmentfilelistsize, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -442,7 +442,7 @@ impl IFsrmActionEmail2_Vtbl {
         unsafe extern "system" fn SetAttachmentFileListSize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionEmail2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attachmentfilelistsize: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAttachmentFileListSize(core::mem::transmute_copy(&attachmentfilelistsize)).into()
+            IFsrmActionEmail2_Impl::SetAttachmentFileListSize(this, core::mem::transmute_copy(&attachmentfilelistsize)).into()
         }
         Self {
             base__: IFsrmActionEmail_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -469,7 +469,7 @@ impl IFsrmActionEventLog_Vtbl {
         unsafe extern "system" fn EventType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionEventLog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventtype: *mut FsrmEventType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EventType() {
+            match IFsrmActionEventLog_Impl::EventType(this) {
                 Ok(ok__) => {
                     core::ptr::write(eventtype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -480,12 +480,12 @@ impl IFsrmActionEventLog_Vtbl {
         unsafe extern "system" fn SetEventType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionEventLog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventtype: FsrmEventType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEventType(core::mem::transmute_copy(&eventtype)).into()
+            IFsrmActionEventLog_Impl::SetEventType(this, core::mem::transmute_copy(&eventtype)).into()
         }
         unsafe extern "system" fn MessageText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionEventLog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, messagetext: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MessageText() {
+            match IFsrmActionEventLog_Impl::MessageText(this) {
                 Ok(ok__) => {
                     core::ptr::write(messagetext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -496,7 +496,7 @@ impl IFsrmActionEventLog_Vtbl {
         unsafe extern "system" fn SetMessageText<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionEventLog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, messagetext: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMessageText(core::mem::transmute(&messagetext)).into()
+            IFsrmActionEventLog_Impl::SetMessageText(this, core::mem::transmute(&messagetext)).into()
         }
         Self {
             base__: IFsrmAction_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -525,7 +525,7 @@ impl IFsrmActionReport_Vtbl {
         unsafe extern "system" fn ReportTypes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttypes: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReportTypes() {
+            match IFsrmActionReport_Impl::ReportTypes(this) {
                 Ok(ok__) => {
                     core::ptr::write(reporttypes, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -536,12 +536,12 @@ impl IFsrmActionReport_Vtbl {
         unsafe extern "system" fn SetReportTypes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttypes: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetReportTypes(core::mem::transmute_copy(&reporttypes)).into()
+            IFsrmActionReport_Impl::SetReportTypes(this, core::mem::transmute_copy(&reporttypes)).into()
         }
         unsafe extern "system" fn MailTo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailto: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MailTo() {
+            match IFsrmActionReport_Impl::MailTo(this) {
                 Ok(ok__) => {
                     core::ptr::write(mailto, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -552,7 +552,7 @@ impl IFsrmActionReport_Vtbl {
         unsafe extern "system" fn SetMailTo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmActionReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailto: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMailTo(core::mem::transmute(&mailto)).into()
+            IFsrmActionReport_Impl::SetMailTo(this, core::mem::transmute(&mailto)).into()
         }
         Self {
             base__: IFsrmAction_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -580,7 +580,7 @@ impl IFsrmAutoApplyQuota_Vtbl {
         unsafe extern "system" fn ExcludeFolders<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmAutoApplyQuota_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, folders: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ExcludeFolders() {
+            match IFsrmAutoApplyQuota_Impl::ExcludeFolders(this) {
                 Ok(ok__) => {
                     core::ptr::write(folders, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -591,12 +591,12 @@ impl IFsrmAutoApplyQuota_Vtbl {
         unsafe extern "system" fn SetExcludeFolders<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmAutoApplyQuota_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, folders: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetExcludeFolders(core::mem::transmute_copy(&folders)).into()
+            IFsrmAutoApplyQuota_Impl::SetExcludeFolders(this, core::mem::transmute_copy(&folders)).into()
         }
         unsafe extern "system" fn CommitAndUpdateDerived<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmAutoApplyQuota_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions, derivedobjectsresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CommitAndUpdateDerived(core::mem::transmute_copy(&commitoptions), core::mem::transmute_copy(&applyoptions)) {
+            match IFsrmAutoApplyQuota_Impl::CommitAndUpdateDerived(this, core::mem::transmute_copy(&commitoptions), core::mem::transmute_copy(&applyoptions)) {
                 Ok(ok__) => {
                     core::ptr::write(derivedobjectsresult, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -653,7 +653,7 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn ClassificationReportFormats<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, formats: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ClassificationReportFormats() {
+            match IFsrmClassificationManager_Impl::ClassificationReportFormats(this) {
                 Ok(ok__) => {
                     core::ptr::write(formats, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -664,12 +664,12 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn SetClassificationReportFormats<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, formats: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetClassificationReportFormats(core::mem::transmute_copy(&formats)).into()
+            IFsrmClassificationManager_Impl::SetClassificationReportFormats(this, core::mem::transmute_copy(&formats)).into()
         }
         unsafe extern "system" fn Logging<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logging: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Logging() {
+            match IFsrmClassificationManager_Impl::Logging(this) {
                 Ok(ok__) => {
                     core::ptr::write(logging, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -680,12 +680,12 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn SetLogging<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logging: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLogging(core::mem::transmute_copy(&logging)).into()
+            IFsrmClassificationManager_Impl::SetLogging(this, core::mem::transmute_copy(&logging)).into()
         }
         unsafe extern "system" fn ClassificationReportMailTo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailto: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ClassificationReportMailTo() {
+            match IFsrmClassificationManager_Impl::ClassificationReportMailTo(this) {
                 Ok(ok__) => {
                     core::ptr::write(mailto, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -696,12 +696,12 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn SetClassificationReportMailTo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailto: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetClassificationReportMailTo(core::mem::transmute(&mailto)).into()
+            IFsrmClassificationManager_Impl::SetClassificationReportMailTo(this, core::mem::transmute(&mailto)).into()
         }
         unsafe extern "system" fn ClassificationReportEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reportenabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ClassificationReportEnabled() {
+            match IFsrmClassificationManager_Impl::ClassificationReportEnabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(reportenabled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -712,12 +712,12 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn SetClassificationReportEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reportenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetClassificationReportEnabled(core::mem::transmute_copy(&reportenabled)).into()
+            IFsrmClassificationManager_Impl::SetClassificationReportEnabled(this, core::mem::transmute_copy(&reportenabled)).into()
         }
         unsafe extern "system" fn ClassificationLastReportPathWithoutExtension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lastreportpath: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ClassificationLastReportPathWithoutExtension() {
+            match IFsrmClassificationManager_Impl::ClassificationLastReportPathWithoutExtension(this) {
                 Ok(ok__) => {
                     core::ptr::write(lastreportpath, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -728,7 +728,7 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn ClassificationLastError<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lasterror: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ClassificationLastError() {
+            match IFsrmClassificationManager_Impl::ClassificationLastError(this) {
                 Ok(ok__) => {
                     core::ptr::write(lasterror, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -739,7 +739,7 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn ClassificationRunningStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, runningstatus: *mut FsrmReportRunningStatus) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ClassificationRunningStatus() {
+            match IFsrmClassificationManager_Impl::ClassificationRunningStatus(this) {
                 Ok(ok__) => {
                     core::ptr::write(runningstatus, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -750,7 +750,7 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn EnumPropertyDefinitions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: FsrmEnumOptions, propertydefinitions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumPropertyDefinitions(core::mem::transmute_copy(&options)) {
+            match IFsrmClassificationManager_Impl::EnumPropertyDefinitions(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(propertydefinitions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -761,7 +761,7 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn CreatePropertyDefinition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertydefinition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePropertyDefinition() {
+            match IFsrmClassificationManager_Impl::CreatePropertyDefinition(this) {
                 Ok(ok__) => {
                     core::ptr::write(propertydefinition, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -772,7 +772,7 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn GetPropertyDefinition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyname: std::mem::MaybeUninit<windows_core::BSTR>, propertydefinition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetPropertyDefinition(core::mem::transmute(&propertyname)) {
+            match IFsrmClassificationManager_Impl::GetPropertyDefinition(this, core::mem::transmute(&propertyname)) {
                 Ok(ok__) => {
                     core::ptr::write(propertydefinition, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -783,7 +783,7 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn EnumRules<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ruletype: FsrmRuleType, options: FsrmEnumOptions, rules: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumRules(core::mem::transmute_copy(&ruletype), core::mem::transmute_copy(&options)) {
+            match IFsrmClassificationManager_Impl::EnumRules(this, core::mem::transmute_copy(&ruletype), core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(rules, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -794,7 +794,7 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn CreateRule<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ruletype: FsrmRuleType, rule: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateRule(core::mem::transmute_copy(&ruletype)) {
+            match IFsrmClassificationManager_Impl::CreateRule(this, core::mem::transmute_copy(&ruletype)) {
                 Ok(ok__) => {
                     core::ptr::write(rule, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -805,7 +805,7 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn GetRule<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rulename: std::mem::MaybeUninit<windows_core::BSTR>, ruletype: FsrmRuleType, rule: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRule(core::mem::transmute(&rulename), core::mem::transmute_copy(&ruletype)) {
+            match IFsrmClassificationManager_Impl::GetRule(this, core::mem::transmute(&rulename), core::mem::transmute_copy(&ruletype)) {
                 Ok(ok__) => {
                     core::ptr::write(rule, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -816,7 +816,7 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn EnumModuleDefinitions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduletype: FsrmPipelineModuleType, options: FsrmEnumOptions, moduledefinitions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumModuleDefinitions(core::mem::transmute_copy(&moduletype), core::mem::transmute_copy(&options)) {
+            match IFsrmClassificationManager_Impl::EnumModuleDefinitions(this, core::mem::transmute_copy(&moduletype), core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(moduledefinitions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -827,7 +827,7 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn CreateModuleDefinition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduletype: FsrmPipelineModuleType, moduledefinition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateModuleDefinition(core::mem::transmute_copy(&moduletype)) {
+            match IFsrmClassificationManager_Impl::CreateModuleDefinition(this, core::mem::transmute_copy(&moduletype)) {
                 Ok(ok__) => {
                     core::ptr::write(moduledefinition, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -838,7 +838,7 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn GetModuleDefinition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, modulename: std::mem::MaybeUninit<windows_core::BSTR>, moduletype: FsrmPipelineModuleType, moduledefinition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetModuleDefinition(core::mem::transmute(&modulename), core::mem::transmute_copy(&moduletype)) {
+            match IFsrmClassificationManager_Impl::GetModuleDefinition(this, core::mem::transmute(&modulename), core::mem::transmute_copy(&moduletype)) {
                 Ok(ok__) => {
                     core::ptr::write(moduledefinition, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -849,12 +849,12 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn RunClassification<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: FsrmReportGenerationContext, reserved: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RunClassification(core::mem::transmute_copy(&context), core::mem::transmute(&reserved)).into()
+            IFsrmClassificationManager_Impl::RunClassification(this, core::mem::transmute_copy(&context), core::mem::transmute(&reserved)).into()
         }
         unsafe extern "system" fn WaitForClassificationCompletion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, waitseconds: i32, completed: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.WaitForClassificationCompletion(core::mem::transmute_copy(&waitseconds)) {
+            match IFsrmClassificationManager_Impl::WaitForClassificationCompletion(this, core::mem::transmute_copy(&waitseconds)) {
                 Ok(ok__) => {
                     core::ptr::write(completed, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -865,12 +865,12 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn CancelClassification<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CancelClassification().into()
+            IFsrmClassificationManager_Impl::CancelClassification(this).into()
         }
         unsafe extern "system" fn EnumFileProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: std::mem::MaybeUninit<windows_core::BSTR>, options: FsrmGetFilePropertyOptions, fileproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumFileProperties(core::mem::transmute(&filepath), core::mem::transmute_copy(&options)) {
+            match IFsrmClassificationManager_Impl::EnumFileProperties(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(fileproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -881,7 +881,7 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn GetFileProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: std::mem::MaybeUninit<windows_core::BSTR>, propertyname: std::mem::MaybeUninit<windows_core::BSTR>, options: FsrmGetFilePropertyOptions, property: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFileProperty(core::mem::transmute(&filepath), core::mem::transmute(&propertyname), core::mem::transmute_copy(&options)) {
+            match IFsrmClassificationManager_Impl::GetFileProperty(this, core::mem::transmute(&filepath), core::mem::transmute(&propertyname), core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(property, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -892,12 +892,12 @@ impl IFsrmClassificationManager_Vtbl {
         unsafe extern "system" fn SetFileProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: std::mem::MaybeUninit<windows_core::BSTR>, propertyname: std::mem::MaybeUninit<windows_core::BSTR>, propertyvalue: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFileProperty(core::mem::transmute(&filepath), core::mem::transmute(&propertyname), core::mem::transmute(&propertyvalue)).into()
+            IFsrmClassificationManager_Impl::SetFileProperty(this, core::mem::transmute(&filepath), core::mem::transmute(&propertyname), core::mem::transmute(&propertyvalue)).into()
         }
         unsafe extern "system" fn ClearFileProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: std::mem::MaybeUninit<windows_core::BSTR>, property: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ClearFileProperty(core::mem::transmute(&filepath), core::mem::transmute(&property)).into()
+            IFsrmClassificationManager_Impl::ClearFileProperty(this, core::mem::transmute(&filepath), core::mem::transmute(&property)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -946,7 +946,7 @@ impl IFsrmClassificationManager2_Vtbl {
         unsafe extern "system" fn ClassifyFiles<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepaths: *const super::super::System::Com::SAFEARRAY, propertynames: *const super::super::System::Com::SAFEARRAY, propertyvalues: *const super::super::System::Com::SAFEARRAY, options: FsrmGetFilePropertyOptions) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ClassifyFiles(core::mem::transmute_copy(&filepaths), core::mem::transmute_copy(&propertynames), core::mem::transmute_copy(&propertyvalues), core::mem::transmute_copy(&options)).into()
+            IFsrmClassificationManager2_Impl::ClassifyFiles(this, core::mem::transmute_copy(&filepaths), core::mem::transmute_copy(&propertynames), core::mem::transmute_copy(&propertyvalues), core::mem::transmute_copy(&options)).into()
         }
         Self { base__: IFsrmClassificationManager_Vtbl::new::<Identity, Impl, OFFSET>(), ClassifyFiles: ClassifyFiles::<Identity, Impl, OFFSET> }
     }
@@ -971,7 +971,7 @@ impl IFsrmClassificationRule_Vtbl {
         unsafe extern "system" fn ExecutionOption<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, executionoption: *mut FsrmExecutionOption) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ExecutionOption() {
+            match IFsrmClassificationRule_Impl::ExecutionOption(this) {
                 Ok(ok__) => {
                     core::ptr::write(executionoption, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -982,12 +982,12 @@ impl IFsrmClassificationRule_Vtbl {
         unsafe extern "system" fn SetExecutionOption<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, executionoption: FsrmExecutionOption) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetExecutionOption(core::mem::transmute_copy(&executionoption)).into()
+            IFsrmClassificationRule_Impl::SetExecutionOption(this, core::mem::transmute_copy(&executionoption)).into()
         }
         unsafe extern "system" fn PropertyAffected<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PropertyAffected() {
+            match IFsrmClassificationRule_Impl::PropertyAffected(this) {
                 Ok(ok__) => {
                     core::ptr::write(property, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -998,12 +998,12 @@ impl IFsrmClassificationRule_Vtbl {
         unsafe extern "system" fn SetPropertyAffected<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPropertyAffected(core::mem::transmute(&property)).into()
+            IFsrmClassificationRule_Impl::SetPropertyAffected(this, core::mem::transmute(&property)).into()
         }
         unsafe extern "system" fn Value<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Value() {
+            match IFsrmClassificationRule_Impl::Value(this) {
                 Ok(ok__) => {
                     core::ptr::write(value, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1014,7 +1014,7 @@ impl IFsrmClassificationRule_Vtbl {
         unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassificationRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetValue(core::mem::transmute(&value)).into()
+            IFsrmClassificationRule_Impl::SetValue(this, core::mem::transmute(&value)).into()
         }
         Self {
             base__: IFsrmRule_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1047,7 +1047,7 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
         unsafe extern "system" fn PropertiesAffected<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassifierModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertiesaffected: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PropertiesAffected() {
+            match IFsrmClassifierModuleDefinition_Impl::PropertiesAffected(this) {
                 Ok(ok__) => {
                     core::ptr::write(propertiesaffected, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1058,12 +1058,12 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
         unsafe extern "system" fn SetPropertiesAffected<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassifierModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertiesaffected: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPropertiesAffected(core::mem::transmute_copy(&propertiesaffected)).into()
+            IFsrmClassifierModuleDefinition_Impl::SetPropertiesAffected(this, core::mem::transmute_copy(&propertiesaffected)).into()
         }
         unsafe extern "system" fn PropertiesUsed<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassifierModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertiesused: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PropertiesUsed() {
+            match IFsrmClassifierModuleDefinition_Impl::PropertiesUsed(this) {
                 Ok(ok__) => {
                     core::ptr::write(propertiesused, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1074,12 +1074,12 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
         unsafe extern "system" fn SetPropertiesUsed<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassifierModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertiesused: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPropertiesUsed(core::mem::transmute_copy(&propertiesused)).into()
+            IFsrmClassifierModuleDefinition_Impl::SetPropertiesUsed(this, core::mem::transmute_copy(&propertiesused)).into()
         }
         unsafe extern "system" fn NeedsExplicitValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassifierModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, needsexplicitvalue: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.NeedsExplicitValue() {
+            match IFsrmClassifierModuleDefinition_Impl::NeedsExplicitValue(this) {
                 Ok(ok__) => {
                     core::ptr::write(needsexplicitvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1090,7 +1090,7 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
         unsafe extern "system" fn SetNeedsExplicitValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassifierModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, needsexplicitvalue: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetNeedsExplicitValue(core::mem::transmute_copy(&needsexplicitvalue)).into()
+            IFsrmClassifierModuleDefinition_Impl::SetNeedsExplicitValue(this, core::mem::transmute_copy(&needsexplicitvalue)).into()
         }
         Self {
             base__: IFsrmPipelineModuleDefinition_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1123,7 +1123,7 @@ impl IFsrmClassifierModuleImplementation_Vtbl {
         unsafe extern "system" fn LastModified<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassifierModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lastmodified: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LastModified() {
+            match IFsrmClassifierModuleImplementation_Impl::LastModified(this) {
                 Ok(ok__) => {
                     core::ptr::write(lastmodified, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1134,27 +1134,27 @@ impl IFsrmClassifierModuleImplementation_Vtbl {
         unsafe extern "system" fn UseRulesAndDefinitions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassifierModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rules: *mut core::ffi::c_void, propertydefinitions: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.UseRulesAndDefinitions(windows_core::from_raw_borrowed(&rules), windows_core::from_raw_borrowed(&propertydefinitions)).into()
+            IFsrmClassifierModuleImplementation_Impl::UseRulesAndDefinitions(this, windows_core::from_raw_borrowed(&rules), windows_core::from_raw_borrowed(&propertydefinitions)).into()
         }
         unsafe extern "system" fn OnBeginFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassifierModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertybag: *mut core::ffi::c_void, arrayruleids: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnBeginFile(windows_core::from_raw_borrowed(&propertybag), core::mem::transmute_copy(&arrayruleids)).into()
+            IFsrmClassifierModuleImplementation_Impl::OnBeginFile(this, windows_core::from_raw_borrowed(&propertybag), core::mem::transmute_copy(&arrayruleids)).into()
         }
         unsafe extern "system" fn DoesPropertyValueApply<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassifierModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: std::mem::MaybeUninit<windows_core::BSTR>, value: std::mem::MaybeUninit<windows_core::BSTR>, applyvalue: *mut super::super::Foundation::VARIANT_BOOL, idrule: windows_core::GUID, idpropdef: windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DoesPropertyValueApply(core::mem::transmute(&property), core::mem::transmute(&value), core::mem::transmute_copy(&applyvalue), core::mem::transmute(&idrule), core::mem::transmute(&idpropdef)).into()
+            IFsrmClassifierModuleImplementation_Impl::DoesPropertyValueApply(this, core::mem::transmute(&property), core::mem::transmute(&value), core::mem::transmute_copy(&applyvalue), core::mem::transmute(&idrule), core::mem::transmute(&idpropdef)).into()
         }
         unsafe extern "system" fn GetPropertyValueToApply<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassifierModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: std::mem::MaybeUninit<windows_core::BSTR>, value: *mut std::mem::MaybeUninit<windows_core::BSTR>, idrule: windows_core::GUID, idpropdef: windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPropertyValueToApply(core::mem::transmute(&property), core::mem::transmute_copy(&value), core::mem::transmute(&idrule), core::mem::transmute(&idpropdef)).into()
+            IFsrmClassifierModuleImplementation_Impl::GetPropertyValueToApply(this, core::mem::transmute(&property), core::mem::transmute_copy(&value), core::mem::transmute(&idrule), core::mem::transmute(&idpropdef)).into()
         }
         unsafe extern "system" fn OnEndFile<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmClassifierModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnEndFile().into()
+            IFsrmClassifierModuleImplementation_Impl::OnEndFile(this).into()
         }
         Self {
             base__: IFsrmPipelineModuleImplementation_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1188,7 +1188,7 @@ impl IFsrmCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unknown: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IFsrmCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(unknown, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1199,7 +1199,7 @@ impl IFsrmCollection_Vtbl {
         unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, item: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_Item(core::mem::transmute_copy(&index)) {
+            match IFsrmCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(item, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1210,7 +1210,7 @@ impl IFsrmCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IFsrmCollection_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(count, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1221,7 +1221,7 @@ impl IFsrmCollection_Vtbl {
         unsafe extern "system" fn State<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: *mut FsrmCollectionState) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.State() {
+            match IFsrmCollection_Impl::State(this) {
                 Ok(ok__) => {
                     core::ptr::write(state, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1232,12 +1232,12 @@ impl IFsrmCollection_Vtbl {
         unsafe extern "system" fn Cancel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Cancel().into()
+            IFsrmCollection_Impl::Cancel(this).into()
         }
         unsafe extern "system" fn WaitForCompletion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, waitseconds: i32, completed: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.WaitForCompletion(core::mem::transmute_copy(&waitseconds)) {
+            match IFsrmCollection_Impl::WaitForCompletion(this, core::mem::transmute_copy(&waitseconds)) {
                 Ok(ok__) => {
                     core::ptr::write(completed, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1248,7 +1248,7 @@ impl IFsrmCollection_Vtbl {
         unsafe extern "system" fn GetById<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: windows_core::GUID, entry: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetById(core::mem::transmute(&id)) {
+            match IFsrmCollection_Impl::GetById(this, core::mem::transmute(&id)) {
                 Ok(ok__) => {
                     core::ptr::write(entry, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1283,7 +1283,7 @@ impl IFsrmCommittableCollection_Vtbl {
         unsafe extern "system" fn Commit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmCommittableCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: FsrmCommitOptions, results: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Commit(core::mem::transmute_copy(&options)) {
+            match IFsrmCommittableCollection_Impl::Commit(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(results, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1310,7 +1310,7 @@ impl IFsrmDerivedObjectsResult_Vtbl {
         unsafe extern "system" fn DerivedObjects<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmDerivedObjectsResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, derivedobjects: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DerivedObjects() {
+            match IFsrmDerivedObjectsResult_Impl::DerivedObjects(this) {
                 Ok(ok__) => {
                     core::ptr::write(derivedobjects, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1321,7 +1321,7 @@ impl IFsrmDerivedObjectsResult_Vtbl {
         unsafe extern "system" fn Results<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmDerivedObjectsResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, results: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Results() {
+            match IFsrmDerivedObjectsResult_Impl::Results(this) {
                 Ok(ok__) => {
                     core::ptr::write(results, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1356,12 +1356,12 @@ impl IFsrmExportImport_Vtbl {
         unsafe extern "system" fn ExportFileGroups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: std::mem::MaybeUninit<windows_core::BSTR>, filegroupnamessafearray: *const std::mem::MaybeUninit<windows_core::VARIANT>, remotehost: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ExportFileGroups(core::mem::transmute(&filepath), core::mem::transmute_copy(&filegroupnamessafearray), core::mem::transmute(&remotehost)).into()
+            IFsrmExportImport_Impl::ExportFileGroups(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&filegroupnamessafearray), core::mem::transmute(&remotehost)).into()
         }
         unsafe extern "system" fn ImportFileGroups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: std::mem::MaybeUninit<windows_core::BSTR>, filegroupnamessafearray: *const std::mem::MaybeUninit<windows_core::VARIANT>, remotehost: std::mem::MaybeUninit<windows_core::BSTR>, filegroups: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ImportFileGroups(core::mem::transmute(&filepath), core::mem::transmute_copy(&filegroupnamessafearray), core::mem::transmute(&remotehost)) {
+            match IFsrmExportImport_Impl::ImportFileGroups(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&filegroupnamessafearray), core::mem::transmute(&remotehost)) {
                 Ok(ok__) => {
                     core::ptr::write(filegroups, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1372,12 +1372,12 @@ impl IFsrmExportImport_Vtbl {
         unsafe extern "system" fn ExportFileScreenTemplates<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: std::mem::MaybeUninit<windows_core::BSTR>, templatenamessafearray: *const std::mem::MaybeUninit<windows_core::VARIANT>, remotehost: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ExportFileScreenTemplates(core::mem::transmute(&filepath), core::mem::transmute_copy(&templatenamessafearray), core::mem::transmute(&remotehost)).into()
+            IFsrmExportImport_Impl::ExportFileScreenTemplates(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&templatenamessafearray), core::mem::transmute(&remotehost)).into()
         }
         unsafe extern "system" fn ImportFileScreenTemplates<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: std::mem::MaybeUninit<windows_core::BSTR>, templatenamessafearray: *const std::mem::MaybeUninit<windows_core::VARIANT>, remotehost: std::mem::MaybeUninit<windows_core::BSTR>, templates: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ImportFileScreenTemplates(core::mem::transmute(&filepath), core::mem::transmute_copy(&templatenamessafearray), core::mem::transmute(&remotehost)) {
+            match IFsrmExportImport_Impl::ImportFileScreenTemplates(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&templatenamessafearray), core::mem::transmute(&remotehost)) {
                 Ok(ok__) => {
                     core::ptr::write(templates, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1388,12 +1388,12 @@ impl IFsrmExportImport_Vtbl {
         unsafe extern "system" fn ExportQuotaTemplates<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: std::mem::MaybeUninit<windows_core::BSTR>, templatenamessafearray: *const std::mem::MaybeUninit<windows_core::VARIANT>, remotehost: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ExportQuotaTemplates(core::mem::transmute(&filepath), core::mem::transmute_copy(&templatenamessafearray), core::mem::transmute(&remotehost)).into()
+            IFsrmExportImport_Impl::ExportQuotaTemplates(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&templatenamessafearray), core::mem::transmute(&remotehost)).into()
         }
         unsafe extern "system" fn ImportQuotaTemplates<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmExportImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepath: std::mem::MaybeUninit<windows_core::BSTR>, templatenamessafearray: *const std::mem::MaybeUninit<windows_core::VARIANT>, remotehost: std::mem::MaybeUninit<windows_core::BSTR>, templates: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ImportQuotaTemplates(core::mem::transmute(&filepath), core::mem::transmute_copy(&templatenamessafearray), core::mem::transmute(&remotehost)) {
+            match IFsrmExportImport_Impl::ImportQuotaTemplates(this, core::mem::transmute(&filepath), core::mem::transmute_copy(&templatenamessafearray), core::mem::transmute(&remotehost)) {
                 Ok(ok__) => {
                     core::ptr::write(templates, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1428,7 +1428,7 @@ impl IFsrmFileCondition_Vtbl {
         unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut FsrmFileConditionType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Type() {
+            match IFsrmFileCondition_Impl::Type(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1439,7 +1439,7 @@ impl IFsrmFileCondition_Vtbl {
         unsafe extern "system" fn Delete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Delete().into()
+            IFsrmFileCondition_Impl::Delete(this).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1472,7 +1472,7 @@ impl IFsrmFileConditionProperty_Vtbl {
         unsafe extern "system" fn PropertyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileConditionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PropertyName() {
+            match IFsrmFileConditionProperty_Impl::PropertyName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1483,12 +1483,12 @@ impl IFsrmFileConditionProperty_Vtbl {
         unsafe extern "system" fn SetPropertyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileConditionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPropertyName(core::mem::transmute(&newval)).into()
+            IFsrmFileConditionProperty_Impl::SetPropertyName(this, core::mem::transmute(&newval)).into()
         }
         unsafe extern "system" fn PropertyId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileConditionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut FsrmFileSystemPropertyId) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PropertyId() {
+            match IFsrmFileConditionProperty_Impl::PropertyId(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1499,12 +1499,12 @@ impl IFsrmFileConditionProperty_Vtbl {
         unsafe extern "system" fn SetPropertyId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileConditionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: FsrmFileSystemPropertyId) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPropertyId(core::mem::transmute_copy(&newval)).into()
+            IFsrmFileConditionProperty_Impl::SetPropertyId(this, core::mem::transmute_copy(&newval)).into()
         }
         unsafe extern "system" fn Operator<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileConditionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut FsrmPropertyConditionType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Operator() {
+            match IFsrmFileConditionProperty_Impl::Operator(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1515,12 +1515,12 @@ impl IFsrmFileConditionProperty_Vtbl {
         unsafe extern "system" fn SetOperator<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileConditionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: FsrmPropertyConditionType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetOperator(core::mem::transmute_copy(&newval)).into()
+            IFsrmFileConditionProperty_Impl::SetOperator(this, core::mem::transmute_copy(&newval)).into()
         }
         unsafe extern "system" fn ValueType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileConditionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut FsrmPropertyValueType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ValueType() {
+            match IFsrmFileConditionProperty_Impl::ValueType(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1531,12 +1531,12 @@ impl IFsrmFileConditionProperty_Vtbl {
         unsafe extern "system" fn SetValueType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileConditionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: FsrmPropertyValueType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetValueType(core::mem::transmute_copy(&newval)).into()
+            IFsrmFileConditionProperty_Impl::SetValueType(this, core::mem::transmute_copy(&newval)).into()
         }
         unsafe extern "system" fn Value<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileConditionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Value() {
+            match IFsrmFileConditionProperty_Impl::Value(this) {
                 Ok(ok__) => {
                     core::ptr::write(pval, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1547,7 +1547,7 @@ impl IFsrmFileConditionProperty_Vtbl {
         unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileConditionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetValue(core::mem::transmute(&newval)).into()
+            IFsrmFileConditionProperty_Impl::SetValue(this, core::mem::transmute(&newval)).into()
         }
         Self {
             base__: IFsrmFileCondition_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1584,7 +1584,7 @@ impl IFsrmFileGroup_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IFsrmFileGroup_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(name, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1595,12 +1595,12 @@ impl IFsrmFileGroup_Vtbl {
         unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetName(core::mem::transmute(&name)).into()
+            IFsrmFileGroup_Impl::SetName(this, core::mem::transmute(&name)).into()
         }
         unsafe extern "system" fn Members<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, members: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Members() {
+            match IFsrmFileGroup_Impl::Members(this) {
                 Ok(ok__) => {
                     core::ptr::write(members, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1611,12 +1611,12 @@ impl IFsrmFileGroup_Vtbl {
         unsafe extern "system" fn SetMembers<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, members: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMembers(windows_core::from_raw_borrowed(&members)).into()
+            IFsrmFileGroup_Impl::SetMembers(this, windows_core::from_raw_borrowed(&members)).into()
         }
         unsafe extern "system" fn NonMembers<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nonmembers: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.NonMembers() {
+            match IFsrmFileGroup_Impl::NonMembers(this) {
                 Ok(ok__) => {
                     core::ptr::write(nonmembers, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1627,7 +1627,7 @@ impl IFsrmFileGroup_Vtbl {
         unsafe extern "system" fn SetNonMembers<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nonmembers: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetNonMembers(windows_core::from_raw_borrowed(&nonmembers)).into()
+            IFsrmFileGroup_Impl::SetNonMembers(this, windows_core::from_raw_borrowed(&nonmembers)).into()
         }
         Self {
             base__: IFsrmObject_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1656,7 +1656,7 @@ impl IFsrmFileGroupImported_Vtbl {
         unsafe extern "system" fn OverwriteOnCommit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileGroupImported_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, overwrite: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OverwriteOnCommit() {
+            match IFsrmFileGroupImported_Impl::OverwriteOnCommit(this) {
                 Ok(ok__) => {
                     core::ptr::write(overwrite, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1667,7 +1667,7 @@ impl IFsrmFileGroupImported_Vtbl {
         unsafe extern "system" fn SetOverwriteOnCommit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileGroupImported_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, overwrite: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetOverwriteOnCommit(core::mem::transmute_copy(&overwrite)).into()
+            IFsrmFileGroupImported_Impl::SetOverwriteOnCommit(this, core::mem::transmute_copy(&overwrite)).into()
         }
         Self {
             base__: IFsrmFileGroup_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1695,7 +1695,7 @@ impl IFsrmFileGroupManager_Vtbl {
         unsafe extern "system" fn CreateFileGroup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileGroupManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filegroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateFileGroup() {
+            match IFsrmFileGroupManager_Impl::CreateFileGroup(this) {
                 Ok(ok__) => {
                     core::ptr::write(filegroup, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1706,7 +1706,7 @@ impl IFsrmFileGroupManager_Vtbl {
         unsafe extern "system" fn GetFileGroup<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileGroupManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>, filegroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFileGroup(core::mem::transmute(&name)) {
+            match IFsrmFileGroupManager_Impl::GetFileGroup(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
                     core::ptr::write(filegroup, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1717,7 +1717,7 @@ impl IFsrmFileGroupManager_Vtbl {
         unsafe extern "system" fn EnumFileGroups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileGroupManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: FsrmEnumOptions, filegroups: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumFileGroups(core::mem::transmute_copy(&options)) {
+            match IFsrmFileGroupManager_Impl::EnumFileGroups(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(filegroups, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1728,7 +1728,7 @@ impl IFsrmFileGroupManager_Vtbl {
         unsafe extern "system" fn ExportFileGroups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileGroupManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filegroupnamesarray: *const std::mem::MaybeUninit<windows_core::VARIANT>, serializedfilegroups: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ExportFileGroups(core::mem::transmute_copy(&filegroupnamesarray)) {
+            match IFsrmFileGroupManager_Impl::ExportFileGroups(this, core::mem::transmute_copy(&filegroupnamesarray)) {
                 Ok(ok__) => {
                     core::ptr::write(serializedfilegroups, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1739,7 +1739,7 @@ impl IFsrmFileGroupManager_Vtbl {
         unsafe extern "system" fn ImportFileGroups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileGroupManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, serializedfilegroups: std::mem::MaybeUninit<windows_core::BSTR>, filegroupnamesarray: *const std::mem::MaybeUninit<windows_core::VARIANT>, filegroups: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ImportFileGroups(core::mem::transmute(&serializedfilegroups), core::mem::transmute_copy(&filegroupnamesarray)) {
+            match IFsrmFileGroupManager_Impl::ImportFileGroups(this, core::mem::transmute(&serializedfilegroups), core::mem::transmute_copy(&filegroupnamesarray)) {
                 Ok(ok__) => {
                     core::ptr::write(filegroups, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1820,7 +1820,7 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IFsrmFileManagementJob_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(name, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1831,12 +1831,12 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetName(core::mem::transmute(&name)).into()
+            IFsrmFileManagementJob_Impl::SetName(this, core::mem::transmute(&name)).into()
         }
         unsafe extern "system" fn NamespaceRoots<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceroots: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.NamespaceRoots() {
+            match IFsrmFileManagementJob_Impl::NamespaceRoots(this) {
                 Ok(ok__) => {
                     core::ptr::write(namespaceroots, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1847,12 +1847,12 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn SetNamespaceRoots<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceroots: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetNamespaceRoots(core::mem::transmute_copy(&namespaceroots)).into()
+            IFsrmFileManagementJob_Impl::SetNamespaceRoots(this, core::mem::transmute_copy(&namespaceroots)).into()
         }
         unsafe extern "system" fn Enabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Enabled() {
+            match IFsrmFileManagementJob_Impl::Enabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(enabled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1863,12 +1863,12 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn SetEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEnabled(core::mem::transmute_copy(&enabled)).into()
+            IFsrmFileManagementJob_Impl::SetEnabled(this, core::mem::transmute_copy(&enabled)).into()
         }
         unsafe extern "system" fn OperationType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, operationtype: *mut FsrmFileManagementType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OperationType() {
+            match IFsrmFileManagementJob_Impl::OperationType(this) {
                 Ok(ok__) => {
                     core::ptr::write(operationtype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1879,12 +1879,12 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn SetOperationType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, operationtype: FsrmFileManagementType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetOperationType(core::mem::transmute_copy(&operationtype)).into()
+            IFsrmFileManagementJob_Impl::SetOperationType(this, core::mem::transmute_copy(&operationtype)).into()
         }
         unsafe extern "system" fn ExpirationDirectory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, expirationdirectory: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ExpirationDirectory() {
+            match IFsrmFileManagementJob_Impl::ExpirationDirectory(this) {
                 Ok(ok__) => {
                     core::ptr::write(expirationdirectory, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1895,12 +1895,12 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn SetExpirationDirectory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, expirationdirectory: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetExpirationDirectory(core::mem::transmute(&expirationdirectory)).into()
+            IFsrmFileManagementJob_Impl::SetExpirationDirectory(this, core::mem::transmute(&expirationdirectory)).into()
         }
         unsafe extern "system" fn CustomAction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, action: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CustomAction() {
+            match IFsrmFileManagementJob_Impl::CustomAction(this) {
                 Ok(ok__) => {
                     core::ptr::write(action, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1911,7 +1911,7 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn Notifications<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, notifications: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Notifications() {
+            match IFsrmFileManagementJob_Impl::Notifications(this) {
                 Ok(ok__) => {
                     core::ptr::write(notifications, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1922,7 +1922,7 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn Logging<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, loggingflags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Logging() {
+            match IFsrmFileManagementJob_Impl::Logging(this) {
                 Ok(ok__) => {
                     core::ptr::write(loggingflags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1933,12 +1933,12 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn SetLogging<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, loggingflags: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLogging(core::mem::transmute_copy(&loggingflags)).into()
+            IFsrmFileManagementJob_Impl::SetLogging(this, core::mem::transmute_copy(&loggingflags)).into()
         }
         unsafe extern "system" fn ReportEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reportenabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReportEnabled() {
+            match IFsrmFileManagementJob_Impl::ReportEnabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(reportenabled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1949,12 +1949,12 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn SetReportEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reportenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetReportEnabled(core::mem::transmute_copy(&reportenabled)).into()
+            IFsrmFileManagementJob_Impl::SetReportEnabled(this, core::mem::transmute_copy(&reportenabled)).into()
         }
         unsafe extern "system" fn Formats<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, formats: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Formats() {
+            match IFsrmFileManagementJob_Impl::Formats(this) {
                 Ok(ok__) => {
                     core::ptr::write(formats, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1965,12 +1965,12 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn SetFormats<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, formats: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFormats(core::mem::transmute_copy(&formats)).into()
+            IFsrmFileManagementJob_Impl::SetFormats(this, core::mem::transmute_copy(&formats)).into()
         }
         unsafe extern "system" fn MailTo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailto: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MailTo() {
+            match IFsrmFileManagementJob_Impl::MailTo(this) {
                 Ok(ok__) => {
                     core::ptr::write(mailto, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1981,12 +1981,12 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn SetMailTo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailto: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMailTo(core::mem::transmute(&mailto)).into()
+            IFsrmFileManagementJob_Impl::SetMailTo(this, core::mem::transmute(&mailto)).into()
         }
         unsafe extern "system" fn DaysSinceFileCreated<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dayssincecreation: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DaysSinceFileCreated() {
+            match IFsrmFileManagementJob_Impl::DaysSinceFileCreated(this) {
                 Ok(ok__) => {
                     core::ptr::write(dayssincecreation, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1997,12 +1997,12 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn SetDaysSinceFileCreated<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dayssincecreation: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDaysSinceFileCreated(core::mem::transmute_copy(&dayssincecreation)).into()
+            IFsrmFileManagementJob_Impl::SetDaysSinceFileCreated(this, core::mem::transmute_copy(&dayssincecreation)).into()
         }
         unsafe extern "system" fn DaysSinceFileLastAccessed<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dayssinceaccess: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DaysSinceFileLastAccessed() {
+            match IFsrmFileManagementJob_Impl::DaysSinceFileLastAccessed(this) {
                 Ok(ok__) => {
                     core::ptr::write(dayssinceaccess, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2013,12 +2013,12 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn SetDaysSinceFileLastAccessed<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dayssinceaccess: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDaysSinceFileLastAccessed(core::mem::transmute_copy(&dayssinceaccess)).into()
+            IFsrmFileManagementJob_Impl::SetDaysSinceFileLastAccessed(this, core::mem::transmute_copy(&dayssinceaccess)).into()
         }
         unsafe extern "system" fn DaysSinceFileLastModified<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dayssincemodify: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DaysSinceFileLastModified() {
+            match IFsrmFileManagementJob_Impl::DaysSinceFileLastModified(this) {
                 Ok(ok__) => {
                     core::ptr::write(dayssincemodify, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2029,12 +2029,12 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn SetDaysSinceFileLastModified<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dayssincemodify: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDaysSinceFileLastModified(core::mem::transmute_copy(&dayssincemodify)).into()
+            IFsrmFileManagementJob_Impl::SetDaysSinceFileLastModified(this, core::mem::transmute_copy(&dayssincemodify)).into()
         }
         unsafe extern "system" fn PropertyConditions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyconditions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PropertyConditions() {
+            match IFsrmFileManagementJob_Impl::PropertyConditions(this) {
                 Ok(ok__) => {
                     core::ptr::write(propertyconditions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2045,7 +2045,7 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn FromDate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fromdate: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FromDate() {
+            match IFsrmFileManagementJob_Impl::FromDate(this) {
                 Ok(ok__) => {
                     core::ptr::write(fromdate, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2056,12 +2056,12 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn SetFromDate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fromdate: f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFromDate(core::mem::transmute_copy(&fromdate)).into()
+            IFsrmFileManagementJob_Impl::SetFromDate(this, core::mem::transmute_copy(&fromdate)).into()
         }
         unsafe extern "system" fn Task<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, taskname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Task() {
+            match IFsrmFileManagementJob_Impl::Task(this) {
                 Ok(ok__) => {
                     core::ptr::write(taskname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2072,12 +2072,12 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn SetTask<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, taskname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTask(core::mem::transmute(&taskname)).into()
+            IFsrmFileManagementJob_Impl::SetTask(this, core::mem::transmute(&taskname)).into()
         }
         unsafe extern "system" fn Parameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parameters: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Parameters() {
+            match IFsrmFileManagementJob_Impl::Parameters(this) {
                 Ok(ok__) => {
                     core::ptr::write(parameters, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2088,12 +2088,12 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn SetParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parameters: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetParameters(core::mem::transmute_copy(&parameters)).into()
+            IFsrmFileManagementJob_Impl::SetParameters(this, core::mem::transmute_copy(&parameters)).into()
         }
         unsafe extern "system" fn RunningStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, runningstatus: *mut FsrmReportRunningStatus) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RunningStatus() {
+            match IFsrmFileManagementJob_Impl::RunningStatus(this) {
                 Ok(ok__) => {
                     core::ptr::write(runningstatus, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2104,7 +2104,7 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn LastError<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lasterror: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LastError() {
+            match IFsrmFileManagementJob_Impl::LastError(this) {
                 Ok(ok__) => {
                     core::ptr::write(lasterror, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2115,7 +2115,7 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn LastReportPathWithoutExtension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LastReportPathWithoutExtension() {
+            match IFsrmFileManagementJob_Impl::LastReportPathWithoutExtension(this) {
                 Ok(ok__) => {
                     core::ptr::write(path, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2126,7 +2126,7 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn LastRun<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lastrun: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LastRun() {
+            match IFsrmFileManagementJob_Impl::LastRun(this) {
                 Ok(ok__) => {
                     core::ptr::write(lastrun, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2137,7 +2137,7 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn FileNamePattern<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filenamepattern: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FileNamePattern() {
+            match IFsrmFileManagementJob_Impl::FileNamePattern(this) {
                 Ok(ok__) => {
                     core::ptr::write(filenamepattern, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2148,17 +2148,17 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn SetFileNamePattern<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filenamepattern: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFileNamePattern(core::mem::transmute(&filenamepattern)).into()
+            IFsrmFileManagementJob_Impl::SetFileNamePattern(this, core::mem::transmute(&filenamepattern)).into()
         }
         unsafe extern "system" fn Run<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: FsrmReportGenerationContext) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Run(core::mem::transmute_copy(&context)).into()
+            IFsrmFileManagementJob_Impl::Run(this, core::mem::transmute_copy(&context)).into()
         }
         unsafe extern "system" fn WaitForCompletion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, waitseconds: i32, completed: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.WaitForCompletion(core::mem::transmute_copy(&waitseconds)) {
+            match IFsrmFileManagementJob_Impl::WaitForCompletion(this, core::mem::transmute_copy(&waitseconds)) {
                 Ok(ok__) => {
                     core::ptr::write(completed, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2169,27 +2169,27 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn Cancel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Cancel().into()
+            IFsrmFileManagementJob_Impl::Cancel(this).into()
         }
         unsafe extern "system" fn AddNotification<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, days: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddNotification(core::mem::transmute_copy(&days)).into()
+            IFsrmFileManagementJob_Impl::AddNotification(this, core::mem::transmute_copy(&days)).into()
         }
         unsafe extern "system" fn DeleteNotification<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, days: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteNotification(core::mem::transmute_copy(&days)).into()
+            IFsrmFileManagementJob_Impl::DeleteNotification(this, core::mem::transmute_copy(&days)).into()
         }
         unsafe extern "system" fn ModifyNotification<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, days: i32, newdays: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ModifyNotification(core::mem::transmute_copy(&days), core::mem::transmute_copy(&newdays)).into()
+            IFsrmFileManagementJob_Impl::ModifyNotification(this, core::mem::transmute_copy(&days), core::mem::transmute_copy(&newdays)).into()
         }
         unsafe extern "system" fn CreateNotificationAction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, days: i32, actiontype: FsrmActionType, action: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateNotificationAction(core::mem::transmute_copy(&days), core::mem::transmute_copy(&actiontype)) {
+            match IFsrmFileManagementJob_Impl::CreateNotificationAction(this, core::mem::transmute_copy(&days), core::mem::transmute_copy(&actiontype)) {
                 Ok(ok__) => {
                     core::ptr::write(action, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2200,7 +2200,7 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn EnumNotificationActions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, days: i32, actions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumNotificationActions(core::mem::transmute_copy(&days)) {
+            match IFsrmFileManagementJob_Impl::EnumNotificationActions(this, core::mem::transmute_copy(&days)) {
                 Ok(ok__) => {
                     core::ptr::write(actions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2211,7 +2211,7 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn CreatePropertyCondition<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>, propertycondition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreatePropertyCondition(core::mem::transmute(&name)) {
+            match IFsrmFileManagementJob_Impl::CreatePropertyCondition(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
                     core::ptr::write(propertycondition, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2222,7 +2222,7 @@ impl IFsrmFileManagementJob_Vtbl {
         unsafe extern "system" fn CreateCustomAction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, customaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateCustomAction() {
+            match IFsrmFileManagementJob_Impl::CreateCustomAction(this) {
                 Ok(ok__) => {
                     core::ptr::write(customaction, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2303,7 +2303,7 @@ impl IFsrmFileManagementJobManager_Vtbl {
         unsafe extern "system" fn ActionVariables<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJobManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, variables: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ActionVariables() {
+            match IFsrmFileManagementJobManager_Impl::ActionVariables(this) {
                 Ok(ok__) => {
                     core::ptr::write(variables, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2314,7 +2314,7 @@ impl IFsrmFileManagementJobManager_Vtbl {
         unsafe extern "system" fn ActionVariableDescriptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJobManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, descriptions: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ActionVariableDescriptions() {
+            match IFsrmFileManagementJobManager_Impl::ActionVariableDescriptions(this) {
                 Ok(ok__) => {
                     core::ptr::write(descriptions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2325,7 +2325,7 @@ impl IFsrmFileManagementJobManager_Vtbl {
         unsafe extern "system" fn EnumFileManagementJobs<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJobManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: FsrmEnumOptions, filemanagementjobs: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumFileManagementJobs(core::mem::transmute_copy(&options)) {
+            match IFsrmFileManagementJobManager_Impl::EnumFileManagementJobs(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(filemanagementjobs, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2336,7 +2336,7 @@ impl IFsrmFileManagementJobManager_Vtbl {
         unsafe extern "system" fn CreateFileManagementJob<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJobManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filemanagementjob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateFileManagementJob() {
+            match IFsrmFileManagementJobManager_Impl::CreateFileManagementJob(this) {
                 Ok(ok__) => {
                     core::ptr::write(filemanagementjob, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2347,7 +2347,7 @@ impl IFsrmFileManagementJobManager_Vtbl {
         unsafe extern "system" fn GetFileManagementJob<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileManagementJobManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>, filemanagementjob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFileManagementJob(core::mem::transmute(&name)) {
+            match IFsrmFileManagementJobManager_Impl::GetFileManagementJob(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
                     core::ptr::write(filemanagementjob, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2385,7 +2385,7 @@ impl IFsrmFileScreen_Vtbl {
         unsafe extern "system" fn Path<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreen_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Path() {
+            match IFsrmFileScreen_Impl::Path(this) {
                 Ok(ok__) => {
                     core::ptr::write(path, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2396,7 +2396,7 @@ impl IFsrmFileScreen_Vtbl {
         unsafe extern "system" fn SourceTemplateName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreen_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filescreentemplatename: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SourceTemplateName() {
+            match IFsrmFileScreen_Impl::SourceTemplateName(this) {
                 Ok(ok__) => {
                     core::ptr::write(filescreentemplatename, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2407,7 +2407,7 @@ impl IFsrmFileScreen_Vtbl {
         unsafe extern "system" fn MatchesSourceTemplate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreen_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, matches: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MatchesSourceTemplate() {
+            match IFsrmFileScreen_Impl::MatchesSourceTemplate(this) {
                 Ok(ok__) => {
                     core::ptr::write(matches, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2418,7 +2418,7 @@ impl IFsrmFileScreen_Vtbl {
         unsafe extern "system" fn UserSid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreen_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usersid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UserSid() {
+            match IFsrmFileScreen_Impl::UserSid(this) {
                 Ok(ok__) => {
                     core::ptr::write(usersid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2429,7 +2429,7 @@ impl IFsrmFileScreen_Vtbl {
         unsafe extern "system" fn UserAccount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreen_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, useraccount: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UserAccount() {
+            match IFsrmFileScreen_Impl::UserAccount(this) {
                 Ok(ok__) => {
                     core::ptr::write(useraccount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2440,7 +2440,7 @@ impl IFsrmFileScreen_Vtbl {
         unsafe extern "system" fn ApplyTemplate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreen_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filescreentemplatename: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ApplyTemplate(core::mem::transmute(&filescreentemplatename)).into()
+            IFsrmFileScreen_Impl::ApplyTemplate(this, core::mem::transmute(&filescreentemplatename)).into()
         }
         Self {
             base__: IFsrmFileScreenBase_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2473,7 +2473,7 @@ impl IFsrmFileScreenBase_Vtbl {
         unsafe extern "system" fn BlockedFileGroups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blocklist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BlockedFileGroups() {
+            match IFsrmFileScreenBase_Impl::BlockedFileGroups(this) {
                 Ok(ok__) => {
                     core::ptr::write(blocklist, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2484,12 +2484,12 @@ impl IFsrmFileScreenBase_Vtbl {
         unsafe extern "system" fn SetBlockedFileGroups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blocklist: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBlockedFileGroups(windows_core::from_raw_borrowed(&blocklist)).into()
+            IFsrmFileScreenBase_Impl::SetBlockedFileGroups(this, windows_core::from_raw_borrowed(&blocklist)).into()
         }
         unsafe extern "system" fn FileScreenFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filescreenflags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FileScreenFlags() {
+            match IFsrmFileScreenBase_Impl::FileScreenFlags(this) {
                 Ok(ok__) => {
                     core::ptr::write(filescreenflags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2500,12 +2500,12 @@ impl IFsrmFileScreenBase_Vtbl {
         unsafe extern "system" fn SetFileScreenFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filescreenflags: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFileScreenFlags(core::mem::transmute_copy(&filescreenflags)).into()
+            IFsrmFileScreenBase_Impl::SetFileScreenFlags(this, core::mem::transmute_copy(&filescreenflags)).into()
         }
         unsafe extern "system" fn CreateAction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, actiontype: FsrmActionType, action: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateAction(core::mem::transmute_copy(&actiontype)) {
+            match IFsrmFileScreenBase_Impl::CreateAction(this, core::mem::transmute_copy(&actiontype)) {
                 Ok(ok__) => {
                     core::ptr::write(action, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2516,7 +2516,7 @@ impl IFsrmFileScreenBase_Vtbl {
         unsafe extern "system" fn EnumActions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, actions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumActions() {
+            match IFsrmFileScreenBase_Impl::EnumActions(this) {
                 Ok(ok__) => {
                     core::ptr::write(actions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2552,7 +2552,7 @@ impl IFsrmFileScreenException_Vtbl {
         unsafe extern "system" fn Path<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenException_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Path() {
+            match IFsrmFileScreenException_Impl::Path(this) {
                 Ok(ok__) => {
                     core::ptr::write(path, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2563,7 +2563,7 @@ impl IFsrmFileScreenException_Vtbl {
         unsafe extern "system" fn AllowedFileGroups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenException_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allowlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AllowedFileGroups() {
+            match IFsrmFileScreenException_Impl::AllowedFileGroups(this) {
                 Ok(ok__) => {
                     core::ptr::write(allowlist, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2574,7 +2574,7 @@ impl IFsrmFileScreenException_Vtbl {
         unsafe extern "system" fn SetAllowedFileGroups<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenException_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allowlist: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAllowedFileGroups(windows_core::from_raw_borrowed(&allowlist)).into()
+            IFsrmFileScreenException_Impl::SetAllowedFileGroups(this, windows_core::from_raw_borrowed(&allowlist)).into()
         }
         Self {
             base__: IFsrmObject_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2607,7 +2607,7 @@ impl IFsrmFileScreenManager_Vtbl {
         unsafe extern "system" fn ActionVariables<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, variables: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ActionVariables() {
+            match IFsrmFileScreenManager_Impl::ActionVariables(this) {
                 Ok(ok__) => {
                     core::ptr::write(variables, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2618,7 +2618,7 @@ impl IFsrmFileScreenManager_Vtbl {
         unsafe extern "system" fn ActionVariableDescriptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, descriptions: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ActionVariableDescriptions() {
+            match IFsrmFileScreenManager_Impl::ActionVariableDescriptions(this) {
                 Ok(ok__) => {
                     core::ptr::write(descriptions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2629,7 +2629,7 @@ impl IFsrmFileScreenManager_Vtbl {
         unsafe extern "system" fn CreateFileScreen<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: std::mem::MaybeUninit<windows_core::BSTR>, filescreen: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateFileScreen(core::mem::transmute(&path)) {
+            match IFsrmFileScreenManager_Impl::CreateFileScreen(this, core::mem::transmute(&path)) {
                 Ok(ok__) => {
                     core::ptr::write(filescreen, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2640,7 +2640,7 @@ impl IFsrmFileScreenManager_Vtbl {
         unsafe extern "system" fn GetFileScreen<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: std::mem::MaybeUninit<windows_core::BSTR>, filescreen: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFileScreen(core::mem::transmute(&path)) {
+            match IFsrmFileScreenManager_Impl::GetFileScreen(this, core::mem::transmute(&path)) {
                 Ok(ok__) => {
                     core::ptr::write(filescreen, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2651,7 +2651,7 @@ impl IFsrmFileScreenManager_Vtbl {
         unsafe extern "system" fn EnumFileScreens<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: std::mem::MaybeUninit<windows_core::BSTR>, options: FsrmEnumOptions, filescreens: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumFileScreens(core::mem::transmute(&path), core::mem::transmute_copy(&options)) {
+            match IFsrmFileScreenManager_Impl::EnumFileScreens(this, core::mem::transmute(&path), core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(filescreens, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2662,7 +2662,7 @@ impl IFsrmFileScreenManager_Vtbl {
         unsafe extern "system" fn CreateFileScreenException<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: std::mem::MaybeUninit<windows_core::BSTR>, filescreenexception: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateFileScreenException(core::mem::transmute(&path)) {
+            match IFsrmFileScreenManager_Impl::CreateFileScreenException(this, core::mem::transmute(&path)) {
                 Ok(ok__) => {
                     core::ptr::write(filescreenexception, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2673,7 +2673,7 @@ impl IFsrmFileScreenManager_Vtbl {
         unsafe extern "system" fn GetFileScreenException<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: std::mem::MaybeUninit<windows_core::BSTR>, filescreenexception: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFileScreenException(core::mem::transmute(&path)) {
+            match IFsrmFileScreenManager_Impl::GetFileScreenException(this, core::mem::transmute(&path)) {
                 Ok(ok__) => {
                     core::ptr::write(filescreenexception, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2684,7 +2684,7 @@ impl IFsrmFileScreenManager_Vtbl {
         unsafe extern "system" fn EnumFileScreenExceptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: std::mem::MaybeUninit<windows_core::BSTR>, options: FsrmEnumOptions, filescreenexceptions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumFileScreenExceptions(core::mem::transmute(&path), core::mem::transmute_copy(&options)) {
+            match IFsrmFileScreenManager_Impl::EnumFileScreenExceptions(this, core::mem::transmute(&path), core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(filescreenexceptions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2695,7 +2695,7 @@ impl IFsrmFileScreenManager_Vtbl {
         unsafe extern "system" fn CreateFileScreenCollection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateFileScreenCollection() {
+            match IFsrmFileScreenManager_Impl::CreateFileScreenCollection(this) {
                 Ok(ok__) => {
                     core::ptr::write(collection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2735,7 +2735,7 @@ impl IFsrmFileScreenTemplate_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenTemplate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IFsrmFileScreenTemplate_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(name, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2746,17 +2746,17 @@ impl IFsrmFileScreenTemplate_Vtbl {
         unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenTemplate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetName(core::mem::transmute(&name)).into()
+            IFsrmFileScreenTemplate_Impl::SetName(this, core::mem::transmute(&name)).into()
         }
         unsafe extern "system" fn CopyTemplate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenTemplate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filescreentemplatename: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CopyTemplate(core::mem::transmute(&filescreentemplatename)).into()
+            IFsrmFileScreenTemplate_Impl::CopyTemplate(this, core::mem::transmute(&filescreentemplatename)).into()
         }
         unsafe extern "system" fn CommitAndUpdateDerived<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenTemplate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions, derivedobjectsresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CommitAndUpdateDerived(core::mem::transmute_copy(&commitoptions), core::mem::transmute_copy(&applyoptions)) {
+            match IFsrmFileScreenTemplate_Impl::CommitAndUpdateDerived(this, core::mem::transmute_copy(&commitoptions), core::mem::transmute_copy(&applyoptions)) {
                 Ok(ok__) => {
                     core::ptr::write(derivedobjectsresult, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2789,7 +2789,7 @@ impl IFsrmFileScreenTemplateImported_Vtbl {
         unsafe extern "system" fn OverwriteOnCommit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenTemplateImported_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, overwrite: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OverwriteOnCommit() {
+            match IFsrmFileScreenTemplateImported_Impl::OverwriteOnCommit(this) {
                 Ok(ok__) => {
                     core::ptr::write(overwrite, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2800,7 +2800,7 @@ impl IFsrmFileScreenTemplateImported_Vtbl {
         unsafe extern "system" fn SetOverwriteOnCommit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenTemplateImported_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, overwrite: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetOverwriteOnCommit(core::mem::transmute_copy(&overwrite)).into()
+            IFsrmFileScreenTemplateImported_Impl::SetOverwriteOnCommit(this, core::mem::transmute_copy(&overwrite)).into()
         }
         Self {
             base__: IFsrmFileScreenTemplate_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2828,7 +2828,7 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
         unsafe extern "system" fn CreateTemplate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenTemplateManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filescreentemplate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateTemplate() {
+            match IFsrmFileScreenTemplateManager_Impl::CreateTemplate(this) {
                 Ok(ok__) => {
                     core::ptr::write(filescreentemplate, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2839,7 +2839,7 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
         unsafe extern "system" fn GetTemplate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenTemplateManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>, filescreentemplate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetTemplate(core::mem::transmute(&name)) {
+            match IFsrmFileScreenTemplateManager_Impl::GetTemplate(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
                     core::ptr::write(filescreentemplate, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2850,7 +2850,7 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
         unsafe extern "system" fn EnumTemplates<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenTemplateManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: FsrmEnumOptions, filescreentemplates: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumTemplates(core::mem::transmute_copy(&options)) {
+            match IFsrmFileScreenTemplateManager_Impl::EnumTemplates(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(filescreentemplates, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2861,7 +2861,7 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
         unsafe extern "system" fn ExportTemplates<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenTemplateManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filescreentemplatenamesarray: *const std::mem::MaybeUninit<windows_core::VARIANT>, serializedfilescreentemplates: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ExportTemplates(core::mem::transmute_copy(&filescreentemplatenamesarray)) {
+            match IFsrmFileScreenTemplateManager_Impl::ExportTemplates(this, core::mem::transmute_copy(&filescreentemplatenamesarray)) {
                 Ok(ok__) => {
                     core::ptr::write(serializedfilescreentemplates, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2872,7 +2872,7 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
         unsafe extern "system" fn ImportTemplates<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmFileScreenTemplateManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, serializedfilescreentemplates: std::mem::MaybeUninit<windows_core::BSTR>, filescreentemplatenamesarray: *const std::mem::MaybeUninit<windows_core::VARIANT>, filescreentemplates: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ImportTemplates(core::mem::transmute(&serializedfilescreentemplates), core::mem::transmute_copy(&filescreentemplatenamesarray)) {
+            match IFsrmFileScreenTemplateManager_Impl::ImportTemplates(this, core::mem::transmute(&serializedfilescreentemplates), core::mem::transmute_copy(&filescreentemplatenamesarray)) {
                 Ok(ok__) => {
                     core::ptr::write(filescreentemplates, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2908,22 +2908,22 @@ impl IFsrmMutableCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmMutableCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Add(core::mem::transmute(&item)).into()
+            IFsrmMutableCollection_Impl::Add(this, core::mem::transmute(&item)).into()
         }
         unsafe extern "system" fn Remove<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmMutableCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Remove(core::mem::transmute_copy(&index)).into()
+            IFsrmMutableCollection_Impl::Remove(this, core::mem::transmute_copy(&index)).into()
         }
         unsafe extern "system" fn RemoveById<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmMutableCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveById(core::mem::transmute(&id)).into()
+            IFsrmMutableCollection_Impl::RemoveById(this, core::mem::transmute(&id)).into()
         }
         unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmMutableCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
+            match IFsrmMutableCollection_Impl::Clone(this) {
                 Ok(ok__) => {
                     core::ptr::write(collection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2959,7 +2959,7 @@ impl IFsrmObject_Vtbl {
         unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Id() {
+            match IFsrmObject_Impl::Id(this) {
                 Ok(ok__) => {
                     core::ptr::write(id, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2970,7 +2970,7 @@ impl IFsrmObject_Vtbl {
         unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Description() {
+            match IFsrmObject_Impl::Description(this) {
                 Ok(ok__) => {
                     core::ptr::write(description, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2981,17 +2981,17 @@ impl IFsrmObject_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDescription(core::mem::transmute(&description)).into()
+            IFsrmObject_Impl::SetDescription(this, core::mem::transmute(&description)).into()
         }
         unsafe extern "system" fn Delete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Delete().into()
+            IFsrmObject_Impl::Delete(this).into()
         }
         unsafe extern "system" fn Commit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Commit().into()
+            IFsrmObject_Impl::Commit(this).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3018,7 +3018,7 @@ impl IFsrmPathMapper_Vtbl {
         unsafe extern "system" fn GetSharePathsForLocalPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPathMapper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, localpath: std::mem::MaybeUninit<windows_core::BSTR>, sharepaths: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSharePathsForLocalPath(core::mem::transmute(&localpath)) {
+            match IFsrmPathMapper_Impl::GetSharePathsForLocalPath(this, core::mem::transmute(&localpath)) {
                 Ok(ok__) => {
                     core::ptr::write(sharepaths, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3051,7 +3051,7 @@ impl IFsrmPipelineModuleConnector_Vtbl {
         unsafe extern "system" fn ModuleImplementation<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPipelineModuleConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipelinemoduleimplementation: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ModuleImplementation() {
+            match IFsrmPipelineModuleConnector_Impl::ModuleImplementation(this) {
                 Ok(ok__) => {
                     core::ptr::write(pipelinemoduleimplementation, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3062,7 +3062,7 @@ impl IFsrmPipelineModuleConnector_Vtbl {
         unsafe extern "system" fn ModuleName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPipelineModuleConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, username: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ModuleName() {
+            match IFsrmPipelineModuleConnector_Impl::ModuleName(this) {
                 Ok(ok__) => {
                     core::ptr::write(username, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3073,7 +3073,7 @@ impl IFsrmPipelineModuleConnector_Vtbl {
         unsafe extern "system" fn HostingUserAccount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPipelineModuleConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, useraccount: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.HostingUserAccount() {
+            match IFsrmPipelineModuleConnector_Impl::HostingUserAccount(this) {
                 Ok(ok__) => {
                     core::ptr::write(useraccount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3084,7 +3084,7 @@ impl IFsrmPipelineModuleConnector_Vtbl {
         unsafe extern "system" fn HostingProcessPid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPipelineModuleConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pid: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.HostingProcessPid() {
+            match IFsrmPipelineModuleConnector_Impl::HostingProcessPid(this) {
                 Ok(ok__) => {
                     core::ptr::write(pid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3095,7 +3095,7 @@ impl IFsrmPipelineModuleConnector_Vtbl {
         unsafe extern "system" fn Bind<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPipelineModuleConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduledefinition: *mut core::ffi::c_void, moduleimplementation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Bind(windows_core::from_raw_borrowed(&moduledefinition), windows_core::from_raw_borrowed(&moduleimplementation)).into()
+            IFsrmPipelineModuleConnector_Impl::Bind(this, windows_core::from_raw_borrowed(&moduledefinition), windows_core::from_raw_borrowed(&moduleimplementation)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3140,7 +3140,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         unsafe extern "system" fn ModuleClsid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleclsid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ModuleClsid() {
+            match IFsrmPipelineModuleDefinition_Impl::ModuleClsid(this) {
                 Ok(ok__) => {
                     core::ptr::write(moduleclsid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3151,12 +3151,12 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         unsafe extern "system" fn SetModuleClsid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleclsid: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetModuleClsid(core::mem::transmute(&moduleclsid)).into()
+            IFsrmPipelineModuleDefinition_Impl::SetModuleClsid(this, core::mem::transmute(&moduleclsid)).into()
         }
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IFsrmPipelineModuleDefinition_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(name, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3167,12 +3167,12 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetName(core::mem::transmute(&name)).into()
+            IFsrmPipelineModuleDefinition_Impl::SetName(this, core::mem::transmute(&name)).into()
         }
         unsafe extern "system" fn Company<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, company: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Company() {
+            match IFsrmPipelineModuleDefinition_Impl::Company(this) {
                 Ok(ok__) => {
                     core::ptr::write(company, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3183,12 +3183,12 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         unsafe extern "system" fn SetCompany<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, company: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCompany(core::mem::transmute(&company)).into()
+            IFsrmPipelineModuleDefinition_Impl::SetCompany(this, core::mem::transmute(&company)).into()
         }
         unsafe extern "system" fn Version<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, version: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Version() {
+            match IFsrmPipelineModuleDefinition_Impl::Version(this) {
                 Ok(ok__) => {
                     core::ptr::write(version, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3199,12 +3199,12 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         unsafe extern "system" fn SetVersion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, version: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetVersion(core::mem::transmute(&version)).into()
+            IFsrmPipelineModuleDefinition_Impl::SetVersion(this, core::mem::transmute(&version)).into()
         }
         unsafe extern "system" fn ModuleType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduletype: *mut FsrmPipelineModuleType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ModuleType() {
+            match IFsrmPipelineModuleDefinition_Impl::ModuleType(this) {
                 Ok(ok__) => {
                     core::ptr::write(moduletype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3215,7 +3215,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         unsafe extern "system" fn Enabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Enabled() {
+            match IFsrmPipelineModuleDefinition_Impl::Enabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(enabled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3226,12 +3226,12 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         unsafe extern "system" fn SetEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEnabled(core::mem::transmute_copy(&enabled)).into()
+            IFsrmPipelineModuleDefinition_Impl::SetEnabled(this, core::mem::transmute_copy(&enabled)).into()
         }
         unsafe extern "system" fn NeedsFileContent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, needsfilecontent: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.NeedsFileContent() {
+            match IFsrmPipelineModuleDefinition_Impl::NeedsFileContent(this) {
                 Ok(ok__) => {
                     core::ptr::write(needsfilecontent, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3242,12 +3242,12 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         unsafe extern "system" fn SetNeedsFileContent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, needsfilecontent: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetNeedsFileContent(core::mem::transmute_copy(&needsfilecontent)).into()
+            IFsrmPipelineModuleDefinition_Impl::SetNeedsFileContent(this, core::mem::transmute_copy(&needsfilecontent)).into()
         }
         unsafe extern "system" fn Account<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retrievalaccount: *mut FsrmAccountType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Account() {
+            match IFsrmPipelineModuleDefinition_Impl::Account(this) {
                 Ok(ok__) => {
                     core::ptr::write(retrievalaccount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3258,12 +3258,12 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         unsafe extern "system" fn SetAccount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retrievalaccount: FsrmAccountType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAccount(core::mem::transmute_copy(&retrievalaccount)).into()
+            IFsrmPipelineModuleDefinition_Impl::SetAccount(this, core::mem::transmute_copy(&retrievalaccount)).into()
         }
         unsafe extern "system" fn SupportedExtensions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, supportedextensions: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SupportedExtensions() {
+            match IFsrmPipelineModuleDefinition_Impl::SupportedExtensions(this) {
                 Ok(ok__) => {
                     core::ptr::write(supportedextensions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3274,12 +3274,12 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         unsafe extern "system" fn SetSupportedExtensions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, supportedextensions: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSupportedExtensions(core::mem::transmute_copy(&supportedextensions)).into()
+            IFsrmPipelineModuleDefinition_Impl::SetSupportedExtensions(this, core::mem::transmute_copy(&supportedextensions)).into()
         }
         unsafe extern "system" fn Parameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parameters: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Parameters() {
+            match IFsrmPipelineModuleDefinition_Impl::Parameters(this) {
                 Ok(ok__) => {
                     core::ptr::write(parameters, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3290,7 +3290,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
         unsafe extern "system" fn SetParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPipelineModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parameters: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetParameters(core::mem::transmute_copy(&parameters)).into()
+            IFsrmPipelineModuleDefinition_Impl::SetParameters(this, core::mem::transmute_copy(&parameters)).into()
         }
         Self {
             base__: IFsrmObject_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3332,7 +3332,7 @@ impl IFsrmPipelineModuleImplementation_Vtbl {
         unsafe extern "system" fn OnLoad<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPipelineModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduledefinition: *mut core::ffi::c_void, moduleconnector: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OnLoad(windows_core::from_raw_borrowed(&moduledefinition)) {
+            match IFsrmPipelineModuleImplementation_Impl::OnLoad(this, windows_core::from_raw_borrowed(&moduledefinition)) {
                 Ok(ok__) => {
                     core::ptr::write(moduleconnector, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3343,7 +3343,7 @@ impl IFsrmPipelineModuleImplementation_Vtbl {
         unsafe extern "system" fn OnUnload<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPipelineModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnUnload().into()
+            IFsrmPipelineModuleImplementation_Impl::OnUnload(this).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3370,7 +3370,7 @@ impl IFsrmProperty_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IFsrmProperty_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(name, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3381,7 +3381,7 @@ impl IFsrmProperty_Vtbl {
         unsafe extern "system" fn Value<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Value() {
+            match IFsrmProperty_Impl::Value(this) {
                 Ok(ok__) => {
                     core::ptr::write(value, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3392,7 +3392,7 @@ impl IFsrmProperty_Vtbl {
         unsafe extern "system" fn Sources<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sources: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Sources() {
+            match IFsrmProperty_Impl::Sources(this) {
                 Ok(ok__) => {
                     core::ptr::write(sources, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3403,7 +3403,7 @@ impl IFsrmProperty_Vtbl {
         unsafe extern "system" fn PropertyFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PropertyFlags() {
+            match IFsrmProperty_Impl::PropertyFlags(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3455,7 +3455,7 @@ impl IFsrmPropertyBag_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IFsrmPropertyBag_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(name, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3466,7 +3466,7 @@ impl IFsrmPropertyBag_Vtbl {
         unsafe extern "system" fn RelativePath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RelativePath() {
+            match IFsrmPropertyBag_Impl::RelativePath(this) {
                 Ok(ok__) => {
                     core::ptr::write(path, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3477,7 +3477,7 @@ impl IFsrmPropertyBag_Vtbl {
         unsafe extern "system" fn VolumeName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, volumename: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.VolumeName() {
+            match IFsrmPropertyBag_Impl::VolumeName(this) {
                 Ok(ok__) => {
                     core::ptr::write(volumename, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3488,7 +3488,7 @@ impl IFsrmPropertyBag_Vtbl {
         unsafe extern "system" fn RelativeNamespaceRoot<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, relativenamespaceroot: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RelativeNamespaceRoot() {
+            match IFsrmPropertyBag_Impl::RelativeNamespaceRoot(this) {
                 Ok(ok__) => {
                     core::ptr::write(relativenamespaceroot, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3499,7 +3499,7 @@ impl IFsrmPropertyBag_Vtbl {
         unsafe extern "system" fn VolumeIndex<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, volumeid: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.VolumeIndex() {
+            match IFsrmPropertyBag_Impl::VolumeIndex(this) {
                 Ok(ok__) => {
                     core::ptr::write(volumeid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3510,7 +3510,7 @@ impl IFsrmPropertyBag_Vtbl {
         unsafe extern "system" fn FileId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fileid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FileId() {
+            match IFsrmPropertyBag_Impl::FileId(this) {
                 Ok(ok__) => {
                     core::ptr::write(fileid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3521,7 +3521,7 @@ impl IFsrmPropertyBag_Vtbl {
         unsafe extern "system" fn ParentDirectoryId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parentdirectoryid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ParentDirectoryId() {
+            match IFsrmPropertyBag_Impl::ParentDirectoryId(this) {
                 Ok(ok__) => {
                     core::ptr::write(parentdirectoryid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3532,7 +3532,7 @@ impl IFsrmPropertyBag_Vtbl {
         unsafe extern "system" fn Size<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Size() {
+            match IFsrmPropertyBag_Impl::Size(this) {
                 Ok(ok__) => {
                     core::ptr::write(size, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3543,7 +3543,7 @@ impl IFsrmPropertyBag_Vtbl {
         unsafe extern "system" fn SizeAllocated<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sizeallocated: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SizeAllocated() {
+            match IFsrmPropertyBag_Impl::SizeAllocated(this) {
                 Ok(ok__) => {
                     core::ptr::write(sizeallocated, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3554,7 +3554,7 @@ impl IFsrmPropertyBag_Vtbl {
         unsafe extern "system" fn CreationTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, creationtime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreationTime() {
+            match IFsrmPropertyBag_Impl::CreationTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(creationtime, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3565,7 +3565,7 @@ impl IFsrmPropertyBag_Vtbl {
         unsafe extern "system" fn LastAccessTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lastaccesstime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LastAccessTime() {
+            match IFsrmPropertyBag_Impl::LastAccessTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(lastaccesstime, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3576,7 +3576,7 @@ impl IFsrmPropertyBag_Vtbl {
         unsafe extern "system" fn LastModificationTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lastmodificationtime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LastModificationTime() {
+            match IFsrmPropertyBag_Impl::LastModificationTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(lastmodificationtime, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3587,7 +3587,7 @@ impl IFsrmPropertyBag_Vtbl {
         unsafe extern "system" fn Attributes<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributes: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Attributes() {
+            match IFsrmPropertyBag_Impl::Attributes(this) {
                 Ok(ok__) => {
                     core::ptr::write(attributes, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3598,7 +3598,7 @@ impl IFsrmPropertyBag_Vtbl {
         unsafe extern "system" fn OwnerSid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ownersid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OwnerSid() {
+            match IFsrmPropertyBag_Impl::OwnerSid(this) {
                 Ok(ok__) => {
                     core::ptr::write(ownersid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3609,7 +3609,7 @@ impl IFsrmPropertyBag_Vtbl {
         unsafe extern "system" fn FilePropertyNames<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filepropertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FilePropertyNames() {
+            match IFsrmPropertyBag_Impl::FilePropertyNames(this) {
                 Ok(ok__) => {
                     core::ptr::write(filepropertynames, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3620,7 +3620,7 @@ impl IFsrmPropertyBag_Vtbl {
         unsafe extern "system" fn Messages<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, messages: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Messages() {
+            match IFsrmPropertyBag_Impl::Messages(this) {
                 Ok(ok__) => {
                     core::ptr::write(messages, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3631,7 +3631,7 @@ impl IFsrmPropertyBag_Vtbl {
         unsafe extern "system" fn PropertyBagFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PropertyBagFlags() {
+            match IFsrmPropertyBag_Impl::PropertyBagFlags(this) {
                 Ok(ok__) => {
                     core::ptr::write(flags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3642,7 +3642,7 @@ impl IFsrmPropertyBag_Vtbl {
         unsafe extern "system" fn GetFileProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>, fileproperty: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFileProperty(core::mem::transmute(&name)) {
+            match IFsrmPropertyBag_Impl::GetFileProperty(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
                     core::ptr::write(fileproperty, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3653,17 +3653,17 @@ impl IFsrmPropertyBag_Vtbl {
         unsafe extern "system" fn SetFileProperty<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>, value: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFileProperty(core::mem::transmute(&name), core::mem::transmute(&value)).into()
+            IFsrmPropertyBag_Impl::SetFileProperty(this, core::mem::transmute(&name), core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn AddMessage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, message: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddMessage(core::mem::transmute(&message)).into()
+            IFsrmPropertyBag_Impl::AddMessage(this, core::mem::transmute(&message)).into()
         }
         unsafe extern "system" fn GetFileStreamInterface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, accessmode: FsrmFileStreamingMode, interfacetype: FsrmFileStreamingInterfaceType, pstreaminterface: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFileStreamInterface(core::mem::transmute_copy(&accessmode), core::mem::transmute_copy(&interfacetype)) {
+            match IFsrmPropertyBag_Impl::GetFileStreamInterface(this, core::mem::transmute_copy(&accessmode), core::mem::transmute_copy(&interfacetype)) {
                 Ok(ok__) => {
                     core::ptr::write(pstreaminterface, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3713,7 +3713,7 @@ impl IFsrmPropertyBag2_Vtbl {
         unsafe extern "system" fn GetFieldValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, field: FsrmPropertyBagField, value: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFieldValue(core::mem::transmute_copy(&field)) {
+            match IFsrmPropertyBag2_Impl::GetFieldValue(this, core::mem::transmute_copy(&field)) {
                 Ok(ok__) => {
                     core::ptr::write(value, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3724,7 +3724,7 @@ impl IFsrmPropertyBag2_Vtbl {
         unsafe extern "system" fn GetUntrustedInFileProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyBag2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, props: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetUntrustedInFileProperties() {
+            match IFsrmPropertyBag2_Impl::GetUntrustedInFileProperties(this) {
                 Ok(ok__) => {
                     core::ptr::write(props, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3760,7 +3760,7 @@ impl IFsrmPropertyCondition_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IFsrmPropertyCondition_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(name, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3771,12 +3771,12 @@ impl IFsrmPropertyCondition_Vtbl {
         unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetName(core::mem::transmute(&name)).into()
+            IFsrmPropertyCondition_Impl::SetName(this, core::mem::transmute(&name)).into()
         }
         unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut FsrmPropertyConditionType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Type() {
+            match IFsrmPropertyCondition_Impl::Type(this) {
                 Ok(ok__) => {
                     core::ptr::write(r#type, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3787,12 +3787,12 @@ impl IFsrmPropertyCondition_Vtbl {
         unsafe extern "system" fn SetType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: FsrmPropertyConditionType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetType(core::mem::transmute_copy(&r#type)).into()
+            IFsrmPropertyCondition_Impl::SetType(this, core::mem::transmute_copy(&r#type)).into()
         }
         unsafe extern "system" fn Value<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Value() {
+            match IFsrmPropertyCondition_Impl::Value(this) {
                 Ok(ok__) => {
                     core::ptr::write(value, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3803,12 +3803,12 @@ impl IFsrmPropertyCondition_Vtbl {
         unsafe extern "system" fn SetValue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetValue(core::mem::transmute(&value)).into()
+            IFsrmPropertyCondition_Impl::SetValue(this, core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn Delete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyCondition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Delete().into()
+            IFsrmPropertyCondition_Impl::Delete(this).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3846,7 +3846,7 @@ impl IFsrmPropertyDefinition_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IFsrmPropertyDefinition_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(name, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3857,12 +3857,12 @@ impl IFsrmPropertyDefinition_Vtbl {
         unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetName(core::mem::transmute(&name)).into()
+            IFsrmPropertyDefinition_Impl::SetName(this, core::mem::transmute(&name)).into()
         }
         unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut FsrmPropertyDefinitionType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Type() {
+            match IFsrmPropertyDefinition_Impl::Type(this) {
                 Ok(ok__) => {
                     core::ptr::write(r#type, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3873,12 +3873,12 @@ impl IFsrmPropertyDefinition_Vtbl {
         unsafe extern "system" fn SetType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: FsrmPropertyDefinitionType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetType(core::mem::transmute_copy(&r#type)).into()
+            IFsrmPropertyDefinition_Impl::SetType(this, core::mem::transmute_copy(&r#type)).into()
         }
         unsafe extern "system" fn PossibleValues<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, possiblevalues: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PossibleValues() {
+            match IFsrmPropertyDefinition_Impl::PossibleValues(this) {
                 Ok(ok__) => {
                     core::ptr::write(possiblevalues, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3889,12 +3889,12 @@ impl IFsrmPropertyDefinition_Vtbl {
         unsafe extern "system" fn SetPossibleValues<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, possiblevalues: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPossibleValues(core::mem::transmute_copy(&possiblevalues)).into()
+            IFsrmPropertyDefinition_Impl::SetPossibleValues(this, core::mem::transmute_copy(&possiblevalues)).into()
         }
         unsafe extern "system" fn ValueDescriptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuedescriptions: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ValueDescriptions() {
+            match IFsrmPropertyDefinition_Impl::ValueDescriptions(this) {
                 Ok(ok__) => {
                     core::ptr::write(valuedescriptions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3905,12 +3905,12 @@ impl IFsrmPropertyDefinition_Vtbl {
         unsafe extern "system" fn SetValueDescriptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuedescriptions: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetValueDescriptions(core::mem::transmute_copy(&valuedescriptions)).into()
+            IFsrmPropertyDefinition_Impl::SetValueDescriptions(this, core::mem::transmute_copy(&valuedescriptions)).into()
         }
         unsafe extern "system" fn Parameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parameters: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Parameters() {
+            match IFsrmPropertyDefinition_Impl::Parameters(this) {
                 Ok(ok__) => {
                     core::ptr::write(parameters, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3921,7 +3921,7 @@ impl IFsrmPropertyDefinition_Vtbl {
         unsafe extern "system" fn SetParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parameters: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetParameters(core::mem::transmute_copy(&parameters)).into()
+            IFsrmPropertyDefinition_Impl::SetParameters(this, core::mem::transmute_copy(&parameters)).into()
         }
         Self {
             base__: IFsrmObject_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3957,7 +3957,7 @@ impl IFsrmPropertyDefinition2_Vtbl {
         unsafe extern "system" fn PropertyDefinitionFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyDefinition2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertydefinitionflags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PropertyDefinitionFlags() {
+            match IFsrmPropertyDefinition2_Impl::PropertyDefinitionFlags(this) {
                 Ok(ok__) => {
                     core::ptr::write(propertydefinitionflags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3968,7 +3968,7 @@ impl IFsrmPropertyDefinition2_Vtbl {
         unsafe extern "system" fn DisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyDefinition2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DisplayName() {
+            match IFsrmPropertyDefinition2_Impl::DisplayName(this) {
                 Ok(ok__) => {
                     core::ptr::write(name, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3979,12 +3979,12 @@ impl IFsrmPropertyDefinition2_Vtbl {
         unsafe extern "system" fn SetDisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyDefinition2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDisplayName(core::mem::transmute(&name)).into()
+            IFsrmPropertyDefinition2_Impl::SetDisplayName(this, core::mem::transmute(&name)).into()
         }
         unsafe extern "system" fn AppliesTo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyDefinition2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, appliesto: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AppliesTo() {
+            match IFsrmPropertyDefinition2_Impl::AppliesTo(this) {
                 Ok(ok__) => {
                     core::ptr::write(appliesto, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3995,7 +3995,7 @@ impl IFsrmPropertyDefinition2_Vtbl {
         unsafe extern "system" fn ValueDefinitions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyDefinition2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, valuedefinitions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ValueDefinitions() {
+            match IFsrmPropertyDefinition2_Impl::ValueDefinitions(this) {
                 Ok(ok__) => {
                     core::ptr::write(valuedefinitions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4031,7 +4031,7 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyDefinitionValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IFsrmPropertyDefinitionValue_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(name, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4042,7 +4042,7 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
         unsafe extern "system" fn DisplayName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyDefinitionValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, displayname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DisplayName() {
+            match IFsrmPropertyDefinitionValue_Impl::DisplayName(this) {
                 Ok(ok__) => {
                     core::ptr::write(displayname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4053,7 +4053,7 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
         unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyDefinitionValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Description() {
+            match IFsrmPropertyDefinitionValue_Impl::Description(this) {
                 Ok(ok__) => {
                     core::ptr::write(description, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4064,7 +4064,7 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
         unsafe extern "system" fn UniqueID<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmPropertyDefinitionValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uniqueid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UniqueID() {
+            match IFsrmPropertyDefinitionValue_Impl::UniqueID(this) {
                 Ok(ok__) => {
                     core::ptr::write(uniqueid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4100,7 +4100,7 @@ impl IFsrmQuota_Vtbl {
         unsafe extern "system" fn QuotaUsed<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuota_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, used: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.QuotaUsed() {
+            match IFsrmQuota_Impl::QuotaUsed(this) {
                 Ok(ok__) => {
                     core::ptr::write(used, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4111,7 +4111,7 @@ impl IFsrmQuota_Vtbl {
         unsafe extern "system" fn QuotaPeakUsage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuota_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peakusage: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.QuotaPeakUsage() {
+            match IFsrmQuota_Impl::QuotaPeakUsage(this) {
                 Ok(ok__) => {
                     core::ptr::write(peakusage, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4122,7 +4122,7 @@ impl IFsrmQuota_Vtbl {
         unsafe extern "system" fn QuotaPeakUsageTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuota_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peakusagedatetime: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.QuotaPeakUsageTime() {
+            match IFsrmQuota_Impl::QuotaPeakUsageTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(peakusagedatetime, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4133,12 +4133,12 @@ impl IFsrmQuota_Vtbl {
         unsafe extern "system" fn ResetPeakUsage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuota_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ResetPeakUsage().into()
+            IFsrmQuota_Impl::ResetPeakUsage(this).into()
         }
         unsafe extern "system" fn RefreshUsageProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuota_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RefreshUsageProperties().into()
+            IFsrmQuota_Impl::RefreshUsageProperties(this).into()
         }
         Self {
             base__: IFsrmQuotaObject_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -4174,7 +4174,7 @@ impl IFsrmQuotaBase_Vtbl {
         unsafe extern "system" fn QuotaLimit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, quotalimit: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.QuotaLimit() {
+            match IFsrmQuotaBase_Impl::QuotaLimit(this) {
                 Ok(ok__) => {
                     core::ptr::write(quotalimit, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4185,12 +4185,12 @@ impl IFsrmQuotaBase_Vtbl {
         unsafe extern "system" fn SetQuotaLimit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, quotalimit: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetQuotaLimit(core::mem::transmute(&quotalimit)).into()
+            IFsrmQuotaBase_Impl::SetQuotaLimit(this, core::mem::transmute(&quotalimit)).into()
         }
         unsafe extern "system" fn QuotaFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, quotaflags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.QuotaFlags() {
+            match IFsrmQuotaBase_Impl::QuotaFlags(this) {
                 Ok(ok__) => {
                     core::ptr::write(quotaflags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4201,12 +4201,12 @@ impl IFsrmQuotaBase_Vtbl {
         unsafe extern "system" fn SetQuotaFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, quotaflags: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetQuotaFlags(core::mem::transmute_copy(&quotaflags)).into()
+            IFsrmQuotaBase_Impl::SetQuotaFlags(this, core::mem::transmute_copy(&quotaflags)).into()
         }
         unsafe extern "system" fn Thresholds<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, thresholds: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Thresholds() {
+            match IFsrmQuotaBase_Impl::Thresholds(this) {
                 Ok(ok__) => {
                     core::ptr::write(thresholds, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4217,22 +4217,22 @@ impl IFsrmQuotaBase_Vtbl {
         unsafe extern "system" fn AddThreshold<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, threshold: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddThreshold(core::mem::transmute_copy(&threshold)).into()
+            IFsrmQuotaBase_Impl::AddThreshold(this, core::mem::transmute_copy(&threshold)).into()
         }
         unsafe extern "system" fn DeleteThreshold<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, threshold: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteThreshold(core::mem::transmute_copy(&threshold)).into()
+            IFsrmQuotaBase_Impl::DeleteThreshold(this, core::mem::transmute_copy(&threshold)).into()
         }
         unsafe extern "system" fn ModifyThreshold<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, threshold: i32, newthreshold: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ModifyThreshold(core::mem::transmute_copy(&threshold), core::mem::transmute_copy(&newthreshold)).into()
+            IFsrmQuotaBase_Impl::ModifyThreshold(this, core::mem::transmute_copy(&threshold), core::mem::transmute_copy(&newthreshold)).into()
         }
         unsafe extern "system" fn CreateThresholdAction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, threshold: i32, actiontype: FsrmActionType, action: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateThresholdAction(core::mem::transmute_copy(&threshold), core::mem::transmute_copy(&actiontype)) {
+            match IFsrmQuotaBase_Impl::CreateThresholdAction(this, core::mem::transmute_copy(&threshold), core::mem::transmute_copy(&actiontype)) {
                 Ok(ok__) => {
                     core::ptr::write(action, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4243,7 +4243,7 @@ impl IFsrmQuotaBase_Vtbl {
         unsafe extern "system" fn EnumThresholdActions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, threshold: i32, actions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumThresholdActions(core::mem::transmute_copy(&threshold)) {
+            match IFsrmQuotaBase_Impl::EnumThresholdActions(this, core::mem::transmute_copy(&threshold)) {
                 Ok(ok__) => {
                     core::ptr::write(actions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4292,7 +4292,7 @@ impl IFsrmQuotaManager_Vtbl {
         unsafe extern "system" fn ActionVariables<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, variables: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ActionVariables() {
+            match IFsrmQuotaManager_Impl::ActionVariables(this) {
                 Ok(ok__) => {
                     core::ptr::write(variables, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4303,7 +4303,7 @@ impl IFsrmQuotaManager_Vtbl {
         unsafe extern "system" fn ActionVariableDescriptions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, descriptions: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ActionVariableDescriptions() {
+            match IFsrmQuotaManager_Impl::ActionVariableDescriptions(this) {
                 Ok(ok__) => {
                     core::ptr::write(descriptions, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4314,7 +4314,7 @@ impl IFsrmQuotaManager_Vtbl {
         unsafe extern "system" fn CreateQuota<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: std::mem::MaybeUninit<windows_core::BSTR>, quota: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateQuota(core::mem::transmute(&path)) {
+            match IFsrmQuotaManager_Impl::CreateQuota(this, core::mem::transmute(&path)) {
                 Ok(ok__) => {
                     core::ptr::write(quota, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4325,7 +4325,7 @@ impl IFsrmQuotaManager_Vtbl {
         unsafe extern "system" fn CreateAutoApplyQuota<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, quotatemplatename: std::mem::MaybeUninit<windows_core::BSTR>, path: std::mem::MaybeUninit<windows_core::BSTR>, quota: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateAutoApplyQuota(core::mem::transmute(&quotatemplatename), core::mem::transmute(&path)) {
+            match IFsrmQuotaManager_Impl::CreateAutoApplyQuota(this, core::mem::transmute(&quotatemplatename), core::mem::transmute(&path)) {
                 Ok(ok__) => {
                     core::ptr::write(quota, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4336,7 +4336,7 @@ impl IFsrmQuotaManager_Vtbl {
         unsafe extern "system" fn GetQuota<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: std::mem::MaybeUninit<windows_core::BSTR>, quota: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetQuota(core::mem::transmute(&path)) {
+            match IFsrmQuotaManager_Impl::GetQuota(this, core::mem::transmute(&path)) {
                 Ok(ok__) => {
                     core::ptr::write(quota, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4347,7 +4347,7 @@ impl IFsrmQuotaManager_Vtbl {
         unsafe extern "system" fn GetAutoApplyQuota<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: std::mem::MaybeUninit<windows_core::BSTR>, quota: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetAutoApplyQuota(core::mem::transmute(&path)) {
+            match IFsrmQuotaManager_Impl::GetAutoApplyQuota(this, core::mem::transmute(&path)) {
                 Ok(ok__) => {
                     core::ptr::write(quota, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4358,7 +4358,7 @@ impl IFsrmQuotaManager_Vtbl {
         unsafe extern "system" fn GetRestrictiveQuota<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: std::mem::MaybeUninit<windows_core::BSTR>, quota: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetRestrictiveQuota(core::mem::transmute(&path)) {
+            match IFsrmQuotaManager_Impl::GetRestrictiveQuota(this, core::mem::transmute(&path)) {
                 Ok(ok__) => {
                     core::ptr::write(quota, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4369,7 +4369,7 @@ impl IFsrmQuotaManager_Vtbl {
         unsafe extern "system" fn EnumQuotas<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: std::mem::MaybeUninit<windows_core::BSTR>, options: FsrmEnumOptions, quotas: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumQuotas(core::mem::transmute(&path), core::mem::transmute_copy(&options)) {
+            match IFsrmQuotaManager_Impl::EnumQuotas(this, core::mem::transmute(&path), core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(quotas, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4380,7 +4380,7 @@ impl IFsrmQuotaManager_Vtbl {
         unsafe extern "system" fn EnumAutoApplyQuotas<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: std::mem::MaybeUninit<windows_core::BSTR>, options: FsrmEnumOptions, quotas: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumAutoApplyQuotas(core::mem::transmute(&path), core::mem::transmute_copy(&options)) {
+            match IFsrmQuotaManager_Impl::EnumAutoApplyQuotas(this, core::mem::transmute(&path), core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(quotas, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4391,7 +4391,7 @@ impl IFsrmQuotaManager_Vtbl {
         unsafe extern "system" fn EnumEffectiveQuotas<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: std::mem::MaybeUninit<windows_core::BSTR>, options: FsrmEnumOptions, quotas: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumEffectiveQuotas(core::mem::transmute(&path), core::mem::transmute_copy(&options)) {
+            match IFsrmQuotaManager_Impl::EnumEffectiveQuotas(this, core::mem::transmute(&path), core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(quotas, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4402,12 +4402,12 @@ impl IFsrmQuotaManager_Vtbl {
         unsafe extern "system" fn Scan<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpath: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Scan(core::mem::transmute(&strpath)).into()
+            IFsrmQuotaManager_Impl::Scan(this, core::mem::transmute(&strpath)).into()
         }
         unsafe extern "system" fn CreateQuotaCollection<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateQuotaCollection() {
+            match IFsrmQuotaManager_Impl::CreateQuotaCollection(this) {
                 Ok(ok__) => {
                     core::ptr::write(collection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4447,7 +4447,7 @@ impl IFsrmQuotaManagerEx_Vtbl {
         unsafe extern "system" fn IsAffectedByQuota<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaManagerEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: std::mem::MaybeUninit<windows_core::BSTR>, options: FsrmEnumOptions, affected: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsAffectedByQuota(core::mem::transmute(&path), core::mem::transmute_copy(&options)) {
+            match IFsrmQuotaManagerEx_Impl::IsAffectedByQuota(this, core::mem::transmute(&path), core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(affected, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4478,7 +4478,7 @@ impl IFsrmQuotaObject_Vtbl {
         unsafe extern "system" fn Path<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Path() {
+            match IFsrmQuotaObject_Impl::Path(this) {
                 Ok(ok__) => {
                     core::ptr::write(path, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4489,7 +4489,7 @@ impl IFsrmQuotaObject_Vtbl {
         unsafe extern "system" fn UserSid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usersid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UserSid() {
+            match IFsrmQuotaObject_Impl::UserSid(this) {
                 Ok(ok__) => {
                     core::ptr::write(usersid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4500,7 +4500,7 @@ impl IFsrmQuotaObject_Vtbl {
         unsafe extern "system" fn UserAccount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, useraccount: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UserAccount() {
+            match IFsrmQuotaObject_Impl::UserAccount(this) {
                 Ok(ok__) => {
                     core::ptr::write(useraccount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4511,7 +4511,7 @@ impl IFsrmQuotaObject_Vtbl {
         unsafe extern "system" fn SourceTemplateName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, quotatemplatename: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SourceTemplateName() {
+            match IFsrmQuotaObject_Impl::SourceTemplateName(this) {
                 Ok(ok__) => {
                     core::ptr::write(quotatemplatename, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4522,7 +4522,7 @@ impl IFsrmQuotaObject_Vtbl {
         unsafe extern "system" fn MatchesSourceTemplate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, matches: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MatchesSourceTemplate() {
+            match IFsrmQuotaObject_Impl::MatchesSourceTemplate(this) {
                 Ok(ok__) => {
                     core::ptr::write(matches, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4533,7 +4533,7 @@ impl IFsrmQuotaObject_Vtbl {
         unsafe extern "system" fn ApplyTemplate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, quotatemplatename: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ApplyTemplate(core::mem::transmute(&quotatemplatename)).into()
+            IFsrmQuotaObject_Impl::ApplyTemplate(this, core::mem::transmute(&quotatemplatename)).into()
         }
         Self {
             base__: IFsrmQuotaBase_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -4564,7 +4564,7 @@ impl IFsrmQuotaTemplate_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaTemplate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IFsrmQuotaTemplate_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(name, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4575,17 +4575,17 @@ impl IFsrmQuotaTemplate_Vtbl {
         unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaTemplate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetName(core::mem::transmute(&name)).into()
+            IFsrmQuotaTemplate_Impl::SetName(this, core::mem::transmute(&name)).into()
         }
         unsafe extern "system" fn CopyTemplate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaTemplate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, quotatemplatename: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CopyTemplate(core::mem::transmute(&quotatemplatename)).into()
+            IFsrmQuotaTemplate_Impl::CopyTemplate(this, core::mem::transmute(&quotatemplatename)).into()
         }
         unsafe extern "system" fn CommitAndUpdateDerived<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaTemplate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions, derivedobjectsresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CommitAndUpdateDerived(core::mem::transmute_copy(&commitoptions), core::mem::transmute_copy(&applyoptions)) {
+            match IFsrmQuotaTemplate_Impl::CommitAndUpdateDerived(this, core::mem::transmute_copy(&commitoptions), core::mem::transmute_copy(&applyoptions)) {
                 Ok(ok__) => {
                     core::ptr::write(derivedobjectsresult, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4618,7 +4618,7 @@ impl IFsrmQuotaTemplateImported_Vtbl {
         unsafe extern "system" fn OverwriteOnCommit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaTemplateImported_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, overwrite: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OverwriteOnCommit() {
+            match IFsrmQuotaTemplateImported_Impl::OverwriteOnCommit(this) {
                 Ok(ok__) => {
                     core::ptr::write(overwrite, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4629,7 +4629,7 @@ impl IFsrmQuotaTemplateImported_Vtbl {
         unsafe extern "system" fn SetOverwriteOnCommit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaTemplateImported_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, overwrite: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetOverwriteOnCommit(core::mem::transmute_copy(&overwrite)).into()
+            IFsrmQuotaTemplateImported_Impl::SetOverwriteOnCommit(this, core::mem::transmute_copy(&overwrite)).into()
         }
         Self {
             base__: IFsrmQuotaTemplate_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -4657,7 +4657,7 @@ impl IFsrmQuotaTemplateManager_Vtbl {
         unsafe extern "system" fn CreateTemplate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaTemplateManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, quotatemplate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateTemplate() {
+            match IFsrmQuotaTemplateManager_Impl::CreateTemplate(this) {
                 Ok(ok__) => {
                     core::ptr::write(quotatemplate, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4668,7 +4668,7 @@ impl IFsrmQuotaTemplateManager_Vtbl {
         unsafe extern "system" fn GetTemplate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaTemplateManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>, quotatemplate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetTemplate(core::mem::transmute(&name)) {
+            match IFsrmQuotaTemplateManager_Impl::GetTemplate(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
                     core::ptr::write(quotatemplate, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4679,7 +4679,7 @@ impl IFsrmQuotaTemplateManager_Vtbl {
         unsafe extern "system" fn EnumTemplates<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaTemplateManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: FsrmEnumOptions, quotatemplates: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumTemplates(core::mem::transmute_copy(&options)) {
+            match IFsrmQuotaTemplateManager_Impl::EnumTemplates(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(quotatemplates, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4690,7 +4690,7 @@ impl IFsrmQuotaTemplateManager_Vtbl {
         unsafe extern "system" fn ExportTemplates<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaTemplateManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, quotatemplatenamesarray: *const std::mem::MaybeUninit<windows_core::VARIANT>, serializedquotatemplates: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ExportTemplates(core::mem::transmute_copy(&quotatemplatenamesarray)) {
+            match IFsrmQuotaTemplateManager_Impl::ExportTemplates(this, core::mem::transmute_copy(&quotatemplatenamesarray)) {
                 Ok(ok__) => {
                     core::ptr::write(serializedquotatemplates, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4701,7 +4701,7 @@ impl IFsrmQuotaTemplateManager_Vtbl {
         unsafe extern "system" fn ImportTemplates<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmQuotaTemplateManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, serializedquotatemplates: std::mem::MaybeUninit<windows_core::BSTR>, quotatemplatenamesarray: *const std::mem::MaybeUninit<windows_core::VARIANT>, quotatemplates: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ImportTemplates(core::mem::transmute(&serializedquotatemplates), core::mem::transmute_copy(&quotatemplatenamesarray)) {
+            match IFsrmQuotaTemplateManager_Impl::ImportTemplates(this, core::mem::transmute(&serializedquotatemplates), core::mem::transmute_copy(&quotatemplatenamesarray)) {
                 Ok(ok__) => {
                     core::ptr::write(quotatemplates, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4742,7 +4742,7 @@ impl IFsrmReport_Vtbl {
         unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *mut FsrmReportType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Type() {
+            match IFsrmReport_Impl::Type(this) {
                 Ok(ok__) => {
                     core::ptr::write(reporttype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4753,7 +4753,7 @@ impl IFsrmReport_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IFsrmReport_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(name, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4764,12 +4764,12 @@ impl IFsrmReport_Vtbl {
         unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetName(core::mem::transmute(&name)).into()
+            IFsrmReport_Impl::SetName(this, core::mem::transmute(&name)).into()
         }
         unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Description() {
+            match IFsrmReport_Impl::Description(this) {
                 Ok(ok__) => {
                     core::ptr::write(description, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4780,12 +4780,12 @@ impl IFsrmReport_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDescription(core::mem::transmute(&description)).into()
+            IFsrmReport_Impl::SetDescription(this, core::mem::transmute(&description)).into()
         }
         unsafe extern "system" fn LastGeneratedFileNamePrefix<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prefix: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LastGeneratedFileNamePrefix() {
+            match IFsrmReport_Impl::LastGeneratedFileNamePrefix(this) {
                 Ok(ok__) => {
                     core::ptr::write(prefix, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4796,7 +4796,7 @@ impl IFsrmReport_Vtbl {
         unsafe extern "system" fn GetFilter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filter: FsrmReportFilter, filtervalue: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFilter(core::mem::transmute_copy(&filter)) {
+            match IFsrmReport_Impl::GetFilter(this, core::mem::transmute_copy(&filter)) {
                 Ok(ok__) => {
                     core::ptr::write(filtervalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4807,12 +4807,12 @@ impl IFsrmReport_Vtbl {
         unsafe extern "system" fn SetFilter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filter: FsrmReportFilter, filtervalue: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFilter(core::mem::transmute_copy(&filter), core::mem::transmute(&filtervalue)).into()
+            IFsrmReport_Impl::SetFilter(this, core::mem::transmute_copy(&filter), core::mem::transmute(&filtervalue)).into()
         }
         unsafe extern "system" fn Delete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Delete().into()
+            IFsrmReport_Impl::Delete(this).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -4859,7 +4859,7 @@ impl IFsrmReportJob_Vtbl {
         unsafe extern "system" fn Task<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, taskname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Task() {
+            match IFsrmReportJob_Impl::Task(this) {
                 Ok(ok__) => {
                     core::ptr::write(taskname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4870,12 +4870,12 @@ impl IFsrmReportJob_Vtbl {
         unsafe extern "system" fn SetTask<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, taskname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTask(core::mem::transmute(&taskname)).into()
+            IFsrmReportJob_Impl::SetTask(this, core::mem::transmute(&taskname)).into()
         }
         unsafe extern "system" fn NamespaceRoots<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceroots: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.NamespaceRoots() {
+            match IFsrmReportJob_Impl::NamespaceRoots(this) {
                 Ok(ok__) => {
                     core::ptr::write(namespaceroots, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4886,12 +4886,12 @@ impl IFsrmReportJob_Vtbl {
         unsafe extern "system" fn SetNamespaceRoots<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceroots: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetNamespaceRoots(core::mem::transmute_copy(&namespaceroots)).into()
+            IFsrmReportJob_Impl::SetNamespaceRoots(this, core::mem::transmute_copy(&namespaceroots)).into()
         }
         unsafe extern "system" fn Formats<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, formats: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Formats() {
+            match IFsrmReportJob_Impl::Formats(this) {
                 Ok(ok__) => {
                     core::ptr::write(formats, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4902,12 +4902,12 @@ impl IFsrmReportJob_Vtbl {
         unsafe extern "system" fn SetFormats<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, formats: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFormats(core::mem::transmute_copy(&formats)).into()
+            IFsrmReportJob_Impl::SetFormats(this, core::mem::transmute_copy(&formats)).into()
         }
         unsafe extern "system" fn MailTo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailto: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MailTo() {
+            match IFsrmReportJob_Impl::MailTo(this) {
                 Ok(ok__) => {
                     core::ptr::write(mailto, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4918,12 +4918,12 @@ impl IFsrmReportJob_Vtbl {
         unsafe extern "system" fn SetMailTo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailto: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMailTo(core::mem::transmute(&mailto)).into()
+            IFsrmReportJob_Impl::SetMailTo(this, core::mem::transmute(&mailto)).into()
         }
         unsafe extern "system" fn RunningStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, runningstatus: *mut FsrmReportRunningStatus) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RunningStatus() {
+            match IFsrmReportJob_Impl::RunningStatus(this) {
                 Ok(ok__) => {
                     core::ptr::write(runningstatus, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4934,7 +4934,7 @@ impl IFsrmReportJob_Vtbl {
         unsafe extern "system" fn LastRun<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lastrun: *mut f64) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LastRun() {
+            match IFsrmReportJob_Impl::LastRun(this) {
                 Ok(ok__) => {
                     core::ptr::write(lastrun, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4945,7 +4945,7 @@ impl IFsrmReportJob_Vtbl {
         unsafe extern "system" fn LastError<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lasterror: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LastError() {
+            match IFsrmReportJob_Impl::LastError(this) {
                 Ok(ok__) => {
                     core::ptr::write(lasterror, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4956,7 +4956,7 @@ impl IFsrmReportJob_Vtbl {
         unsafe extern "system" fn LastGeneratedInDirectory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LastGeneratedInDirectory() {
+            match IFsrmReportJob_Impl::LastGeneratedInDirectory(this) {
                 Ok(ok__) => {
                     core::ptr::write(path, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4967,7 +4967,7 @@ impl IFsrmReportJob_Vtbl {
         unsafe extern "system" fn EnumReports<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reports: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumReports() {
+            match IFsrmReportJob_Impl::EnumReports(this) {
                 Ok(ok__) => {
                     core::ptr::write(reports, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4978,7 +4978,7 @@ impl IFsrmReportJob_Vtbl {
         unsafe extern "system" fn CreateReport<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: FsrmReportType, report: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateReport(core::mem::transmute_copy(&reporttype)) {
+            match IFsrmReportJob_Impl::CreateReport(this, core::mem::transmute_copy(&reporttype)) {
                 Ok(ok__) => {
                     core::ptr::write(report, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4989,12 +4989,12 @@ impl IFsrmReportJob_Vtbl {
         unsafe extern "system" fn Run<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: FsrmReportGenerationContext) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Run(core::mem::transmute_copy(&context)).into()
+            IFsrmReportJob_Impl::Run(this, core::mem::transmute_copy(&context)).into()
         }
         unsafe extern "system" fn WaitForCompletion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, waitseconds: i32, completed: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.WaitForCompletion(core::mem::transmute_copy(&waitseconds)) {
+            match IFsrmReportJob_Impl::WaitForCompletion(this, core::mem::transmute_copy(&waitseconds)) {
                 Ok(ok__) => {
                     core::ptr::write(completed, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5005,7 +5005,7 @@ impl IFsrmReportJob_Vtbl {
         unsafe extern "system" fn Cancel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Cancel().into()
+            IFsrmReportJob_Impl::Cancel(this).into()
         }
         Self {
             base__: IFsrmObject_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -5053,7 +5053,7 @@ impl IFsrmReportManager_Vtbl {
         unsafe extern "system" fn EnumReportJobs<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: FsrmEnumOptions, reportjobs: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnumReportJobs(core::mem::transmute_copy(&options)) {
+            match IFsrmReportManager_Impl::EnumReportJobs(this, core::mem::transmute_copy(&options)) {
                 Ok(ok__) => {
                     core::ptr::write(reportjobs, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5064,7 +5064,7 @@ impl IFsrmReportManager_Vtbl {
         unsafe extern "system" fn CreateReportJob<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reportjob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateReportJob() {
+            match IFsrmReportManager_Impl::CreateReportJob(this) {
                 Ok(ok__) => {
                     core::ptr::write(reportjob, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5075,7 +5075,7 @@ impl IFsrmReportManager_Vtbl {
         unsafe extern "system" fn GetReportJob<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, taskname: std::mem::MaybeUninit<windows_core::BSTR>, reportjob: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetReportJob(core::mem::transmute(&taskname)) {
+            match IFsrmReportManager_Impl::GetReportJob(this, core::mem::transmute(&taskname)) {
                 Ok(ok__) => {
                     core::ptr::write(reportjob, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5086,7 +5086,7 @@ impl IFsrmReportManager_Vtbl {
         unsafe extern "system" fn GetOutputDirectory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: FsrmReportGenerationContext, path: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetOutputDirectory(core::mem::transmute_copy(&context)) {
+            match IFsrmReportManager_Impl::GetOutputDirectory(this, core::mem::transmute_copy(&context)) {
                 Ok(ok__) => {
                     core::ptr::write(path, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5097,12 +5097,12 @@ impl IFsrmReportManager_Vtbl {
         unsafe extern "system" fn SetOutputDirectory<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: FsrmReportGenerationContext, path: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetOutputDirectory(core::mem::transmute_copy(&context), core::mem::transmute(&path)).into()
+            IFsrmReportManager_Impl::SetOutputDirectory(this, core::mem::transmute_copy(&context), core::mem::transmute(&path)).into()
         }
         unsafe extern "system" fn IsFilterValidForReportType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: FsrmReportType, filter: FsrmReportFilter, valid: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsFilterValidForReportType(core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&filter)) {
+            match IFsrmReportManager_Impl::IsFilterValidForReportType(this, core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&filter)) {
                 Ok(ok__) => {
                     core::ptr::write(valid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5113,7 +5113,7 @@ impl IFsrmReportManager_Vtbl {
         unsafe extern "system" fn GetDefaultFilter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: FsrmReportType, filter: FsrmReportFilter, filtervalue: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDefaultFilter(core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&filter)) {
+            match IFsrmReportManager_Impl::GetDefaultFilter(this, core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&filter)) {
                 Ok(ok__) => {
                     core::ptr::write(filtervalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5124,12 +5124,12 @@ impl IFsrmReportManager_Vtbl {
         unsafe extern "system" fn SetDefaultFilter<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: FsrmReportType, filter: FsrmReportFilter, filtervalue: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDefaultFilter(core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&filter), core::mem::transmute(&filtervalue)).into()
+            IFsrmReportManager_Impl::SetDefaultFilter(this, core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&filter), core::mem::transmute(&filtervalue)).into()
         }
         unsafe extern "system" fn GetReportSizeLimit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, limit: FsrmReportLimit, limitvalue: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetReportSizeLimit(core::mem::transmute_copy(&limit)) {
+            match IFsrmReportManager_Impl::GetReportSizeLimit(this, core::mem::transmute_copy(&limit)) {
                 Ok(ok__) => {
                     core::ptr::write(limitvalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5140,7 +5140,7 @@ impl IFsrmReportManager_Vtbl {
         unsafe extern "system" fn SetReportSizeLimit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, limit: FsrmReportLimit, limitvalue: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetReportSizeLimit(core::mem::transmute_copy(&limit), core::mem::transmute(&limitvalue)).into()
+            IFsrmReportManager_Impl::SetReportSizeLimit(this, core::mem::transmute_copy(&limit), core::mem::transmute(&limitvalue)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -5175,22 +5175,22 @@ impl IFsrmReportScheduler_Vtbl {
         unsafe extern "system" fn VerifyNamespaces<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportScheduler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespacessafearray: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.VerifyNamespaces(core::mem::transmute_copy(&namespacessafearray)).into()
+            IFsrmReportScheduler_Impl::VerifyNamespaces(this, core::mem::transmute_copy(&namespacessafearray)).into()
         }
         unsafe extern "system" fn CreateScheduleTask<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportScheduler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, taskname: std::mem::MaybeUninit<windows_core::BSTR>, namespacessafearray: *const std::mem::MaybeUninit<windows_core::VARIANT>, serializedtask: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateScheduleTask(core::mem::transmute(&taskname), core::mem::transmute_copy(&namespacessafearray), core::mem::transmute(&serializedtask)).into()
+            IFsrmReportScheduler_Impl::CreateScheduleTask(this, core::mem::transmute(&taskname), core::mem::transmute_copy(&namespacessafearray), core::mem::transmute(&serializedtask)).into()
         }
         unsafe extern "system" fn ModifyScheduleTask<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportScheduler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, taskname: std::mem::MaybeUninit<windows_core::BSTR>, namespacessafearray: *const std::mem::MaybeUninit<windows_core::VARIANT>, serializedtask: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ModifyScheduleTask(core::mem::transmute(&taskname), core::mem::transmute_copy(&namespacessafearray), core::mem::transmute(&serializedtask)).into()
+            IFsrmReportScheduler_Impl::ModifyScheduleTask(this, core::mem::transmute(&taskname), core::mem::transmute_copy(&namespacessafearray), core::mem::transmute(&serializedtask)).into()
         }
         unsafe extern "system" fn DeleteScheduleTask<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmReportScheduler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, taskname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteScheduleTask(core::mem::transmute(&taskname)).into()
+            IFsrmReportScheduler_Impl::DeleteScheduleTask(this, core::mem::transmute(&taskname)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -5227,7 +5227,7 @@ impl IFsrmRule_Vtbl {
         unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Name() {
+            match IFsrmRule_Impl::Name(this) {
                 Ok(ok__) => {
                     core::ptr::write(name, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5238,12 +5238,12 @@ impl IFsrmRule_Vtbl {
         unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetName(core::mem::transmute(&name)).into()
+            IFsrmRule_Impl::SetName(this, core::mem::transmute(&name)).into()
         }
         unsafe extern "system" fn RuleType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ruletype: *mut FsrmRuleType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RuleType() {
+            match IFsrmRule_Impl::RuleType(this) {
                 Ok(ok__) => {
                     core::ptr::write(ruletype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5254,7 +5254,7 @@ impl IFsrmRule_Vtbl {
         unsafe extern "system" fn ModuleDefinitionName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduledefinitionname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ModuleDefinitionName() {
+            match IFsrmRule_Impl::ModuleDefinitionName(this) {
                 Ok(ok__) => {
                     core::ptr::write(moduledefinitionname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5265,12 +5265,12 @@ impl IFsrmRule_Vtbl {
         unsafe extern "system" fn SetModuleDefinitionName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduledefinitionname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetModuleDefinitionName(core::mem::transmute(&moduledefinitionname)).into()
+            IFsrmRule_Impl::SetModuleDefinitionName(this, core::mem::transmute(&moduledefinitionname)).into()
         }
         unsafe extern "system" fn NamespaceRoots<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceroots: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.NamespaceRoots() {
+            match IFsrmRule_Impl::NamespaceRoots(this) {
                 Ok(ok__) => {
                     core::ptr::write(namespaceroots, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5281,12 +5281,12 @@ impl IFsrmRule_Vtbl {
         unsafe extern "system" fn SetNamespaceRoots<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceroots: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetNamespaceRoots(core::mem::transmute_copy(&namespaceroots)).into()
+            IFsrmRule_Impl::SetNamespaceRoots(this, core::mem::transmute_copy(&namespaceroots)).into()
         }
         unsafe extern "system" fn RuleFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ruleflags: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RuleFlags() {
+            match IFsrmRule_Impl::RuleFlags(this) {
                 Ok(ok__) => {
                     core::ptr::write(ruleflags, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5297,12 +5297,12 @@ impl IFsrmRule_Vtbl {
         unsafe extern "system" fn SetRuleFlags<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ruleflags: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRuleFlags(core::mem::transmute_copy(&ruleflags)).into()
+            IFsrmRule_Impl::SetRuleFlags(this, core::mem::transmute_copy(&ruleflags)).into()
         }
         unsafe extern "system" fn Parameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parameters: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Parameters() {
+            match IFsrmRule_Impl::Parameters(this) {
                 Ok(ok__) => {
                     core::ptr::write(parameters, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5313,12 +5313,12 @@ impl IFsrmRule_Vtbl {
         unsafe extern "system" fn SetParameters<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parameters: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetParameters(core::mem::transmute_copy(&parameters)).into()
+            IFsrmRule_Impl::SetParameters(this, core::mem::transmute_copy(&parameters)).into()
         }
         unsafe extern "system" fn LastModified<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmRule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lastmodified: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LastModified() {
+            match IFsrmRule_Impl::LastModified(this) {
                 Ok(ok__) => {
                     core::ptr::write(lastmodified, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5370,7 +5370,7 @@ impl IFsrmSetting_Vtbl {
         unsafe extern "system" fn SmtpServer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, smtpserver: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SmtpServer() {
+            match IFsrmSetting_Impl::SmtpServer(this) {
                 Ok(ok__) => {
                     core::ptr::write(smtpserver, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5381,12 +5381,12 @@ impl IFsrmSetting_Vtbl {
         unsafe extern "system" fn SetSmtpServer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, smtpserver: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSmtpServer(core::mem::transmute(&smtpserver)).into()
+            IFsrmSetting_Impl::SetSmtpServer(this, core::mem::transmute(&smtpserver)).into()
         }
         unsafe extern "system" fn MailFrom<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailfrom: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MailFrom() {
+            match IFsrmSetting_Impl::MailFrom(this) {
                 Ok(ok__) => {
                     core::ptr::write(mailfrom, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5397,12 +5397,12 @@ impl IFsrmSetting_Vtbl {
         unsafe extern "system" fn SetMailFrom<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailfrom: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMailFrom(core::mem::transmute(&mailfrom)).into()
+            IFsrmSetting_Impl::SetMailFrom(this, core::mem::transmute(&mailfrom)).into()
         }
         unsafe extern "system" fn AdminEmail<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adminemail: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AdminEmail() {
+            match IFsrmSetting_Impl::AdminEmail(this) {
                 Ok(ok__) => {
                     core::ptr::write(adminemail, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5413,12 +5413,12 @@ impl IFsrmSetting_Vtbl {
         unsafe extern "system" fn SetAdminEmail<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adminemail: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAdminEmail(core::mem::transmute(&adminemail)).into()
+            IFsrmSetting_Impl::SetAdminEmail(this, core::mem::transmute(&adminemail)).into()
         }
         unsafe extern "system" fn DisableCommandLine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, disablecommandline: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DisableCommandLine() {
+            match IFsrmSetting_Impl::DisableCommandLine(this) {
                 Ok(ok__) => {
                     core::ptr::write(disablecommandline, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5429,12 +5429,12 @@ impl IFsrmSetting_Vtbl {
         unsafe extern "system" fn SetDisableCommandLine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, disablecommandline: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDisableCommandLine(core::mem::transmute_copy(&disablecommandline)).into()
+            IFsrmSetting_Impl::SetDisableCommandLine(this, core::mem::transmute_copy(&disablecommandline)).into()
         }
         unsafe extern "system" fn EnableScreeningAudit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enablescreeningaudit: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EnableScreeningAudit() {
+            match IFsrmSetting_Impl::EnableScreeningAudit(this) {
                 Ok(ok__) => {
                     core::ptr::write(enablescreeningaudit, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5445,22 +5445,22 @@ impl IFsrmSetting_Vtbl {
         unsafe extern "system" fn SetEnableScreeningAudit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enablescreeningaudit: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEnableScreeningAudit(core::mem::transmute_copy(&enablescreeningaudit)).into()
+            IFsrmSetting_Impl::SetEnableScreeningAudit(this, core::mem::transmute_copy(&enablescreeningaudit)).into()
         }
         unsafe extern "system" fn EmailTest<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mailto: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EmailTest(core::mem::transmute(&mailto)).into()
+            IFsrmSetting_Impl::EmailTest(this, core::mem::transmute(&mailto)).into()
         }
         unsafe extern "system" fn SetActionRunLimitInterval<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, actiontype: FsrmActionType, delaytimeminutes: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetActionRunLimitInterval(core::mem::transmute_copy(&actiontype), core::mem::transmute_copy(&delaytimeminutes)).into()
+            IFsrmSetting_Impl::SetActionRunLimitInterval(this, core::mem::transmute_copy(&actiontype), core::mem::transmute_copy(&delaytimeminutes)).into()
         }
         unsafe extern "system" fn GetActionRunLimitInterval<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmSetting_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, actiontype: FsrmActionType, delaytimeminutes: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetActionRunLimitInterval(core::mem::transmute_copy(&actiontype)) {
+            match IFsrmSetting_Impl::GetActionRunLimitInterval(this, core::mem::transmute_copy(&actiontype)) {
                 Ok(ok__) => {
                     core::ptr::write(delaytimeminutes, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5506,7 +5506,7 @@ impl IFsrmStorageModuleDefinition_Vtbl {
         unsafe extern "system" fn Capabilities<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmStorageModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, capabilities: *mut FsrmStorageModuleCaps) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Capabilities() {
+            match IFsrmStorageModuleDefinition_Impl::Capabilities(this) {
                 Ok(ok__) => {
                     core::ptr::write(capabilities, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5517,12 +5517,12 @@ impl IFsrmStorageModuleDefinition_Vtbl {
         unsafe extern "system" fn SetCapabilities<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmStorageModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, capabilities: FsrmStorageModuleCaps) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCapabilities(core::mem::transmute_copy(&capabilities)).into()
+            IFsrmStorageModuleDefinition_Impl::SetCapabilities(this, core::mem::transmute_copy(&capabilities)).into()
         }
         unsafe extern "system" fn StorageType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmStorageModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storagetype: *mut FsrmStorageModuleType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.StorageType() {
+            match IFsrmStorageModuleDefinition_Impl::StorageType(this) {
                 Ok(ok__) => {
                     core::ptr::write(storagetype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5533,12 +5533,12 @@ impl IFsrmStorageModuleDefinition_Vtbl {
         unsafe extern "system" fn SetStorageType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmStorageModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storagetype: FsrmStorageModuleType) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetStorageType(core::mem::transmute_copy(&storagetype)).into()
+            IFsrmStorageModuleDefinition_Impl::SetStorageType(this, core::mem::transmute_copy(&storagetype)).into()
         }
         unsafe extern "system" fn UpdatesFileContent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmStorageModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, updatesfilecontent: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UpdatesFileContent() {
+            match IFsrmStorageModuleDefinition_Impl::UpdatesFileContent(this) {
                 Ok(ok__) => {
                     core::ptr::write(updatesfilecontent, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5549,7 +5549,7 @@ impl IFsrmStorageModuleDefinition_Vtbl {
         unsafe extern "system" fn SetUpdatesFileContent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmStorageModuleDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, updatesfilecontent: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetUpdatesFileContent(core::mem::transmute_copy(&updatesfilecontent)).into()
+            IFsrmStorageModuleDefinition_Impl::SetUpdatesFileContent(this, core::mem::transmute_copy(&updatesfilecontent)).into()
         }
         Self {
             base__: IFsrmPipelineModuleDefinition_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -5579,17 +5579,17 @@ impl IFsrmStorageModuleImplementation_Vtbl {
         unsafe extern "system" fn UseDefinitions<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmStorageModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertydefinitions: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.UseDefinitions(windows_core::from_raw_borrowed(&propertydefinitions)).into()
+            IFsrmStorageModuleImplementation_Impl::UseDefinitions(this, windows_core::from_raw_borrowed(&propertydefinitions)).into()
         }
         unsafe extern "system" fn LoadProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmStorageModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertybag: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.LoadProperties(windows_core::from_raw_borrowed(&propertybag)).into()
+            IFsrmStorageModuleImplementation_Impl::LoadProperties(this, windows_core::from_raw_borrowed(&propertybag)).into()
         }
         unsafe extern "system" fn SaveProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFsrmStorageModuleImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertybag: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SaveProperties(windows_core::from_raw_borrowed(&propertybag)).into()
+            IFsrmStorageModuleImplementation_Impl::SaveProperties(this, windows_core::from_raw_borrowed(&propertybag)).into()
         }
         Self {
             base__: IFsrmPipelineModuleImplementation_Vtbl::new::<Identity, Impl, OFFSET>(),

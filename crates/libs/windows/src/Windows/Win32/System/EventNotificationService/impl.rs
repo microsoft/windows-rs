@@ -16,37 +16,37 @@ impl ISensLogon_Vtbl {
         unsafe extern "system" fn Logon<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISensLogon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Logon(core::mem::transmute(&bstrusername)).into()
+            ISensLogon_Impl::Logon(this, core::mem::transmute(&bstrusername)).into()
         }
         unsafe extern "system" fn Logoff<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISensLogon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Logoff(core::mem::transmute(&bstrusername)).into()
+            ISensLogon_Impl::Logoff(this, core::mem::transmute(&bstrusername)).into()
         }
         unsafe extern "system" fn StartShell<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISensLogon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.StartShell(core::mem::transmute(&bstrusername)).into()
+            ISensLogon_Impl::StartShell(this, core::mem::transmute(&bstrusername)).into()
         }
         unsafe extern "system" fn DisplayLock<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISensLogon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DisplayLock(core::mem::transmute(&bstrusername)).into()
+            ISensLogon_Impl::DisplayLock(this, core::mem::transmute(&bstrusername)).into()
         }
         unsafe extern "system" fn DisplayUnlock<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISensLogon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DisplayUnlock(core::mem::transmute(&bstrusername)).into()
+            ISensLogon_Impl::DisplayUnlock(this, core::mem::transmute(&bstrusername)).into()
         }
         unsafe extern "system" fn StartScreenSaver<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISensLogon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.StartScreenSaver(core::mem::transmute(&bstrusername)).into()
+            ISensLogon_Impl::StartScreenSaver(this, core::mem::transmute(&bstrusername)).into()
         }
         unsafe extern "system" fn StopScreenSaver<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISensLogon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.StopScreenSaver(core::mem::transmute(&bstrusername)).into()
+            ISensLogon_Impl::StopScreenSaver(this, core::mem::transmute(&bstrusername)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -79,27 +79,27 @@ impl ISensLogon2_Vtbl {
         unsafe extern "system" fn Logon<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISensLogon2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: std::mem::MaybeUninit<windows_core::BSTR>, dwsessionid: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Logon(core::mem::transmute(&bstrusername), core::mem::transmute_copy(&dwsessionid)).into()
+            ISensLogon2_Impl::Logon(this, core::mem::transmute(&bstrusername), core::mem::transmute_copy(&dwsessionid)).into()
         }
         unsafe extern "system" fn Logoff<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISensLogon2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: std::mem::MaybeUninit<windows_core::BSTR>, dwsessionid: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Logoff(core::mem::transmute(&bstrusername), core::mem::transmute_copy(&dwsessionid)).into()
+            ISensLogon2_Impl::Logoff(this, core::mem::transmute(&bstrusername), core::mem::transmute_copy(&dwsessionid)).into()
         }
         unsafe extern "system" fn SessionDisconnect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISensLogon2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: std::mem::MaybeUninit<windows_core::BSTR>, dwsessionid: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SessionDisconnect(core::mem::transmute(&bstrusername), core::mem::transmute_copy(&dwsessionid)).into()
+            ISensLogon2_Impl::SessionDisconnect(this, core::mem::transmute(&bstrusername), core::mem::transmute_copy(&dwsessionid)).into()
         }
         unsafe extern "system" fn SessionReconnect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISensLogon2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: std::mem::MaybeUninit<windows_core::BSTR>, dwsessionid: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SessionReconnect(core::mem::transmute(&bstrusername), core::mem::transmute_copy(&dwsessionid)).into()
+            ISensLogon2_Impl::SessionReconnect(this, core::mem::transmute(&bstrusername), core::mem::transmute_copy(&dwsessionid)).into()
         }
         unsafe extern "system" fn PostShell<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISensLogon2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: std::mem::MaybeUninit<windows_core::BSTR>, dwsessionid: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PostShell(core::mem::transmute(&bstrusername), core::mem::transmute_copy(&dwsessionid)).into()
+            ISensLogon2_Impl::PostShell(this, core::mem::transmute(&bstrusername), core::mem::transmute_copy(&dwsessionid)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -130,27 +130,27 @@ impl ISensNetwork_Vtbl {
         unsafe extern "system" fn ConnectionMade<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISensNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrconnection: std::mem::MaybeUninit<windows_core::BSTR>, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ConnectionMade(core::mem::transmute(&bstrconnection), core::mem::transmute_copy(&ultype), core::mem::transmute_copy(&lpqocinfo)).into()
+            ISensNetwork_Impl::ConnectionMade(this, core::mem::transmute(&bstrconnection), core::mem::transmute_copy(&ultype), core::mem::transmute_copy(&lpqocinfo)).into()
         }
         unsafe extern "system" fn ConnectionMadeNoQOCInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISensNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrconnection: std::mem::MaybeUninit<windows_core::BSTR>, ultype: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ConnectionMadeNoQOCInfo(core::mem::transmute(&bstrconnection), core::mem::transmute_copy(&ultype)).into()
+            ISensNetwork_Impl::ConnectionMadeNoQOCInfo(this, core::mem::transmute(&bstrconnection), core::mem::transmute_copy(&ultype)).into()
         }
         unsafe extern "system" fn ConnectionLost<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISensNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrconnection: std::mem::MaybeUninit<windows_core::BSTR>, ultype: SENS_CONNECTION_TYPE) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ConnectionLost(core::mem::transmute(&bstrconnection), core::mem::transmute_copy(&ultype)).into()
+            ISensNetwork_Impl::ConnectionLost(this, core::mem::transmute(&bstrconnection), core::mem::transmute_copy(&ultype)).into()
         }
         unsafe extern "system" fn DestinationReachable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISensNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdestination: std::mem::MaybeUninit<windows_core::BSTR>, bstrconnection: std::mem::MaybeUninit<windows_core::BSTR>, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DestinationReachable(core::mem::transmute(&bstrdestination), core::mem::transmute(&bstrconnection), core::mem::transmute_copy(&ultype), core::mem::transmute_copy(&lpqocinfo)).into()
+            ISensNetwork_Impl::DestinationReachable(this, core::mem::transmute(&bstrdestination), core::mem::transmute(&bstrconnection), core::mem::transmute_copy(&ultype), core::mem::transmute_copy(&lpqocinfo)).into()
         }
         unsafe extern "system" fn DestinationReachableNoQOCInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISensNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdestination: std::mem::MaybeUninit<windows_core::BSTR>, bstrconnection: std::mem::MaybeUninit<windows_core::BSTR>, ultype: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DestinationReachableNoQOCInfo(core::mem::transmute(&bstrdestination), core::mem::transmute(&bstrconnection), core::mem::transmute_copy(&ultype)).into()
+            ISensNetwork_Impl::DestinationReachableNoQOCInfo(this, core::mem::transmute(&bstrdestination), core::mem::transmute(&bstrconnection), core::mem::transmute_copy(&ultype)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -179,17 +179,17 @@ impl ISensOnNow_Vtbl {
         unsafe extern "system" fn OnACPower<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISensOnNow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnACPower().into()
+            ISensOnNow_Impl::OnACPower(this).into()
         }
         unsafe extern "system" fn OnBatteryPower<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISensOnNow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwbatterylifepercent: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnBatteryPower(core::mem::transmute_copy(&dwbatterylifepercent)).into()
+            ISensOnNow_Impl::OnBatteryPower(this, core::mem::transmute_copy(&dwbatterylifepercent)).into()
         }
         unsafe extern "system" fn BatteryLow<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ISensOnNow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwbatterylifepercent: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.BatteryLow(core::mem::transmute_copy(&dwbatterylifepercent)).into()
+            ISensOnNow_Impl::BatteryLow(this, core::mem::transmute_copy(&dwbatterylifepercent)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),

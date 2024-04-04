@@ -11,6 +11,12 @@ pub unsafe fn WinMLCreateRuntime() -> windows_core::Result<IWinMLRuntime> {
     WinMLCreateRuntime(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 windows_core::imp::define_interface!(IMLOperatorAttributes, IMLOperatorAttributes_Vtbl, 0x4b1b1759_ec40_466c_aab4_beb5347fd24c);
+impl std::ops::Deref for IMLOperatorAttributes {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMLOperatorAttributes, windows_core::IUnknown);
 impl IMLOperatorAttributes {
     pub unsafe fn GetAttributeElementCount<P0>(&self, name: P0, r#type: MLOperatorAttributeType) -> windows_core::Result<u32>
@@ -49,6 +55,12 @@ pub struct IMLOperatorAttributes_Vtbl {
     pub GetStringAttributeElement: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, u32, windows_core::PSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMLOperatorKernel, IMLOperatorKernel_Vtbl, 0x11c4b4a0_b467_4eaa_a1a6_b961d8d0ed79);
+impl std::ops::Deref for IMLOperatorKernel {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMLOperatorKernel, windows_core::IUnknown);
 impl IMLOperatorKernel {
     pub unsafe fn Compute<P0>(&self, context: P0) -> windows_core::Result<()>
@@ -64,6 +76,12 @@ pub struct IMLOperatorKernel_Vtbl {
     pub Compute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMLOperatorKernelContext, IMLOperatorKernelContext_Vtbl, 0x82536a28_f022_4769_9d3f_8b278f84c0c3);
+impl std::ops::Deref for IMLOperatorKernelContext {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMLOperatorKernelContext, windows_core::IUnknown);
 impl IMLOperatorKernelContext {
     pub unsafe fn GetInputTensor(&self, inputindex: u32) -> windows_core::Result<IMLOperatorTensor> {
@@ -98,34 +116,14 @@ pub struct IMLOperatorKernelContext_Vtbl {
     pub GetExecutionInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(IMLOperatorKernelCreationContext, IMLOperatorKernelCreationContext_Vtbl, 0x5459b53d_a0fc_4665_addd_70171ef7e631);
+impl std::ops::Deref for IMLOperatorKernelCreationContext {
+    type Target = IMLOperatorAttributes;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMLOperatorKernelCreationContext, windows_core::IUnknown, IMLOperatorAttributes);
 impl IMLOperatorKernelCreationContext {
-    pub unsafe fn GetAttributeElementCount<P0>(&self, name: P0, r#type: MLOperatorAttributeType) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::PCSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetAttributeElementCount)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetAttribute<P0>(&self, name: P0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut core::ffi::c_void) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.GetAttribute)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, elementcount, elementbytesize, value).ok()
-    }
-    pub unsafe fn GetStringAttributeElementLength<P0>(&self, name: P0, elementindex: u32) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::PCSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetStringAttributeElementLength)(windows_core::Interface::as_raw(self), name.param().abi(), elementindex, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetStringAttributeElement<P0>(&self, name: P0, elementindex: u32, attributeelement: &mut [u8]) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.GetStringAttributeElement)(windows_core::Interface::as_raw(self), name.param().abi(), elementindex, attributeelement.len().try_into().unwrap(), core::mem::transmute(attributeelement.as_ptr())).ok()
-    }
     pub unsafe fn GetInputCount(&self) -> u32 {
         (windows_core::Interface::vtable(self).GetInputCount)(windows_core::Interface::as_raw(self))
     }
@@ -173,6 +171,12 @@ pub struct IMLOperatorKernelCreationContext_Vtbl {
     pub GetExecutionInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(IMLOperatorKernelFactory, IMLOperatorKernelFactory_Vtbl, 0xef15ad6f_0dc9_4908_ab35_a575a30dfbf8);
+impl std::ops::Deref for IMLOperatorKernelFactory {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMLOperatorKernelFactory, windows_core::IUnknown);
 impl IMLOperatorKernelFactory {
     pub unsafe fn CreateKernel<P0>(&self, context: P0) -> windows_core::Result<IMLOperatorKernel>
@@ -189,6 +193,12 @@ pub struct IMLOperatorKernelFactory_Vtbl {
     pub CreateKernel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMLOperatorRegistry, IMLOperatorRegistry_Vtbl, 0x2af9dd2d_b516_4672_9ab5_530c208493ad);
+impl std::ops::Deref for IMLOperatorRegistry {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMLOperatorRegistry, windows_core::IUnknown);
 impl IMLOperatorRegistry {
     pub unsafe fn RegisterOperatorSetSchema<P0, P1>(&self, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: Option<&[*const MLOperatorSchemaDescription]>, typeinferrer: P0, shapeinferrer: P1) -> windows_core::Result<()>
@@ -213,34 +223,14 @@ pub struct IMLOperatorRegistry_Vtbl {
     pub RegisterOperatorKernel: unsafe extern "system" fn(*mut core::ffi::c_void, *const MLOperatorKernelDescription, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMLOperatorShapeInferenceContext, IMLOperatorShapeInferenceContext_Vtbl, 0x105b6b29_5408_4a68_9959_09b5955a3492);
+impl std::ops::Deref for IMLOperatorShapeInferenceContext {
+    type Target = IMLOperatorAttributes;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMLOperatorShapeInferenceContext, windows_core::IUnknown, IMLOperatorAttributes);
 impl IMLOperatorShapeInferenceContext {
-    pub unsafe fn GetAttributeElementCount<P0>(&self, name: P0, r#type: MLOperatorAttributeType) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::PCSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetAttributeElementCount)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetAttribute<P0>(&self, name: P0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut core::ffi::c_void) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.GetAttribute)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, elementcount, elementbytesize, value).ok()
-    }
-    pub unsafe fn GetStringAttributeElementLength<P0>(&self, name: P0, elementindex: u32) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::PCSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetStringAttributeElementLength)(windows_core::Interface::as_raw(self), name.param().abi(), elementindex, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetStringAttributeElement<P0>(&self, name: P0, elementindex: u32, attributeelement: &mut [u8]) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.GetStringAttributeElement)(windows_core::Interface::as_raw(self), name.param().abi(), elementindex, attributeelement.len().try_into().unwrap(), core::mem::transmute(attributeelement.as_ptr())).ok()
-    }
     pub unsafe fn GetInputCount(&self) -> u32 {
         (windows_core::Interface::vtable(self).GetInputCount)(windows_core::Interface::as_raw(self))
     }
@@ -281,6 +271,12 @@ pub struct IMLOperatorShapeInferenceContext_Vtbl {
     pub SetOutputTensorShape: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMLOperatorShapeInferrer, IMLOperatorShapeInferrer_Vtbl, 0x540be5be_a6c9_40ee_83f6_d2b8b40a7798);
+impl std::ops::Deref for IMLOperatorShapeInferrer {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMLOperatorShapeInferrer, windows_core::IUnknown);
 impl IMLOperatorShapeInferrer {
     pub unsafe fn InferOutputShapes<P0>(&self, context: P0) -> windows_core::Result<()>
@@ -296,6 +292,12 @@ pub struct IMLOperatorShapeInferrer_Vtbl {
     pub InferOutputShapes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMLOperatorTensor, IMLOperatorTensor_Vtbl, 0x7fe41f41_f430_440e_aece_54416dc8b9db);
+impl std::ops::Deref for IMLOperatorTensor {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMLOperatorTensor, windows_core::IUnknown);
 impl IMLOperatorTensor {
     pub unsafe fn GetDimensionCount(&self) -> u32 {
@@ -334,6 +336,12 @@ pub struct IMLOperatorTensor_Vtbl {
     pub GetDataInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(IMLOperatorTensorShapeDescription, IMLOperatorTensorShapeDescription_Vtbl, 0xf20e8cbe_3b28_4248_be95_f96fbc6e4643);
+impl std::ops::Deref for IMLOperatorTensorShapeDescription {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMLOperatorTensorShapeDescription, windows_core::IUnknown);
 impl IMLOperatorTensorShapeDescription {
     pub unsafe fn GetInputTensorDimensionCount(&self, inputindex: u32) -> windows_core::Result<u32> {
@@ -364,34 +372,14 @@ pub struct IMLOperatorTensorShapeDescription_Vtbl {
     pub GetOutputTensorShape: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMLOperatorTypeInferenceContext, IMLOperatorTypeInferenceContext_Vtbl, 0xec893bb1_f938_427b_8488_c8dcf775f138);
+impl std::ops::Deref for IMLOperatorTypeInferenceContext {
+    type Target = IMLOperatorAttributes;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMLOperatorTypeInferenceContext, windows_core::IUnknown, IMLOperatorAttributes);
 impl IMLOperatorTypeInferenceContext {
-    pub unsafe fn GetAttributeElementCount<P0>(&self, name: P0, r#type: MLOperatorAttributeType) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::PCSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetAttributeElementCount)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetAttribute<P0>(&self, name: P0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut core::ffi::c_void) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.GetAttribute)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, elementcount, elementbytesize, value).ok()
-    }
-    pub unsafe fn GetStringAttributeElementLength<P0>(&self, name: P0, elementindex: u32) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::PCSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetStringAttributeElementLength)(windows_core::Interface::as_raw(self), name.param().abi(), elementindex, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetStringAttributeElement<P0>(&self, name: P0, elementindex: u32, attributeelement: &mut [u8]) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.GetStringAttributeElement)(windows_core::Interface::as_raw(self), name.param().abi(), elementindex, attributeelement.len().try_into().unwrap(), core::mem::transmute(attributeelement.as_ptr())).ok()
-    }
     pub unsafe fn GetInputCount(&self) -> u32 {
         (windows_core::Interface::vtable(self).GetInputCount)(windows_core::Interface::as_raw(self))
     }
@@ -423,6 +411,12 @@ pub struct IMLOperatorTypeInferenceContext_Vtbl {
     pub SetOutputEdgeDescription: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const MLOperatorEdgeDescription) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMLOperatorTypeInferrer, IMLOperatorTypeInferrer_Vtbl, 0x781aeb48_9bcb_4797_bf77_8bf455217beb);
+impl std::ops::Deref for IMLOperatorTypeInferrer {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMLOperatorTypeInferrer, windows_core::IUnknown);
 impl IMLOperatorTypeInferrer {
     pub unsafe fn InferOutputTypes<P0>(&self, context: P0) -> windows_core::Result<()>
@@ -438,6 +432,12 @@ pub struct IMLOperatorTypeInferrer_Vtbl {
     pub InferOutputTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWinMLEvaluationContext, IWinMLEvaluationContext_Vtbl, 0x95848f9e_583d_4054_af12_916387cd8426);
+impl std::ops::Deref for IWinMLEvaluationContext {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWinMLEvaluationContext, windows_core::IUnknown);
 impl IWinMLEvaluationContext {
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -470,6 +470,12 @@ pub struct IWinMLEvaluationContext_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWinMLModel, IWinMLModel_Vtbl, 0xe2eeb6a9_f31f_4055_a521_e30b5b33664a);
+impl std::ops::Deref for IWinMLModel {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWinMLModel, windows_core::IUnknown);
 impl IWinMLModel {
     pub unsafe fn GetDescription(&self) -> windows_core::Result<*mut WINML_MODEL_DESC> {
@@ -497,6 +503,12 @@ pub struct IWinMLModel_Vtbl {
     pub EnumerateModelOutputs: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut WINML_VARIABLE_DESC) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWinMLRuntime, IWinMLRuntime_Vtbl, 0xa0425329_40ae_48d9_bce3_829ef7b8a41a);
+impl std::ops::Deref for IWinMLRuntime {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWinMLRuntime, windows_core::IUnknown);
 impl IWinMLRuntime {
     pub unsafe fn LoadModel<P0>(&self, path: P0) -> windows_core::Result<IWinMLModel>
@@ -532,6 +544,12 @@ pub struct IWinMLRuntime_Vtbl {
     pub EvaluateModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWinMLRuntimeFactory, IWinMLRuntimeFactory_Vtbl, 0xa807b84d_4ae5_4bc0_a76a_941aa246bd41);
+impl std::ops::Deref for IWinMLRuntimeFactory {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWinMLRuntimeFactory, windows_core::IUnknown);
 impl IWinMLRuntimeFactory {
     pub unsafe fn CreateRuntime(&self, runtimetype: WINML_RUNTIME_TYPE) -> windows_core::Result<IWinMLRuntime> {

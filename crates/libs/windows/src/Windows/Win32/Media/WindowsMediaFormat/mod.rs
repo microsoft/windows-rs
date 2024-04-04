@@ -79,6 +79,12 @@ where
     WMIsContentProtected(pwszfilename.param().abi(), pfisprotected).ok()
 }
 windows_core::imp::define_interface!(INSNetSourceCreator, INSNetSourceCreator_Vtbl, 0x0c0e4080_9081_11d2_beec_0060082f2054);
+impl std::ops::Deref for INSNetSourceCreator {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INSNetSourceCreator, windows_core::IUnknown);
 impl INSNetSourceCreator {
     pub unsafe fn Initialize(&self) -> windows_core::Result<()> {
@@ -135,6 +141,12 @@ pub struct INSNetSourceCreator_Vtbl {
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INSSBuffer, INSSBuffer_Vtbl, 0xe1cd3524_03d7_11d2_9eed_006097d2d7cf);
+impl std::ops::Deref for INSSBuffer {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INSSBuffer, windows_core::IUnknown);
 impl INSSBuffer {
     pub unsafe fn GetLength(&self) -> windows_core::Result<u32> {
@@ -166,26 +178,14 @@ pub struct INSSBuffer_Vtbl {
     pub GetBufferAndLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INSSBuffer2, INSSBuffer2_Vtbl, 0x4f528693_1035_43fe_b428_757561ad3a68);
+impl std::ops::Deref for INSSBuffer2 {
+    type Target = INSSBuffer;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INSSBuffer2, windows_core::IUnknown, INSSBuffer);
 impl INSSBuffer2 {
-    pub unsafe fn GetLength(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetLength(&self, dwlength: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetLength)(windows_core::Interface::as_raw(self), dwlength).ok()
-    }
-    pub unsafe fn GetMaxLength(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetMaxLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetBuffer(&self) -> windows_core::Result<*mut u8> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetBuffer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetBufferAndLength(&self, ppdwbuffer: *mut *mut u8, pdwlength: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetBufferAndLength)(windows_core::Interface::as_raw(self), ppdwbuffer, pdwlength).ok()
-    }
     pub unsafe fn GetSampleProperties(&self, cbproperties: u32) -> windows_core::Result<u8> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSampleProperties)(windows_core::Interface::as_raw(self), cbproperties, &mut result__).map(|| result__)
@@ -201,33 +201,14 @@ pub struct INSSBuffer2_Vtbl {
     pub SetSampleProperties: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INSSBuffer3, INSSBuffer3_Vtbl, 0xc87ceaaf_75be_4bc4_84eb_ac2798507672);
+impl std::ops::Deref for INSSBuffer3 {
+    type Target = INSSBuffer2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INSSBuffer3, windows_core::IUnknown, INSSBuffer, INSSBuffer2);
 impl INSSBuffer3 {
-    pub unsafe fn GetLength(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetLength(&self, dwlength: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetLength)(windows_core::Interface::as_raw(self), dwlength).ok()
-    }
-    pub unsafe fn GetMaxLength(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetMaxLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetBuffer(&self) -> windows_core::Result<*mut u8> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetBuffer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetBufferAndLength(&self, ppdwbuffer: *mut *mut u8, pdwlength: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GetBufferAndLength)(windows_core::Interface::as_raw(self), ppdwbuffer, pdwlength).ok()
-    }
-    pub unsafe fn GetSampleProperties(&self, cbproperties: u32) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetSampleProperties)(windows_core::Interface::as_raw(self), cbproperties, &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetSampleProperties(&self, cbproperties: u32, pbproperties: *const u8) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetSampleProperties)(windows_core::Interface::as_raw(self), cbproperties, pbproperties).ok()
-    }
     pub unsafe fn SetProperty(&self, guidbufferproperty: windows_core::GUID, pvbufferproperty: *const core::ffi::c_void, dwbufferpropertysize: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(guidbufferproperty), pvbufferproperty, dwbufferpropertysize).ok()
     }
@@ -242,39 +223,14 @@ pub struct INSSBuffer3_Vtbl {
     pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INSSBuffer4, INSSBuffer4_Vtbl, 0xb6b8fd5a_32e2_49d4_a910_c26cc85465ed);
+impl std::ops::Deref for INSSBuffer4 {
+    type Target = INSSBuffer3;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INSSBuffer4, windows_core::IUnknown, INSSBuffer, INSSBuffer2, INSSBuffer3);
 impl INSSBuffer4 {
-    pub unsafe fn GetLength(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetLength(&self, dwlength: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetLength)(windows_core::Interface::as_raw(self), dwlength).ok()
-    }
-    pub unsafe fn GetMaxLength(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetMaxLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetBuffer(&self) -> windows_core::Result<*mut u8> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetBuffer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetBufferAndLength(&self, ppdwbuffer: *mut *mut u8, pdwlength: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetBufferAndLength)(windows_core::Interface::as_raw(self), ppdwbuffer, pdwlength).ok()
-    }
-    pub unsafe fn GetSampleProperties(&self, cbproperties: u32) -> windows_core::Result<u8> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetSampleProperties)(windows_core::Interface::as_raw(self), cbproperties, &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetSampleProperties(&self, cbproperties: u32, pbproperties: *const u8) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetSampleProperties)(windows_core::Interface::as_raw(self), cbproperties, pbproperties).ok()
-    }
-    pub unsafe fn SetProperty(&self, guidbufferproperty: windows_core::GUID, pvbufferproperty: *const core::ffi::c_void, dwbufferpropertysize: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(guidbufferproperty), pvbufferproperty, dwbufferpropertysize).ok()
-    }
-    pub unsafe fn GetProperty(&self, guidbufferproperty: windows_core::GUID, pvbufferproperty: *mut core::ffi::c_void, pdwbufferpropertysize: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(guidbufferproperty), pvbufferproperty, pdwbufferpropertysize).ok()
-    }
     pub unsafe fn GetPropertyCount(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPropertyCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -290,6 +246,12 @@ pub struct INSSBuffer4_Vtbl {
     pub GetPropertyByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::GUID, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMAddressAccess, IWMAddressAccess_Vtbl, 0xbb3c6389_1633_4e92_af14_9f3173ba39d0);
+impl std::ops::Deref for IWMAddressAccess {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMAddressAccess, windows_core::IUnknown);
 impl IWMAddressAccess {
     pub unsafe fn GetAccessEntryCount(&self, aetype: WM_AETYPE) -> windows_core::Result<u32> {
@@ -316,22 +278,14 @@ pub struct IWMAddressAccess_Vtbl {
     pub RemoveAccessEntry: unsafe extern "system" fn(*mut core::ffi::c_void, WM_AETYPE, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMAddressAccess2, IWMAddressAccess2_Vtbl, 0x65a83fc2_3e98_4d4d_81b5_2a742886b33d);
+impl std::ops::Deref for IWMAddressAccess2 {
+    type Target = IWMAddressAccess;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMAddressAccess2, windows_core::IUnknown, IWMAddressAccess);
 impl IWMAddressAccess2 {
-    pub unsafe fn GetAccessEntryCount(&self, aetype: WM_AETYPE) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetAccessEntryCount)(windows_core::Interface::as_raw(self), aetype, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetAccessEntry(&self, aetype: WM_AETYPE, dwentrynum: u32) -> windows_core::Result<WM_ADDRESS_ACCESSENTRY> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetAccessEntry)(windows_core::Interface::as_raw(self), aetype, dwentrynum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn AddAccessEntry(&self, aetype: WM_AETYPE, paddraccessentry: *const WM_ADDRESS_ACCESSENTRY) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.AddAccessEntry)(windows_core::Interface::as_raw(self), aetype, paddraccessentry).ok()
-    }
-    pub unsafe fn RemoveAccessEntry(&self, aetype: WM_AETYPE, dwentrynum: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.RemoveAccessEntry)(windows_core::Interface::as_raw(self), aetype, dwentrynum).ok()
-    }
     pub unsafe fn GetAccessEntryEx(&self, aetype: WM_AETYPE, dwentrynum: u32, pbstraddress: *mut windows_core::BSTR, pbstrmask: *mut windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetAccessEntryEx)(windows_core::Interface::as_raw(self), aetype, dwentrynum, core::mem::transmute(pbstraddress), core::mem::transmute(pbstrmask)).ok()
     }
@@ -350,6 +304,12 @@ pub struct IWMAddressAccess2_Vtbl {
     pub AddAccessEntryEx: unsafe extern "system" fn(*mut core::ffi::c_void, WM_AETYPE, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMAuthorizer, IWMAuthorizer_Vtbl, 0xd9b67d36_a9ad_4eb4_baef_db284ef5504c);
+impl std::ops::Deref for IWMAuthorizer {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMAuthorizer, windows_core::IUnknown);
 impl IWMAuthorizer {
     pub unsafe fn GetCertCount(&self) -> windows_core::Result<u32> {
@@ -373,6 +333,12 @@ pub struct IWMAuthorizer_Vtbl {
     pub GetSharedData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, *const u8, *mut *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMBackupRestoreProps, IWMBackupRestoreProps_Vtbl, 0x3c8e0da6_996f_4ff3_a1af_4838f9377e2e);
+impl std::ops::Deref for IWMBackupRestoreProps {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMBackupRestoreProps, windows_core::IUnknown);
 impl IWMBackupRestoreProps {
     pub unsafe fn GetPropCount(&self) -> windows_core::Result<u16> {
@@ -415,17 +381,14 @@ pub struct IWMBackupRestoreProps_Vtbl {
     pub RemoveAllProps: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMBandwidthSharing, IWMBandwidthSharing_Vtbl, 0xad694af1_f8d9_42f8_bc47_70311b0c4f9e);
+impl std::ops::Deref for IWMBandwidthSharing {
+    type Target = IWMStreamList;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMBandwidthSharing, windows_core::IUnknown, IWMStreamList);
 impl IWMBandwidthSharing {
-    pub unsafe fn GetStreams(&self, pwstreamnumarray: *mut u16, pcstreams: *mut u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetStreams)(windows_core::Interface::as_raw(self), pwstreamnumarray, pcstreams).ok()
-    }
-    pub unsafe fn AddStream(&self, wstreamnum: u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.AddStream)(windows_core::Interface::as_raw(self), wstreamnum).ok()
-    }
-    pub unsafe fn RemoveStream(&self, wstreamnum: u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.RemoveStream)(windows_core::Interface::as_raw(self), wstreamnum).ok()
-    }
     pub unsafe fn GetType(&self) -> windows_core::Result<windows_core::GUID> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -449,6 +412,12 @@ pub struct IWMBandwidthSharing_Vtbl {
     pub SetBandwidth: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMClientConnections, IWMClientConnections_Vtbl, 0x73c66010_a299_41df_b1f0_ccf03b09c1c6);
+impl std::ops::Deref for IWMClientConnections {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMClientConnections, windows_core::IUnknown);
 impl IWMClientConnections {
     pub unsafe fn GetClientCount(&self) -> windows_core::Result<u32> {
@@ -467,16 +436,14 @@ pub struct IWMClientConnections_Vtbl {
     pub GetClientProperties: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut WM_CLIENT_PROPERTIES) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMClientConnections2, IWMClientConnections2_Vtbl, 0x4091571e_4701_4593_bb3d_d5f5f0c74246);
+impl std::ops::Deref for IWMClientConnections2 {
+    type Target = IWMClientConnections;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMClientConnections2, windows_core::IUnknown, IWMClientConnections);
 impl IWMClientConnections2 {
-    pub unsafe fn GetClientCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetClientCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetClientProperties(&self, dwclientnum: u32) -> windows_core::Result<WM_CLIENT_PROPERTIES> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetClientProperties)(windows_core::Interface::as_raw(self), dwclientnum, &mut result__).map(|| result__)
-    }
     pub unsafe fn GetClientInfo(&self, dwclientnum: u32, pwsznetworkaddress: windows_core::PWSTR, pcchnetworkaddress: *mut u32, pwszport: windows_core::PWSTR, pcchport: *mut u32, pwszdnsname: windows_core::PWSTR, pcchdnsname: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetClientInfo)(windows_core::Interface::as_raw(self), dwclientnum, core::mem::transmute(pwsznetworkaddress), pcchnetworkaddress, core::mem::transmute(pwszport), pcchport, core::mem::transmute(pwszdnsname), pcchdnsname).ok()
     }
@@ -487,6 +454,12 @@ pub struct IWMClientConnections2_Vtbl {
     pub GetClientInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, *mut u32, windows_core::PWSTR, *mut u32, windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMCodecInfo, IWMCodecInfo_Vtbl, 0xa970f41e_34de_4a98_b3ba_e4b3ca7528f0);
+impl std::ops::Deref for IWMCodecInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMCodecInfo, windows_core::IUnknown);
 impl IWMCodecInfo {
     pub unsafe fn GetCodecInfoCount(&self, guidtype: *const windows_core::GUID) -> windows_core::Result<u32> {
@@ -510,20 +483,14 @@ pub struct IWMCodecInfo_Vtbl {
     pub GetCodecFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMCodecInfo2, IWMCodecInfo2_Vtbl, 0xaa65e273_b686_4056_91ec_dd768d4df710);
+impl std::ops::Deref for IWMCodecInfo2 {
+    type Target = IWMCodecInfo;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMCodecInfo2, windows_core::IUnknown, IWMCodecInfo);
 impl IWMCodecInfo2 {
-    pub unsafe fn GetCodecInfoCount(&self, guidtype: *const windows_core::GUID) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetCodecInfoCount)(windows_core::Interface::as_raw(self), guidtype, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetCodecFormatCount(&self, guidtype: *const windows_core::GUID, dwcodecindex: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetCodecFormatCount)(windows_core::Interface::as_raw(self), guidtype, dwcodecindex, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetCodecFormat(&self, guidtype: *const windows_core::GUID, dwcodecindex: u32, dwformatindex: u32) -> windows_core::Result<IWMStreamConfig> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetCodecFormat)(windows_core::Interface::as_raw(self), guidtype, dwcodecindex, dwformatindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn GetCodecName(&self, guidtype: *const windows_core::GUID, dwcodecindex: u32, wszname: windows_core::PWSTR, pcchname: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetCodecName)(windows_core::Interface::as_raw(self), guidtype, dwcodecindex, core::mem::transmute(wszname), pcchname).ok()
     }
@@ -538,26 +505,14 @@ pub struct IWMCodecInfo2_Vtbl {
     pub GetCodecFormatDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, u32, *mut *mut core::ffi::c_void, windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMCodecInfo3, IWMCodecInfo3_Vtbl, 0x7e51f487_4d93_4f98_8ab4_27d0565adc51);
+impl std::ops::Deref for IWMCodecInfo3 {
+    type Target = IWMCodecInfo2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMCodecInfo3, windows_core::IUnknown, IWMCodecInfo, IWMCodecInfo2);
 impl IWMCodecInfo3 {
-    pub unsafe fn GetCodecInfoCount(&self, guidtype: *const windows_core::GUID) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetCodecInfoCount)(windows_core::Interface::as_raw(self), guidtype, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetCodecFormatCount(&self, guidtype: *const windows_core::GUID, dwcodecindex: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetCodecFormatCount)(windows_core::Interface::as_raw(self), guidtype, dwcodecindex, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetCodecFormat(&self, guidtype: *const windows_core::GUID, dwcodecindex: u32, dwformatindex: u32) -> windows_core::Result<IWMStreamConfig> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetCodecFormat)(windows_core::Interface::as_raw(self), guidtype, dwcodecindex, dwformatindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetCodecName(&self, guidtype: *const windows_core::GUID, dwcodecindex: u32, wszname: windows_core::PWSTR, pcchname: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetCodecName)(windows_core::Interface::as_raw(self), guidtype, dwcodecindex, core::mem::transmute(wszname), pcchname).ok()
-    }
-    pub unsafe fn GetCodecFormatDesc(&self, guidtype: *const windows_core::GUID, dwcodecindex: u32, dwformatindex: u32, ppistreamconfig: *mut Option<IWMStreamConfig>, wszdesc: windows_core::PWSTR, pcchdesc: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetCodecFormatDesc)(windows_core::Interface::as_raw(self), guidtype, dwcodecindex, dwformatindex, core::mem::transmute(ppistreamconfig), core::mem::transmute(wszdesc), pcchdesc).ok()
-    }
     pub unsafe fn GetCodecFormatProp<P0>(&self, guidtype: *const windows_core::GUID, dwcodecindex: u32, dwformatindex: u32, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -592,6 +547,12 @@ pub struct IWMCodecInfo3_Vtbl {
     pub GetCodecEnumerationSetting: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, windows_core::PCWSTR, *mut WMT_ATTR_DATATYPE, *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMCredentialCallback, IWMCredentialCallback_Vtbl, 0x342e0eb7_e651_450c_975b_2ace2c90c48e);
+impl std::ops::Deref for IWMCredentialCallback {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMCredentialCallback, windows_core::IUnknown);
 impl IWMCredentialCallback {
     pub unsafe fn AcquireCredentials<P0, P1>(&self, pwszrealm: P0, pwszsite: P1, pwszuser: &mut [u16], pwszpassword: &mut [u16], hrstatus: windows_core::HRESULT, pdwflags: *mut u32) -> windows_core::Result<()>
@@ -608,6 +569,12 @@ pub struct IWMCredentialCallback_Vtbl {
     pub AcquireCredentials: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PWSTR, u32, windows_core::PWSTR, u32, windows_core::HRESULT, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMDRMEditor, IWMDRMEditor_Vtbl, 0xff130ebc_a6c3_42a6_b401_c3382c3e08b3);
+impl std::ops::Deref for IWMDRMEditor {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMDRMEditor, windows_core::IUnknown);
 impl IWMDRMEditor {
     pub unsafe fn GetDRMProperty<P0>(&self, pwstrname: P0, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> windows_core::Result<()>
@@ -623,6 +590,12 @@ pub struct IWMDRMEditor_Vtbl {
     pub GetDRMProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut WMT_ATTR_DATATYPE, *mut u8, *mut u16) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMDRMMessageParser, IWMDRMMessageParser_Vtbl, 0xa73a0072_25a0_4c99_b4a5_ede8101a6c39);
+impl std::ops::Deref for IWMDRMMessageParser {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMDRMMessageParser, windows_core::IUnknown);
 impl IWMDRMMessageParser {
     pub unsafe fn ParseRegistrationReqMsg(&self, pbregistrationreqmsg: &[u8], ppdevicecert: *mut Option<INSSBuffer>, pdeviceserialnumber: *mut DRM_VAL16) -> windows_core::Result<()> {
@@ -639,6 +612,12 @@ pub struct IWMDRMMessageParser_Vtbl {
     pub ParseLicenseRequestMsg: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut *mut core::ffi::c_void, *mut DRM_VAL16, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMDRMReader, IWMDRMReader_Vtbl, 0xd2827540_3ee7_432c_b14c_dc17f085d3b3);
+impl std::ops::Deref for IWMDRMReader {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMDRMReader, windows_core::IUnknown);
 impl IWMDRMReader {
     pub unsafe fn AcquireLicense(&self, dwflags: u32) -> windows_core::Result<()> {
@@ -685,38 +664,14 @@ pub struct IWMDRMReader_Vtbl {
     pub GetDRMProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut WMT_ATTR_DATATYPE, *mut u8, *mut u16) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMDRMReader2, IWMDRMReader2_Vtbl, 0xbefe7a75_9f1d_4075_b9d9_a3c37bda49a0);
+impl std::ops::Deref for IWMDRMReader2 {
+    type Target = IWMDRMReader;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMDRMReader2, windows_core::IUnknown, IWMDRMReader);
 impl IWMDRMReader2 {
-    pub unsafe fn AcquireLicense(&self, dwflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.AcquireLicense)(windows_core::Interface::as_raw(self), dwflags).ok()
-    }
-    pub unsafe fn CancelLicenseAcquisition(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.CancelLicenseAcquisition)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Individualize(&self, dwflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Individualize)(windows_core::Interface::as_raw(self), dwflags).ok()
-    }
-    pub unsafe fn CancelIndividualization(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.CancelIndividualization)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn MonitorLicenseAcquisition(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.MonitorLicenseAcquisition)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn CancelMonitorLicenseAcquisition(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.CancelMonitorLicenseAcquisition)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetDRMProperty<P0>(&self, pwstrname: P0, dwtype: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetDRMProperty)(windows_core::Interface::as_raw(self), pwstrname.param().abi(), dwtype, core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
-    }
-    pub unsafe fn GetDRMProperty<P0>(&self, pwstrname: P0, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.GetDRMProperty)(windows_core::Interface::as_raw(self), pwstrname.param().abi(), pdwtype, pvalue, pcblength).ok()
-    }
     pub unsafe fn SetEvaluateOutputLevelLicenses<P0>(&self, fevaluate: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::BOOL>,
@@ -742,53 +697,14 @@ pub struct IWMDRMReader2_Vtbl {
     pub TryNextLicense: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMDRMReader3, IWMDRMReader3_Vtbl, 0xe08672de_f1e7_4ff4_a0a3_fc4b08e4caf8);
+impl std::ops::Deref for IWMDRMReader3 {
+    type Target = IWMDRMReader2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMDRMReader3, windows_core::IUnknown, IWMDRMReader, IWMDRMReader2);
 impl IWMDRMReader3 {
-    pub unsafe fn AcquireLicense(&self, dwflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.AcquireLicense)(windows_core::Interface::as_raw(self), dwflags).ok()
-    }
-    pub unsafe fn CancelLicenseAcquisition(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.CancelLicenseAcquisition)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Individualize(&self, dwflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.Individualize)(windows_core::Interface::as_raw(self), dwflags).ok()
-    }
-    pub unsafe fn CancelIndividualization(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.CancelIndividualization)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn MonitorLicenseAcquisition(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.MonitorLicenseAcquisition)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn CancelMonitorLicenseAcquisition(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.CancelMonitorLicenseAcquisition)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetDRMProperty<P0>(&self, pwstrname: P0, dwtype: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetDRMProperty)(windows_core::Interface::as_raw(self), pwstrname.param().abi(), dwtype, core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
-    }
-    pub unsafe fn GetDRMProperty<P0>(&self, pwstrname: P0, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.GetDRMProperty)(windows_core::Interface::as_raw(self), pwstrname.param().abi(), pdwtype, pvalue, pcblength).ok()
-    }
-    pub unsafe fn SetEvaluateOutputLevelLicenses<P0>(&self, fevaluate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetEvaluateOutputLevelLicenses)(windows_core::Interface::as_raw(self), fevaluate.param().abi()).ok()
-    }
-    pub unsafe fn GetPlayOutputLevels(&self, pplayopl: *mut DRM_PLAY_OPL, pcblength: *mut u32, pdwminappcompliancelevel: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetPlayOutputLevels)(windows_core::Interface::as_raw(self), pplayopl, pcblength, pdwminappcompliancelevel).ok()
-    }
-    pub unsafe fn GetCopyOutputLevels(&self, pcopyopl: *mut DRM_COPY_OPL, pcblength: *mut u32, pdwminappcompliancelevel: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetCopyOutputLevels)(windows_core::Interface::as_raw(self), pcopyopl, pcblength, pdwminappcompliancelevel).ok()
-    }
-    pub unsafe fn TryNextLicense(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.TryNextLicense)(windows_core::Interface::as_raw(self)).ok()
-    }
     pub unsafe fn GetInclusionList(&self, ppguids: *mut *mut windows_core::GUID, pcguids: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetInclusionList)(windows_core::Interface::as_raw(self), ppguids, pcguids).ok()
     }
@@ -799,6 +715,12 @@ pub struct IWMDRMReader3_Vtbl {
     pub GetInclusionList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut windows_core::GUID, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMDRMTranscryptionManager, IWMDRMTranscryptionManager_Vtbl, 0xb1a887b2_a4f0_407a_b02e_efbd23bbecdf);
+impl std::ops::Deref for IWMDRMTranscryptionManager {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMDRMTranscryptionManager, windows_core::IUnknown);
 impl IWMDRMTranscryptionManager {
     pub unsafe fn CreateTranscryptor(&self) -> windows_core::Result<IWMDRMTranscryptor> {
@@ -812,6 +734,12 @@ pub struct IWMDRMTranscryptionManager_Vtbl {
     pub CreateTranscryptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMDRMTranscryptor, IWMDRMTranscryptor_Vtbl, 0x69059850_6e6f_4bb2_806f_71863ddfc471);
+impl std::ops::Deref for IWMDRMTranscryptor {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMDRMTranscryptor, windows_core::IUnknown);
 impl IWMDRMTranscryptor {
     pub unsafe fn Initialize<P0, P1>(&self, bstrfilename: P0, pblicenserequestmsg: *mut u8, cblicenserequestmsg: u32, pplicenseresponsemsg: *mut Option<INSSBuffer>, pcallback: P1, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>
@@ -840,24 +768,14 @@ pub struct IWMDRMTranscryptor_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMDRMTranscryptor2, IWMDRMTranscryptor2_Vtbl, 0xe0da439f_d331_496a_bece_18e5bac5dd23);
+impl std::ops::Deref for IWMDRMTranscryptor2 {
+    type Target = IWMDRMTranscryptor;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMDRMTranscryptor2, windows_core::IUnknown, IWMDRMTranscryptor);
 impl IWMDRMTranscryptor2 {
-    pub unsafe fn Initialize<P0, P1>(&self, bstrfilename: P0, pblicenserequestmsg: *mut u8, cblicenserequestmsg: u32, pplicenseresponsemsg: *mut Option<INSSBuffer>, pcallback: P1, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<IWMStatusCallback>,
-    {
-        (windows_core::Interface::vtable(self).base__.Initialize)(windows_core::Interface::as_raw(self), bstrfilename.param().abi(), pblicenserequestmsg, cblicenserequestmsg, core::mem::transmute(pplicenseresponsemsg), pcallback.param().abi(), pvcontext).ok()
-    }
-    pub unsafe fn Seek(&self, hnstime: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Seek)(windows_core::Interface::as_raw(self), hnstime).ok()
-    }
-    pub unsafe fn Read(&self, pbdata: *const u8, pcbdata: *const u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Read)(windows_core::Interface::as_raw(self), pbdata, pcbdata).ok()
-    }
-    pub unsafe fn Close(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Close)(windows_core::Interface::as_raw(self)).ok()
-    }
     pub unsafe fn SeekEx<P0>(&self, cnsstarttime: u64, cnsduration: u64, flrate: f32, fincludefileheader: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::BOOL>,
@@ -888,6 +806,12 @@ pub struct IWMDRMTranscryptor2_Vtbl {
     pub GetDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMDRMWriter, IWMDRMWriter_Vtbl, 0xd6ea5dd0_12a0_43f4_90ab_a3fd451e6a07);
+impl std::ops::Deref for IWMDRMWriter {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMDRMWriter, windows_core::IUnknown);
 impl IWMDRMWriter {
     pub unsafe fn GenerateKeySeed(&self, pwszkeyseed: windows_core::PWSTR, pcwchlength: *mut u32) -> windows_core::Result<()> {
@@ -915,23 +839,14 @@ pub struct IWMDRMWriter_Vtbl {
     pub SetDRMAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, u16, windows_core::PCWSTR, WMT_ATTR_DATATYPE, *const u8, u16) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMDRMWriter2, IWMDRMWriter2_Vtbl, 0x38ee7a94_40e2_4e10_aa3f_33fd3210ed5b);
+impl std::ops::Deref for IWMDRMWriter2 {
+    type Target = IWMDRMWriter;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMDRMWriter2, windows_core::IUnknown, IWMDRMWriter);
 impl IWMDRMWriter2 {
-    pub unsafe fn GenerateKeySeed(&self, pwszkeyseed: windows_core::PWSTR, pcwchlength: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GenerateKeySeed)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszkeyseed), pcwchlength).ok()
-    }
-    pub unsafe fn GenerateKeyID(&self, pwszkeyid: windows_core::PWSTR, pcwchlength: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GenerateKeyID)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszkeyid), pcwchlength).ok()
-    }
-    pub unsafe fn GenerateSigningKeyPair(&self, pwszprivkey: windows_core::PWSTR, pcwchprivkeylength: *mut u32, pwszpubkey: windows_core::PWSTR, pcwchpubkeylength: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GenerateSigningKeyPair)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszprivkey), pcwchprivkeylength, core::mem::transmute(pwszpubkey), pcwchpubkeylength).ok()
-    }
-    pub unsafe fn SetDRMAttribute<P0>(&self, wstreamnum: u16, pszname: P0, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetDRMAttribute)(windows_core::Interface::as_raw(self), wstreamnum, pszname.param().abi(), r#type, core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
-    }
     pub unsafe fn SetWMDRMNetEncryption<P0>(&self, fsamplesencrypted: P0, pbkeyid: *const u8, cbkeyid: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::BOOL>,
@@ -945,29 +860,14 @@ pub struct IWMDRMWriter2_Vtbl {
     pub SetWMDRMNetEncryption: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, *const u8, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMDRMWriter3, IWMDRMWriter3_Vtbl, 0xa7184082_a4aa_4dde_ac9c_e75dbd1117ce);
+impl std::ops::Deref for IWMDRMWriter3 {
+    type Target = IWMDRMWriter2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMDRMWriter3, windows_core::IUnknown, IWMDRMWriter, IWMDRMWriter2);
 impl IWMDRMWriter3 {
-    pub unsafe fn GenerateKeySeed(&self, pwszkeyseed: windows_core::PWSTR, pcwchlength: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GenerateKeySeed)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszkeyseed), pcwchlength).ok()
-    }
-    pub unsafe fn GenerateKeyID(&self, pwszkeyid: windows_core::PWSTR, pcwchlength: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GenerateKeyID)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszkeyid), pcwchlength).ok()
-    }
-    pub unsafe fn GenerateSigningKeyPair(&self, pwszprivkey: windows_core::PWSTR, pcwchprivkeylength: *mut u32, pwszpubkey: windows_core::PWSTR, pcwchpubkeylength: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GenerateSigningKeyPair)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszprivkey), pcwchprivkeylength, core::mem::transmute(pwszpubkey), pcwchpubkeylength).ok()
-    }
-    pub unsafe fn SetDRMAttribute<P0>(&self, wstreamnum: u16, pszname: P0, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetDRMAttribute)(windows_core::Interface::as_raw(self), wstreamnum, pszname.param().abi(), r#type, core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
-    }
-    pub unsafe fn SetWMDRMNetEncryption<P0>(&self, fsamplesencrypted: P0, pbkeyid: *const u8, cbkeyid: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetWMDRMNetEncryption)(windows_core::Interface::as_raw(self), fsamplesencrypted.param().abi(), pbkeyid, cbkeyid).ok()
-    }
     pub unsafe fn SetProtectStreamSamples(&self, pimportinitstruct: *const WMDRM_IMPORT_INIT_STRUCT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetProtectStreamSamples)(windows_core::Interface::as_raw(self), pimportinitstruct).ok()
     }
@@ -978,6 +878,12 @@ pub struct IWMDRMWriter3_Vtbl {
     pub SetProtectStreamSamples: unsafe extern "system" fn(*mut core::ffi::c_void, *const WMDRM_IMPORT_INIT_STRUCT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMDeviceRegistration, IWMDeviceRegistration_Vtbl, 0xf6211f03_8d21_4e94_93e6_8510805f2d99);
+impl std::ops::Deref for IWMDeviceRegistration {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMDeviceRegistration, windows_core::IUnknown);
 impl IWMDeviceRegistration {
     pub unsafe fn RegisterDevice(&self, dwregistertype: u32, pbcertificate: &[u8], serialnumber: DRM_VAL16) -> windows_core::Result<IWMRegisteredDevice> {
@@ -1015,6 +921,12 @@ pub struct IWMDeviceRegistration_Vtbl {
     pub GetRegisteredDeviceByID: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, DRM_VAL16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMGetSecureChannel, IWMGetSecureChannel_Vtbl, 0x94bc0598_c3d2_11d3_bedf_00c04f612986);
+impl std::ops::Deref for IWMGetSecureChannel {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMGetSecureChannel, windows_core::IUnknown);
 impl IWMGetSecureChannel {
     pub unsafe fn GetPeerSecureChannelInterface(&self) -> windows_core::Result<IWMSecureChannel> {
@@ -1028,6 +940,12 @@ pub struct IWMGetSecureChannel_Vtbl {
     pub GetPeerSecureChannelInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMHeaderInfo, IWMHeaderInfo_Vtbl, 0x96406bda_2b2b_11d3_b36b_00c04f6108ff);
+impl std::ops::Deref for IWMHeaderInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMHeaderInfo, windows_core::IUnknown);
 impl IWMHeaderInfo {
     pub unsafe fn GetAttributeCount(&self, wstreamnum: u16) -> windows_core::Result<u16> {
@@ -1100,60 +1018,14 @@ pub struct IWMHeaderInfo_Vtbl {
     pub RemoveScript: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMHeaderInfo2, IWMHeaderInfo2_Vtbl, 0x15cf9781_454e_482e_b393_85fae487a810);
+impl std::ops::Deref for IWMHeaderInfo2 {
+    type Target = IWMHeaderInfo;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMHeaderInfo2, windows_core::IUnknown, IWMHeaderInfo);
 impl IWMHeaderInfo2 {
-    pub unsafe fn GetAttributeCount(&self, wstreamnum: u16) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetAttributeCount)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetAttributeByIndex(&self, windex: u16, pwstreamnum: *mut u16, pwszname: windows_core::PWSTR, pcchnamelen: *mut u16, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetAttributeByIndex)(windows_core::Interface::as_raw(self), windex, pwstreamnum, core::mem::transmute(pwszname), pcchnamelen, ptype, pvalue, pcblength).ok()
-    }
-    pub unsafe fn GetAttributeByName<P0>(&self, pwstreamnum: *mut u16, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.GetAttributeByName)(windows_core::Interface::as_raw(self), pwstreamnum, pszname.param().abi(), ptype, pvalue, pcblength).ok()
-    }
-    pub unsafe fn SetAttribute<P0>(&self, wstreamnum: u16, pszname: P0, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetAttribute)(windows_core::Interface::as_raw(self), wstreamnum, pszname.param().abi(), r#type, core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
-    }
-    pub unsafe fn GetMarkerCount(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetMarkerCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetMarker(&self, windex: u16, pwszmarkername: windows_core::PWSTR, pcchmarkernamelen: *mut u16, pcnsmarkertime: *mut u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetMarker)(windows_core::Interface::as_raw(self), windex, core::mem::transmute(pwszmarkername), pcchmarkernamelen, pcnsmarkertime).ok()
-    }
-    pub unsafe fn AddMarker<P0>(&self, pwszmarkername: P0, cnsmarkertime: u64) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.AddMarker)(windows_core::Interface::as_raw(self), pwszmarkername.param().abi(), cnsmarkertime).ok()
-    }
-    pub unsafe fn RemoveMarker(&self, windex: u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.RemoveMarker)(windows_core::Interface::as_raw(self), windex).ok()
-    }
-    pub unsafe fn GetScriptCount(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetScriptCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetScript(&self, windex: u16, pwsztype: windows_core::PWSTR, pcchtypelen: *mut u16, pwszcommand: windows_core::PWSTR, pcchcommandlen: *mut u16, pcnsscripttime: *mut u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetScript)(windows_core::Interface::as_raw(self), windex, core::mem::transmute(pwsztype), pcchtypelen, core::mem::transmute(pwszcommand), pcchcommandlen, pcnsscripttime).ok()
-    }
-    pub unsafe fn AddScript<P0, P1>(&self, pwsztype: P0, pwszcommand: P1, cnsscripttime: u64) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.AddScript)(windows_core::Interface::as_raw(self), pwsztype.param().abi(), pwszcommand.param().abi(), cnsscripttime).ok()
-    }
-    pub unsafe fn RemoveScript(&self, windex: u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.RemoveScript)(windows_core::Interface::as_raw(self), windex).ok()
-    }
     pub unsafe fn GetCodecInfoCount(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCodecInfoCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1169,67 +1041,14 @@ pub struct IWMHeaderInfo2_Vtbl {
     pub GetCodecInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u16, windows_core::PWSTR, *mut u16, windows_core::PWSTR, *mut WMT_CODEC_INFO_TYPE, *mut u16, *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMHeaderInfo3, IWMHeaderInfo3_Vtbl, 0x15cc68e3_27cc_4ecd_b222_3f5d02d80bd5);
+impl std::ops::Deref for IWMHeaderInfo3 {
+    type Target = IWMHeaderInfo2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMHeaderInfo3, windows_core::IUnknown, IWMHeaderInfo, IWMHeaderInfo2);
 impl IWMHeaderInfo3 {
-    pub unsafe fn GetAttributeCount(&self, wstreamnum: u16) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetAttributeCount)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetAttributeByIndex(&self, windex: u16, pwstreamnum: *mut u16, pwszname: windows_core::PWSTR, pcchnamelen: *mut u16, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GetAttributeByIndex)(windows_core::Interface::as_raw(self), windex, pwstreamnum, core::mem::transmute(pwszname), pcchnamelen, ptype, pvalue, pcblength).ok()
-    }
-    pub unsafe fn GetAttributeByName<P0>(&self, pwstreamnum: *mut u16, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.GetAttributeByName)(windows_core::Interface::as_raw(self), pwstreamnum, pszname.param().abi(), ptype, pvalue, pcblength).ok()
-    }
-    pub unsafe fn SetAttribute<P0>(&self, wstreamnum: u16, pszname: P0, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetAttribute)(windows_core::Interface::as_raw(self), wstreamnum, pszname.param().abi(), r#type, core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
-    }
-    pub unsafe fn GetMarkerCount(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetMarkerCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetMarker(&self, windex: u16, pwszmarkername: windows_core::PWSTR, pcchmarkernamelen: *mut u16, pcnsmarkertime: *mut u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GetMarker)(windows_core::Interface::as_raw(self), windex, core::mem::transmute(pwszmarkername), pcchmarkernamelen, pcnsmarkertime).ok()
-    }
-    pub unsafe fn AddMarker<P0>(&self, pwszmarkername: P0, cnsmarkertime: u64) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.AddMarker)(windows_core::Interface::as_raw(self), pwszmarkername.param().abi(), cnsmarkertime).ok()
-    }
-    pub unsafe fn RemoveMarker(&self, windex: u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.RemoveMarker)(windows_core::Interface::as_raw(self), windex).ok()
-    }
-    pub unsafe fn GetScriptCount(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetScriptCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetScript(&self, windex: u16, pwsztype: windows_core::PWSTR, pcchtypelen: *mut u16, pwszcommand: windows_core::PWSTR, pcchcommandlen: *mut u16, pcnsscripttime: *mut u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GetScript)(windows_core::Interface::as_raw(self), windex, core::mem::transmute(pwsztype), pcchtypelen, core::mem::transmute(pwszcommand), pcchcommandlen, pcnsscripttime).ok()
-    }
-    pub unsafe fn AddScript<P0, P1>(&self, pwsztype: P0, pwszcommand: P1, cnsscripttime: u64) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.AddScript)(windows_core::Interface::as_raw(self), pwsztype.param().abi(), pwszcommand.param().abi(), cnsscripttime).ok()
-    }
-    pub unsafe fn RemoveScript(&self, windex: u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.RemoveScript)(windows_core::Interface::as_raw(self), windex).ok()
-    }
-    pub unsafe fn GetCodecInfoCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetCodecInfoCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetCodecInfo(&self, windex: u32, pcchname: *mut u16, pwszname: windows_core::PWSTR, pcchdescription: *mut u16, pwszdescription: windows_core::PWSTR, pcodectype: *mut WMT_CODEC_INFO_TYPE, pcbcodecinfo: *mut u16, pbcodecinfo: *mut u8) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetCodecInfo)(windows_core::Interface::as_raw(self), windex, pcchname, core::mem::transmute(pwszname), pcchdescription, core::mem::transmute(pwszdescription), pcodectype, pcbcodecinfo, pbcodecinfo).ok()
-    }
     pub unsafe fn GetAttributeCountEx(&self, wstreamnum: u16) -> windows_core::Result<u16> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAttributeCountEx)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).map(|| result__)
@@ -1275,6 +1094,12 @@ pub struct IWMHeaderInfo3_Vtbl {
     pub AddCodecInfo: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, WMT_CODEC_INFO_TYPE, u16, *const u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMIStreamProps, IWMIStreamProps_Vtbl, 0x6816dad3_2b4b_4c8e_8149_874c3483a753);
+impl std::ops::Deref for IWMIStreamProps {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMIStreamProps, windows_core::IUnknown);
 impl IWMIStreamProps {
     pub unsafe fn GetProperty<P0>(&self, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> windows_core::Result<()>
@@ -1290,6 +1115,12 @@ pub struct IWMIStreamProps_Vtbl {
     pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut WMT_ATTR_DATATYPE, *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMImageInfo, IWMImageInfo_Vtbl, 0x9f0aa3b6_7267_4d89_88f2_ba915aa5c4c6);
+impl std::ops::Deref for IWMImageInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMImageInfo, windows_core::IUnknown);
 impl IWMImageInfo {
     pub unsafe fn GetImageCount(&self) -> windows_core::Result<u32> {
@@ -1307,6 +1138,12 @@ pub struct IWMImageInfo_Vtbl {
     pub GetImage: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u16, windows_core::PWSTR, *mut u16, windows_core::PWSTR, *mut u16, *mut u32, *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMIndexer, IWMIndexer_Vtbl, 0x6d7cdc71_9888_11d3_8edc_00c04f6109cf);
+impl std::ops::Deref for IWMIndexer {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMIndexer, windows_core::IUnknown);
 impl IWMIndexer {
     pub unsafe fn StartIndexing<P0, P1>(&self, pwszurl: P0, pcallback: P1, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>
@@ -1327,18 +1164,14 @@ pub struct IWMIndexer_Vtbl {
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMIndexer2, IWMIndexer2_Vtbl, 0xb70f1e42_6255_4df0_a6b9_02b212d9e2bb);
+impl std::ops::Deref for IWMIndexer2 {
+    type Target = IWMIndexer;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMIndexer2, windows_core::IUnknown, IWMIndexer);
 impl IWMIndexer2 {
-    pub unsafe fn StartIndexing<P0, P1>(&self, pwszurl: P0, pcallback: P1, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<IWMStatusCallback>,
-    {
-        (windows_core::Interface::vtable(self).base__.StartIndexing)(windows_core::Interface::as_raw(self), pwszurl.param().abi(), pcallback.param().abi(), pvcontext).ok()
-    }
-    pub unsafe fn Cancel(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Cancel)(windows_core::Interface::as_raw(self)).ok()
-    }
     pub unsafe fn Configure(&self, wstreamnum: u16, nindexertype: WMT_INDEXER_TYPE, pvinterval: *const core::ffi::c_void, pvindextype: *const core::ffi::c_void) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Configure)(windows_core::Interface::as_raw(self), wstreamnum, nindexertype, pvinterval, pvindextype).ok()
     }
@@ -1349,18 +1182,14 @@ pub struct IWMIndexer2_Vtbl {
     pub Configure: unsafe extern "system" fn(*mut core::ffi::c_void, u16, WMT_INDEXER_TYPE, *const core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMInputMediaProps, IWMInputMediaProps_Vtbl, 0x96406bd5_2b2b_11d3_b36b_00c04f6108ff);
+impl std::ops::Deref for IWMInputMediaProps {
+    type Target = IWMMediaProps;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMInputMediaProps, windows_core::IUnknown, IWMMediaProps);
 impl IWMInputMediaProps {
-    pub unsafe fn GetType(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetMediaType(&self, ptype: *mut WM_MEDIA_TYPE, pcbtype: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetMediaType)(windows_core::Interface::as_raw(self), ptype, pcbtype).ok()
-    }
-    pub unsafe fn SetMediaType(&self, ptype: *const WM_MEDIA_TYPE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetMediaType)(windows_core::Interface::as_raw(self), ptype).ok()
-    }
     pub unsafe fn GetConnectionName(&self, pwszname: windows_core::PWSTR, pcchname: *mut u16) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetConnectionName)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszname), pcchname).ok()
     }
@@ -1375,6 +1204,12 @@ pub struct IWMInputMediaProps_Vtbl {
     pub GetGroupName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, *mut u16) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMLanguageList, IWMLanguageList_Vtbl, 0xdf683f00_2d49_4d8e_92b7_fb19f6a0dc57);
+impl std::ops::Deref for IWMLanguageList {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMLanguageList, windows_core::IUnknown);
 impl IWMLanguageList {
     pub unsafe fn GetLanguageCount(&self) -> windows_core::Result<u16> {
@@ -1400,6 +1235,12 @@ pub struct IWMLanguageList_Vtbl {
     pub AddLanguageByRFC1766String: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u16) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMLicenseBackup, IWMLicenseBackup_Vtbl, 0x05e5ac9f_3fb6_4508_bb43_a4067ba1ebe8);
+impl std::ops::Deref for IWMLicenseBackup {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMLicenseBackup, windows_core::IUnknown);
 impl IWMLicenseBackup {
     pub unsafe fn BackupLicenses<P0>(&self, dwflags: u32, pcallback: P0) -> windows_core::Result<()>
@@ -1419,6 +1260,12 @@ pub struct IWMLicenseBackup_Vtbl {
     pub CancelLicenseBackup: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMLicenseRestore, IWMLicenseRestore_Vtbl, 0xc70b6334_a22e_4efb_a245_15e65a004a13);
+impl std::ops::Deref for IWMLicenseRestore {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMLicenseRestore, windows_core::IUnknown);
 impl IWMLicenseRestore {
     pub unsafe fn RestoreLicenses<P0>(&self, dwflags: u32, pcallback: P0) -> windows_core::Result<()>
@@ -1438,6 +1285,12 @@ pub struct IWMLicenseRestore_Vtbl {
     pub CancelLicenseRestore: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMLicenseRevocationAgent, IWMLicenseRevocationAgent_Vtbl, 0x6967f2c9_4e26_4b57_8894_799880f7ac7b);
+impl std::ops::Deref for IWMLicenseRevocationAgent {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMLicenseRevocationAgent, windows_core::IUnknown);
 impl IWMLicenseRevocationAgent {
     pub unsafe fn GetLRBChallenge(&self, pmachineid: *const u8, dwmachineidlength: u32, pchallenge: *const u8, dwchallengelength: u32, pchallengeoutput: *mut u8, pdwchallengeoutputlength: *mut u32) -> windows_core::Result<()> {
@@ -1454,6 +1307,12 @@ pub struct IWMLicenseRevocationAgent_Vtbl {
     pub ProcessLRB: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMMediaProps, IWMMediaProps_Vtbl, 0x96406bce_2b2b_11d3_b36b_00c04f6108ff);
+impl std::ops::Deref for IWMMediaProps {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMMediaProps, windows_core::IUnknown);
 impl IWMMediaProps {
     pub unsafe fn GetType(&self) -> windows_core::Result<windows_core::GUID> {
@@ -1475,6 +1334,12 @@ pub struct IWMMediaProps_Vtbl {
     pub SetMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, *const WM_MEDIA_TYPE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMMetadataEditor, IWMMetadataEditor_Vtbl, 0x96406bd9_2b2b_11d3_b36b_00c04f6108ff);
+impl std::ops::Deref for IWMMetadataEditor {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMMetadataEditor, windows_core::IUnknown);
 impl IWMMetadataEditor {
     pub unsafe fn Open<P0>(&self, pwszfilename: P0) -> windows_core::Result<()>
@@ -1498,20 +1363,14 @@ pub struct IWMMetadataEditor_Vtbl {
     pub Flush: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMMetadataEditor2, IWMMetadataEditor2_Vtbl, 0x203cffe3_2e18_4fdf_b59d_6e71530534cf);
+impl std::ops::Deref for IWMMetadataEditor2 {
+    type Target = IWMMetadataEditor;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMMetadataEditor2, windows_core::IUnknown, IWMMetadataEditor);
 impl IWMMetadataEditor2 {
-    pub unsafe fn Open<P0>(&self, pwszfilename: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.Open)(windows_core::Interface::as_raw(self), pwszfilename.param().abi()).ok()
-    }
-    pub unsafe fn Close(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Close)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Flush(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Flush)(windows_core::Interface::as_raw(self)).ok()
-    }
     pub unsafe fn OpenEx<P0>(&self, pwszfilename: P0, dwdesiredaccess: u32, dwsharemode: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -1525,17 +1384,14 @@ pub struct IWMMetadataEditor2_Vtbl {
     pub OpenEx: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMMutualExclusion, IWMMutualExclusion_Vtbl, 0x96406bde_2b2b_11d3_b36b_00c04f6108ff);
+impl std::ops::Deref for IWMMutualExclusion {
+    type Target = IWMStreamList;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMMutualExclusion, windows_core::IUnknown, IWMStreamList);
 impl IWMMutualExclusion {
-    pub unsafe fn GetStreams(&self, pwstreamnumarray: *mut u16, pcstreams: *mut u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetStreams)(windows_core::Interface::as_raw(self), pwstreamnumarray, pcstreams).ok()
-    }
-    pub unsafe fn AddStream(&self, wstreamnum: u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.AddStream)(windows_core::Interface::as_raw(self), wstreamnum).ok()
-    }
-    pub unsafe fn RemoveStream(&self, wstreamnum: u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.RemoveStream)(windows_core::Interface::as_raw(self), wstreamnum).ok()
-    }
     pub unsafe fn GetType(&self) -> windows_core::Result<windows_core::GUID> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1551,24 +1407,14 @@ pub struct IWMMutualExclusion_Vtbl {
     pub SetType: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMMutualExclusion2, IWMMutualExclusion2_Vtbl, 0x0302b57d_89d1_4ba2_85c9_166f2c53eb91);
+impl std::ops::Deref for IWMMutualExclusion2 {
+    type Target = IWMMutualExclusion;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMMutualExclusion2, windows_core::IUnknown, IWMStreamList, IWMMutualExclusion);
 impl IWMMutualExclusion2 {
-    pub unsafe fn GetStreams(&self, pwstreamnumarray: *mut u16, pcstreams: *mut u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GetStreams)(windows_core::Interface::as_raw(self), pwstreamnumarray, pcstreams).ok()
-    }
-    pub unsafe fn AddStream(&self, wstreamnum: u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.AddStream)(windows_core::Interface::as_raw(self), wstreamnum).ok()
-    }
-    pub unsafe fn RemoveStream(&self, wstreamnum: u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.RemoveStream)(windows_core::Interface::as_raw(self), wstreamnum).ok()
-    }
-    pub unsafe fn GetType(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetType(&self, guidtype: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetType)(windows_core::Interface::as_raw(self), guidtype).ok()
-    }
     pub unsafe fn GetName(&self, pwszname: windows_core::PWSTR, pcchname: *mut u16) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszname), pcchname).ok()
     }
@@ -1622,18 +1468,14 @@ pub struct IWMMutualExclusion2_Vtbl {
     pub RemoveStreamForRecord: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMOutputMediaProps, IWMOutputMediaProps_Vtbl, 0x96406bd7_2b2b_11d3_b36b_00c04f6108ff);
+impl std::ops::Deref for IWMOutputMediaProps {
+    type Target = IWMMediaProps;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMOutputMediaProps, windows_core::IUnknown, IWMMediaProps);
 impl IWMOutputMediaProps {
-    pub unsafe fn GetType(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetMediaType(&self, ptype: *mut WM_MEDIA_TYPE, pcbtype: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetMediaType)(windows_core::Interface::as_raw(self), ptype, pcbtype).ok()
-    }
-    pub unsafe fn SetMediaType(&self, ptype: *const WM_MEDIA_TYPE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetMediaType)(windows_core::Interface::as_raw(self), ptype).ok()
-    }
     pub unsafe fn GetStreamGroupName(&self, pwszname: windows_core::PWSTR, pcchname: *mut u16) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetStreamGroupName)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszname), pcchname).ok()
     }
@@ -1648,6 +1490,12 @@ pub struct IWMOutputMediaProps_Vtbl {
     pub GetConnectionName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, *mut u16) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPacketSize, IWMPacketSize_Vtbl, 0xcdfb97ab_188f_40b3_b643_5b7903975c59);
+impl std::ops::Deref for IWMPacketSize {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPacketSize, windows_core::IUnknown);
 impl IWMPacketSize {
     pub unsafe fn GetMaxPacketSize(&self) -> windows_core::Result<u32> {
@@ -1665,15 +1513,14 @@ pub struct IWMPacketSize_Vtbl {
     pub SetMaxPacketSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPacketSize2, IWMPacketSize2_Vtbl, 0x8bfc2b9e_b646_4233_a877_1c6a079669dc);
+impl std::ops::Deref for IWMPacketSize2 {
+    type Target = IWMPacketSize;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPacketSize2, windows_core::IUnknown, IWMPacketSize);
 impl IWMPacketSize2 {
-    pub unsafe fn GetMaxPacketSize(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetMaxPacketSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetMaxPacketSize(&self, dwmaxpacketsize: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetMaxPacketSize)(windows_core::Interface::as_raw(self), dwmaxpacketsize).ok()
-    }
     pub unsafe fn GetMinPacketSize(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMinPacketSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1689,6 +1536,12 @@ pub struct IWMPacketSize2_Vtbl {
     pub SetMinPacketSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPlayerHook, IWMPlayerHook_Vtbl, 0xe5b7ca9a_0f1c_4f66_9002_74ec50d8b304);
+impl std::ops::Deref for IWMPlayerHook {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPlayerHook, windows_core::IUnknown);
 impl IWMPlayerHook {
     pub unsafe fn PreDecode(&self) -> windows_core::Result<()> {
@@ -1701,6 +1554,12 @@ pub struct IWMPlayerHook_Vtbl {
     pub PreDecode: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPlayerTimestampHook, IWMPlayerTimestampHook_Vtbl, 0x28580dda_d98e_48d0_b7ae_69e473a02825);
+impl std::ops::Deref for IWMPlayerTimestampHook {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPlayerTimestampHook, windows_core::IUnknown);
 impl IWMPlayerTimestampHook {
     pub unsafe fn MapTimestamp(&self, rtin: i64) -> windows_core::Result<i64> {
@@ -1714,6 +1573,12 @@ pub struct IWMPlayerTimestampHook_Vtbl {
     pub MapTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, i64, *mut i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMProfile, IWMProfile_Vtbl, 0x96406bdb_2b2b_11d3_b36b_00c04f6108ff);
+impl std::ops::Deref for IWMProfile {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMProfile, windows_core::IUnknown);
 impl IWMProfile {
     pub unsafe fn GetVersion(&self) -> windows_core::Result<WMT_VERSION> {
@@ -1823,91 +1688,14 @@ pub struct IWMProfile_Vtbl {
     pub CreateNewMutualExclusion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMProfile2, IWMProfile2_Vtbl, 0x07e72d33_d94e_4be7_8843_60ae5ff7e5f5);
+impl std::ops::Deref for IWMProfile2 {
+    type Target = IWMProfile;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMProfile2, windows_core::IUnknown, IWMProfile);
 impl IWMProfile2 {
-    pub unsafe fn GetVersion(&self) -> windows_core::Result<WMT_VERSION> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetName(&self, pwszname: windows_core::PWSTR, pcchname: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszname), pcchname).ok()
-    }
-    pub unsafe fn SetName<P0>(&self, pwszname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), pwszname.param().abi()).ok()
-    }
-    pub unsafe fn GetDescription(&self, pwszdescription: windows_core::PWSTR, pcchdescription: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszdescription), pcchdescription).ok()
-    }
-    pub unsafe fn SetDescription<P0>(&self, pwszdescription: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), pwszdescription.param().abi()).ok()
-    }
-    pub unsafe fn GetStreamCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetStreamCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetStream(&self, dwstreamindex: u32) -> windows_core::Result<IWMStreamConfig> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetStream)(windows_core::Interface::as_raw(self), dwstreamindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetStreamByNumber(&self, wstreamnum: u16) -> windows_core::Result<IWMStreamConfig> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetStreamByNumber)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn RemoveStream<P0>(&self, pconfig: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMStreamConfig>,
-    {
-        (windows_core::Interface::vtable(self).base__.RemoveStream)(windows_core::Interface::as_raw(self), pconfig.param().abi()).ok()
-    }
-    pub unsafe fn RemoveStreamByNumber(&self, wstreamnum: u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.RemoveStreamByNumber)(windows_core::Interface::as_raw(self), wstreamnum).ok()
-    }
-    pub unsafe fn AddStream<P0>(&self, pconfig: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMStreamConfig>,
-    {
-        (windows_core::Interface::vtable(self).base__.AddStream)(windows_core::Interface::as_raw(self), pconfig.param().abi()).ok()
-    }
-    pub unsafe fn ReconfigStream<P0>(&self, pconfig: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMStreamConfig>,
-    {
-        (windows_core::Interface::vtable(self).base__.ReconfigStream)(windows_core::Interface::as_raw(self), pconfig.param().abi()).ok()
-    }
-    pub unsafe fn CreateNewStream(&self, guidstreamtype: *const windows_core::GUID) -> windows_core::Result<IWMStreamConfig> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateNewStream)(windows_core::Interface::as_raw(self), guidstreamtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetMutualExclusionCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetMutualExclusionCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetMutualExclusion(&self, dwmeindex: u32) -> windows_core::Result<IWMMutualExclusion> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetMutualExclusion)(windows_core::Interface::as_raw(self), dwmeindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn RemoveMutualExclusion<P0>(&self, pme: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMMutualExclusion>,
-    {
-        (windows_core::Interface::vtable(self).base__.RemoveMutualExclusion)(windows_core::Interface::as_raw(self), pme.param().abi()).ok()
-    }
-    pub unsafe fn AddMutualExclusion<P0>(&self, pme: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMMutualExclusion>,
-    {
-        (windows_core::Interface::vtable(self).base__.AddMutualExclusion)(windows_core::Interface::as_raw(self), pme.param().abi()).ok()
-    }
-    pub unsafe fn CreateNewMutualExclusion(&self) -> windows_core::Result<IWMMutualExclusion> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateNewMutualExclusion)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn GetProfileID(&self) -> windows_core::Result<windows_core::GUID> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetProfileID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1919,95 +1707,14 @@ pub struct IWMProfile2_Vtbl {
     pub GetProfileID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMProfile3, IWMProfile3_Vtbl, 0x00ef96cc_a461_4546_8bcd_c9a28f0e06f5);
+impl std::ops::Deref for IWMProfile3 {
+    type Target = IWMProfile2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMProfile3, windows_core::IUnknown, IWMProfile, IWMProfile2);
 impl IWMProfile3 {
-    pub unsafe fn GetVersion(&self) -> windows_core::Result<WMT_VERSION> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetName(&self, pwszname: windows_core::PWSTR, pcchname: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszname), pcchname).ok()
-    }
-    pub unsafe fn SetName<P0>(&self, pwszname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetName)(windows_core::Interface::as_raw(self), pwszname.param().abi()).ok()
-    }
-    pub unsafe fn GetDescription(&self, pwszdescription: windows_core::PWSTR, pcchdescription: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszdescription), pcchdescription).ok()
-    }
-    pub unsafe fn SetDescription<P0>(&self, pwszdescription: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetDescription)(windows_core::Interface::as_raw(self), pwszdescription.param().abi()).ok()
-    }
-    pub unsafe fn GetStreamCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetStreamCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetStream(&self, dwstreamindex: u32) -> windows_core::Result<IWMStreamConfig> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetStream)(windows_core::Interface::as_raw(self), dwstreamindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetStreamByNumber(&self, wstreamnum: u16) -> windows_core::Result<IWMStreamConfig> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetStreamByNumber)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn RemoveStream<P0>(&self, pconfig: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMStreamConfig>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.RemoveStream)(windows_core::Interface::as_raw(self), pconfig.param().abi()).ok()
-    }
-    pub unsafe fn RemoveStreamByNumber(&self, wstreamnum: u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.RemoveStreamByNumber)(windows_core::Interface::as_raw(self), wstreamnum).ok()
-    }
-    pub unsafe fn AddStream<P0>(&self, pconfig: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMStreamConfig>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.AddStream)(windows_core::Interface::as_raw(self), pconfig.param().abi()).ok()
-    }
-    pub unsafe fn ReconfigStream<P0>(&self, pconfig: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMStreamConfig>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.ReconfigStream)(windows_core::Interface::as_raw(self), pconfig.param().abi()).ok()
-    }
-    pub unsafe fn CreateNewStream(&self, guidstreamtype: *const windows_core::GUID) -> windows_core::Result<IWMStreamConfig> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CreateNewStream)(windows_core::Interface::as_raw(self), guidstreamtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetMutualExclusionCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetMutualExclusionCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetMutualExclusion(&self, dwmeindex: u32) -> windows_core::Result<IWMMutualExclusion> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetMutualExclusion)(windows_core::Interface::as_raw(self), dwmeindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn RemoveMutualExclusion<P0>(&self, pme: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMMutualExclusion>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.RemoveMutualExclusion)(windows_core::Interface::as_raw(self), pme.param().abi()).ok()
-    }
-    pub unsafe fn AddMutualExclusion<P0>(&self, pme: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMMutualExclusion>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.AddMutualExclusion)(windows_core::Interface::as_raw(self), pme.param().abi()).ok()
-    }
-    pub unsafe fn CreateNewMutualExclusion(&self) -> windows_core::Result<IWMMutualExclusion> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CreateNewMutualExclusion)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetProfileID(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetProfileID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     pub unsafe fn GetStorageFormat(&self) -> windows_core::Result<WMT_STORAGE_FORMAT> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetStorageFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2078,6 +1785,12 @@ pub struct IWMProfile3_Vtbl {
     pub GetExpectedPacketCount: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMProfileManager, IWMProfileManager_Vtbl, 0xd16679f2_6ca0_472d_8d31_2f5d55aee155);
+impl std::ops::Deref for IWMProfileManager {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMProfileManager, windows_core::IUnknown);
 impl IWMProfileManager {
     pub unsafe fn CreateEmptyProfile(&self, dwversion: WMT_VERSION) -> windows_core::Result<IWMProfile> {
@@ -2122,38 +1835,14 @@ pub struct IWMProfileManager_Vtbl {
     pub LoadSystemProfile: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMProfileManager2, IWMProfileManager2_Vtbl, 0x7a924e51_73c1_494d_8019_23d37ed9b89a);
+impl std::ops::Deref for IWMProfileManager2 {
+    type Target = IWMProfileManager;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMProfileManager2, windows_core::IUnknown, IWMProfileManager);
 impl IWMProfileManager2 {
-    pub unsafe fn CreateEmptyProfile(&self, dwversion: WMT_VERSION) -> windows_core::Result<IWMProfile> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateEmptyProfile)(windows_core::Interface::as_raw(self), dwversion, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn LoadProfileByID(&self, guidprofile: *const windows_core::GUID) -> windows_core::Result<IWMProfile> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LoadProfileByID)(windows_core::Interface::as_raw(self), guidprofile, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn LoadProfileByData<P0>(&self, pwszprofile: P0) -> windows_core::Result<IWMProfile>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LoadProfileByData)(windows_core::Interface::as_raw(self), pwszprofile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SaveProfile<P0, P1>(&self, piwmprofile: P0, pwszprofile: P1, pdwlength: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMProfile>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SaveProfile)(windows_core::Interface::as_raw(self), piwmprofile.param().abi(), pwszprofile.param().abi(), pdwlength).ok()
-    }
-    pub unsafe fn GetSystemProfileCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetSystemProfileCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn LoadSystemProfile(&self, dwprofileindex: u32) -> windows_core::Result<IWMProfile> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LoadSystemProfile)(windows_core::Interface::as_raw(self), dwprofileindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn GetSystemProfileVersion(&self, pdwversion: *mut WMT_VERSION) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetSystemProfileVersion)(windows_core::Interface::as_raw(self), pdwversion).ok()
     }
@@ -2168,6 +1857,12 @@ pub struct IWMProfileManager2_Vtbl {
     pub SetSystemProfileVersion: unsafe extern "system" fn(*mut core::ffi::c_void, WMT_VERSION) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMProfileManagerLanguage, IWMProfileManagerLanguage_Vtbl, 0xba4dcc78_7ee0_4ab8_b27a_dbce8bc51454);
+impl std::ops::Deref for IWMProfileManagerLanguage {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMProfileManagerLanguage, windows_core::IUnknown);
 impl IWMProfileManagerLanguage {
     pub unsafe fn GetUserLanguageID(&self, wlangid: *mut u16) -> windows_core::Result<()> {
@@ -2184,6 +1879,12 @@ pub struct IWMProfileManagerLanguage_Vtbl {
     pub SetUserLanguageID: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMPropertyVault, IWMPropertyVault_Vtbl, 0x72995a79_5090_42a4_9c8c_d9d0b6d34be5);
+impl std::ops::Deref for IWMPropertyVault {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMPropertyVault, windows_core::IUnknown);
 impl IWMPropertyVault {
     pub unsafe fn GetPropertyCount(&self, pdwcount: *const u32) -> windows_core::Result<()> {
@@ -2225,6 +1926,12 @@ pub struct IWMPropertyVault_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMProximityDetection, IWMProximityDetection_Vtbl, 0x6a9fd8ee_b651_4bf0_b849_7d4ece79a2b1);
+impl std::ops::Deref for IWMProximityDetection {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMProximityDetection, windows_core::IUnknown);
 impl IWMProximityDetection {
     pub unsafe fn StartDetection<P0>(&self, pbregistrationmsg: &[u8], pblocaladdress: &[u8], dwextraportsallowed: u32, ppregistrationresponsemsg: *mut Option<INSSBuffer>, pcallback: P0, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>
@@ -2240,6 +1947,12 @@ pub struct IWMProximityDetection_Vtbl {
     pub StartDetection: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *const u8, u32, u32, *mut *mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMReader, IWMReader_Vtbl, 0x96406bd6_2b2b_11d3_b36b_00c04f6108ff);
+impl std::ops::Deref for IWMReader {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMReader, windows_core::IUnknown);
 impl IWMReader {
     pub unsafe fn Open<P0, P1>(&self, pwszurl: P0, pcallback: P1, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>
@@ -2303,6 +2016,12 @@ pub struct IWMReader_Vtbl {
     pub Resume: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMReaderAccelerator, IWMReaderAccelerator_Vtbl, 0xbddc4d08_944d_4d52_a612_46c3fda07dd4);
+impl std::ops::Deref for IWMReaderAccelerator {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMReaderAccelerator, windows_core::IUnknown);
 impl IWMReaderAccelerator {
     pub unsafe fn GetCodecInterface(&self, dwoutputnum: u32, riid: *const windows_core::GUID, ppvcodecinterface: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -2319,6 +2038,12 @@ pub struct IWMReaderAccelerator_Vtbl {
     pub Notify: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const WM_MEDIA_TYPE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMReaderAdvanced, IWMReaderAdvanced_Vtbl, 0x96406bea_2b2b_11d3_b36b_00c04f6108ff);
+impl std::ops::Deref for IWMReaderAdvanced {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMReaderAdvanced, windows_core::IUnknown);
 impl IWMReaderAdvanced {
     pub unsafe fn SetUserProvidedClock<P0>(&self, fuserclock: P0) -> windows_core::Result<()>
@@ -2434,95 +2159,14 @@ pub struct IWMReaderAdvanced_Vtbl {
     pub NotifyLateDelivery: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMReaderAdvanced2, IWMReaderAdvanced2_Vtbl, 0xae14a945_b90c_4d0d_9127_80d665f7d73e);
+impl std::ops::Deref for IWMReaderAdvanced2 {
+    type Target = IWMReaderAdvanced;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMReaderAdvanced2, windows_core::IUnknown, IWMReaderAdvanced);
 impl IWMReaderAdvanced2 {
-    pub unsafe fn SetUserProvidedClock<P0>(&self, fuserclock: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetUserProvidedClock)(windows_core::Interface::as_raw(self), fuserclock.param().abi()).ok()
-    }
-    pub unsafe fn GetUserProvidedClock(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetUserProvidedClock)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DeliverTime(&self, cnstime: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.DeliverTime)(windows_core::Interface::as_raw(self), cnstime).ok()
-    }
-    pub unsafe fn SetManualStreamSelection<P0>(&self, fselection: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetManualStreamSelection)(windows_core::Interface::as_raw(self), fselection.param().abi()).ok()
-    }
-    pub unsafe fn GetManualStreamSelection(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetManualStreamSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetStreamsSelected(&self, cstreamcount: u16, pwstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetStreamsSelected)(windows_core::Interface::as_raw(self), cstreamcount, pwstreamnumbers, pselections).ok()
-    }
-    pub unsafe fn GetStreamSelected(&self, wstreamnum: u16) -> windows_core::Result<WMT_STREAM_SELECTION> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetStreamSelected)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetReceiveSelectionCallbacks<P0>(&self, fgetcallbacks: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetReceiveSelectionCallbacks)(windows_core::Interface::as_raw(self), fgetcallbacks.param().abi()).ok()
-    }
-    pub unsafe fn GetReceiveSelectionCallbacks(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetReceiveSelectionCallbacks)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetReceiveStreamSamples<P0>(&self, wstreamnum: u16, freceivestreamsamples: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetReceiveStreamSamples)(windows_core::Interface::as_raw(self), wstreamnum, freceivestreamsamples.param().abi()).ok()
-    }
-    pub unsafe fn GetReceiveStreamSamples(&self, wstreamnum: u16) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetReceiveStreamSamples)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetAllocateForOutput<P0>(&self, dwoutputnum: u32, fallocate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetAllocateForOutput)(windows_core::Interface::as_raw(self), dwoutputnum, fallocate.param().abi()).ok()
-    }
-    pub unsafe fn GetAllocateForOutput(&self, dwoutputnum: u32) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetAllocateForOutput)(windows_core::Interface::as_raw(self), dwoutputnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetAllocateForStream<P0>(&self, wstreamnum: u16, fallocate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetAllocateForStream)(windows_core::Interface::as_raw(self), wstreamnum, fallocate.param().abi()).ok()
-    }
-    pub unsafe fn GetAllocateForStream(&self, dwsreamnum: u16) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetAllocateForStream)(windows_core::Interface::as_raw(self), dwsreamnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetStatistics(&self, pstatistics: *mut WM_READER_STATISTICS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetStatistics)(windows_core::Interface::as_raw(self), pstatistics).ok()
-    }
-    pub unsafe fn SetClientInfo(&self, pclientinfo: *const WM_READER_CLIENTINFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetClientInfo)(windows_core::Interface::as_raw(self), pclientinfo).ok()
-    }
-    pub unsafe fn GetMaxOutputSampleSize(&self, dwoutput: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetMaxOutputSampleSize)(windows_core::Interface::as_raw(self), dwoutput, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetMaxStreamSampleSize(&self, wstream: u16) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetMaxStreamSampleSize)(windows_core::Interface::as_raw(self), wstream, &mut result__).map(|| result__)
-    }
-    pub unsafe fn NotifyLateDelivery(&self, cnslateness: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.NotifyLateDelivery)(windows_core::Interface::as_raw(self), cnslateness).ok()
-    }
     pub unsafe fn SetPlayMode(&self, mode: WMT_PLAY_MODE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetPlayMode)(windows_core::Interface::as_raw(self), mode).ok()
     }
@@ -2612,160 +2256,14 @@ pub struct IWMReaderAdvanced2_Vtbl {
     OpenStream: usize,
 }
 windows_core::imp::define_interface!(IWMReaderAdvanced3, IWMReaderAdvanced3_Vtbl, 0x5dc0674b_f04b_4a4e_9f2a_b1afde2c8100);
+impl std::ops::Deref for IWMReaderAdvanced3 {
+    type Target = IWMReaderAdvanced2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMReaderAdvanced3, windows_core::IUnknown, IWMReaderAdvanced, IWMReaderAdvanced2);
 impl IWMReaderAdvanced3 {
-    pub unsafe fn SetUserProvidedClock<P0>(&self, fuserclock: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetUserProvidedClock)(windows_core::Interface::as_raw(self), fuserclock.param().abi()).ok()
-    }
-    pub unsafe fn GetUserProvidedClock(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetUserProvidedClock)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DeliverTime(&self, cnstime: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.DeliverTime)(windows_core::Interface::as_raw(self), cnstime).ok()
-    }
-    pub unsafe fn SetManualStreamSelection<P0>(&self, fselection: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetManualStreamSelection)(windows_core::Interface::as_raw(self), fselection.param().abi()).ok()
-    }
-    pub unsafe fn GetManualStreamSelection(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetManualStreamSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetStreamsSelected(&self, cstreamcount: u16, pwstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetStreamsSelected)(windows_core::Interface::as_raw(self), cstreamcount, pwstreamnumbers, pselections).ok()
-    }
-    pub unsafe fn GetStreamSelected(&self, wstreamnum: u16) -> windows_core::Result<WMT_STREAM_SELECTION> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetStreamSelected)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetReceiveSelectionCallbacks<P0>(&self, fgetcallbacks: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetReceiveSelectionCallbacks)(windows_core::Interface::as_raw(self), fgetcallbacks.param().abi()).ok()
-    }
-    pub unsafe fn GetReceiveSelectionCallbacks(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetReceiveSelectionCallbacks)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetReceiveStreamSamples<P0>(&self, wstreamnum: u16, freceivestreamsamples: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetReceiveStreamSamples)(windows_core::Interface::as_raw(self), wstreamnum, freceivestreamsamples.param().abi()).ok()
-    }
-    pub unsafe fn GetReceiveStreamSamples(&self, wstreamnum: u16) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetReceiveStreamSamples)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetAllocateForOutput<P0>(&self, dwoutputnum: u32, fallocate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetAllocateForOutput)(windows_core::Interface::as_raw(self), dwoutputnum, fallocate.param().abi()).ok()
-    }
-    pub unsafe fn GetAllocateForOutput(&self, dwoutputnum: u32) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetAllocateForOutput)(windows_core::Interface::as_raw(self), dwoutputnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetAllocateForStream<P0>(&self, wstreamnum: u16, fallocate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetAllocateForStream)(windows_core::Interface::as_raw(self), wstreamnum, fallocate.param().abi()).ok()
-    }
-    pub unsafe fn GetAllocateForStream(&self, dwsreamnum: u16) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetAllocateForStream)(windows_core::Interface::as_raw(self), dwsreamnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetStatistics(&self, pstatistics: *mut WM_READER_STATISTICS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GetStatistics)(windows_core::Interface::as_raw(self), pstatistics).ok()
-    }
-    pub unsafe fn SetClientInfo(&self, pclientinfo: *const WM_READER_CLIENTINFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetClientInfo)(windows_core::Interface::as_raw(self), pclientinfo).ok()
-    }
-    pub unsafe fn GetMaxOutputSampleSize(&self, dwoutput: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetMaxOutputSampleSize)(windows_core::Interface::as_raw(self), dwoutput, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetMaxStreamSampleSize(&self, wstream: u16) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetMaxStreamSampleSize)(windows_core::Interface::as_raw(self), wstream, &mut result__).map(|| result__)
-    }
-    pub unsafe fn NotifyLateDelivery(&self, cnslateness: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.NotifyLateDelivery)(windows_core::Interface::as_raw(self), cnslateness).ok()
-    }
-    pub unsafe fn SetPlayMode(&self, mode: WMT_PLAY_MODE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetPlayMode)(windows_core::Interface::as_raw(self), mode).ok()
-    }
-    pub unsafe fn GetPlayMode(&self) -> windows_core::Result<WMT_PLAY_MODE> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetPlayMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetBufferProgress(&self, pdwpercent: *mut u32, pcnsbuffering: *mut u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetBufferProgress)(windows_core::Interface::as_raw(self), pdwpercent, pcnsbuffering).ok()
-    }
-    pub unsafe fn GetDownloadProgress(&self, pdwpercent: *mut u32, pqwbytesdownloaded: *mut u64, pcnsdownload: *mut u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetDownloadProgress)(windows_core::Interface::as_raw(self), pdwpercent, pqwbytesdownloaded, pcnsdownload).ok()
-    }
-    pub unsafe fn GetSaveAsProgress(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetSaveAsProgress)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SaveFileAs<P0>(&self, pwszfilename: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SaveFileAs)(windows_core::Interface::as_raw(self), pwszfilename.param().abi()).ok()
-    }
-    pub unsafe fn GetProtocolName(&self, pwszprotocol: windows_core::PWSTR, pcchprotocol: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetProtocolName)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszprotocol), pcchprotocol).ok()
-    }
-    pub unsafe fn StartAtMarker(&self, wmarkerindex: u16, cnsduration: u64, frate: f32, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.StartAtMarker)(windows_core::Interface::as_raw(self), wmarkerindex, cnsduration, frate, pvcontext).ok()
-    }
-    pub unsafe fn GetOutputSetting<P0>(&self, dwoutputnum: u32, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.GetOutputSetting)(windows_core::Interface::as_raw(self), dwoutputnum, pszname.param().abi(), ptype, pvalue, pcblength).ok()
-    }
-    pub unsafe fn SetOutputSetting<P0>(&self, dwoutputnum: u32, pszname: P0, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetOutputSetting)(windows_core::Interface::as_raw(self), dwoutputnum, pszname.param().abi(), r#type, core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
-    }
-    pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Preroll)(windows_core::Interface::as_raw(self), cnsstart, cnsduration, frate).ok()
-    }
-    pub unsafe fn SetLogClientID<P0>(&self, flogclientid: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetLogClientID)(windows_core::Interface::as_raw(self), flogclientid.param().abi()).ok()
-    }
-    pub unsafe fn GetLogClientID(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetLogClientID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn StopBuffering(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.StopBuffering)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OpenStream<P0, P1>(&self, pstream: P0, pcallback: P1, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::System::Com::IStream>,
-        P1: windows_core::Param<IWMReaderCallback>,
-    {
-        (windows_core::Interface::vtable(self).base__.OpenStream)(windows_core::Interface::as_raw(self), pstream.param().abi(), pcallback.param().abi(), pvcontext).ok()
-    }
     pub unsafe fn StopNetStreaming(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).StopNetStreaming)(windows_core::Interface::as_raw(self)).ok()
     }
@@ -2780,166 +2278,14 @@ pub struct IWMReaderAdvanced3_Vtbl {
     pub StartAtPosition: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *const core::ffi::c_void, *const core::ffi::c_void, WMT_OFFSET_FORMAT, f32, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMReaderAdvanced4, IWMReaderAdvanced4_Vtbl, 0x945a76a2_12ae_4d48_bd3c_cd1d90399b85);
+impl std::ops::Deref for IWMReaderAdvanced4 {
+    type Target = IWMReaderAdvanced3;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMReaderAdvanced4, windows_core::IUnknown, IWMReaderAdvanced, IWMReaderAdvanced2, IWMReaderAdvanced3);
 impl IWMReaderAdvanced4 {
-    pub unsafe fn SetUserProvidedClock<P0>(&self, fuserclock: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetUserProvidedClock)(windows_core::Interface::as_raw(self), fuserclock.param().abi()).ok()
-    }
-    pub unsafe fn GetUserProvidedClock(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetUserProvidedClock)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DeliverTime(&self, cnstime: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.DeliverTime)(windows_core::Interface::as_raw(self), cnstime).ok()
-    }
-    pub unsafe fn SetManualStreamSelection<P0>(&self, fselection: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetManualStreamSelection)(windows_core::Interface::as_raw(self), fselection.param().abi()).ok()
-    }
-    pub unsafe fn GetManualStreamSelection(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetManualStreamSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetStreamsSelected(&self, cstreamcount: u16, pwstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetStreamsSelected)(windows_core::Interface::as_raw(self), cstreamcount, pwstreamnumbers, pselections).ok()
-    }
-    pub unsafe fn GetStreamSelected(&self, wstreamnum: u16) -> windows_core::Result<WMT_STREAM_SELECTION> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetStreamSelected)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetReceiveSelectionCallbacks<P0>(&self, fgetcallbacks: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetReceiveSelectionCallbacks)(windows_core::Interface::as_raw(self), fgetcallbacks.param().abi()).ok()
-    }
-    pub unsafe fn GetReceiveSelectionCallbacks(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetReceiveSelectionCallbacks)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetReceiveStreamSamples<P0>(&self, wstreamnum: u16, freceivestreamsamples: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetReceiveStreamSamples)(windows_core::Interface::as_raw(self), wstreamnum, freceivestreamsamples.param().abi()).ok()
-    }
-    pub unsafe fn GetReceiveStreamSamples(&self, wstreamnum: u16) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetReceiveStreamSamples)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetAllocateForOutput<P0>(&self, dwoutputnum: u32, fallocate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetAllocateForOutput)(windows_core::Interface::as_raw(self), dwoutputnum, fallocate.param().abi()).ok()
-    }
-    pub unsafe fn GetAllocateForOutput(&self, dwoutputnum: u32) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetAllocateForOutput)(windows_core::Interface::as_raw(self), dwoutputnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetAllocateForStream<P0>(&self, wstreamnum: u16, fallocate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetAllocateForStream)(windows_core::Interface::as_raw(self), wstreamnum, fallocate.param().abi()).ok()
-    }
-    pub unsafe fn GetAllocateForStream(&self, dwsreamnum: u16) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetAllocateForStream)(windows_core::Interface::as_raw(self), dwsreamnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetStatistics(&self, pstatistics: *mut WM_READER_STATISTICS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetStatistics)(windows_core::Interface::as_raw(self), pstatistics).ok()
-    }
-    pub unsafe fn SetClientInfo(&self, pclientinfo: *const WM_READER_CLIENTINFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetClientInfo)(windows_core::Interface::as_raw(self), pclientinfo).ok()
-    }
-    pub unsafe fn GetMaxOutputSampleSize(&self, dwoutput: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetMaxOutputSampleSize)(windows_core::Interface::as_raw(self), dwoutput, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetMaxStreamSampleSize(&self, wstream: u16) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetMaxStreamSampleSize)(windows_core::Interface::as_raw(self), wstream, &mut result__).map(|| result__)
-    }
-    pub unsafe fn NotifyLateDelivery(&self, cnslateness: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.NotifyLateDelivery)(windows_core::Interface::as_raw(self), cnslateness).ok()
-    }
-    pub unsafe fn SetPlayMode(&self, mode: WMT_PLAY_MODE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetPlayMode)(windows_core::Interface::as_raw(self), mode).ok()
-    }
-    pub unsafe fn GetPlayMode(&self) -> windows_core::Result<WMT_PLAY_MODE> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetPlayMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetBufferProgress(&self, pdwpercent: *mut u32, pcnsbuffering: *mut u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GetBufferProgress)(windows_core::Interface::as_raw(self), pdwpercent, pcnsbuffering).ok()
-    }
-    pub unsafe fn GetDownloadProgress(&self, pdwpercent: *mut u32, pqwbytesdownloaded: *mut u64, pcnsdownload: *mut u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GetDownloadProgress)(windows_core::Interface::as_raw(self), pdwpercent, pqwbytesdownloaded, pcnsdownload).ok()
-    }
-    pub unsafe fn GetSaveAsProgress(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetSaveAsProgress)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SaveFileAs<P0>(&self, pwszfilename: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SaveFileAs)(windows_core::Interface::as_raw(self), pwszfilename.param().abi()).ok()
-    }
-    pub unsafe fn GetProtocolName(&self, pwszprotocol: windows_core::PWSTR, pcchprotocol: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GetProtocolName)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszprotocol), pcchprotocol).ok()
-    }
-    pub unsafe fn StartAtMarker(&self, wmarkerindex: u16, cnsduration: u64, frate: f32, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.StartAtMarker)(windows_core::Interface::as_raw(self), wmarkerindex, cnsduration, frate, pvcontext).ok()
-    }
-    pub unsafe fn GetOutputSetting<P0>(&self, dwoutputnum: u32, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.GetOutputSetting)(windows_core::Interface::as_raw(self), dwoutputnum, pszname.param().abi(), ptype, pvalue, pcblength).ok()
-    }
-    pub unsafe fn SetOutputSetting<P0>(&self, dwoutputnum: u32, pszname: P0, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetOutputSetting)(windows_core::Interface::as_raw(self), dwoutputnum, pszname.param().abi(), r#type, core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
-    }
-    pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.Preroll)(windows_core::Interface::as_raw(self), cnsstart, cnsduration, frate).ok()
-    }
-    pub unsafe fn SetLogClientID<P0>(&self, flogclientid: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetLogClientID)(windows_core::Interface::as_raw(self), flogclientid.param().abi()).ok()
-    }
-    pub unsafe fn GetLogClientID(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetLogClientID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn StopBuffering(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.StopBuffering)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OpenStream<P0, P1>(&self, pstream: P0, pcallback: P1, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::System::Com::IStream>,
-        P1: windows_core::Param<IWMReaderCallback>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.OpenStream)(windows_core::Interface::as_raw(self), pstream.param().abi(), pcallback.param().abi(), pvcontext).ok()
-    }
-    pub unsafe fn StopNetStreaming(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.StopNetStreaming)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn StartAtPosition(&self, wstreamnum: u16, pvoffsetstart: *const core::ffi::c_void, pvduration: *const core::ffi::c_void, dwoffsetformat: WMT_OFFSET_FORMAT, frate: f32, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.StartAtPosition)(windows_core::Interface::as_raw(self), wstreamnum, pvoffsetstart, pvduration, dwoffsetformat, frate, pvcontext).ok()
-    }
     pub unsafe fn GetLanguageCount(&self, dwoutputnum: u32) -> windows_core::Result<u16> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLanguageCount)(windows_core::Interface::as_raw(self), dwoutputnum, &mut result__).map(|| result__)
@@ -2991,202 +2337,14 @@ pub struct IWMReaderAdvanced4_Vtbl {
     pub GetURL: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMReaderAdvanced5, IWMReaderAdvanced5_Vtbl, 0x24c44db0_55d1_49ae_a5cc_f13815e36363);
+impl std::ops::Deref for IWMReaderAdvanced5 {
+    type Target = IWMReaderAdvanced4;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMReaderAdvanced5, windows_core::IUnknown, IWMReaderAdvanced, IWMReaderAdvanced2, IWMReaderAdvanced3, IWMReaderAdvanced4);
 impl IWMReaderAdvanced5 {
-    pub unsafe fn SetUserProvidedClock<P0>(&self, fuserclock: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetUserProvidedClock)(windows_core::Interface::as_raw(self), fuserclock.param().abi()).ok()
-    }
-    pub unsafe fn GetUserProvidedClock(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetUserProvidedClock)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DeliverTime(&self, cnstime: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.DeliverTime)(windows_core::Interface::as_raw(self), cnstime).ok()
-    }
-    pub unsafe fn SetManualStreamSelection<P0>(&self, fselection: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetManualStreamSelection)(windows_core::Interface::as_raw(self), fselection.param().abi()).ok()
-    }
-    pub unsafe fn GetManualStreamSelection(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetManualStreamSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetStreamsSelected(&self, cstreamcount: u16, pwstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetStreamsSelected)(windows_core::Interface::as_raw(self), cstreamcount, pwstreamnumbers, pselections).ok()
-    }
-    pub unsafe fn GetStreamSelected(&self, wstreamnum: u16) -> windows_core::Result<WMT_STREAM_SELECTION> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetStreamSelected)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetReceiveSelectionCallbacks<P0>(&self, fgetcallbacks: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetReceiveSelectionCallbacks)(windows_core::Interface::as_raw(self), fgetcallbacks.param().abi()).ok()
-    }
-    pub unsafe fn GetReceiveSelectionCallbacks(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetReceiveSelectionCallbacks)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetReceiveStreamSamples<P0>(&self, wstreamnum: u16, freceivestreamsamples: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetReceiveStreamSamples)(windows_core::Interface::as_raw(self), wstreamnum, freceivestreamsamples.param().abi()).ok()
-    }
-    pub unsafe fn GetReceiveStreamSamples(&self, wstreamnum: u16) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetReceiveStreamSamples)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetAllocateForOutput<P0>(&self, dwoutputnum: u32, fallocate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetAllocateForOutput)(windows_core::Interface::as_raw(self), dwoutputnum, fallocate.param().abi()).ok()
-    }
-    pub unsafe fn GetAllocateForOutput(&self, dwoutputnum: u32) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetAllocateForOutput)(windows_core::Interface::as_raw(self), dwoutputnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetAllocateForStream<P0>(&self, wstreamnum: u16, fallocate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetAllocateForStream)(windows_core::Interface::as_raw(self), wstreamnum, fallocate.param().abi()).ok()
-    }
-    pub unsafe fn GetAllocateForStream(&self, dwsreamnum: u16) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetAllocateForStream)(windows_core::Interface::as_raw(self), dwsreamnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetStatistics(&self, pstatistics: *mut WM_READER_STATISTICS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetStatistics)(windows_core::Interface::as_raw(self), pstatistics).ok()
-    }
-    pub unsafe fn SetClientInfo(&self, pclientinfo: *const WM_READER_CLIENTINFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetClientInfo)(windows_core::Interface::as_raw(self), pclientinfo).ok()
-    }
-    pub unsafe fn GetMaxOutputSampleSize(&self, dwoutput: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetMaxOutputSampleSize)(windows_core::Interface::as_raw(self), dwoutput, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetMaxStreamSampleSize(&self, wstream: u16) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetMaxStreamSampleSize)(windows_core::Interface::as_raw(self), wstream, &mut result__).map(|| result__)
-    }
-    pub unsafe fn NotifyLateDelivery(&self, cnslateness: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.NotifyLateDelivery)(windows_core::Interface::as_raw(self), cnslateness).ok()
-    }
-    pub unsafe fn SetPlayMode(&self, mode: WMT_PLAY_MODE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetPlayMode)(windows_core::Interface::as_raw(self), mode).ok()
-    }
-    pub unsafe fn GetPlayMode(&self) -> windows_core::Result<WMT_PLAY_MODE> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetPlayMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetBufferProgress(&self, pdwpercent: *mut u32, pcnsbuffering: *mut u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetBufferProgress)(windows_core::Interface::as_raw(self), pdwpercent, pcnsbuffering).ok()
-    }
-    pub unsafe fn GetDownloadProgress(&self, pdwpercent: *mut u32, pqwbytesdownloaded: *mut u64, pcnsdownload: *mut u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetDownloadProgress)(windows_core::Interface::as_raw(self), pdwpercent, pqwbytesdownloaded, pcnsdownload).ok()
-    }
-    pub unsafe fn GetSaveAsProgress(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetSaveAsProgress)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SaveFileAs<P0>(&self, pwszfilename: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SaveFileAs)(windows_core::Interface::as_raw(self), pwszfilename.param().abi()).ok()
-    }
-    pub unsafe fn GetProtocolName(&self, pwszprotocol: windows_core::PWSTR, pcchprotocol: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetProtocolName)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszprotocol), pcchprotocol).ok()
-    }
-    pub unsafe fn StartAtMarker(&self, wmarkerindex: u16, cnsduration: u64, frate: f32, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.StartAtMarker)(windows_core::Interface::as_raw(self), wmarkerindex, cnsduration, frate, pvcontext).ok()
-    }
-    pub unsafe fn GetOutputSetting<P0>(&self, dwoutputnum: u32, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetOutputSetting)(windows_core::Interface::as_raw(self), dwoutputnum, pszname.param().abi(), ptype, pvalue, pcblength).ok()
-    }
-    pub unsafe fn SetOutputSetting<P0>(&self, dwoutputnum: u32, pszname: P0, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetOutputSetting)(windows_core::Interface::as_raw(self), dwoutputnum, pszname.param().abi(), r#type, core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
-    }
-    pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.Preroll)(windows_core::Interface::as_raw(self), cnsstart, cnsduration, frate).ok()
-    }
-    pub unsafe fn SetLogClientID<P0>(&self, flogclientid: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetLogClientID)(windows_core::Interface::as_raw(self), flogclientid.param().abi()).ok()
-    }
-    pub unsafe fn GetLogClientID(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetLogClientID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn StopBuffering(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.StopBuffering)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OpenStream<P0, P1>(&self, pstream: P0, pcallback: P1, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::System::Com::IStream>,
-        P1: windows_core::Param<IWMReaderCallback>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.OpenStream)(windows_core::Interface::as_raw(self), pstream.param().abi(), pcallback.param().abi(), pvcontext).ok()
-    }
-    pub unsafe fn StopNetStreaming(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.StopNetStreaming)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn StartAtPosition(&self, wstreamnum: u16, pvoffsetstart: *const core::ffi::c_void, pvduration: *const core::ffi::c_void, dwoffsetformat: WMT_OFFSET_FORMAT, frate: f32, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.StartAtPosition)(windows_core::Interface::as_raw(self), wstreamnum, pvoffsetstart, pvduration, dwoffsetformat, frate, pvcontext).ok()
-    }
-    pub unsafe fn GetLanguageCount(&self, dwoutputnum: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetLanguageCount)(windows_core::Interface::as_raw(self), dwoutputnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetLanguage(&self, dwoutputnum: u32, wlanguage: u16, pwszlanguagestring: windows_core::PWSTR, pcchlanguagestringlength: *mut u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetLanguage)(windows_core::Interface::as_raw(self), dwoutputnum, wlanguage, core::mem::transmute(pwszlanguagestring), pcchlanguagestringlength).ok()
-    }
-    pub unsafe fn GetMaxSpeedFactor(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetMaxSpeedFactor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsUsingFastCache(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsUsingFastCache)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn AddLogParam<P0, P1, P2>(&self, wsznamespace: P0, wszname: P1, wszvalue: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.AddLogParam)(windows_core::Interface::as_raw(self), wsznamespace.param().abi(), wszname.param().abi(), wszvalue.param().abi()).ok()
-    }
-    pub unsafe fn SendLogParams(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SendLogParams)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn CanSaveFileAs(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CanSaveFileAs)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn CancelSaveFileAs(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.CancelSaveFileAs)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn GetURL(&self, pwszurl: windows_core::PWSTR, pcchurl: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetURL)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszurl), pcchurl).ok()
-    }
     pub unsafe fn SetPlayerHook<P0>(&self, dwoutputnum: u32, phook: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IWMPlayerHook>,
@@ -3200,208 +2358,14 @@ pub struct IWMReaderAdvanced5_Vtbl {
     pub SetPlayerHook: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMReaderAdvanced6, IWMReaderAdvanced6_Vtbl, 0x18a2e7f8_428f_4acd_8a00_e64639bc93de);
+impl std::ops::Deref for IWMReaderAdvanced6 {
+    type Target = IWMReaderAdvanced5;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMReaderAdvanced6, windows_core::IUnknown, IWMReaderAdvanced, IWMReaderAdvanced2, IWMReaderAdvanced3, IWMReaderAdvanced4, IWMReaderAdvanced5);
 impl IWMReaderAdvanced6 {
-    pub unsafe fn SetUserProvidedClock<P0>(&self, fuserclock: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetUserProvidedClock)(windows_core::Interface::as_raw(self), fuserclock.param().abi()).ok()
-    }
-    pub unsafe fn GetUserProvidedClock(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetUserProvidedClock)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DeliverTime(&self, cnstime: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.DeliverTime)(windows_core::Interface::as_raw(self), cnstime).ok()
-    }
-    pub unsafe fn SetManualStreamSelection<P0>(&self, fselection: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetManualStreamSelection)(windows_core::Interface::as_raw(self), fselection.param().abi()).ok()
-    }
-    pub unsafe fn GetManualStreamSelection(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetManualStreamSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetStreamsSelected(&self, cstreamcount: u16, pwstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetStreamsSelected)(windows_core::Interface::as_raw(self), cstreamcount, pwstreamnumbers, pselections).ok()
-    }
-    pub unsafe fn GetStreamSelected(&self, wstreamnum: u16) -> windows_core::Result<WMT_STREAM_SELECTION> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetStreamSelected)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetReceiveSelectionCallbacks<P0>(&self, fgetcallbacks: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetReceiveSelectionCallbacks)(windows_core::Interface::as_raw(self), fgetcallbacks.param().abi()).ok()
-    }
-    pub unsafe fn GetReceiveSelectionCallbacks(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetReceiveSelectionCallbacks)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetReceiveStreamSamples<P0>(&self, wstreamnum: u16, freceivestreamsamples: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetReceiveStreamSamples)(windows_core::Interface::as_raw(self), wstreamnum, freceivestreamsamples.param().abi()).ok()
-    }
-    pub unsafe fn GetReceiveStreamSamples(&self, wstreamnum: u16) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetReceiveStreamSamples)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetAllocateForOutput<P0>(&self, dwoutputnum: u32, fallocate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetAllocateForOutput)(windows_core::Interface::as_raw(self), dwoutputnum, fallocate.param().abi()).ok()
-    }
-    pub unsafe fn GetAllocateForOutput(&self, dwoutputnum: u32) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetAllocateForOutput)(windows_core::Interface::as_raw(self), dwoutputnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetAllocateForStream<P0>(&self, wstreamnum: u16, fallocate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetAllocateForStream)(windows_core::Interface::as_raw(self), wstreamnum, fallocate.param().abi()).ok()
-    }
-    pub unsafe fn GetAllocateForStream(&self, dwsreamnum: u16) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetAllocateForStream)(windows_core::Interface::as_raw(self), dwsreamnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetStatistics(&self, pstatistics: *mut WM_READER_STATISTICS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetStatistics)(windows_core::Interface::as_raw(self), pstatistics).ok()
-    }
-    pub unsafe fn SetClientInfo(&self, pclientinfo: *const WM_READER_CLIENTINFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetClientInfo)(windows_core::Interface::as_raw(self), pclientinfo).ok()
-    }
-    pub unsafe fn GetMaxOutputSampleSize(&self, dwoutput: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetMaxOutputSampleSize)(windows_core::Interface::as_raw(self), dwoutput, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetMaxStreamSampleSize(&self, wstream: u16) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetMaxStreamSampleSize)(windows_core::Interface::as_raw(self), wstream, &mut result__).map(|| result__)
-    }
-    pub unsafe fn NotifyLateDelivery(&self, cnslateness: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.NotifyLateDelivery)(windows_core::Interface::as_raw(self), cnslateness).ok()
-    }
-    pub unsafe fn SetPlayMode(&self, mode: WMT_PLAY_MODE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPlayMode)(windows_core::Interface::as_raw(self), mode).ok()
-    }
-    pub unsafe fn GetPlayMode(&self) -> windows_core::Result<WMT_PLAY_MODE> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetPlayMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetBufferProgress(&self, pdwpercent: *mut u32, pcnsbuffering: *mut u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetBufferProgress)(windows_core::Interface::as_raw(self), pdwpercent, pcnsbuffering).ok()
-    }
-    pub unsafe fn GetDownloadProgress(&self, pdwpercent: *mut u32, pqwbytesdownloaded: *mut u64, pcnsdownload: *mut u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetDownloadProgress)(windows_core::Interface::as_raw(self), pdwpercent, pqwbytesdownloaded, pcnsdownload).ok()
-    }
-    pub unsafe fn GetSaveAsProgress(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetSaveAsProgress)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SaveFileAs<P0>(&self, pwszfilename: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SaveFileAs)(windows_core::Interface::as_raw(self), pwszfilename.param().abi()).ok()
-    }
-    pub unsafe fn GetProtocolName(&self, pwszprotocol: windows_core::PWSTR, pcchprotocol: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetProtocolName)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszprotocol), pcchprotocol).ok()
-    }
-    pub unsafe fn StartAtMarker(&self, wmarkerindex: u16, cnsduration: u64, frate: f32, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.StartAtMarker)(windows_core::Interface::as_raw(self), wmarkerindex, cnsduration, frate, pvcontext).ok()
-    }
-    pub unsafe fn GetOutputSetting<P0>(&self, dwoutputnum: u32, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetOutputSetting)(windows_core::Interface::as_raw(self), dwoutputnum, pszname.param().abi(), ptype, pvalue, pcblength).ok()
-    }
-    pub unsafe fn SetOutputSetting<P0>(&self, dwoutputnum: u32, pszname: P0, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetOutputSetting)(windows_core::Interface::as_raw(self), dwoutputnum, pszname.param().abi(), r#type, core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
-    }
-    pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.Preroll)(windows_core::Interface::as_raw(self), cnsstart, cnsduration, frate).ok()
-    }
-    pub unsafe fn SetLogClientID<P0>(&self, flogclientid: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetLogClientID)(windows_core::Interface::as_raw(self), flogclientid.param().abi()).ok()
-    }
-    pub unsafe fn GetLogClientID(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetLogClientID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn StopBuffering(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.StopBuffering)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OpenStream<P0, P1>(&self, pstream: P0, pcallback: P1, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::System::Com::IStream>,
-        P1: windows_core::Param<IWMReaderCallback>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.OpenStream)(windows_core::Interface::as_raw(self), pstream.param().abi(), pcallback.param().abi(), pvcontext).ok()
-    }
-    pub unsafe fn StopNetStreaming(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.StopNetStreaming)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn StartAtPosition(&self, wstreamnum: u16, pvoffsetstart: *const core::ffi::c_void, pvduration: *const core::ffi::c_void, dwoffsetformat: WMT_OFFSET_FORMAT, frate: f32, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.StartAtPosition)(windows_core::Interface::as_raw(self), wstreamnum, pvoffsetstart, pvduration, dwoffsetformat, frate, pvcontext).ok()
-    }
-    pub unsafe fn GetLanguageCount(&self, dwoutputnum: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetLanguageCount)(windows_core::Interface::as_raw(self), dwoutputnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetLanguage(&self, dwoutputnum: u32, wlanguage: u16, pwszlanguagestring: windows_core::PWSTR, pcchlanguagestringlength: *mut u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GetLanguage)(windows_core::Interface::as_raw(self), dwoutputnum, wlanguage, core::mem::transmute(pwszlanguagestring), pcchlanguagestringlength).ok()
-    }
-    pub unsafe fn GetMaxSpeedFactor(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetMaxSpeedFactor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsUsingFastCache(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsUsingFastCache)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn AddLogParam<P0, P1, P2>(&self, wsznamespace: P0, wszname: P1, wszvalue: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.AddLogParam)(windows_core::Interface::as_raw(self), wsznamespace.param().abi(), wszname.param().abi(), wszvalue.param().abi()).ok()
-    }
-    pub unsafe fn SendLogParams(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SendLogParams)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn CanSaveFileAs(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CanSaveFileAs)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn CancelSaveFileAs(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.CancelSaveFileAs)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn GetURL(&self, pwszurl: windows_core::PWSTR, pcchurl: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GetURL)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszurl), pcchurl).ok()
-    }
-    pub unsafe fn SetPlayerHook<P0>(&self, dwoutputnum: u32, phook: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMPlayerHook>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetPlayerHook)(windows_core::Interface::as_raw(self), dwoutputnum, phook.param().abi()).ok()
-    }
     pub unsafe fn SetProtectStreamSamples(&self, pbcertificate: &[u8], dwcertificatetype: u32, dwflags: u32, pbinitializationvector: *mut u8, pcbinitializationvector: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetProtectStreamSamples)(windows_core::Interface::as_raw(self), core::mem::transmute(pbcertificate.as_ptr()), pbcertificate.len().try_into().unwrap(), dwcertificatetype, dwflags, pbinitializationvector, pcbinitializationvector).ok()
     }
@@ -3412,6 +2376,12 @@ pub struct IWMReaderAdvanced6_Vtbl {
     pub SetProtectStreamSamples: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, u32, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMReaderAllocatorEx, IWMReaderAllocatorEx_Vtbl, 0x9f762fa7_a22e_428d_93c9_ac82f3aafe5a);
+impl std::ops::Deref for IWMReaderAllocatorEx {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMReaderAllocatorEx, windows_core::IUnknown);
 impl IWMReaderAllocatorEx {
     pub unsafe fn AllocateForStreamEx(&self, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut Option<INSSBuffer>, dwflags: u32, cnssampletime: u64, cnssampleduration: u64, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
@@ -3428,11 +2398,14 @@ pub struct IWMReaderAllocatorEx_Vtbl {
     pub AllocateForOutputEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void, u32, u64, u64, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMReaderCallback, IWMReaderCallback_Vtbl, 0x96406bd8_2b2b_11d3_b36b_00c04f6108ff);
+impl std::ops::Deref for IWMReaderCallback {
+    type Target = IWMStatusCallback;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMReaderCallback, windows_core::IUnknown, IWMStatusCallback);
 impl IWMReaderCallback {
-    pub unsafe fn OnStatus(&self, status: WMT_STATUS, hr: windows_core::HRESULT, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.OnStatus)(windows_core::Interface::as_raw(self), status, hr, dwtype, pvalue, pvcontext).ok()
-    }
     pub unsafe fn OnSample<P0>(&self, dwoutputnum: u32, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: P0, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>
     where
         P0: windows_core::Param<INSSBuffer>,
@@ -3446,6 +2419,12 @@ pub struct IWMReaderCallback_Vtbl {
     pub OnSample: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, u64, u32, *mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMReaderCallbackAdvanced, IWMReaderCallbackAdvanced_Vtbl, 0x96406beb_2b2b_11d3_b36b_00c04f6108ff);
+impl std::ops::Deref for IWMReaderCallbackAdvanced {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMReaderCallbackAdvanced, windows_core::IUnknown);
 impl IWMReaderCallbackAdvanced {
     pub unsafe fn OnStreamSample<P0>(&self, wstreamnum: u16, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: P0, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>
@@ -3481,6 +2460,12 @@ pub struct IWMReaderCallbackAdvanced_Vtbl {
     pub AllocateForOutput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMReaderNetworkConfig, IWMReaderNetworkConfig_Vtbl, 0x96406bec_2b2b_11d3_b36b_00c04f6108ff);
+impl std::ops::Deref for IWMReaderNetworkConfig {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMReaderNetworkConfig, windows_core::IUnknown);
 impl IWMReaderNetworkConfig {
     pub unsafe fn GetBufferingTime(&self) -> windows_core::Result<u64> {
@@ -3684,170 +2669,14 @@ pub struct IWMReaderNetworkConfig_Vtbl {
     pub ResetLoggingUrlList: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMReaderNetworkConfig2, IWMReaderNetworkConfig2_Vtbl, 0xd979a853_042b_4050_8387_c939db22013f);
+impl std::ops::Deref for IWMReaderNetworkConfig2 {
+    type Target = IWMReaderNetworkConfig;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMReaderNetworkConfig2, windows_core::IUnknown, IWMReaderNetworkConfig);
 impl IWMReaderNetworkConfig2 {
-    pub unsafe fn GetBufferingTime(&self) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetBufferingTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetBufferingTime(&self, cnsbufferingtime: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetBufferingTime)(windows_core::Interface::as_raw(self), cnsbufferingtime).ok()
-    }
-    pub unsafe fn GetUDPPortRanges(&self, prangearray: *mut WM_PORT_NUMBER_RANGE, pcranges: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetUDPPortRanges)(windows_core::Interface::as_raw(self), prangearray, pcranges).ok()
-    }
-    pub unsafe fn SetUDPPortRanges(&self, prangearray: &[WM_PORT_NUMBER_RANGE]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetUDPPortRanges)(windows_core::Interface::as_raw(self), core::mem::transmute(prangearray.as_ptr()), prangearray.len().try_into().unwrap()).ok()
-    }
-    pub unsafe fn GetProxySettings<P0>(&self, pwszprotocol: P0) -> windows_core::Result<WMT_PROXY_SETTINGS>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetProxySettings)(windows_core::Interface::as_raw(self), pwszprotocol.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetProxySettings<P0>(&self, pwszprotocol: P0, proxysetting: WMT_PROXY_SETTINGS) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetProxySettings)(windows_core::Interface::as_raw(self), pwszprotocol.param().abi(), proxysetting).ok()
-    }
-    pub unsafe fn GetProxyHostName<P0>(&self, pwszprotocol: P0, pwszhostname: windows_core::PWSTR, pcchhostname: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.GetProxyHostName)(windows_core::Interface::as_raw(self), pwszprotocol.param().abi(), core::mem::transmute(pwszhostname), pcchhostname).ok()
-    }
-    pub unsafe fn SetProxyHostName<P0, P1>(&self, pwszprotocol: P0, pwszhostname: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetProxyHostName)(windows_core::Interface::as_raw(self), pwszprotocol.param().abi(), pwszhostname.param().abi()).ok()
-    }
-    pub unsafe fn GetProxyPort<P0>(&self, pwszprotocol: P0) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetProxyPort)(windows_core::Interface::as_raw(self), pwszprotocol.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetProxyPort<P0>(&self, pwszprotocol: P0, dwport: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetProxyPort)(windows_core::Interface::as_raw(self), pwszprotocol.param().abi(), dwport).ok()
-    }
-    pub unsafe fn GetProxyExceptionList<P0>(&self, pwszprotocol: P0, pwszexceptionlist: windows_core::PWSTR, pcchexceptionlist: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.GetProxyExceptionList)(windows_core::Interface::as_raw(self), pwszprotocol.param().abi(), core::mem::transmute(pwszexceptionlist), pcchexceptionlist).ok()
-    }
-    pub unsafe fn SetProxyExceptionList<P0, P1>(&self, pwszprotocol: P0, pwszexceptionlist: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetProxyExceptionList)(windows_core::Interface::as_raw(self), pwszprotocol.param().abi(), pwszexceptionlist.param().abi()).ok()
-    }
-    pub unsafe fn GetProxyBypassForLocal<P0>(&self, pwszprotocol: P0) -> windows_core::Result<super::super::Foundation::BOOL>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetProxyBypassForLocal)(windows_core::Interface::as_raw(self), pwszprotocol.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetProxyBypassForLocal<P0, P1>(&self, pwszprotocol: P0, fbypassforlocal: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetProxyBypassForLocal)(windows_core::Interface::as_raw(self), pwszprotocol.param().abi(), fbypassforlocal.param().abi()).ok()
-    }
-    pub unsafe fn GetForceRerunAutoProxyDetection(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetForceRerunAutoProxyDetection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetForceRerunAutoProxyDetection<P0>(&self, fforcererundetection: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetForceRerunAutoProxyDetection)(windows_core::Interface::as_raw(self), fforcererundetection.param().abi()).ok()
-    }
-    pub unsafe fn GetEnableMulticast(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetEnableMulticast)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetEnableMulticast<P0>(&self, fenablemulticast: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetEnableMulticast)(windows_core::Interface::as_raw(self), fenablemulticast.param().abi()).ok()
-    }
-    pub unsafe fn GetEnableHTTP(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetEnableHTTP)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetEnableHTTP<P0>(&self, fenablehttp: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetEnableHTTP)(windows_core::Interface::as_raw(self), fenablehttp.param().abi()).ok()
-    }
-    pub unsafe fn GetEnableUDP(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetEnableUDP)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetEnableUDP<P0>(&self, fenableudp: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetEnableUDP)(windows_core::Interface::as_raw(self), fenableudp.param().abi()).ok()
-    }
-    pub unsafe fn GetEnableTCP(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetEnableTCP)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetEnableTCP<P0>(&self, fenabletcp: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetEnableTCP)(windows_core::Interface::as_raw(self), fenabletcp.param().abi()).ok()
-    }
-    pub unsafe fn ResetProtocolRollover(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.ResetProtocolRollover)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn GetConnectionBandwidth(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetConnectionBandwidth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetConnectionBandwidth(&self, dwconnectionbandwidth: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetConnectionBandwidth)(windows_core::Interface::as_raw(self), dwconnectionbandwidth).ok()
-    }
-    pub unsafe fn GetNumProtocolsSupported(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetNumProtocolsSupported)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetSupportedProtocolName(&self, dwprotocolnum: u32, pwszprotocolname: windows_core::PWSTR, pcchprotocolname: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetSupportedProtocolName)(windows_core::Interface::as_raw(self), dwprotocolnum, core::mem::transmute(pwszprotocolname), pcchprotocolname).ok()
-    }
-    pub unsafe fn AddLoggingUrl<P0>(&self, pwszurl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.AddLoggingUrl)(windows_core::Interface::as_raw(self), pwszurl.param().abi()).ok()
-    }
-    pub unsafe fn GetLoggingUrl(&self, dwindex: u32, pwszurl: windows_core::PWSTR, pcchurl: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetLoggingUrl)(windows_core::Interface::as_raw(self), dwindex, core::mem::transmute(pwszurl), pcchurl).ok()
-    }
-    pub unsafe fn GetLoggingUrlCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetLoggingUrlCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ResetLoggingUrlList(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.ResetLoggingUrlList)(windows_core::Interface::as_raw(self)).ok()
-    }
     pub unsafe fn GetEnableContentCaching(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetEnableContentCaching)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3925,6 +2754,12 @@ pub struct IWMReaderNetworkConfig2_Vtbl {
     pub GetMaxNetPacketSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMReaderPlaylistBurn, IWMReaderPlaylistBurn_Vtbl, 0xf28c0300_9baa_4477_a846_1744d9cbf533);
+impl std::ops::Deref for IWMReaderPlaylistBurn {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMReaderPlaylistBurn, windows_core::IUnknown);
 impl IWMReaderPlaylistBurn {
     pub unsafe fn InitPlaylistBurn<P0>(&self, cfiles: u32, ppwszfilenames: *const windows_core::PCWSTR, pcallback: P0, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>
@@ -3953,6 +2788,12 @@ pub struct IWMReaderPlaylistBurn_Vtbl {
     pub EndPlaylistBurn: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMReaderStreamClock, IWMReaderStreamClock_Vtbl, 0x96406bed_2b2b_11d3_b36b_00c04f6108ff);
+impl std::ops::Deref for IWMReaderStreamClock {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMReaderStreamClock, windows_core::IUnknown);
 impl IWMReaderStreamClock {
     pub unsafe fn GetTime(&self, pcnsnow: *const u64) -> windows_core::Result<()> {
@@ -3974,6 +2815,12 @@ pub struct IWMReaderStreamClock_Vtbl {
     pub KillTimer: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMReaderTimecode, IWMReaderTimecode_Vtbl, 0xf369e2f0_e081_4fe6_8450_b810b2f410d1);
+impl std::ops::Deref for IWMReaderTimecode {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMReaderTimecode, windows_core::IUnknown);
 impl IWMReaderTimecode {
     pub unsafe fn GetTimecodeRangeCount(&self, wstreamnum: u16) -> windows_core::Result<u16> {
@@ -3991,6 +2838,12 @@ pub struct IWMReaderTimecode_Vtbl {
     pub GetTimecodeRangeBounds: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMReaderTypeNegotiation, IWMReaderTypeNegotiation_Vtbl, 0xfdbe5592_81a1_41ea_93bd_735cad1adc05);
+impl std::ops::Deref for IWMReaderTypeNegotiation {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMReaderTypeNegotiation, windows_core::IUnknown);
 impl IWMReaderTypeNegotiation {
     pub unsafe fn TryOutputProps<P0>(&self, dwoutputnum: u32, poutput: P0) -> windows_core::Result<()>
@@ -4006,6 +2859,12 @@ pub struct IWMReaderTypeNegotiation_Vtbl {
     pub TryOutputProps: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMRegisterCallback, IWMRegisterCallback_Vtbl, 0xcf4b1f99_4de2_4e49_a363_252740d99bc1);
+impl std::ops::Deref for IWMRegisterCallback {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMRegisterCallback, windows_core::IUnknown);
 impl IWMRegisterCallback {
     pub unsafe fn Advise<P0>(&self, pcallback: P0, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>
@@ -4028,6 +2887,12 @@ pub struct IWMRegisterCallback_Vtbl {
     pub Unadvise: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMRegisteredDevice, IWMRegisteredDevice_Vtbl, 0xa4503bec_5508_4148_97ac_bfa75760a70d);
+impl std::ops::Deref for IWMRegisteredDevice {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMRegisteredDevice, windows_core::IUnknown);
 impl IWMRegisteredDevice {
     pub unsafe fn GetDeviceSerialNumber(&self) -> windows_core::Result<DRM_VAL16> {
@@ -4111,6 +2976,12 @@ pub struct IWMRegisteredDevice_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMSBufferAllocator, IWMSBufferAllocator_Vtbl, 0x61103ca4_2033_11d2_9ef1_006097d2d7cf);
+impl std::ops::Deref for IWMSBufferAllocator {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMSBufferAllocator, windows_core::IUnknown);
 impl IWMSBufferAllocator {
     pub unsafe fn AllocateBuffer(&self, dwmaxbuffersize: u32) -> windows_core::Result<INSSBuffer> {
@@ -4129,6 +3000,12 @@ pub struct IWMSBufferAllocator_Vtbl {
     pub AllocatePageSizeBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMSInternalAdminNetSource, IWMSInternalAdminNetSource_Vtbl, 0x8bb23e5f_d127_4afb_8d02_ae5b66d54c78);
+impl std::ops::Deref for IWMSInternalAdminNetSource {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMSInternalAdminNetSource, windows_core::IUnknown);
 impl IWMSInternalAdminNetSource {
     pub unsafe fn Initialize<P0, P1, P2, P3>(&self, psharednamespace: P0, pnamespacenode: P1, pnetsourcecreator: P2, fembeddedinserver: P3) -> windows_core::Result<()>
@@ -4207,6 +3084,12 @@ pub struct IWMSInternalAdminNetSource_Vtbl {
     pub IsUsingIE: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMSInternalAdminNetSource2, IWMSInternalAdminNetSource2_Vtbl, 0xe74d58c3_cf77_4b51_af17_744687c43eae);
+impl std::ops::Deref for IWMSInternalAdminNetSource2 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMSInternalAdminNetSource2, windows_core::IUnknown);
 impl IWMSInternalAdminNetSource2 {
     pub unsafe fn SetCredentialsEx<P0, P1, P2, P3, P4, P5, P6>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2, bstrname: P3, bstrpassword: P4, fpersist: P5, fconfirmedgood: P6) -> windows_core::Result<()>
@@ -4255,44 +3138,14 @@ pub struct IWMSInternalAdminNetSource2_Vtbl {
     pub FindProxyForURLEx: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::Foundation::BOOL, *mut std::mem::MaybeUninit<windows_core::BSTR>, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMSInternalAdminNetSource3, IWMSInternalAdminNetSource3_Vtbl, 0x6b63d08e_4590_44af_9eb3_57ff1e73bf80);
+impl std::ops::Deref for IWMSInternalAdminNetSource3 {
+    type Target = IWMSInternalAdminNetSource2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMSInternalAdminNetSource3, windows_core::IUnknown, IWMSInternalAdminNetSource2);
 impl IWMSInternalAdminNetSource3 {
-    pub unsafe fn SetCredentialsEx<P0, P1, P2, P3, P4, P5, P6>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2, bstrname: P3, bstrpassword: P4, fpersist: P5, fconfirmedgood: P6) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-        P3: windows_core::Param<windows_core::BSTR>,
-        P4: windows_core::Param<windows_core::BSTR>,
-        P5: windows_core::Param<super::super::Foundation::BOOL>,
-        P6: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetCredentialsEx)(windows_core::Interface::as_raw(self), bstrrealm.param().abi(), bstrurl.param().abi(), fproxy.param().abi(), bstrname.param().abi(), bstrpassword.param().abi(), fpersist.param().abi(), fconfirmedgood.param().abi()).ok()
-    }
-    pub unsafe fn GetCredentialsEx<P0, P1, P2>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2, pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: *mut windows_core::BSTR, pbstrpassword: *mut windows_core::BSTR, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.GetCredentialsEx)(windows_core::Interface::as_raw(self), bstrrealm.param().abi(), bstrurl.param().abi(), fproxy.param().abi(), pdwurlpolicy, core::mem::transmute(pbstrname), core::mem::transmute(pbstrpassword), pfconfirmedgood).ok()
-    }
-    pub unsafe fn DeleteCredentialsEx<P0, P1, P2>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.DeleteCredentialsEx)(windows_core::Interface::as_raw(self), bstrrealm.param().abi(), bstrurl.param().abi(), fproxy.param().abi()).ok()
-    }
-    pub unsafe fn FindProxyForURLEx<P0, P1, P2>(&self, bstrprotocol: P0, bstrhost: P1, bstrurl: P2, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut windows_core::BSTR, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.FindProxyForURLEx)(windows_core::Interface::as_raw(self), bstrprotocol.param().abi(), bstrhost.param().abi(), bstrurl.param().abi(), pfproxyenabled, core::mem::transmute(pbstrproxyserver), pdwproxyport, pdwproxycontext).ok()
-    }
     pub unsafe fn GetNetSourceCreator2(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNetSourceCreator2)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4350,20 +3203,14 @@ pub struct IWMSInternalAdminNetSource3_Vtbl {
     pub GetCredentialsEx2: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, std::mem::MaybeUninit<windows_core::BSTR>, super::super::Foundation::BOOL, super::super::Foundation::BOOL, *mut NETSOURCE_URLCREDPOLICY_SETTINGS, *mut std::mem::MaybeUninit<windows_core::BSTR>, *mut std::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMSecureChannel, IWMSecureChannel_Vtbl, 0x2720598a_d0f2_4189_bd10_91c46ef0936f);
+impl std::ops::Deref for IWMSecureChannel {
+    type Target = IWMAuthorizer;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMSecureChannel, windows_core::IUnknown, IWMAuthorizer);
 impl IWMSecureChannel {
-    pub unsafe fn GetCertCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetCertCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetCert(&self, dwindex: u32) -> windows_core::Result<*mut u8> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetCert)(windows_core::Interface::as_raw(self), dwindex, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetSharedData(&self, dwcertindex: u32, pbshareddata: *const u8, pbcert: *const u8) -> windows_core::Result<*mut u8> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetSharedData)(windows_core::Interface::as_raw(self), dwcertindex, pbshareddata, pbcert, &mut result__).map(|| result__)
-    }
     pub unsafe fn WMSC_AddCertificate<P0>(&self, pcert: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IWMAuthorizer>,
@@ -4421,6 +3268,12 @@ pub struct IWMSecureChannel_Vtbl {
     pub WMSC_SetSharedData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMStatusCallback, IWMStatusCallback_Vtbl, 0x6d7cdc70_9888_11d3_8edc_00c04f6109cf);
+impl std::ops::Deref for IWMStatusCallback {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMStatusCallback, windows_core::IUnknown);
 impl IWMStatusCallback {
     pub unsafe fn OnStatus(&self, status: WMT_STATUS, hr: windows_core::HRESULT, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
@@ -4433,6 +3286,12 @@ pub struct IWMStatusCallback_Vtbl {
     pub OnStatus: unsafe extern "system" fn(*mut core::ffi::c_void, WMT_STATUS, windows_core::HRESULT, WMT_ATTR_DATATYPE, *const u8, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMStreamConfig, IWMStreamConfig_Vtbl, 0x96406bdc_2b2b_11d3_b36b_00c04f6108ff);
+impl std::ops::Deref for IWMStreamConfig {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMStreamConfig, windows_core::IUnknown);
 impl IWMStreamConfig {
     pub unsafe fn GetStreamType(&self) -> windows_core::Result<windows_core::GUID> {
@@ -4495,51 +3354,14 @@ pub struct IWMStreamConfig_Vtbl {
     pub SetBufferWindow: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMStreamConfig2, IWMStreamConfig2_Vtbl, 0x7688d8cb_fc0d_43bd_9459_5a8dec200cfa);
+impl std::ops::Deref for IWMStreamConfig2 {
+    type Target = IWMStreamConfig;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMStreamConfig2, windows_core::IUnknown, IWMStreamConfig);
 impl IWMStreamConfig2 {
-    pub unsafe fn GetStreamType(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetStreamType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetStreamNumber(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetStreamNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetStreamNumber(&self, wstreamnum: u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetStreamNumber)(windows_core::Interface::as_raw(self), wstreamnum).ok()
-    }
-    pub unsafe fn GetStreamName(&self, pwszstreamname: windows_core::PWSTR, pcchstreamname: *mut u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetStreamName)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszstreamname), pcchstreamname).ok()
-    }
-    pub unsafe fn SetStreamName<P0>(&self, pwszstreamname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetStreamName)(windows_core::Interface::as_raw(self), pwszstreamname.param().abi()).ok()
-    }
-    pub unsafe fn GetConnectionName(&self, pwszinputname: windows_core::PWSTR, pcchinputname: *mut u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetConnectionName)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszinputname), pcchinputname).ok()
-    }
-    pub unsafe fn SetConnectionName<P0>(&self, pwszinputname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetConnectionName)(windows_core::Interface::as_raw(self), pwszinputname.param().abi()).ok()
-    }
-    pub unsafe fn GetBitrate(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetBitrate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetBitrate(&self, pdwbitrate: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetBitrate)(windows_core::Interface::as_raw(self), pdwbitrate).ok()
-    }
-    pub unsafe fn GetBufferWindow(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetBufferWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetBufferWindow(&self, msbufferwindow: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetBufferWindow)(windows_core::Interface::as_raw(self), msbufferwindow).ok()
-    }
     pub unsafe fn GetTransportType(&self) -> windows_core::Result<WMT_TRANSPORT_TYPE> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTransportType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4572,71 +3394,14 @@ pub struct IWMStreamConfig2_Vtbl {
     pub RemoveAllDataUnitExtensions: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMStreamConfig3, IWMStreamConfig3_Vtbl, 0xcb164104_3aa9_45a7_9ac9_4daee131d6e1);
+impl std::ops::Deref for IWMStreamConfig3 {
+    type Target = IWMStreamConfig2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMStreamConfig3, windows_core::IUnknown, IWMStreamConfig, IWMStreamConfig2);
 impl IWMStreamConfig3 {
-    pub unsafe fn GetStreamType(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetStreamType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetStreamNumber(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetStreamNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetStreamNumber(&self, wstreamnum: u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetStreamNumber)(windows_core::Interface::as_raw(self), wstreamnum).ok()
-    }
-    pub unsafe fn GetStreamName(&self, pwszstreamname: windows_core::PWSTR, pcchstreamname: *mut u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GetStreamName)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszstreamname), pcchstreamname).ok()
-    }
-    pub unsafe fn SetStreamName<P0>(&self, pwszstreamname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetStreamName)(windows_core::Interface::as_raw(self), pwszstreamname.param().abi()).ok()
-    }
-    pub unsafe fn GetConnectionName(&self, pwszinputname: windows_core::PWSTR, pcchinputname: *mut u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GetConnectionName)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszinputname), pcchinputname).ok()
-    }
-    pub unsafe fn SetConnectionName<P0>(&self, pwszinputname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetConnectionName)(windows_core::Interface::as_raw(self), pwszinputname.param().abi()).ok()
-    }
-    pub unsafe fn GetBitrate(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetBitrate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetBitrate(&self, pdwbitrate: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetBitrate)(windows_core::Interface::as_raw(self), pdwbitrate).ok()
-    }
-    pub unsafe fn GetBufferWindow(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetBufferWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetBufferWindow(&self, msbufferwindow: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetBufferWindow)(windows_core::Interface::as_raw(self), msbufferwindow).ok()
-    }
-    pub unsafe fn GetTransportType(&self) -> windows_core::Result<WMT_TRANSPORT_TYPE> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetTransportType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetTransportType(&self, ntransporttype: WMT_TRANSPORT_TYPE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetTransportType)(windows_core::Interface::as_raw(self), ntransporttype).ok()
-    }
-    pub unsafe fn AddDataUnitExtension(&self, guidextensionsystemid: windows_core::GUID, cbextensiondatasize: u16, pbextensionsysteminfo: &[u8]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.AddDataUnitExtension)(windows_core::Interface::as_raw(self), core::mem::transmute(guidextensionsystemid), cbextensiondatasize, core::mem::transmute(pbextensionsysteminfo.as_ptr()), pbextensionsysteminfo.len().try_into().unwrap()).ok()
-    }
-    pub unsafe fn GetDataUnitExtensionCount(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetDataUnitExtensionCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetDataUnitExtension(&self, wdataunitextensionnumber: u16, pguidextensionsystemid: *mut windows_core::GUID, pcbextensiondatasize: *mut u16, pbextensionsysteminfo: *mut u8, pcbextensionsysteminfo: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetDataUnitExtension)(windows_core::Interface::as_raw(self), wdataunitextensionnumber, pguidextensionsystemid, pcbextensiondatasize, pbextensionsysteminfo, pcbextensionsysteminfo).ok()
-    }
-    pub unsafe fn RemoveAllDataUnitExtensions(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.RemoveAllDataUnitExtensions)(windows_core::Interface::as_raw(self)).ok()
-    }
     pub unsafe fn GetLanguage(&self, pwszlanguagestring: windows_core::PWSTR, pcchlanguagestringlength: *mut u16) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetLanguage)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszlanguagestring), pcchlanguagestringlength).ok()
     }
@@ -4654,6 +3419,12 @@ pub struct IWMStreamConfig3_Vtbl {
     pub SetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMStreamList, IWMStreamList_Vtbl, 0x96406bdd_2b2b_11d3_b36b_00c04f6108ff);
+impl std::ops::Deref for IWMStreamList {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMStreamList, windows_core::IUnknown);
 impl IWMStreamList {
     pub unsafe fn GetStreams(&self, pwstreamnumarray: *mut u16, pcstreams: *mut u16) -> windows_core::Result<()> {
@@ -4674,6 +3445,12 @@ pub struct IWMStreamList_Vtbl {
     pub RemoveStream: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMStreamPrioritization, IWMStreamPrioritization_Vtbl, 0x8c1c6090_f9a8_4748_8ec3_dd1108ba1e77);
+impl std::ops::Deref for IWMStreamPrioritization {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMStreamPrioritization, windows_core::IUnknown);
 impl IWMStreamPrioritization {
     pub unsafe fn GetPriorityRecords(&self, precordarray: *mut WM_STREAM_PRIORITY_RECORD, pcrecords: *mut u16) -> windows_core::Result<()> {
@@ -4690,6 +3467,12 @@ pub struct IWMStreamPrioritization_Vtbl {
     pub SetPriorityRecords: unsafe extern "system" fn(*mut core::ffi::c_void, *const WM_STREAM_PRIORITY_RECORD, u16) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMSyncReader, IWMSyncReader_Vtbl, 0x9397f121_7705_4dc9_b049_98b698188414);
+impl std::ops::Deref for IWMSyncReader {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMSyncReader, windows_core::IUnknown);
 impl IWMSyncReader {
     pub unsafe fn Open<P0>(&self, pwszfilename: P0) -> windows_core::Result<()>
@@ -4814,100 +3597,14 @@ pub struct IWMSyncReader_Vtbl {
     OpenStream: usize,
 }
 windows_core::imp::define_interface!(IWMSyncReader2, IWMSyncReader2_Vtbl, 0xfaed3d21_1b6b_4af7_8cb6_3e189bbc187b);
+impl std::ops::Deref for IWMSyncReader2 {
+    type Target = IWMSyncReader;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMSyncReader2, windows_core::IUnknown, IWMSyncReader);
 impl IWMSyncReader2 {
-    pub unsafe fn Open<P0>(&self, pwszfilename: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.Open)(windows_core::Interface::as_raw(self), pwszfilename.param().abi()).ok()
-    }
-    pub unsafe fn Close(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Close)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetRange(&self, cnsstarttime: u64, cnsduration: i64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetRange)(windows_core::Interface::as_raw(self), cnsstarttime, cnsduration).ok()
-    }
-    pub unsafe fn SetRangeByFrame(&self, wstreamnum: u16, qwframenumber: u64, cframestoread: i64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetRangeByFrame)(windows_core::Interface::as_raw(self), wstreamnum, qwframenumber, cframestoread).ok()
-    }
-    pub unsafe fn GetNextSample(&self, wstreamnum: u16, ppsample: *mut Option<INSSBuffer>, pcnssampletime: *mut u64, pcnsduration: *mut u64, pdwflags: *mut u32, pdwoutputnum: *mut u32, pwstreamnum: *mut u16) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetNextSample)(windows_core::Interface::as_raw(self), wstreamnum, core::mem::transmute(ppsample), pcnssampletime, pcnsduration, pdwflags, pdwoutputnum, pwstreamnum).ok()
-    }
-    pub unsafe fn SetStreamsSelected(&self, cstreamcount: u16, pwstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetStreamsSelected)(windows_core::Interface::as_raw(self), cstreamcount, pwstreamnumbers, pselections).ok()
-    }
-    pub unsafe fn GetStreamSelected(&self, wstreamnum: u16) -> windows_core::Result<WMT_STREAM_SELECTION> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetStreamSelected)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetReadStreamSamples<P0>(&self, wstreamnum: u16, fcompressed: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetReadStreamSamples)(windows_core::Interface::as_raw(self), wstreamnum, fcompressed.param().abi()).ok()
-    }
-    pub unsafe fn GetReadStreamSamples(&self, wstreamnum: u16) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetReadStreamSamples)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetOutputSetting<P0>(&self, dwoutputnum: u32, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.GetOutputSetting)(windows_core::Interface::as_raw(self), dwoutputnum, pszname.param().abi(), ptype, pvalue, pcblength).ok()
-    }
-    pub unsafe fn SetOutputSetting<P0>(&self, dwoutputnum: u32, pszname: P0, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetOutputSetting)(windows_core::Interface::as_raw(self), dwoutputnum, pszname.param().abi(), r#type, core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
-    }
-    pub unsafe fn GetOutputCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetOutputCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetOutputProps(&self, dwoutputnum: u32) -> windows_core::Result<IWMOutputMediaProps> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetOutputProps)(windows_core::Interface::as_raw(self), dwoutputnum, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetOutputProps<P0>(&self, dwoutputnum: u32, poutput: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMOutputMediaProps>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetOutputProps)(windows_core::Interface::as_raw(self), dwoutputnum, poutput.param().abi()).ok()
-    }
-    pub unsafe fn GetOutputFormatCount(&self, dwoutputnum: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetOutputFormatCount)(windows_core::Interface::as_raw(self), dwoutputnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetOutputFormat(&self, dwoutputnum: u32, dwformatnum: u32) -> windows_core::Result<IWMOutputMediaProps> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetOutputFormat)(windows_core::Interface::as_raw(self), dwoutputnum, dwformatnum, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetOutputNumberForStream(&self, wstreamnum: u16) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetOutputNumberForStream)(windows_core::Interface::as_raw(self), wstreamnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetStreamNumberForOutput(&self, dwoutputnum: u32) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetStreamNumberForOutput)(windows_core::Interface::as_raw(self), dwoutputnum, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetMaxOutputSampleSize(&self, dwoutput: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetMaxOutputSampleSize)(windows_core::Interface::as_raw(self), dwoutput, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetMaxStreamSampleSize(&self, wstream: u16) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetMaxStreamSampleSize)(windows_core::Interface::as_raw(self), wstream, &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OpenStream<P0>(&self, pstream: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::System::Com::IStream>,
-    {
-        (windows_core::Interface::vtable(self).base__.OpenStream)(windows_core::Interface::as_raw(self), pstream.param().abi()).ok()
-    }
     pub unsafe fn SetRangeByTimecode(&self, wstreamnum: u16, pstart: *const WMT_TIMECODE_EXTENSION_DATA, pend: *const WMT_TIMECODE_EXTENSION_DATA) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetRangeByTimecode)(windows_core::Interface::as_raw(self), wstreamnum, pstart, pend).ok()
     }
@@ -4947,18 +3644,14 @@ pub struct IWMSyncReader2_Vtbl {
     pub GetAllocateForStream: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMVideoMediaProps, IWMVideoMediaProps_Vtbl, 0x96406bcf_2b2b_11d3_b36b_00c04f6108ff);
+impl std::ops::Deref for IWMVideoMediaProps {
+    type Target = IWMMediaProps;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMVideoMediaProps, windows_core::IUnknown, IWMMediaProps);
 impl IWMVideoMediaProps {
-    pub unsafe fn GetType(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetMediaType(&self, ptype: *mut WM_MEDIA_TYPE, pcbtype: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetMediaType)(windows_core::Interface::as_raw(self), ptype, pcbtype).ok()
-    }
-    pub unsafe fn SetMediaType(&self, ptype: *const WM_MEDIA_TYPE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetMediaType)(windows_core::Interface::as_raw(self), ptype).ok()
-    }
     pub unsafe fn GetMaxKeyFrameSpacing(&self) -> windows_core::Result<i64> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMaxKeyFrameSpacing)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4983,6 +3676,12 @@ pub struct IWMVideoMediaProps_Vtbl {
     pub SetQuality: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMWatermarkInfo, IWMWatermarkInfo_Vtbl, 0x6f497062_f2e2_4624_8ea7_9dd40d81fc8d);
+impl std::ops::Deref for IWMWatermarkInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMWatermarkInfo, windows_core::IUnknown);
 impl IWMWatermarkInfo {
     pub unsafe fn GetWatermarkEntryCount(&self, wmettype: WMT_WATERMARK_ENTRY_TYPE) -> windows_core::Result<u32> {
@@ -5000,6 +3699,12 @@ pub struct IWMWatermarkInfo_Vtbl {
     pub GetWatermarkEntry: unsafe extern "system" fn(*mut core::ffi::c_void, WMT_WATERMARK_ENTRY_TYPE, u32, *mut WMT_WATERMARK_ENTRY) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMWriter, IWMWriter_Vtbl, 0x96406bd4_2b2b_11d3_b36b_00c04f6108ff);
+impl std::ops::Deref for IWMWriter {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMWriter, windows_core::IUnknown);
 impl IWMWriter {
     pub unsafe fn SetProfileByID(&self, guidprofile: *const windows_core::GUID) -> windows_core::Result<()> {
@@ -5077,6 +3782,12 @@ pub struct IWMWriter_Vtbl {
     pub Flush: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMWriterAdvanced, IWMWriterAdvanced_Vtbl, 0x96406be3_2b2b_11d3_b36b_00c04f6108ff);
+impl std::ops::Deref for IWMWriterAdvanced {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMWriterAdvanced, windows_core::IUnknown);
 impl IWMWriterAdvanced {
     pub unsafe fn GetSinkCount(&self) -> windows_core::Result<u32> {
@@ -5146,58 +3857,14 @@ pub struct IWMWriterAdvanced_Vtbl {
     pub GetSyncTolerance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMWriterAdvanced2, IWMWriterAdvanced2_Vtbl, 0x962dc1ec_c046_4db8_9cc7_26ceae500817);
+impl std::ops::Deref for IWMWriterAdvanced2 {
+    type Target = IWMWriterAdvanced;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMWriterAdvanced2, windows_core::IUnknown, IWMWriterAdvanced);
 impl IWMWriterAdvanced2 {
-    pub unsafe fn GetSinkCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetSinkCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetSink(&self, dwsinknum: u32) -> windows_core::Result<IWMWriterSink> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetSink)(windows_core::Interface::as_raw(self), dwsinknum, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AddSink<P0>(&self, psink: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMWriterSink>,
-    {
-        (windows_core::Interface::vtable(self).base__.AddSink)(windows_core::Interface::as_raw(self), psink.param().abi()).ok()
-    }
-    pub unsafe fn RemoveSink<P0>(&self, psink: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMWriterSink>,
-    {
-        (windows_core::Interface::vtable(self).base__.RemoveSink)(windows_core::Interface::as_raw(self), psink.param().abi()).ok()
-    }
-    pub unsafe fn WriteStreamSample<P0>(&self, wstreamnum: u16, cnssampletime: u64, mssamplesendtime: u32, cnssampleduration: u64, dwflags: u32, psample: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<INSSBuffer>,
-    {
-        (windows_core::Interface::vtable(self).base__.WriteStreamSample)(windows_core::Interface::as_raw(self), wstreamnum, cnssampletime, mssamplesendtime, cnssampleduration, dwflags, psample.param().abi()).ok()
-    }
-    pub unsafe fn SetLiveSource<P0>(&self, fislivesource: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetLiveSource)(windows_core::Interface::as_raw(self), fislivesource.param().abi()).ok()
-    }
-    pub unsafe fn IsRealTime(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsRealTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetWriterTime(&self) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetWriterTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetStatistics(&self, wstreamnum: u16, pstats: *mut WM_WRITER_STATISTICS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetStatistics)(windows_core::Interface::as_raw(self), wstreamnum, pstats).ok()
-    }
-    pub unsafe fn SetSyncTolerance(&self, mswindow: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetSyncTolerance)(windows_core::Interface::as_raw(self), mswindow).ok()
-    }
-    pub unsafe fn GetSyncTolerance(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetSyncTolerance)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     pub unsafe fn GetInputSetting<P0>(&self, dwinputnum: u32, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -5218,70 +3885,14 @@ pub struct IWMWriterAdvanced2_Vtbl {
     pub SetInputSetting: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, WMT_ATTR_DATATYPE, *const u8, u16) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMWriterAdvanced3, IWMWriterAdvanced3_Vtbl, 0x2cd6492d_7c37_4e76_9d3b_59261183a22e);
+impl std::ops::Deref for IWMWriterAdvanced3 {
+    type Target = IWMWriterAdvanced2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMWriterAdvanced3, windows_core::IUnknown, IWMWriterAdvanced, IWMWriterAdvanced2);
 impl IWMWriterAdvanced3 {
-    pub unsafe fn GetSinkCount(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetSinkCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetSink(&self, dwsinknum: u32) -> windows_core::Result<IWMWriterSink> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetSink)(windows_core::Interface::as_raw(self), dwsinknum, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AddSink<P0>(&self, psink: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMWriterSink>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.AddSink)(windows_core::Interface::as_raw(self), psink.param().abi()).ok()
-    }
-    pub unsafe fn RemoveSink<P0>(&self, psink: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IWMWriterSink>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.RemoveSink)(windows_core::Interface::as_raw(self), psink.param().abi()).ok()
-    }
-    pub unsafe fn WriteStreamSample<P0>(&self, wstreamnum: u16, cnssampletime: u64, mssamplesendtime: u32, cnssampleduration: u64, dwflags: u32, psample: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<INSSBuffer>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.WriteStreamSample)(windows_core::Interface::as_raw(self), wstreamnum, cnssampletime, mssamplesendtime, cnssampleduration, dwflags, psample.param().abi()).ok()
-    }
-    pub unsafe fn SetLiveSource<P0>(&self, fislivesource: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetLiveSource)(windows_core::Interface::as_raw(self), fislivesource.param().abi()).ok()
-    }
-    pub unsafe fn IsRealTime(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsRealTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetWriterTime(&self) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetWriterTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetStatistics(&self, wstreamnum: u16, pstats: *mut WM_WRITER_STATISTICS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GetStatistics)(windows_core::Interface::as_raw(self), wstreamnum, pstats).ok()
-    }
-    pub unsafe fn SetSyncTolerance(&self, mswindow: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetSyncTolerance)(windows_core::Interface::as_raw(self), mswindow).ok()
-    }
-    pub unsafe fn GetSyncTolerance(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetSyncTolerance)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetInputSetting<P0>(&self, dwinputnum: u32, pszname: P0, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.GetInputSetting)(windows_core::Interface::as_raw(self), dwinputnum, pszname.param().abi(), ptype, pvalue, pcblength).ok()
-    }
-    pub unsafe fn SetInputSetting<P0>(&self, dwinputnum: u32, pszname: P0, r#type: WMT_ATTR_DATATYPE, pvalue: &[u8]) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetInputSetting)(windows_core::Interface::as_raw(self), dwinputnum, pszname.param().abi(), r#type, core::mem::transmute(pvalue.as_ptr()), pvalue.len().try_into().unwrap()).ok()
-    }
     pub unsafe fn GetStatisticsEx(&self, wstreamnum: u16, pstats: *mut WM_WRITER_STATISTICS_EX) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetStatisticsEx)(windows_core::Interface::as_raw(self), wstreamnum, pstats).ok()
     }
@@ -5296,31 +3907,14 @@ pub struct IWMWriterAdvanced3_Vtbl {
     pub SetNonBlocking: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMWriterFileSink, IWMWriterFileSink_Vtbl, 0x96406be5_2b2b_11d3_b36b_00c04f6108ff);
+impl std::ops::Deref for IWMWriterFileSink {
+    type Target = IWMWriterSink;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMWriterFileSink, windows_core::IUnknown, IWMWriterSink);
 impl IWMWriterFileSink {
-    pub unsafe fn OnHeader<P0>(&self, pheader: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<INSSBuffer>,
-    {
-        (windows_core::Interface::vtable(self).base__.OnHeader)(windows_core::Interface::as_raw(self), pheader.param().abi()).ok()
-    }
-    pub unsafe fn IsRealTime(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsRealTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn AllocateDataUnit(&self, cbdataunit: u32) -> windows_core::Result<INSSBuffer> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.AllocateDataUnit)(windows_core::Interface::as_raw(self), cbdataunit, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn OnDataUnit<P0>(&self, pdataunit: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<INSSBuffer>,
-    {
-        (windows_core::Interface::vtable(self).base__.OnDataUnit)(windows_core::Interface::as_raw(self), pdataunit.param().abi()).ok()
-    }
-    pub unsafe fn OnEndWriting(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.OnEndWriting)(windows_core::Interface::as_raw(self)).ok()
-    }
     pub unsafe fn Open<P0>(&self, pwszfilename: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -5334,37 +3928,14 @@ pub struct IWMWriterFileSink_Vtbl {
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMWriterFileSink2, IWMWriterFileSink2_Vtbl, 0x14282ba7_4aef_4205_8ce5_c229035a05bc);
+impl std::ops::Deref for IWMWriterFileSink2 {
+    type Target = IWMWriterFileSink;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMWriterFileSink2, windows_core::IUnknown, IWMWriterSink, IWMWriterFileSink);
 impl IWMWriterFileSink2 {
-    pub unsafe fn OnHeader<P0>(&self, pheader: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<INSSBuffer>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.OnHeader)(windows_core::Interface::as_raw(self), pheader.param().abi()).ok()
-    }
-    pub unsafe fn IsRealTime(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsRealTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn AllocateDataUnit(&self, cbdataunit: u32) -> windows_core::Result<INSSBuffer> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.AllocateDataUnit)(windows_core::Interface::as_raw(self), cbdataunit, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn OnDataUnit<P0>(&self, pdataunit: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<INSSBuffer>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.OnDataUnit)(windows_core::Interface::as_raw(self), pdataunit.param().abi()).ok()
-    }
-    pub unsafe fn OnEndWriting(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.OnEndWriting)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Open<P0>(&self, pwszfilename: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.Open)(windows_core::Interface::as_raw(self), pwszfilename.param().abi()).ok()
-    }
     pub unsafe fn Start(&self, cnsstarttime: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self), cnsstarttime).ok()
     }
@@ -5403,62 +3974,14 @@ pub struct IWMWriterFileSink2_Vtbl {
     pub IsClosed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMWriterFileSink3, IWMWriterFileSink3_Vtbl, 0x3fea4feb_2945_47a7_a1dd_c53a8fc4c45c);
+impl std::ops::Deref for IWMWriterFileSink3 {
+    type Target = IWMWriterFileSink2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMWriterFileSink3, windows_core::IUnknown, IWMWriterSink, IWMWriterFileSink, IWMWriterFileSink2);
 impl IWMWriterFileSink3 {
-    pub unsafe fn OnHeader<P0>(&self, pheader: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<INSSBuffer>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.OnHeader)(windows_core::Interface::as_raw(self), pheader.param().abi()).ok()
-    }
-    pub unsafe fn IsRealTime(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.IsRealTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn AllocateDataUnit(&self, cbdataunit: u32) -> windows_core::Result<INSSBuffer> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.AllocateDataUnit)(windows_core::Interface::as_raw(self), cbdataunit, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn OnDataUnit<P0>(&self, pdataunit: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<INSSBuffer>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.OnDataUnit)(windows_core::Interface::as_raw(self), pdataunit.param().abi()).ok()
-    }
-    pub unsafe fn OnEndWriting(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.OnEndWriting)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Open<P0>(&self, pwszfilename: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.Open)(windows_core::Interface::as_raw(self), pwszfilename.param().abi()).ok()
-    }
-    pub unsafe fn Start(&self, cnsstarttime: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Start)(windows_core::Interface::as_raw(self), cnsstarttime).ok()
-    }
-    pub unsafe fn Stop(&self, cnsstoptime: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Stop)(windows_core::Interface::as_raw(self), cnsstoptime).ok()
-    }
-    pub unsafe fn IsStopped(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsStopped)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetFileDuration(&self) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetFileDuration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetFileSize(&self) -> windows_core::Result<u64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetFileSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Close(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Close)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn IsClosed(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsClosed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     pub unsafe fn SetAutoIndexing<P0>(&self, fdoautoindexing: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::BOOL>,
@@ -5510,31 +4033,14 @@ pub struct IWMWriterFileSink3_Vtbl {
     pub CompleteOperations: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMWriterNetworkSink, IWMWriterNetworkSink_Vtbl, 0x96406be7_2b2b_11d3_b36b_00c04f6108ff);
+impl std::ops::Deref for IWMWriterNetworkSink {
+    type Target = IWMWriterSink;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMWriterNetworkSink, windows_core::IUnknown, IWMWriterSink);
 impl IWMWriterNetworkSink {
-    pub unsafe fn OnHeader<P0>(&self, pheader: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<INSSBuffer>,
-    {
-        (windows_core::Interface::vtable(self).base__.OnHeader)(windows_core::Interface::as_raw(self), pheader.param().abi()).ok()
-    }
-    pub unsafe fn IsRealTime(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsRealTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn AllocateDataUnit(&self, cbdataunit: u32) -> windows_core::Result<INSSBuffer> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.AllocateDataUnit)(windows_core::Interface::as_raw(self), cbdataunit, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn OnDataUnit<P0>(&self, pdataunit: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<INSSBuffer>,
-    {
-        (windows_core::Interface::vtable(self).base__.OnDataUnit)(windows_core::Interface::as_raw(self), pdataunit.param().abi()).ok()
-    }
-    pub unsafe fn OnEndWriting(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.OnEndWriting)(windows_core::Interface::as_raw(self)).ok()
-    }
     pub unsafe fn SetMaximumClients(&self, dwmaxclients: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetMaximumClients)(windows_core::Interface::as_raw(self), dwmaxclients).ok()
     }
@@ -5575,6 +4081,12 @@ pub struct IWMWriterNetworkSink_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMWriterPostView, IWMWriterPostView_Vtbl, 0x81e20ce4_75ef_491a_8004_fc53c45bdc3e);
+impl std::ops::Deref for IWMWriterPostView {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMWriterPostView, windows_core::IUnknown);
 impl IWMWriterPostView {
     pub unsafe fn SetPostViewCallback<P0>(&self, pcallback: P0, pvcontext: *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -5636,11 +4148,14 @@ pub struct IWMWriterPostView_Vtbl {
     pub GetAllocateForPostView: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMWriterPostViewCallback, IWMWriterPostViewCallback_Vtbl, 0xd9d6549d_a193_4f24_b308_03123d9b7f8d);
+impl std::ops::Deref for IWMWriterPostViewCallback {
+    type Target = IWMStatusCallback;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMWriterPostViewCallback, windows_core::IUnknown, IWMStatusCallback);
 impl IWMWriterPostViewCallback {
-    pub unsafe fn OnStatus(&self, status: WMT_STATUS, hr: windows_core::HRESULT, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.OnStatus)(windows_core::Interface::as_raw(self), status, hr, dwtype, pvalue, pvcontext).ok()
-    }
     pub unsafe fn OnPostViewSample<P0>(&self, wstreamnumber: u16, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: P0, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()>
     where
         P0: windows_core::Param<INSSBuffer>,
@@ -5658,6 +4173,12 @@ pub struct IWMWriterPostViewCallback_Vtbl {
     pub AllocateForPostView: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u32, *mut *mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMWriterPreprocess, IWMWriterPreprocess_Vtbl, 0xfc54a285_38c4_45b5_aa23_85b9f7cb424b);
+impl std::ops::Deref for IWMWriterPreprocess {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMWriterPreprocess, windows_core::IUnknown);
 impl IWMWriterPreprocess {
     pub unsafe fn GetMaxPreprocessingPasses(&self, dwinputnum: u32, dwflags: u32) -> windows_core::Result<u32> {
@@ -5690,31 +4211,14 @@ pub struct IWMWriterPreprocess_Vtbl {
     pub EndPreprocessingPass: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMWriterPushSink, IWMWriterPushSink_Vtbl, 0xdc10e6a5_072c_467d_bf57_6330a9dde12a);
+impl std::ops::Deref for IWMWriterPushSink {
+    type Target = IWMWriterSink;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMWriterPushSink, windows_core::IUnknown, IWMWriterSink);
 impl IWMWriterPushSink {
-    pub unsafe fn OnHeader<P0>(&self, pheader: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<INSSBuffer>,
-    {
-        (windows_core::Interface::vtable(self).base__.OnHeader)(windows_core::Interface::as_raw(self), pheader.param().abi()).ok()
-    }
-    pub unsafe fn IsRealTime(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsRealTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn AllocateDataUnit(&self, cbdataunit: u32) -> windows_core::Result<INSSBuffer> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.AllocateDataUnit)(windows_core::Interface::as_raw(self), cbdataunit, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn OnDataUnit<P0>(&self, pdataunit: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<INSSBuffer>,
-    {
-        (windows_core::Interface::vtable(self).base__.OnDataUnit)(windows_core::Interface::as_raw(self), pdataunit.param().abi()).ok()
-    }
-    pub unsafe fn OnEndWriting(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.OnEndWriting)(windows_core::Interface::as_raw(self)).ok()
-    }
     pub unsafe fn Connect<P0, P1, P2>(&self, pwszurl: P0, pwsztemplateurl: P1, fautodestroy: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -5738,6 +4242,12 @@ pub struct IWMWriterPushSink_Vtbl {
     pub EndSession: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWMWriterSink, IWMWriterSink_Vtbl, 0x96406be4_2b2b_11d3_b36b_00c04f6108ff);
+impl std::ops::Deref for IWMWriterSink {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWMWriterSink, windows_core::IUnknown);
 impl IWMWriterSink {
     pub unsafe fn OnHeader<P0>(&self, pheader: P0) -> windows_core::Result<()>

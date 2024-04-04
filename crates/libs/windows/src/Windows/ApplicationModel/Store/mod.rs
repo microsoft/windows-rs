@@ -1144,8 +1144,8 @@ impl<F: FnMut() -> windows_core::Result<()> + Send + 'static> LicenseChangedEven
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)().into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)().into()
     }
 }
 impl windows_core::RuntimeType for LicenseChangedEventHandler {

@@ -5636,36 +5636,16 @@ where
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(CIE4ConnectionPoint, CIE4ConnectionPoint_Vtbl, 0);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for CIE4ConnectionPoint {
+    type Target = super::super::System::Com::IConnectionPoint;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(CIE4ConnectionPoint, windows_core::IUnknown, super::super::System::Com::IConnectionPoint);
 #[cfg(feature = "Win32_System_Com")]
 impl CIE4ConnectionPoint {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetConnectionInterface(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetConnectionInterface)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetConnectionPointContainer(&self) -> windows_core::Result<super::super::System::Com::IConnectionPointContainer> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetConnectionPointContainer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Advise<P0>(&self, punksink: P0) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Advise)(windows_core::Interface::as_raw(self), punksink.param().abi(), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Unadvise(&self, dwcookie: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Unadvise)(windows_core::Interface::as_raw(self), dwcookie).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EnumConnections(&self) -> windows_core::Result<super::super::System::Com::IEnumConnections> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EnumConnections)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DoInvokeIE4(&self, pf: *mut super::super::Foundation::BOOL, ppv: *mut *mut core::ffi::c_void, dispid: i32, pdispparams: *mut super::super::System::Com::DISPPARAMS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).DoInvokeIE4)(windows_core::Interface::as_raw(self), pf, ppv, dispid, pdispparams).ok()
@@ -5694,6 +5674,13 @@ pub struct CIE4ConnectionPoint_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DFConstraint, DFConstraint_Vtbl, 0x4a3df050_23bd_11d2_939f_00a0c91eedba);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for DFConstraint {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(DFConstraint, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl DFConstraint {
@@ -5716,6 +5703,13 @@ pub struct DFConstraint_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DShellFolderViewEvents, DShellFolderViewEvents_Vtbl, 0x62112aa2_ebe4_11cf_a5fb_0020afe7292d);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for DShellFolderViewEvents {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(DShellFolderViewEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl DShellFolderViewEvents {}
@@ -5726,6 +5720,13 @@ pub struct DShellFolderViewEvents_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DShellNameSpaceEvents, DShellNameSpaceEvents_Vtbl, 0x55136806_b2de_11d1_b9f2_00a0c98bc547);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for DShellNameSpaceEvents {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(DShellNameSpaceEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5738,6 +5739,13 @@ pub struct DShellNameSpaceEvents_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DShellWindowsEvents, DShellWindowsEvents_Vtbl, 0xfe4106e0_399a_11d0_a48c_00a0c90a8f39);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for DShellWindowsEvents {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(DShellWindowsEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl DShellWindowsEvents {}
@@ -5748,6 +5756,13 @@ pub struct DShellWindowsEvents_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DWebBrowserEvents, DWebBrowserEvents_Vtbl, 0xeab22ac2_30c1_11cf_a7eb_0000c05bae0b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for DWebBrowserEvents {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(DWebBrowserEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5760,6 +5775,13 @@ pub struct DWebBrowserEvents_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DWebBrowserEvents2, DWebBrowserEvents2_Vtbl, 0x34a715a0_6587_11d0_924a_0020afc7ac4d);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for DWebBrowserEvents2 {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(DWebBrowserEvents2, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl DWebBrowserEvents2 {}
@@ -5770,6 +5792,13 @@ pub struct DWebBrowserEvents2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(Folder, Folder_Vtbl, 0xbbcbde60_c3ff_11ce_8350_444553540000);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for Folder {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(Folder, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5868,69 +5897,16 @@ pub struct Folder_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(Folder2, Folder2_Vtbl, 0xf0d2d8ef_3890_11d2_bf8b_00c04fb93661);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for Folder2 {
+    type Target = Folder;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(Folder2, windows_core::IUnknown, super::super::System::Com::IDispatch, Folder);
 #[cfg(feature = "Win32_System_Com")]
 impl Folder2 {
-    pub unsafe fn Title(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Title)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Application(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Application)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Parent(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ParentFolder(&self) -> windows_core::Result<Folder> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ParentFolder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Items(&self) -> windows_core::Result<FolderItems> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Items)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ParseName<P0>(&self, bname: P0) -> windows_core::Result<FolderItem>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ParseName)(windows_core::Interface::as_raw(self), bname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn NewFolder<P0, P1>(&self, bname: P0, voptions: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.NewFolder)(windows_core::Interface::as_raw(self), bname.param().abi(), voptions.param().abi()).ok()
-    }
-    pub unsafe fn MoveHere<P0, P1>(&self, vitem: P0, voptions: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.MoveHere)(windows_core::Interface::as_raw(self), vitem.param().abi(), voptions.param().abi()).ok()
-    }
-    pub unsafe fn CopyHere<P0, P1>(&self, vitem: P0, voptions: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.CopyHere)(windows_core::Interface::as_raw(self), vitem.param().abi(), voptions.param().abi()).ok()
-    }
-    pub unsafe fn GetDetailsOf<P0>(&self, vitem: P0, icolumn: i32) -> windows_core::Result<windows_core::BSTR>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetDetailsOf)(windows_core::Interface::as_raw(self), vitem.param().abi(), icolumn, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Self_(&self) -> windows_core::Result<FolderItem> {
         let mut result__ = std::mem::zeroed();
@@ -5967,88 +5943,16 @@ pub struct Folder2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(Folder3, Folder3_Vtbl, 0xa7ae5f64_c4d7_4d7f_9307_4d24ee54b841);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for Folder3 {
+    type Target = Folder2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(Folder3, windows_core::IUnknown, super::super::System::Com::IDispatch, Folder, Folder2);
 #[cfg(feature = "Win32_System_Com")]
 impl Folder3 {
-    pub unsafe fn Title(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Title)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Application(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Application)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Parent(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ParentFolder(&self) -> windows_core::Result<Folder> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ParentFolder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Items(&self) -> windows_core::Result<FolderItems> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Items)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ParseName<P0>(&self, bname: P0) -> windows_core::Result<FolderItem>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ParseName)(windows_core::Interface::as_raw(self), bname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn NewFolder<P0, P1>(&self, bname: P0, voptions: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.NewFolder)(windows_core::Interface::as_raw(self), bname.param().abi(), voptions.param().abi()).ok()
-    }
-    pub unsafe fn MoveHere<P0, P1>(&self, vitem: P0, voptions: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.MoveHere)(windows_core::Interface::as_raw(self), vitem.param().abi(), voptions.param().abi()).ok()
-    }
-    pub unsafe fn CopyHere<P0, P1>(&self, vitem: P0, voptions: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.CopyHere)(windows_core::Interface::as_raw(self), vitem.param().abi(), voptions.param().abi()).ok()
-    }
-    pub unsafe fn GetDetailsOf<P0>(&self, vitem: P0, icolumn: i32) -> windows_core::Result<windows_core::BSTR>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetDetailsOf)(windows_core::Interface::as_raw(self), vitem.param().abi(), icolumn, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Self_(&self) -> windows_core::Result<FolderItem> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Self_)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn OfflineStatus(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.OfflineStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Synchronize(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Synchronize)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn HaveToShowWebViewBarricade(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.HaveToShowWebViewBarricade)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DismissedWebViewBarricade(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.DismissedWebViewBarricade)(windows_core::Interface::as_raw(self)).ok()
-    }
     pub unsafe fn ShowWebViewBarricade(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).ShowWebViewBarricade)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -6069,6 +5973,13 @@ pub struct Folder3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(FolderItem, FolderItem_Vtbl, 0xfac32c80_cbe4_11ce_8350_444553540000);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for FolderItem {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(FolderItem, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -6190,85 +6101,16 @@ pub struct FolderItem_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(FolderItem2, FolderItem2_Vtbl, 0xedc817aa_92b8_11d1_b075_00c04fc33aa5);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for FolderItem2 {
+    type Target = FolderItem;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(FolderItem2, windows_core::IUnknown, super::super::System::Com::IDispatch, FolderItem);
 #[cfg(feature = "Win32_System_Com")]
 impl FolderItem2 {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Application(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Application)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Parent(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetName<P0>(&self, bs: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), bs.param().abi()).ok()
-    }
-    pub unsafe fn Path(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Path)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetLink(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetLink)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetFolder(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetFolder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn IsLink(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsLink)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsFolder(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsFolder)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsFileSystem(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsFileSystem)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsBrowsable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsBrowsable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ModifyDate(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ModifyDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetModifyDate(&self, dt: f64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetModifyDate)(windows_core::Interface::as_raw(self), dt).ok()
-    }
-    pub unsafe fn Size(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Size)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Type(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Type)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Verbs(&self) -> windows_core::Result<FolderItemVerbs> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Verbs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn InvokeVerb<P0>(&self, vverb: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.InvokeVerb)(windows_core::Interface::as_raw(self), vverb.param().abi()).ok()
-    }
     pub unsafe fn InvokeVerbEx<P0, P1>(&self, vverb: P0, vargs: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::VARIANT>,
@@ -6293,6 +6135,13 @@ pub struct FolderItem2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(FolderItemVerb, FolderItemVerb_Vtbl, 0x08ec3e00_50b0_11cf_960c_0080c7f4ee85);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for FolderItemVerb {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(FolderItemVerb, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -6332,6 +6181,13 @@ pub struct FolderItemVerb_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(FolderItemVerbs, FolderItemVerbs_Vtbl, 0x1f8352c0_50b0_11cf_960c_0080c7f4ee85);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for FolderItemVerbs {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(FolderItemVerbs, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -6385,6 +6241,13 @@ pub struct FolderItemVerbs_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(FolderItems, FolderItems_Vtbl, 0x744129e0_cbe5_11ce_8350_444553540000);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for FolderItems {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(FolderItems, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl FolderItems {
@@ -6437,35 +6300,16 @@ pub struct FolderItems_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(FolderItems2, FolderItems2_Vtbl, 0xc94f0ad0_f363_11d2_a327_00c04f8eec7f);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for FolderItems2 {
+    type Target = FolderItems;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(FolderItems2, windows_core::IUnknown, super::super::System::Com::IDispatch, FolderItems);
 #[cfg(feature = "Win32_System_Com")]
 impl FolderItems2 {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Application(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Application)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Parent(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Item<P0>(&self, index: P0) -> windows_core::Result<FolderItem>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Item)(windows_core::Interface::as_raw(self), index.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn InvokeVerbEx<P0, P1>(&self, vverb: P0, vargs: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::VARIANT>,
@@ -6483,42 +6327,16 @@ pub struct FolderItems2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(FolderItems3, FolderItems3_Vtbl, 0xeaa7c309_bbec_49d5_821d_64d966cb667f);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for FolderItems3 {
+    type Target = FolderItems2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(FolderItems3, windows_core::IUnknown, super::super::System::Com::IDispatch, FolderItems, FolderItems2);
 #[cfg(feature = "Win32_System_Com")]
 impl FolderItems3 {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Application(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Application)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Parent(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Item<P0>(&self, index: P0) -> windows_core::Result<FolderItem>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Item)(windows_core::Interface::as_raw(self), index.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn InvokeVerbEx<P0, P1>(&self, vverb: P0, vargs: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.InvokeVerbEx)(windows_core::Interface::as_raw(self), vverb.param().abi(), vargs.param().abi()).ok()
-    }
     pub unsafe fn Filter<P0>(&self, grfflags: i32, bstrfilespec: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -6542,6 +6360,12 @@ pub struct FolderItems3_Vtbl {
     Verbs: usize,
 }
 windows_core::imp::define_interface!(IACList, IACList_Vtbl, 0x77a130b0_94fd_11d0_a544_00c04fd7d062);
+impl std::ops::Deref for IACList {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IACList, windows_core::IUnknown);
 impl IACList {
     pub unsafe fn Expand<P0>(&self, pszexpand: P0) -> windows_core::Result<()>
@@ -6557,14 +6381,14 @@ pub struct IACList_Vtbl {
     pub Expand: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IACList2, IACList2_Vtbl, 0x470141a0_5186_11d2_bbb6_0060977b464c);
+impl std::ops::Deref for IACList2 {
+    type Target = IACList;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IACList2, windows_core::IUnknown, IACList);
 impl IACList2 {
-    pub unsafe fn Expand<P0>(&self, pszexpand: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.Expand)(windows_core::Interface::as_raw(self), pszexpand.param().abi()).ok()
-    }
     pub unsafe fn SetOptions(&self, dwflag: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetOptions)(windows_core::Interface::as_raw(self), dwflag).ok()
     }
@@ -6580,6 +6404,12 @@ pub struct IACList2_Vtbl {
     pub GetOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAccessibilityDockingService, IAccessibilityDockingService_Vtbl, 0x8849dc22_cedf_4c95_998d_051419dd3f76);
+impl std::ops::Deref for IAccessibilityDockingService {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAccessibilityDockingService, windows_core::IUnknown);
 impl IAccessibilityDockingService {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -6619,6 +6449,12 @@ pub struct IAccessibilityDockingService_Vtbl {
     pub UndockWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAccessibilityDockingServiceCallback, IAccessibilityDockingServiceCallback_Vtbl, 0x157733fd_a592_42e5_b594_248468c5a81b);
+impl std::ops::Deref for IAccessibilityDockingServiceCallback {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAccessibilityDockingServiceCallback, windows_core::IUnknown);
 impl IAccessibilityDockingServiceCallback {
     pub unsafe fn Undocked(&self, undockreason: UNDOCK_REASON) -> windows_core::Result<()> {
@@ -6631,6 +6467,12 @@ pub struct IAccessibilityDockingServiceCallback_Vtbl {
     pub Undocked: unsafe extern "system" fn(*mut core::ffi::c_void, UNDOCK_REASON) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAccessibleObject, IAccessibleObject_Vtbl, 0x95a391c5_9ed4_4c28_8401_ab9e06719e11);
+impl std::ops::Deref for IAccessibleObject {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAccessibleObject, windows_core::IUnknown);
 impl IAccessibleObject {
     pub unsafe fn SetAccessibleName<P0>(&self, pszname: P0) -> windows_core::Result<()>
@@ -6646,6 +6488,12 @@ pub struct IAccessibleObject_Vtbl {
     pub SetAccessibleName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IActionProgress, IActionProgress_Vtbl, 0x49ff1173_eadc_446d_9285_156453a6431c);
+impl std::ops::Deref for IActionProgress {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IActionProgress, windows_core::IUnknown);
 impl IActionProgress {
     pub unsafe fn Begin(&self, action: SPACTION, flags: u32) -> windows_core::Result<()> {
@@ -6683,6 +6531,12 @@ pub struct IActionProgress_Vtbl {
     pub End: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IActionProgressDialog, IActionProgressDialog_Vtbl, 0x49ff1172_eadc_446d_9285_156453a6431c);
+impl std::ops::Deref for IActionProgressDialog {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IActionProgressDialog, windows_core::IUnknown);
 impl IActionProgressDialog {
     pub unsafe fn Initialize<P0, P1>(&self, flags: u32, psztitle: P0, pszcancel: P1) -> windows_core::Result<()>
@@ -6703,6 +6557,12 @@ pub struct IActionProgressDialog_Vtbl {
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppActivationUIInfo, IAppActivationUIInfo_Vtbl, 0xabad189d_9fa3_4278_b3ca_8ca448a88dcb);
+impl std::ops::Deref for IAppActivationUIInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAppActivationUIInfo, windows_core::IUnknown);
 impl IAppActivationUIInfo {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -6740,6 +6600,12 @@ pub struct IAppActivationUIInfo_Vtbl {
     pub GetKeyState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppPublisher, IAppPublisher_Vtbl, 0x07250a10_9cf9_11d1_9076_006008059382);
+impl std::ops::Deref for IAppPublisher {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAppPublisher, windows_core::IUnknown);
 impl IAppPublisher {
     pub unsafe fn GetNumberOfCategories(&self) -> windows_core::Result<u32> {
@@ -6768,6 +6634,12 @@ pub struct IAppPublisher_Vtbl {
     pub EnumApps: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppVisibility, IAppVisibility_Vtbl, 0x2246ea2d_caea_4444_a3c4_6de827e44313);
+impl std::ops::Deref for IAppVisibility {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAppVisibility, windows_core::IUnknown);
 impl IAppVisibility {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -6805,6 +6677,12 @@ pub struct IAppVisibility_Vtbl {
     pub Unadvise: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppVisibilityEvents, IAppVisibilityEvents_Vtbl, 0x6584ce6b_7d82_49c2_89c9_c6bc02ba8c38);
+impl std::ops::Deref for IAppVisibilityEvents {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAppVisibilityEvents, windows_core::IUnknown);
 impl IAppVisibilityEvents {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -6831,6 +6709,12 @@ pub struct IAppVisibilityEvents_Vtbl {
     pub LauncherVisibilityChange: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IApplicationActivationManager, IApplicationActivationManager_Vtbl, 0x2e941141_7f97_4756_ba1d_9decde894a3d);
+impl std::ops::Deref for IApplicationActivationManager {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IApplicationActivationManager, windows_core::IUnknown);
 impl IApplicationActivationManager {
     pub unsafe fn ActivateApplication<P0, P1>(&self, appusermodelid: P0, arguments: P1, options: ACTIVATEOPTIONS) -> windows_core::Result<u32>
@@ -6867,6 +6751,12 @@ pub struct IApplicationActivationManager_Vtbl {
     pub ActivateForProtocol: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IApplicationAssociationRegistration, IApplicationAssociationRegistration_Vtbl, 0x4e530b0a_e611_4c77_a3ac_9031d022281b);
+impl std::ops::Deref for IApplicationAssociationRegistration {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IApplicationAssociationRegistration, windows_core::IUnknown);
 impl IApplicationAssociationRegistration {
     pub unsafe fn QueryCurrentDefault<P0>(&self, pszquery: P0, atquerytype: ASSOCIATIONTYPE, alquerylevel: ASSOCIATIONLEVEL) -> windows_core::Result<windows_core::PWSTR>
@@ -6919,6 +6809,12 @@ pub struct IApplicationAssociationRegistration_Vtbl {
     pub ClearUserAssociations: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IApplicationAssociationRegistrationUI, IApplicationAssociationRegistrationUI_Vtbl, 0x1f76a169_f994_40ac_8fc8_0959e8874710);
+impl std::ops::Deref for IApplicationAssociationRegistrationUI {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IApplicationAssociationRegistrationUI, windows_core::IUnknown);
 impl IApplicationAssociationRegistrationUI {
     pub unsafe fn LaunchAdvancedAssociationUI<P0>(&self, pszappregistryname: P0) -> windows_core::Result<()>
@@ -6934,6 +6830,12 @@ pub struct IApplicationAssociationRegistrationUI_Vtbl {
     pub LaunchAdvancedAssociationUI: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IApplicationDesignModeSettings, IApplicationDesignModeSettings_Vtbl, 0x2a3dee9a_e31d_46d6_8508_bcc597db3557);
+impl std::ops::Deref for IApplicationDesignModeSettings {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IApplicationDesignModeSettings, windows_core::IUnknown);
 impl IApplicationDesignModeSettings {
     pub unsafe fn SetNativeDisplaySize(&self, nativedisplaysizepixels: super::super::Foundation::SIZE) -> windows_core::Result<()> {
@@ -6976,30 +6878,14 @@ pub struct IApplicationDesignModeSettings_Vtbl {
     pub TriggerEdgeGesture: unsafe extern "system" fn(*mut core::ffi::c_void, EDGE_GESTURE_KIND) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IApplicationDesignModeSettings2, IApplicationDesignModeSettings2_Vtbl, 0x490514e1_675a_4d6e_a58d_e54901b4ca2f);
+impl std::ops::Deref for IApplicationDesignModeSettings2 {
+    type Target = IApplicationDesignModeSettings;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IApplicationDesignModeSettings2, windows_core::IUnknown, IApplicationDesignModeSettings);
 impl IApplicationDesignModeSettings2 {
-    pub unsafe fn SetNativeDisplaySize(&self, nativedisplaysizepixels: super::super::Foundation::SIZE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetNativeDisplaySize)(windows_core::Interface::as_raw(self), core::mem::transmute(nativedisplaysizepixels)).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn SetScaleFactor(&self, scalefactor: Common::DEVICE_SCALE_FACTOR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetScaleFactor)(windows_core::Interface::as_raw(self), scalefactor).ok()
-    }
-    pub unsafe fn SetApplicationViewState(&self, viewstate: APPLICATION_VIEW_STATE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetApplicationViewState)(windows_core::Interface::as_raw(self), viewstate).ok()
-    }
-    pub unsafe fn ComputeApplicationSize(&self) -> windows_core::Result<super::super::Foundation::SIZE> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ComputeApplicationSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn IsApplicationViewStateSupported(&self, viewstate: APPLICATION_VIEW_STATE, nativedisplaysizepixels: super::super::Foundation::SIZE, scalefactor: Common::DEVICE_SCALE_FACTOR) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsApplicationViewStateSupported)(windows_core::Interface::as_raw(self), viewstate, core::mem::transmute(nativedisplaysizepixels), scalefactor, &mut result__).map(|| result__)
-    }
-    pub unsafe fn TriggerEdgeGesture(&self, edgegesturekind: EDGE_GESTURE_KIND) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.TriggerEdgeGesture)(windows_core::Interface::as_raw(self), edgegesturekind).ok()
-    }
     pub unsafe fn SetNativeDisplayOrientation(&self, nativedisplayorientation: NATIVE_DISPLAY_ORIENTATION) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetNativeDisplayOrientation)(windows_core::Interface::as_raw(self), nativedisplayorientation).ok()
     }
@@ -7038,6 +6924,12 @@ pub struct IApplicationDesignModeSettings2_Vtbl {
     pub GetApplicationViewOrientation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::SIZE, *mut APPLICATION_VIEW_ORIENTATION) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IApplicationDestinations, IApplicationDestinations_Vtbl, 0x12337d35_94c6_48a0_bce7_6a9c69d4d600);
+impl std::ops::Deref for IApplicationDestinations {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IApplicationDestinations, windows_core::IUnknown);
 impl IApplicationDestinations {
     pub unsafe fn SetAppID<P0>(&self, pszappid: P0) -> windows_core::Result<()>
@@ -7064,6 +6956,12 @@ pub struct IApplicationDestinations_Vtbl {
     pub RemoveAllDestinations: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IApplicationDocumentLists, IApplicationDocumentLists_Vtbl, 0x3c594f9f_9f30_47a1_979a_c9e83d3d0a06);
+impl std::ops::Deref for IApplicationDocumentLists {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IApplicationDocumentLists, windows_core::IUnknown);
 impl IApplicationDocumentLists {
     pub unsafe fn SetAppID<P0>(&self, pszappid: P0) -> windows_core::Result<()>
@@ -7087,6 +6985,12 @@ pub struct IApplicationDocumentLists_Vtbl {
     pub GetList: unsafe extern "system" fn(*mut core::ffi::c_void, APPDOCLISTTYPE, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAssocHandler, IAssocHandler_Vtbl, 0xf04061ac_1659_4a3f_a954_775aa57fc083);
+impl std::ops::Deref for IAssocHandler {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAssocHandler, windows_core::IUnknown);
 impl IAssocHandler {
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::PWSTR> {
@@ -7143,6 +7047,12 @@ pub struct IAssocHandler_Vtbl {
     CreateInvoker: usize,
 }
 windows_core::imp::define_interface!(IAssocHandlerInvoker, IAssocHandlerInvoker_Vtbl, 0x92218cab_ecaa_4335_8133_807fd234c2ee);
+impl std::ops::Deref for IAssocHandlerInvoker {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAssocHandlerInvoker, windows_core::IUnknown);
 impl IAssocHandlerInvoker {
     pub unsafe fn SupportsSelection(&self) -> windows_core::Result<()> {
@@ -7159,6 +7069,12 @@ pub struct IAssocHandlerInvoker_Vtbl {
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAttachmentExecute, IAttachmentExecute_Vtbl, 0x73db1241_1e85_4581_8e4f_a81e1d0f8c57);
+impl std::ops::Deref for IAttachmentExecute {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAttachmentExecute, windows_core::IUnknown);
 impl IAttachmentExecute {
     pub unsafe fn SetClientTitle<P0>(&self, psztitle: P0) -> windows_core::Result<()>
@@ -7241,6 +7157,12 @@ pub struct IAttachmentExecute_Vtbl {
     pub ClearClientState: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAutoComplete, IAutoComplete_Vtbl, 0x00bb2762_6a77_11d0_a535_00c04fd7d062);
+impl std::ops::Deref for IAutoComplete {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAutoComplete, windows_core::IUnknown);
 impl IAutoComplete {
     pub unsafe fn Init<P0, P1, P2, P3>(&self, hwndedit: P0, punkacl: P1, pwszregkeypath: P2, pwszquickcomplete: P3) -> windows_core::Result<()>
@@ -7266,23 +7188,14 @@ pub struct IAutoComplete_Vtbl {
     pub Enable: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAutoComplete2, IAutoComplete2_Vtbl, 0xeac04bc0_3791_11d2_bb95_0060977b464c);
+impl std::ops::Deref for IAutoComplete2 {
+    type Target = IAutoComplete;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAutoComplete2, windows_core::IUnknown, IAutoComplete);
 impl IAutoComplete2 {
-    pub unsafe fn Init<P0, P1, P2, P3>(&self, hwndedit: P0, punkacl: P1, pwszregkeypath: P2, pwszquickcomplete: P3) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-        P1: windows_core::Param<windows_core::IUnknown>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.Init)(windows_core::Interface::as_raw(self), hwndedit.param().abi(), punkacl.param().abi(), pwszregkeypath.param().abi(), pwszquickcomplete.param().abi()).ok()
-    }
-    pub unsafe fn Enable<P0>(&self, fenable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.Enable)(windows_core::Interface::as_raw(self), fenable.param().abi()).ok()
-    }
     pub unsafe fn SetOptions(&self, dwflag: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetOptions)(windows_core::Interface::as_raw(self), dwflag).ok()
     }
@@ -7298,6 +7211,12 @@ pub struct IAutoComplete2_Vtbl {
     pub GetOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAutoCompleteDropDown, IAutoCompleteDropDown_Vtbl, 0x3cd141f4_3c6a_11d2_bcaa_00c04fd929db);
+impl std::ops::Deref for IAutoCompleteDropDown {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAutoCompleteDropDown, windows_core::IUnknown);
 impl IAutoCompleteDropDown {
     pub unsafe fn GetDropDownStatus(&self, pdwflags: *mut u32, ppwszstring: *mut windows_core::PWSTR) -> windows_core::Result<()> {
@@ -7314,6 +7233,12 @@ pub struct IAutoCompleteDropDown_Vtbl {
     pub ResetEnumerator: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBandHost, IBandHost_Vtbl, 0xb9075c7c_d48e_403f_ab99_d6c77a1084ac);
+impl std::ops::Deref for IBandHost {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IBandHost, windows_core::IUnknown);
 impl IBandHost {
     pub unsafe fn CreateBand<P0, P1, T>(&self, rclsidband: *const windows_core::GUID, favailable: P0, fvisible: P1) -> windows_core::Result<T>
@@ -7343,6 +7268,12 @@ pub struct IBandHost_Vtbl {
     pub DestroyBand: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBandSite, IBandSite_Vtbl, 0x4cf504b0_de96_11d0_8b3f_00a0c911e8e5);
+impl std::ops::Deref for IBandSite {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IBandSite, windows_core::IUnknown);
 impl IBandSite {
     pub unsafe fn AddBand<P0>(&self, punk: P0) -> windows_core::Result<()>
@@ -7395,6 +7326,12 @@ pub struct IBandSite_Vtbl {
     pub GetBandSiteInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BANDSITEINFO) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBannerNotificationHandler, IBannerNotificationHandler_Vtbl, 0x8d7b2ba7_db05_46a8_823c_d2b6de08ee91);
+impl std::ops::Deref for IBannerNotificationHandler {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IBannerNotificationHandler, windows_core::IUnknown);
 impl IBannerNotificationHandler {
     pub unsafe fn OnBannerEvent(&self, notification: *const BANNER_NOTIFICATION) -> windows_core::Result<()> {
@@ -7407,6 +7344,12 @@ pub struct IBannerNotificationHandler_Vtbl {
     pub OnBannerEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *const BANNER_NOTIFICATION) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBanneredBar, IBanneredBar_Vtbl, 0x596a9a94_013e_11d1_8d34_00a0c90f2719);
+impl std::ops::Deref for IBanneredBar {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IBanneredBar, windows_core::IUnknown);
 impl IBanneredBar {
     pub unsafe fn SetIconSize(&self, iicon: u32) -> windows_core::Result<()> {
@@ -7444,6 +7387,12 @@ pub struct IBanneredBar_Vtbl {
     GetBitmap: usize,
 }
 windows_core::imp::define_interface!(IBrowserFrameOptions, IBrowserFrameOptions_Vtbl, 0x10df43c8_1dbe_11d3_8b34_006097df5bd4);
+impl std::ops::Deref for IBrowserFrameOptions {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IBrowserFrameOptions, windows_core::IUnknown);
 impl IBrowserFrameOptions {
     pub unsafe fn GetFrameOptions(&self, dwmask: u32) -> windows_core::Result<u32> {
@@ -7457,6 +7406,12 @@ pub struct IBrowserFrameOptions_Vtbl {
     pub GetFrameOptions: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBrowserService, IBrowserService_Vtbl, 0x02ba3b52_0547_11d1_b833_00c04fc9b31f);
+impl std::ops::Deref for IBrowserService {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IBrowserService, windows_core::IUnknown);
 impl IBrowserService {
     #[cfg(feature = "Win32_System_Ole")]
@@ -7691,159 +7646,14 @@ pub struct IBrowserService_Vtbl {
     pub RegisterWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, ShellWindowTypeConstants) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBrowserService2, IBrowserService2_Vtbl, 0x68bd21cc_438b_11d2_a560_00a0c92dbfe8);
+impl std::ops::Deref for IBrowserService2 {
+    type Target = IBrowserService;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IBrowserService2, windows_core::IUnknown, IBrowserService);
 impl IBrowserService2 {
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetParentSite(&self) -> windows_core::Result<super::super::System::Ole::IOleInPlaceSite> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetParentSite)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn SetTitle<P0, P1>(&self, psv: P0, pszname: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellView>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetTitle)(windows_core::Interface::as_raw(self), psv.param().abi(), pszname.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetTitle<P0>(&self, psv: P0, pszname: &mut [u16]) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellView>,
-    {
-        (windows_core::Interface::vtable(self).base__.GetTitle)(windows_core::Interface::as_raw(self), psv.param().abi(), core::mem::transmute(pszname.as_ptr()), pszname.len().try_into().unwrap()).ok()
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetOleObject(&self) -> windows_core::Result<super::super::System::Ole::IOleObject> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetOleObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetTravelLog(&self) -> windows_core::Result<ITravelLog> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetTravelLog)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn ShowControlWindow<P0>(&self, id: u32, fshow: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.ShowControlWindow)(windows_core::Interface::as_raw(self), id, fshow.param().abi()).ok()
-    }
-    pub unsafe fn IsControlWindowShown(&self, id: u32) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsControlWindowShown)(windows_core::Interface::as_raw(self), id, &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn IEGetDisplayName(&self, pidl: *const Common::ITEMIDLIST, pwszname: windows_core::PWSTR, uflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.IEGetDisplayName)(windows_core::Interface::as_raw(self), pidl, core::mem::transmute(pwszname), uflags).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn IEParseDisplayName<P0>(&self, uicp: u32, pwszpath: P0) -> windows_core::Result<*mut Common::ITEMIDLIST>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IEParseDisplayName)(windows_core::Interface::as_raw(self), uicp, pwszpath.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DisplayParseError<P0>(&self, hres: windows_core::HRESULT, pwszpath: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.DisplayParseError)(windows_core::Interface::as_raw(self), hres, pwszpath.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn NavigateToPidl(&self, pidl: *const Common::ITEMIDLIST, grfhlnf: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.NavigateToPidl)(windows_core::Interface::as_raw(self), pidl, grfhlnf).ok()
-    }
-    pub unsafe fn SetNavigateState(&self, bnstate: BNSTATE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetNavigateState)(windows_core::Interface::as_raw(self), bnstate).ok()
-    }
-    pub unsafe fn GetNavigateState(&self) -> windows_core::Result<BNSTATE> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetNavigateState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
-    pub unsafe fn NotifyRedirect<P0>(&self, psv: P0, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<super::super::Foundation::BOOL>
-    where
-        P0: windows_core::Param<IShellView>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.NotifyRedirect)(windows_core::Interface::as_raw(self), psv.param().abi(), pidl, &mut result__).map(|| result__)
-    }
-    pub unsafe fn UpdateWindowList(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.UpdateWindowList)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn UpdateBackForwardState(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.UpdateBackForwardState)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetFlags(&self, dwflags: u32, dwflagmask: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetFlags)(windows_core::Interface::as_raw(self), dwflags, dwflagmask).ok()
-    }
-    pub unsafe fn GetFlags(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn CanNavigateNow(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.CanNavigateNow)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn GetPidl(&self) -> windows_core::Result<*mut Common::ITEMIDLIST> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetPidl)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn SetReferrer(&self, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetReferrer)(windows_core::Interface::as_raw(self), pidl).ok()
-    }
-    pub unsafe fn GetBrowserIndex(&self) -> u32 {
-        (windows_core::Interface::vtable(self).base__.GetBrowserIndex)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn GetBrowserByIndex(&self, dwid: u32) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetBrowserByIndex)(windows_core::Interface::as_raw(self), dwid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetHistoryObject(&self, ppole: *mut Option<super::super::System::Ole::IOleObject>, pstm: *mut Option<super::super::System::Com::IStream>, ppbc: *mut Option<super::super::System::Com::IBindCtx>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetHistoryObject)(windows_core::Interface::as_raw(self), core::mem::transmute(ppole), core::mem::transmute(pstm), core::mem::transmute(ppbc)).ok()
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn SetHistoryObject<P0, P1>(&self, pole: P0, fislocalanchor: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::System::Ole::IOleObject>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetHistoryObject)(windows_core::Interface::as_raw(self), pole.param().abi(), fislocalanchor.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn CacheOLEServer<P0>(&self, pole: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::System::Ole::IOleObject>,
-    {
-        (windows_core::Interface::vtable(self).base__.CacheOLEServer)(windows_core::Interface::as_raw(self), pole.param().abi()).ok()
-    }
-    pub unsafe fn GetSetCodePage(&self, pvarin: *const windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetSetCodePage)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn OnHttpEquiv<P0, P1>(&self, psv: P0, fdone: P1, pvarargin: *const windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<IShellView>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.OnHttpEquiv)(windows_core::Interface::as_raw(self), psv.param().abi(), fdone.param().abi(), core::mem::transmute(pvarargin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetPalette(&self) -> windows_core::Result<super::super::Graphics::Gdi::HPALETTE> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetPalette)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RegisterWindow<P0>(&self, fforceregister: P0, swc: ShellWindowTypeConstants) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.RegisterWindow)(windows_core::Interface::as_raw(self), fforceregister.param().abi(), swc).ok()
-    }
     pub unsafe fn WndProcBS<P0, P1, P2>(&self, hwnd: P0, umsg: u32, wparam: P1, lparam: P2) -> super::super::Foundation::LRESULT
     where
         P0: windows_core::Param<super::super::Foundation::HWND>,
@@ -8253,449 +8063,14 @@ pub struct IBrowserService2_Vtbl {
     v_CheckZoneCrossing: usize,
 }
 windows_core::imp::define_interface!(IBrowserService3, IBrowserService3_Vtbl, 0x27d7ce21_762d_48f3_86f3_40e2fd3749c4);
+impl std::ops::Deref for IBrowserService3 {
+    type Target = IBrowserService2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IBrowserService3, windows_core::IUnknown, IBrowserService, IBrowserService2);
 impl IBrowserService3 {
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetParentSite(&self) -> windows_core::Result<super::super::System::Ole::IOleInPlaceSite> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetParentSite)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn SetTitle<P0, P1>(&self, psv: P0, pszname: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellView>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetTitle)(windows_core::Interface::as_raw(self), psv.param().abi(), pszname.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetTitle<P0>(&self, psv: P0, pszname: &mut [u16]) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellView>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.GetTitle)(windows_core::Interface::as_raw(self), psv.param().abi(), core::mem::transmute(pszname.as_ptr()), pszname.len().try_into().unwrap()).ok()
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetOleObject(&self) -> windows_core::Result<super::super::System::Ole::IOleObject> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetOleObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetTravelLog(&self) -> windows_core::Result<ITravelLog> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetTravelLog)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn ShowControlWindow<P0>(&self, id: u32, fshow: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.ShowControlWindow)(windows_core::Interface::as_raw(self), id, fshow.param().abi()).ok()
-    }
-    pub unsafe fn IsControlWindowShown(&self, id: u32) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsControlWindowShown)(windows_core::Interface::as_raw(self), id, &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn IEGetDisplayName(&self, pidl: *const Common::ITEMIDLIST, pwszname: windows_core::PWSTR, uflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.IEGetDisplayName)(windows_core::Interface::as_raw(self), pidl, core::mem::transmute(pwszname), uflags).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn IEParseDisplayName<P0>(&self, uicp: u32, pwszpath: P0) -> windows_core::Result<*mut Common::ITEMIDLIST>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IEParseDisplayName)(windows_core::Interface::as_raw(self), uicp, pwszpath.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DisplayParseError<P0>(&self, hres: windows_core::HRESULT, pwszpath: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.DisplayParseError)(windows_core::Interface::as_raw(self), hres, pwszpath.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn NavigateToPidl(&self, pidl: *const Common::ITEMIDLIST, grfhlnf: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.NavigateToPidl)(windows_core::Interface::as_raw(self), pidl, grfhlnf).ok()
-    }
-    pub unsafe fn SetNavigateState(&self, bnstate: BNSTATE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetNavigateState)(windows_core::Interface::as_raw(self), bnstate).ok()
-    }
-    pub unsafe fn GetNavigateState(&self) -> windows_core::Result<BNSTATE> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetNavigateState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
-    pub unsafe fn NotifyRedirect<P0>(&self, psv: P0, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<super::super::Foundation::BOOL>
-    where
-        P0: windows_core::Param<IShellView>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.NotifyRedirect)(windows_core::Interface::as_raw(self), psv.param().abi(), pidl, &mut result__).map(|| result__)
-    }
-    pub unsafe fn UpdateWindowList(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.UpdateWindowList)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn UpdateBackForwardState(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.UpdateBackForwardState)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetFlags(&self, dwflags: u32, dwflagmask: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetFlags)(windows_core::Interface::as_raw(self), dwflags, dwflagmask).ok()
-    }
-    pub unsafe fn GetFlags(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn CanNavigateNow(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.CanNavigateNow)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn GetPidl(&self) -> windows_core::Result<*mut Common::ITEMIDLIST> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetPidl)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn SetReferrer(&self, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetReferrer)(windows_core::Interface::as_raw(self), pidl).ok()
-    }
-    pub unsafe fn GetBrowserIndex(&self) -> u32 {
-        (windows_core::Interface::vtable(self).base__.base__.GetBrowserIndex)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn GetBrowserByIndex(&self, dwid: u32) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetBrowserByIndex)(windows_core::Interface::as_raw(self), dwid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetHistoryObject(&self, ppole: *mut Option<super::super::System::Ole::IOleObject>, pstm: *mut Option<super::super::System::Com::IStream>, ppbc: *mut Option<super::super::System::Com::IBindCtx>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GetHistoryObject)(windows_core::Interface::as_raw(self), core::mem::transmute(ppole), core::mem::transmute(pstm), core::mem::transmute(ppbc)).ok()
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn SetHistoryObject<P0, P1>(&self, pole: P0, fislocalanchor: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::System::Ole::IOleObject>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetHistoryObject)(windows_core::Interface::as_raw(self), pole.param().abi(), fislocalanchor.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn CacheOLEServer<P0>(&self, pole: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::System::Ole::IOleObject>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.CacheOLEServer)(windows_core::Interface::as_raw(self), pole.param().abi()).ok()
-    }
-    pub unsafe fn GetSetCodePage(&self, pvarin: *const windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetSetCodePage)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn OnHttpEquiv<P0, P1>(&self, psv: P0, fdone: P1, pvarargin: *const windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<IShellView>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.OnHttpEquiv)(windows_core::Interface::as_raw(self), psv.param().abi(), fdone.param().abi(), core::mem::transmute(pvarargin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetPalette(&self) -> windows_core::Result<super::super::Graphics::Gdi::HPALETTE> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetPalette)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RegisterWindow<P0>(&self, fforceregister: P0, swc: ShellWindowTypeConstants) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.RegisterWindow)(windows_core::Interface::as_raw(self), fforceregister.param().abi(), swc).ok()
-    }
-    pub unsafe fn WndProcBS<P0, P1, P2>(&self, hwnd: P0, umsg: u32, wparam: P1, lparam: P2) -> super::super::Foundation::LRESULT
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-        P1: windows_core::Param<super::super::Foundation::WPARAM>,
-        P2: windows_core::Param<super::super::Foundation::LPARAM>,
-    {
-        (windows_core::Interface::vtable(self).base__.WndProcBS)(windows_core::Interface::as_raw(self), hwnd.param().abi(), umsg, wparam.param().abi(), lparam.param().abi())
-    }
-    pub unsafe fn SetAsDefFolderSettings(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetAsDefFolderSettings)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn GetViewRect(&self) -> windows_core::Result<super::super::Foundation::RECT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetViewRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn OnSize<P0>(&self, wparam: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::WPARAM>,
-    {
-        (windows_core::Interface::vtable(self).base__.OnSize)(windows_core::Interface::as_raw(self), wparam.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn OnCreate(&self, pcs: *const super::WindowsAndMessaging::CREATESTRUCTW) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.OnCreate)(windows_core::Interface::as_raw(self), pcs).ok()
-    }
-    pub unsafe fn OnCommand<P0, P1>(&self, wparam: P0, lparam: P1) -> super::super::Foundation::LRESULT
-    where
-        P0: windows_core::Param<super::super::Foundation::WPARAM>,
-        P1: windows_core::Param<super::super::Foundation::LPARAM>,
-    {
-        (windows_core::Interface::vtable(self).base__.OnCommand)(windows_core::Interface::as_raw(self), wparam.param().abi(), lparam.param().abi())
-    }
-    pub unsafe fn OnDestroy(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.OnDestroy)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_UI_Controls")]
-    pub unsafe fn OnNotify(&self, pnm: *const super::Controls::NMHDR) -> super::super::Foundation::LRESULT {
-        (windows_core::Interface::vtable(self).base__.OnNotify)(windows_core::Interface::as_raw(self), pnm)
-    }
-    pub unsafe fn OnSetFocus(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.OnSetFocus)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn OnFrameWindowActivateBS<P0>(&self, factive: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.OnFrameWindowActivateBS)(windows_core::Interface::as_raw(self), factive.param().abi()).ok()
-    }
-    pub unsafe fn ReleaseShellView(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.ReleaseShellView)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ActivatePendingView(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.ActivatePendingView)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn CreateViewWindow<P0, P1>(&self, psvnew: P0, psvold: P1, prcview: *const super::super::Foundation::RECT) -> windows_core::Result<super::super::Foundation::HWND>
-    where
-        P0: windows_core::Param<IShellView>,
-        P1: windows_core::Param<IShellView>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateViewWindow)(windows_core::Interface::as_raw(self), psvnew.param().abi(), psvold.param().abi(), prcview, &mut result__).map(|| result__)
-    }
-    pub unsafe fn CreateBrowserPropSheetExt(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.CreateBrowserPropSheetExt)(windows_core::Interface::as_raw(self), riid, ppv).ok()
-    }
-    pub unsafe fn GetViewWindow(&self) -> windows_core::Result<super::super::Foundation::HWND> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetViewWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
-    pub unsafe fn GetBaseBrowserData(&self) -> windows_core::Result<*mut BASEBROWSERDATALH> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetBaseBrowserData)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
-    pub unsafe fn PutBaseBrowserData(&self) -> *mut BASEBROWSERDATALH {
-        (windows_core::Interface::vtable(self).base__.PutBaseBrowserData)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn InitializeTravelLog<P0>(&self, ptl: P0, dw: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<ITravelLog>,
-    {
-        (windows_core::Interface::vtable(self).base__.InitializeTravelLog)(windows_core::Interface::as_raw(self), ptl.param().abi(), dw).ok()
-    }
-    pub unsafe fn SetTopBrowser(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetTopBrowser)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Offline(&self, icmd: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Offline)(windows_core::Interface::as_raw(self), icmd).ok()
-    }
-    pub unsafe fn AllowViewResize<P0>(&self, f: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.AllowViewResize)(windows_core::Interface::as_raw(self), f.param().abi()).ok()
-    }
-    pub unsafe fn SetActivateState(&self, u: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetActivateState)(windows_core::Interface::as_raw(self), u).ok()
-    }
-    pub unsafe fn UpdateSecureLockIcon(&self, esecurelock: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.UpdateSecureLockIcon)(windows_core::Interface::as_raw(self), esecurelock).ok()
-    }
-    pub unsafe fn InitializeDownloadManager(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.InitializeDownloadManager)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn InitializeTransitionSite(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.InitializeTransitionSite)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn _Initialize<P0, P1>(&self, hwnd: P0, pauto: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-        P1: windows_core::Param<windows_core::IUnknown>,
-    {
-        (windows_core::Interface::vtable(self).base__._Initialize)(windows_core::Interface::as_raw(self), hwnd.param().abi(), pauto.param().abi()).ok()
-    }
-    pub unsafe fn _CancelPendingNavigationAsync(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__._CancelPendingNavigationAsync)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn _CancelPendingView(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__._CancelPendingView)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn _MaySaveChanges(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__._MaySaveChanges)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn _PauseOrResumeView<P0>(&self, fpaused: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__._PauseOrResumeView)(windows_core::Interface::as_raw(self), fpaused.param().abi()).ok()
-    }
-    pub unsafe fn _DisableModeless(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__._DisableModeless)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn _NavigateToPidl2(&self, pidl: *const Common::ITEMIDLIST, grfhlnf: u32, dwflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__._NavigateToPidl2)(windows_core::Interface::as_raw(self), pidl, grfhlnf, dwflags).ok()
-    }
-    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
-    pub unsafe fn _TryShell2Rename<P0>(&self, psv: P0, pidlnew: *const Common::ITEMIDLIST) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellView>,
-    {
-        (windows_core::Interface::vtable(self).base__._TryShell2Rename)(windows_core::Interface::as_raw(self), psv.param().abi(), pidlnew).ok()
-    }
-    pub unsafe fn _SwitchActivationNow(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__._SwitchActivationNow)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn _ExecChildren<P0, P1>(&self, punkbar: P0, fbroadcast: P1, pguidcmdgroup: Option<*const windows_core::GUID>, ncmdid: u32, ncmdexecopt: u32, pvarargin: Option<*const windows_core::VARIANT>, pvarargout: Option<*mut windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__._ExecChildren)(windows_core::Interface::as_raw(self), punkbar.param().abi(), fbroadcast.param().abi(), core::mem::transmute(pguidcmdgroup.unwrap_or(std::ptr::null())), ncmdid, ncmdexecopt, core::mem::transmute(pvarargin.unwrap_or(std::ptr::null())), core::mem::transmute(pvarargout.unwrap_or(std::ptr::null_mut()))).ok()
-    }
-    pub unsafe fn _SendChildren<P0, P1, P2, P3>(&self, hwndbar: P0, fbroadcast: P1, umsg: u32, wparam: P2, lparam: P3) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-        P2: windows_core::Param<super::super::Foundation::WPARAM>,
-        P3: windows_core::Param<super::super::Foundation::LPARAM>,
-    {
-        (windows_core::Interface::vtable(self).base__._SendChildren)(windows_core::Interface::as_raw(self), hwndbar.param().abi(), fbroadcast.param().abi(), umsg, wparam.param().abi(), lparam.param().abi()).ok()
-    }
-    pub unsafe fn GetFolderSetData(&self, pfsd: *mut FOLDERSETDATA) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetFolderSetData)(windows_core::Interface::as_raw(self), pfsd).ok()
-    }
-    pub unsafe fn _OnFocusChange(&self, itb: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__._OnFocusChange)(windows_core::Interface::as_raw(self), itb).ok()
-    }
-    pub unsafe fn v_ShowHideChildWindows<P0>(&self, fchildonly: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.v_ShowHideChildWindows)(windows_core::Interface::as_raw(self), fchildonly.param().abi()).ok()
-    }
-    pub unsafe fn _get_itbLastFocus(&self) -> u32 {
-        (windows_core::Interface::vtable(self).base__._get_itbLastFocus)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn _put_itbLastFocus(&self, itblastfocus: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__._put_itbLastFocus)(windows_core::Interface::as_raw(self), itblastfocus).ok()
-    }
-    pub unsafe fn _UIActivateView(&self, ustate: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__._UIActivateView)(windows_core::Interface::as_raw(self), ustate).ok()
-    }
-    pub unsafe fn _GetViewBorderRect(&self, prc: *mut super::super::Foundation::RECT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__._GetViewBorderRect)(windows_core::Interface::as_raw(self), prc).ok()
-    }
-    pub unsafe fn _UpdateViewRectSize(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__._UpdateViewRectSize)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn _ResizeNextBorder(&self, itb: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__._ResizeNextBorder)(windows_core::Interface::as_raw(self), itb).ok()
-    }
-    pub unsafe fn _ResizeView(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__._ResizeView)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn _GetEffectiveClientArea<P0>(&self, lprectborder: *mut super::super::Foundation::RECT, hmon: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Graphics::Gdi::HMONITOR>,
-    {
-        (windows_core::Interface::vtable(self).base__._GetEffectiveClientArea)(windows_core::Interface::as_raw(self), lprectborder, hmon.param().abi()).ok()
-    }
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
-    pub unsafe fn v_GetViewStream<P0>(&self, pidl: *mut Common::ITEMIDLIST, grfmode: u32, pwszname: P0) -> Option<super::super::System::Com::IStream>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.v_GetViewStream)(windows_core::Interface::as_raw(self), pidl, grfmode, pwszname.param().abi())
-    }
-    pub unsafe fn ForwardViewMsg<P0, P1>(&self, umsg: u32, wparam: P0, lparam: P1) -> super::super::Foundation::LRESULT
-    where
-        P0: windows_core::Param<super::super::Foundation::WPARAM>,
-        P1: windows_core::Param<super::super::Foundation::LPARAM>,
-    {
-        (windows_core::Interface::vtable(self).base__.ForwardViewMsg)(windows_core::Interface::as_raw(self), umsg, wparam.param().abi(), lparam.param().abi())
-    }
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn SetAcceleratorMenu<P0>(&self, hacc: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::WindowsAndMessaging::HACCEL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetAcceleratorMenu)(windows_core::Interface::as_raw(self), hacc.param().abi()).ok()
-    }
-    pub unsafe fn _GetToolbarCount(&self) -> i32 {
-        (windows_core::Interface::vtable(self).base__._GetToolbarCount)(windows_core::Interface::as_raw(self))
-    }
-    #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Ole"))]
-    pub unsafe fn _GetToolbarItem(&self, itb: i32) -> *mut TOOLBARITEM {
-        (windows_core::Interface::vtable(self).base__._GetToolbarItem)(windows_core::Interface::as_raw(self), itb)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn _SaveToolbars<P0>(&self, pstm: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::System::Com::IStream>,
-    {
-        (windows_core::Interface::vtable(self).base__._SaveToolbars)(windows_core::Interface::as_raw(self), pstm.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn _LoadToolbars<P0>(&self, pstm: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::System::Com::IStream>,
-    {
-        (windows_core::Interface::vtable(self).base__._LoadToolbars)(windows_core::Interface::as_raw(self), pstm.param().abi()).ok()
-    }
-    pub unsafe fn _CloseAndReleaseToolbars<P0>(&self, fclose: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__._CloseAndReleaseToolbars)(windows_core::Interface::as_raw(self), fclose.param().abi()).ok()
-    }
-    #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn v_MayGetNextToolbarFocus(&self, lpmsg: *const super::WindowsAndMessaging::MSG, itbnext: u32, citb: i32, pptbi: *mut *mut TOOLBARITEM, phwnd: *mut super::super::Foundation::HWND) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.v_MayGetNextToolbarFocus)(windows_core::Interface::as_raw(self), lpmsg, itbnext, citb, pptbi, phwnd).ok()
-    }
-    pub unsafe fn _ResizeNextBorderHelper<P0>(&self, itb: u32, busehmonitor: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__._ResizeNextBorderHelper)(windows_core::Interface::as_raw(self), itb, busehmonitor.param().abi()).ok()
-    }
-    pub unsafe fn _FindTBar<P0>(&self, punksrc: P0) -> u32
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-    {
-        (windows_core::Interface::vtable(self).base__._FindTBar)(windows_core::Interface::as_raw(self), punksrc.param().abi())
-    }
-    #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn _SetFocus<P0>(&self, ptbi: *const TOOLBARITEM, hwnd: P0, lpmsg: *const super::WindowsAndMessaging::MSG) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__._SetFocus)(windows_core::Interface::as_raw(self), ptbi, hwnd.param().abi(), lpmsg).ok()
-    }
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn v_MayTranslateAccelerator(&self, pmsg: *mut super::WindowsAndMessaging::MSG) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.v_MayTranslateAccelerator)(windows_core::Interface::as_raw(self), pmsg).ok()
-    }
-    pub unsafe fn _GetBorderDWHelper<P0, P1>(&self, punksrc: P0, lprectborder: *mut super::super::Foundation::RECT, busehmonitor: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__._GetBorderDWHelper)(windows_core::Interface::as_raw(self), punksrc.param().abi(), lprectborder, busehmonitor.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn v_CheckZoneCrossing(&self, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.v_CheckZoneCrossing)(windows_core::Interface::as_raw(self), pidl).ok()
-    }
     pub unsafe fn _PositionViewWindow<P0>(&self, hwnd: P0, prc: *const super::super::Foundation::RECT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::HWND>,
@@ -8721,463 +8096,14 @@ pub struct IBrowserService3_Vtbl {
     IEParseDisplayNameEx: usize,
 }
 windows_core::imp::define_interface!(IBrowserService4, IBrowserService4_Vtbl, 0x639f1bff_e135_4096_abd8_e0f504d649a4);
+impl std::ops::Deref for IBrowserService4 {
+    type Target = IBrowserService3;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IBrowserService4, windows_core::IUnknown, IBrowserService, IBrowserService2, IBrowserService3);
 impl IBrowserService4 {
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetParentSite(&self) -> windows_core::Result<super::super::System::Ole::IOleInPlaceSite> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetParentSite)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn SetTitle<P0, P1>(&self, psv: P0, pszname: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellView>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetTitle)(windows_core::Interface::as_raw(self), psv.param().abi(), pszname.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetTitle<P0>(&self, psv: P0, pszname: &mut [u16]) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellView>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetTitle)(windows_core::Interface::as_raw(self), psv.param().abi(), core::mem::transmute(pszname.as_ptr()), pszname.len().try_into().unwrap()).ok()
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetOleObject(&self) -> windows_core::Result<super::super::System::Ole::IOleObject> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetOleObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetTravelLog(&self) -> windows_core::Result<ITravelLog> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetTravelLog)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn ShowControlWindow<P0>(&self, id: u32, fshow: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.ShowControlWindow)(windows_core::Interface::as_raw(self), id, fshow.param().abi()).ok()
-    }
-    pub unsafe fn IsControlWindowShown(&self, id: u32) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.IsControlWindowShown)(windows_core::Interface::as_raw(self), id, &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn IEGetDisplayName(&self, pidl: *const Common::ITEMIDLIST, pwszname: windows_core::PWSTR, uflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.IEGetDisplayName)(windows_core::Interface::as_raw(self), pidl, core::mem::transmute(pwszname), uflags).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn IEParseDisplayName<P0>(&self, uicp: u32, pwszpath: P0) -> windows_core::Result<*mut Common::ITEMIDLIST>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.IEParseDisplayName)(windows_core::Interface::as_raw(self), uicp, pwszpath.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DisplayParseError<P0>(&self, hres: windows_core::HRESULT, pwszpath: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.DisplayParseError)(windows_core::Interface::as_raw(self), hres, pwszpath.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn NavigateToPidl(&self, pidl: *const Common::ITEMIDLIST, grfhlnf: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.NavigateToPidl)(windows_core::Interface::as_raw(self), pidl, grfhlnf).ok()
-    }
-    pub unsafe fn SetNavigateState(&self, bnstate: BNSTATE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetNavigateState)(windows_core::Interface::as_raw(self), bnstate).ok()
-    }
-    pub unsafe fn GetNavigateState(&self) -> windows_core::Result<BNSTATE> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetNavigateState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
-    pub unsafe fn NotifyRedirect<P0>(&self, psv: P0, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<super::super::Foundation::BOOL>
-    where
-        P0: windows_core::Param<IShellView>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.NotifyRedirect)(windows_core::Interface::as_raw(self), psv.param().abi(), pidl, &mut result__).map(|| result__)
-    }
-    pub unsafe fn UpdateWindowList(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.UpdateWindowList)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn UpdateBackForwardState(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.UpdateBackForwardState)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetFlags(&self, dwflags: u32, dwflagmask: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetFlags)(windows_core::Interface::as_raw(self), dwflags, dwflagmask).ok()
-    }
-    pub unsafe fn GetFlags(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn CanNavigateNow(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.CanNavigateNow)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn GetPidl(&self) -> windows_core::Result<*mut Common::ITEMIDLIST> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetPidl)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn SetReferrer(&self, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetReferrer)(windows_core::Interface::as_raw(self), pidl).ok()
-    }
-    pub unsafe fn GetBrowserIndex(&self) -> u32 {
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetBrowserIndex)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn GetBrowserByIndex(&self, dwid: u32) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetBrowserByIndex)(windows_core::Interface::as_raw(self), dwid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetHistoryObject(&self, ppole: *mut Option<super::super::System::Ole::IOleObject>, pstm: *mut Option<super::super::System::Com::IStream>, ppbc: *mut Option<super::super::System::Com::IBindCtx>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetHistoryObject)(windows_core::Interface::as_raw(self), core::mem::transmute(ppole), core::mem::transmute(pstm), core::mem::transmute(ppbc)).ok()
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn SetHistoryObject<P0, P1>(&self, pole: P0, fislocalanchor: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::System::Ole::IOleObject>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetHistoryObject)(windows_core::Interface::as_raw(self), pole.param().abi(), fislocalanchor.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn CacheOLEServer<P0>(&self, pole: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::System::Ole::IOleObject>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.CacheOLEServer)(windows_core::Interface::as_raw(self), pole.param().abi()).ok()
-    }
-    pub unsafe fn GetSetCodePage(&self, pvarin: *const windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetSetCodePage)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn OnHttpEquiv<P0, P1>(&self, psv: P0, fdone: P1, pvarargin: *const windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<IShellView>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.OnHttpEquiv)(windows_core::Interface::as_raw(self), psv.param().abi(), fdone.param().abi(), core::mem::transmute(pvarargin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetPalette(&self) -> windows_core::Result<super::super::Graphics::Gdi::HPALETTE> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetPalette)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RegisterWindow<P0>(&self, fforceregister: P0, swc: ShellWindowTypeConstants) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.RegisterWindow)(windows_core::Interface::as_raw(self), fforceregister.param().abi(), swc).ok()
-    }
-    pub unsafe fn WndProcBS<P0, P1, P2>(&self, hwnd: P0, umsg: u32, wparam: P1, lparam: P2) -> super::super::Foundation::LRESULT
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-        P1: windows_core::Param<super::super::Foundation::WPARAM>,
-        P2: windows_core::Param<super::super::Foundation::LPARAM>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.WndProcBS)(windows_core::Interface::as_raw(self), hwnd.param().abi(), umsg, wparam.param().abi(), lparam.param().abi())
-    }
-    pub unsafe fn SetAsDefFolderSettings(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetAsDefFolderSettings)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn GetViewRect(&self) -> windows_core::Result<super::super::Foundation::RECT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetViewRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn OnSize<P0>(&self, wparam: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::WPARAM>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.OnSize)(windows_core::Interface::as_raw(self), wparam.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn OnCreate(&self, pcs: *const super::WindowsAndMessaging::CREATESTRUCTW) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.OnCreate)(windows_core::Interface::as_raw(self), pcs).ok()
-    }
-    pub unsafe fn OnCommand<P0, P1>(&self, wparam: P0, lparam: P1) -> super::super::Foundation::LRESULT
-    where
-        P0: windows_core::Param<super::super::Foundation::WPARAM>,
-        P1: windows_core::Param<super::super::Foundation::LPARAM>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.OnCommand)(windows_core::Interface::as_raw(self), wparam.param().abi(), lparam.param().abi())
-    }
-    pub unsafe fn OnDestroy(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.OnDestroy)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_UI_Controls")]
-    pub unsafe fn OnNotify(&self, pnm: *const super::Controls::NMHDR) -> super::super::Foundation::LRESULT {
-        (windows_core::Interface::vtable(self).base__.base__.OnNotify)(windows_core::Interface::as_raw(self), pnm)
-    }
-    pub unsafe fn OnSetFocus(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.OnSetFocus)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn OnFrameWindowActivateBS<P0>(&self, factive: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.OnFrameWindowActivateBS)(windows_core::Interface::as_raw(self), factive.param().abi()).ok()
-    }
-    pub unsafe fn ReleaseShellView(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.ReleaseShellView)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ActivatePendingView(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.ActivatePendingView)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn CreateViewWindow<P0, P1>(&self, psvnew: P0, psvold: P1, prcview: *const super::super::Foundation::RECT) -> windows_core::Result<super::super::Foundation::HWND>
-    where
-        P0: windows_core::Param<IShellView>,
-        P1: windows_core::Param<IShellView>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CreateViewWindow)(windows_core::Interface::as_raw(self), psvnew.param().abi(), psvold.param().abi(), prcview, &mut result__).map(|| result__)
-    }
-    pub unsafe fn CreateBrowserPropSheetExt(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.CreateBrowserPropSheetExt)(windows_core::Interface::as_raw(self), riid, ppv).ok()
-    }
-    pub unsafe fn GetViewWindow(&self) -> windows_core::Result<super::super::Foundation::HWND> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetViewWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
-    pub unsafe fn GetBaseBrowserData(&self) -> windows_core::Result<*mut BASEBROWSERDATALH> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetBaseBrowserData)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
-    pub unsafe fn PutBaseBrowserData(&self) -> *mut BASEBROWSERDATALH {
-        (windows_core::Interface::vtable(self).base__.base__.PutBaseBrowserData)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn InitializeTravelLog<P0>(&self, ptl: P0, dw: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<ITravelLog>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.InitializeTravelLog)(windows_core::Interface::as_raw(self), ptl.param().abi(), dw).ok()
-    }
-    pub unsafe fn SetTopBrowser(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetTopBrowser)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Offline(&self, icmd: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.Offline)(windows_core::Interface::as_raw(self), icmd).ok()
-    }
-    pub unsafe fn AllowViewResize<P0>(&self, f: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.AllowViewResize)(windows_core::Interface::as_raw(self), f.param().abi()).ok()
-    }
-    pub unsafe fn SetActivateState(&self, u: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetActivateState)(windows_core::Interface::as_raw(self), u).ok()
-    }
-    pub unsafe fn UpdateSecureLockIcon(&self, esecurelock: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.UpdateSecureLockIcon)(windows_core::Interface::as_raw(self), esecurelock).ok()
-    }
-    pub unsafe fn InitializeDownloadManager(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.InitializeDownloadManager)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn InitializeTransitionSite(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.InitializeTransitionSite)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn _Initialize<P0, P1>(&self, hwnd: P0, pauto: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-        P1: windows_core::Param<windows_core::IUnknown>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__._Initialize)(windows_core::Interface::as_raw(self), hwnd.param().abi(), pauto.param().abi()).ok()
-    }
-    pub unsafe fn _CancelPendingNavigationAsync(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__._CancelPendingNavigationAsync)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn _CancelPendingView(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__._CancelPendingView)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn _MaySaveChanges(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__._MaySaveChanges)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn _PauseOrResumeView<P0>(&self, fpaused: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__._PauseOrResumeView)(windows_core::Interface::as_raw(self), fpaused.param().abi()).ok()
-    }
-    pub unsafe fn _DisableModeless(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__._DisableModeless)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn _NavigateToPidl2(&self, pidl: *const Common::ITEMIDLIST, grfhlnf: u32, dwflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__._NavigateToPidl2)(windows_core::Interface::as_raw(self), pidl, grfhlnf, dwflags).ok()
-    }
-    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
-    pub unsafe fn _TryShell2Rename<P0>(&self, psv: P0, pidlnew: *const Common::ITEMIDLIST) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellView>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__._TryShell2Rename)(windows_core::Interface::as_raw(self), psv.param().abi(), pidlnew).ok()
-    }
-    pub unsafe fn _SwitchActivationNow(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__._SwitchActivationNow)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn _ExecChildren<P0, P1>(&self, punkbar: P0, fbroadcast: P1, pguidcmdgroup: Option<*const windows_core::GUID>, ncmdid: u32, ncmdexecopt: u32, pvarargin: Option<*const windows_core::VARIANT>, pvarargout: Option<*mut windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__._ExecChildren)(windows_core::Interface::as_raw(self), punkbar.param().abi(), fbroadcast.param().abi(), core::mem::transmute(pguidcmdgroup.unwrap_or(std::ptr::null())), ncmdid, ncmdexecopt, core::mem::transmute(pvarargin.unwrap_or(std::ptr::null())), core::mem::transmute(pvarargout.unwrap_or(std::ptr::null_mut()))).ok()
-    }
-    pub unsafe fn _SendChildren<P0, P1, P2, P3>(&self, hwndbar: P0, fbroadcast: P1, umsg: u32, wparam: P2, lparam: P3) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-        P2: windows_core::Param<super::super::Foundation::WPARAM>,
-        P3: windows_core::Param<super::super::Foundation::LPARAM>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__._SendChildren)(windows_core::Interface::as_raw(self), hwndbar.param().abi(), fbroadcast.param().abi(), umsg, wparam.param().abi(), lparam.param().abi()).ok()
-    }
-    pub unsafe fn GetFolderSetData(&self, pfsd: *mut FOLDERSETDATA) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GetFolderSetData)(windows_core::Interface::as_raw(self), pfsd).ok()
-    }
-    pub unsafe fn _OnFocusChange(&self, itb: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__._OnFocusChange)(windows_core::Interface::as_raw(self), itb).ok()
-    }
-    pub unsafe fn v_ShowHideChildWindows<P0>(&self, fchildonly: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.v_ShowHideChildWindows)(windows_core::Interface::as_raw(self), fchildonly.param().abi()).ok()
-    }
-    pub unsafe fn _get_itbLastFocus(&self) -> u32 {
-        (windows_core::Interface::vtable(self).base__.base__._get_itbLastFocus)(windows_core::Interface::as_raw(self))
-    }
-    pub unsafe fn _put_itbLastFocus(&self, itblastfocus: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__._put_itbLastFocus)(windows_core::Interface::as_raw(self), itblastfocus).ok()
-    }
-    pub unsafe fn _UIActivateView(&self, ustate: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__._UIActivateView)(windows_core::Interface::as_raw(self), ustate).ok()
-    }
-    pub unsafe fn _GetViewBorderRect(&self, prc: *mut super::super::Foundation::RECT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__._GetViewBorderRect)(windows_core::Interface::as_raw(self), prc).ok()
-    }
-    pub unsafe fn _UpdateViewRectSize(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__._UpdateViewRectSize)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn _ResizeNextBorder(&self, itb: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__._ResizeNextBorder)(windows_core::Interface::as_raw(self), itb).ok()
-    }
-    pub unsafe fn _ResizeView(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__._ResizeView)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn _GetEffectiveClientArea<P0>(&self, lprectborder: *mut super::super::Foundation::RECT, hmon: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Graphics::Gdi::HMONITOR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__._GetEffectiveClientArea)(windows_core::Interface::as_raw(self), lprectborder, hmon.param().abi()).ok()
-    }
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
-    pub unsafe fn v_GetViewStream<P0>(&self, pidl: *mut Common::ITEMIDLIST, grfmode: u32, pwszname: P0) -> Option<super::super::System::Com::IStream>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.v_GetViewStream)(windows_core::Interface::as_raw(self), pidl, grfmode, pwszname.param().abi())
-    }
-    pub unsafe fn ForwardViewMsg<P0, P1>(&self, umsg: u32, wparam: P0, lparam: P1) -> super::super::Foundation::LRESULT
-    where
-        P0: windows_core::Param<super::super::Foundation::WPARAM>,
-        P1: windows_core::Param<super::super::Foundation::LPARAM>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.ForwardViewMsg)(windows_core::Interface::as_raw(self), umsg, wparam.param().abi(), lparam.param().abi())
-    }
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn SetAcceleratorMenu<P0>(&self, hacc: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::WindowsAndMessaging::HACCEL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetAcceleratorMenu)(windows_core::Interface::as_raw(self), hacc.param().abi()).ok()
-    }
-    pub unsafe fn _GetToolbarCount(&self) -> i32 {
-        (windows_core::Interface::vtable(self).base__.base__._GetToolbarCount)(windows_core::Interface::as_raw(self))
-    }
-    #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Ole"))]
-    pub unsafe fn _GetToolbarItem(&self, itb: i32) -> *mut TOOLBARITEM {
-        (windows_core::Interface::vtable(self).base__.base__._GetToolbarItem)(windows_core::Interface::as_raw(self), itb)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn _SaveToolbars<P0>(&self, pstm: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::System::Com::IStream>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__._SaveToolbars)(windows_core::Interface::as_raw(self), pstm.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn _LoadToolbars<P0>(&self, pstm: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::System::Com::IStream>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__._LoadToolbars)(windows_core::Interface::as_raw(self), pstm.param().abi()).ok()
-    }
-    pub unsafe fn _CloseAndReleaseToolbars<P0>(&self, fclose: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__._CloseAndReleaseToolbars)(windows_core::Interface::as_raw(self), fclose.param().abi()).ok()
-    }
-    #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn v_MayGetNextToolbarFocus(&self, lpmsg: *const super::WindowsAndMessaging::MSG, itbnext: u32, citb: i32, pptbi: *mut *mut TOOLBARITEM, phwnd: *mut super::super::Foundation::HWND) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.v_MayGetNextToolbarFocus)(windows_core::Interface::as_raw(self), lpmsg, itbnext, citb, pptbi, phwnd).ok()
-    }
-    pub unsafe fn _ResizeNextBorderHelper<P0>(&self, itb: u32, busehmonitor: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__._ResizeNextBorderHelper)(windows_core::Interface::as_raw(self), itb, busehmonitor.param().abi()).ok()
-    }
-    pub unsafe fn _FindTBar<P0>(&self, punksrc: P0) -> u32
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__._FindTBar)(windows_core::Interface::as_raw(self), punksrc.param().abi())
-    }
-    #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn _SetFocus<P0>(&self, ptbi: *const TOOLBARITEM, hwnd: P0, lpmsg: *const super::WindowsAndMessaging::MSG) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__._SetFocus)(windows_core::Interface::as_raw(self), ptbi, hwnd.param().abi(), lpmsg).ok()
-    }
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn v_MayTranslateAccelerator(&self, pmsg: *mut super::WindowsAndMessaging::MSG) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.v_MayTranslateAccelerator)(windows_core::Interface::as_raw(self), pmsg).ok()
-    }
-    pub unsafe fn _GetBorderDWHelper<P0, P1>(&self, punksrc: P0, lprectborder: *mut super::super::Foundation::RECT, busehmonitor: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__._GetBorderDWHelper)(windows_core::Interface::as_raw(self), punksrc.param().abi(), lprectborder, busehmonitor.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn v_CheckZoneCrossing(&self, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.v_CheckZoneCrossing)(windows_core::Interface::as_raw(self), pidl).ok()
-    }
-    pub unsafe fn _PositionViewWindow<P0>(&self, hwnd: P0, prc: *const super::super::Foundation::RECT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__._PositionViewWindow)(windows_core::Interface::as_raw(self), hwnd.param().abi(), prc).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn IEParseDisplayNameEx<P0>(&self, uicp: u32, pwszpath: P0, dwflags: u32) -> windows_core::Result<*mut Common::ITEMIDLIST>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IEParseDisplayNameEx)(windows_core::Interface::as_raw(self), uicp, pwszpath.param().abi(), dwflags, &mut result__).map(|| result__)
-    }
     pub unsafe fn ActivateView<P0>(&self, fpendingview: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::BOOL>,
@@ -9199,6 +8125,12 @@ pub struct IBrowserService4_Vtbl {
     pub _ResizeAllBorders: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICDBurn, ICDBurn_Vtbl, 0x3d73a659_e5d0_4d42_afc0_5121ba425c8d);
+impl std::ops::Deref for ICDBurn {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICDBurn, windows_core::IUnknown);
 impl ICDBurn {
     pub unsafe fn GetRecorderDriveLetter(&self, pszdrive: &mut [u16]) -> windows_core::Result<()> {
@@ -9223,6 +8155,12 @@ pub struct ICDBurn_Vtbl {
     pub HasRecordableDrive: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICDBurnExt, ICDBurnExt_Vtbl, 0x2271dcca_74fc_4414_8fb7_c56b05ace2d7);
+impl std::ops::Deref for ICDBurnExt {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICDBurnExt, windows_core::IUnknown);
 impl ICDBurnExt {
     pub unsafe fn GetSupportedActionTypes(&self) -> windows_core::Result<u32> {
@@ -9236,6 +8174,12 @@ pub struct ICDBurnExt_Vtbl {
     pub GetSupportedActionTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICategorizer, ICategorizer_Vtbl, 0xa3b14589_9174_49a8_89a3_06a1ae2b9ba7);
+impl std::ops::Deref for ICategorizer {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICategorizer, windows_core::IUnknown);
 impl ICategorizer {
     pub unsafe fn GetDescription(&self, pszdesc: &mut [u16]) -> windows_core::Result<()> {
@@ -9264,6 +8208,12 @@ pub struct ICategorizer_Vtbl {
     pub CompareCategory: unsafe extern "system" fn(*mut core::ffi::c_void, CATSORT_FLAGS, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICategoryProvider, ICategoryProvider_Vtbl, 0x9af64809_5864_4c26_a720_c1f78c086ee3);
+impl std::ops::Deref for ICategoryProvider {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICategoryProvider, windows_core::IUnknown);
 impl ICategoryProvider {
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -9318,6 +8268,12 @@ pub struct ICategoryProvider_Vtbl {
     pub CreateCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IColumnManager, IColumnManager_Vtbl, 0xd8ec27bb_3f3b_4042_b10a_4acfd924d453);
+impl std::ops::Deref for IColumnManager {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IColumnManager, windows_core::IUnknown);
 impl IColumnManager {
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -9363,6 +8319,12 @@ pub struct IColumnManager_Vtbl {
     SetColumns: usize,
 }
 windows_core::imp::define_interface!(IColumnProvider, IColumnProvider_Vtbl, 0xe8025004_1c42_11d2_be2c_00a0c9a83da1);
+impl std::ops::Deref for IColumnProvider {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IColumnProvider, windows_core::IUnknown);
 impl IColumnProvider {
     pub unsafe fn Initialize(&self, psci: *const SHCOLUMNINIT) -> windows_core::Result<()> {
@@ -9392,6 +8354,12 @@ pub struct IColumnProvider_Vtbl {
     GetItemData: usize,
 }
 windows_core::imp::define_interface!(ICommDlgBrowser, ICommDlgBrowser_Vtbl, 0x000214f1_0000_0000_c000_000000000046);
+impl std::ops::Deref for ICommDlgBrowser {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICommDlgBrowser, windows_core::IUnknown);
 impl ICommDlgBrowser {
     #[cfg(feature = "Win32_System_Ole")]
@@ -9433,29 +8401,14 @@ pub struct ICommDlgBrowser_Vtbl {
     IncludeObject: usize,
 }
 windows_core::imp::define_interface!(ICommDlgBrowser2, ICommDlgBrowser2_Vtbl, 0x10339516_2894_11d2_9039_00c04f8eeb3e);
+impl std::ops::Deref for ICommDlgBrowser2 {
+    type Target = ICommDlgBrowser;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICommDlgBrowser2, windows_core::IUnknown, ICommDlgBrowser);
 impl ICommDlgBrowser2 {
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn OnDefaultCommand<P0>(&self, ppshv: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellView>,
-    {
-        (windows_core::Interface::vtable(self).base__.OnDefaultCommand)(windows_core::Interface::as_raw(self), ppshv.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn OnStateChange<P0>(&self, ppshv: P0, uchange: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellView>,
-    {
-        (windows_core::Interface::vtable(self).base__.OnStateChange)(windows_core::Interface::as_raw(self), ppshv.param().abi(), uchange).ok()
-    }
-    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
-    pub unsafe fn IncludeObject<P0>(&self, ppshv: P0, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellView>,
-    {
-        (windows_core::Interface::vtable(self).base__.IncludeObject)(windows_core::Interface::as_raw(self), ppshv.param().abi(), pidl).ok()
-    }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn Notify<P0>(&self, ppshv: P0, dwnotifytype: u32) -> windows_core::Result<()>
     where
@@ -9489,47 +8442,14 @@ pub struct ICommDlgBrowser2_Vtbl {
     pub GetViewFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICommDlgBrowser3, ICommDlgBrowser3_Vtbl, 0xc8ad25a1_3294_41ee_8165_71174bd01c57);
+impl std::ops::Deref for ICommDlgBrowser3 {
+    type Target = ICommDlgBrowser2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICommDlgBrowser3, windows_core::IUnknown, ICommDlgBrowser, ICommDlgBrowser2);
 impl ICommDlgBrowser3 {
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn OnDefaultCommand<P0>(&self, ppshv: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellView>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.OnDefaultCommand)(windows_core::Interface::as_raw(self), ppshv.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn OnStateChange<P0>(&self, ppshv: P0, uchange: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellView>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.OnStateChange)(windows_core::Interface::as_raw(self), ppshv.param().abi(), uchange).ok()
-    }
-    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
-    pub unsafe fn IncludeObject<P0>(&self, ppshv: P0, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellView>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.IncludeObject)(windows_core::Interface::as_raw(self), ppshv.param().abi(), pidl).ok()
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn Notify<P0>(&self, ppshv: P0, dwnotifytype: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellView>,
-    {
-        (windows_core::Interface::vtable(self).base__.Notify)(windows_core::Interface::as_raw(self), ppshv.param().abi(), dwnotifytype).ok()
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetDefaultMenuText<P0>(&self, ppshv: P0, psztext: &mut [u16]) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellView>,
-    {
-        (windows_core::Interface::vtable(self).base__.GetDefaultMenuText)(windows_core::Interface::as_raw(self), ppshv.param().abi(), core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()).ok()
-    }
-    pub unsafe fn GetViewFlags(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetViewFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn OnColumnClicked<P0>(&self, ppshv: P0, icolumn: i32) -> windows_core::Result<()>
     where
@@ -9562,6 +8482,12 @@ pub struct ICommDlgBrowser3_Vtbl {
     OnPreViewCreated: usize,
 }
 windows_core::imp::define_interface!(IComputerInfoChangeNotify, IComputerInfoChangeNotify_Vtbl, 0x0df60d92_6818_46d6_b358_d66170dde466);
+impl std::ops::Deref for IComputerInfoChangeNotify {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IComputerInfoChangeNotify, windows_core::IUnknown);
 impl IComputerInfoChangeNotify {
     pub unsafe fn ComputerInfoChanged(&self) -> windows_core::Result<()> {
@@ -9574,78 +8500,14 @@ pub struct IComputerInfoChangeNotify_Vtbl {
     pub ComputerInfoChanged: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IConnectableCredentialProviderCredential, IConnectableCredentialProviderCredential_Vtbl, 0x9387928b_ac75_4bf9_8ab2_2b93c4a55290);
+impl std::ops::Deref for IConnectableCredentialProviderCredential {
+    type Target = ICredentialProviderCredential;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IConnectableCredentialProviderCredential, windows_core::IUnknown, ICredentialProviderCredential);
 impl IConnectableCredentialProviderCredential {
-    pub unsafe fn Advise<P0>(&self, pcpce: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<ICredentialProviderCredentialEvents>,
-    {
-        (windows_core::Interface::vtable(self).base__.Advise)(windows_core::Interface::as_raw(self), pcpce.param().abi()).ok()
-    }
-    pub unsafe fn UnAdvise(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.UnAdvise)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetSelected(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SetSelected)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetDeselected(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetDeselected)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn GetFieldState(&self, dwfieldid: u32, pcpfs: *mut CREDENTIAL_PROVIDER_FIELD_STATE, pcpfis: *mut CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetFieldState)(windows_core::Interface::as_raw(self), dwfieldid, pcpfs, pcpfis).ok()
-    }
-    pub unsafe fn GetStringValue(&self, dwfieldid: u32) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetStringValue)(windows_core::Interface::as_raw(self), dwfieldid, &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetBitmapValue(&self, dwfieldid: u32) -> windows_core::Result<super::super::Graphics::Gdi::HBITMAP> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetBitmapValue)(windows_core::Interface::as_raw(self), dwfieldid, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetCheckboxValue(&self, dwfieldid: u32, pbchecked: *mut super::super::Foundation::BOOL, ppszlabel: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetCheckboxValue)(windows_core::Interface::as_raw(self), dwfieldid, pbchecked, ppszlabel).ok()
-    }
-    pub unsafe fn GetSubmitButtonValue(&self, dwfieldid: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetSubmitButtonValue)(windows_core::Interface::as_raw(self), dwfieldid, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetComboBoxValueCount(&self, dwfieldid: u32, pcitems: *mut u32, pdwselecteditem: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetComboBoxValueCount)(windows_core::Interface::as_raw(self), dwfieldid, pcitems, pdwselecteditem).ok()
-    }
-    pub unsafe fn GetComboBoxValueAt(&self, dwfieldid: u32, dwitem: u32) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetComboBoxValueAt)(windows_core::Interface::as_raw(self), dwfieldid, dwitem, &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetStringValue<P0>(&self, dwfieldid: u32, psz: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetStringValue)(windows_core::Interface::as_raw(self), dwfieldid, psz.param().abi()).ok()
-    }
-    pub unsafe fn SetCheckboxValue<P0>(&self, dwfieldid: u32, bchecked: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetCheckboxValue)(windows_core::Interface::as_raw(self), dwfieldid, bchecked.param().abi()).ok()
-    }
-    pub unsafe fn SetComboBoxSelectedValue(&self, dwfieldid: u32, dwselecteditem: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetComboBoxSelectedValue)(windows_core::Interface::as_raw(self), dwfieldid, dwselecteditem).ok()
-    }
-    pub unsafe fn CommandLinkClicked(&self, dwfieldid: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.CommandLinkClicked)(windows_core::Interface::as_raw(self), dwfieldid).ok()
-    }
-    pub unsafe fn GetSerialization(&self, pcpgsr: *mut CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE, pcpcs: *mut CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION, ppszoptionalstatustext: *mut windows_core::PWSTR, pcpsioptionalstatusicon: *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetSerialization)(windows_core::Interface::as_raw(self), pcpgsr, pcpcs, ppszoptionalstatustext, pcpsioptionalstatusicon).ok()
-    }
-    pub unsafe fn ReportResult<P0, P1>(&self, ntsstatus: P0, ntssubstatus: P1, ppszoptionalstatustext: *mut windows_core::PWSTR, pcpsioptionalstatusicon: *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::NTSTATUS>,
-        P1: windows_core::Param<super::super::Foundation::NTSTATUS>,
-    {
-        (windows_core::Interface::vtable(self).base__.ReportResult)(windows_core::Interface::as_raw(self), ntsstatus.param().abi(), ntssubstatus.param().abi(), ppszoptionalstatustext, pcpsioptionalstatusicon).ok()
-    }
     pub unsafe fn Connect<P0>(&self, pqcws: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IQueryContinueWithStatus>,
@@ -9663,6 +8525,12 @@ pub struct IConnectableCredentialProviderCredential_Vtbl {
     pub Disconnect: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactManagerInterop, IContactManagerInterop_Vtbl, 0x99eacba7_e073_43b6_a896_55afe48a0833);
+impl std::ops::Deref for IContactManagerInterop {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IContactManagerInterop, windows_core::IUnknown);
 impl IContactManagerInterop {
     pub unsafe fn ShowContactCardForWindow<P0, P1>(&self, appwindow: P0, contact: P1, selection: *const super::super::Foundation::RECT, preferredplacement: FLYOUT_PLACEMENT) -> windows_core::Result<()>
@@ -9679,6 +8547,12 @@ pub struct IContactManagerInterop_Vtbl {
     pub ShowContactCardForWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *mut core::ffi::c_void, *const super::super::Foundation::RECT, FLYOUT_PLACEMENT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContextMenu, IContextMenu_Vtbl, 0x000214e4_0000_0000_c000_000000000046);
+impl std::ops::Deref for IContextMenu {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IContextMenu, windows_core::IUnknown);
 impl IContextMenu {
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -9706,21 +8580,14 @@ pub struct IContextMenu_Vtbl {
     pub GetCommandString: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, *const u32, windows_core::PSTR, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContextMenu2, IContextMenu2_Vtbl, 0x000214f4_0000_0000_c000_000000000046);
+impl std::ops::Deref for IContextMenu2 {
+    type Target = IContextMenu;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IContextMenu2, windows_core::IUnknown, IContextMenu);
 impl IContextMenu2 {
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn QueryContextMenu<P0>(&self, hmenu: P0, indexmenu: u32, idcmdfirst: u32, idcmdlast: u32, uflags: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::WindowsAndMessaging::HMENU>,
-    {
-        (windows_core::Interface::vtable(self).base__.QueryContextMenu)(windows_core::Interface::as_raw(self), hmenu.param().abi(), indexmenu, idcmdfirst, idcmdlast, uflags).ok()
-    }
-    pub unsafe fn InvokeCommand(&self, pici: *const CMINVOKECOMMANDINFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.InvokeCommand)(windows_core::Interface::as_raw(self), pici).ok()
-    }
-    pub unsafe fn GetCommandString(&self, idcmd: usize, utype: u32, preserved: Option<*const u32>, pszname: windows_core::PSTR, cchmax: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetCommandString)(windows_core::Interface::as_raw(self), idcmd, utype, core::mem::transmute(preserved.unwrap_or(std::ptr::null())), core::mem::transmute(pszname), cchmax).ok()
-    }
     pub unsafe fn HandleMenuMsg<P0, P1>(&self, umsg: u32, wparam: P0, lparam: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::WPARAM>,
@@ -9735,28 +8602,14 @@ pub struct IContextMenu2_Vtbl {
     pub HandleMenuMsg: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::WPARAM, super::super::Foundation::LPARAM) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContextMenu3, IContextMenu3_Vtbl, 0xbcfce0a0_ec17_11d0_8d10_00a0c90f2719);
+impl std::ops::Deref for IContextMenu3 {
+    type Target = IContextMenu2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IContextMenu3, windows_core::IUnknown, IContextMenu, IContextMenu2);
 impl IContextMenu3 {
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn QueryContextMenu<P0>(&self, hmenu: P0, indexmenu: u32, idcmdfirst: u32, idcmdlast: u32, uflags: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::WindowsAndMessaging::HMENU>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.QueryContextMenu)(windows_core::Interface::as_raw(self), hmenu.param().abi(), indexmenu, idcmdfirst, idcmdlast, uflags).ok()
-    }
-    pub unsafe fn InvokeCommand(&self, pici: *const CMINVOKECOMMANDINFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.InvokeCommand)(windows_core::Interface::as_raw(self), pici).ok()
-    }
-    pub unsafe fn GetCommandString(&self, idcmd: usize, utype: u32, preserved: Option<*const u32>, pszname: windows_core::PSTR, cchmax: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GetCommandString)(windows_core::Interface::as_raw(self), idcmd, utype, core::mem::transmute(preserved.unwrap_or(std::ptr::null())), core::mem::transmute(pszname), cchmax).ok()
-    }
-    pub unsafe fn HandleMenuMsg<P0, P1>(&self, umsg: u32, wparam: P0, lparam: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::WPARAM>,
-        P1: windows_core::Param<super::super::Foundation::LPARAM>,
-    {
-        (windows_core::Interface::vtable(self).base__.HandleMenuMsg)(windows_core::Interface::as_raw(self), umsg, wparam.param().abi(), lparam.param().abi()).ok()
-    }
     pub unsafe fn HandleMenuMsg2<P0, P1>(&self, umsg: u32, wparam: P0, lparam: P1, plresult: Option<*mut super::super::Foundation::LRESULT>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::WPARAM>,
@@ -9771,6 +8624,12 @@ pub struct IContextMenu3_Vtbl {
     pub HandleMenuMsg2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::WPARAM, super::super::Foundation::LPARAM, *mut super::super::Foundation::LRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContextMenuCB, IContextMenuCB_Vtbl, 0x3409e930_5a39_11d1_83fa_00a0c90dc849);
+impl std::ops::Deref for IContextMenuCB {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IContextMenuCB, windows_core::IUnknown);
 impl IContextMenuCB {
     #[cfg(feature = "Win32_System_Com")]
@@ -9794,6 +8653,12 @@ pub struct IContextMenuCB_Vtbl {
     CallBack: usize,
 }
 windows_core::imp::define_interface!(IContextMenuSite, IContextMenuSite_Vtbl, 0x0811aebe_0b87_4c54_9e72_548cf649016b);
+impl std::ops::Deref for IContextMenuSite {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IContextMenuSite, windows_core::IUnknown);
 impl IContextMenuSite {
     pub unsafe fn DoContextMenuPopup<P0>(&self, punkcontextmenu: P0, fflags: u32, pt: super::super::Foundation::POINT) -> windows_core::Result<()>
@@ -9809,6 +8674,12 @@ pub struct IContextMenuSite_Vtbl {
     pub DoContextMenuPopup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, super::super::Foundation::POINT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICopyHookA, ICopyHookA_Vtbl, 0x000214ef_0000_0000_c000_000000000046);
+impl std::ops::Deref for ICopyHookA {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICopyHookA, windows_core::IUnknown);
 impl ICopyHookA {
     pub unsafe fn CopyCallback<P0, P1, P2>(&self, hwnd: P0, wfunc: u32, wflags: u32, pszsrcfile: P1, dwsrcattribs: u32, pszdestfile: P2, dwdestattribs: u32) -> u32
@@ -9826,6 +8697,12 @@ pub struct ICopyHookA_Vtbl {
     pub CopyCallback: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, u32, u32, windows_core::PCSTR, u32, windows_core::PCSTR, u32) -> u32,
 }
 windows_core::imp::define_interface!(ICopyHookW, ICopyHookW_Vtbl, 0x000214fc_0000_0000_c000_000000000046);
+impl std::ops::Deref for ICopyHookW {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICopyHookW, windows_core::IUnknown);
 impl ICopyHookW {
     pub unsafe fn CopyCallback<P0, P1, P2>(&self, hwnd: P0, wfunc: u32, wflags: u32, pszsrcfile: P1, dwsrcattribs: u32, pszdestfile: P2, dwdestattribs: u32) -> u32
@@ -9843,6 +8720,12 @@ pub struct ICopyHookW_Vtbl {
     pub CopyCallback: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, u32, u32, windows_core::PCWSTR, u32, windows_core::PCWSTR, u32) -> u32,
 }
 windows_core::imp::define_interface!(ICreateProcessInputs, ICreateProcessInputs_Vtbl, 0xf6ef6140_e26f_4d82_bac4_e9ba5fd239a8);
+impl std::ops::Deref for ICreateProcessInputs {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICreateProcessInputs, windows_core::IUnknown);
 impl ICreateProcessInputs {
     pub unsafe fn GetCreateFlags(&self) -> windows_core::Result<u32> {
@@ -9887,6 +8770,12 @@ pub struct ICreateProcessInputs_Vtbl {
     pub SetEnvironmentVariable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICreatingProcess, ICreatingProcess_Vtbl, 0xc2b937a9_3110_4398_8a56_f34c6342d244);
+impl std::ops::Deref for ICreatingProcess {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICreatingProcess, windows_core::IUnknown);
 impl ICreatingProcess {
     pub unsafe fn OnCreating<P0>(&self, pcpi: P0) -> windows_core::Result<()>
@@ -9902,6 +8791,12 @@ pub struct ICreatingProcess_Vtbl {
     pub OnCreating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICredentialProvider, ICredentialProvider_Vtbl, 0xd27c3481_5a1c_45b2_8aaa_c20ebbe8229e);
+impl std::ops::Deref for ICredentialProvider {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICredentialProvider, windows_core::IUnknown);
 impl ICredentialProvider {
     pub unsafe fn SetUsageScenario(&self, cpus: CREDENTIAL_PROVIDER_USAGE_SCENARIO, dwflags: u32) -> windows_core::Result<()> {
@@ -9948,6 +8843,12 @@ pub struct ICredentialProvider_Vtbl {
     pub GetCredentialAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICredentialProviderCredential, ICredentialProviderCredential_Vtbl, 0x63913a93_40c1_481a_818d_4072ff8c70cc);
+impl std::ops::Deref for ICredentialProviderCredential {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICredentialProviderCredential, windows_core::IUnknown);
 impl ICredentialProviderCredential {
     pub unsafe fn Advise<P0>(&self, pcpce: P0) -> windows_core::Result<()>
@@ -10046,78 +8947,14 @@ pub struct ICredentialProviderCredential_Vtbl {
     pub ReportResult: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::NTSTATUS, super::super::Foundation::NTSTATUS, *mut windows_core::PWSTR, *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICredentialProviderCredential2, ICredentialProviderCredential2_Vtbl, 0xfd672c54_40ea_4d6e_9b49_cfb1a7507bd7);
+impl std::ops::Deref for ICredentialProviderCredential2 {
+    type Target = ICredentialProviderCredential;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICredentialProviderCredential2, windows_core::IUnknown, ICredentialProviderCredential);
 impl ICredentialProviderCredential2 {
-    pub unsafe fn Advise<P0>(&self, pcpce: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<ICredentialProviderCredentialEvents>,
-    {
-        (windows_core::Interface::vtable(self).base__.Advise)(windows_core::Interface::as_raw(self), pcpce.param().abi()).ok()
-    }
-    pub unsafe fn UnAdvise(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.UnAdvise)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetSelected(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SetSelected)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetDeselected(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetDeselected)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn GetFieldState(&self, dwfieldid: u32, pcpfs: *mut CREDENTIAL_PROVIDER_FIELD_STATE, pcpfis: *mut CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetFieldState)(windows_core::Interface::as_raw(self), dwfieldid, pcpfs, pcpfis).ok()
-    }
-    pub unsafe fn GetStringValue(&self, dwfieldid: u32) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetStringValue)(windows_core::Interface::as_raw(self), dwfieldid, &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetBitmapValue(&self, dwfieldid: u32) -> windows_core::Result<super::super::Graphics::Gdi::HBITMAP> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetBitmapValue)(windows_core::Interface::as_raw(self), dwfieldid, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetCheckboxValue(&self, dwfieldid: u32, pbchecked: *mut super::super::Foundation::BOOL, ppszlabel: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetCheckboxValue)(windows_core::Interface::as_raw(self), dwfieldid, pbchecked, ppszlabel).ok()
-    }
-    pub unsafe fn GetSubmitButtonValue(&self, dwfieldid: u32) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetSubmitButtonValue)(windows_core::Interface::as_raw(self), dwfieldid, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetComboBoxValueCount(&self, dwfieldid: u32, pcitems: *mut u32, pdwselecteditem: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetComboBoxValueCount)(windows_core::Interface::as_raw(self), dwfieldid, pcitems, pdwselecteditem).ok()
-    }
-    pub unsafe fn GetComboBoxValueAt(&self, dwfieldid: u32, dwitem: u32) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetComboBoxValueAt)(windows_core::Interface::as_raw(self), dwfieldid, dwitem, &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetStringValue<P0>(&self, dwfieldid: u32, psz: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetStringValue)(windows_core::Interface::as_raw(self), dwfieldid, psz.param().abi()).ok()
-    }
-    pub unsafe fn SetCheckboxValue<P0>(&self, dwfieldid: u32, bchecked: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetCheckboxValue)(windows_core::Interface::as_raw(self), dwfieldid, bchecked.param().abi()).ok()
-    }
-    pub unsafe fn SetComboBoxSelectedValue(&self, dwfieldid: u32, dwselecteditem: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetComboBoxSelectedValue)(windows_core::Interface::as_raw(self), dwfieldid, dwselecteditem).ok()
-    }
-    pub unsafe fn CommandLinkClicked(&self, dwfieldid: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.CommandLinkClicked)(windows_core::Interface::as_raw(self), dwfieldid).ok()
-    }
-    pub unsafe fn GetSerialization(&self, pcpgsr: *mut CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE, pcpcs: *mut CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION, ppszoptionalstatustext: *mut windows_core::PWSTR, pcpsioptionalstatusicon: *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetSerialization)(windows_core::Interface::as_raw(self), pcpgsr, pcpcs, ppszoptionalstatustext, pcpsioptionalstatusicon).ok()
-    }
-    pub unsafe fn ReportResult<P0, P1>(&self, ntsstatus: P0, ntssubstatus: P1, ppszoptionalstatustext: *mut windows_core::PWSTR, pcpsioptionalstatusicon: *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::NTSTATUS>,
-        P1: windows_core::Param<super::super::Foundation::NTSTATUS>,
-    {
-        (windows_core::Interface::vtable(self).base__.ReportResult)(windows_core::Interface::as_raw(self), ntsstatus.param().abi(), ntssubstatus.param().abi(), ppszoptionalstatustext, pcpsioptionalstatusicon).ok()
-    }
     pub unsafe fn GetUserSid(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetUserSid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -10129,6 +8966,12 @@ pub struct ICredentialProviderCredential2_Vtbl {
     pub GetUserSid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICredentialProviderCredentialEvents, ICredentialProviderCredentialEvents_Vtbl, 0xfa6fa76b_66b7_4b11_95f1_86171118e816);
+impl std::ops::Deref for ICredentialProviderCredentialEvents {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICredentialProviderCredentialEvents, windows_core::IUnknown);
 impl ICredentialProviderCredentialEvents {
     pub unsafe fn SetFieldState<P0>(&self, pcpc: P0, dwfieldid: u32, cpfs: CREDENTIAL_PROVIDER_FIELD_STATE) -> windows_core::Result<()>
@@ -10214,72 +9057,14 @@ pub struct ICredentialProviderCredentialEvents_Vtbl {
     pub OnCreatingWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::HWND) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICredentialProviderCredentialEvents2, ICredentialProviderCredentialEvents2_Vtbl, 0xb53c00b6_9922_4b78_b1f4_ddfe774dc39b);
+impl std::ops::Deref for ICredentialProviderCredentialEvents2 {
+    type Target = ICredentialProviderCredentialEvents;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICredentialProviderCredentialEvents2, windows_core::IUnknown, ICredentialProviderCredentialEvents);
 impl ICredentialProviderCredentialEvents2 {
-    pub unsafe fn SetFieldState<P0>(&self, pcpc: P0, dwfieldid: u32, cpfs: CREDENTIAL_PROVIDER_FIELD_STATE) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<ICredentialProviderCredential>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFieldState)(windows_core::Interface::as_raw(self), pcpc.param().abi(), dwfieldid, cpfs).ok()
-    }
-    pub unsafe fn SetFieldInteractiveState<P0>(&self, pcpc: P0, dwfieldid: u32, cpfis: CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<ICredentialProviderCredential>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFieldInteractiveState)(windows_core::Interface::as_raw(self), pcpc.param().abi(), dwfieldid, cpfis).ok()
-    }
-    pub unsafe fn SetFieldString<P0, P1>(&self, pcpc: P0, dwfieldid: u32, psz: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<ICredentialProviderCredential>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFieldString)(windows_core::Interface::as_raw(self), pcpc.param().abi(), dwfieldid, psz.param().abi()).ok()
-    }
-    pub unsafe fn SetFieldCheckbox<P0, P1, P2>(&self, pcpc: P0, dwfieldid: u32, bchecked: P1, pszlabel: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<ICredentialProviderCredential>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFieldCheckbox)(windows_core::Interface::as_raw(self), pcpc.param().abi(), dwfieldid, bchecked.param().abi(), pszlabel.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn SetFieldBitmap<P0, P1>(&self, pcpc: P0, dwfieldid: u32, hbmp: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<ICredentialProviderCredential>,
-        P1: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFieldBitmap)(windows_core::Interface::as_raw(self), pcpc.param().abi(), dwfieldid, hbmp.param().abi()).ok()
-    }
-    pub unsafe fn SetFieldComboBoxSelectedItem<P0>(&self, pcpc: P0, dwfieldid: u32, dwselecteditem: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<ICredentialProviderCredential>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFieldComboBoxSelectedItem)(windows_core::Interface::as_raw(self), pcpc.param().abi(), dwfieldid, dwselecteditem).ok()
-    }
-    pub unsafe fn DeleteFieldComboBoxItem<P0>(&self, pcpc: P0, dwfieldid: u32, dwitem: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<ICredentialProviderCredential>,
-    {
-        (windows_core::Interface::vtable(self).base__.DeleteFieldComboBoxItem)(windows_core::Interface::as_raw(self), pcpc.param().abi(), dwfieldid, dwitem).ok()
-    }
-    pub unsafe fn AppendFieldComboBoxItem<P0, P1>(&self, pcpc: P0, dwfieldid: u32, pszitem: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<ICredentialProviderCredential>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.AppendFieldComboBoxItem)(windows_core::Interface::as_raw(self), pcpc.param().abi(), dwfieldid, pszitem.param().abi()).ok()
-    }
-    pub unsafe fn SetFieldSubmitButton<P0>(&self, pcpc: P0, dwfieldid: u32, dwadjacentto: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<ICredentialProviderCredential>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFieldSubmitButton)(windows_core::Interface::as_raw(self), pcpc.param().abi(), dwfieldid, dwadjacentto).ok()
-    }
-    pub unsafe fn OnCreatingWindow(&self) -> windows_core::Result<super::super::Foundation::HWND> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.OnCreatingWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     pub unsafe fn BeginFieldUpdates(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).BeginFieldUpdates)(windows_core::Interface::as_raw(self)).ok()
     }
@@ -10301,6 +9086,12 @@ pub struct ICredentialProviderCredentialEvents2_Vtbl {
     pub SetFieldOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICredentialProviderCredentialWithFieldOptions, ICredentialProviderCredentialWithFieldOptions_Vtbl, 0xdbc6fb30_c843_49e3_a645_573e6f39446a);
+impl std::ops::Deref for ICredentialProviderCredentialWithFieldOptions {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICredentialProviderCredentialWithFieldOptions, windows_core::IUnknown);
 impl ICredentialProviderCredentialWithFieldOptions {
     pub unsafe fn GetFieldOptions(&self, fieldid: u32) -> windows_core::Result<CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS> {
@@ -10314,6 +9105,12 @@ pub struct ICredentialProviderCredentialWithFieldOptions_Vtbl {
     pub GetFieldOptions: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICredentialProviderEvents, ICredentialProviderEvents_Vtbl, 0x34201e5a_a787_41a3_a5a4_bd6dcf2a854e);
+impl std::ops::Deref for ICredentialProviderEvents {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICredentialProviderEvents, windows_core::IUnknown);
 impl ICredentialProviderEvents {
     pub unsafe fn CredentialsChanged(&self, upadvisecontext: usize) -> windows_core::Result<()> {
@@ -10326,6 +9123,12 @@ pub struct ICredentialProviderEvents_Vtbl {
     pub CredentialsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICredentialProviderFilter, ICredentialProviderFilter_Vtbl, 0xa5da53f9_d475_4080_a120_910c4a739880);
+impl std::ops::Deref for ICredentialProviderFilter {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICredentialProviderFilter, windows_core::IUnknown);
 impl ICredentialProviderFilter {
     pub unsafe fn Filter(&self, cpus: CREDENTIAL_PROVIDER_USAGE_SCENARIO, dwflags: u32, rgclsidproviders: *const windows_core::GUID, rgballow: *mut super::super::Foundation::BOOL, cproviders: u32) -> windows_core::Result<()> {
@@ -10342,6 +9145,12 @@ pub struct ICredentialProviderFilter_Vtbl {
     pub UpdateRemoteCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *const CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION, *mut CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICredentialProviderSetUserArray, ICredentialProviderSetUserArray_Vtbl, 0x095c1484_1c0c_4388_9c6d_500e61bf84bd);
+impl std::ops::Deref for ICredentialProviderSetUserArray {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICredentialProviderSetUserArray, windows_core::IUnknown);
 impl ICredentialProviderSetUserArray {
     pub unsafe fn SetUserArray<P0>(&self, users: P0) -> windows_core::Result<()>
@@ -10357,6 +9166,12 @@ pub struct ICredentialProviderSetUserArray_Vtbl {
     pub SetUserArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICredentialProviderUser, ICredentialProviderUser_Vtbl, 0x13793285_3ea6_40fd_b420_15f47da41fbb);
+impl std::ops::Deref for ICredentialProviderUser {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICredentialProviderUser, windows_core::IUnknown);
 impl ICredentialProviderUser {
     pub unsafe fn GetSid(&self) -> windows_core::Result<windows_core::PWSTR> {
@@ -10393,6 +9208,12 @@ pub struct ICredentialProviderUser_Vtbl {
     GetValue: usize,
 }
 windows_core::imp::define_interface!(ICredentialProviderUserArray, ICredentialProviderUserArray_Vtbl, 0x90c119ae_0f18_4520_a1f1_114366a40fe8);
+impl std::ops::Deref for ICredentialProviderUserArray {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICredentialProviderUserArray, windows_core::IUnknown);
 impl ICredentialProviderUserArray {
     pub unsafe fn SetProviderFilter(&self, guidprovidertofilterto: *const windows_core::GUID) -> windows_core::Result<()> {
@@ -10420,23 +9241,25 @@ pub struct ICredentialProviderUserArray_Vtbl {
     pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICurrentItem, ICurrentItem_Vtbl, 0x240a7174_d653_4a1d_a6d3_d4943cfbfe3d);
-windows_core::imp::interface_hierarchy!(ICurrentItem, windows_core::IUnknown, IRelatedItem);
-impl ICurrentItem {
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn GetItemIDList(&self) -> windows_core::Result<*mut Common::ITEMIDLIST> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetItemIDList)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetItem(&self) -> windows_core::Result<IShellItem> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+impl std::ops::Deref for ICurrentItem {
+    type Target = IRelatedItem;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
     }
 }
+windows_core::imp::interface_hierarchy!(ICurrentItem, windows_core::IUnknown, IRelatedItem);
+impl ICurrentItem {}
 #[repr(C)]
 pub struct ICurrentItem_Vtbl {
     pub base__: IRelatedItem_Vtbl,
 }
 windows_core::imp::define_interface!(ICurrentWorkingDirectory, ICurrentWorkingDirectory_Vtbl, 0x91956d21_9276_11d1_921a_006097df5bd4);
+impl std::ops::Deref for ICurrentWorkingDirectory {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICurrentWorkingDirectory, windows_core::IUnknown);
 impl ICurrentWorkingDirectory {
     pub unsafe fn GetDirectory(&self, pwzpath: &mut [u16]) -> windows_core::Result<()> {
@@ -10456,6 +9279,12 @@ pub struct ICurrentWorkingDirectory_Vtbl {
     pub SetDirectory: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICustomDestinationList, ICustomDestinationList_Vtbl, 0x6332debf_87b5_4670_90c0_5e57b408a49e);
+impl std::ops::Deref for ICustomDestinationList {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICustomDestinationList, windows_core::IUnknown);
 impl ICustomDestinationList {
     pub unsafe fn SetAppID<P0>(&self, pszappid: P0) -> windows_core::Result<()>
@@ -10529,6 +9358,12 @@ pub struct ICustomDestinationList_Vtbl {
     pub AbortList: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDataObjectAsyncCapability, IDataObjectAsyncCapability_Vtbl, 0x3d8b0590_f691_11d2_8ea9_006097df5bd4);
+impl std::ops::Deref for IDataObjectAsyncCapability {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDataObjectAsyncCapability, windows_core::IUnknown);
 impl IDataObjectAsyncCapability {
     pub unsafe fn SetAsyncMode<P0>(&self, fdoopasync: P0) -> windows_core::Result<()>
@@ -10576,6 +9411,12 @@ pub struct IDataObjectAsyncCapability_Vtbl {
     EndOperation: usize,
 }
 windows_core::imp::define_interface!(IDataObjectProvider, IDataObjectProvider_Vtbl, 0x3d25f6d6_4b2a_433c_9184_7c33ad35d001);
+impl std::ops::Deref for IDataObjectProvider {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDataObjectProvider, windows_core::IUnknown);
 impl IDataObjectProvider {
     #[cfg(feature = "Win32_System_Com")]
@@ -10604,6 +9445,12 @@ pub struct IDataObjectProvider_Vtbl {
     SetDataObject: usize,
 }
 windows_core::imp::define_interface!(IDataTransferManagerInterop, IDataTransferManagerInterop_Vtbl, 0x3a3dcd6c_3eab_43dc_bcde_45671ce800c8);
+impl std::ops::Deref for IDataTransferManagerInterop {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDataTransferManagerInterop, windows_core::IUnknown);
 impl IDataTransferManagerInterop {
     pub unsafe fn GetForWindow<P0, T>(&self, appwindow: P0) -> windows_core::Result<T>
@@ -10628,6 +9475,12 @@ pub struct IDataTransferManagerInterop_Vtbl {
     pub ShowShareUIForWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDefaultExtractIconInit, IDefaultExtractIconInit_Vtbl, 0x41ded17d_d6b3_4261_997d_88c60e4b1d58);
+impl std::ops::Deref for IDefaultExtractIconInit {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDefaultExtractIconInit, windows_core::IUnknown);
 impl IDefaultExtractIconInit {
     pub unsafe fn SetFlags(&self, uflags: u32) -> windows_core::Result<()> {
@@ -10679,6 +9532,12 @@ pub struct IDefaultExtractIconInit_Vtbl {
     pub SetDefaultIcon: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDefaultFolderMenuInitialize, IDefaultFolderMenuInitialize_Vtbl, 0x7690aa79_f8fc_4615_a327_36f7d18f5d91);
+impl std::ops::Deref for IDefaultFolderMenuInitialize {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDefaultFolderMenuInitialize, windows_core::IUnknown);
 impl IDefaultFolderMenuInitialize {
     #[cfg(all(feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
@@ -10714,6 +9573,12 @@ pub struct IDefaultFolderMenuInitialize_Vtbl {
     pub SetHandlerClsid: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDelegateFolder, IDelegateFolder_Vtbl, 0xadd8ba80_002b_11d0_8f0f_00c04fd7d062);
+impl std::ops::Deref for IDelegateFolder {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDelegateFolder, windows_core::IUnknown);
 impl IDelegateFolder {
     #[cfg(feature = "Win32_System_Com")]
@@ -10733,18 +9598,14 @@ pub struct IDelegateFolder_Vtbl {
     SetItemAlloc: usize,
 }
 windows_core::imp::define_interface!(IDelegateItem, IDelegateItem_Vtbl, 0x3c5a1c94_c951_4cb7_bb6d_3b93f30cce93);
-windows_core::imp::interface_hierarchy!(IDelegateItem, windows_core::IUnknown, IRelatedItem);
-impl IDelegateItem {
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn GetItemIDList(&self) -> windows_core::Result<*mut Common::ITEMIDLIST> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetItemIDList)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetItem(&self) -> windows_core::Result<IShellItem> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+impl std::ops::Deref for IDelegateItem {
+    type Target = IRelatedItem;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
     }
 }
+windows_core::imp::interface_hierarchy!(IDelegateItem, windows_core::IUnknown, IRelatedItem);
+impl IDelegateItem {}
 #[repr(C)]
 pub struct IDelegateItem_Vtbl {
     pub base__: IRelatedItem_Vtbl,
@@ -10752,37 +9613,16 @@ pub struct IDelegateItem_Vtbl {
 #[cfg(feature = "Win32_System_Ole")]
 windows_core::imp::define_interface!(IDeskBand, IDeskBand_Vtbl, 0xeb0fe172_1a3a_11d0_89b3_00a0c90a90ac);
 #[cfg(feature = "Win32_System_Ole")]
+impl std::ops::Deref for IDeskBand {
+    type Target = IDockingWindow;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Ole")]
 windows_core::imp::interface_hierarchy!(IDeskBand, windows_core::IUnknown, super::super::System::Ole::IOleWindow, IDockingWindow);
 #[cfg(feature = "Win32_System_Ole")]
 impl IDeskBand {
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetWindow(&self) -> windows_core::Result<super::super::Foundation::HWND> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn ContextSensitiveHelp<P0>(&self, fentermode: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.ContextSensitiveHelp)(windows_core::Interface::as_raw(self), fentermode.param().abi()).ok()
-    }
-    pub unsafe fn ShowDW<P0>(&self, fshow: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.ShowDW)(windows_core::Interface::as_raw(self), fshow.param().abi()).ok()
-    }
-    pub unsafe fn CloseDW(&self, dwreserved: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.CloseDW)(windows_core::Interface::as_raw(self), dwreserved).ok()
-    }
-    pub unsafe fn ResizeBorderDW<P0, P1>(&self, prcborder: *const super::super::Foundation::RECT, punktoolbarsite: P0, freserved: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.ResizeBorderDW)(windows_core::Interface::as_raw(self), prcborder, punktoolbarsite.param().abi(), freserved.param().abi()).ok()
-    }
     pub unsafe fn GetBandInfo(&self, dwbandid: u32, dwviewmode: u32, pdbi: *mut DESKBANDINFO) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetBandInfo)(windows_core::Interface::as_raw(self), dwbandid, dwviewmode, pdbi).ok()
     }
@@ -10796,40 +9636,16 @@ pub struct IDeskBand_Vtbl {
 #[cfg(feature = "Win32_System_Ole")]
 windows_core::imp::define_interface!(IDeskBand2, IDeskBand2_Vtbl, 0x79d16de4_abee_4021_8d9d_9169b261d657);
 #[cfg(feature = "Win32_System_Ole")]
+impl std::ops::Deref for IDeskBand2 {
+    type Target = IDeskBand;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Ole")]
 windows_core::imp::interface_hierarchy!(IDeskBand2, windows_core::IUnknown, super::super::System::Ole::IOleWindow, IDockingWindow, IDeskBand);
 #[cfg(feature = "Win32_System_Ole")]
 impl IDeskBand2 {
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetWindow(&self) -> windows_core::Result<super::super::Foundation::HWND> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn ContextSensitiveHelp<P0>(&self, fentermode: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.ContextSensitiveHelp)(windows_core::Interface::as_raw(self), fentermode.param().abi()).ok()
-    }
-    pub unsafe fn ShowDW<P0>(&self, fshow: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.ShowDW)(windows_core::Interface::as_raw(self), fshow.param().abi()).ok()
-    }
-    pub unsafe fn CloseDW(&self, dwreserved: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.CloseDW)(windows_core::Interface::as_raw(self), dwreserved).ok()
-    }
-    pub unsafe fn ResizeBorderDW<P0, P1>(&self, prcborder: *const super::super::Foundation::RECT, punktoolbarsite: P0, freserved: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.ResizeBorderDW)(windows_core::Interface::as_raw(self), prcborder, punktoolbarsite.param().abi(), freserved.param().abi()).ok()
-    }
-    pub unsafe fn GetBandInfo(&self, dwbandid: u32, dwviewmode: u32, pdbi: *mut DESKBANDINFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetBandInfo)(windows_core::Interface::as_raw(self), dwbandid, dwviewmode, pdbi).ok()
-    }
     pub unsafe fn CanRenderComposited(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).CanRenderComposited)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -10854,6 +9670,12 @@ pub struct IDeskBand2_Vtbl {
     pub GetCompositionState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeskBandInfo, IDeskBandInfo_Vtbl, 0x77e425fc_cbf9_4307_ba6a_bb5727745661);
+impl std::ops::Deref for IDeskBandInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDeskBandInfo, windows_core::IUnknown);
 impl IDeskBandInfo {
     pub unsafe fn GetDefaultBandWidth(&self, dwbandid: u32, dwviewmode: u32) -> windows_core::Result<i32> {
@@ -10869,21 +9691,16 @@ pub struct IDeskBandInfo_Vtbl {
 #[cfg(feature = "Win32_System_Ole")]
 windows_core::imp::define_interface!(IDeskBar, IDeskBar_Vtbl, 0xeb0fe173_1a3a_11d0_89b3_00a0c90a90ac);
 #[cfg(feature = "Win32_System_Ole")]
+impl std::ops::Deref for IDeskBar {
+    type Target = super::super::System::Ole::IOleWindow;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Ole")]
 windows_core::imp::interface_hierarchy!(IDeskBar, windows_core::IUnknown, super::super::System::Ole::IOleWindow);
 #[cfg(feature = "Win32_System_Ole")]
 impl IDeskBar {
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetWindow(&self) -> windows_core::Result<super::super::Foundation::HWND> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn ContextSensitiveHelp<P0>(&self, fentermode: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.ContextSensitiveHelp)(windows_core::Interface::as_raw(self), fentermode.param().abi()).ok()
-    }
     pub unsafe fn SetClient<P0>(&self, punkclient: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
@@ -10909,21 +9726,16 @@ pub struct IDeskBar_Vtbl {
 #[cfg(feature = "Win32_System_Ole")]
 windows_core::imp::define_interface!(IDeskBarClient, IDeskBarClient_Vtbl, 0xeb0fe175_1a3a_11d0_89b3_00a0c90a90ac);
 #[cfg(feature = "Win32_System_Ole")]
+impl std::ops::Deref for IDeskBarClient {
+    type Target = super::super::System::Ole::IOleWindow;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Ole")]
 windows_core::imp::interface_hierarchy!(IDeskBarClient, windows_core::IUnknown, super::super::System::Ole::IOleWindow);
 #[cfg(feature = "Win32_System_Ole")]
 impl IDeskBarClient {
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetWindow(&self) -> windows_core::Result<super::super::Foundation::HWND> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn ContextSensitiveHelp<P0>(&self, fentermode: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.ContextSensitiveHelp)(windows_core::Interface::as_raw(self), fentermode.param().abi()).ok()
-    }
     pub unsafe fn SetDeskBarSite<P0>(&self, punksite: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
@@ -10951,6 +9763,12 @@ pub struct IDeskBarClient_Vtbl {
     pub GetSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::Foundation::RECT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDesktopGadget, IDesktopGadget_Vtbl, 0xc1646bc4_f298_4f91_a204_eb2dd1709d1a);
+impl std::ops::Deref for IDesktopGadget {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDesktopGadget, windows_core::IUnknown);
 impl IDesktopGadget {
     pub unsafe fn RunGadget<P0>(&self, gadgetpath: P0) -> windows_core::Result<()>
@@ -10966,6 +9784,12 @@ pub struct IDesktopGadget_Vtbl {
     pub RunGadget: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDesktopWallpaper, IDesktopWallpaper_Vtbl, 0xb92b56a9_8b55_4e14_9a89_0199bbb6f93b);
+impl std::ops::Deref for IDesktopWallpaper {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDesktopWallpaper, windows_core::IUnknown);
 impl IDesktopWallpaper {
     pub unsafe fn SetWallpaper<P0, P1>(&self, monitorid: P0, wallpaper: P1) -> windows_core::Result<()>
@@ -11068,6 +9892,12 @@ pub struct IDesktopWallpaper_Vtbl {
     pub Enable: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDestinationStreamFactory, IDestinationStreamFactory_Vtbl, 0x8a87781b_39a7_4a1f_aab3_a39b9c34a7d9);
+impl std::ops::Deref for IDestinationStreamFactory {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDestinationStreamFactory, windows_core::IUnknown);
 impl IDestinationStreamFactory {
     #[cfg(feature = "Win32_System_Com")]
@@ -11085,23 +9915,25 @@ pub struct IDestinationStreamFactory_Vtbl {
     GetDestinationStream: usize,
 }
 windows_core::imp::define_interface!(IDisplayItem, IDisplayItem_Vtbl, 0xc6fd5997_9f6b_4888_8703_94e80e8cde3f);
-windows_core::imp::interface_hierarchy!(IDisplayItem, windows_core::IUnknown, IRelatedItem);
-impl IDisplayItem {
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn GetItemIDList(&self) -> windows_core::Result<*mut Common::ITEMIDLIST> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetItemIDList)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetItem(&self) -> windows_core::Result<IShellItem> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+impl std::ops::Deref for IDisplayItem {
+    type Target = IRelatedItem;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
     }
 }
+windows_core::imp::interface_hierarchy!(IDisplayItem, windows_core::IUnknown, IRelatedItem);
+impl IDisplayItem {}
 #[repr(C)]
 pub struct IDisplayItem_Vtbl {
     pub base__: IRelatedItem_Vtbl,
 }
 windows_core::imp::define_interface!(IDocViewSite, IDocViewSite_Vtbl, 0x87d605e0_c511_11cf_89a9_00a0c9054129);
+impl std::ops::Deref for IDocViewSite {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDocViewSite, windows_core::IUnknown);
 impl IDocViewSite {
     pub unsafe fn OnSetTitle(&self, pvtitle: *const windows_core::VARIANT) -> windows_core::Result<()> {
@@ -11116,21 +9948,16 @@ pub struct IDocViewSite_Vtbl {
 #[cfg(feature = "Win32_System_Ole")]
 windows_core::imp::define_interface!(IDockingWindow, IDockingWindow_Vtbl, 0x012dd920_7b26_11d0_8ca9_00a0c92dbfe8);
 #[cfg(feature = "Win32_System_Ole")]
+impl std::ops::Deref for IDockingWindow {
+    type Target = super::super::System::Ole::IOleWindow;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Ole")]
 windows_core::imp::interface_hierarchy!(IDockingWindow, windows_core::IUnknown, super::super::System::Ole::IOleWindow);
 #[cfg(feature = "Win32_System_Ole")]
 impl IDockingWindow {
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetWindow(&self) -> windows_core::Result<super::super::Foundation::HWND> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn ContextSensitiveHelp<P0>(&self, fentermode: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.ContextSensitiveHelp)(windows_core::Interface::as_raw(self), fentermode.param().abi()).ok()
-    }
     pub unsafe fn ShowDW<P0>(&self, fshow: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::BOOL>,
@@ -11159,21 +9986,16 @@ pub struct IDockingWindow_Vtbl {
 #[cfg(feature = "Win32_System_Ole")]
 windows_core::imp::define_interface!(IDockingWindowFrame, IDockingWindowFrame_Vtbl, 0x47d2657a_7b27_11d0_8ca9_00a0c92dbfe8);
 #[cfg(feature = "Win32_System_Ole")]
+impl std::ops::Deref for IDockingWindowFrame {
+    type Target = super::super::System::Ole::IOleWindow;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Ole")]
 windows_core::imp::interface_hierarchy!(IDockingWindowFrame, windows_core::IUnknown, super::super::System::Ole::IOleWindow);
 #[cfg(feature = "Win32_System_Ole")]
 impl IDockingWindowFrame {
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetWindow(&self) -> windows_core::Result<super::super::Foundation::HWND> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn ContextSensitiveHelp<P0>(&self, fentermode: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.ContextSensitiveHelp)(windows_core::Interface::as_raw(self), fentermode.param().abi()).ok()
-    }
     pub unsafe fn AddToolbar<P0, P1>(&self, punksrc: P0, pwszitem: P1, dwaddflags: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
@@ -11205,21 +10027,16 @@ pub struct IDockingWindowFrame_Vtbl {
 #[cfg(feature = "Win32_System_Ole")]
 windows_core::imp::define_interface!(IDockingWindowSite, IDockingWindowSite_Vtbl, 0x2a342fc2_7b26_11d0_8ca9_00a0c92dbfe8);
 #[cfg(feature = "Win32_System_Ole")]
+impl std::ops::Deref for IDockingWindowSite {
+    type Target = super::super::System::Ole::IOleWindow;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Ole")]
 windows_core::imp::interface_hierarchy!(IDockingWindowSite, windows_core::IUnknown, super::super::System::Ole::IOleWindow);
 #[cfg(feature = "Win32_System_Ole")]
 impl IDockingWindowSite {
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetWindow(&self) -> windows_core::Result<super::super::Foundation::HWND> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn ContextSensitiveHelp<P0>(&self, fentermode: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.ContextSensitiveHelp)(windows_core::Interface::as_raw(self), fentermode.param().abi()).ok()
-    }
     pub unsafe fn GetBorderDW<P0>(&self, punkobj: P0) -> windows_core::Result<super::super::Foundation::RECT>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
@@ -11249,6 +10066,12 @@ pub struct IDockingWindowSite_Vtbl {
     pub SetBorderSpaceDW: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::super::Foundation::RECT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDragSourceHelper, IDragSourceHelper_Vtbl, 0xde5bf786_477a_11d2_839d_00c04fd918d0);
+impl std::ops::Deref for IDragSourceHelper {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDragSourceHelper, windows_core::IUnknown);
 impl IDragSourceHelper {
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -11280,23 +10103,14 @@ pub struct IDragSourceHelper_Vtbl {
     InitializeFromWindow: usize,
 }
 windows_core::imp::define_interface!(IDragSourceHelper2, IDragSourceHelper2_Vtbl, 0x83e07d0d_0c5f_4163_bf1a_60b274051e40);
+impl std::ops::Deref for IDragSourceHelper2 {
+    type Target = IDragSourceHelper;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDragSourceHelper2, windows_core::IUnknown, IDragSourceHelper);
 impl IDragSourceHelper2 {
-    #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn InitializeFromBitmap<P0>(&self, pshdi: *const SHDRAGIMAGE, pdataobject: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::System::Com::IDataObject>,
-    {
-        (windows_core::Interface::vtable(self).base__.InitializeFromBitmap)(windows_core::Interface::as_raw(self), pshdi, pdataobject.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromWindow<P0, P1>(&self, hwnd: P0, ppt: Option<*const super::super::Foundation::POINT>, pdataobject: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-        P1: windows_core::Param<super::super::System::Com::IDataObject>,
-    {
-        (windows_core::Interface::vtable(self).base__.InitializeFromWindow)(windows_core::Interface::as_raw(self), hwnd.param().abi(), core::mem::transmute(ppt.unwrap_or(std::ptr::null())), pdataobject.param().abi()).ok()
-    }
     pub unsafe fn SetFlags(&self, dwflags: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetFlags)(windows_core::Interface::as_raw(self), dwflags).ok()
     }
@@ -11307,6 +10121,12 @@ pub struct IDragSourceHelper2_Vtbl {
     pub SetFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDropTargetHelper, IDropTargetHelper_Vtbl, 0x4657278b_411b_11d2_839a_00c04fd918d0);
+impl std::ops::Deref for IDropTargetHelper {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDropTargetHelper, windows_core::IUnknown);
 impl IDropTargetHelper {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11357,6 +10177,12 @@ pub struct IDropTargetHelper_Vtbl {
     pub Show: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDynamicHWHandler, IDynamicHWHandler_Vtbl, 0xdc2601d7_059e_42fc_a09d_2afd21b6d5f7);
+impl std::ops::Deref for IDynamicHWHandler {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDynamicHWHandler, windows_core::IUnknown);
 impl IDynamicHWHandler {
     pub unsafe fn GetDynamicInfo<P0>(&self, pszdeviceid: P0, dwcontenttype: u32) -> windows_core::Result<windows_core::PWSTR>
@@ -11375,26 +10201,16 @@ pub struct IDynamicHWHandler_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IEnumACString, IEnumACString_Vtbl, 0x8e74c210_cf9d_4eaf_a403_7356428f0a5a);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IEnumACString {
+    type Target = super::super::System::Com::IEnumString;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IEnumACString, windows_core::IUnknown, super::super::System::Com::IEnumString);
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumACString {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Next(&self, rgelt: &mut [windows_core::PWSTR], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        (windows_core::Interface::vtable(self).base__.Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(std::ptr::null_mut())))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
-        (windows_core::Interface::vtable(self).base__.Skip)(windows_core::Interface::as_raw(self), celt)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Reset)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Clone(&self) -> windows_core::Result<super::super::System::Com::IEnumString> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn NextItem(&self, pszurl: Option<&mut [u16]>, pulsortindex: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).NextItem)(windows_core::Interface::as_raw(self), core::mem::transmute(pszurl.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszurl.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pulsortindex).ok()
     }
@@ -11415,6 +10231,12 @@ pub struct IEnumACString_Vtbl {
     pub GetEnumOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumAssocHandlers, IEnumAssocHandlers_Vtbl, 0x973810ae_9599_4b88_9e4d_6ee98c9552da);
+impl std::ops::Deref for IEnumAssocHandlers {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumAssocHandlers, windows_core::IUnknown);
 impl IEnumAssocHandlers {
     pub unsafe fn Next(&self, rgelt: &mut [Option<IAssocHandler>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
@@ -11427,6 +10249,12 @@ pub struct IEnumAssocHandlers_Vtbl {
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumExplorerCommand, IEnumExplorerCommand_Vtbl, 0xa88826f8_186f_4987_aade_ea0cef8fbfe8);
+impl std::ops::Deref for IEnumExplorerCommand {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumExplorerCommand, windows_core::IUnknown);
 impl IEnumExplorerCommand {
     pub unsafe fn Next(&self, puicommand: &mut [Option<IExplorerCommand>], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
@@ -11452,6 +10280,12 @@ pub struct IEnumExplorerCommand_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumExtraSearch, IEnumExtraSearch_Vtbl, 0x0e700be1_9db6_11d1_a1ce_00c04fd75d13);
+impl std::ops::Deref for IEnumExtraSearch {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumExtraSearch, windows_core::IUnknown);
 impl IEnumExtraSearch {
     pub unsafe fn Next(&self, rgelt: &mut [EXTRASEARCH], pceltfetched: *mut u32) -> windows_core::Result<()> {
@@ -11477,6 +10311,12 @@ pub struct IEnumExtraSearch_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumFullIDList, IEnumFullIDList_Vtbl, 0xd0191542_7954_4908_bc06_b2360bbe45ba);
+impl std::ops::Deref for IEnumFullIDList {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumFullIDList, windows_core::IUnknown);
 impl IEnumFullIDList {
     #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -11506,6 +10346,12 @@ pub struct IEnumFullIDList_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumHLITEM, IEnumHLITEM_Vtbl, 0x79eac9c6_baf9_11ce_8c82_00aa004ba90b);
+impl std::ops::Deref for IEnumHLITEM {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumHLITEM, windows_core::IUnknown);
 impl IEnumHLITEM {
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut HLITEM, pceltfetched: *mut u32) -> windows_core::Result<()> {
@@ -11531,6 +10377,12 @@ pub struct IEnumHLITEM_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumIDList, IEnumIDList_Vtbl, 0x000214f2_0000_0000_c000_000000000046);
+impl std::ops::Deref for IEnumIDList {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumIDList, windows_core::IUnknown);
 impl IEnumIDList {
     #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -11559,6 +10411,12 @@ pub struct IEnumIDList_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumObjects, IEnumObjects_Vtbl, 0x2c1c7e2e_2d0e_4059_831e_1e6f82335c2e);
+impl std::ops::Deref for IEnumObjects {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumObjects, windows_core::IUnknown);
 impl IEnumObjects {
     pub unsafe fn Next(&self, riid: *const windows_core::GUID, rgelt: &mut [*mut core::ffi::c_void], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
@@ -11584,6 +10442,12 @@ pub struct IEnumObjects_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumPublishedApps, IEnumPublishedApps_Vtbl, 0x0b124f8c_91f0_11d1_b8b5_006008059382);
+impl std::ops::Deref for IEnumPublishedApps {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumPublishedApps, windows_core::IUnknown);
 impl IEnumPublishedApps {
     pub unsafe fn Next(&self) -> windows_core::Result<IPublishedApp> {
@@ -11601,6 +10465,12 @@ pub struct IEnumPublishedApps_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumReadyCallback, IEnumReadyCallback_Vtbl, 0x61e00d45_8fff_4e60_924e_6537b61612dd);
+impl std::ops::Deref for IEnumReadyCallback {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumReadyCallback, windows_core::IUnknown);
 impl IEnumReadyCallback {
     pub unsafe fn EnumReady(&self) -> windows_core::Result<()> {
@@ -11613,6 +10483,12 @@ pub struct IEnumReadyCallback_Vtbl {
     pub EnumReady: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumResources, IEnumResources_Vtbl, 0x2dd81fe3_a83c_4da9_a330_47249d345ba1);
+impl std::ops::Deref for IEnumResources {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumResources, windows_core::IUnknown);
 impl IEnumResources {
     pub unsafe fn Next(&self, psir: &mut [SHELL_ITEM_RESOURCE], pceltfetched: *mut u32) -> windows_core::Result<()> {
@@ -11638,6 +10514,12 @@ pub struct IEnumResources_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumShellItems, IEnumShellItems_Vtbl, 0x70629033_e363_4a28_a567_0db78006e6d7);
+impl std::ops::Deref for IEnumShellItems {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumShellItems, windows_core::IUnknown);
 impl IEnumShellItems {
     pub unsafe fn Next(&self, rgelt: &mut [Option<IShellItem>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
@@ -11663,6 +10545,12 @@ pub struct IEnumShellItems_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumSyncMgrConflict, IEnumSyncMgrConflict_Vtbl, 0x82705914_dda3_4893_ba99_49de6c8c8036);
+impl std::ops::Deref for IEnumSyncMgrConflict {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumSyncMgrConflict, windows_core::IUnknown);
 impl IEnumSyncMgrConflict {
     pub unsafe fn Next(&self, rgelt: &mut [Option<ISyncMgrConflict>], pceltfetched: *mut u32) -> windows_core::Result<()> {
@@ -11688,6 +10576,12 @@ pub struct IEnumSyncMgrConflict_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumSyncMgrEvents, IEnumSyncMgrEvents_Vtbl, 0xc81a1d4e_8cf7_4683_80e0_bcae88d677b6);
+impl std::ops::Deref for IEnumSyncMgrEvents {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumSyncMgrEvents, windows_core::IUnknown);
 impl IEnumSyncMgrEvents {
     pub unsafe fn Next(&self, rgelt: &mut [Option<ISyncMgrEvent>], pceltfetched: *mut u32) -> windows_core::Result<()> {
@@ -11713,6 +10607,12 @@ pub struct IEnumSyncMgrEvents_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumSyncMgrSyncItems, IEnumSyncMgrSyncItems_Vtbl, 0x54b3abf3_f085_4181_b546_e29c403c726b);
+impl std::ops::Deref for IEnumSyncMgrSyncItems {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumSyncMgrSyncItems, windows_core::IUnknown);
 impl IEnumSyncMgrSyncItems {
     pub unsafe fn Next(&self, rgelt: &mut [Option<ISyncMgrSyncItem>], pceltfetched: *mut u32) -> windows_core::Result<()> {
@@ -11738,6 +10638,12 @@ pub struct IEnumSyncMgrSyncItems_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumTravelLogEntry, IEnumTravelLogEntry_Vtbl, 0x7ebfdd85_ad18_11d3_a4c5_00c04f72d6b8);
+impl std::ops::Deref for IEnumTravelLogEntry {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumTravelLogEntry, windows_core::IUnknown);
 impl IEnumTravelLogEntry {
     pub unsafe fn Next(&self, rgelt: &mut [Option<ITravelLogEntry>], pceltfetched: *mut u32) -> windows_core::Result<()> {
@@ -11763,6 +10669,12 @@ pub struct IEnumTravelLogEntry_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumerableView, IEnumerableView_Vtbl, 0x8c8bf236_1aec_495f_9894_91d57c3c686f);
+impl std::ops::Deref for IEnumerableView {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumerableView, windows_core::IUnknown);
 impl IEnumerableView {
     pub unsafe fn SetEnumReadyCallback<P0>(&self, percb: P0) -> windows_core::Result<()>
@@ -11787,6 +10699,12 @@ pub struct IEnumerableView_Vtbl {
     CreateEnumIDListFromContents: usize,
 }
 windows_core::imp::define_interface!(IExecuteCommand, IExecuteCommand_Vtbl, 0x7f9185b0_cb92_43c5_80a9_92277a4f7b54);
+impl std::ops::Deref for IExecuteCommand {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IExecuteCommand, windows_core::IUnknown);
 impl IExecuteCommand {
     pub unsafe fn SetKeyState(&self, grfkeystate: u32) -> windows_core::Result<()> {
@@ -11832,6 +10750,12 @@ pub struct IExecuteCommand_Vtbl {
     pub Execute: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IExecuteCommandApplicationHostEnvironment, IExecuteCommandApplicationHostEnvironment_Vtbl, 0x18b21aa9_e184_4ff0_9f5e_f882d03771b3);
+impl std::ops::Deref for IExecuteCommandApplicationHostEnvironment {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IExecuteCommandApplicationHostEnvironment, windows_core::IUnknown);
 impl IExecuteCommandApplicationHostEnvironment {
     pub unsafe fn GetValue(&self) -> windows_core::Result<AHE_TYPE> {
@@ -11845,6 +10769,12 @@ pub struct IExecuteCommandApplicationHostEnvironment_Vtbl {
     pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AHE_TYPE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IExecuteCommandHost, IExecuteCommandHost_Vtbl, 0x4b6832a2_5f04_4c9d_b89d_727a15d103e7);
+impl std::ops::Deref for IExecuteCommandHost {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IExecuteCommandHost, windows_core::IUnknown);
 impl IExecuteCommandHost {
     pub unsafe fn GetUIMode(&self) -> windows_core::Result<EC_HOST_UI_MODE> {
@@ -11858,6 +10788,12 @@ pub struct IExecuteCommandHost_Vtbl {
     pub GetUIMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EC_HOST_UI_MODE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IExpDispSupport, IExpDispSupport_Vtbl, 0x0d7d1d00_6fc0_11d0_a974_00c04fd705a2);
+impl std::ops::Deref for IExpDispSupport {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IExpDispSupport, windows_core::IUnknown);
 impl IExpDispSupport {
     #[cfg(feature = "Win32_System_Com")]
@@ -11891,6 +10827,12 @@ pub struct IExpDispSupport_Vtbl {
     OnInvoke: usize,
 }
 windows_core::imp::define_interface!(IExpDispSupportXP, IExpDispSupportXP_Vtbl, 0x2f0dd58c_f789_4f14_99fb_9293b3c9c212);
+impl std::ops::Deref for IExpDispSupportXP {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IExpDispSupportXP, windows_core::IUnknown);
 impl IExpDispSupportXP {
     #[cfg(feature = "Win32_System_Com")]
@@ -11924,6 +10866,12 @@ pub struct IExpDispSupportXP_Vtbl {
     OnInvoke: usize,
 }
 windows_core::imp::define_interface!(IExplorerBrowser, IExplorerBrowser_Vtbl, 0xdfd3b6b5_c10c_4be9_85f6_a66969f402f6);
+impl std::ops::Deref for IExplorerBrowser {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IExplorerBrowser, windows_core::IUnknown);
 impl IExplorerBrowser {
     pub unsafe fn Initialize<P0>(&self, hwndparent: P0, prc: *const super::super::Foundation::RECT, pfs: Option<*const FOLDERSETTINGS>) -> windows_core::Result<()>
@@ -12024,6 +10972,12 @@ pub struct IExplorerBrowser_Vtbl {
     pub GetCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IExplorerBrowserEvents, IExplorerBrowserEvents_Vtbl, 0x361bbdc7_e6ee_4e13_be58_58e2240c810f);
+impl std::ops::Deref for IExplorerBrowserEvents {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IExplorerBrowserEvents, windows_core::IUnknown);
 impl IExplorerBrowserEvents {
     #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -12067,6 +11021,12 @@ pub struct IExplorerBrowserEvents_Vtbl {
     OnNavigationFailed: usize,
 }
 windows_core::imp::define_interface!(IExplorerCommand, IExplorerCommand_Vtbl, 0xa08ce4d0_fa25_44ab_b57c_c7b1c323e0b9);
+impl std::ops::Deref for IExplorerCommand {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IExplorerCommand, windows_core::IUnknown);
 impl IExplorerCommand {
     pub unsafe fn GetTitle<P0>(&self, psiitemarray: P0) -> windows_core::Result<windows_core::PWSTR>
@@ -12135,6 +11095,12 @@ pub struct IExplorerCommand_Vtbl {
     pub EnumSubCommands: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IExplorerCommandProvider, IExplorerCommandProvider_Vtbl, 0x64961751_0835_43c0_8ffe_d57686530e64);
+impl std::ops::Deref for IExplorerCommandProvider {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IExplorerCommandProvider, windows_core::IUnknown);
 impl IExplorerCommandProvider {
     pub unsafe fn GetCommands<P0, T>(&self, punksite: P0) -> windows_core::Result<T>
@@ -12160,6 +11126,12 @@ pub struct IExplorerCommandProvider_Vtbl {
     pub GetCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IExplorerCommandState, IExplorerCommandState_Vtbl, 0xbddacb60_7657_47ae_8445_d23e1acf82ae);
+impl std::ops::Deref for IExplorerCommandState {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IExplorerCommandState, windows_core::IUnknown);
 impl IExplorerCommandState {
     pub unsafe fn GetState<P0, P1>(&self, psiitemarray: P0, foktobeslow: P1) -> windows_core::Result<u32>
@@ -12177,6 +11149,12 @@ pub struct IExplorerCommandState_Vtbl {
     pub GetState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IExplorerPaneVisibility, IExplorerPaneVisibility_Vtbl, 0xe07010ec_bc17_44c0_97b0_46c7c95b9edc);
+impl std::ops::Deref for IExplorerPaneVisibility {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IExplorerPaneVisibility, windows_core::IUnknown);
 impl IExplorerPaneVisibility {
     pub unsafe fn GetPaneState(&self, ep: *const windows_core::GUID) -> windows_core::Result<u32> {
@@ -12190,6 +11168,12 @@ pub struct IExplorerPaneVisibility_Vtbl {
     pub GetPaneState: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IExtensionServices, IExtensionServices_Vtbl, 0x79eac9cb_baf9_11ce_8c82_00aa004ba90b);
+impl std::ops::Deref for IExtensionServices {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IExtensionServices, windows_core::IUnknown);
 impl IExtensionServices {
     pub unsafe fn SetAdditionalHeaders<P0>(&self, pwzadditionalheaders: P0) -> windows_core::Result<()>
@@ -12214,6 +11198,12 @@ pub struct IExtensionServices_Vtbl {
     pub SetAuthenticateData: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IExtractIconA, IExtractIconA_Vtbl, 0x000214eb_0000_0000_c000_000000000046);
+impl std::ops::Deref for IExtractIconA {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IExtractIconA, windows_core::IUnknown);
 impl IExtractIconA {
     pub unsafe fn GetIconLocation(&self, uflags: u32, psziconfile: &mut [u8], piindex: *mut i32, pwflags: *mut u32) -> windows_core::Result<()> {
@@ -12237,6 +11227,12 @@ pub struct IExtractIconA_Vtbl {
     Extract: usize,
 }
 windows_core::imp::define_interface!(IExtractIconW, IExtractIconW_Vtbl, 0x000214fa_0000_0000_c000_000000000046);
+impl std::ops::Deref for IExtractIconW {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IExtractIconW, windows_core::IUnknown);
 impl IExtractIconW {
     pub unsafe fn GetIconLocation(&self, uflags: u32, psziconfile: &mut [u16], piindex: *mut i32, pwflags: *mut u32) -> windows_core::Result<()> {
@@ -12260,6 +11256,12 @@ pub struct IExtractIconW_Vtbl {
     Extract: usize,
 }
 windows_core::imp::define_interface!(IExtractImage, IExtractImage_Vtbl, 0xbb2e617c_0920_11d1_9a0b_00c04fc2d6c1);
+impl std::ops::Deref for IExtractImage {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IExtractImage, windows_core::IUnknown);
 impl IExtractImage {
     pub unsafe fn GetLocation(&self, pszpathbuffer: &mut [u16], pdwpriority: *mut u32, prgsize: *const super::super::Foundation::SIZE, dwrecclrdepth: u32, pdwflags: *mut u32) -> windows_core::Result<()> {
@@ -12281,16 +11283,14 @@ pub struct IExtractImage_Vtbl {
     Extract: usize,
 }
 windows_core::imp::define_interface!(IExtractImage2, IExtractImage2_Vtbl, 0x953bb1ee_93b4_11d1_98a3_00c04fb687da);
+impl std::ops::Deref for IExtractImage2 {
+    type Target = IExtractImage;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IExtractImage2, windows_core::IUnknown, IExtractImage);
 impl IExtractImage2 {
-    pub unsafe fn GetLocation(&self, pszpathbuffer: &mut [u16], pdwpriority: *mut u32, prgsize: *const super::super::Foundation::SIZE, dwrecclrdepth: u32, pdwflags: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetLocation)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpathbuffer.as_ptr()), pszpathbuffer.len().try_into().unwrap(), pdwpriority, prgsize, dwrecclrdepth, pdwflags).ok()
-    }
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn Extract(&self) -> windows_core::Result<super::super::Graphics::Gdi::HBITMAP> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Extract)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     pub unsafe fn GetDateStamp(&self) -> windows_core::Result<super::super::Foundation::FILETIME> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDateStamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -12302,14 +11302,14 @@ pub struct IExtractImage2_Vtbl {
     pub GetDateStamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::FILETIME) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileDialog, IFileDialog_Vtbl, 0x42f85136_db7e_439c_85f1_e4075d135fc8);
+impl std::ops::Deref for IFileDialog {
+    type Target = IModalWindow;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFileDialog, windows_core::IUnknown, IModalWindow);
 impl IFileDialog {
-    pub unsafe fn Show<P0>(&self, hwndowner: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.Show)(windows_core::Interface::as_raw(self), hwndowner.param().abi()).ok()
-    }
     #[cfg(feature = "Win32_UI_Shell_Common")]
     pub unsafe fn SetFileTypes(&self, rgfilterspec: &[Common::COMDLG_FILTERSPEC]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetFileTypes)(windows_core::Interface::as_raw(self), rgfilterspec.len().try_into().unwrap(), core::mem::transmute(rgfilterspec.as_ptr())).ok()
@@ -12449,121 +11449,14 @@ pub struct IFileDialog_Vtbl {
     pub SetFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileDialog2, IFileDialog2_Vtbl, 0x61744fc7_85b5_4791_a9b0_272276309b13);
+impl std::ops::Deref for IFileDialog2 {
+    type Target = IFileDialog;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFileDialog2, windows_core::IUnknown, IModalWindow, IFileDialog);
 impl IFileDialog2 {
-    pub unsafe fn Show<P0>(&self, hwndowner: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.Show)(windows_core::Interface::as_raw(self), hwndowner.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn SetFileTypes(&self, rgfilterspec: &[Common::COMDLG_FILTERSPEC]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetFileTypes)(windows_core::Interface::as_raw(self), rgfilterspec.len().try_into().unwrap(), core::mem::transmute(rgfilterspec.as_ptr())).ok()
-    }
-    pub unsafe fn SetFileTypeIndex(&self, ifiletype: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetFileTypeIndex)(windows_core::Interface::as_raw(self), ifiletype).ok()
-    }
-    pub unsafe fn GetFileTypeIndex(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetFileTypeIndex)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Advise<P0>(&self, pfde: P0) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<IFileDialogEvents>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Advise)(windows_core::Interface::as_raw(self), pfde.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Unadvise(&self, dwcookie: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Unadvise)(windows_core::Interface::as_raw(self), dwcookie).ok()
-    }
-    pub unsafe fn SetOptions(&self, fos: FILEOPENDIALOGOPTIONS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetOptions)(windows_core::Interface::as_raw(self), fos).ok()
-    }
-    pub unsafe fn GetOptions(&self) -> windows_core::Result<FILEOPENDIALOGOPTIONS> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetOptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetDefaultFolder<P0>(&self, psi: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellItem>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetDefaultFolder)(windows_core::Interface::as_raw(self), psi.param().abi()).ok()
-    }
-    pub unsafe fn SetFolder<P0>(&self, psi: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellItem>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFolder)(windows_core::Interface::as_raw(self), psi.param().abi()).ok()
-    }
-    pub unsafe fn GetFolder(&self) -> windows_core::Result<IShellItem> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetFolder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetCurrentSelection(&self) -> windows_core::Result<IShellItem> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetCurrentSelection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetFileName<P0>(&self, pszname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFileName)(windows_core::Interface::as_raw(self), pszname.param().abi()).ok()
-    }
-    pub unsafe fn GetFileName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetFileName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetTitle<P0>(&self, psztitle: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetTitle)(windows_core::Interface::as_raw(self), psztitle.param().abi()).ok()
-    }
-    pub unsafe fn SetOkButtonLabel<P0>(&self, psztext: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetOkButtonLabel)(windows_core::Interface::as_raw(self), psztext.param().abi()).ok()
-    }
-    pub unsafe fn SetFileNameLabel<P0>(&self, pszlabel: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFileNameLabel)(windows_core::Interface::as_raw(self), pszlabel.param().abi()).ok()
-    }
-    pub unsafe fn GetResult(&self) -> windows_core::Result<IShellItem> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetResult)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AddPlace<P0>(&self, psi: P0, fdap: FDAP) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellItem>,
-    {
-        (windows_core::Interface::vtable(self).base__.AddPlace)(windows_core::Interface::as_raw(self), psi.param().abi(), fdap).ok()
-    }
-    pub unsafe fn SetDefaultExtension<P0>(&self, pszdefaultextension: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetDefaultExtension)(windows_core::Interface::as_raw(self), pszdefaultextension.param().abi()).ok()
-    }
-    pub unsafe fn Close(&self, hr: windows_core::HRESULT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Close)(windows_core::Interface::as_raw(self), hr).ok()
-    }
-    pub unsafe fn SetClientGuid(&self, guid: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetClientGuid)(windows_core::Interface::as_raw(self), guid).ok()
-    }
-    pub unsafe fn ClearClientData(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.ClearClientData)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetFilter<P0>(&self, pfilter: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellItemFilter>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFilter)(windows_core::Interface::as_raw(self), pfilter.param().abi()).ok()
-    }
     pub unsafe fn SetCancelButtonLabel<P0>(&self, pszlabel: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -12584,6 +11477,12 @@ pub struct IFileDialog2_Vtbl {
     pub SetNavigationRoot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileDialogControlEvents, IFileDialogControlEvents_Vtbl, 0x36116642_d713_4b97_9b83_7484a9d00433);
+impl std::ops::Deref for IFileDialogControlEvents {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFileDialogControlEvents, windows_core::IUnknown);
 impl IFileDialogControlEvents {
     pub unsafe fn OnItemSelected<P0>(&self, pfdc: P0, dwidctl: u32, dwiditem: u32) -> windows_core::Result<()>
@@ -12621,6 +11520,12 @@ pub struct IFileDialogControlEvents_Vtbl {
     pub OnControlActivating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileDialogCustomize, IFileDialogCustomize_Vtbl, 0xe6fdd21a_163f_4975_9c8c_a69f1ba37034);
+impl std::ops::Deref for IFileDialogCustomize {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFileDialogCustomize, windows_core::IUnknown);
 impl IFileDialogCustomize {
     pub unsafe fn EnableOpenDropDown(&self, dwidctl: u32) -> windows_core::Result<()> {
@@ -12776,6 +11681,12 @@ pub struct IFileDialogCustomize_Vtbl {
     pub SetControlItemText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileDialogEvents, IFileDialogEvents_Vtbl, 0x973510db_7d7f_452b_8975_74a85828d354);
+impl std::ops::Deref for IFileDialogEvents {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFileDialogEvents, windows_core::IUnknown);
 impl IFileDialogEvents {
     pub unsafe fn OnFileOk<P0>(&self, pfd: P0) -> windows_core::Result<()>
@@ -12838,6 +11749,12 @@ pub struct IFileDialogEvents_Vtbl {
     pub OnOverwrite: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut FDE_OVERWRITE_RESPONSE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileIsInUse, IFileIsInUse_Vtbl, 0x64a1cbf0_3a1a_4461_9158_376969693950);
+impl std::ops::Deref for IFileIsInUse {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFileIsInUse, windows_core::IUnknown);
 impl IFileIsInUse {
     pub unsafe fn GetAppName(&self) -> windows_core::Result<windows_core::PWSTR> {
@@ -12870,121 +11787,14 @@ pub struct IFileIsInUse_Vtbl {
     pub CloseFile: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileOpenDialog, IFileOpenDialog_Vtbl, 0xd57c7288_d4ad_4768_be02_9d969532d960);
+impl std::ops::Deref for IFileOpenDialog {
+    type Target = IFileDialog;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFileOpenDialog, windows_core::IUnknown, IModalWindow, IFileDialog);
 impl IFileOpenDialog {
-    pub unsafe fn Show<P0>(&self, hwndowner: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.Show)(windows_core::Interface::as_raw(self), hwndowner.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn SetFileTypes(&self, rgfilterspec: &[Common::COMDLG_FILTERSPEC]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetFileTypes)(windows_core::Interface::as_raw(self), rgfilterspec.len().try_into().unwrap(), core::mem::transmute(rgfilterspec.as_ptr())).ok()
-    }
-    pub unsafe fn SetFileTypeIndex(&self, ifiletype: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetFileTypeIndex)(windows_core::Interface::as_raw(self), ifiletype).ok()
-    }
-    pub unsafe fn GetFileTypeIndex(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetFileTypeIndex)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Advise<P0>(&self, pfde: P0) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<IFileDialogEvents>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Advise)(windows_core::Interface::as_raw(self), pfde.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Unadvise(&self, dwcookie: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Unadvise)(windows_core::Interface::as_raw(self), dwcookie).ok()
-    }
-    pub unsafe fn SetOptions(&self, fos: FILEOPENDIALOGOPTIONS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetOptions)(windows_core::Interface::as_raw(self), fos).ok()
-    }
-    pub unsafe fn GetOptions(&self) -> windows_core::Result<FILEOPENDIALOGOPTIONS> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetOptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetDefaultFolder<P0>(&self, psi: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellItem>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetDefaultFolder)(windows_core::Interface::as_raw(self), psi.param().abi()).ok()
-    }
-    pub unsafe fn SetFolder<P0>(&self, psi: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellItem>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFolder)(windows_core::Interface::as_raw(self), psi.param().abi()).ok()
-    }
-    pub unsafe fn GetFolder(&self) -> windows_core::Result<IShellItem> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetFolder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetCurrentSelection(&self) -> windows_core::Result<IShellItem> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetCurrentSelection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetFileName<P0>(&self, pszname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFileName)(windows_core::Interface::as_raw(self), pszname.param().abi()).ok()
-    }
-    pub unsafe fn GetFileName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetFileName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetTitle<P0>(&self, psztitle: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetTitle)(windows_core::Interface::as_raw(self), psztitle.param().abi()).ok()
-    }
-    pub unsafe fn SetOkButtonLabel<P0>(&self, psztext: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetOkButtonLabel)(windows_core::Interface::as_raw(self), psztext.param().abi()).ok()
-    }
-    pub unsafe fn SetFileNameLabel<P0>(&self, pszlabel: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFileNameLabel)(windows_core::Interface::as_raw(self), pszlabel.param().abi()).ok()
-    }
-    pub unsafe fn GetResult(&self) -> windows_core::Result<IShellItem> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetResult)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AddPlace<P0>(&self, psi: P0, fdap: FDAP) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellItem>,
-    {
-        (windows_core::Interface::vtable(self).base__.AddPlace)(windows_core::Interface::as_raw(self), psi.param().abi(), fdap).ok()
-    }
-    pub unsafe fn SetDefaultExtension<P0>(&self, pszdefaultextension: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetDefaultExtension)(windows_core::Interface::as_raw(self), pszdefaultextension.param().abi()).ok()
-    }
-    pub unsafe fn Close(&self, hr: windows_core::HRESULT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Close)(windows_core::Interface::as_raw(self), hr).ok()
-    }
-    pub unsafe fn SetClientGuid(&self, guid: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetClientGuid)(windows_core::Interface::as_raw(self), guid).ok()
-    }
-    pub unsafe fn ClearClientData(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.ClearClientData)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetFilter<P0>(&self, pfilter: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellItemFilter>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFilter)(windows_core::Interface::as_raw(self), pfilter.param().abi()).ok()
-    }
     pub unsafe fn GetResults(&self) -> windows_core::Result<IShellItemArray> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetResults)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -13001,6 +11811,12 @@ pub struct IFileOpenDialog_Vtbl {
     pub GetSelectedItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileOperation, IFileOperation_Vtbl, 0x947aab5f_0a5c_4c13_b4d6_4bf7836fc9f8);
+impl std::ops::Deref for IFileOperation {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFileOperation, windows_core::IUnknown);
 impl IFileOperation {
     pub unsafe fn Advise<P0>(&self, pfops: P0) -> windows_core::Result<u32>
@@ -13158,134 +11974,14 @@ pub struct IFileOperation_Vtbl {
     pub GetAnyOperationsAborted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileOperation2, IFileOperation2_Vtbl, 0xcd8f23c1_8f61_4916_909d_55bdd0918753);
+impl std::ops::Deref for IFileOperation2 {
+    type Target = IFileOperation;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFileOperation2, windows_core::IUnknown, IFileOperation);
 impl IFileOperation2 {
-    pub unsafe fn Advise<P0>(&self, pfops: P0) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<IFileOperationProgressSink>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Advise)(windows_core::Interface::as_raw(self), pfops.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Unadvise(&self, dwcookie: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Unadvise)(windows_core::Interface::as_raw(self), dwcookie).ok()
-    }
-    pub unsafe fn SetOperationFlags(&self, dwoperationflags: FILEOPERATION_FLAGS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetOperationFlags)(windows_core::Interface::as_raw(self), dwoperationflags).ok()
-    }
-    pub unsafe fn SetProgressMessage<P0>(&self, pszmessage: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetProgressMessage)(windows_core::Interface::as_raw(self), pszmessage.param().abi()).ok()
-    }
-    pub unsafe fn SetProgressDialog<P0>(&self, popd: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IOperationsProgressDialog>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetProgressDialog)(windows_core::Interface::as_raw(self), popd.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub unsafe fn SetProperties<P0>(&self, pproparray: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<PropertiesSystem::IPropertyChangeArray>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetProperties)(windows_core::Interface::as_raw(self), pproparray.param().abi()).ok()
-    }
-    pub unsafe fn SetOwnerWindow<P0>(&self, hwndowner: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetOwnerWindow)(windows_core::Interface::as_raw(self), hwndowner.param().abi()).ok()
-    }
-    pub unsafe fn ApplyPropertiesToItem<P0>(&self, psiitem: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellItem>,
-    {
-        (windows_core::Interface::vtable(self).base__.ApplyPropertiesToItem)(windows_core::Interface::as_raw(self), psiitem.param().abi()).ok()
-    }
-    pub unsafe fn ApplyPropertiesToItems<P0>(&self, punkitems: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-    {
-        (windows_core::Interface::vtable(self).base__.ApplyPropertiesToItems)(windows_core::Interface::as_raw(self), punkitems.param().abi()).ok()
-    }
-    pub unsafe fn RenameItem<P0, P1, P2>(&self, psiitem: P0, psznewname: P1, pfopsitem: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellItem>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<IFileOperationProgressSink>,
-    {
-        (windows_core::Interface::vtable(self).base__.RenameItem)(windows_core::Interface::as_raw(self), psiitem.param().abi(), psznewname.param().abi(), pfopsitem.param().abi()).ok()
-    }
-    pub unsafe fn RenameItems<P0, P1>(&self, punkitems: P0, psznewname: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.RenameItems)(windows_core::Interface::as_raw(self), punkitems.param().abi(), psznewname.param().abi()).ok()
-    }
-    pub unsafe fn MoveItem<P0, P1, P2, P3>(&self, psiitem: P0, psidestinationfolder: P1, psznewname: P2, pfopsitem: P3) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellItem>,
-        P1: windows_core::Param<IShellItem>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<IFileOperationProgressSink>,
-    {
-        (windows_core::Interface::vtable(self).base__.MoveItem)(windows_core::Interface::as_raw(self), psiitem.param().abi(), psidestinationfolder.param().abi(), psznewname.param().abi(), pfopsitem.param().abi()).ok()
-    }
-    pub unsafe fn MoveItems<P0, P1>(&self, punkitems: P0, psidestinationfolder: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-        P1: windows_core::Param<IShellItem>,
-    {
-        (windows_core::Interface::vtable(self).base__.MoveItems)(windows_core::Interface::as_raw(self), punkitems.param().abi(), psidestinationfolder.param().abi()).ok()
-    }
-    pub unsafe fn CopyItem<P0, P1, P2, P3>(&self, psiitem: P0, psidestinationfolder: P1, pszcopyname: P2, pfopsitem: P3) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellItem>,
-        P1: windows_core::Param<IShellItem>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<IFileOperationProgressSink>,
-    {
-        (windows_core::Interface::vtable(self).base__.CopyItem)(windows_core::Interface::as_raw(self), psiitem.param().abi(), psidestinationfolder.param().abi(), pszcopyname.param().abi(), pfopsitem.param().abi()).ok()
-    }
-    pub unsafe fn CopyItems<P0, P1>(&self, punkitems: P0, psidestinationfolder: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-        P1: windows_core::Param<IShellItem>,
-    {
-        (windows_core::Interface::vtable(self).base__.CopyItems)(windows_core::Interface::as_raw(self), punkitems.param().abi(), psidestinationfolder.param().abi()).ok()
-    }
-    pub unsafe fn DeleteItem<P0, P1>(&self, psiitem: P0, pfopsitem: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellItem>,
-        P1: windows_core::Param<IFileOperationProgressSink>,
-    {
-        (windows_core::Interface::vtable(self).base__.DeleteItem)(windows_core::Interface::as_raw(self), psiitem.param().abi(), pfopsitem.param().abi()).ok()
-    }
-    pub unsafe fn DeleteItems<P0>(&self, punkitems: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-    {
-        (windows_core::Interface::vtable(self).base__.DeleteItems)(windows_core::Interface::as_raw(self), punkitems.param().abi()).ok()
-    }
-    pub unsafe fn NewItem<P0, P1, P2, P3>(&self, psidestinationfolder: P0, dwfileattributes: u32, pszname: P1, psztemplatename: P2, pfopsitem: P3) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellItem>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<IFileOperationProgressSink>,
-    {
-        (windows_core::Interface::vtable(self).base__.NewItem)(windows_core::Interface::as_raw(self), psidestinationfolder.param().abi(), dwfileattributes, pszname.param().abi(), psztemplatename.param().abi(), pfopsitem.param().abi()).ok()
-    }
-    pub unsafe fn PerformOperations(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.PerformOperations)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn GetAnyOperationsAborted(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetAnyOperationsAborted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     pub unsafe fn SetOperationFlags2(&self, operationflags2: FILE_OPERATION_FLAGS2) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetOperationFlags2)(windows_core::Interface::as_raw(self), operationflags2).ok()
     }
@@ -13296,6 +11992,12 @@ pub struct IFileOperation2_Vtbl {
     pub SetOperationFlags2: unsafe extern "system" fn(*mut core::ffi::c_void, FILE_OPERATION_FLAGS2) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileOperationProgressSink, IFileOperationProgressSink_Vtbl, 0x04b0f1a7_9490_44bc_96e1_4296a31252e2);
+impl std::ops::Deref for IFileOperationProgressSink {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFileOperationProgressSink, windows_core::IUnknown);
 impl IFileOperationProgressSink {
     pub unsafe fn StartOperations(&self) -> windows_core::Result<()> {
@@ -13416,121 +12118,14 @@ pub struct IFileOperationProgressSink_Vtbl {
     pub ResumeTimer: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileSaveDialog, IFileSaveDialog_Vtbl, 0x84bccd23_5fde_4cdb_aea4_af64b83d78ab);
+impl std::ops::Deref for IFileSaveDialog {
+    type Target = IFileDialog;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFileSaveDialog, windows_core::IUnknown, IModalWindow, IFileDialog);
 impl IFileSaveDialog {
-    pub unsafe fn Show<P0>(&self, hwndowner: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.Show)(windows_core::Interface::as_raw(self), hwndowner.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn SetFileTypes(&self, rgfilterspec: &[Common::COMDLG_FILTERSPEC]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetFileTypes)(windows_core::Interface::as_raw(self), rgfilterspec.len().try_into().unwrap(), core::mem::transmute(rgfilterspec.as_ptr())).ok()
-    }
-    pub unsafe fn SetFileTypeIndex(&self, ifiletype: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetFileTypeIndex)(windows_core::Interface::as_raw(self), ifiletype).ok()
-    }
-    pub unsafe fn GetFileTypeIndex(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetFileTypeIndex)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Advise<P0>(&self, pfde: P0) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<IFileDialogEvents>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Advise)(windows_core::Interface::as_raw(self), pfde.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Unadvise(&self, dwcookie: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Unadvise)(windows_core::Interface::as_raw(self), dwcookie).ok()
-    }
-    pub unsafe fn SetOptions(&self, fos: FILEOPENDIALOGOPTIONS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetOptions)(windows_core::Interface::as_raw(self), fos).ok()
-    }
-    pub unsafe fn GetOptions(&self) -> windows_core::Result<FILEOPENDIALOGOPTIONS> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetOptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetDefaultFolder<P0>(&self, psi: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellItem>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetDefaultFolder)(windows_core::Interface::as_raw(self), psi.param().abi()).ok()
-    }
-    pub unsafe fn SetFolder<P0>(&self, psi: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellItem>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFolder)(windows_core::Interface::as_raw(self), psi.param().abi()).ok()
-    }
-    pub unsafe fn GetFolder(&self) -> windows_core::Result<IShellItem> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetFolder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetCurrentSelection(&self) -> windows_core::Result<IShellItem> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetCurrentSelection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetFileName<P0>(&self, pszname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFileName)(windows_core::Interface::as_raw(self), pszname.param().abi()).ok()
-    }
-    pub unsafe fn GetFileName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetFileName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetTitle<P0>(&self, psztitle: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetTitle)(windows_core::Interface::as_raw(self), psztitle.param().abi()).ok()
-    }
-    pub unsafe fn SetOkButtonLabel<P0>(&self, psztext: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetOkButtonLabel)(windows_core::Interface::as_raw(self), psztext.param().abi()).ok()
-    }
-    pub unsafe fn SetFileNameLabel<P0>(&self, pszlabel: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFileNameLabel)(windows_core::Interface::as_raw(self), pszlabel.param().abi()).ok()
-    }
-    pub unsafe fn GetResult(&self) -> windows_core::Result<IShellItem> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetResult)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AddPlace<P0>(&self, psi: P0, fdap: FDAP) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellItem>,
-    {
-        (windows_core::Interface::vtable(self).base__.AddPlace)(windows_core::Interface::as_raw(self), psi.param().abi(), fdap).ok()
-    }
-    pub unsafe fn SetDefaultExtension<P0>(&self, pszdefaultextension: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetDefaultExtension)(windows_core::Interface::as_raw(self), pszdefaultextension.param().abi()).ok()
-    }
-    pub unsafe fn Close(&self, hr: windows_core::HRESULT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Close)(windows_core::Interface::as_raw(self), hr).ok()
-    }
-    pub unsafe fn SetClientGuid(&self, guid: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetClientGuid)(windows_core::Interface::as_raw(self), guid).ok()
-    }
-    pub unsafe fn ClearClientData(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.ClearClientData)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetFilter<P0>(&self, pfilter: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellItemFilter>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFilter)(windows_core::Interface::as_raw(self), pfilter.param().abi()).ok()
-    }
     pub unsafe fn SetSaveAsItem<P0>(&self, psi: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IShellItem>,
@@ -13592,6 +12187,13 @@ pub struct IFileSaveDialog_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFileSearchBand, IFileSearchBand_Vtbl, 0x2d91eea1_9932_11d2_be86_00a0c9a83da1);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IFileSearchBand {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IFileSearchBand, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFileSearchBand {
@@ -13628,6 +12230,12 @@ pub struct IFileSearchBand_Vtbl {
     pub QueryFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFileSyncMergeHandler, IFileSyncMergeHandler_Vtbl, 0xd97b5aac_c792_433c_975d_35c4eadc7a9d);
+impl std::ops::Deref for IFileSyncMergeHandler {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFileSyncMergeHandler, windows_core::IUnknown);
 impl IFileSyncMergeHandler {
     pub unsafe fn Merge<P0, P1>(&self, localfilepath: P0, serverfilepath: P1) -> windows_core::Result<MERGE_UPDATE_STATUS>
@@ -13657,6 +12265,12 @@ pub struct IFileSyncMergeHandler_Vtbl {
     ShowResolveConflictUIAsync: usize,
 }
 windows_core::imp::define_interface!(IFileSystemBindData, IFileSystemBindData_Vtbl, 0x01e18d10_4d8b_11d2_855d_006008059367);
+impl std::ops::Deref for IFileSystemBindData {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFileSystemBindData, windows_core::IUnknown);
 impl IFileSystemBindData {
     #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -13681,16 +12295,14 @@ pub struct IFileSystemBindData_Vtbl {
     GetFindData: usize,
 }
 windows_core::imp::define_interface!(IFileSystemBindData2, IFileSystemBindData2_Vtbl, 0x3acf075f_71db_4afa_81f0_3fc4fdf2a5b8);
+impl std::ops::Deref for IFileSystemBindData2 {
+    type Target = IFileSystemBindData;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFileSystemBindData2, windows_core::IUnknown, IFileSystemBindData);
 impl IFileSystemBindData2 {
-    #[cfg(feature = "Win32_Storage_FileSystem")]
-    pub unsafe fn SetFindData(&self, pfd: *const super::super::Storage::FileSystem::WIN32_FIND_DATAW) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetFindData)(windows_core::Interface::as_raw(self), pfd).ok()
-    }
-    #[cfg(feature = "Win32_Storage_FileSystem")]
-    pub unsafe fn GetFindData(&self, pfd: *mut super::super::Storage::FileSystem::WIN32_FIND_DATAW) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetFindData)(windows_core::Interface::as_raw(self), pfd).ok()
-    }
     pub unsafe fn SetFileID(&self, lifileid: i64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetFileID)(windows_core::Interface::as_raw(self), lifileid).ok()
     }
@@ -13715,6 +12327,12 @@ pub struct IFileSystemBindData2_Vtbl {
     pub GetJunctionCLSID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFolderBandPriv, IFolderBandPriv_Vtbl, 0x47c01f95_e185_412c_b5c5_4f27df965aea);
+impl std::ops::Deref for IFolderBandPriv {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFolderBandPriv, windows_core::IUnknown);
 impl IFolderBandPriv {
     pub unsafe fn SetCascade<P0>(&self, fcascade: P0) -> windows_core::Result<()>
@@ -13751,6 +12369,12 @@ pub struct IFolderBandPriv_Vtbl {
     pub SetNoText: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFolderFilter, IFolderFilter_Vtbl, 0x9cc22886_dc8e_11d2_b1d0_00c04f8eeb3e);
+impl std::ops::Deref for IFolderFilter {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFolderFilter, windows_core::IUnknown);
 impl IFolderFilter {
     #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -13781,6 +12405,12 @@ pub struct IFolderFilter_Vtbl {
     GetEnumFlags: usize,
 }
 windows_core::imp::define_interface!(IFolderFilterSite, IFolderFilterSite_Vtbl, 0xc0a651f5_b48b_11d2_b5ed_006097c686f6);
+impl std::ops::Deref for IFolderFilterSite {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFolderFilterSite, windows_core::IUnknown);
 impl IFolderFilterSite {
     pub unsafe fn SetFilter<P0>(&self, punk: P0) -> windows_core::Result<()>
@@ -13796,6 +12426,12 @@ pub struct IFolderFilterSite_Vtbl {
     pub SetFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFolderView, IFolderView_Vtbl, 0xcde725b0_ccc9_4519_917e_325d72fab4ce);
+impl std::ops::Deref for IFolderView {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFolderView, windows_core::IUnknown);
 impl IFolderView {
     pub unsafe fn GetCurrentViewMode(&self) -> windows_core::Result<u32> {
@@ -13887,68 +12523,14 @@ pub struct IFolderView_Vtbl {
     SelectAndPositionItems: usize,
 }
 windows_core::imp::define_interface!(IFolderView2, IFolderView2_Vtbl, 0x1af3a467_214f_4298_908e_06b03e0b39f9);
+impl std::ops::Deref for IFolderView2 {
+    type Target = IFolderView;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFolderView2, windows_core::IUnknown, IFolderView);
 impl IFolderView2 {
-    pub unsafe fn GetCurrentViewMode(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetCurrentViewMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetCurrentViewMode(&self, viewmode: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetCurrentViewMode)(windows_core::Interface::as_raw(self), viewmode).ok()
-    }
-    pub unsafe fn GetFolder<T>(&self) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).base__.GetFolder)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn Item(&self, iitemindex: i32) -> windows_core::Result<*mut Common::ITEMIDLIST> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Item)(windows_core::Interface::as_raw(self), iitemindex, &mut result__).map(|| result__)
-    }
-    pub unsafe fn ItemCount(&self, uflags: _SVGIO) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ItemCount)(windows_core::Interface::as_raw(self), uflags.0 as _, &mut result__).map(|| result__)
-    }
-    pub unsafe fn Items<T>(&self, uflags: _SVGIO) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).base__.Items)(windows_core::Interface::as_raw(self), uflags.0 as _, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetSelectionMarkedItem(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetSelectionMarkedItem)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetFocusedItem(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetFocusedItem)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn GetItemPosition(&self, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<super::super::Foundation::POINT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetItemPosition)(windows_core::Interface::as_raw(self), pidl, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetSpacing(&self, ppt: *mut super::super::Foundation::POINT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetSpacing)(windows_core::Interface::as_raw(self), ppt).ok()
-    }
-    pub unsafe fn GetDefaultSpacing(&self) -> windows_core::Result<super::super::Foundation::POINT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetDefaultSpacing)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetAutoArrange(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetAutoArrange)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SelectItem(&self, iitem: i32, dwflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SelectItem)(windows_core::Interface::as_raw(self), iitem, dwflags).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn SelectAndPositionItems(&self, cidl: u32, apidl: *const *const Common::ITEMIDLIST, apt: Option<*const super::super::Foundation::POINT>, dwflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SelectAndPositionItems)(windows_core::Interface::as_raw(self), cidl, apidl, core::mem::transmute(apt.unwrap_or(std::ptr::null())), dwflags).ok()
-    }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn SetGroupBy<P0>(&self, key: *const PropertiesSystem::PROPERTYKEY, fascending: P0) -> windows_core::Result<()>
     where
@@ -14127,6 +12709,12 @@ pub struct IFolderView2_Vtbl {
     pub DoRename: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFolderViewHost, IFolderViewHost_Vtbl, 0x1ea58f02_d55a_411d_b09e_9e65ac21605b);
+impl std::ops::Deref for IFolderViewHost {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFolderViewHost, windows_core::IUnknown);
 impl IFolderViewHost {
     #[cfg(feature = "Win32_System_Com")]
@@ -14149,6 +12737,13 @@ pub struct IFolderViewHost_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFolderViewOC, IFolderViewOC_Vtbl, 0x9ba05970_f6a8_11cf_a442_00a0c90a8f39);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IFolderViewOC {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IFolderViewOC, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFolderViewOC {
@@ -14170,6 +12765,12 @@ pub struct IFolderViewOC_Vtbl {
     SetFolderView: usize,
 }
 windows_core::imp::define_interface!(IFolderViewOptions, IFolderViewOptions_Vtbl, 0x3cc974d2_b302_4d36_ad3e_06d93f695d3f);
+impl std::ops::Deref for IFolderViewOptions {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFolderViewOptions, windows_core::IUnknown);
 impl IFolderViewOptions {
     pub unsafe fn SetFolderViewOptions(&self, fvomask: FOLDERVIEWOPTIONS, fvoflags: FOLDERVIEWOPTIONS) -> windows_core::Result<()> {
@@ -14187,6 +12788,12 @@ pub struct IFolderViewOptions_Vtbl {
     pub GetFolderViewOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FOLDERVIEWOPTIONS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFolderViewSettings, IFolderViewSettings_Vtbl, 0xae8c987d_8797_4ed3_be72_2a47dd938db0);
+impl std::ops::Deref for IFolderViewSettings {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFolderViewSettings, windows_core::IUnknown);
 impl IFolderViewSettings {
     pub unsafe fn GetColumnPropertyList<T>(&self) -> windows_core::Result<T>
@@ -14238,6 +12845,12 @@ pub struct IFolderViewSettings_Vtbl {
     pub GetGroupSubsetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFrameworkInputPane, IFrameworkInputPane_Vtbl, 0x5752238b_24f0_495a_82f1_2fd593056796);
+impl std::ops::Deref for IFrameworkInputPane {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFrameworkInputPane, windows_core::IUnknown);
 impl IFrameworkInputPane {
     pub unsafe fn Advise<P0, P1>(&self, pwindow: P0, phandler: P1) -> windows_core::Result<u32>
@@ -14273,6 +12886,12 @@ pub struct IFrameworkInputPane_Vtbl {
     pub Location: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::RECT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFrameworkInputPaneHandler, IFrameworkInputPaneHandler_Vtbl, 0x226c537b_1e76_4d9e_a760_33db29922f18);
+impl std::ops::Deref for IFrameworkInputPaneHandler {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFrameworkInputPaneHandler, windows_core::IUnknown);
 impl IFrameworkInputPaneHandler {
     pub unsafe fn Showing<P0>(&self, prcinputpanescreenlocation: *const super::super::Foundation::RECT, fensurefocusedelementinview: P0) -> windows_core::Result<()>
@@ -14295,6 +12914,12 @@ pub struct IFrameworkInputPaneHandler_Vtbl {
     pub Hiding: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGetServiceIds, IGetServiceIds_Vtbl, 0x4a073526_6103_4e21_b7bc_f519d1524e5d);
+impl std::ops::Deref for IGetServiceIds {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IGetServiceIds, windows_core::IUnknown);
 impl IGetServiceIds {
     pub unsafe fn GetServiceIds(&self, serviceidcount: *mut u32, serviceids: *mut *mut windows_core::GUID) -> windows_core::Result<()> {
@@ -14307,6 +12932,12 @@ pub struct IGetServiceIds_Vtbl {
     pub GetServiceIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHWEventHandler, IHWEventHandler_Vtbl, 0xc1fb73d0_ec3a_4ba2_b512_8cdb9187b6d1);
+impl std::ops::Deref for IHWEventHandler {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IHWEventHandler, windows_core::IUnknown);
 impl IHWEventHandler {
     pub unsafe fn Initialize<P0>(&self, pszparams: P0) -> windows_core::Result<()>
@@ -14346,33 +12977,14 @@ pub struct IHWEventHandler_Vtbl {
     HandleEventWithContent: usize,
 }
 windows_core::imp::define_interface!(IHWEventHandler2, IHWEventHandler2_Vtbl, 0xcfcc809f_295d_42e8_9ffc_424b33c487e6);
+impl std::ops::Deref for IHWEventHandler2 {
+    type Target = IHWEventHandler;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IHWEventHandler2, windows_core::IUnknown, IHWEventHandler);
 impl IHWEventHandler2 {
-    pub unsafe fn Initialize<P0>(&self, pszparams: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.Initialize)(windows_core::Interface::as_raw(self), pszparams.param().abi()).ok()
-    }
-    pub unsafe fn HandleEvent<P0, P1, P2>(&self, pszdeviceid: P0, pszaltdeviceid: P1, pszeventtype: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.HandleEvent)(windows_core::Interface::as_raw(self), pszdeviceid.param().abi(), pszaltdeviceid.param().abi(), pszeventtype.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn HandleEventWithContent<P0, P1, P2, P3, P4>(&self, pszdeviceid: P0, pszaltdeviceid: P1, pszeventtype: P2, pszcontenttypehandler: P3, pdataobject: P4) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<windows_core::PCWSTR>,
-        P4: windows_core::Param<super::super::System::Com::IDataObject>,
-    {
-        (windows_core::Interface::vtable(self).base__.HandleEventWithContent)(windows_core::Interface::as_raw(self), pszdeviceid.param().abi(), pszaltdeviceid.param().abi(), pszeventtype.param().abi(), pszcontenttypehandler.param().abi(), pdataobject.param().abi()).ok()
-    }
     pub unsafe fn HandleEventWithHWND<P0, P1, P2, P3>(&self, pszdeviceid: P0, pszaltdeviceid: P1, pszeventtype: P2, hwndowner: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -14389,6 +13001,12 @@ pub struct IHWEventHandler2_Vtbl {
     pub HandleEventWithHWND: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, super::super::Foundation::HWND) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHandlerActivationHost, IHandlerActivationHost_Vtbl, 0x35094a87_8bb1_4237_96c6_c417eebdb078);
+impl std::ops::Deref for IHandlerActivationHost {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IHandlerActivationHost, windows_core::IUnknown);
 impl IHandlerActivationHost {
     pub unsafe fn BeforeCoCreateInstance<P0, P1>(&self, clsidhandler: *const windows_core::GUID, itemsbeingactivated: P0, handlerinfo: P1) -> windows_core::Result<()>
@@ -14414,6 +13032,12 @@ pub struct IHandlerActivationHost_Vtbl {
     pub BeforeCreateProcess: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHandlerInfo, IHandlerInfo_Vtbl, 0x997706ef_f880_453b_8118_39e1a2d2655a);
+impl std::ops::Deref for IHandlerInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IHandlerInfo, windows_core::IUnknown);
 impl IHandlerInfo {
     pub unsafe fn GetApplicationDisplayName(&self) -> windows_core::Result<windows_core::PWSTR> {
@@ -14437,20 +13061,14 @@ pub struct IHandlerInfo_Vtbl {
     pub GetApplicationIconReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHandlerInfo2, IHandlerInfo2_Vtbl, 0x31cca04c_04d3_4ea9_90de_97b15e87a532);
+impl std::ops::Deref for IHandlerInfo2 {
+    type Target = IHandlerInfo;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IHandlerInfo2, windows_core::IUnknown, IHandlerInfo);
 impl IHandlerInfo2 {
-    pub unsafe fn GetApplicationDisplayName(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetApplicationDisplayName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetApplicationPublisher(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetApplicationPublisher)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetApplicationIconReference(&self) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetApplicationIconReference)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     pub unsafe fn GetApplicationId(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetApplicationId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -14462,6 +13080,12 @@ pub struct IHandlerInfo2_Vtbl {
     pub GetApplicationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHlink, IHlink_Vtbl, 0x79eac9c3_baf9_11ce_8c82_00aa004ba90b);
+impl std::ops::Deref for IHlink {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IHlink, windows_core::IUnknown);
 impl IHlink {
     pub unsafe fn SetHlinkSite<P0>(&self, pihlsite: P0, dwsitedata: u32) -> windows_core::Result<()>
@@ -14567,6 +13191,12 @@ pub struct IHlink_Vtbl {
     pub GetAdditionalParams: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHlinkBrowseContext, IHlinkBrowseContext_Vtbl, 0x79eac9c7_baf9_11ce_8c82_00aa004ba90b);
+impl std::ops::Deref for IHlinkBrowseContext {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IHlinkBrowseContext, windows_core::IUnknown);
 impl IHlinkBrowseContext {
     #[cfg(feature = "Win32_System_Com")]
@@ -14683,6 +13313,12 @@ pub struct IHlinkBrowseContext_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHlinkFrame, IHlinkFrame_Vtbl, 0x79eac9c5_baf9_11ce_8c82_00aa004ba90b);
+impl std::ops::Deref for IHlinkFrame {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IHlinkFrame, windows_core::IUnknown);
 impl IHlinkFrame {
     pub unsafe fn SetBrowseContext<P0>(&self, pihlbc: P0) -> windows_core::Result<()>
@@ -14742,6 +13378,12 @@ pub struct IHlinkFrame_Vtbl {
     UpdateHlink: usize,
 }
 windows_core::imp::define_interface!(IHlinkSite, IHlinkSite_Vtbl, 0x79eac9c2_baf9_11ce_8c82_00aa004ba90b);
+impl std::ops::Deref for IHlinkSite {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IHlinkSite, windows_core::IUnknown);
 impl IHlinkSite {
     pub unsafe fn QueryService(&self, dwsitedata: u32, guidservice: *const windows_core::GUID, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown> {
@@ -14775,6 +13417,12 @@ pub struct IHlinkSite_Vtbl {
     pub OnNavigationComplete: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::HRESULT, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHlinkTarget, IHlinkTarget_Vtbl, 0x79eac9c4_baf9_11ce_8c82_00aa004ba90b);
+impl std::ops::Deref for IHlinkTarget {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IHlinkTarget, windows_core::IUnknown);
 impl IHlinkTarget {
     pub unsafe fn SetBrowseContext<P0>(&self, pihlbc: P0) -> windows_core::Result<()>
@@ -14822,6 +13470,12 @@ pub struct IHlinkTarget_Vtbl {
     pub GetFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHomeGroup, IHomeGroup_Vtbl, 0x7a3bd1d9_35a9_4fb3_a467_f48cac35e2d0);
+impl std::ops::Deref for IHomeGroup {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IHomeGroup, windows_core::IUnknown);
 impl IHomeGroup {
     pub unsafe fn IsMember(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
@@ -14843,6 +13497,12 @@ pub struct IHomeGroup_Vtbl {
     pub ShowSharingWizard: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *mut HOMEGROUPSHARINGCHOICES) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IIOCancelInformation, IIOCancelInformation_Vtbl, 0xf5b0bf81_8cb5_4b1b_9449_1a159e0c733c);
+impl std::ops::Deref for IIOCancelInformation {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IIOCancelInformation, windows_core::IUnknown);
 impl IIOCancelInformation {
     pub unsafe fn SetCancelInformation(&self, dwthreadid: u32, umsgcancel: u32) -> windows_core::Result<()> {
@@ -14859,23 +13519,25 @@ pub struct IIOCancelInformation_Vtbl {
     pub GetCancelInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IIdentityName, IIdentityName_Vtbl, 0x7d903fca_d6f9_4810_8332_946c0177e247);
-windows_core::imp::interface_hierarchy!(IIdentityName, windows_core::IUnknown, IRelatedItem);
-impl IIdentityName {
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn GetItemIDList(&self) -> windows_core::Result<*mut Common::ITEMIDLIST> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetItemIDList)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetItem(&self) -> windows_core::Result<IShellItem> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+impl std::ops::Deref for IIdentityName {
+    type Target = IRelatedItem;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
     }
 }
+windows_core::imp::interface_hierarchy!(IIdentityName, windows_core::IUnknown, IRelatedItem);
+impl IIdentityName {}
 #[repr(C)]
 pub struct IIdentityName_Vtbl {
     pub base__: IRelatedItem_Vtbl,
 }
 windows_core::imp::define_interface!(IImageRecompress, IImageRecompress_Vtbl, 0x505f1513_6b3e_4892_a272_59f8889a4d3e);
+impl std::ops::Deref for IImageRecompress {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IImageRecompress, windows_core::IUnknown);
 impl IImageRecompress {
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -14897,6 +13559,12 @@ pub struct IImageRecompress_Vtbl {
     RecompressImage: usize,
 }
 windows_core::imp::define_interface!(IInitializeCommand, IInitializeCommand_Vtbl, 0x85075acf_231f_40ea_9610_d26b7b58f638);
+impl std::ops::Deref for IInitializeCommand {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IInitializeCommand, windows_core::IUnknown);
 impl IInitializeCommand {
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -14917,6 +13585,12 @@ pub struct IInitializeCommand_Vtbl {
     Initialize: usize,
 }
 windows_core::imp::define_interface!(IInitializeNetworkFolder, IInitializeNetworkFolder_Vtbl, 0x6e0f9881_42a8_4f2a_97f8_8af4e026d92d);
+impl std::ops::Deref for IInitializeNetworkFolder {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IInitializeNetworkFolder, windows_core::IUnknown);
 impl IInitializeNetworkFolder {
     #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -14937,6 +13611,12 @@ pub struct IInitializeNetworkFolder_Vtbl {
     Initialize: usize,
 }
 windows_core::imp::define_interface!(IInitializeObject, IInitializeObject_Vtbl, 0x4622ad16_ff23_11d0_8d34_00a0c90f2719);
+impl std::ops::Deref for IInitializeObject {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IInitializeObject, windows_core::IUnknown);
 impl IInitializeObject {
     pub unsafe fn Initialize(&self) -> windows_core::Result<()> {
@@ -14949,6 +13629,12 @@ pub struct IInitializeObject_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInitializeWithBindCtx, IInitializeWithBindCtx_Vtbl, 0x71c0d2bc_726d_45cc_a6c0_2e31c1db2159);
+impl std::ops::Deref for IInitializeWithBindCtx {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IInitializeWithBindCtx, windows_core::IUnknown);
 impl IInitializeWithBindCtx {
     #[cfg(feature = "Win32_System_Com")]
@@ -14968,6 +13654,12 @@ pub struct IInitializeWithBindCtx_Vtbl {
     Initialize: usize,
 }
 windows_core::imp::define_interface!(IInitializeWithItem, IInitializeWithItem_Vtbl, 0x7f73be3f_fb79_493c_a6c7_7ee14e245841);
+impl std::ops::Deref for IInitializeWithItem {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IInitializeWithItem, windows_core::IUnknown);
 impl IInitializeWithItem {
     pub unsafe fn Initialize<P0>(&self, psi: P0, grfmode: u32) -> windows_core::Result<()>
@@ -14983,6 +13675,12 @@ pub struct IInitializeWithItem_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInitializeWithPropertyStore, IInitializeWithPropertyStore_Vtbl, 0xc3e12eb5_7d8d_44f8_b6dd_0e77b34d6de4);
+impl std::ops::Deref for IInitializeWithPropertyStore {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IInitializeWithPropertyStore, windows_core::IUnknown);
 impl IInitializeWithPropertyStore {
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -15002,6 +13700,12 @@ pub struct IInitializeWithPropertyStore_Vtbl {
     Initialize: usize,
 }
 windows_core::imp::define_interface!(IInitializeWithWindow, IInitializeWithWindow_Vtbl, 0x3e68d4bd_7135_4d10_8018_9fb6d9f33fa1);
+impl std::ops::Deref for IInitializeWithWindow {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IInitializeWithWindow, windows_core::IUnknown);
 impl IInitializeWithWindow {
     pub unsafe fn Initialize<P0>(&self, hwnd: P0) -> windows_core::Result<()>
@@ -15017,6 +13721,12 @@ pub struct IInitializeWithWindow_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInputObject, IInputObject_Vtbl, 0x68284faa_6a48_11d0_8c78_00c04fd918b4);
+impl std::ops::Deref for IInputObject {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IInputObject, windows_core::IUnknown);
 impl IInputObject {
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -15048,22 +13758,14 @@ pub struct IInputObject_Vtbl {
     TranslateAcceleratorIO: usize,
 }
 windows_core::imp::define_interface!(IInputObject2, IInputObject2_Vtbl, 0x6915c085_510b_44cd_94af_28dfa56cf92b);
+impl std::ops::Deref for IInputObject2 {
+    type Target = IInputObject;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IInputObject2, windows_core::IUnknown, IInputObject);
 impl IInputObject2 {
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn UIActivateIO<P0>(&self, factivate: P0, pmsg: *const super::WindowsAndMessaging::MSG) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.UIActivateIO)(windows_core::Interface::as_raw(self), factivate.param().abi(), pmsg).ok()
-    }
-    pub unsafe fn HasFocusIO(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.HasFocusIO)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn TranslateAcceleratorIO(&self, pmsg: *const super::WindowsAndMessaging::MSG) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.TranslateAcceleratorIO)(windows_core::Interface::as_raw(self), pmsg).ok()
-    }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn TranslateAcceleratorGlobal(&self, pmsg: *const super::WindowsAndMessaging::MSG) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).TranslateAcceleratorGlobal)(windows_core::Interface::as_raw(self), pmsg).ok()
@@ -15078,6 +13780,12 @@ pub struct IInputObject2_Vtbl {
     TranslateAcceleratorGlobal: usize,
 }
 windows_core::imp::define_interface!(IInputObjectSite, IInputObjectSite_Vtbl, 0xf1db8392_7331_11d0_8c99_00a0c92dbfe8);
+impl std::ops::Deref for IInputObjectSite {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IInputObjectSite, windows_core::IUnknown);
 impl IInputObjectSite {
     pub unsafe fn OnFocusChangeIS<P0, P1>(&self, punkobj: P0, fsetfocus: P1) -> windows_core::Result<()>
@@ -15094,6 +13802,12 @@ pub struct IInputObjectSite_Vtbl {
     pub OnFocusChangeIS: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInputPaneAnimationCoordinator, IInputPaneAnimationCoordinator_Vtbl, 0x2af16ba9_2de5_4b75_82d9_01372afbffb4);
+impl std::ops::Deref for IInputPaneAnimationCoordinator {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IInputPaneAnimationCoordinator, windows_core::IUnknown);
 impl IInputPaneAnimationCoordinator {
     #[cfg(feature = "Win32_Graphics_DirectComposition")]
@@ -15114,6 +13828,12 @@ pub struct IInputPaneAnimationCoordinator_Vtbl {
     AddAnimation: usize,
 }
 windows_core::imp::define_interface!(IInputPanelConfiguration, IInputPanelConfiguration_Vtbl, 0x41c81592_514c_48bd_a22e_e6af638521a6);
+impl std::ops::Deref for IInputPanelConfiguration {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IInputPanelConfiguration, windows_core::IUnknown);
 impl IInputPanelConfiguration {
     pub unsafe fn EnableFocusTracking(&self) -> windows_core::Result<()> {
@@ -15126,6 +13846,12 @@ pub struct IInputPanelConfiguration_Vtbl {
     pub EnableFocusTracking: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInputPanelInvocationConfiguration, IInputPanelInvocationConfiguration_Vtbl, 0xa213f136_3b45_4362_a332_efb6547cd432);
+impl std::ops::Deref for IInputPanelInvocationConfiguration {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IInputPanelInvocationConfiguration, windows_core::IUnknown);
 impl IInputPanelInvocationConfiguration {
     pub unsafe fn RequireTouchInEditControl(&self) -> windows_core::Result<()> {
@@ -15138,6 +13864,12 @@ pub struct IInputPanelInvocationConfiguration_Vtbl {
     pub RequireTouchInEditControl: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInsertItem, IInsertItem_Vtbl, 0xd2b57227_3d23_4b95_93c0_492bd454c356);
+impl std::ops::Deref for IInsertItem {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IInsertItem, windows_core::IUnknown);
 impl IInsertItem {
     #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -15154,6 +13886,12 @@ pub struct IInsertItem_Vtbl {
     InsertItem: usize,
 }
 windows_core::imp::define_interface!(IItemNameLimits, IItemNameLimits_Vtbl, 0x1df0d7f1_b267_4d28_8b10_12e23202a5c4);
+impl std::ops::Deref for IItemNameLimits {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IItemNameLimits, windows_core::IUnknown);
 impl IItemNameLimits {
     pub unsafe fn GetValidCharacters(&self, ppwszvalidchars: *mut windows_core::PWSTR, ppwszinvalidchars: *mut windows_core::PWSTR) -> windows_core::Result<()> {
@@ -15174,6 +13912,12 @@ pub struct IItemNameLimits_Vtbl {
     pub GetMaxLength: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKnownFolder, IKnownFolder_Vtbl, 0x3aa7af7e_9b36_420c_a8e3_f77d4674a488);
+impl std::ops::Deref for IKnownFolder {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IKnownFolder, windows_core::IUnknown);
 impl IKnownFolder {
     pub unsafe fn GetId(&self) -> windows_core::Result<windows_core::GUID> {
@@ -15235,6 +13979,12 @@ pub struct IKnownFolder_Vtbl {
     pub GetFolderDefinition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut KNOWNFOLDER_DEFINITION) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKnownFolderManager, IKnownFolderManager_Vtbl, 0x8be2d872_86aa_4d47_b776_32cca40c7018);
+impl std::ops::Deref for IKnownFolderManager {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IKnownFolderManager, windows_core::IUnknown);
 impl IKnownFolderManager {
     pub unsafe fn FolderIdFromCsidl(&self, ncsidl: i32) -> windows_core::Result<windows_core::GUID> {
@@ -15303,6 +14053,12 @@ pub struct IKnownFolderManager_Vtbl {
     pub Redirect: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, super::super::Foundation::HWND, u32, windows_core::PCWSTR, u32, *const windows_core::GUID, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILaunchSourceAppUserModelId, ILaunchSourceAppUserModelId_Vtbl, 0x989191ac_28ff_4cf0_9584_e0d078bc2396);
+impl std::ops::Deref for ILaunchSourceAppUserModelId {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ILaunchSourceAppUserModelId, windows_core::IUnknown);
 impl ILaunchSourceAppUserModelId {
     pub unsafe fn GetAppUserModelId(&self) -> windows_core::Result<windows_core::PWSTR> {
@@ -15316,6 +14072,12 @@ pub struct ILaunchSourceAppUserModelId_Vtbl {
     pub GetAppUserModelId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILaunchSourceViewSizePreference, ILaunchSourceViewSizePreference_Vtbl, 0xe5aa01f7_1fb8_4830_8720_4e6734cbd5f3);
+impl std::ops::Deref for ILaunchSourceViewSizePreference {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ILaunchSourceViewSizePreference, windows_core::IUnknown);
 impl ILaunchSourceViewSizePreference {
     pub unsafe fn GetSourceViewToPosition(&self) -> windows_core::Result<super::super::Foundation::HWND> {
@@ -15334,6 +14096,12 @@ pub struct ILaunchSourceViewSizePreference_Vtbl {
     pub GetSourceViewSizePreference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut APPLICATION_VIEW_SIZE_PREFERENCE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILaunchTargetMonitor, ILaunchTargetMonitor_Vtbl, 0x266fbc7e_490d_46ed_a96b_2274db252003);
+impl std::ops::Deref for ILaunchTargetMonitor {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ILaunchTargetMonitor, windows_core::IUnknown);
 impl ILaunchTargetMonitor {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -15351,6 +14119,12 @@ pub struct ILaunchTargetMonitor_Vtbl {
     GetMonitor: usize,
 }
 windows_core::imp::define_interface!(ILaunchTargetViewSizePreference, ILaunchTargetViewSizePreference_Vtbl, 0x2f0666c6_12f7_4360_b511_a394a0553725);
+impl std::ops::Deref for ILaunchTargetViewSizePreference {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ILaunchTargetViewSizePreference, windows_core::IUnknown);
 impl ILaunchTargetViewSizePreference {
     pub unsafe fn GetTargetViewSizePreference(&self) -> windows_core::Result<APPLICATION_VIEW_SIZE_PREFERENCE> {
@@ -15364,6 +14138,12 @@ pub struct ILaunchTargetViewSizePreference_Vtbl {
     pub GetTargetViewSizePreference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut APPLICATION_VIEW_SIZE_PREFERENCE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILaunchUIContext, ILaunchUIContext_Vtbl, 0x1791e8f6_21c7_4340_882a_a6a93e3fd73b);
+impl std::ops::Deref for ILaunchUIContext {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ILaunchUIContext, windows_core::IUnknown);
 impl ILaunchUIContext {
     pub unsafe fn SetAssociatedWindow<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -15383,6 +14163,12 @@ pub struct ILaunchUIContext_Vtbl {
     pub SetTabGroupingPreference: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILaunchUIContextProvider, ILaunchUIContextProvider_Vtbl, 0x0d12c4c8_a3d9_4e24_94c1_0e20c5a956c4);
+impl std::ops::Deref for ILaunchUIContextProvider {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ILaunchUIContextProvider, windows_core::IUnknown);
 impl ILaunchUIContextProvider {
     pub unsafe fn UpdateContext<P0>(&self, context: P0) -> windows_core::Result<()>
@@ -15398,6 +14184,12 @@ pub struct ILaunchUIContextProvider_Vtbl {
     pub UpdateContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMenuBand, IMenuBand_Vtbl, 0x568804cd_cbd7_11d0_9816_00c04fd91972);
+impl std::ops::Deref for IMenuBand {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMenuBand, windows_core::IUnknown);
 impl IMenuBand {
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -15424,34 +14216,16 @@ pub struct IMenuBand_Vtbl {
 #[cfg(feature = "Win32_System_Ole")]
 windows_core::imp::define_interface!(IMenuPopup, IMenuPopup_Vtbl, 0xd1e7afeb_6a2e_11d0_8c78_00c04fd918b4);
 #[cfg(feature = "Win32_System_Ole")]
+impl std::ops::Deref for IMenuPopup {
+    type Target = IDeskBar;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Ole")]
 windows_core::imp::interface_hierarchy!(IMenuPopup, windows_core::IUnknown, super::super::System::Ole::IOleWindow, IDeskBar);
 #[cfg(feature = "Win32_System_Ole")]
 impl IMenuPopup {
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetWindow(&self) -> windows_core::Result<super::super::Foundation::HWND> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn ContextSensitiveHelp<P0>(&self, fentermode: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.ContextSensitiveHelp)(windows_core::Interface::as_raw(self), fentermode.param().abi()).ok()
-    }
-    pub unsafe fn SetClient<P0>(&self, punkclient: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetClient)(windows_core::Interface::as_raw(self), punkclient.param().abi()).ok()
-    }
-    pub unsafe fn GetClient(&self) -> windows_core::Result<windows_core::IUnknown> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetClient)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn OnPosRectChangeDB(&self, prc: *const super::super::Foundation::RECT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.OnPosRectChangeDB)(windows_core::Interface::as_raw(self), prc).ok()
-    }
     pub unsafe fn Popup(&self, ppt: *const super::super::Foundation::POINTL, prcexclude: Option<*const super::super::Foundation::RECTL>, dwflags: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Popup)(windows_core::Interface::as_raw(self), ppt, core::mem::transmute(prcexclude.unwrap_or(std::ptr::null())), dwflags).ok()
     }
@@ -15479,6 +14253,12 @@ pub struct IMenuPopup_Vtbl {
     SetSubMenu: usize,
 }
 windows_core::imp::define_interface!(IModalWindow, IModalWindow_Vtbl, 0xb4db1657_70d7_485e_8e3e_6fcb5a5c1802);
+impl std::ops::Deref for IModalWindow {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IModalWindow, windows_core::IUnknown);
 impl IModalWindow {
     pub unsafe fn Show<P0>(&self, hwndowner: P0) -> windows_core::Result<()>
@@ -15494,6 +14274,12 @@ pub struct IModalWindow_Vtbl {
     pub Show: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INameSpaceTreeAccessible, INameSpaceTreeAccessible_Vtbl, 0x71f312de_43ed_4190_8477_e9536b82350b);
+impl std::ops::Deref for INameSpaceTreeAccessible {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INameSpaceTreeAccessible, windows_core::IUnknown);
 impl INameSpaceTreeAccessible {
     pub unsafe fn OnGetDefaultAccessibilityAction<P0>(&self, psi: P0) -> windows_core::Result<windows_core::BSTR>
@@ -15525,6 +14311,12 @@ pub struct INameSpaceTreeAccessible_Vtbl {
     pub OnGetAccessibilityRole: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INameSpaceTreeControl, INameSpaceTreeControl_Vtbl, 0x028212a3_b627_47e9_8856_c14265554e4f);
+impl std::ops::Deref for INameSpaceTreeControl {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INameSpaceTreeControl, windows_core::IUnknown);
 impl INameSpaceTreeControl {
     pub unsafe fn Initialize<P0>(&self, hwndparent: P0, prc: *const super::super::Foundation::RECT, nsctsflags: u32) -> windows_core::Result<()>
@@ -15658,114 +14450,14 @@ pub struct INameSpaceTreeControl_Vtbl {
     pub CollapseAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INameSpaceTreeControl2, INameSpaceTreeControl2_Vtbl, 0x7cc7aed8_290e_49bc_8945_c1401cc9306c);
+impl std::ops::Deref for INameSpaceTreeControl2 {
+    type Target = INameSpaceTreeControl;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INameSpaceTreeControl2, windows_core::IUnknown, INameSpaceTreeControl);
 impl INameSpaceTreeControl2 {
-    pub unsafe fn Initialize<P0>(&self, hwndparent: P0, prc: *const super::super::Foundation::RECT, nsctsflags: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.Initialize)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), prc, nsctsflags).ok()
-    }
-    pub unsafe fn TreeAdvise<P0>(&self, punk: P0) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.TreeAdvise)(windows_core::Interface::as_raw(self), punk.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn TreeUnadvise(&self, dwcookie: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.TreeUnadvise)(windows_core::Interface::as_raw(self), dwcookie).ok()
-    }
-    pub unsafe fn AppendRoot<P0, P1>(&self, psiroot: P0, grfenumflags: u32, grfrootstyle: u32, pif: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellItem>,
-        P1: windows_core::Param<IShellItemFilter>,
-    {
-        (windows_core::Interface::vtable(self).base__.AppendRoot)(windows_core::Interface::as_raw(self), psiroot.param().abi(), grfenumflags, grfrootstyle, pif.param().abi()).ok()
-    }
-    pub unsafe fn InsertRoot<P0, P1>(&self, iindex: i32, psiroot: P0, grfenumflags: u32, grfrootstyle: u32, pif: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellItem>,
-        P1: windows_core::Param<IShellItemFilter>,
-    {
-        (windows_core::Interface::vtable(self).base__.InsertRoot)(windows_core::Interface::as_raw(self), iindex, psiroot.param().abi(), grfenumflags, grfrootstyle, pif.param().abi()).ok()
-    }
-    pub unsafe fn RemoveRoot<P0>(&self, psiroot: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellItem>,
-    {
-        (windows_core::Interface::vtable(self).base__.RemoveRoot)(windows_core::Interface::as_raw(self), psiroot.param().abi()).ok()
-    }
-    pub unsafe fn RemoveAllRoots(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.RemoveAllRoots)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn GetRootItems(&self) -> windows_core::Result<IShellItemArray> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetRootItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetItemState<P0>(&self, psi: P0, nstcismask: u32, nstcisflags: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellItem>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetItemState)(windows_core::Interface::as_raw(self), psi.param().abi(), nstcismask, nstcisflags).ok()
-    }
-    pub unsafe fn GetItemState<P0>(&self, psi: P0, nstcismask: u32) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<IShellItem>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetItemState)(windows_core::Interface::as_raw(self), psi.param().abi(), nstcismask, &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetSelectedItems(&self) -> windows_core::Result<IShellItemArray> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetSelectedItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetItemCustomState<P0>(&self, psi: P0) -> windows_core::Result<i32>
-    where
-        P0: windows_core::Param<IShellItem>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetItemCustomState)(windows_core::Interface::as_raw(self), psi.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetItemCustomState<P0>(&self, psi: P0, istatenumber: i32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellItem>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetItemCustomState)(windows_core::Interface::as_raw(self), psi.param().abi(), istatenumber).ok()
-    }
-    pub unsafe fn EnsureItemVisible<P0>(&self, psi: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellItem>,
-    {
-        (windows_core::Interface::vtable(self).base__.EnsureItemVisible)(windows_core::Interface::as_raw(self), psi.param().abi()).ok()
-    }
-    pub unsafe fn SetTheme<P0>(&self, psztheme: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetTheme)(windows_core::Interface::as_raw(self), psztheme.param().abi()).ok()
-    }
-    pub unsafe fn GetNextItem<P0>(&self, psi: P0, nstcgi: NSTCGNI) -> windows_core::Result<IShellItem>
-    where
-        P0: windows_core::Param<IShellItem>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetNextItem)(windows_core::Interface::as_raw(self), psi.param().abi(), nstcgi, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn HitTest(&self, ppt: *const super::super::Foundation::POINT) -> windows_core::Result<IShellItem> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.HitTest)(windows_core::Interface::as_raw(self), ppt, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetItemRect<P0>(&self, psi: P0) -> windows_core::Result<super::super::Foundation::RECT>
-    where
-        P0: windows_core::Param<IShellItem>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetItemRect)(windows_core::Interface::as_raw(self), psi.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn CollapseAll(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.CollapseAll)(windows_core::Interface::as_raw(self)).ok()
-    }
     pub unsafe fn SetControlStyle(&self, nstcsmask: u32, nstcsstyle: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetControlStyle)(windows_core::Interface::as_raw(self), nstcsmask, nstcsstyle).ok()
     }
@@ -15790,6 +14482,12 @@ pub struct INameSpaceTreeControl2_Vtbl {
     pub GetControlStyle2: unsafe extern "system" fn(*mut core::ffi::c_void, NSTCSTYLE2, *mut NSTCSTYLE2) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INameSpaceTreeControlCustomDraw, INameSpaceTreeControlCustomDraw_Vtbl, 0x2d3ba758_33ee_42d5_bb7b_5f3431d86c78);
+impl std::ops::Deref for INameSpaceTreeControlCustomDraw {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INameSpaceTreeControlCustomDraw, windows_core::IUnknown);
 impl INameSpaceTreeControlCustomDraw {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -15843,6 +14541,12 @@ pub struct INameSpaceTreeControlCustomDraw_Vtbl {
     ItemPostPaint: usize,
 }
 windows_core::imp::define_interface!(INameSpaceTreeControlDropHandler, INameSpaceTreeControlDropHandler_Vtbl, 0xf9c665d6_c2f2_4c19_bf33_8322d7352f51);
+impl std::ops::Deref for INameSpaceTreeControlDropHandler {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INameSpaceTreeControlDropHandler, windows_core::IUnknown);
 impl INameSpaceTreeControlDropHandler {
     pub unsafe fn OnDragEnter<P0, P1, P2>(&self, psiover: P0, psiadata: P1, foutsidesource: P2, grfkeystate: u32, pdweffect: *mut u32) -> windows_core::Result<()>
@@ -15899,6 +14603,12 @@ pub struct INameSpaceTreeControlDropHandler_Vtbl {
     pub OnDragLeave: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INameSpaceTreeControlEvents, INameSpaceTreeControlEvents_Vtbl, 0x93d77985_b3d8_4484_8318_672cdda002ce);
+impl std::ops::Deref for INameSpaceTreeControlEvents {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INameSpaceTreeControlEvents, windows_core::IUnknown);
 impl INameSpaceTreeControlEvents {
     pub unsafe fn OnItemClick<P0>(&self, psi: P0, nstcehittest: u32, nstceclicktype: u32) -> windows_core::Result<()>
@@ -16037,6 +14747,12 @@ pub struct INameSpaceTreeControlEvents_Vtbl {
     pub OnGetDefaultIconIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INameSpaceTreeControlFolderCapabilities, INameSpaceTreeControlFolderCapabilities_Vtbl, 0xe9701183_e6b3_4ff2_8568_813615fec7be);
+impl std::ops::Deref for INameSpaceTreeControlFolderCapabilities {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INameSpaceTreeControlFolderCapabilities, windows_core::IUnknown);
 impl INameSpaceTreeControlFolderCapabilities {
     pub unsafe fn GetFolderCapabilities(&self, nfcmask: NSTCFOLDERCAPABILITIES) -> windows_core::Result<NSTCFOLDERCAPABILITIES> {
@@ -16050,6 +14766,12 @@ pub struct INameSpaceTreeControlFolderCapabilities_Vtbl {
     pub GetFolderCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, NSTCFOLDERCAPABILITIES, *mut NSTCFOLDERCAPABILITIES) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INamedPropertyBag, INamedPropertyBag_Vtbl, 0xfb700430_952c_11d1_946f_000000000000);
+impl std::ops::Deref for INamedPropertyBag {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INamedPropertyBag, windows_core::IUnknown);
 impl INamedPropertyBag {
     pub unsafe fn ReadPropertyNPB<P0, P1>(&self, pszbagname: P0, pszpropname: P1, pvar: *mut windows_core::PROPVARIANT) -> windows_core::Result<()>
@@ -16082,6 +14804,12 @@ pub struct INamedPropertyBag_Vtbl {
     pub RemovePropertyNPB: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INamespaceWalk, INamespaceWalk_Vtbl, 0x57ced8a7_3f4a_432c_9350_30f24483f74f);
+impl std::ops::Deref for INamespaceWalk {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INamespaceWalk, windows_core::IUnknown);
 impl INamespaceWalk {
     pub unsafe fn Walk<P0, P1>(&self, punktowalk: P0, dwflags: u32, cdepth: i32, pnswcb: P1) -> windows_core::Result<()>
@@ -16106,6 +14834,12 @@ pub struct INamespaceWalk_Vtbl {
     GetIDArrayResult: usize,
 }
 windows_core::imp::define_interface!(INamespaceWalkCB, INamespaceWalkCB_Vtbl, 0xd92995f8_cf5e_4a76_bf59_ead39ea2b97e);
+impl std::ops::Deref for INamespaceWalkCB {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INamespaceWalkCB, windows_core::IUnknown);
 impl INamespaceWalkCB {
     #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -16151,32 +14885,14 @@ pub struct INamespaceWalkCB_Vtbl {
     pub InitializeProgressDialog: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INamespaceWalkCB2, INamespaceWalkCB2_Vtbl, 0x7ac7492b_c38e_438a_87db_68737844ff70);
+impl std::ops::Deref for INamespaceWalkCB2 {
+    type Target = INamespaceWalkCB;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INamespaceWalkCB2, windows_core::IUnknown, INamespaceWalkCB);
 impl INamespaceWalkCB2 {
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn FoundItem<P0>(&self, psf: P0, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellFolder>,
-    {
-        (windows_core::Interface::vtable(self).base__.FoundItem)(windows_core::Interface::as_raw(self), psf.param().abi(), pidl).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn EnterFolder<P0>(&self, psf: P0, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellFolder>,
-    {
-        (windows_core::Interface::vtable(self).base__.EnterFolder)(windows_core::Interface::as_raw(self), psf.param().abi(), pidl).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn LeaveFolder<P0>(&self, psf: P0, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellFolder>,
-    {
-        (windows_core::Interface::vtable(self).base__.LeaveFolder)(windows_core::Interface::as_raw(self), psf.param().abi(), pidl).ok()
-    }
-    pub unsafe fn InitializeProgressDialog(&self, ppsztitle: *mut windows_core::PWSTR, ppszcancel: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.InitializeProgressDialog)(windows_core::Interface::as_raw(self), ppsztitle, ppszcancel).ok()
-    }
     pub unsafe fn WalkComplete(&self, hr: windows_core::HRESULT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).WalkComplete)(windows_core::Interface::as_raw(self), hr).ok()
     }
@@ -16187,6 +14903,12 @@ pub struct INamespaceWalkCB2_Vtbl {
     pub WalkComplete: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INetworkFolderInternal, INetworkFolderInternal_Vtbl, 0xceb38218_c971_47bb_a703_f0bc99ccdb81);
+impl std::ops::Deref for INetworkFolderInternal {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INetworkFolderInternal, windows_core::IUnknown);
 impl INetworkFolderInternal {
     pub unsafe fn GetResourceDisplayType(&self) -> windows_core::Result<u32> {
@@ -16217,6 +14939,12 @@ pub struct INetworkFolderInternal_Vtbl {
     GetProvider: usize,
 }
 windows_core::imp::define_interface!(INewMenuClient, INewMenuClient_Vtbl, 0xdcb07fdc_3bb5_451c_90be_966644fed7b0);
+impl std::ops::Deref for INewMenuClient {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INewMenuClient, windows_core::IUnknown);
 impl INewMenuClient {
     pub unsafe fn IncludeItems(&self) -> windows_core::Result<i32> {
@@ -16238,6 +14966,12 @@ pub struct INewMenuClient_Vtbl {
     SelectAndEditItem: usize,
 }
 windows_core::imp::define_interface!(INewShortcutHookA, INewShortcutHookA_Vtbl, 0x000214e1_0000_0000_c000_000000000046);
+impl std::ops::Deref for INewShortcutHookA {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INewShortcutHookA, windows_core::IUnknown);
 impl INewShortcutHookA {
     pub unsafe fn SetReferent<P0, P1>(&self, pcszreferent: P0, hwnd: P1) -> windows_core::Result<()>
@@ -16277,6 +15011,12 @@ pub struct INewShortcutHookA_Vtbl {
     pub GetExtension: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INewShortcutHookW, INewShortcutHookW_Vtbl, 0x000214f7_0000_0000_c000_000000000046);
+impl std::ops::Deref for INewShortcutHookW {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INewShortcutHookW, windows_core::IUnknown);
 impl INewShortcutHookW {
     pub unsafe fn SetReferent<P0, P1>(&self, pcszreferent: P0, hwnd: P1) -> windows_core::Result<()>
@@ -16318,56 +15058,16 @@ pub struct INewShortcutHookW_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INewWDEvents, INewWDEvents_Vtbl, 0x0751c551_7568_41c9_8e5b_e22e38919236);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INewWDEvents {
+    type Target = IWebWizardHost;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INewWDEvents, windows_core::IUnknown, super::super::System::Com::IDispatch, IWebWizardHost);
 #[cfg(feature = "Win32_System_Com")]
 impl INewWDEvents {
-    pub unsafe fn FinalBack(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.FinalBack)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn FinalNext(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.FinalNext)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Cancel(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Cancel)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetCaption<P0>(&self, bstrcaption: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetCaption)(windows_core::Interface::as_raw(self), bstrcaption.param().abi()).ok()
-    }
-    pub unsafe fn Caption(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Caption)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn put_Property<P0>(&self, bstrpropertyname: P0, pvproperty: *const windows_core::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.put_Property)(windows_core::Interface::as_raw(self), bstrpropertyname.param().abi(), core::mem::transmute(pvproperty)).ok()
-    }
-    pub unsafe fn get_Property<P0>(&self, bstrpropertyname: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.get_Property)(windows_core::Interface::as_raw(self), bstrpropertyname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetWizardButtons<P0, P1, P2>(&self, vfenableback: P0, vfenablenext: P1, vflastpage: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetWizardButtons)(windows_core::Interface::as_raw(self), vfenableback.param().abi(), vfenablenext.param().abi(), vflastpage.param().abi()).ok()
-    }
-    pub unsafe fn SetHeaderText<P0, P1>(&self, bstrheadertitle: P0, bstrheadersubtitle: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetHeaderText)(windows_core::Interface::as_raw(self), bstrheadertitle.param().abi(), bstrheadersubtitle.param().abi()).ok()
-    }
     pub unsafe fn PassportAuthenticate<P0>(&self, bstrsigninurl: P0) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -16383,6 +15083,12 @@ pub struct INewWDEvents_Vtbl {
     pub PassportAuthenticate: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INewWindowManager, INewWindowManager_Vtbl, 0xd2bc4c84_3f72_4a52_a604_7bcbf3982cbb);
+impl std::ops::Deref for INewWindowManager {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INewWindowManager, windows_core::IUnknown);
 impl INewWindowManager {
     pub unsafe fn EvaluateNewWindow<P0, P1, P2, P3, P4>(&self, pszurl: P0, pszname: P1, pszurlcontext: P2, pszfeatures: P3, freplace: P4, dwflags: u32, dwuseractiontime: u32) -> windows_core::Result<()>
@@ -16402,6 +15108,12 @@ pub struct INewWindowManager_Vtbl {
     pub EvaluateNewWindow: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, super::super::Foundation::BOOL, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INotifyReplica, INotifyReplica_Vtbl, 0x99180163_da16_101a_935c_444553540000);
+impl std::ops::Deref for INotifyReplica {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INotifyReplica, windows_core::IUnknown);
 impl INotifyReplica {
     #[cfg(feature = "Win32_System_Com")]
@@ -16418,6 +15130,12 @@ pub struct INotifyReplica_Vtbl {
     YouAreAReplica: usize,
 }
 windows_core::imp::define_interface!(IObjMgr, IObjMgr_Vtbl, 0x00bb2761_6a77_11d0_a535_00c04fd7d062);
+impl std::ops::Deref for IObjMgr {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IObjMgr, windows_core::IUnknown);
 impl IObjMgr {
     pub unsafe fn Append<P0>(&self, punk: P0) -> windows_core::Result<()>
@@ -16440,6 +15158,12 @@ pub struct IObjMgr_Vtbl {
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IObjectProvider, IObjectProvider_Vtbl, 0xa6087428_3be3_4d73_b308_7c04a540bf1a);
+impl std::ops::Deref for IObjectProvider {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IObjectProvider, windows_core::IUnknown);
 impl IObjectProvider {
     pub unsafe fn QueryObject<T>(&self, guidobject: *const windows_core::GUID) -> windows_core::Result<T>
@@ -16456,6 +15180,12 @@ pub struct IObjectProvider_Vtbl {
     pub QueryObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IObjectWithAppUserModelID, IObjectWithAppUserModelID_Vtbl, 0x36db0196_9665_46d1_9ba7_d3709eecf9ed);
+impl std::ops::Deref for IObjectWithAppUserModelID {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IObjectWithAppUserModelID, windows_core::IUnknown);
 impl IObjectWithAppUserModelID {
     pub unsafe fn SetAppID<P0>(&self, pszappid: P0) -> windows_core::Result<()>
@@ -16476,6 +15206,12 @@ pub struct IObjectWithAppUserModelID_Vtbl {
     pub GetAppID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IObjectWithBackReferences, IObjectWithBackReferences_Vtbl, 0x321a6a6a_d61f_4bf3_97ae_14be2986bb36);
+impl std::ops::Deref for IObjectWithBackReferences {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IObjectWithBackReferences, windows_core::IUnknown);
 impl IObjectWithBackReferences {
     pub unsafe fn RemoveBackReferences(&self) -> windows_core::Result<()> {
@@ -16488,6 +15224,12 @@ pub struct IObjectWithBackReferences_Vtbl {
     pub RemoveBackReferences: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IObjectWithCancelEvent, IObjectWithCancelEvent_Vtbl, 0xf279b885_0ae9_4b85_ac06_ddecf9408941);
+impl std::ops::Deref for IObjectWithCancelEvent {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IObjectWithCancelEvent, windows_core::IUnknown);
 impl IObjectWithCancelEvent {
     pub unsafe fn GetCancelEvent(&self) -> windows_core::Result<super::super::Foundation::HANDLE> {
@@ -16501,6 +15243,12 @@ pub struct IObjectWithCancelEvent_Vtbl {
     pub GetCancelEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::HANDLE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IObjectWithFolderEnumMode, IObjectWithFolderEnumMode_Vtbl, 0x6a9d9026_0e6e_464c_b000_42ecc07de673);
+impl std::ops::Deref for IObjectWithFolderEnumMode {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IObjectWithFolderEnumMode, windows_core::IUnknown);
 impl IObjectWithFolderEnumMode {
     pub unsafe fn SetMode(&self, femode: FOLDER_ENUM_MODE) -> windows_core::Result<()> {
@@ -16518,6 +15266,12 @@ pub struct IObjectWithFolderEnumMode_Vtbl {
     pub GetMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FOLDER_ENUM_MODE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IObjectWithProgID, IObjectWithProgID_Vtbl, 0x71e806fb_8dee_46fc_bf8c_7748a8a1ae13);
+impl std::ops::Deref for IObjectWithProgID {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IObjectWithProgID, windows_core::IUnknown);
 impl IObjectWithProgID {
     pub unsafe fn SetProgID<P0>(&self, pszprogid: P0) -> windows_core::Result<()>
@@ -16538,6 +15292,12 @@ pub struct IObjectWithProgID_Vtbl {
     pub GetProgID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IObjectWithSelection, IObjectWithSelection_Vtbl, 0x1c9cd5bb_98e9_4491_a60f_31aacc72b83c);
+impl std::ops::Deref for IObjectWithSelection {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IObjectWithSelection, windows_core::IUnknown);
 impl IObjectWithSelection {
     pub unsafe fn SetSelection<P0>(&self, psia: P0) -> windows_core::Result<()>
@@ -16561,6 +15321,12 @@ pub struct IObjectWithSelection_Vtbl {
     pub GetSelection: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpenControlPanel, IOpenControlPanel_Vtbl, 0xd11ad862_66de_4df4_bf6c_1f5621996af1);
+impl std::ops::Deref for IOpenControlPanel {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOpenControlPanel, windows_core::IUnknown);
 impl IOpenControlPanel {
     pub unsafe fn Open<P0, P1, P2>(&self, pszname: P0, pszpage: P1, punksite: P2) -> windows_core::Result<()>
@@ -16590,6 +15356,12 @@ pub struct IOpenControlPanel_Vtbl {
     pub GetCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CPVIEW) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOpenSearchSource, IOpenSearchSource_Vtbl, 0xf0ee7333_e6fc_479b_9f25_a860c234a38e);
+impl std::ops::Deref for IOpenSearchSource {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOpenSearchSource, windows_core::IUnknown);
 impl IOpenSearchSource {
     pub unsafe fn GetResults<P0, P1, T>(&self, hwnd: P0, pszquery: P1, dwstartindex: u32, dwcount: u32) -> windows_core::Result<T>
@@ -16608,6 +15380,12 @@ pub struct IOpenSearchSource_Vtbl {
     pub GetResults: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, windows_core::PCWSTR, u32, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOperationsProgressDialog, IOperationsProgressDialog_Vtbl, 0x0c9fb851_e5c9_43eb_a370_f0677b13874c);
+impl std::ops::Deref for IOperationsProgressDialog {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOperationsProgressDialog, windows_core::IUnknown);
 impl IOperationsProgressDialog {
     pub unsafe fn StartProgressDialog<P0>(&self, hwndowner: P0, flags: u32) -> windows_core::Result<()>
@@ -16673,6 +15451,12 @@ pub struct IOperationsProgressDialog_Vtbl {
     GetOperationStatus: usize,
 }
 windows_core::imp::define_interface!(IPackageDebugSettings, IPackageDebugSettings_Vtbl, 0xf27c3930_8029_4ad1_94e3_3dba417810c1);
+impl std::ops::Deref for IPackageDebugSettings {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPackageDebugSettings, windows_core::IUnknown);
 impl IPackageDebugSettings {
     pub unsafe fn EnableDebugging<P0, P1, P2>(&self, packagefullname: P0, debuggercommandline: P1, environment: P2) -> windows_core::Result<()>
@@ -16782,94 +15566,14 @@ pub struct IPackageDebugSettings_Vtbl {
     pub UnregisterForPackageStateChanges: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPackageDebugSettings2, IPackageDebugSettings2_Vtbl, 0x6e3194bb_ab82_4d22_93f5_fabda40e7b16);
+impl std::ops::Deref for IPackageDebugSettings2 {
+    type Target = IPackageDebugSettings;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPackageDebugSettings2, windows_core::IUnknown, IPackageDebugSettings);
 impl IPackageDebugSettings2 {
-    pub unsafe fn EnableDebugging<P0, P1, P2>(&self, packagefullname: P0, debuggercommandline: P1, environment: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.EnableDebugging)(windows_core::Interface::as_raw(self), packagefullname.param().abi(), debuggercommandline.param().abi(), environment.param().abi()).ok()
-    }
-    pub unsafe fn DisableDebugging<P0>(&self, packagefullname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.DisableDebugging)(windows_core::Interface::as_raw(self), packagefullname.param().abi()).ok()
-    }
-    pub unsafe fn Suspend<P0>(&self, packagefullname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.Suspend)(windows_core::Interface::as_raw(self), packagefullname.param().abi()).ok()
-    }
-    pub unsafe fn Resume<P0>(&self, packagefullname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.Resume)(windows_core::Interface::as_raw(self), packagefullname.param().abi()).ok()
-    }
-    pub unsafe fn TerminateAllProcesses<P0>(&self, packagefullname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.TerminateAllProcesses)(windows_core::Interface::as_raw(self), packagefullname.param().abi()).ok()
-    }
-    pub unsafe fn SetTargetSessionId(&self, sessionid: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetTargetSessionId)(windows_core::Interface::as_raw(self), sessionid).ok()
-    }
-    pub unsafe fn EnumerateBackgroundTasks<P0>(&self, packagefullname: P0, taskcount: *mut u32, taskids: *mut *mut windows_core::GUID, tasknames: *mut *mut windows_core::PCWSTR) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.EnumerateBackgroundTasks)(windows_core::Interface::as_raw(self), packagefullname.param().abi(), taskcount, taskids, tasknames).ok()
-    }
-    pub unsafe fn ActivateBackgroundTask(&self, taskid: *const windows_core::GUID) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.ActivateBackgroundTask)(windows_core::Interface::as_raw(self), taskid).ok()
-    }
-    pub unsafe fn StartServicing<P0>(&self, packagefullname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.StartServicing)(windows_core::Interface::as_raw(self), packagefullname.param().abi()).ok()
-    }
-    pub unsafe fn StopServicing<P0>(&self, packagefullname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.StopServicing)(windows_core::Interface::as_raw(self), packagefullname.param().abi()).ok()
-    }
-    pub unsafe fn StartSessionRedirection<P0>(&self, packagefullname: P0, sessionid: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.StartSessionRedirection)(windows_core::Interface::as_raw(self), packagefullname.param().abi(), sessionid).ok()
-    }
-    pub unsafe fn StopSessionRedirection<P0>(&self, packagefullname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.StopSessionRedirection)(windows_core::Interface::as_raw(self), packagefullname.param().abi()).ok()
-    }
-    pub unsafe fn GetPackageExecutionState<P0>(&self, packagefullname: P0) -> windows_core::Result<PACKAGE_EXECUTION_STATE>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetPackageExecutionState)(windows_core::Interface::as_raw(self), packagefullname.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn RegisterForPackageStateChanges<P0, P1>(&self, packagefullname: P0, ppackageexecutionstatechangenotification: P1) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<IPackageExecutionStateChangeNotification>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RegisterForPackageStateChanges)(windows_core::Interface::as_raw(self), packagefullname.param().abi(), ppackageexecutionstatechangenotification.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn UnregisterForPackageStateChanges(&self, dwcookie: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.UnregisterForPackageStateChanges)(windows_core::Interface::as_raw(self), dwcookie).ok()
-    }
     pub unsafe fn EnumerateApps<P0>(&self, packagefullname: P0, appcount: *mut u32, appusermodelids: *mut *mut windows_core::PWSTR, appdisplaynames: *mut *mut windows_core::PWSTR) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -16883,6 +15587,12 @@ pub struct IPackageDebugSettings2_Vtbl {
     pub EnumerateApps: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u32, *mut *mut windows_core::PWSTR, *mut *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPackageExecutionStateChangeNotification, IPackageExecutionStateChangeNotification_Vtbl, 0x1bb12a62_2ad8_432b_8ccf_0c2c52afcd5b);
+impl std::ops::Deref for IPackageExecutionStateChangeNotification {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPackageExecutionStateChangeNotification, windows_core::IUnknown);
 impl IPackageExecutionStateChangeNotification {
     pub unsafe fn OnStateChanged<P0>(&self, pszpackagefullname: P0, pesnewstate: PACKAGE_EXECUTION_STATE) -> windows_core::Result<()>
@@ -16898,6 +15608,12 @@ pub struct IPackageExecutionStateChangeNotification_Vtbl {
     pub OnStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, PACKAGE_EXECUTION_STATE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IParentAndItem, IParentAndItem_Vtbl, 0xb3a4b685_b685_4805_99d9_5dead2873236);
+impl std::ops::Deref for IParentAndItem {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IParentAndItem, windows_core::IUnknown);
 impl IParentAndItem {
     #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -16925,6 +15641,12 @@ pub struct IParentAndItem_Vtbl {
     GetParentAndItem: usize,
 }
 windows_core::imp::define_interface!(IParseAndCreateItem, IParseAndCreateItem_Vtbl, 0x67efed0e_e827_4408_b493_78f3982b685c);
+impl std::ops::Deref for IParseAndCreateItem {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IParseAndCreateItem, windows_core::IUnknown);
 impl IParseAndCreateItem {
     pub unsafe fn SetItem<P0>(&self, psi: P0) -> windows_core::Result<()>
@@ -16950,14 +15672,16 @@ pub struct IParseAndCreateItem_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IPersistFolder, IPersistFolder_Vtbl, 0x000214ea_0000_0000_c000_000000000046);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IPersistFolder {
+    type Target = super::super::System::Com::IPersist;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IPersistFolder, windows_core::IUnknown, super::super::System::Com::IPersist);
 #[cfg(feature = "Win32_System_Com")]
 impl IPersistFolder {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetClassID(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetClassID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     #[cfg(feature = "Win32_UI_Shell_Common")]
     pub unsafe fn Initialize(&self, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pidl).ok()
@@ -16975,18 +15699,16 @@ pub struct IPersistFolder_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IPersistFolder2, IPersistFolder2_Vtbl, 0x1ac3d9f0_175c_11d1_95be_00609797ea4f);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IPersistFolder2 {
+    type Target = IPersistFolder;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IPersistFolder2, windows_core::IUnknown, super::super::System::Com::IPersist, IPersistFolder);
 #[cfg(feature = "Win32_System_Com")]
 impl IPersistFolder2 {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetClassID(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetClassID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn Initialize(&self, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Initialize)(windows_core::Interface::as_raw(self), pidl).ok()
-    }
     #[cfg(feature = "Win32_UI_Shell_Common")]
     pub unsafe fn GetCurFolder(&self) -> windows_core::Result<*mut Common::ITEMIDLIST> {
         let mut result__ = std::mem::zeroed();
@@ -17005,23 +15727,16 @@ pub struct IPersistFolder2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IPersistFolder3, IPersistFolder3_Vtbl, 0xcef04fdf_fe72_11d2_87a5_00c04f6837cf);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IPersistFolder3 {
+    type Target = IPersistFolder2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IPersistFolder3, windows_core::IUnknown, super::super::System::Com::IPersist, IPersistFolder, IPersistFolder2);
 #[cfg(feature = "Win32_System_Com")]
 impl IPersistFolder3 {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetClassID(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetClassID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn Initialize(&self, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.Initialize)(windows_core::Interface::as_raw(self), pidl).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn GetCurFolder(&self) -> windows_core::Result<*mut Common::ITEMIDLIST> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetCurFolder)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
     pub unsafe fn InitializeEx<P0>(&self, pbc: P0, pidlroot: *const Common::ITEMIDLIST, ppfti: *const PERSIST_FOLDER_TARGET_INFO) -> windows_core::Result<()>
     where
@@ -17050,14 +15765,16 @@ pub struct IPersistFolder3_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IPersistIDList, IPersistIDList_Vtbl, 0x1079acfc_29bd_11d3_8e0d_00c04f6837d5);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IPersistIDList {
+    type Target = super::super::System::Com::IPersist;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IPersistIDList, windows_core::IUnknown, super::super::System::Com::IPersist);
 #[cfg(feature = "Win32_System_Com")]
 impl IPersistIDList {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetClassID(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetClassID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     #[cfg(feature = "Win32_UI_Shell_Common")]
     pub unsafe fn SetIDList(&self, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetIDList)(windows_core::Interface::as_raw(self), pidl).ok()
@@ -17082,6 +15799,12 @@ pub struct IPersistIDList_Vtbl {
     GetIDList: usize,
 }
 windows_core::imp::define_interface!(IPreviewHandler, IPreviewHandler_Vtbl, 0x8895b1c6_b41f_4c1c_a562_0d564250836f);
+impl std::ops::Deref for IPreviewHandler {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPreviewHandler, windows_core::IUnknown);
 impl IPreviewHandler {
     pub unsafe fn SetWindow<P0>(&self, hwnd: P0, prc: *const super::super::Foundation::RECT) -> windows_core::Result<()>
@@ -17126,6 +15849,12 @@ pub struct IPreviewHandler_Vtbl {
     TranslateAccelerator: usize,
 }
 windows_core::imp::define_interface!(IPreviewHandlerFrame, IPreviewHandlerFrame_Vtbl, 0xfec87aaf_35f9_447a_adb7_20234491401a);
+impl std::ops::Deref for IPreviewHandlerFrame {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPreviewHandlerFrame, windows_core::IUnknown);
 impl IPreviewHandlerFrame {
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -17151,6 +15880,12 @@ pub struct IPreviewHandlerFrame_Vtbl {
     TranslateAccelerator: usize,
 }
 windows_core::imp::define_interface!(IPreviewHandlerVisuals, IPreviewHandlerVisuals_Vtbl, 0x196bf9a5_b346_4ef0_aa1e_5dcdb76768b1);
+impl std::ops::Deref for IPreviewHandlerVisuals {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPreviewHandlerVisuals, windows_core::IUnknown);
 impl IPreviewHandlerVisuals {
     pub unsafe fn SetBackgroundColor<P0>(&self, color: P0) -> windows_core::Result<()>
@@ -17181,23 +15916,25 @@ pub struct IPreviewHandlerVisuals_Vtbl {
     pub SetTextColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::COLORREF) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPreviewItem, IPreviewItem_Vtbl, 0x36149969_0a8f_49c8_8b00_4aecb20222fb);
-windows_core::imp::interface_hierarchy!(IPreviewItem, windows_core::IUnknown, IRelatedItem);
-impl IPreviewItem {
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn GetItemIDList(&self) -> windows_core::Result<*mut Common::ITEMIDLIST> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetItemIDList)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetItem(&self) -> windows_core::Result<IShellItem> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+impl std::ops::Deref for IPreviewItem {
+    type Target = IRelatedItem;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
     }
 }
+windows_core::imp::interface_hierarchy!(IPreviewItem, windows_core::IUnknown, IRelatedItem);
+impl IPreviewItem {}
 #[repr(C)]
 pub struct IPreviewItem_Vtbl {
     pub base__: IRelatedItem_Vtbl,
 }
 windows_core::imp::define_interface!(IPreviousVersionsInfo, IPreviousVersionsInfo_Vtbl, 0x76e54780_ad74_48e3_a695_3ba9a0aff10d);
+impl std::ops::Deref for IPreviousVersionsInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPreviousVersionsInfo, windows_core::IUnknown);
 impl IPreviousVersionsInfo {
     pub unsafe fn AreSnapshotsAvailable<P0, P1>(&self, pszpath: P0, foktobeslow: P1) -> windows_core::Result<super::super::Foundation::BOOL>
@@ -17215,6 +15952,12 @@ pub struct IPreviousVersionsInfo_Vtbl {
     pub AreSnapshotsAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::super::Foundation::BOOL, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProfferService, IProfferService_Vtbl, 0xcb728b20_f786_11ce_92ad_00aa00a74cd0);
+impl std::ops::Deref for IProfferService {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IProfferService, windows_core::IUnknown);
 impl IProfferService {
     #[cfg(feature = "Win32_System_Com")]
@@ -17239,6 +15982,12 @@ pub struct IProfferService_Vtbl {
     pub RevokeService: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProgressDialog, IProgressDialog_Vtbl, 0xebbc7c04_315e_11d2_b62f_006097df5bd4);
+impl std::ops::Deref for IProgressDialog {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IProgressDialog, windows_core::IUnknown);
 impl IProgressDialog {
     pub unsafe fn StartProgressDialog<P0, P1>(&self, hwndparent: P0, punkenablemodless: P1, dwflags: u32, pvresevered: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -17304,6 +16053,12 @@ pub struct IProgressDialog_Vtbl {
     pub Timer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPropertyKeyStore, IPropertyKeyStore_Vtbl, 0x75bd59aa_f23b_4963_aba4_0b355752a91b);
+impl std::ops::Deref for IPropertyKeyStore {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPropertyKeyStore, windows_core::IUnknown);
 impl IPropertyKeyStore {
     pub unsafe fn GetKeyCount(&self) -> windows_core::Result<i32> {
@@ -17353,24 +16108,14 @@ pub struct IPropertyKeyStore_Vtbl {
     RemoveKey: usize,
 }
 windows_core::imp::define_interface!(IPublishedApp, IPublishedApp_Vtbl, 0x1bc752e0_9046_11d1_b8b3_006008059382);
+impl std::ops::Deref for IPublishedApp {
+    type Target = IShellApp;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPublishedApp, windows_core::IUnknown, IShellApp);
 impl IPublishedApp {
-    pub unsafe fn GetAppInfo(&self, pai: *mut APPINFODATA) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetAppInfo)(windows_core::Interface::as_raw(self), pai).ok()
-    }
-    pub unsafe fn GetPossibleActions(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetPossibleActions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetSlowAppInfo(&self, psaid: *mut SLOWAPPINFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetSlowAppInfo)(windows_core::Interface::as_raw(self), psaid).ok()
-    }
-    pub unsafe fn GetCachedSlowAppInfo(&self, psaid: *mut SLOWAPPINFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetCachedSlowAppInfo)(windows_core::Interface::as_raw(self), psaid).ok()
-    }
-    pub unsafe fn IsInstalled(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.IsInstalled)(windows_core::Interface::as_raw(self)).ok()
-    }
     pub unsafe fn Install(&self, pstinstall: *const super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Install)(windows_core::Interface::as_raw(self), pstinstall).ok()
     }
@@ -17389,33 +16134,14 @@ pub struct IPublishedApp_Vtbl {
     pub Unschedule: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPublishedApp2, IPublishedApp2_Vtbl, 0x12b81347_1b3a_4a04_aa61_3f768b67fd7e);
+impl std::ops::Deref for IPublishedApp2 {
+    type Target = IPublishedApp;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPublishedApp2, windows_core::IUnknown, IShellApp, IPublishedApp);
 impl IPublishedApp2 {
-    pub unsafe fn GetAppInfo(&self, pai: *mut APPINFODATA) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GetAppInfo)(windows_core::Interface::as_raw(self), pai).ok()
-    }
-    pub unsafe fn GetPossibleActions(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetPossibleActions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetSlowAppInfo(&self, psaid: *mut SLOWAPPINFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GetSlowAppInfo)(windows_core::Interface::as_raw(self), psaid).ok()
-    }
-    pub unsafe fn GetCachedSlowAppInfo(&self, psaid: *mut SLOWAPPINFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GetCachedSlowAppInfo)(windows_core::Interface::as_raw(self), psaid).ok()
-    }
-    pub unsafe fn IsInstalled(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.IsInstalled)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Install(&self, pstinstall: *const super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Install)(windows_core::Interface::as_raw(self), pstinstall).ok()
-    }
-    pub unsafe fn GetPublishedAppInfo(&self, ppai: *mut PUBAPPINFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetPublishedAppInfo)(windows_core::Interface::as_raw(self), ppai).ok()
-    }
-    pub unsafe fn Unschedule(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Unschedule)(windows_core::Interface::as_raw(self)).ok()
-    }
     pub unsafe fn Install2<P0>(&self, pstinstall: *const super::super::Foundation::SYSTEMTIME, hwndparent: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::HWND>,
@@ -17429,22 +16155,14 @@ pub struct IPublishedApp2_Vtbl {
     pub Install2: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::SYSTEMTIME, super::super::Foundation::HWND) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPublishingWizard, IPublishingWizard_Vtbl, 0xaa9198bb_ccec_472d_beed_19a4f6733f7a);
+impl std::ops::Deref for IPublishingWizard {
+    type Target = IWizardExtension;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPublishingWizard, windows_core::IUnknown, IWizardExtension);
 impl IPublishingWizard {
-    #[cfg(feature = "Win32_UI_Controls")]
-    pub unsafe fn AddPages(&self, apages: &mut [super::Controls::HPROPSHEETPAGE], pnpagesadded: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.AddPages)(windows_core::Interface::as_raw(self), core::mem::transmute(apages.as_ptr()), apages.len().try_into().unwrap(), pnpagesadded).ok()
-    }
-    #[cfg(feature = "Win32_UI_Controls")]
-    pub unsafe fn GetFirstPage(&self) -> windows_core::Result<super::Controls::HPROPSHEETPAGE> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetFirstPage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_UI_Controls")]
-    pub unsafe fn GetLastPage(&self) -> windows_core::Result<super::Controls::HPROPSHEETPAGE> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetLastPage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1>(&self, pdo: P0, dwoptions: u32, pszservicescope: P1) -> windows_core::Result<()>
     where
@@ -17471,6 +16189,12 @@ pub struct IPublishingWizard_Vtbl {
     GetTransferManifest: usize,
 }
 windows_core::imp::define_interface!(IQueryAssociations, IQueryAssociations_Vtbl, 0xc46ca590_3c3f_11d2_bee6_0000f805ca57);
+impl std::ops::Deref for IQueryAssociations {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IQueryAssociations, windows_core::IUnknown);
 impl IQueryAssociations {
     #[cfg(feature = "Win32_System_Registry")]
@@ -17525,6 +16249,12 @@ pub struct IQueryAssociations_Vtbl {
     pub GetEnum: unsafe extern "system" fn(*mut core::ffi::c_void, ASSOCF, ASSOCENUM, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IQueryCancelAutoPlay, IQueryCancelAutoPlay_Vtbl, 0xddefe873_6997_4e68_be26_39b633adbe12);
+impl std::ops::Deref for IQueryCancelAutoPlay {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IQueryCancelAutoPlay, windows_core::IUnknown);
 impl IQueryCancelAutoPlay {
     pub unsafe fn AllowAutoPlay<P0, P1>(&self, pszpath: P0, dwcontenttype: u32, pszlabel: P1, dwserialnumber: u32) -> windows_core::Result<()>
@@ -17541,6 +16271,12 @@ pub struct IQueryCancelAutoPlay_Vtbl {
     pub AllowAutoPlay: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IQueryCodePage, IQueryCodePage_Vtbl, 0xc7b236ce_ee80_11d0_985f_006008059382);
+impl std::ops::Deref for IQueryCodePage {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IQueryCodePage, windows_core::IUnknown);
 impl IQueryCodePage {
     pub unsafe fn GetCodePage(&self) -> windows_core::Result<u32> {
@@ -17558,6 +16294,12 @@ pub struct IQueryCodePage_Vtbl {
     pub SetCodePage: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IQueryContinue, IQueryContinue_Vtbl, 0x7307055c_b24a_486b_9f25_163e597a28a9);
+impl std::ops::Deref for IQueryContinue {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IQueryContinue, windows_core::IUnknown);
 impl IQueryContinue {
     pub unsafe fn QueryContinue(&self) -> windows_core::Result<()> {
@@ -17570,11 +16312,14 @@ pub struct IQueryContinue_Vtbl {
     pub QueryContinue: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IQueryContinueWithStatus, IQueryContinueWithStatus_Vtbl, 0x9090be5b_502b_41fb_bccc_0049a6c7254b);
+impl std::ops::Deref for IQueryContinueWithStatus {
+    type Target = IQueryContinue;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IQueryContinueWithStatus, windows_core::IUnknown, IQueryContinue);
 impl IQueryContinueWithStatus {
-    pub unsafe fn QueryContinue(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.QueryContinue)(windows_core::Interface::as_raw(self)).ok()
-    }
     pub unsafe fn SetStatusMessage<P0>(&self, psz: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -17588,6 +16333,12 @@ pub struct IQueryContinueWithStatus_Vtbl {
     pub SetStatusMessage: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IQueryInfo, IQueryInfo_Vtbl, 0x00021500_0000_0000_c000_000000000046);
+impl std::ops::Deref for IQueryInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IQueryInfo, windows_core::IUnknown);
 impl IQueryInfo {
     pub unsafe fn GetInfoTip(&self, dwflags: QITIPF_FLAGS) -> windows_core::Result<windows_core::PWSTR> {
@@ -17606,6 +16357,12 @@ pub struct IQueryInfo_Vtbl {
     pub GetInfoFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRegTreeItem, IRegTreeItem_Vtbl, 0xa9521922_0812_4d44_9ec3_7fd38c726f3d);
+impl std::ops::Deref for IRegTreeItem {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IRegTreeItem, windows_core::IUnknown);
 impl IRegTreeItem {
     pub unsafe fn GetCheckState(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
@@ -17626,6 +16383,12 @@ pub struct IRegTreeItem_Vtbl {
     pub SetCheckState: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRelatedItem, IRelatedItem_Vtbl, 0xa73ce67a_8ab1_44f1_8d43_d2fcbf6b1cd0);
+impl std::ops::Deref for IRelatedItem {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IRelatedItem, windows_core::IUnknown);
 impl IRelatedItem {
     #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -17648,6 +16411,12 @@ pub struct IRelatedItem_Vtbl {
     pub GetItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRemoteComputer, IRemoteComputer_Vtbl, 0x000214fe_0000_0000_c000_000000000046);
+impl std::ops::Deref for IRemoteComputer {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IRemoteComputer, windows_core::IUnknown);
 impl IRemoteComputer {
     pub unsafe fn Initialize<P0, P1>(&self, pszmachine: P0, benumerating: P1) -> windows_core::Result<()>
@@ -17664,6 +16433,12 @@ pub struct IRemoteComputer_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IResolveShellLink, IResolveShellLink_Vtbl, 0x5cd52983_9449_11d2_963a_00c04f79adf0);
+impl std::ops::Deref for IResolveShellLink {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IResolveShellLink, windows_core::IUnknown);
 impl IResolveShellLink {
     pub unsafe fn ResolveShellLink<P0, P1>(&self, punklink: P0, hwnd: P1, fflags: u32) -> windows_core::Result<()>
@@ -17680,6 +16455,12 @@ pub struct IResolveShellLink_Vtbl {
     pub ResolveShellLink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::HWND, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IResultsFolder, IResultsFolder_Vtbl, 0x96e5ae6d_6ae1_4b1c_900c_c6480eaa8828);
+impl std::ops::Deref for IResultsFolder {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IResultsFolder, windows_core::IUnknown);
 impl IResultsFolder {
     pub unsafe fn AddItem<P0>(&self, psi: P0) -> windows_core::Result<()>
@@ -17722,6 +16503,12 @@ pub struct IResultsFolder_Vtbl {
     pub RemoveAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRunnableTask, IRunnableTask_Vtbl, 0x85788d00_6807_11d0_b810_00c04fd706ec);
+impl std::ops::Deref for IRunnableTask {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IRunnableTask, windows_core::IUnknown);
 impl IRunnableTask {
     pub unsafe fn Run(&self) -> windows_core::Result<()> {
@@ -17754,6 +16541,13 @@ pub struct IRunnableTask_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IScriptErrorList, IScriptErrorList_Vtbl, 0xf3470f24_15fd_11d2_bb2e_00805ff7efca);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IScriptErrorList {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IScriptErrorList, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -17837,6 +16631,12 @@ pub struct IScriptErrorList_Vtbl {
     pub setPerErrorDisplay: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISearchBoxInfo, ISearchBoxInfo_Vtbl, 0x6af6e03f_d664_4ef4_9626_f7e0ed36755e);
+impl std::ops::Deref for ISearchBoxInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISearchBoxInfo, windows_core::IUnknown);
 impl ISearchBoxInfo {
     pub unsafe fn GetCondition<T>(&self) -> windows_core::Result<T>
@@ -17858,6 +16658,12 @@ pub struct ISearchBoxInfo_Vtbl {
     pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISearchContext, ISearchContext_Vtbl, 0x09f656a2_41af_480c_88f7_16cc0d164615);
+impl std::ops::Deref for ISearchContext {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISearchContext, windows_core::IUnknown);
 impl ISearchContext {
     pub unsafe fn GetSearchUrl(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -17881,6 +16687,12 @@ pub struct ISearchContext_Vtbl {
     pub GetSearchStyle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISearchFolderItemFactory, ISearchFolderItemFactory_Vtbl, 0xa0ffbc28_5482_4366_be27_3e81e78e06c2);
+impl std::ops::Deref for ISearchFolderItemFactory {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISearchFolderItemFactory, windows_core::IUnknown);
 impl ISearchFolderItemFactory {
     pub unsafe fn SetDisplayName<P0>(&self, pszdisplayname: P0) -> windows_core::Result<()>
@@ -17975,6 +16787,12 @@ pub struct ISearchFolderItemFactory_Vtbl {
     GetIDList: usize,
 }
 windows_core::imp::define_interface!(ISharedBitmap, ISharedBitmap_Vtbl, 0x091162a4_bc96_411f_aae8_c5122cd03363);
+impl std::ops::Deref for ISharedBitmap {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISharedBitmap, windows_core::IUnknown);
 impl ISharedBitmap {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -18022,6 +16840,12 @@ pub struct ISharedBitmap_Vtbl {
     Detach: usize,
 }
 windows_core::imp::define_interface!(ISharingConfigurationManager, ISharingConfigurationManager_Vtbl, 0xb4cd448a_9c86_4466_9201_2e62105b87ae);
+impl std::ops::Deref for ISharingConfigurationManager {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISharingConfigurationManager, windows_core::IUnknown);
 impl ISharingConfigurationManager {
     pub unsafe fn CreateShare(&self, dsid: DEF_SHARE_ID, role: SHARE_ROLE) -> windows_core::Result<()> {
@@ -18059,6 +16883,12 @@ pub struct ISharingConfigurationManager_Vtbl {
     pub ArePrintersShared: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IShellApp, IShellApp_Vtbl, 0xa3e14960_935f_11d1_b8b8_006008059382);
+impl std::ops::Deref for IShellApp {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellApp, windows_core::IUnknown);
 impl IShellApp {
     pub unsafe fn GetAppInfo(&self, pai: *mut APPINFODATA) -> windows_core::Result<()> {
@@ -18090,21 +16920,16 @@ pub struct IShellApp_Vtbl {
 #[cfg(feature = "Win32_System_Ole")]
 windows_core::imp::define_interface!(IShellBrowser, IShellBrowser_Vtbl, 0x000214e2_0000_0000_c000_000000000046);
 #[cfg(feature = "Win32_System_Ole")]
+impl std::ops::Deref for IShellBrowser {
+    type Target = super::super::System::Ole::IOleWindow;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Ole")]
 windows_core::imp::interface_hierarchy!(IShellBrowser, windows_core::IUnknown, super::super::System::Ole::IOleWindow);
 #[cfg(feature = "Win32_System_Ole")]
 impl IShellBrowser {
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetWindow(&self) -> windows_core::Result<super::super::Foundation::HWND> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn ContextSensitiveHelp<P0>(&self, fentermode: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.ContextSensitiveHelp)(windows_core::Interface::as_raw(self), fentermode.param().abi()).ok()
-    }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn InsertMenusSB<P0>(&self, hmenushared: P0, lpmenuwidths: *mut super::super::System::Ole::OLEMENUGROUPWIDTHS) -> windows_core::Result<()>
     where
@@ -18226,6 +17051,12 @@ pub struct IShellBrowser_Vtbl {
     SetToolbarItems: usize,
 }
 windows_core::imp::define_interface!(IShellChangeNotify, IShellChangeNotify_Vtbl, 0xd82be2b1_5764_11d0_a96e_00c04fd705a2);
+impl std::ops::Deref for IShellChangeNotify {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellChangeNotify, windows_core::IUnknown);
 impl IShellChangeNotify {
     #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -18242,6 +17073,12 @@ pub struct IShellChangeNotify_Vtbl {
     OnChange: usize,
 }
 windows_core::imp::define_interface!(IShellDetails, IShellDetails_Vtbl, 0x000214ec_0000_0000_c000_000000000046);
+impl std::ops::Deref for IShellDetails {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellDetails, windows_core::IUnknown);
 impl IShellDetails {
     #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -18263,6 +17100,13 @@ pub struct IShellDetails_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IShellDispatch, IShellDispatch_Vtbl, 0xd8f015c0_c278_11ce_a49e_444553540000);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IShellDispatch {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IShellDispatch, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -18409,104 +17253,16 @@ pub struct IShellDispatch_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IShellDispatch2, IShellDispatch2_Vtbl, 0xa4c6892c_3ba9_11d2_9dea_00c04fb16162);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IShellDispatch2 {
+    type Target = IShellDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IShellDispatch2, windows_core::IUnknown, super::super::System::Com::IDispatch, IShellDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IShellDispatch2 {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Application(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Application)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Parent(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn NameSpace<P0>(&self, vdir: P0) -> windows_core::Result<Folder>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.NameSpace)(windows_core::Interface::as_raw(self), vdir.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BrowseForFolder<P0, P1>(&self, hwnd: i32, title: P0, options: i32, rootfolder: P1) -> windows_core::Result<Folder>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.BrowseForFolder)(windows_core::Interface::as_raw(self), hwnd, title.param().abi(), options, rootfolder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Windows(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Windows)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Open<P0>(&self, vdir: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.Open)(windows_core::Interface::as_raw(self), vdir.param().abi()).ok()
-    }
-    pub unsafe fn Explore<P0>(&self, vdir: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.Explore)(windows_core::Interface::as_raw(self), vdir.param().abi()).ok()
-    }
-    pub unsafe fn MinimizeAll(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.MinimizeAll)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn UndoMinimizeALL(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.UndoMinimizeALL)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn FileRun(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.FileRun)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn CascadeWindows(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.CascadeWindows)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn TileVertically(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.TileVertically)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn TileHorizontally(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.TileHorizontally)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ShutdownWindows(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.ShutdownWindows)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Suspend(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Suspend)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn EjectPC(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.EjectPC)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetTime(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetTime)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn TrayProperties(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.TrayProperties)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Help(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Help)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn FindFiles(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.FindFiles)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn FindComputer(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.FindComputer)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn RefreshMenu(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.RefreshMenu)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ControlPanelItem<P0>(&self, bstrdir: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.ControlPanelItem)(windows_core::Interface::as_raw(self), bstrdir.param().abi()).ok()
-    }
     pub unsafe fn IsRestricted<P0, P1>(&self, group: P0, restriction: P1) -> windows_core::Result<i32>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -18596,175 +17352,16 @@ pub struct IShellDispatch2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IShellDispatch3, IShellDispatch3_Vtbl, 0x177160ca_bb5a_411c_841d_bd38facdeaa0);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IShellDispatch3 {
+    type Target = IShellDispatch2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IShellDispatch3, windows_core::IUnknown, super::super::System::Com::IDispatch, IShellDispatch, IShellDispatch2);
 #[cfg(feature = "Win32_System_Com")]
 impl IShellDispatch3 {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Application(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Application)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Parent(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn NameSpace<P0>(&self, vdir: P0) -> windows_core::Result<Folder>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.NameSpace)(windows_core::Interface::as_raw(self), vdir.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BrowseForFolder<P0, P1>(&self, hwnd: i32, title: P0, options: i32, rootfolder: P1) -> windows_core::Result<Folder>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.BrowseForFolder)(windows_core::Interface::as_raw(self), hwnd, title.param().abi(), options, rootfolder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Windows(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Windows)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Open<P0>(&self, vdir: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.Open)(windows_core::Interface::as_raw(self), vdir.param().abi()).ok()
-    }
-    pub unsafe fn Explore<P0>(&self, vdir: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.Explore)(windows_core::Interface::as_raw(self), vdir.param().abi()).ok()
-    }
-    pub unsafe fn MinimizeAll(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.MinimizeAll)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn UndoMinimizeALL(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.UndoMinimizeALL)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn FileRun(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.FileRun)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn CascadeWindows(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.CascadeWindows)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn TileVertically(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.TileVertically)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn TileHorizontally(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.TileHorizontally)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ShutdownWindows(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.ShutdownWindows)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Suspend(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.Suspend)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn EjectPC(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.EjectPC)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetTime(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetTime)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn TrayProperties(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.TrayProperties)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Help(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.Help)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn FindFiles(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.FindFiles)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn FindComputer(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.FindComputer)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn RefreshMenu(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.RefreshMenu)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ControlPanelItem<P0>(&self, bstrdir: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.ControlPanelItem)(windows_core::Interface::as_raw(self), bstrdir.param().abi()).ok()
-    }
-    pub unsafe fn IsRestricted<P0, P1>(&self, group: P0, restriction: P1) -> windows_core::Result<i32>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsRestricted)(windows_core::Interface::as_raw(self), group.param().abi(), restriction.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ShellExecute<P0, P1, P2, P3, P4>(&self, file: P0, vargs: P1, vdir: P2, voperation: P3, vshow: P4) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-        P2: windows_core::Param<windows_core::VARIANT>,
-        P3: windows_core::Param<windows_core::VARIANT>,
-        P4: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.ShellExecute)(windows_core::Interface::as_raw(self), file.param().abi(), vargs.param().abi(), vdir.param().abi(), voperation.param().abi(), vshow.param().abi()).ok()
-    }
-    pub unsafe fn FindPrinter<P0, P1, P2>(&self, name: P0, location: P1, model: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.FindPrinter)(windows_core::Interface::as_raw(self), name.param().abi(), location.param().abi(), model.param().abi()).ok()
-    }
-    pub unsafe fn GetSystemInformation<P0>(&self, name: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetSystemInformation)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn ServiceStart<P0, P1>(&self, servicename: P0, persistent: P1) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ServiceStart)(windows_core::Interface::as_raw(self), servicename.param().abi(), persistent.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn ServiceStop<P0, P1>(&self, servicename: P0, persistent: P1) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ServiceStop)(windows_core::Interface::as_raw(self), servicename.param().abi(), persistent.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn IsServiceRunning<P0>(&self, servicename: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsServiceRunning)(windows_core::Interface::as_raw(self), servicename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn CanStartStopService<P0>(&self, servicename: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CanStartStopService)(windows_core::Interface::as_raw(self), servicename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn ShowBrowserBar<P0, P1>(&self, bstrclsid: P0, bshow: P1) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ShowBrowserBar)(windows_core::Interface::as_raw(self), bstrclsid.param().abi(), bshow.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn AddToRecent<P0, P1>(&self, varfile: P0, bstrcategory: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::VARIANT>,
@@ -18782,182 +17379,16 @@ pub struct IShellDispatch3_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IShellDispatch4, IShellDispatch4_Vtbl, 0xefd84b2d_4bcf_4298_be25_eb542a59fbda);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IShellDispatch4 {
+    type Target = IShellDispatch3;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IShellDispatch4, windows_core::IUnknown, super::super::System::Com::IDispatch, IShellDispatch, IShellDispatch2, IShellDispatch3);
 #[cfg(feature = "Win32_System_Com")]
 impl IShellDispatch4 {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Application(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.Application)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Parent(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn NameSpace<P0>(&self, vdir: P0) -> windows_core::Result<Folder>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.NameSpace)(windows_core::Interface::as_raw(self), vdir.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BrowseForFolder<P0, P1>(&self, hwnd: i32, title: P0, options: i32, rootfolder: P1) -> windows_core::Result<Folder>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.BrowseForFolder)(windows_core::Interface::as_raw(self), hwnd, title.param().abi(), options, rootfolder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Windows(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.Windows)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Open<P0>(&self, vdir: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.Open)(windows_core::Interface::as_raw(self), vdir.param().abi()).ok()
-    }
-    pub unsafe fn Explore<P0>(&self, vdir: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.Explore)(windows_core::Interface::as_raw(self), vdir.param().abi()).ok()
-    }
-    pub unsafe fn MinimizeAll(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.MinimizeAll)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn UndoMinimizeALL(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.UndoMinimizeALL)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn FileRun(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.FileRun)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn CascadeWindows(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.CascadeWindows)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn TileVertically(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.TileVertically)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn TileHorizontally(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.TileHorizontally)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ShutdownWindows(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.ShutdownWindows)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Suspend(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.Suspend)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn EjectPC(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.EjectPC)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetTime(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetTime)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn TrayProperties(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.TrayProperties)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Help(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.Help)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn FindFiles(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.FindFiles)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn FindComputer(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.FindComputer)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn RefreshMenu(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.RefreshMenu)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ControlPanelItem<P0>(&self, bstrdir: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.ControlPanelItem)(windows_core::Interface::as_raw(self), bstrdir.param().abi()).ok()
-    }
-    pub unsafe fn IsRestricted<P0, P1>(&self, group: P0, restriction: P1) -> windows_core::Result<i32>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsRestricted)(windows_core::Interface::as_raw(self), group.param().abi(), restriction.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ShellExecute<P0, P1, P2, P3, P4>(&self, file: P0, vargs: P1, vdir: P2, voperation: P3, vshow: P4) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-        P2: windows_core::Param<windows_core::VARIANT>,
-        P3: windows_core::Param<windows_core::VARIANT>,
-        P4: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.ShellExecute)(windows_core::Interface::as_raw(self), file.param().abi(), vargs.param().abi(), vdir.param().abi(), voperation.param().abi(), vshow.param().abi()).ok()
-    }
-    pub unsafe fn FindPrinter<P0, P1, P2>(&self, name: P0, location: P1, model: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.FindPrinter)(windows_core::Interface::as_raw(self), name.param().abi(), location.param().abi(), model.param().abi()).ok()
-    }
-    pub unsafe fn GetSystemInformation<P0>(&self, name: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetSystemInformation)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn ServiceStart<P0, P1>(&self, servicename: P0, persistent: P1) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ServiceStart)(windows_core::Interface::as_raw(self), servicename.param().abi(), persistent.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn ServiceStop<P0, P1>(&self, servicename: P0, persistent: P1) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ServiceStop)(windows_core::Interface::as_raw(self), servicename.param().abi(), persistent.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn IsServiceRunning<P0>(&self, servicename: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsServiceRunning)(windows_core::Interface::as_raw(self), servicename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn CanStartStopService<P0>(&self, servicename: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CanStartStopService)(windows_core::Interface::as_raw(self), servicename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn ShowBrowserBar<P0, P1>(&self, bstrclsid: P0, bshow: P1) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ShowBrowserBar)(windows_core::Interface::as_raw(self), bstrclsid.param().abi(), bshow.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AddToRecent<P0, P1>(&self, varfile: P0, bstrcategory: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.AddToRecent)(windows_core::Interface::as_raw(self), varfile.param().abi(), bstrcategory.param().abi()).ok()
-    }
     pub unsafe fn WindowsSecurity(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).WindowsSecurity)(windows_core::Interface::as_raw(self)).ok()
     }
@@ -18988,199 +17419,16 @@ pub struct IShellDispatch4_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IShellDispatch5, IShellDispatch5_Vtbl, 0x866738b9_6cf2_4de8_8767_f794ebe74f4e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IShellDispatch5 {
+    type Target = IShellDispatch4;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IShellDispatch5, windows_core::IUnknown, super::super::System::Com::IDispatch, IShellDispatch, IShellDispatch2, IShellDispatch3, IShellDispatch4);
 #[cfg(feature = "Win32_System_Com")]
 impl IShellDispatch5 {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Application(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.Application)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Parent(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn NameSpace<P0>(&self, vdir: P0) -> windows_core::Result<Folder>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.NameSpace)(windows_core::Interface::as_raw(self), vdir.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BrowseForFolder<P0, P1>(&self, hwnd: i32, title: P0, options: i32, rootfolder: P1) -> windows_core::Result<Folder>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.BrowseForFolder)(windows_core::Interface::as_raw(self), hwnd, title.param().abi(), options, rootfolder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Windows(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.Windows)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Open<P0>(&self, vdir: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.Open)(windows_core::Interface::as_raw(self), vdir.param().abi()).ok()
-    }
-    pub unsafe fn Explore<P0>(&self, vdir: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.Explore)(windows_core::Interface::as_raw(self), vdir.param().abi()).ok()
-    }
-    pub unsafe fn MinimizeAll(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.MinimizeAll)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn UndoMinimizeALL(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.UndoMinimizeALL)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn FileRun(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.FileRun)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn CascadeWindows(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.CascadeWindows)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn TileVertically(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.TileVertically)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn TileHorizontally(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.TileHorizontally)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ShutdownWindows(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ShutdownWindows)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Suspend(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.Suspend)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn EjectPC(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.EjectPC)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetTime(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetTime)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn TrayProperties(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.TrayProperties)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Help(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.Help)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn FindFiles(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.FindFiles)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn FindComputer(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.FindComputer)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn RefreshMenu(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.RefreshMenu)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ControlPanelItem<P0>(&self, bstrdir: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ControlPanelItem)(windows_core::Interface::as_raw(self), bstrdir.param().abi()).ok()
-    }
-    pub unsafe fn IsRestricted<P0, P1>(&self, group: P0, restriction: P1) -> windows_core::Result<i32>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.IsRestricted)(windows_core::Interface::as_raw(self), group.param().abi(), restriction.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ShellExecute<P0, P1, P2, P3, P4>(&self, file: P0, vargs: P1, vdir: P2, voperation: P3, vshow: P4) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-        P2: windows_core::Param<windows_core::VARIANT>,
-        P3: windows_core::Param<windows_core::VARIANT>,
-        P4: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.ShellExecute)(windows_core::Interface::as_raw(self), file.param().abi(), vargs.param().abi(), vdir.param().abi(), voperation.param().abi(), vshow.param().abi()).ok()
-    }
-    pub unsafe fn FindPrinter<P0, P1, P2>(&self, name: P0, location: P1, model: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.FindPrinter)(windows_core::Interface::as_raw(self), name.param().abi(), location.param().abi(), model.param().abi()).ok()
-    }
-    pub unsafe fn GetSystemInformation<P0>(&self, name: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetSystemInformation)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn ServiceStart<P0, P1>(&self, servicename: P0, persistent: P1) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.ServiceStart)(windows_core::Interface::as_raw(self), servicename.param().abi(), persistent.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn ServiceStop<P0, P1>(&self, servicename: P0, persistent: P1) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.ServiceStop)(windows_core::Interface::as_raw(self), servicename.param().abi(), persistent.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn IsServiceRunning<P0>(&self, servicename: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.IsServiceRunning)(windows_core::Interface::as_raw(self), servicename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn CanStartStopService<P0>(&self, servicename: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.CanStartStopService)(windows_core::Interface::as_raw(self), servicename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn ShowBrowserBar<P0, P1>(&self, bstrclsid: P0, bshow: P1) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.ShowBrowserBar)(windows_core::Interface::as_raw(self), bstrclsid.param().abi(), bshow.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AddToRecent<P0, P1>(&self, varfile: P0, bstrcategory: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.AddToRecent)(windows_core::Interface::as_raw(self), varfile.param().abi(), bstrcategory.param().abi()).ok()
-    }
-    pub unsafe fn WindowsSecurity(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.WindowsSecurity)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ToggleDesktop(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.ToggleDesktop)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ExplorerPolicy<P0>(&self, bstrpolicyname: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ExplorerPolicy)(windows_core::Interface::as_raw(self), bstrpolicyname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetSetting(&self, lsetting: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetSetting)(windows_core::Interface::as_raw(self), lsetting, &mut result__).map(|| result__)
-    }
     pub unsafe fn WindowSwitcher(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).WindowSwitcher)(windows_core::Interface::as_raw(self)).ok()
     }
@@ -19194,202 +17442,16 @@ pub struct IShellDispatch5_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IShellDispatch6, IShellDispatch6_Vtbl, 0x286e6f1b_7113_4355_9562_96b7e9d64c54);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IShellDispatch6 {
+    type Target = IShellDispatch5;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IShellDispatch6, windows_core::IUnknown, super::super::System::Com::IDispatch, IShellDispatch, IShellDispatch2, IShellDispatch3, IShellDispatch4, IShellDispatch5);
 #[cfg(feature = "Win32_System_Com")]
 impl IShellDispatch6 {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Application(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.Application)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Parent(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn NameSpace<P0>(&self, vdir: P0) -> windows_core::Result<Folder>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.NameSpace)(windows_core::Interface::as_raw(self), vdir.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BrowseForFolder<P0, P1>(&self, hwnd: i32, title: P0, options: i32, rootfolder: P1) -> windows_core::Result<Folder>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.BrowseForFolder)(windows_core::Interface::as_raw(self), hwnd, title.param().abi(), options, rootfolder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Windows(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.Windows)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Open<P0>(&self, vdir: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.Open)(windows_core::Interface::as_raw(self), vdir.param().abi()).ok()
-    }
-    pub unsafe fn Explore<P0>(&self, vdir: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.Explore)(windows_core::Interface::as_raw(self), vdir.param().abi()).ok()
-    }
-    pub unsafe fn MinimizeAll(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.MinimizeAll)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn UndoMinimizeALL(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.UndoMinimizeALL)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn FileRun(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.FileRun)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn CascadeWindows(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CascadeWindows)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn TileVertically(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.TileVertically)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn TileHorizontally(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.TileHorizontally)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ShutdownWindows(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ShutdownWindows)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Suspend(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.Suspend)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn EjectPC(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.EjectPC)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetTime(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetTime)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn TrayProperties(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.TrayProperties)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Help(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.Help)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn FindFiles(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.FindFiles)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn FindComputer(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.FindComputer)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn RefreshMenu(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RefreshMenu)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ControlPanelItem<P0>(&self, bstrdir: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ControlPanelItem)(windows_core::Interface::as_raw(self), bstrdir.param().abi()).ok()
-    }
-    pub unsafe fn IsRestricted<P0, P1>(&self, group: P0, restriction: P1) -> windows_core::Result<i32>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.IsRestricted)(windows_core::Interface::as_raw(self), group.param().abi(), restriction.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ShellExecute<P0, P1, P2, P3, P4>(&self, file: P0, vargs: P1, vdir: P2, voperation: P3, vshow: P4) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-        P2: windows_core::Param<windows_core::VARIANT>,
-        P3: windows_core::Param<windows_core::VARIANT>,
-        P4: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ShellExecute)(windows_core::Interface::as_raw(self), file.param().abi(), vargs.param().abi(), vdir.param().abi(), voperation.param().abi(), vshow.param().abi()).ok()
-    }
-    pub unsafe fn FindPrinter<P0, P1, P2>(&self, name: P0, location: P1, model: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.FindPrinter)(windows_core::Interface::as_raw(self), name.param().abi(), location.param().abi(), model.param().abi()).ok()
-    }
-    pub unsafe fn GetSystemInformation<P0>(&self, name: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.GetSystemInformation)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn ServiceStart<P0, P1>(&self, servicename: P0, persistent: P1) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ServiceStart)(windows_core::Interface::as_raw(self), servicename.param().abi(), persistent.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn ServiceStop<P0, P1>(&self, servicename: P0, persistent: P1) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ServiceStop)(windows_core::Interface::as_raw(self), servicename.param().abi(), persistent.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn IsServiceRunning<P0>(&self, servicename: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.IsServiceRunning)(windows_core::Interface::as_raw(self), servicename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn CanStartStopService<P0>(&self, servicename: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.CanStartStopService)(windows_core::Interface::as_raw(self), servicename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn ShowBrowserBar<P0, P1>(&self, bstrclsid: P0, bshow: P1) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ShowBrowserBar)(windows_core::Interface::as_raw(self), bstrclsid.param().abi(), bshow.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AddToRecent<P0, P1>(&self, varfile: P0, bstrcategory: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.AddToRecent)(windows_core::Interface::as_raw(self), varfile.param().abi(), bstrcategory.param().abi()).ok()
-    }
-    pub unsafe fn WindowsSecurity(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.WindowsSecurity)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ToggleDesktop(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.ToggleDesktop)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ExplorerPolicy<P0>(&self, bstrpolicyname: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ExplorerPolicy)(windows_core::Interface::as_raw(self), bstrpolicyname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetSetting(&self, lsetting: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetSetting)(windows_core::Interface::as_raw(self), lsetting, &mut result__).map(|| result__)
-    }
-    pub unsafe fn WindowSwitcher(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.WindowSwitcher)(windows_core::Interface::as_raw(self)).ok()
-    }
     pub unsafe fn SearchCommand(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SearchCommand)(windows_core::Interface::as_raw(self)).ok()
     }
@@ -19401,6 +17463,12 @@ pub struct IShellDispatch6_Vtbl {
     pub SearchCommand: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IShellExtInit, IShellExtInit_Vtbl, 0x000214e8_0000_0000_c000_000000000046);
+impl std::ops::Deref for IShellExtInit {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellExtInit, windows_core::IUnknown);
 impl IShellExtInit {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
@@ -19422,6 +17490,13 @@ pub struct IShellExtInit_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IShellFavoritesNameSpace, IShellFavoritesNameSpace_Vtbl, 0x55136804_b2de_11d1_b9f2_00a0c98bc547);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IShellFavoritesNameSpace {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IShellFavoritesNameSpace, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -19494,6 +17569,12 @@ pub struct IShellFavoritesNameSpace_Vtbl {
     pub SetRoot: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IShellFolder, IShellFolder_Vtbl, 0x000214e6_0000_0000_c000_000000000046);
+impl std::ops::Deref for IShellFolder {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellFolder, windows_core::IUnknown);
 impl IShellFolder {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
@@ -19609,81 +17690,14 @@ pub struct IShellFolder_Vtbl {
     SetNameOf: usize,
 }
 windows_core::imp::define_interface!(IShellFolder2, IShellFolder2_Vtbl, 0x93f2f68c_1d1b_11d3_a30e_00c04f79abd1);
+impl std::ops::Deref for IShellFolder2 {
+    type Target = IShellFolder;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellFolder2, windows_core::IUnknown, IShellFolder);
 impl IShellFolder2 {
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
-    pub unsafe fn ParseDisplayName<P0, P1, P2>(&self, hwnd: P0, pbc: P1, pszdisplayname: P2, pcheaten: Option<*const u32>, ppidl: *mut *mut Common::ITEMIDLIST, pdwattributes: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-        P1: windows_core::Param<super::super::System::Com::IBindCtx>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.ParseDisplayName)(windows_core::Interface::as_raw(self), hwnd.param().abi(), pbc.param().abi(), pszdisplayname.param().abi(), core::mem::transmute(pcheaten.unwrap_or(std::ptr::null())), ppidl, pdwattributes).ok()
-    }
-    pub unsafe fn EnumObjects<P0>(&self, hwnd: P0, grfflags: u32, ppenumidlist: *mut Option<IEnumIDList>) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.EnumObjects)(windows_core::Interface::as_raw(self), hwnd.param().abi(), grfflags, core::mem::transmute(ppenumidlist))
-    }
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
-    pub unsafe fn BindToObject<P0, T>(&self, pidl: *const Common::ITEMIDLIST, pbc: P0) -> windows_core::Result<T>
-    where
-        P0: windows_core::Param<super::super::System::Com::IBindCtx>,
-        T: windows_core::Interface,
-    {
-        let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).base__.BindToObject)(windows_core::Interface::as_raw(self), pidl, pbc.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
-    pub unsafe fn BindToStorage<P0, T>(&self, pidl: *const Common::ITEMIDLIST, pbc: P0) -> windows_core::Result<T>
-    where
-        P0: windows_core::Param<super::super::System::Com::IBindCtx>,
-        T: windows_core::Interface,
-    {
-        let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).base__.BindToStorage)(windows_core::Interface::as_raw(self), pidl, pbc.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn CompareIDs<P0>(&self, lparam: P0, pidl1: *const Common::ITEMIDLIST, pidl2: *const Common::ITEMIDLIST) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::LPARAM>,
-    {
-        (windows_core::Interface::vtable(self).base__.CompareIDs)(windows_core::Interface::as_raw(self), lparam.param().abi(), pidl1, pidl2).ok()
-    }
-    pub unsafe fn CreateViewObject<P0, T>(&self, hwndowner: P0) -> windows_core::Result<T>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-        T: windows_core::Interface,
-    {
-        let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).base__.CreateViewObject)(windows_core::Interface::as_raw(self), hwndowner.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn GetAttributesOf(&self, apidl: &[*const Common::ITEMIDLIST], rgfinout: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetAttributesOf)(windows_core::Interface::as_raw(self), apidl.len().try_into().unwrap(), core::mem::transmute(apidl.as_ptr()), rgfinout).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn GetUIObjectOf<P0, T>(&self, hwndowner: P0, apidl: &[*const Common::ITEMIDLIST], rgfreserved: Option<*const u32>) -> windows_core::Result<T>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-        T: windows_core::Interface,
-    {
-        let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).base__.GetUIObjectOf)(windows_core::Interface::as_raw(self), hwndowner.param().abi(), apidl.len().try_into().unwrap(), core::mem::transmute(apidl.as_ptr()), &T::IID, core::mem::transmute(rgfreserved.unwrap_or(std::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn GetDisplayNameOf(&self, pidl: *const Common::ITEMIDLIST, uflags: SHGDNF, pname: *mut Common::STRRET) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetDisplayNameOf)(windows_core::Interface::as_raw(self), pidl, uflags, pname).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn SetNameOf<P0, P1>(&self, hwnd: P0, pidl: *const Common::ITEMIDLIST, pszname: P1, uflags: SHGDNF, ppidlout: Option<*mut *mut Common::ITEMIDLIST>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetNameOf)(windows_core::Interface::as_raw(self), hwnd.param().abi(), pidl, pszname.param().abi(), uflags, core::mem::transmute(ppidlout.unwrap_or(std::ptr::null_mut()))).ok()
-    }
     pub unsafe fn GetDefaultSearchGUID(&self) -> windows_core::Result<windows_core::GUID> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDefaultSearchGUID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -19734,6 +17748,12 @@ pub struct IShellFolder2_Vtbl {
     MapColumnToSCID: usize,
 }
 windows_core::imp::define_interface!(IShellFolderBand, IShellFolderBand_Vtbl, 0x7fe80cc8_c247_11d0_b93a_00a0c90312e1);
+impl std::ops::Deref for IShellFolderBand {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellFolderBand, windows_core::IUnknown);
 impl IShellFolderBand {
     #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -19769,6 +17789,12 @@ pub struct IShellFolderBand_Vtbl {
     GetBandInfoSFB: usize,
 }
 windows_core::imp::define_interface!(IShellFolderView, IShellFolderView_Vtbl, 0x37a378c0_f82d_11ce_ae65_08002b2e1262);
+impl std::ops::Deref for IShellFolderView {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellFolderView, windows_core::IUnknown);
 impl IShellFolderView {
     pub unsafe fn Rearrange<P0>(&self, lparamsort: P0) -> windows_core::Result<()>
@@ -19975,6 +18001,12 @@ pub struct IShellFolderView_Vtbl {
     SetAutomationObject: usize,
 }
 windows_core::imp::define_interface!(IShellFolderViewCB, IShellFolderViewCB_Vtbl, 0x2047e320_f2a9_11ce_ae65_08002b2e1262);
+impl std::ops::Deref for IShellFolderViewCB {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellFolderViewCB, windows_core::IUnknown);
 impl IShellFolderViewCB {
     pub unsafe fn MessageSFVCB<P0, P1>(&self, umsg: SFVM_MESSAGE_ID, wparam: P0, lparam: P1) -> windows_core::Result<()>
@@ -19992,6 +18024,13 @@ pub struct IShellFolderViewCB_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IShellFolderViewDual, IShellFolderViewDual_Vtbl, 0xe7a1af80_4d96_11cf_960c_0080c7f4ee85);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IShellFolderViewDual {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IShellFolderViewDual, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -20082,56 +18121,16 @@ pub struct IShellFolderViewDual_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IShellFolderViewDual2, IShellFolderViewDual2_Vtbl, 0x31c147b6_0ade_4a3c_b514_ddf932ef6d17);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IShellFolderViewDual2 {
+    type Target = IShellFolderViewDual;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IShellFolderViewDual2, windows_core::IUnknown, super::super::System::Com::IDispatch, IShellFolderViewDual);
 #[cfg(feature = "Win32_System_Com")]
 impl IShellFolderViewDual2 {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Application(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Application)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Parent(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Folder(&self) -> windows_core::Result<Folder> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Folder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SelectedItems(&self) -> windows_core::Result<FolderItems> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SelectedItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn FocusedItem(&self) -> windows_core::Result<FolderItem> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FocusedItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SelectItem(&self, pvfi: *const windows_core::VARIANT, dwflags: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SelectItem)(windows_core::Interface::as_raw(self), core::mem::transmute(pvfi), dwflags).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn PopupItemMenu<P0, P1, P2>(&self, pfi: P0, vx: P1, vy: P2) -> windows_core::Result<windows_core::BSTR>
-    where
-        P0: windows_core::Param<FolderItem>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-        P2: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.PopupItemMenu)(windows_core::Interface::as_raw(self), pfi.param().abi(), vx.param().abi(), vy.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Script(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Script)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn ViewOptions(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ViewOptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     pub unsafe fn CurrentViewMode(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).CurrentViewMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -20154,66 +18153,16 @@ pub struct IShellFolderViewDual2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IShellFolderViewDual3, IShellFolderViewDual3_Vtbl, 0x29ec8e6c_46d3_411f_baaa_611a6c9cac66);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IShellFolderViewDual3 {
+    type Target = IShellFolderViewDual2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IShellFolderViewDual3, windows_core::IUnknown, super::super::System::Com::IDispatch, IShellFolderViewDual, IShellFolderViewDual2);
 #[cfg(feature = "Win32_System_Com")]
 impl IShellFolderViewDual3 {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Application(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Application)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Parent(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Folder(&self) -> windows_core::Result<Folder> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Folder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SelectedItems(&self) -> windows_core::Result<FolderItems> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.SelectedItems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn FocusedItem(&self) -> windows_core::Result<FolderItem> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.FocusedItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SelectItem(&self, pvfi: *const windows_core::VARIANT, dwflags: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SelectItem)(windows_core::Interface::as_raw(self), core::mem::transmute(pvfi), dwflags).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn PopupItemMenu<P0, P1, P2>(&self, pfi: P0, vx: P1, vy: P2) -> windows_core::Result<windows_core::BSTR>
-    where
-        P0: windows_core::Param<FolderItem>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-        P2: windows_core::Param<windows_core::VARIANT>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.PopupItemMenu)(windows_core::Interface::as_raw(self), pfi.param().abi(), vx.param().abi(), vy.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Script(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Script)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn ViewOptions(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ViewOptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn CurrentViewMode(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CurrentViewMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetCurrentViewMode(&self, viewmode: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetCurrentViewMode)(windows_core::Interface::as_raw(self), viewmode).ok()
-    }
-    pub unsafe fn SelectItemRelative(&self, irelative: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SelectItemRelative)(windows_core::Interface::as_raw(self), irelative).ok()
-    }
     pub unsafe fn GroupBy(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GroupBy)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -20270,6 +18219,12 @@ pub struct IShellFolderViewDual3_Vtbl {
     pub FilterView: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IShellIcon, IShellIcon_Vtbl, 0x000214e5_0000_0000_c000_000000000046);
+impl std::ops::Deref for IShellIcon {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellIcon, windows_core::IUnknown);
 impl IShellIcon {
     #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -20287,6 +18242,12 @@ pub struct IShellIcon_Vtbl {
     GetIconOf: usize,
 }
 windows_core::imp::define_interface!(IShellIconOverlay, IShellIconOverlay_Vtbl, 0x7d688a70_c613_11d0_999b_00c04fd655e1);
+impl std::ops::Deref for IShellIconOverlay {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellIconOverlay, windows_core::IUnknown);
 impl IShellIconOverlay {
     #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -20311,6 +18272,12 @@ pub struct IShellIconOverlay_Vtbl {
     GetOverlayIconIndex: usize,
 }
 windows_core::imp::define_interface!(IShellIconOverlayIdentifier, IShellIconOverlayIdentifier_Vtbl, 0x0c6c4200_c589_11d0_999a_00c04fd655e1);
+impl std::ops::Deref for IShellIconOverlayIdentifier {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellIconOverlayIdentifier, windows_core::IUnknown);
 impl IShellIconOverlayIdentifier {
     pub unsafe fn IsMemberOf<P0>(&self, pwszpath: P0, dwattrib: u32) -> windows_core::Result<()>
@@ -20335,6 +18302,12 @@ pub struct IShellIconOverlayIdentifier_Vtbl {
     pub GetPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IShellIconOverlayManager, IShellIconOverlayManager_Vtbl, 0xf10b5e34_dd3b_42a7_aa7d_2f4ec54bb09b);
+impl std::ops::Deref for IShellIconOverlayManager {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellIconOverlayManager, windows_core::IUnknown);
 impl IShellIconOverlayManager {
     pub unsafe fn GetFileOverlayInfo<P0>(&self, pwszpath: P0, dwattrib: u32, pindex: *mut i32, dwflags: u32) -> windows_core::Result<()>
@@ -20372,6 +18345,12 @@ pub struct IShellIconOverlayManager_Vtbl {
     pub OverlayIndexFromImageIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IShellImageData, IShellImageData_Vtbl, 0xbfdeec12_8040_4403_a5ea_9e07dafcf530);
+impl std::ops::Deref for IShellImageData {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellImageData, windows_core::IUnknown);
 impl IShellImageData {
     pub unsafe fn Decode(&self, dwflags: u32, cxdesired: u32, cydesired: u32) -> windows_core::Result<()> {
@@ -20530,6 +18509,12 @@ pub struct IShellImageData_Vtbl {
     pub ReplaceFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IShellImageDataAbort, IShellImageDataAbort_Vtbl, 0x53fb8e58_50c0_4003_b4aa_0c8df28e7f3a);
+impl std::ops::Deref for IShellImageDataAbort {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellImageDataAbort, windows_core::IUnknown);
 impl IShellImageDataAbort {
     pub unsafe fn QueryAbort(&self) -> windows_core::Result<()> {
@@ -20542,6 +18527,12 @@ pub struct IShellImageDataAbort_Vtbl {
     pub QueryAbort: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IShellImageDataFactory, IShellImageDataFactory_Vtbl, 0x9be8ed5c_edab_4d75_90f3_bd5bdbb21c82);
+impl std::ops::Deref for IShellImageDataFactory {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellImageDataFactory, windows_core::IUnknown);
 impl IShellImageDataFactory {
     pub unsafe fn CreateIShellImageData(&self) -> windows_core::Result<IShellImageData> {
@@ -20583,6 +18574,12 @@ pub struct IShellImageDataFactory_Vtbl {
     pub GetDataFormatFromPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IShellItem, IShellItem_Vtbl, 0x43826d1e_e718_42ee_bc55_a1e261c37bfe);
+impl std::ops::Deref for IShellItem {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellItem, windows_core::IUnknown);
 impl IShellItem {
     #[cfg(feature = "Win32_System_Com")]
@@ -20631,37 +18628,14 @@ pub struct IShellItem_Vtbl {
     pub Compare: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IShellItem2, IShellItem2_Vtbl, 0x7e9fb0d3_919f_4307_ab2e_9b1860310c93);
+impl std::ops::Deref for IShellItem2 {
+    type Target = IShellItem;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellItem2, windows_core::IUnknown, IShellItem);
 impl IShellItem2 {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BindToHandler<P0, T>(&self, pbc: P0, bhid: *const windows_core::GUID) -> windows_core::Result<T>
-    where
-        P0: windows_core::Param<super::super::System::Com::IBindCtx>,
-        T: windows_core::Interface,
-    {
-        let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).base__.BindToHandler)(windows_core::Interface::as_raw(self), pbc.param().abi(), bhid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetParent(&self) -> windows_core::Result<IShellItem> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetParent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetDisplayName(&self, sigdnname: SIGDN) -> windows_core::Result<windows_core::PWSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetDisplayName)(windows_core::Interface::as_raw(self), sigdnname, &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_SystemServices")]
-    pub unsafe fn GetAttributes(&self, sfgaomask: super::super::System::SystemServices::SFGAO_FLAGS) -> windows_core::Result<super::super::System::SystemServices::SFGAO_FLAGS> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetAttributes)(windows_core::Interface::as_raw(self), sfgaomask, &mut result__).map(|| result__)
-    }
-    pub unsafe fn Compare<P0>(&self, psi: P0, hint: u32) -> windows_core::Result<i32>
-    where
-        P0: windows_core::Param<IShellItem>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Compare)(windows_core::Interface::as_raw(self), psi.param().abi(), hint, &mut result__).map(|| result__)
-    }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetPropertyStore<T>(&self, flags: PropertiesSystem::GETPROPERTYSTOREFLAGS) -> windows_core::Result<T>
     where
@@ -20800,6 +18774,12 @@ pub struct IShellItem2_Vtbl {
     GetBool: usize,
 }
 windows_core::imp::define_interface!(IShellItemArray, IShellItemArray_Vtbl, 0xb63ea76d_1f85_456f_a19c_48159efa858b);
+impl std::ops::Deref for IShellItemArray {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellItemArray, windows_core::IUnknown);
 impl IShellItemArray {
     #[cfg(feature = "Win32_System_Com")]
@@ -20869,6 +18849,12 @@ pub struct IShellItemArray_Vtbl {
     pub EnumItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IShellItemFilter, IShellItemFilter_Vtbl, 0x2659b475_eeb8_48b7_8f07_b378810f48cf);
+impl std::ops::Deref for IShellItemFilter {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellItemFilter, windows_core::IUnknown);
 impl IShellItemFilter {
     pub unsafe fn IncludeItem<P0>(&self, psi: P0) -> windows_core::Result<()>
@@ -20892,6 +18878,12 @@ pub struct IShellItemFilter_Vtbl {
     pub GetEnumFlagsForItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IShellItemImageFactory, IShellItemImageFactory_Vtbl, 0xbcc18b79_ba16_442f_80c4_8a59c30c463b);
+impl std::ops::Deref for IShellItemImageFactory {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellItemImageFactory, windows_core::IUnknown);
 impl IShellItemImageFactory {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -20909,6 +18901,12 @@ pub struct IShellItemImageFactory_Vtbl {
     GetImage: usize,
 }
 windows_core::imp::define_interface!(IShellItemResources, IShellItemResources_Vtbl, 0xff5693be_2ce0_4d48_b5c5_40817d1acdb9);
+impl std::ops::Deref for IShellItemResources {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellItemResources, windows_core::IUnknown);
 impl IShellItemResources {
     pub unsafe fn GetAttributes(&self) -> windows_core::Result<u32> {
@@ -20969,6 +18967,12 @@ pub struct IShellItemResources_Vtbl {
     pub MarkForDelete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IShellLibrary, IShellLibrary_Vtbl, 0x11a66efa_382e_451a_9234_1e0e12ef3085);
+impl std::ops::Deref for IShellLibrary {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellLibrary, windows_core::IUnknown);
 impl IShellLibrary {
     pub unsafe fn LoadLibraryFromItem<P0>(&self, psilibrary: P0, grfmode: u32) -> windows_core::Result<()>
@@ -21085,6 +19089,12 @@ pub struct IShellLibrary_Vtbl {
     pub SaveInKnownFolder: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, LIBRARYSAVEFLAGS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IShellLinkA, IShellLinkA_Vtbl, 0x000214ee_0000_0000_c000_000000000046);
+impl std::ops::Deref for IShellLinkA {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellLinkA, windows_core::IUnknown);
 impl IShellLinkA {
     #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -21209,6 +19219,12 @@ pub struct IShellLinkA_Vtbl {
     pub SetPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IShellLinkDataList, IShellLinkDataList_Vtbl, 0x45e2b4ae_b1c3_11d0_b92f_00a0c90312e1);
+impl std::ops::Deref for IShellLinkDataList {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellLinkDataList, windows_core::IUnknown);
 impl IShellLinkDataList {
     pub unsafe fn AddDataBlock(&self, pdatablock: *const core::ffi::c_void) -> windows_core::Result<()> {
@@ -21239,6 +19255,13 @@ pub struct IShellLinkDataList_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IShellLinkDual, IShellLinkDual_Vtbl, 0x88a05c00_f000_11ce_8350_444553540000);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IShellLinkDual {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IShellLinkDual, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -21341,82 +19364,16 @@ pub struct IShellLinkDual_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IShellLinkDual2, IShellLinkDual2_Vtbl, 0x317ee249_f12e_11d2_b1e4_00c04f8eeb3e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IShellLinkDual2 {
+    type Target = IShellLinkDual;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IShellLinkDual2, windows_core::IUnknown, super::super::System::Com::IDispatch, IShellLinkDual);
 #[cfg(feature = "Win32_System_Com")]
 impl IShellLinkDual2 {
-    pub unsafe fn Path(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Path)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetPath<P0>(&self, bs: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetPath)(windows_core::Interface::as_raw(self), bs.param().abi()).ok()
-    }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Description)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetDescription<P0>(&self, bs: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), bs.param().abi()).ok()
-    }
-    pub unsafe fn WorkingDirectory(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.WorkingDirectory)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetWorkingDirectory<P0>(&self, bs: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetWorkingDirectory)(windows_core::Interface::as_raw(self), bs.param().abi()).ok()
-    }
-    pub unsafe fn Arguments(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Arguments)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetArguments<P0>(&self, bs: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetArguments)(windows_core::Interface::as_raw(self), bs.param().abi()).ok()
-    }
-    pub unsafe fn Hotkey(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Hotkey)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetHotkey(&self, ihk: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetHotkey)(windows_core::Interface::as_raw(self), ihk).ok()
-    }
-    pub unsafe fn ShowCommand(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ShowCommand)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetShowCommand(&self, ishowcommand: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetShowCommand)(windows_core::Interface::as_raw(self), ishowcommand).ok()
-    }
-    pub unsafe fn Resolve(&self, fflags: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Resolve)(windows_core::Interface::as_raw(self), fflags).ok()
-    }
-    pub unsafe fn GetIconLocation(&self, pbs: *mut windows_core::BSTR) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetIconLocation)(windows_core::Interface::as_raw(self), core::mem::transmute(pbs), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetIconLocation<P0>(&self, bs: P0, iicon: i32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetIconLocation)(windows_core::Interface::as_raw(self), bs.param().abi(), iicon).ok()
-    }
-    pub unsafe fn Save<P0>(&self, vwhere: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.Save)(windows_core::Interface::as_raw(self), vwhere.param().abi()).ok()
-    }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Target(&self) -> windows_core::Result<FolderItem> {
         let mut result__ = std::mem::zeroed();
@@ -21433,6 +19390,12 @@ pub struct IShellLinkDual2_Vtbl {
     Target: usize,
 }
 windows_core::imp::define_interface!(IShellLinkW, IShellLinkW_Vtbl, 0x000214f9_0000_0000_c000_000000000046);
+impl std::ops::Deref for IShellLinkW {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellLinkW, windows_core::IUnknown);
 impl IShellLinkW {
     #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -21557,6 +19520,12 @@ pub struct IShellLinkW_Vtbl {
     pub SetPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IShellMenu, IShellMenu_Vtbl, 0xee1f7637_e138_11d1_8379_00c04fd918d0);
+impl std::ops::Deref for IShellMenu {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellMenu, windows_core::IUnknown);
 impl IShellMenu {
     pub unsafe fn Initialize<P0>(&self, psmc: P0, uid: u32, uidancestor: u32, dwflags: u32) -> windows_core::Result<()>
@@ -21639,6 +19608,12 @@ pub struct IShellMenu_Vtbl {
     pub SetMenuToolbar: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IShellMenuCallback, IShellMenuCallback_Vtbl, 0x4ca300a1_9b8d_11d1_8b22_00c04fd918d0);
+impl std::ops::Deref for IShellMenuCallback {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellMenuCallback, windows_core::IUnknown);
 impl IShellMenuCallback {
     #[cfg(all(feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -21661,57 +19636,16 @@ pub struct IShellMenuCallback_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IShellNameSpace, IShellNameSpace_Vtbl, 0xe572d3c9_37be_4ae2_825d_d521763e3108);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IShellNameSpace {
+    type Target = IShellFavoritesNameSpace;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IShellNameSpace, windows_core::IUnknown, super::super::System::Com::IDispatch, IShellFavoritesNameSpace);
 #[cfg(feature = "Win32_System_Com")]
 impl IShellNameSpace {
-    pub unsafe fn MoveSelectionUp(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.MoveSelectionUp)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn MoveSelectionDown(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.MoveSelectionDown)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ResetSort(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.ResetSort)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn NewFolder(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.NewFolder)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Synchronize(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Synchronize)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Import(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Import)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Export(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Export)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn InvokeContextMenuCommand<P0>(&self, strcommand: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.InvokeContextMenuCommand)(windows_core::Interface::as_raw(self), strcommand.param().abi()).ok()
-    }
-    pub unsafe fn MoveSelectionTo(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.MoveSelectionTo)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SubscriptionsEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SubscriptionsEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn CreateSubscriptionForSelection(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateSubscriptionForSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DeleteSubscriptionForSelection(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DeleteSubscriptionForSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetRoot<P0>(&self, bstrfullpath: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetRoot)(windows_core::Interface::as_raw(self), bstrfullpath.param().abi()).ok()
-    }
     pub unsafe fn EnumOptions(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumOptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -21735,11 +19669,11 @@ impl IShellNameSpace {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).Root)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn SetRoot2<P0>(&self, var: P0) -> windows_core::Result<()>
+    pub unsafe fn SetRoot<P0>(&self, var: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).SetRoot2)(windows_core::Interface::as_raw(self), var.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetRoot)(windows_core::Interface::as_raw(self), var.param().abi()).ok()
     }
     pub unsafe fn Depth(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
@@ -21816,7 +19750,7 @@ pub struct IShellNameSpace_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetSelectedItem: usize,
     pub Root: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
-    pub SetRoot2: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
+    pub SetRoot: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
     pub Depth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetDepth: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub Mode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -21837,6 +19771,12 @@ pub struct IShellNameSpace_Vtbl {
     pub UnselectAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IShellPropSheetExt, IShellPropSheetExt_Vtbl, 0x000214e9_0000_0000_c000_000000000046);
+impl std::ops::Deref for IShellPropSheetExt {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellPropSheetExt, windows_core::IUnknown);
 impl IShellPropSheetExt {
     #[cfg(feature = "Win32_UI_Controls")]
@@ -21867,6 +19807,12 @@ pub struct IShellPropSheetExt_Vtbl {
     ReplacePage: usize,
 }
 windows_core::imp::define_interface!(IShellRunDll, IShellRunDll_Vtbl, 0xfce4bde0_4b68_4b80_8e9c_7426315a7388);
+impl std::ops::Deref for IShellRunDll {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellRunDll, windows_core::IUnknown);
 impl IShellRunDll {
     pub unsafe fn Run<P0>(&self, pszargs: P0) -> windows_core::Result<()>
@@ -21882,6 +19828,12 @@ pub struct IShellRunDll_Vtbl {
     pub Run: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IShellService, IShellService_Vtbl, 0x5836fb00_8187_11cf_a12b_00aa004ae837);
+impl std::ops::Deref for IShellService {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellService, windows_core::IUnknown);
 impl IShellService {
     pub unsafe fn SetOwner<P0>(&self, punkowner: P0) -> windows_core::Result<()>
@@ -21897,6 +19849,12 @@ pub struct IShellService_Vtbl {
     pub SetOwner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IShellTaskScheduler, IShellTaskScheduler_Vtbl, 0x6ccb7be0_6807_11d0_b810_00c04fd706ec);
+impl std::ops::Deref for IShellTaskScheduler {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IShellTaskScheduler, windows_core::IUnknown);
 impl IShellTaskScheduler {
     pub unsafe fn AddTask<P0>(&self, prt: P0, rtoid: *const windows_core::GUID, lparam: usize, dwpriority: u32) -> windows_core::Result<()>
@@ -21928,6 +19886,13 @@ pub struct IShellTaskScheduler_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IShellUIHelper, IShellUIHelper_Vtbl, 0x729fe2f8_1ea8_11d1_8f85_00c04fc2fbe1);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IShellUIHelper {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IShellUIHelper, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -22023,78 +19988,16 @@ pub struct IShellUIHelper_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IShellUIHelper2, IShellUIHelper2_Vtbl, 0xa7fe6eda_1932_4281_b881_87b31b8bc52c);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IShellUIHelper2 {
+    type Target = IShellUIHelper;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IShellUIHelper2, windows_core::IUnknown, super::super::System::Com::IDispatch, IShellUIHelper);
 #[cfg(feature = "Win32_System_Com")]
 impl IShellUIHelper2 {
-    pub unsafe fn ResetFirstBootMode(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.ResetFirstBootMode)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ResetSafeMode(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.ResetSafeMode)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn RefreshOfflineDesktop(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.RefreshOfflineDesktop)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn AddFavorite<P0>(&self, url: P0, title: Option<*const windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.AddFavorite)(windows_core::Interface::as_raw(self), url.param().abi(), core::mem::transmute(title.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn AddChannel<P0>(&self, url: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.AddChannel)(windows_core::Interface::as_raw(self), url.param().abi()).ok()
-    }
-    pub unsafe fn AddDesktopComponent<P0, P1>(&self, url: P0, r#type: P1, left: Option<*const windows_core::VARIANT>, top: Option<*const windows_core::VARIANT>, width: Option<*const windows_core::VARIANT>, height: Option<*const windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.AddDesktopComponent)(windows_core::Interface::as_raw(self), url.param().abi(), r#type.param().abi(), core::mem::transmute(left.unwrap_or(std::ptr::null())), core::mem::transmute(top.unwrap_or(std::ptr::null())), core::mem::transmute(width.unwrap_or(std::ptr::null())), core::mem::transmute(height.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn IsSubscribed<P0>(&self, url: P0) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsSubscribed)(windows_core::Interface::as_raw(self), url.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn NavigateAndFind<P0, P1>(&self, url: P0, strquery: P1, vartargetframe: *const windows_core::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.NavigateAndFind)(windows_core::Interface::as_raw(self), url.param().abi(), strquery.param().abi(), core::mem::transmute(vartargetframe)).ok()
-    }
-    pub unsafe fn ImportExportFavorites<P0, P1>(&self, fimport: P0, strimpexppath: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.ImportExportFavorites)(windows_core::Interface::as_raw(self), fimport.param().abi(), strimpexppath.param().abi()).ok()
-    }
-    pub unsafe fn AutoCompleteSaveForm(&self, form: Option<*const windows_core::VARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.AutoCompleteSaveForm)(windows_core::Interface::as_raw(self), core::mem::transmute(form.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn AutoScan<P0, P1>(&self, strsearch: P0, strfailureurl: P1, pvartargetframe: Option<*const windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.AutoScan)(windows_core::Interface::as_raw(self), strsearch.param().abi(), strfailureurl.param().abi(), core::mem::transmute(pvartargetframe.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn AutoCompleteAttach(&self, reserved: Option<*const windows_core::VARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.AutoCompleteAttach)(windows_core::Interface::as_raw(self), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn ShowBrowserUI<P0>(&self, bstrname: P0, pvarin: *const windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ShowBrowserUI)(windows_core::Interface::as_raw(self), bstrname.param().abi(), core::mem::transmute(pvarin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn AddSearchProvider<P0>(&self, url: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -22193,151 +20096,16 @@ pub struct IShellUIHelper2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IShellUIHelper3, IShellUIHelper3_Vtbl, 0x528df2ec_d419_40bc_9b6d_dcdbf9c1b25d);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IShellUIHelper3 {
+    type Target = IShellUIHelper2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IShellUIHelper3, windows_core::IUnknown, super::super::System::Com::IDispatch, IShellUIHelper, IShellUIHelper2);
 #[cfg(feature = "Win32_System_Com")]
 impl IShellUIHelper3 {
-    pub unsafe fn ResetFirstBootMode(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.ResetFirstBootMode)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ResetSafeMode(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.ResetSafeMode)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn RefreshOfflineDesktop(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.RefreshOfflineDesktop)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn AddFavorite<P0>(&self, url: P0, title: Option<*const windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.AddFavorite)(windows_core::Interface::as_raw(self), url.param().abi(), core::mem::transmute(title.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn AddChannel<P0>(&self, url: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.AddChannel)(windows_core::Interface::as_raw(self), url.param().abi()).ok()
-    }
-    pub unsafe fn AddDesktopComponent<P0, P1>(&self, url: P0, r#type: P1, left: Option<*const windows_core::VARIANT>, top: Option<*const windows_core::VARIANT>, width: Option<*const windows_core::VARIANT>, height: Option<*const windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.AddDesktopComponent)(windows_core::Interface::as_raw(self), url.param().abi(), r#type.param().abi(), core::mem::transmute(left.unwrap_or(std::ptr::null())), core::mem::transmute(top.unwrap_or(std::ptr::null())), core::mem::transmute(width.unwrap_or(std::ptr::null())), core::mem::transmute(height.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn IsSubscribed<P0>(&self, url: P0) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsSubscribed)(windows_core::Interface::as_raw(self), url.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn NavigateAndFind<P0, P1>(&self, url: P0, strquery: P1, vartargetframe: *const windows_core::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.NavigateAndFind)(windows_core::Interface::as_raw(self), url.param().abi(), strquery.param().abi(), core::mem::transmute(vartargetframe)).ok()
-    }
-    pub unsafe fn ImportExportFavorites<P0, P1>(&self, fimport: P0, strimpexppath: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.ImportExportFavorites)(windows_core::Interface::as_raw(self), fimport.param().abi(), strimpexppath.param().abi()).ok()
-    }
-    pub unsafe fn AutoCompleteSaveForm(&self, form: Option<*const windows_core::VARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.AutoCompleteSaveForm)(windows_core::Interface::as_raw(self), core::mem::transmute(form.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn AutoScan<P0, P1>(&self, strsearch: P0, strfailureurl: P1, pvartargetframe: Option<*const windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.AutoScan)(windows_core::Interface::as_raw(self), strsearch.param().abi(), strfailureurl.param().abi(), core::mem::transmute(pvartargetframe.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn AutoCompleteAttach(&self, reserved: Option<*const windows_core::VARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.AutoCompleteAttach)(windows_core::Interface::as_raw(self), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn ShowBrowserUI<P0>(&self, bstrname: P0, pvarin: *const windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ShowBrowserUI)(windows_core::Interface::as_raw(self), bstrname.param().abi(), core::mem::transmute(pvarin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AddSearchProvider<P0>(&self, url: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.AddSearchProvider)(windows_core::Interface::as_raw(self), url.param().abi()).ok()
-    }
-    pub unsafe fn RunOnceShown(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.RunOnceShown)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SkipRunOnce(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SkipRunOnce)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn CustomizeSettings<P0, P1, P2>(&self, fsqm: P0, fphishing: P1, bstrlocale: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P2: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.CustomizeSettings)(windows_core::Interface::as_raw(self), fsqm.param().abi(), fphishing.param().abi(), bstrlocale.param().abi()).ok()
-    }
-    pub unsafe fn SqmEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SqmEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn PhishingEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.PhishingEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn BrandImageUri(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.BrandImageUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SkipTabsWelcome(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SkipTabsWelcome)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn DiagnoseConnection(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.DiagnoseConnection)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn CustomizeClearType<P0>(&self, fset: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.CustomizeClearType)(windows_core::Interface::as_raw(self), fset.param().abi()).ok()
-    }
-    pub unsafe fn IsSearchProviderInstalled<P0>(&self, url: P0) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsSearchProviderInstalled)(windows_core::Interface::as_raw(self), url.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsSearchMigrated(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsSearchMigrated)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DefaultSearchProvider(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DefaultSearchProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn RunOnceRequiredSettingsComplete<P0>(&self, fcomplete: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.RunOnceRequiredSettingsComplete)(windows_core::Interface::as_raw(self), fcomplete.param().abi()).ok()
-    }
-    pub unsafe fn RunOnceHasShown(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RunOnceHasShown)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SearchGuideUrl(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SearchGuideUrl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn AddService<P0>(&self, url: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -22425,216 +20193,16 @@ pub struct IShellUIHelper3_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IShellUIHelper4, IShellUIHelper4_Vtbl, 0xb36e6a53_8073_499e_824c_d776330a333e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IShellUIHelper4 {
+    type Target = IShellUIHelper3;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IShellUIHelper4, windows_core::IUnknown, super::super::System::Com::IDispatch, IShellUIHelper, IShellUIHelper2, IShellUIHelper3);
 #[cfg(feature = "Win32_System_Com")]
 impl IShellUIHelper4 {
-    pub unsafe fn ResetFirstBootMode(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.ResetFirstBootMode)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ResetSafeMode(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.ResetSafeMode)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn RefreshOfflineDesktop(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.RefreshOfflineDesktop)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn AddFavorite<P0>(&self, url: P0, title: Option<*const windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.AddFavorite)(windows_core::Interface::as_raw(self), url.param().abi(), core::mem::transmute(title.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn AddChannel<P0>(&self, url: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.AddChannel)(windows_core::Interface::as_raw(self), url.param().abi()).ok()
-    }
-    pub unsafe fn AddDesktopComponent<P0, P1>(&self, url: P0, r#type: P1, left: Option<*const windows_core::VARIANT>, top: Option<*const windows_core::VARIANT>, width: Option<*const windows_core::VARIANT>, height: Option<*const windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.AddDesktopComponent)(windows_core::Interface::as_raw(self), url.param().abi(), r#type.param().abi(), core::mem::transmute(left.unwrap_or(std::ptr::null())), core::mem::transmute(top.unwrap_or(std::ptr::null())), core::mem::transmute(width.unwrap_or(std::ptr::null())), core::mem::transmute(height.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn IsSubscribed<P0>(&self, url: P0) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.IsSubscribed)(windows_core::Interface::as_raw(self), url.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn NavigateAndFind<P0, P1>(&self, url: P0, strquery: P1, vartargetframe: *const windows_core::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.NavigateAndFind)(windows_core::Interface::as_raw(self), url.param().abi(), strquery.param().abi(), core::mem::transmute(vartargetframe)).ok()
-    }
-    pub unsafe fn ImportExportFavorites<P0, P1>(&self, fimport: P0, strimpexppath: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.ImportExportFavorites)(windows_core::Interface::as_raw(self), fimport.param().abi(), strimpexppath.param().abi()).ok()
-    }
-    pub unsafe fn AutoCompleteSaveForm(&self, form: Option<*const windows_core::VARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.AutoCompleteSaveForm)(windows_core::Interface::as_raw(self), core::mem::transmute(form.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn AutoScan<P0, P1>(&self, strsearch: P0, strfailureurl: P1, pvartargetframe: Option<*const windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.AutoScan)(windows_core::Interface::as_raw(self), strsearch.param().abi(), strfailureurl.param().abi(), core::mem::transmute(pvartargetframe.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn AutoCompleteAttach(&self, reserved: Option<*const windows_core::VARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.AutoCompleteAttach)(windows_core::Interface::as_raw(self), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn ShowBrowserUI<P0>(&self, bstrname: P0, pvarin: *const windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.ShowBrowserUI)(windows_core::Interface::as_raw(self), bstrname.param().abi(), core::mem::transmute(pvarin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AddSearchProvider<P0>(&self, url: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.AddSearchProvider)(windows_core::Interface::as_raw(self), url.param().abi()).ok()
-    }
-    pub unsafe fn RunOnceShown(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.RunOnceShown)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SkipRunOnce(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SkipRunOnce)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn CustomizeSettings<P0, P1, P2>(&self, fsqm: P0, fphishing: P1, bstrlocale: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P2: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.CustomizeSettings)(windows_core::Interface::as_raw(self), fsqm.param().abi(), fphishing.param().abi(), bstrlocale.param().abi()).ok()
-    }
-    pub unsafe fn SqmEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.SqmEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn PhishingEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.PhishingEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn BrandImageUri(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.BrandImageUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SkipTabsWelcome(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SkipTabsWelcome)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn DiagnoseConnection(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.DiagnoseConnection)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn CustomizeClearType<P0>(&self, fset: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.CustomizeClearType)(windows_core::Interface::as_raw(self), fset.param().abi()).ok()
-    }
-    pub unsafe fn IsSearchProviderInstalled<P0>(&self, url: P0) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsSearchProviderInstalled)(windows_core::Interface::as_raw(self), url.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsSearchMigrated(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsSearchMigrated)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DefaultSearchProvider(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.DefaultSearchProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn RunOnceRequiredSettingsComplete<P0>(&self, fcomplete: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.RunOnceRequiredSettingsComplete)(windows_core::Interface::as_raw(self), fcomplete.param().abi()).ok()
-    }
-    pub unsafe fn RunOnceHasShown(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.RunOnceHasShown)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SearchGuideUrl(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.SearchGuideUrl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AddService<P0>(&self, url: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.AddService)(windows_core::Interface::as_raw(self), url.param().abi()).ok()
-    }
-    pub unsafe fn IsServiceInstalled<P0, P1>(&self, url: P0, verb: P1) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsServiceInstalled)(windows_core::Interface::as_raw(self), url.param().abi(), verb.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn InPrivateFilteringEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.InPrivateFilteringEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn AddToFavoritesBar<P0, P1>(&self, url: P0, title: P1, r#type: *const windows_core::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.AddToFavoritesBar)(windows_core::Interface::as_raw(self), url.param().abi(), title.param().abi(), core::mem::transmute(r#type)).ok()
-    }
-    pub unsafe fn BuildNewTabPage(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.BuildNewTabPage)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetRecentlyClosedVisible<P0>(&self, fvisible: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetRecentlyClosedVisible)(windows_core::Interface::as_raw(self), fvisible.param().abi()).ok()
-    }
-    pub unsafe fn SetActivitiesVisible<P0>(&self, fvisible: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetActivitiesVisible)(windows_core::Interface::as_raw(self), fvisible.param().abi()).ok()
-    }
-    pub unsafe fn ContentDiscoveryReset(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.ContentDiscoveryReset)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn IsSuggestedSitesEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IsSuggestedSitesEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn EnableSuggestedSites<P0>(&self, fenable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.EnableSuggestedSites)(windows_core::Interface::as_raw(self), fenable.param().abi()).ok()
-    }
-    pub unsafe fn NavigateToSuggestedSites<P0>(&self, bstrrelativeurl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.NavigateToSuggestedSites)(windows_core::Interface::as_raw(self), bstrrelativeurl.param().abi()).ok()
-    }
-    pub unsafe fn ShowTabsHelp(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.ShowTabsHelp)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ShowInPrivateHelp(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.ShowInPrivateHelp)(windows_core::Interface::as_raw(self)).ok()
-    }
     pub unsafe fn msIsSiteMode(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).msIsSiteMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -22758,312 +20326,16 @@ pub struct IShellUIHelper4_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IShellUIHelper5, IShellUIHelper5_Vtbl, 0xa2a08b09_103d_4d3f_b91c_ea455ca82efa);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IShellUIHelper5 {
+    type Target = IShellUIHelper4;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IShellUIHelper5, windows_core::IUnknown, super::super::System::Com::IDispatch, IShellUIHelper, IShellUIHelper2, IShellUIHelper3, IShellUIHelper4);
 #[cfg(feature = "Win32_System_Com")]
 impl IShellUIHelper5 {
-    pub unsafe fn ResetFirstBootMode(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ResetFirstBootMode)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ResetSafeMode(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ResetSafeMode)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn RefreshOfflineDesktop(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.RefreshOfflineDesktop)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn AddFavorite<P0>(&self, url: P0, title: Option<*const windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.AddFavorite)(windows_core::Interface::as_raw(self), url.param().abi(), core::mem::transmute(title.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn AddChannel<P0>(&self, url: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.AddChannel)(windows_core::Interface::as_raw(self), url.param().abi()).ok()
-    }
-    pub unsafe fn AddDesktopComponent<P0, P1>(&self, url: P0, r#type: P1, left: Option<*const windows_core::VARIANT>, top: Option<*const windows_core::VARIANT>, width: Option<*const windows_core::VARIANT>, height: Option<*const windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.AddDesktopComponent)(windows_core::Interface::as_raw(self), url.param().abi(), r#type.param().abi(), core::mem::transmute(left.unwrap_or(std::ptr::null())), core::mem::transmute(top.unwrap_or(std::ptr::null())), core::mem::transmute(width.unwrap_or(std::ptr::null())), core::mem::transmute(height.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn IsSubscribed<P0>(&self, url: P0) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.IsSubscribed)(windows_core::Interface::as_raw(self), url.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn NavigateAndFind<P0, P1>(&self, url: P0, strquery: P1, vartargetframe: *const windows_core::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.NavigateAndFind)(windows_core::Interface::as_raw(self), url.param().abi(), strquery.param().abi(), core::mem::transmute(vartargetframe)).ok()
-    }
-    pub unsafe fn ImportExportFavorites<P0, P1>(&self, fimport: P0, strimpexppath: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ImportExportFavorites)(windows_core::Interface::as_raw(self), fimport.param().abi(), strimpexppath.param().abi()).ok()
-    }
-    pub unsafe fn AutoCompleteSaveForm(&self, form: Option<*const windows_core::VARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.AutoCompleteSaveForm)(windows_core::Interface::as_raw(self), core::mem::transmute(form.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn AutoScan<P0, P1>(&self, strsearch: P0, strfailureurl: P1, pvartargetframe: Option<*const windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.AutoScan)(windows_core::Interface::as_raw(self), strsearch.param().abi(), strfailureurl.param().abi(), core::mem::transmute(pvartargetframe.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn AutoCompleteAttach(&self, reserved: Option<*const windows_core::VARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.AutoCompleteAttach)(windows_core::Interface::as_raw(self), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn ShowBrowserUI<P0>(&self, bstrname: P0, pvarin: *const windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ShowBrowserUI)(windows_core::Interface::as_raw(self), bstrname.param().abi(), core::mem::transmute(pvarin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AddSearchProvider<P0>(&self, url: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.AddSearchProvider)(windows_core::Interface::as_raw(self), url.param().abi()).ok()
-    }
-    pub unsafe fn RunOnceShown(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.RunOnceShown)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SkipRunOnce(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SkipRunOnce)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn CustomizeSettings<P0, P1, P2>(&self, fsqm: P0, fphishing: P1, bstrlocale: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P2: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.CustomizeSettings)(windows_core::Interface::as_raw(self), fsqm.param().abi(), fphishing.param().abi(), bstrlocale.param().abi()).ok()
-    }
-    pub unsafe fn SqmEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.SqmEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn PhishingEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.PhishingEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn BrandImageUri(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.BrandImageUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SkipTabsWelcome(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SkipTabsWelcome)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn DiagnoseConnection(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.DiagnoseConnection)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn CustomizeClearType<P0>(&self, fset: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.CustomizeClearType)(windows_core::Interface::as_raw(self), fset.param().abi()).ok()
-    }
-    pub unsafe fn IsSearchProviderInstalled<P0>(&self, url: P0) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.IsSearchProviderInstalled)(windows_core::Interface::as_raw(self), url.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsSearchMigrated(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.IsSearchMigrated)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DefaultSearchProvider(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.DefaultSearchProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn RunOnceRequiredSettingsComplete<P0>(&self, fcomplete: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.RunOnceRequiredSettingsComplete)(windows_core::Interface::as_raw(self), fcomplete.param().abi()).ok()
-    }
-    pub unsafe fn RunOnceHasShown(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.RunOnceHasShown)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SearchGuideUrl(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.SearchGuideUrl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AddService<P0>(&self, url: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.AddService)(windows_core::Interface::as_raw(self), url.param().abi()).ok()
-    }
-    pub unsafe fn IsServiceInstalled<P0, P1>(&self, url: P0, verb: P1) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsServiceInstalled)(windows_core::Interface::as_raw(self), url.param().abi(), verb.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn InPrivateFilteringEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.InPrivateFilteringEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn AddToFavoritesBar<P0, P1>(&self, url: P0, title: P1, r#type: *const windows_core::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.AddToFavoritesBar)(windows_core::Interface::as_raw(self), url.param().abi(), title.param().abi(), core::mem::transmute(r#type)).ok()
-    }
-    pub unsafe fn BuildNewTabPage(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.BuildNewTabPage)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetRecentlyClosedVisible<P0>(&self, fvisible: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetRecentlyClosedVisible)(windows_core::Interface::as_raw(self), fvisible.param().abi()).ok()
-    }
-    pub unsafe fn SetActivitiesVisible<P0>(&self, fvisible: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetActivitiesVisible)(windows_core::Interface::as_raw(self), fvisible.param().abi()).ok()
-    }
-    pub unsafe fn ContentDiscoveryReset(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.ContentDiscoveryReset)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn IsSuggestedSitesEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IsSuggestedSitesEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn EnableSuggestedSites<P0>(&self, fenable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.EnableSuggestedSites)(windows_core::Interface::as_raw(self), fenable.param().abi()).ok()
-    }
-    pub unsafe fn NavigateToSuggestedSites<P0>(&self, bstrrelativeurl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.NavigateToSuggestedSites)(windows_core::Interface::as_raw(self), bstrrelativeurl.param().abi()).ok()
-    }
-    pub unsafe fn ShowTabsHelp(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.ShowTabsHelp)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ShowInPrivateHelp(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.ShowInPrivateHelp)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msIsSiteMode(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.msIsSiteMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn msSiteModeShowThumbBar(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.msSiteModeShowThumbBar)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeAddThumbBarButton<P0, P1>(&self, bstriconurl: P0, bstrtooltip: P1) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.msSiteModeAddThumbBarButton)(windows_core::Interface::as_raw(self), bstriconurl.param().abi(), bstrtooltip.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn msSiteModeUpdateThumbBarButton<P0, P1, P2>(&self, buttonid: P0, fenabled: P1, fvisible: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.msSiteModeUpdateThumbBarButton)(windows_core::Interface::as_raw(self), buttonid.param().abi(), fenabled.param().abi(), fvisible.param().abi()).ok()
-    }
-    pub unsafe fn msSiteModeSetIconOverlay<P0>(&self, iconurl: P0, pvardescription: *const windows_core::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.msSiteModeSetIconOverlay)(windows_core::Interface::as_raw(self), iconurl.param().abi(), core::mem::transmute(pvardescription)).ok()
-    }
-    pub unsafe fn msSiteModeClearIconOverlay(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.msSiteModeClearIconOverlay)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msAddSiteMode(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.msAddSiteMode)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeCreateJumpList<P0>(&self, bstrheader: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.msSiteModeCreateJumpList)(windows_core::Interface::as_raw(self), bstrheader.param().abi()).ok()
-    }
-    pub unsafe fn msSiteModeAddJumpListItem<P0, P1, P2>(&self, bstrname: P0, bstractionuri: P1, bstriconuri: P2, pvarwindowtype: *const windows_core::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.msSiteModeAddJumpListItem)(windows_core::Interface::as_raw(self), bstrname.param().abi(), bstractionuri.param().abi(), bstriconuri.param().abi(), core::mem::transmute(pvarwindowtype)).ok()
-    }
-    pub unsafe fn msSiteModeClearJumpList(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.msSiteModeClearJumpList)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeShowJumpList(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.msSiteModeShowJumpList)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeAddButtonStyle<P0, P1, P2>(&self, uibuttonid: P0, bstriconurl: P1, bstrtooltip: P2) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.msSiteModeAddButtonStyle)(windows_core::Interface::as_raw(self), uibuttonid.param().abi(), bstriconurl.param().abi(), bstrtooltip.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn msSiteModeShowButtonStyle<P0, P1>(&self, uibuttonid: P0, uistyleid: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.msSiteModeShowButtonStyle)(windows_core::Interface::as_raw(self), uibuttonid.param().abi(), uistyleid.param().abi()).ok()
-    }
-    pub unsafe fn msSiteModeActivate(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.msSiteModeActivate)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msIsSiteModeFirstRun<P0>(&self, fpreservestate: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.msIsSiteModeFirstRun)(windows_core::Interface::as_raw(self), fpreservestate.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn msAddTrackingProtectionList<P0, P1>(&self, url: P0, bstrfiltername: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.msAddTrackingProtectionList)(windows_core::Interface::as_raw(self), url.param().abi(), bstrfiltername.param().abi()).ok()
-    }
-    pub unsafe fn msTrackingProtectionEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.msTrackingProtectionEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn msActiveXFilteringEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.msActiveXFilteringEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     pub unsafe fn msProvisionNetworks<P0>(&self, bstrprovisioningxml: P0) -> windows_core::Result<windows_core::VARIANT>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -23108,340 +20380,16 @@ pub struct IShellUIHelper5_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IShellUIHelper6, IShellUIHelper6_Vtbl, 0x987a573e_46ee_4e89_96ab_ddf7f8fdc98c);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IShellUIHelper6 {
+    type Target = IShellUIHelper5;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IShellUIHelper6, windows_core::IUnknown, super::super::System::Com::IDispatch, IShellUIHelper, IShellUIHelper2, IShellUIHelper3, IShellUIHelper4, IShellUIHelper5);
 #[cfg(feature = "Win32_System_Com")]
 impl IShellUIHelper6 {
-    pub unsafe fn ResetFirstBootMode(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ResetFirstBootMode)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ResetSafeMode(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ResetSafeMode)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn RefreshOfflineDesktop(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RefreshOfflineDesktop)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn AddFavorite<P0>(&self, url: P0, title: Option<*const windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.AddFavorite)(windows_core::Interface::as_raw(self), url.param().abi(), core::mem::transmute(title.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn AddChannel<P0>(&self, url: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.AddChannel)(windows_core::Interface::as_raw(self), url.param().abi()).ok()
-    }
-    pub unsafe fn AddDesktopComponent<P0, P1>(&self, url: P0, r#type: P1, left: Option<*const windows_core::VARIANT>, top: Option<*const windows_core::VARIANT>, width: Option<*const windows_core::VARIANT>, height: Option<*const windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.AddDesktopComponent)(windows_core::Interface::as_raw(self), url.param().abi(), r#type.param().abi(), core::mem::transmute(left.unwrap_or(std::ptr::null())), core::mem::transmute(top.unwrap_or(std::ptr::null())), core::mem::transmute(width.unwrap_or(std::ptr::null())), core::mem::transmute(height.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn IsSubscribed<P0>(&self, url: P0) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.IsSubscribed)(windows_core::Interface::as_raw(self), url.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn NavigateAndFind<P0, P1>(&self, url: P0, strquery: P1, vartargetframe: *const windows_core::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.NavigateAndFind)(windows_core::Interface::as_raw(self), url.param().abi(), strquery.param().abi(), core::mem::transmute(vartargetframe)).ok()
-    }
-    pub unsafe fn ImportExportFavorites<P0, P1>(&self, fimport: P0, strimpexppath: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ImportExportFavorites)(windows_core::Interface::as_raw(self), fimport.param().abi(), strimpexppath.param().abi()).ok()
-    }
-    pub unsafe fn AutoCompleteSaveForm(&self, form: Option<*const windows_core::VARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.AutoCompleteSaveForm)(windows_core::Interface::as_raw(self), core::mem::transmute(form.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn AutoScan<P0, P1>(&self, strsearch: P0, strfailureurl: P1, pvartargetframe: Option<*const windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.AutoScan)(windows_core::Interface::as_raw(self), strsearch.param().abi(), strfailureurl.param().abi(), core::mem::transmute(pvartargetframe.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn AutoCompleteAttach(&self, reserved: Option<*const windows_core::VARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.AutoCompleteAttach)(windows_core::Interface::as_raw(self), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn ShowBrowserUI<P0>(&self, bstrname: P0, pvarin: *const windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ShowBrowserUI)(windows_core::Interface::as_raw(self), bstrname.param().abi(), core::mem::transmute(pvarin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AddSearchProvider<P0>(&self, url: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.AddSearchProvider)(windows_core::Interface::as_raw(self), url.param().abi()).ok()
-    }
-    pub unsafe fn RunOnceShown(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.RunOnceShown)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SkipRunOnce(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SkipRunOnce)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn CustomizeSettings<P0, P1, P2>(&self, fsqm: P0, fphishing: P1, bstrlocale: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P2: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.CustomizeSettings)(windows_core::Interface::as_raw(self), fsqm.param().abi(), fphishing.param().abi(), bstrlocale.param().abi()).ok()
-    }
-    pub unsafe fn SqmEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SqmEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn PhishingEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.PhishingEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn BrandImageUri(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.BrandImageUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SkipTabsWelcome(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SkipTabsWelcome)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn DiagnoseConnection(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.DiagnoseConnection)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn CustomizeClearType<P0>(&self, fset: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.CustomizeClearType)(windows_core::Interface::as_raw(self), fset.param().abi()).ok()
-    }
-    pub unsafe fn IsSearchProviderInstalled<P0>(&self, url: P0) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.IsSearchProviderInstalled)(windows_core::Interface::as_raw(self), url.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsSearchMigrated(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.IsSearchMigrated)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DefaultSearchProvider(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.DefaultSearchProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn RunOnceRequiredSettingsComplete<P0>(&self, fcomplete: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.RunOnceRequiredSettingsComplete)(windows_core::Interface::as_raw(self), fcomplete.param().abi()).ok()
-    }
-    pub unsafe fn RunOnceHasShown(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.RunOnceHasShown)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SearchGuideUrl(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SearchGuideUrl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AddService<P0>(&self, url: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.AddService)(windows_core::Interface::as_raw(self), url.param().abi()).ok()
-    }
-    pub unsafe fn IsServiceInstalled<P0, P1>(&self, url: P0, verb: P1) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.IsServiceInstalled)(windows_core::Interface::as_raw(self), url.param().abi(), verb.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn InPrivateFilteringEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.InPrivateFilteringEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn AddToFavoritesBar<P0, P1>(&self, url: P0, title: P1, r#type: *const windows_core::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.AddToFavoritesBar)(windows_core::Interface::as_raw(self), url.param().abi(), title.param().abi(), core::mem::transmute(r#type)).ok()
-    }
-    pub unsafe fn BuildNewTabPage(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.BuildNewTabPage)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetRecentlyClosedVisible<P0>(&self, fvisible: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetRecentlyClosedVisible)(windows_core::Interface::as_raw(self), fvisible.param().abi()).ok()
-    }
-    pub unsafe fn SetActivitiesVisible<P0>(&self, fvisible: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetActivitiesVisible)(windows_core::Interface::as_raw(self), fvisible.param().abi()).ok()
-    }
-    pub unsafe fn ContentDiscoveryReset(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.ContentDiscoveryReset)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn IsSuggestedSitesEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.IsSuggestedSitesEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn EnableSuggestedSites<P0>(&self, fenable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.EnableSuggestedSites)(windows_core::Interface::as_raw(self), fenable.param().abi()).ok()
-    }
-    pub unsafe fn NavigateToSuggestedSites<P0>(&self, bstrrelativeurl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.NavigateToSuggestedSites)(windows_core::Interface::as_raw(self), bstrrelativeurl.param().abi()).ok()
-    }
-    pub unsafe fn ShowTabsHelp(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.ShowTabsHelp)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ShowInPrivateHelp(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.ShowInPrivateHelp)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msIsSiteMode(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.msIsSiteMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn msSiteModeShowThumbBar(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.msSiteModeShowThumbBar)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeAddThumbBarButton<P0, P1>(&self, bstriconurl: P0, bstrtooltip: P1) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.msSiteModeAddThumbBarButton)(windows_core::Interface::as_raw(self), bstriconurl.param().abi(), bstrtooltip.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn msSiteModeUpdateThumbBarButton<P0, P1, P2>(&self, buttonid: P0, fenabled: P1, fvisible: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.msSiteModeUpdateThumbBarButton)(windows_core::Interface::as_raw(self), buttonid.param().abi(), fenabled.param().abi(), fvisible.param().abi()).ok()
-    }
-    pub unsafe fn msSiteModeSetIconOverlay<P0>(&self, iconurl: P0, pvardescription: *const windows_core::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.msSiteModeSetIconOverlay)(windows_core::Interface::as_raw(self), iconurl.param().abi(), core::mem::transmute(pvardescription)).ok()
-    }
-    pub unsafe fn msSiteModeClearIconOverlay(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.msSiteModeClearIconOverlay)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msAddSiteMode(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.msAddSiteMode)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeCreateJumpList<P0>(&self, bstrheader: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.msSiteModeCreateJumpList)(windows_core::Interface::as_raw(self), bstrheader.param().abi()).ok()
-    }
-    pub unsafe fn msSiteModeAddJumpListItem<P0, P1, P2>(&self, bstrname: P0, bstractionuri: P1, bstriconuri: P2, pvarwindowtype: *const windows_core::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.msSiteModeAddJumpListItem)(windows_core::Interface::as_raw(self), bstrname.param().abi(), bstractionuri.param().abi(), bstriconuri.param().abi(), core::mem::transmute(pvarwindowtype)).ok()
-    }
-    pub unsafe fn msSiteModeClearJumpList(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.msSiteModeClearJumpList)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeShowJumpList(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.msSiteModeShowJumpList)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeAddButtonStyle<P0, P1, P2>(&self, uibuttonid: P0, bstriconurl: P1, bstrtooltip: P2) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.msSiteModeAddButtonStyle)(windows_core::Interface::as_raw(self), uibuttonid.param().abi(), bstriconurl.param().abi(), bstrtooltip.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn msSiteModeShowButtonStyle<P0, P1>(&self, uibuttonid: P0, uistyleid: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.msSiteModeShowButtonStyle)(windows_core::Interface::as_raw(self), uibuttonid.param().abi(), uistyleid.param().abi()).ok()
-    }
-    pub unsafe fn msSiteModeActivate(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.msSiteModeActivate)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msIsSiteModeFirstRun<P0>(&self, fpreservestate: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.msIsSiteModeFirstRun)(windows_core::Interface::as_raw(self), fpreservestate.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn msAddTrackingProtectionList<P0, P1>(&self, url: P0, bstrfiltername: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.msAddTrackingProtectionList)(windows_core::Interface::as_raw(self), url.param().abi(), bstrfiltername.param().abi()).ok()
-    }
-    pub unsafe fn msTrackingProtectionEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.msTrackingProtectionEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn msActiveXFilteringEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.msActiveXFilteringEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn msProvisionNetworks<P0>(&self, bstrprovisioningxml: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.msProvisionNetworks)(windows_core::Interface::as_raw(self), bstrprovisioningxml.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn msReportSafeUrl(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.msReportSafeUrl)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeRefreshBadge(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.msSiteModeRefreshBadge)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeClearBadge(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.msSiteModeClearBadge)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msDiagnoseConnectionUILess(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.msDiagnoseConnectionUILess)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msLaunchNetworkClientHelp(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.msLaunchNetworkClientHelp)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msChangeDefaultBrowser<P0>(&self, fchange: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.msChangeDefaultBrowser)(windows_core::Interface::as_raw(self), fchange.param().abi()).ok()
-    }
     pub unsafe fn msStopPeriodicTileUpdate(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).msStopPeriodicTileUpdate)(windows_core::Interface::as_raw(self)).ok()
     }
@@ -23545,420 +20493,16 @@ pub struct IShellUIHelper6_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IShellUIHelper7, IShellUIHelper7_Vtbl, 0x60e567c8_9573_4ab2_a264_637c6c161cb1);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IShellUIHelper7 {
+    type Target = IShellUIHelper6;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IShellUIHelper7, windows_core::IUnknown, super::super::System::Com::IDispatch, IShellUIHelper, IShellUIHelper2, IShellUIHelper3, IShellUIHelper4, IShellUIHelper5, IShellUIHelper6);
 #[cfg(feature = "Win32_System_Com")]
 impl IShellUIHelper7 {
-    pub unsafe fn ResetFirstBootMode(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.ResetFirstBootMode)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ResetSafeMode(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.ResetSafeMode)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn RefreshOfflineDesktop(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.RefreshOfflineDesktop)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn AddFavorite<P0>(&self, url: P0, title: Option<*const windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.AddFavorite)(windows_core::Interface::as_raw(self), url.param().abi(), core::mem::transmute(title.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn AddChannel<P0>(&self, url: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.AddChannel)(windows_core::Interface::as_raw(self), url.param().abi()).ok()
-    }
-    pub unsafe fn AddDesktopComponent<P0, P1>(&self, url: P0, r#type: P1, left: Option<*const windows_core::VARIANT>, top: Option<*const windows_core::VARIANT>, width: Option<*const windows_core::VARIANT>, height: Option<*const windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.AddDesktopComponent)(windows_core::Interface::as_raw(self), url.param().abi(), r#type.param().abi(), core::mem::transmute(left.unwrap_or(std::ptr::null())), core::mem::transmute(top.unwrap_or(std::ptr::null())), core::mem::transmute(width.unwrap_or(std::ptr::null())), core::mem::transmute(height.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn IsSubscribed<P0>(&self, url: P0) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.IsSubscribed)(windows_core::Interface::as_raw(self), url.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn NavigateAndFind<P0, P1>(&self, url: P0, strquery: P1, vartargetframe: *const windows_core::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.NavigateAndFind)(windows_core::Interface::as_raw(self), url.param().abi(), strquery.param().abi(), core::mem::transmute(vartargetframe)).ok()
-    }
-    pub unsafe fn ImportExportFavorites<P0, P1>(&self, fimport: P0, strimpexppath: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.ImportExportFavorites)(windows_core::Interface::as_raw(self), fimport.param().abi(), strimpexppath.param().abi()).ok()
-    }
-    pub unsafe fn AutoCompleteSaveForm(&self, form: Option<*const windows_core::VARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.AutoCompleteSaveForm)(windows_core::Interface::as_raw(self), core::mem::transmute(form.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn AutoScan<P0, P1>(&self, strsearch: P0, strfailureurl: P1, pvartargetframe: Option<*const windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.AutoScan)(windows_core::Interface::as_raw(self), strsearch.param().abi(), strfailureurl.param().abi(), core::mem::transmute(pvartargetframe.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn AutoCompleteAttach(&self, reserved: Option<*const windows_core::VARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.AutoCompleteAttach)(windows_core::Interface::as_raw(self), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn ShowBrowserUI<P0>(&self, bstrname: P0, pvarin: *const windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.ShowBrowserUI)(windows_core::Interface::as_raw(self), bstrname.param().abi(), core::mem::transmute(pvarin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AddSearchProvider<P0>(&self, url: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.AddSearchProvider)(windows_core::Interface::as_raw(self), url.param().abi()).ok()
-    }
-    pub unsafe fn RunOnceShown(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RunOnceShown)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SkipRunOnce(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SkipRunOnce)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn CustomizeSettings<P0, P1, P2>(&self, fsqm: P0, fphishing: P1, bstrlocale: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P2: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CustomizeSettings)(windows_core::Interface::as_raw(self), fsqm.param().abi(), fphishing.param().abi(), bstrlocale.param().abi()).ok()
-    }
-    pub unsafe fn SqmEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SqmEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn PhishingEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.PhishingEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn BrandImageUri(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.BrandImageUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SkipTabsWelcome(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SkipTabsWelcome)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn DiagnoseConnection(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.DiagnoseConnection)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn CustomizeClearType<P0>(&self, fset: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CustomizeClearType)(windows_core::Interface::as_raw(self), fset.param().abi()).ok()
-    }
-    pub unsafe fn IsSearchProviderInstalled<P0>(&self, url: P0) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.IsSearchProviderInstalled)(windows_core::Interface::as_raw(self), url.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsSearchMigrated(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.IsSearchMigrated)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DefaultSearchProvider(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.DefaultSearchProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn RunOnceRequiredSettingsComplete<P0>(&self, fcomplete: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RunOnceRequiredSettingsComplete)(windows_core::Interface::as_raw(self), fcomplete.param().abi()).ok()
-    }
-    pub unsafe fn RunOnceHasShown(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RunOnceHasShown)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SearchGuideUrl(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SearchGuideUrl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AddService<P0>(&self, url: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.AddService)(windows_core::Interface::as_raw(self), url.param().abi()).ok()
-    }
-    pub unsafe fn IsServiceInstalled<P0, P1>(&self, url: P0, verb: P1) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.IsServiceInstalled)(windows_core::Interface::as_raw(self), url.param().abi(), verb.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn InPrivateFilteringEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.InPrivateFilteringEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn AddToFavoritesBar<P0, P1>(&self, url: P0, title: P1, r#type: *const windows_core::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.AddToFavoritesBar)(windows_core::Interface::as_raw(self), url.param().abi(), title.param().abi(), core::mem::transmute(r#type)).ok()
-    }
-    pub unsafe fn BuildNewTabPage(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.BuildNewTabPage)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetRecentlyClosedVisible<P0>(&self, fvisible: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetRecentlyClosedVisible)(windows_core::Interface::as_raw(self), fvisible.param().abi()).ok()
-    }
-    pub unsafe fn SetActivitiesVisible<P0>(&self, fvisible: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.SetActivitiesVisible)(windows_core::Interface::as_raw(self), fvisible.param().abi()).ok()
-    }
-    pub unsafe fn ContentDiscoveryReset(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ContentDiscoveryReset)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn IsSuggestedSitesEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.IsSuggestedSitesEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn EnableSuggestedSites<P0>(&self, fenable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.EnableSuggestedSites)(windows_core::Interface::as_raw(self), fenable.param().abi()).ok()
-    }
-    pub unsafe fn NavigateToSuggestedSites<P0>(&self, bstrrelativeurl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.NavigateToSuggestedSites)(windows_core::Interface::as_raw(self), bstrrelativeurl.param().abi()).ok()
-    }
-    pub unsafe fn ShowTabsHelp(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ShowTabsHelp)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ShowInPrivateHelp(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.ShowInPrivateHelp)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msIsSiteMode(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.msIsSiteMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn msSiteModeShowThumbBar(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msSiteModeShowThumbBar)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeAddThumbBarButton<P0, P1>(&self, bstriconurl: P0, bstrtooltip: P1) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.msSiteModeAddThumbBarButton)(windows_core::Interface::as_raw(self), bstriconurl.param().abi(), bstrtooltip.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn msSiteModeUpdateThumbBarButton<P0, P1, P2>(&self, buttonid: P0, fenabled: P1, fvisible: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msSiteModeUpdateThumbBarButton)(windows_core::Interface::as_raw(self), buttonid.param().abi(), fenabled.param().abi(), fvisible.param().abi()).ok()
-    }
-    pub unsafe fn msSiteModeSetIconOverlay<P0>(&self, iconurl: P0, pvardescription: *const windows_core::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msSiteModeSetIconOverlay)(windows_core::Interface::as_raw(self), iconurl.param().abi(), core::mem::transmute(pvardescription)).ok()
-    }
-    pub unsafe fn msSiteModeClearIconOverlay(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msSiteModeClearIconOverlay)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msAddSiteMode(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msAddSiteMode)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeCreateJumpList<P0>(&self, bstrheader: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msSiteModeCreateJumpList)(windows_core::Interface::as_raw(self), bstrheader.param().abi()).ok()
-    }
-    pub unsafe fn msSiteModeAddJumpListItem<P0, P1, P2>(&self, bstrname: P0, bstractionuri: P1, bstriconuri: P2, pvarwindowtype: *const windows_core::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msSiteModeAddJumpListItem)(windows_core::Interface::as_raw(self), bstrname.param().abi(), bstractionuri.param().abi(), bstriconuri.param().abi(), core::mem::transmute(pvarwindowtype)).ok()
-    }
-    pub unsafe fn msSiteModeClearJumpList(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msSiteModeClearJumpList)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeShowJumpList(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msSiteModeShowJumpList)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeAddButtonStyle<P0, P1, P2>(&self, uibuttonid: P0, bstriconurl: P1, bstrtooltip: P2) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.msSiteModeAddButtonStyle)(windows_core::Interface::as_raw(self), uibuttonid.param().abi(), bstriconurl.param().abi(), bstrtooltip.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn msSiteModeShowButtonStyle<P0, P1>(&self, uibuttonid: P0, uistyleid: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msSiteModeShowButtonStyle)(windows_core::Interface::as_raw(self), uibuttonid.param().abi(), uistyleid.param().abi()).ok()
-    }
-    pub unsafe fn msSiteModeActivate(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msSiteModeActivate)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msIsSiteModeFirstRun<P0>(&self, fpreservestate: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.msIsSiteModeFirstRun)(windows_core::Interface::as_raw(self), fpreservestate.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn msAddTrackingProtectionList<P0, P1>(&self, url: P0, bstrfiltername: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msAddTrackingProtectionList)(windows_core::Interface::as_raw(self), url.param().abi(), bstrfiltername.param().abi()).ok()
-    }
-    pub unsafe fn msTrackingProtectionEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.msTrackingProtectionEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn msActiveXFilteringEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.msActiveXFilteringEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn msProvisionNetworks<P0>(&self, bstrprovisioningxml: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.msProvisionNetworks)(windows_core::Interface::as_raw(self), bstrprovisioningxml.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn msReportSafeUrl(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.msReportSafeUrl)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeRefreshBadge(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.msSiteModeRefreshBadge)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeClearBadge(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.msSiteModeClearBadge)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msDiagnoseConnectionUILess(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.msDiagnoseConnectionUILess)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msLaunchNetworkClientHelp(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.msLaunchNetworkClientHelp)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msChangeDefaultBrowser<P0>(&self, fchange: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.msChangeDefaultBrowser)(windows_core::Interface::as_raw(self), fchange.param().abi()).ok()
-    }
-    pub unsafe fn msStopPeriodicTileUpdate(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.msStopPeriodicTileUpdate)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msStartPeriodicTileUpdate<P0, P1, P2>(&self, pollinguris: P0, starttime: P1, uiupdaterecurrence: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-        P2: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.msStartPeriodicTileUpdate)(windows_core::Interface::as_raw(self), pollinguris.param().abi(), starttime.param().abi(), uiupdaterecurrence.param().abi()).ok()
-    }
-    pub unsafe fn msStartPeriodicTileUpdateBatch<P0, P1, P2>(&self, pollinguris: P0, starttime: P1, uiupdaterecurrence: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-        P2: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.msStartPeriodicTileUpdateBatch)(windows_core::Interface::as_raw(self), pollinguris.param().abi(), starttime.param().abi(), uiupdaterecurrence.param().abi()).ok()
-    }
-    pub unsafe fn msClearTile(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.msClearTile)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msEnableTileNotificationQueue<P0>(&self, fchange: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.msEnableTileNotificationQueue)(windows_core::Interface::as_raw(self), fchange.param().abi()).ok()
-    }
-    pub unsafe fn msPinnedSiteState(&self) -> windows_core::Result<windows_core::VARIANT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.msPinnedSiteState)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn msEnableTileNotificationQueueForSquare150x150<P0>(&self, fchange: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.msEnableTileNotificationQueueForSquare150x150)(windows_core::Interface::as_raw(self), fchange.param().abi()).ok()
-    }
-    pub unsafe fn msEnableTileNotificationQueueForWide310x150<P0>(&self, fchange: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.msEnableTileNotificationQueueForWide310x150)(windows_core::Interface::as_raw(self), fchange.param().abi()).ok()
-    }
-    pub unsafe fn msEnableTileNotificationQueueForSquare310x310<P0>(&self, fchange: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.msEnableTileNotificationQueueForSquare310x310)(windows_core::Interface::as_raw(self), fchange.param().abi()).ok()
-    }
-    pub unsafe fn msScheduledTileNotification<P0, P1, P2, P3, P4>(&self, bstrnotificationxml: P0, bstrnotificationid: P1, bstrnotificationtag: P2, starttime: P3, expirationtime: P4) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<windows_core::BSTR>,
-        P3: windows_core::Param<windows_core::VARIANT>,
-        P4: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.msScheduledTileNotification)(windows_core::Interface::as_raw(self), bstrnotificationxml.param().abi(), bstrnotificationid.param().abi(), bstrnotificationtag.param().abi(), starttime.param().abi(), expirationtime.param().abi()).ok()
-    }
-    pub unsafe fn msRemoveScheduledTileNotification<P0>(&self, bstrnotificationid: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.msRemoveScheduledTileNotification)(windows_core::Interface::as_raw(self), bstrnotificationid.param().abi()).ok()
-    }
-    pub unsafe fn msStartPeriodicBadgeUpdate<P0, P1, P2>(&self, pollinguri: P0, starttime: P1, uiupdaterecurrence: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-        P2: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.msStartPeriodicBadgeUpdate)(windows_core::Interface::as_raw(self), pollinguri.param().abi(), starttime.param().abi(), uiupdaterecurrence.param().abi()).ok()
-    }
-    pub unsafe fn msStopPeriodicBadgeUpdate(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.msStopPeriodicBadgeUpdate)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msLaunchInternetOptions(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.msLaunchInternetOptions)(windows_core::Interface::as_raw(self)).ok()
-    }
     pub unsafe fn SetExperimentalFlag<P0, P1>(&self, bstrflagstring: P0, vfflag: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -24035,478 +20579,16 @@ pub struct IShellUIHelper7_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IShellUIHelper8, IShellUIHelper8_Vtbl, 0x66debcf2_05b0_4f07_b49b_b96241a65db2);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IShellUIHelper8 {
+    type Target = IShellUIHelper7;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IShellUIHelper8, windows_core::IUnknown, super::super::System::Com::IDispatch, IShellUIHelper, IShellUIHelper2, IShellUIHelper3, IShellUIHelper4, IShellUIHelper5, IShellUIHelper6, IShellUIHelper7);
 #[cfg(feature = "Win32_System_Com")]
 impl IShellUIHelper8 {
-    pub unsafe fn ResetFirstBootMode(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.ResetFirstBootMode)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ResetSafeMode(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.ResetSafeMode)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn RefreshOfflineDesktop(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.RefreshOfflineDesktop)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn AddFavorite<P0>(&self, url: P0, title: Option<*const windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.AddFavorite)(windows_core::Interface::as_raw(self), url.param().abi(), core::mem::transmute(title.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn AddChannel<P0>(&self, url: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.AddChannel)(windows_core::Interface::as_raw(self), url.param().abi()).ok()
-    }
-    pub unsafe fn AddDesktopComponent<P0, P1>(&self, url: P0, r#type: P1, left: Option<*const windows_core::VARIANT>, top: Option<*const windows_core::VARIANT>, width: Option<*const windows_core::VARIANT>, height: Option<*const windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.AddDesktopComponent)(windows_core::Interface::as_raw(self), url.param().abi(), r#type.param().abi(), core::mem::transmute(left.unwrap_or(std::ptr::null())), core::mem::transmute(top.unwrap_or(std::ptr::null())), core::mem::transmute(width.unwrap_or(std::ptr::null())), core::mem::transmute(height.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn IsSubscribed<P0>(&self, url: P0) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.IsSubscribed)(windows_core::Interface::as_raw(self), url.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn NavigateAndFind<P0, P1>(&self, url: P0, strquery: P1, vartargetframe: *const windows_core::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.NavigateAndFind)(windows_core::Interface::as_raw(self), url.param().abi(), strquery.param().abi(), core::mem::transmute(vartargetframe)).ok()
-    }
-    pub unsafe fn ImportExportFavorites<P0, P1>(&self, fimport: P0, strimpexppath: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.ImportExportFavorites)(windows_core::Interface::as_raw(self), fimport.param().abi(), strimpexppath.param().abi()).ok()
-    }
-    pub unsafe fn AutoCompleteSaveForm(&self, form: Option<*const windows_core::VARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.AutoCompleteSaveForm)(windows_core::Interface::as_raw(self), core::mem::transmute(form.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn AutoScan<P0, P1>(&self, strsearch: P0, strfailureurl: P1, pvartargetframe: Option<*const windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.AutoScan)(windows_core::Interface::as_raw(self), strsearch.param().abi(), strfailureurl.param().abi(), core::mem::transmute(pvartargetframe.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn AutoCompleteAttach(&self, reserved: Option<*const windows_core::VARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.AutoCompleteAttach)(windows_core::Interface::as_raw(self), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn ShowBrowserUI<P0>(&self, bstrname: P0, pvarin: *const windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.ShowBrowserUI)(windows_core::Interface::as_raw(self), bstrname.param().abi(), core::mem::transmute(pvarin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AddSearchProvider<P0>(&self, url: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.AddSearchProvider)(windows_core::Interface::as_raw(self), url.param().abi()).ok()
-    }
-    pub unsafe fn RunOnceShown(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.RunOnceShown)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SkipRunOnce(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SkipRunOnce)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn CustomizeSettings<P0, P1, P2>(&self, fsqm: P0, fphishing: P1, bstrlocale: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P2: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CustomizeSettings)(windows_core::Interface::as_raw(self), fsqm.param().abi(), fphishing.param().abi(), bstrlocale.param().abi()).ok()
-    }
-    pub unsafe fn SqmEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SqmEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn PhishingEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.PhishingEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn BrandImageUri(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.BrandImageUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SkipTabsWelcome(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SkipTabsWelcome)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn DiagnoseConnection(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.DiagnoseConnection)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn CustomizeClearType<P0>(&self, fset: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CustomizeClearType)(windows_core::Interface::as_raw(self), fset.param().abi()).ok()
-    }
-    pub unsafe fn IsSearchProviderInstalled<P0>(&self, url: P0) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.IsSearchProviderInstalled)(windows_core::Interface::as_raw(self), url.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsSearchMigrated(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.IsSearchMigrated)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DefaultSearchProvider(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.DefaultSearchProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn RunOnceRequiredSettingsComplete<P0>(&self, fcomplete: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.RunOnceRequiredSettingsComplete)(windows_core::Interface::as_raw(self), fcomplete.param().abi()).ok()
-    }
-    pub unsafe fn RunOnceHasShown(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.RunOnceHasShown)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SearchGuideUrl(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SearchGuideUrl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AddService<P0>(&self, url: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.AddService)(windows_core::Interface::as_raw(self), url.param().abi()).ok()
-    }
-    pub unsafe fn IsServiceInstalled<P0, P1>(&self, url: P0, verb: P1) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.IsServiceInstalled)(windows_core::Interface::as_raw(self), url.param().abi(), verb.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn InPrivateFilteringEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.InPrivateFilteringEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn AddToFavoritesBar<P0, P1>(&self, url: P0, title: P1, r#type: *const windows_core::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.AddToFavoritesBar)(windows_core::Interface::as_raw(self), url.param().abi(), title.param().abi(), core::mem::transmute(r#type)).ok()
-    }
-    pub unsafe fn BuildNewTabPage(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.BuildNewTabPage)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetRecentlyClosedVisible<P0>(&self, fvisible: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetRecentlyClosedVisible)(windows_core::Interface::as_raw(self), fvisible.param().abi()).ok()
-    }
-    pub unsafe fn SetActivitiesVisible<P0>(&self, fvisible: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetActivitiesVisible)(windows_core::Interface::as_raw(self), fvisible.param().abi()).ok()
-    }
-    pub unsafe fn ContentDiscoveryReset(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ContentDiscoveryReset)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn IsSuggestedSitesEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.IsSuggestedSitesEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn EnableSuggestedSites<P0>(&self, fenable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.EnableSuggestedSites)(windows_core::Interface::as_raw(self), fenable.param().abi()).ok()
-    }
-    pub unsafe fn NavigateToSuggestedSites<P0>(&self, bstrrelativeurl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.NavigateToSuggestedSites)(windows_core::Interface::as_raw(self), bstrrelativeurl.param().abi()).ok()
-    }
-    pub unsafe fn ShowTabsHelp(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ShowTabsHelp)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ShowInPrivateHelp(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ShowInPrivateHelp)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msIsSiteMode(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.msIsSiteMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn msSiteModeShowThumbBar(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.msSiteModeShowThumbBar)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeAddThumbBarButton<P0, P1>(&self, bstriconurl: P0, bstrtooltip: P1) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.msSiteModeAddThumbBarButton)(windows_core::Interface::as_raw(self), bstriconurl.param().abi(), bstrtooltip.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn msSiteModeUpdateThumbBarButton<P0, P1, P2>(&self, buttonid: P0, fenabled: P1, fvisible: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.msSiteModeUpdateThumbBarButton)(windows_core::Interface::as_raw(self), buttonid.param().abi(), fenabled.param().abi(), fvisible.param().abi()).ok()
-    }
-    pub unsafe fn msSiteModeSetIconOverlay<P0>(&self, iconurl: P0, pvardescription: *const windows_core::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.msSiteModeSetIconOverlay)(windows_core::Interface::as_raw(self), iconurl.param().abi(), core::mem::transmute(pvardescription)).ok()
-    }
-    pub unsafe fn msSiteModeClearIconOverlay(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.msSiteModeClearIconOverlay)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msAddSiteMode(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.msAddSiteMode)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeCreateJumpList<P0>(&self, bstrheader: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.msSiteModeCreateJumpList)(windows_core::Interface::as_raw(self), bstrheader.param().abi()).ok()
-    }
-    pub unsafe fn msSiteModeAddJumpListItem<P0, P1, P2>(&self, bstrname: P0, bstractionuri: P1, bstriconuri: P2, pvarwindowtype: *const windows_core::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.msSiteModeAddJumpListItem)(windows_core::Interface::as_raw(self), bstrname.param().abi(), bstractionuri.param().abi(), bstriconuri.param().abi(), core::mem::transmute(pvarwindowtype)).ok()
-    }
-    pub unsafe fn msSiteModeClearJumpList(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.msSiteModeClearJumpList)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeShowJumpList(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.msSiteModeShowJumpList)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeAddButtonStyle<P0, P1, P2>(&self, uibuttonid: P0, bstriconurl: P1, bstrtooltip: P2) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.msSiteModeAddButtonStyle)(windows_core::Interface::as_raw(self), uibuttonid.param().abi(), bstriconurl.param().abi(), bstrtooltip.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn msSiteModeShowButtonStyle<P0, P1>(&self, uibuttonid: P0, uistyleid: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.msSiteModeShowButtonStyle)(windows_core::Interface::as_raw(self), uibuttonid.param().abi(), uistyleid.param().abi()).ok()
-    }
-    pub unsafe fn msSiteModeActivate(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.msSiteModeActivate)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msIsSiteModeFirstRun<P0>(&self, fpreservestate: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.msIsSiteModeFirstRun)(windows_core::Interface::as_raw(self), fpreservestate.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn msAddTrackingProtectionList<P0, P1>(&self, url: P0, bstrfiltername: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.msAddTrackingProtectionList)(windows_core::Interface::as_raw(self), url.param().abi(), bstrfiltername.param().abi()).ok()
-    }
-    pub unsafe fn msTrackingProtectionEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.msTrackingProtectionEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn msActiveXFilteringEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.msActiveXFilteringEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn msProvisionNetworks<P0>(&self, bstrprovisioningxml: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.msProvisionNetworks)(windows_core::Interface::as_raw(self), bstrprovisioningxml.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn msReportSafeUrl(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msReportSafeUrl)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeRefreshBadge(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msSiteModeRefreshBadge)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeClearBadge(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msSiteModeClearBadge)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msDiagnoseConnectionUILess(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msDiagnoseConnectionUILess)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msLaunchNetworkClientHelp(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msLaunchNetworkClientHelp)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msChangeDefaultBrowser<P0>(&self, fchange: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msChangeDefaultBrowser)(windows_core::Interface::as_raw(self), fchange.param().abi()).ok()
-    }
-    pub unsafe fn msStopPeriodicTileUpdate(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.msStopPeriodicTileUpdate)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msStartPeriodicTileUpdate<P0, P1, P2>(&self, pollinguris: P0, starttime: P1, uiupdaterecurrence: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-        P2: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.msStartPeriodicTileUpdate)(windows_core::Interface::as_raw(self), pollinguris.param().abi(), starttime.param().abi(), uiupdaterecurrence.param().abi()).ok()
-    }
-    pub unsafe fn msStartPeriodicTileUpdateBatch<P0, P1, P2>(&self, pollinguris: P0, starttime: P1, uiupdaterecurrence: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-        P2: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.msStartPeriodicTileUpdateBatch)(windows_core::Interface::as_raw(self), pollinguris.param().abi(), starttime.param().abi(), uiupdaterecurrence.param().abi()).ok()
-    }
-    pub unsafe fn msClearTile(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.msClearTile)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msEnableTileNotificationQueue<P0>(&self, fchange: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.msEnableTileNotificationQueue)(windows_core::Interface::as_raw(self), fchange.param().abi()).ok()
-    }
-    pub unsafe fn msPinnedSiteState(&self) -> windows_core::Result<windows_core::VARIANT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.msPinnedSiteState)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn msEnableTileNotificationQueueForSquare150x150<P0>(&self, fchange: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.msEnableTileNotificationQueueForSquare150x150)(windows_core::Interface::as_raw(self), fchange.param().abi()).ok()
-    }
-    pub unsafe fn msEnableTileNotificationQueueForWide310x150<P0>(&self, fchange: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.msEnableTileNotificationQueueForWide310x150)(windows_core::Interface::as_raw(self), fchange.param().abi()).ok()
-    }
-    pub unsafe fn msEnableTileNotificationQueueForSquare310x310<P0>(&self, fchange: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.msEnableTileNotificationQueueForSquare310x310)(windows_core::Interface::as_raw(self), fchange.param().abi()).ok()
-    }
-    pub unsafe fn msScheduledTileNotification<P0, P1, P2, P3, P4>(&self, bstrnotificationxml: P0, bstrnotificationid: P1, bstrnotificationtag: P2, starttime: P3, expirationtime: P4) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<windows_core::BSTR>,
-        P3: windows_core::Param<windows_core::VARIANT>,
-        P4: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.msScheduledTileNotification)(windows_core::Interface::as_raw(self), bstrnotificationxml.param().abi(), bstrnotificationid.param().abi(), bstrnotificationtag.param().abi(), starttime.param().abi(), expirationtime.param().abi()).ok()
-    }
-    pub unsafe fn msRemoveScheduledTileNotification<P0>(&self, bstrnotificationid: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.msRemoveScheduledTileNotification)(windows_core::Interface::as_raw(self), bstrnotificationid.param().abi()).ok()
-    }
-    pub unsafe fn msStartPeriodicBadgeUpdate<P0, P1, P2>(&self, pollinguri: P0, starttime: P1, uiupdaterecurrence: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-        P2: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.msStartPeriodicBadgeUpdate)(windows_core::Interface::as_raw(self), pollinguri.param().abi(), starttime.param().abi(), uiupdaterecurrence.param().abi()).ok()
-    }
-    pub unsafe fn msStopPeriodicBadgeUpdate(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.msStopPeriodicBadgeUpdate)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msLaunchInternetOptions(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.msLaunchInternetOptions)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetExperimentalFlag<P0, P1>(&self, bstrflagstring: P0, vfflag: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetExperimentalFlag)(windows_core::Interface::as_raw(self), bstrflagstring.param().abi(), vfflag.param().abi()).ok()
-    }
-    pub unsafe fn GetExperimentalFlag<P0>(&self, bstrflagstring: P0) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetExperimentalFlag)(windows_core::Interface::as_raw(self), bstrflagstring.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetExperimentalValue<P0>(&self, bstrvaluestring: P0, dwvalue: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetExperimentalValue)(windows_core::Interface::as_raw(self), bstrvaluestring.param().abi(), dwvalue).ok()
-    }
-    pub unsafe fn GetExperimentalValue<P0>(&self, bstrvaluestring: P0) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetExperimentalValue)(windows_core::Interface::as_raw(self), bstrvaluestring.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ResetAllExperimentalFlagsAndValues(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.ResetAllExperimentalFlagsAndValues)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn GetNeedIEAutoLaunchFlag<P0>(&self, bstrurl: P0) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetNeedIEAutoLaunchFlag)(windows_core::Interface::as_raw(self), bstrurl.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetNeedIEAutoLaunchFlag<P0, P1>(&self, bstrurl: P0, flag: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetNeedIEAutoLaunchFlag)(windows_core::Interface::as_raw(self), bstrurl.param().abi(), flag.param().abi()).ok()
-    }
-    pub unsafe fn HasNeedIEAutoLaunchFlag<P0>(&self, bstrurl: P0) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.HasNeedIEAutoLaunchFlag)(windows_core::Interface::as_raw(self), bstrurl.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn LaunchIE<P0, P1>(&self, bstrurl: P0, automated: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.LaunchIE)(windows_core::Interface::as_raw(self), bstrurl.param().abi(), automated.param().abi()).ok()
-    }
     pub unsafe fn GetCVListData(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCVListData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -24551,506 +20633,16 @@ pub struct IShellUIHelper8_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IShellUIHelper9, IShellUIHelper9_Vtbl, 0x6cdf73b0_7f2f_451f_bc0f_63e0f3284e54);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IShellUIHelper9 {
+    type Target = IShellUIHelper8;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IShellUIHelper9, windows_core::IUnknown, super::super::System::Com::IDispatch, IShellUIHelper, IShellUIHelper2, IShellUIHelper3, IShellUIHelper4, IShellUIHelper5, IShellUIHelper6, IShellUIHelper7, IShellUIHelper8);
 #[cfg(feature = "Win32_System_Com")]
 impl IShellUIHelper9 {
-    pub unsafe fn ResetFirstBootMode(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.ResetFirstBootMode)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ResetSafeMode(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.ResetSafeMode)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn RefreshOfflineDesktop(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.RefreshOfflineDesktop)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn AddFavorite<P0>(&self, url: P0, title: Option<*const windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.AddFavorite)(windows_core::Interface::as_raw(self), url.param().abi(), core::mem::transmute(title.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn AddChannel<P0>(&self, url: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.AddChannel)(windows_core::Interface::as_raw(self), url.param().abi()).ok()
-    }
-    pub unsafe fn AddDesktopComponent<P0, P1>(&self, url: P0, r#type: P1, left: Option<*const windows_core::VARIANT>, top: Option<*const windows_core::VARIANT>, width: Option<*const windows_core::VARIANT>, height: Option<*const windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.AddDesktopComponent)(windows_core::Interface::as_raw(self), url.param().abi(), r#type.param().abi(), core::mem::transmute(left.unwrap_or(std::ptr::null())), core::mem::transmute(top.unwrap_or(std::ptr::null())), core::mem::transmute(width.unwrap_or(std::ptr::null())), core::mem::transmute(height.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn IsSubscribed<P0>(&self, url: P0) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.IsSubscribed)(windows_core::Interface::as_raw(self), url.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn NavigateAndFind<P0, P1>(&self, url: P0, strquery: P1, vartargetframe: *const windows_core::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.NavigateAndFind)(windows_core::Interface::as_raw(self), url.param().abi(), strquery.param().abi(), core::mem::transmute(vartargetframe)).ok()
-    }
-    pub unsafe fn ImportExportFavorites<P0, P1>(&self, fimport: P0, strimpexppath: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.ImportExportFavorites)(windows_core::Interface::as_raw(self), fimport.param().abi(), strimpexppath.param().abi()).ok()
-    }
-    pub unsafe fn AutoCompleteSaveForm(&self, form: Option<*const windows_core::VARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.AutoCompleteSaveForm)(windows_core::Interface::as_raw(self), core::mem::transmute(form.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn AutoScan<P0, P1>(&self, strsearch: P0, strfailureurl: P1, pvartargetframe: Option<*const windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.AutoScan)(windows_core::Interface::as_raw(self), strsearch.param().abi(), strfailureurl.param().abi(), core::mem::transmute(pvartargetframe.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn AutoCompleteAttach(&self, reserved: Option<*const windows_core::VARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.AutoCompleteAttach)(windows_core::Interface::as_raw(self), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn ShowBrowserUI<P0>(&self, bstrname: P0, pvarin: *const windows_core::VARIANT) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.ShowBrowserUI)(windows_core::Interface::as_raw(self), bstrname.param().abi(), core::mem::transmute(pvarin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AddSearchProvider<P0>(&self, url: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.AddSearchProvider)(windows_core::Interface::as_raw(self), url.param().abi()).ok()
-    }
-    pub unsafe fn RunOnceShown(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.RunOnceShown)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SkipRunOnce(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.SkipRunOnce)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn CustomizeSettings<P0, P1, P2>(&self, fsqm: P0, fphishing: P1, bstrlocale: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P2: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CustomizeSettings)(windows_core::Interface::as_raw(self), fsqm.param().abi(), fphishing.param().abi(), bstrlocale.param().abi()).ok()
-    }
-    pub unsafe fn SqmEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.SqmEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn PhishingEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.PhishingEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn BrandImageUri(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.BrandImageUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SkipTabsWelcome(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.SkipTabsWelcome)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn DiagnoseConnection(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.DiagnoseConnection)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn CustomizeClearType<P0>(&self, fset: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CustomizeClearType)(windows_core::Interface::as_raw(self), fset.param().abi()).ok()
-    }
-    pub unsafe fn IsSearchProviderInstalled<P0>(&self, url: P0) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.IsSearchProviderInstalled)(windows_core::Interface::as_raw(self), url.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn IsSearchMigrated(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.IsSearchMigrated)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn DefaultSearchProvider(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.DefaultSearchProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn RunOnceRequiredSettingsComplete<P0>(&self, fcomplete: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.RunOnceRequiredSettingsComplete)(windows_core::Interface::as_raw(self), fcomplete.param().abi()).ok()
-    }
-    pub unsafe fn RunOnceHasShown(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.RunOnceHasShown)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SearchGuideUrl(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.SearchGuideUrl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AddService<P0>(&self, url: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.AddService)(windows_core::Interface::as_raw(self), url.param().abi()).ok()
-    }
-    pub unsafe fn IsServiceInstalled<P0, P1>(&self, url: P0, verb: P1) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.IsServiceInstalled)(windows_core::Interface::as_raw(self), url.param().abi(), verb.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn InPrivateFilteringEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.InPrivateFilteringEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn AddToFavoritesBar<P0, P1>(&self, url: P0, title: P1, r#type: *const windows_core::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.AddToFavoritesBar)(windows_core::Interface::as_raw(self), url.param().abi(), title.param().abi(), core::mem::transmute(r#type)).ok()
-    }
-    pub unsafe fn BuildNewTabPage(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.BuildNewTabPage)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetRecentlyClosedVisible<P0>(&self, fvisible: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetRecentlyClosedVisible)(windows_core::Interface::as_raw(self), fvisible.param().abi()).ok()
-    }
-    pub unsafe fn SetActivitiesVisible<P0>(&self, fvisible: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetActivitiesVisible)(windows_core::Interface::as_raw(self), fvisible.param().abi()).ok()
-    }
-    pub unsafe fn ContentDiscoveryReset(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.ContentDiscoveryReset)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn IsSuggestedSitesEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.IsSuggestedSitesEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn EnableSuggestedSites<P0>(&self, fenable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.EnableSuggestedSites)(windows_core::Interface::as_raw(self), fenable.param().abi()).ok()
-    }
-    pub unsafe fn NavigateToSuggestedSites<P0>(&self, bstrrelativeurl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.NavigateToSuggestedSites)(windows_core::Interface::as_raw(self), bstrrelativeurl.param().abi()).ok()
-    }
-    pub unsafe fn ShowTabsHelp(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.ShowTabsHelp)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ShowInPrivateHelp(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.ShowInPrivateHelp)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msIsSiteMode(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.msIsSiteMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn msSiteModeShowThumbBar(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.msSiteModeShowThumbBar)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeAddThumbBarButton<P0, P1>(&self, bstriconurl: P0, bstrtooltip: P1) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.msSiteModeAddThumbBarButton)(windows_core::Interface::as_raw(self), bstriconurl.param().abi(), bstrtooltip.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn msSiteModeUpdateThumbBarButton<P0, P1, P2>(&self, buttonid: P0, fenabled: P1, fvisible: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.msSiteModeUpdateThumbBarButton)(windows_core::Interface::as_raw(self), buttonid.param().abi(), fenabled.param().abi(), fvisible.param().abi()).ok()
-    }
-    pub unsafe fn msSiteModeSetIconOverlay<P0>(&self, iconurl: P0, pvardescription: *const windows_core::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.msSiteModeSetIconOverlay)(windows_core::Interface::as_raw(self), iconurl.param().abi(), core::mem::transmute(pvardescription)).ok()
-    }
-    pub unsafe fn msSiteModeClearIconOverlay(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.msSiteModeClearIconOverlay)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msAddSiteMode(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.msAddSiteMode)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeCreateJumpList<P0>(&self, bstrheader: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.msSiteModeCreateJumpList)(windows_core::Interface::as_raw(self), bstrheader.param().abi()).ok()
-    }
-    pub unsafe fn msSiteModeAddJumpListItem<P0, P1, P2>(&self, bstrname: P0, bstractionuri: P1, bstriconuri: P2, pvarwindowtype: *const windows_core::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.msSiteModeAddJumpListItem)(windows_core::Interface::as_raw(self), bstrname.param().abi(), bstractionuri.param().abi(), bstriconuri.param().abi(), core::mem::transmute(pvarwindowtype)).ok()
-    }
-    pub unsafe fn msSiteModeClearJumpList(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.msSiteModeClearJumpList)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeShowJumpList(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.msSiteModeShowJumpList)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeAddButtonStyle<P0, P1, P2>(&self, uibuttonid: P0, bstriconurl: P1, bstrtooltip: P2) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.msSiteModeAddButtonStyle)(windows_core::Interface::as_raw(self), uibuttonid.param().abi(), bstriconurl.param().abi(), bstrtooltip.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn msSiteModeShowButtonStyle<P0, P1>(&self, uibuttonid: P0, uistyleid: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.msSiteModeShowButtonStyle)(windows_core::Interface::as_raw(self), uibuttonid.param().abi(), uistyleid.param().abi()).ok()
-    }
-    pub unsafe fn msSiteModeActivate(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.msSiteModeActivate)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msIsSiteModeFirstRun<P0>(&self, fpreservestate: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.msIsSiteModeFirstRun)(windows_core::Interface::as_raw(self), fpreservestate.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn msAddTrackingProtectionList<P0, P1>(&self, url: P0, bstrfiltername: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.msAddTrackingProtectionList)(windows_core::Interface::as_raw(self), url.param().abi(), bstrfiltername.param().abi()).ok()
-    }
-    pub unsafe fn msTrackingProtectionEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.msTrackingProtectionEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn msActiveXFilteringEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.msActiveXFilteringEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn msProvisionNetworks<P0>(&self, bstrprovisioningxml: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.msProvisionNetworks)(windows_core::Interface::as_raw(self), bstrprovisioningxml.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn msReportSafeUrl(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.msReportSafeUrl)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeRefreshBadge(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.msSiteModeRefreshBadge)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msSiteModeClearBadge(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.msSiteModeClearBadge)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msDiagnoseConnectionUILess(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.msDiagnoseConnectionUILess)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msLaunchNetworkClientHelp(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.msLaunchNetworkClientHelp)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msChangeDefaultBrowser<P0>(&self, fchange: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.base__.msChangeDefaultBrowser)(windows_core::Interface::as_raw(self), fchange.param().abi()).ok()
-    }
-    pub unsafe fn msStopPeriodicTileUpdate(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msStopPeriodicTileUpdate)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msStartPeriodicTileUpdate<P0, P1, P2>(&self, pollinguris: P0, starttime: P1, uiupdaterecurrence: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-        P2: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msStartPeriodicTileUpdate)(windows_core::Interface::as_raw(self), pollinguris.param().abi(), starttime.param().abi(), uiupdaterecurrence.param().abi()).ok()
-    }
-    pub unsafe fn msStartPeriodicTileUpdateBatch<P0, P1, P2>(&self, pollinguris: P0, starttime: P1, uiupdaterecurrence: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-        P2: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msStartPeriodicTileUpdateBatch)(windows_core::Interface::as_raw(self), pollinguris.param().abi(), starttime.param().abi(), uiupdaterecurrence.param().abi()).ok()
-    }
-    pub unsafe fn msClearTile(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msClearTile)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msEnableTileNotificationQueue<P0>(&self, fchange: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msEnableTileNotificationQueue)(windows_core::Interface::as_raw(self), fchange.param().abi()).ok()
-    }
-    pub unsafe fn msPinnedSiteState(&self) -> windows_core::Result<windows_core::VARIANT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.msPinnedSiteState)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn msEnableTileNotificationQueueForSquare150x150<P0>(&self, fchange: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msEnableTileNotificationQueueForSquare150x150)(windows_core::Interface::as_raw(self), fchange.param().abi()).ok()
-    }
-    pub unsafe fn msEnableTileNotificationQueueForWide310x150<P0>(&self, fchange: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msEnableTileNotificationQueueForWide310x150)(windows_core::Interface::as_raw(self), fchange.param().abi()).ok()
-    }
-    pub unsafe fn msEnableTileNotificationQueueForSquare310x310<P0>(&self, fchange: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msEnableTileNotificationQueueForSquare310x310)(windows_core::Interface::as_raw(self), fchange.param().abi()).ok()
-    }
-    pub unsafe fn msScheduledTileNotification<P0, P1, P2, P3, P4>(&self, bstrnotificationxml: P0, bstrnotificationid: P1, bstrnotificationtag: P2, starttime: P3, expirationtime: P4) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<windows_core::BSTR>,
-        P3: windows_core::Param<windows_core::VARIANT>,
-        P4: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msScheduledTileNotification)(windows_core::Interface::as_raw(self), bstrnotificationxml.param().abi(), bstrnotificationid.param().abi(), bstrnotificationtag.param().abi(), starttime.param().abi(), expirationtime.param().abi()).ok()
-    }
-    pub unsafe fn msRemoveScheduledTileNotification<P0>(&self, bstrnotificationid: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msRemoveScheduledTileNotification)(windows_core::Interface::as_raw(self), bstrnotificationid.param().abi()).ok()
-    }
-    pub unsafe fn msStartPeriodicBadgeUpdate<P0, P1, P2>(&self, pollinguri: P0, starttime: P1, uiupdaterecurrence: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-        P2: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msStartPeriodicBadgeUpdate)(windows_core::Interface::as_raw(self), pollinguri.param().abi(), starttime.param().abi(), uiupdaterecurrence.param().abi()).ok()
-    }
-    pub unsafe fn msStopPeriodicBadgeUpdate(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msStopPeriodicBadgeUpdate)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn msLaunchInternetOptions(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.msLaunchInternetOptions)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetExperimentalFlag<P0, P1>(&self, bstrflagstring: P0, vfflag: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetExperimentalFlag)(windows_core::Interface::as_raw(self), bstrflagstring.param().abi(), vfflag.param().abi()).ok()
-    }
-    pub unsafe fn GetExperimentalFlag<P0>(&self, bstrflagstring: P0) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetExperimentalFlag)(windows_core::Interface::as_raw(self), bstrflagstring.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetExperimentalValue<P0>(&self, bstrvaluestring: P0, dwvalue: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetExperimentalValue)(windows_core::Interface::as_raw(self), bstrvaluestring.param().abi(), dwvalue).ok()
-    }
-    pub unsafe fn GetExperimentalValue<P0>(&self, bstrvaluestring: P0) -> windows_core::Result<u32>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetExperimentalValue)(windows_core::Interface::as_raw(self), bstrvaluestring.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ResetAllExperimentalFlagsAndValues(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.ResetAllExperimentalFlagsAndValues)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn GetNeedIEAutoLaunchFlag<P0>(&self, bstrurl: P0) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetNeedIEAutoLaunchFlag)(windows_core::Interface::as_raw(self), bstrurl.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetNeedIEAutoLaunchFlag<P0, P1>(&self, bstrurl: P0, flag: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetNeedIEAutoLaunchFlag)(windows_core::Interface::as_raw(self), bstrurl.param().abi(), flag.param().abi()).ok()
-    }
-    pub unsafe fn HasNeedIEAutoLaunchFlag<P0>(&self, bstrurl: P0) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.HasNeedIEAutoLaunchFlag)(windows_core::Interface::as_raw(self), bstrurl.param().abi(), &mut result__).map(|| result__)
-    }
-    pub unsafe fn LaunchIE<P0, P1>(&self, bstrurl: P0, automated: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.LaunchIE)(windows_core::Interface::as_raw(self), bstrurl.param().abi(), automated.param().abi()).ok()
-    }
-    pub unsafe fn GetCVListData(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetCVListData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetCVListLocalData(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetCVListLocalData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetEMIEListData(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetEMIEListData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetEMIEListLocalData(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetEMIEListLocalData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn OpenFavoritesPane(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.OpenFavoritesPane)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn OpenFavoritesSettings(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.OpenFavoritesSettings)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn LaunchInHVSI<P0>(&self, bstrurl: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.LaunchInHVSI)(windows_core::Interface::as_raw(self), bstrurl.param().abi()).ok()
-    }
     pub unsafe fn GetOSSku(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetOSSku)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -25065,21 +20657,16 @@ pub struct IShellUIHelper9_Vtbl {
 #[cfg(feature = "Win32_System_Ole")]
 windows_core::imp::define_interface!(IShellView, IShellView_Vtbl, 0x000214e3_0000_0000_c000_000000000046);
 #[cfg(feature = "Win32_System_Ole")]
+impl std::ops::Deref for IShellView {
+    type Target = super::super::System::Ole::IOleWindow;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Ole")]
 windows_core::imp::interface_hierarchy!(IShellView, windows_core::IUnknown, super::super::System::Ole::IOleWindow);
 #[cfg(feature = "Win32_System_Ole")]
 impl IShellView {
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetWindow(&self) -> windows_core::Result<super::super::Foundation::HWND> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn ContextSensitiveHelp<P0>(&self, fentermode: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.ContextSensitiveHelp)(windows_core::Interface::as_raw(self), fentermode.param().abi()).ok()
-    }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn TranslateAccelerator(&self, pmsg: *const super::WindowsAndMessaging::MSG) -> windows_core::HRESULT {
         (windows_core::Interface::vtable(self).TranslateAccelerator)(windows_core::Interface::as_raw(self), pmsg)
@@ -25165,74 +20752,16 @@ pub struct IShellView_Vtbl {
 #[cfg(feature = "Win32_System_Ole")]
 windows_core::imp::define_interface!(IShellView2, IShellView2_Vtbl, 0x88e39e80_3578_11cf_ae69_08002b2e1262);
 #[cfg(feature = "Win32_System_Ole")]
+impl std::ops::Deref for IShellView2 {
+    type Target = IShellView;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Ole")]
 windows_core::imp::interface_hierarchy!(IShellView2, windows_core::IUnknown, super::super::System::Ole::IOleWindow, IShellView);
 #[cfg(feature = "Win32_System_Ole")]
 impl IShellView2 {
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetWindow(&self) -> windows_core::Result<super::super::Foundation::HWND> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn ContextSensitiveHelp<P0>(&self, fentermode: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.ContextSensitiveHelp)(windows_core::Interface::as_raw(self), fentermode.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn TranslateAccelerator(&self, pmsg: *const super::WindowsAndMessaging::MSG) -> windows_core::HRESULT {
-        (windows_core::Interface::vtable(self).base__.TranslateAccelerator)(windows_core::Interface::as_raw(self), pmsg)
-    }
-    pub unsafe fn EnableModeless<P0>(&self, fenable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.EnableModeless)(windows_core::Interface::as_raw(self), fenable.param().abi()).ok()
-    }
-    pub unsafe fn UIActivate(&self, ustate: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.UIActivate)(windows_core::Interface::as_raw(self), ustate).ok()
-    }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Refresh)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn CreateViewWindow<P0, P1>(&self, psvprevious: P0, pfs: *const FOLDERSETTINGS, psb: P1, prcview: *const super::super::Foundation::RECT) -> windows_core::Result<super::super::Foundation::HWND>
-    where
-        P0: windows_core::Param<IShellView>,
-        P1: windows_core::Param<IShellBrowser>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateViewWindow)(windows_core::Interface::as_raw(self), psvprevious.param().abi(), pfs, psb.param().abi(), prcview, &mut result__).map(|| result__)
-    }
-    pub unsafe fn DestroyViewWindow(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.DestroyViewWindow)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn GetCurrentInfo(&self) -> windows_core::Result<FOLDERSETTINGS> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetCurrentInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_UI_Controls")]
-    pub unsafe fn AddPropertySheetPages<P0>(&self, dwreserved: u32, pfn: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::LPARAM>,
-    {
-        (windows_core::Interface::vtable(self).base__.AddPropertySheetPages)(windows_core::Interface::as_raw(self), dwreserved, pfn, lparam.param().abi()).ok()
-    }
-    pub unsafe fn SaveViewState(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SaveViewState)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn SelectItem(&self, pidlitem: *const Common::ITEMIDLIST, uflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SelectItem)(windows_core::Interface::as_raw(self), pidlitem, uflags).ok()
-    }
-    pub unsafe fn GetItemObject<T>(&self, uitem: _SVGIO) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).base__.GetItemObject)(windows_core::Interface::as_raw(self), uitem.0 as _, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn GetView(&self, pvid: *mut windows_core::GUID, uview: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetView)(windows_core::Interface::as_raw(self), pvid, uview).ok()
     }
@@ -25270,89 +20799,16 @@ pub struct IShellView2_Vtbl {
 #[cfg(feature = "Win32_System_Ole")]
 windows_core::imp::define_interface!(IShellView3, IShellView3_Vtbl, 0xec39fa88_f8af_41c5_8421_38bed28f4673);
 #[cfg(feature = "Win32_System_Ole")]
+impl std::ops::Deref for IShellView3 {
+    type Target = IShellView2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Ole")]
 windows_core::imp::interface_hierarchy!(IShellView3, windows_core::IUnknown, super::super::System::Ole::IOleWindow, IShellView, IShellView2);
 #[cfg(feature = "Win32_System_Ole")]
 impl IShellView3 {
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetWindow(&self) -> windows_core::Result<super::super::Foundation::HWND> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.base__.GetWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn ContextSensitiveHelp<P0>(&self, fentermode: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.ContextSensitiveHelp)(windows_core::Interface::as_raw(self), fentermode.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn TranslateAccelerator(&self, pmsg: *const super::WindowsAndMessaging::MSG) -> windows_core::HRESULT {
-        (windows_core::Interface::vtable(self).base__.base__.TranslateAccelerator)(windows_core::Interface::as_raw(self), pmsg)
-    }
-    pub unsafe fn EnableModeless<P0>(&self, fenable: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.EnableModeless)(windows_core::Interface::as_raw(self), fenable.param().abi()).ok()
-    }
-    pub unsafe fn UIActivate(&self, ustate: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.UIActivate)(windows_core::Interface::as_raw(self), ustate).ok()
-    }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.Refresh)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn CreateViewWindow<P0, P1>(&self, psvprevious: P0, pfs: *const FOLDERSETTINGS, psb: P1, prcview: *const super::super::Foundation::RECT) -> windows_core::Result<super::super::Foundation::HWND>
-    where
-        P0: windows_core::Param<IShellView>,
-        P1: windows_core::Param<IShellBrowser>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.CreateViewWindow)(windows_core::Interface::as_raw(self), psvprevious.param().abi(), pfs, psb.param().abi(), prcview, &mut result__).map(|| result__)
-    }
-    pub unsafe fn DestroyViewWindow(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.DestroyViewWindow)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn GetCurrentInfo(&self) -> windows_core::Result<FOLDERSETTINGS> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.GetCurrentInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_UI_Controls")]
-    pub unsafe fn AddPropertySheetPages<P0>(&self, dwreserved: u32, pfn: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::LPARAM>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.AddPropertySheetPages)(windows_core::Interface::as_raw(self), dwreserved, pfn, lparam.param().abi()).ok()
-    }
-    pub unsafe fn SaveViewState(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SaveViewState)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn SelectItem(&self, pidlitem: *const Common::ITEMIDLIST, uflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SelectItem)(windows_core::Interface::as_raw(self), pidlitem, uflags).ok()
-    }
-    pub unsafe fn GetItemObject<T>(&self, uitem: _SVGIO) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).base__.base__.GetItemObject)(windows_core::Interface::as_raw(self), uitem.0 as _, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetView(&self, pvid: *mut windows_core::GUID, uview: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetView)(windows_core::Interface::as_raw(self), pvid, uview).ok()
-    }
-    #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn CreateViewWindow2(&self, lpparams: *const SV2CVW2_PARAMS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.CreateViewWindow2)(windows_core::Interface::as_raw(self), lpparams).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn HandleRename(&self, pidlnew: *const Common::ITEMIDLIST) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.HandleRename)(windows_core::Interface::as_raw(self), pidlnew).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn SelectAndPositionItem(&self, pidlitem: *const Common::ITEMIDLIST, uflags: u32, ppt: *const super::super::Foundation::POINT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SelectAndPositionItem)(windows_core::Interface::as_raw(self), pidlitem, uflags, ppt).ok()
-    }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn CreateViewWindow3<P0, P1>(&self, psbowner: P0, psvprev: P1, dwviewflags: u32, dwmask: FOLDERFLAGS, dwflags: FOLDERFLAGS, fvmode: FOLDERVIEWMODE, pvid: *const windows_core::GUID, prcview: *const super::super::Foundation::RECT) -> windows_core::Result<super::super::Foundation::HWND>
     where
@@ -25374,6 +20830,13 @@ pub struct IShellView3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IShellWindows, IShellWindows_Vtbl, 0x85cb6900_4d95_11cf_960c_0080c7f4ee85);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IShellWindows {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IShellWindows, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -25462,6 +20925,12 @@ pub struct IShellWindows_Vtbl {
     pub ProcessAttachDetach: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISortColumnArray, ISortColumnArray_Vtbl, 0x6dfc60fb_f2e9_459b_beb5_288f1a7c7d54);
+impl std::ops::Deref for ISortColumnArray {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISortColumnArray, windows_core::IUnknown);
 impl ISortColumnArray {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -25488,6 +20957,12 @@ pub struct ISortColumnArray_Vtbl {
     pub GetSortType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SORT_ORDER_TYPE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStartMenuPinnedList, IStartMenuPinnedList_Vtbl, 0x4cd19ada_25a5_4a32_b3b7_347bee5be36b);
+impl std::ops::Deref for IStartMenuPinnedList {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IStartMenuPinnedList, windows_core::IUnknown);
 impl IStartMenuPinnedList {
     pub unsafe fn RemoveFromList<P0>(&self, pitem: P0) -> windows_core::Result<()>
@@ -25503,6 +20978,12 @@ pub struct IStartMenuPinnedList_Vtbl {
     pub RemoveFromList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageProviderBanners, IStorageProviderBanners_Vtbl, 0x5efb46d7_47c0_4b68_acda_ded47c90ec91);
+impl std::ops::Deref for IStorageProviderBanners {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IStorageProviderBanners, windows_core::IUnknown);
 impl IStorageProviderBanners {
     pub unsafe fn SetBanner<P0, P1, P2>(&self, provideridentity: P0, subscriptionid: P1, contentid: P2) -> windows_core::Result<()>
@@ -25544,6 +21025,12 @@ pub struct IStorageProviderBanners_Vtbl {
     pub GetBanner: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageProviderCopyHook, IStorageProviderCopyHook_Vtbl, 0x7bf992a9_af7a_4dba_b2e5_4d080b1ecbc6);
+impl std::ops::Deref for IStorageProviderCopyHook {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IStorageProviderCopyHook, windows_core::IUnknown);
 impl IStorageProviderCopyHook {
     pub unsafe fn CopyCallback<P0, P1, P2>(&self, hwnd: P0, operation: u32, flags: u32, srcfile: P1, srcattribs: u32, destfile: P2, destattribs: u32) -> windows_core::Result<u32>
@@ -25562,6 +21049,12 @@ pub struct IStorageProviderCopyHook_Vtbl {
     pub CopyCallback: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, u32, u32, windows_core::PCWSTR, u32, windows_core::PCWSTR, u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageProviderHandler, IStorageProviderHandler_Vtbl, 0x162c6fb5_44d3_435b_903d_e613fa093fb5);
+impl std::ops::Deref for IStorageProviderHandler {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IStorageProviderHandler, windows_core::IUnknown);
 impl IStorageProviderHandler {
     pub unsafe fn GetPropertyHandlerFromPath<P0>(&self, path: P0) -> windows_core::Result<IStorageProviderPropertyHandler>
@@ -25594,6 +21087,12 @@ pub struct IStorageProviderHandler_Vtbl {
     pub GetPropertyHandlerFromFileId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageProviderPropertyHandler, IStorageProviderPropertyHandler_Vtbl, 0x301dfbe5_524c_4b0f_8b2d_21c40b3a2988);
+impl std::ops::Deref for IStorageProviderPropertyHandler {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IStorageProviderPropertyHandler, windows_core::IUnknown);
 impl IStorageProviderPropertyHandler {
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -25624,57 +21123,16 @@ pub struct IStorageProviderPropertyHandler_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IStreamAsync, IStreamAsync_Vtbl, 0xfe0b6665_e0ca_49b9_a178_2b5cb48d92a5);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IStreamAsync {
+    type Target = super::super::System::Com::IStream;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IStreamAsync, windows_core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
 #[cfg(feature = "Win32_System_Com")]
 impl IStreamAsync {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Read(&self, pv: *mut core::ffi::c_void, cb: u32, pcbread: Option<*mut u32>) -> windows_core::HRESULT {
-        (windows_core::Interface::vtable(self).base__.base__.Read)(windows_core::Interface::as_raw(self), pv, cb, core::mem::transmute(pcbread.unwrap_or(std::ptr::null_mut())))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Write(&self, pv: *const core::ffi::c_void, cb: u32, pcbwritten: Option<*mut u32>) -> windows_core::HRESULT {
-        (windows_core::Interface::vtable(self).base__.base__.Write)(windows_core::Interface::as_raw(self), pv, cb, core::mem::transmute(pcbwritten.unwrap_or(std::ptr::null_mut())))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Seek(&self, dlibmove: i64, dworigin: super::super::System::Com::STREAM_SEEK, plibnewposition: Option<*mut u64>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Seek)(windows_core::Interface::as_raw(self), dlibmove, dworigin, core::mem::transmute(plibnewposition.unwrap_or(std::ptr::null_mut()))).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSize(&self, libnewsize: u64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetSize)(windows_core::Interface::as_raw(self), libnewsize).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyTo<P0>(&self, pstm: P0, cb: u64, pcbread: Option<*mut u64>, pcbwritten: Option<*mut u64>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::System::Com::IStream>,
-    {
-        (windows_core::Interface::vtable(self).base__.CopyTo)(windows_core::Interface::as_raw(self), pstm.param().abi(), cb, core::mem::transmute(pcbread.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbwritten.unwrap_or(std::ptr::null_mut()))).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Commit(&self, grfcommitflags: super::super::System::Com::STGC) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Commit)(windows_core::Interface::as_raw(self), grfcommitflags.0 as _).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Revert(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Revert)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: super::super::System::Com::LOCKTYPE) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.LockRegion)(windows_core::Interface::as_raw(self), liboffset, cb, dwlocktype.0 as _).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.UnlockRegion)(windows_core::Interface::as_raw(self), liboffset, cb, dwlocktype).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Stat(&self, pstatstg: *mut super::super::System::Com::STATSTG, grfstatflag: super::super::System::Com::STATFLAG) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Stat)(windows_core::Interface::as_raw(self), pstatstg, grfstatflag.0 as _).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Clone(&self) -> windows_core::Result<super::super::System::Com::IStream> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn ReadAsync(&self, pv: *mut core::ffi::c_void, cb: u32, pcbread: Option<*mut u32>, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ReadAsync)(windows_core::Interface::as_raw(self), pv, cb, core::mem::transmute(pcbread.unwrap_or(std::ptr::null_mut())), lpoverlapped).ok()
@@ -25713,6 +21171,12 @@ pub struct IStreamAsync_Vtbl {
     pub CancelIo: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStreamUnbufferedInfo, IStreamUnbufferedInfo_Vtbl, 0x8a68fdda_1fdc_4c20_8ceb_416643b5a625);
+impl std::ops::Deref for IStreamUnbufferedInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IStreamUnbufferedInfo, windows_core::IUnknown);
 impl IStreamUnbufferedInfo {
     pub unsafe fn GetSectorSize(&self) -> windows_core::Result<u32> {
@@ -25726,6 +21190,12 @@ pub struct IStreamUnbufferedInfo_Vtbl {
     pub GetSectorSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISuspensionDependencyManager, ISuspensionDependencyManager_Vtbl, 0x52b83a42_2543_416a_81d9_c0de7969c8b3);
+impl std::ops::Deref for ISuspensionDependencyManager {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISuspensionDependencyManager, windows_core::IUnknown);
 impl ISuspensionDependencyManager {
     pub unsafe fn RegisterAsChild<P0>(&self, processhandle: P0) -> windows_core::Result<()>
@@ -25755,6 +21225,12 @@ pub struct ISuspensionDependencyManager_Vtbl {
     pub UngroupChildFromParent: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyncMgrConflict, ISyncMgrConflict_Vtbl, 0x9c204249_c443_4ba4_85ed_c972681db137);
+impl std::ops::Deref for ISyncMgrConflict {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrConflict, windows_core::IUnknown);
 impl ISyncMgrConflict {
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -25801,6 +21277,12 @@ pub struct ISyncMgrConflict_Vtbl {
     pub GetResolutionHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyncMgrConflictFolder, ISyncMgrConflictFolder_Vtbl, 0x59287f5e_bc81_4fca_a7f1_e5a8ecdb1d69);
+impl std::ops::Deref for ISyncMgrConflictFolder {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrConflictFolder, windows_core::IUnknown);
 impl ISyncMgrConflictFolder {
     #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -25821,6 +21303,12 @@ pub struct ISyncMgrConflictFolder_Vtbl {
     GetConflictIDList: usize,
 }
 windows_core::imp::define_interface!(ISyncMgrConflictItems, ISyncMgrConflictItems_Vtbl, 0x9c7ead52_8023_4936_a4db_d2a9a99e436a);
+impl std::ops::Deref for ISyncMgrConflictItems {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrConflictItems, windows_core::IUnknown);
 impl ISyncMgrConflictItems {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -25838,6 +21326,12 @@ pub struct ISyncMgrConflictItems_Vtbl {
     pub GetItem: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut CONFIRM_CONFLICT_ITEM) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyncMgrConflictPresenter, ISyncMgrConflictPresenter_Vtbl, 0x0b4f5353_fd2b_42cd_8763_4779f2d508a3);
+impl std::ops::Deref for ISyncMgrConflictPresenter {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrConflictPresenter, windows_core::IUnknown);
 impl ISyncMgrConflictPresenter {
     pub unsafe fn PresentConflict<P0, P1>(&self, pconflict: P0, presolveinfo: P1) -> windows_core::Result<()>
@@ -25854,6 +21348,12 @@ pub struct ISyncMgrConflictPresenter_Vtbl {
     pub PresentConflict: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyncMgrConflictResolutionItems, ISyncMgrConflictResolutionItems_Vtbl, 0x458725b9_129d_4135_a998_9ceafec27007);
+impl std::ops::Deref for ISyncMgrConflictResolutionItems {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrConflictResolutionItems, windows_core::IUnknown);
 impl ISyncMgrConflictResolutionItems {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -25872,6 +21372,12 @@ pub struct ISyncMgrConflictResolutionItems_Vtbl {
     pub GetItem: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut CONFIRM_CONFLICT_RESULT_INFO) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyncMgrConflictResolveInfo, ISyncMgrConflictResolveInfo_Vtbl, 0xc405a219_25a2_442e_8743_b845a2cee93f);
+impl std::ops::Deref for ISyncMgrConflictResolveInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrConflictResolveInfo, windows_core::IUnknown);
 impl ISyncMgrConflictResolveInfo {
     pub unsafe fn GetIterationInfo(&self, pncurrentconflict: *mut u32, pcconflicts: *mut u32, pcremainingforapplytoall: *mut u32) -> windows_core::Result<()> {
@@ -25918,6 +21424,12 @@ pub struct ISyncMgrConflictResolveInfo_Vtbl {
     pub SetItemChoices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyncMgrConflictStore, ISyncMgrConflictStore_Vtbl, 0xcf8fc579_c396_4774_85f1_d908a831156e);
+impl std::ops::Deref for ISyncMgrConflictStore {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrConflictStore, windows_core::IUnknown);
 impl ISyncMgrConflictStore {
     pub unsafe fn EnumConflicts<P0, P1>(&self, pszhandlerid: P0, pszitemid: P1) -> windows_core::Result<IEnumSyncMgrConflict>
@@ -25964,6 +21476,12 @@ pub struct ISyncMgrConflictStore_Vtbl {
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyncMgrControl, ISyncMgrControl_Vtbl, 0x9b63616c_36b2_46bc_959f_c1593952d19b);
+impl std::ops::Deref for ISyncMgrControl {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrControl, windows_core::IUnknown);
 impl ISyncMgrControl {
     pub unsafe fn StartHandlerSync<P0, P1, P2, P3>(&self, pszhandlerid: P0, hwndowner: P1, punk: P2, nsynccontrolflags: SYNCMGR_SYNC_CONTROL_FLAGS, presult: P3) -> windows_core::Result<()>
@@ -26089,6 +21607,12 @@ pub struct ISyncMgrControl_Vtbl {
     pub EnableItem: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL, windows_core::PCWSTR, windows_core::PCWSTR, super::super::Foundation::HWND, SYNCMGR_CONTROL_FLAGS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyncMgrEnumItems, ISyncMgrEnumItems_Vtbl, 0x6295df2a_35ee_11d1_8707_00c04fd93327);
+impl std::ops::Deref for ISyncMgrEnumItems {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrEnumItems, windows_core::IUnknown);
 impl ISyncMgrEnumItems {
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -26118,6 +21642,12 @@ pub struct ISyncMgrEnumItems_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyncMgrEvent, ISyncMgrEvent_Vtbl, 0xfee0ef8b_46bd_4db4_b7e6_ff2c687313bc);
+impl std::ops::Deref for ISyncMgrEvent {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrEvent, windows_core::IUnknown);
 impl ISyncMgrEvent {
     pub unsafe fn GetEventID(&self) -> windows_core::Result<windows_core::GUID> {
@@ -26181,14 +21711,14 @@ pub struct ISyncMgrEvent_Vtbl {
     pub GetContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyncMgrEventLinkUIOperation, ISyncMgrEventLinkUIOperation_Vtbl, 0x64522e52_848b_4015_89ce_5a36f00b94ff);
+impl std::ops::Deref for ISyncMgrEventLinkUIOperation {
+    type Target = ISyncMgrUIOperation;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrEventLinkUIOperation, windows_core::IUnknown, ISyncMgrUIOperation);
 impl ISyncMgrEventLinkUIOperation {
-    pub unsafe fn Run<P0>(&self, hwndowner: P0) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.Run)(windows_core::Interface::as_raw(self), hwndowner.param().abi())
-    }
     pub unsafe fn Init<P0>(&self, rguideventid: *const windows_core::GUID, pevent: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ISyncMgrEvent>,
@@ -26202,6 +21732,12 @@ pub struct ISyncMgrEventLinkUIOperation_Vtbl {
     pub Init: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyncMgrEventStore, ISyncMgrEventStore_Vtbl, 0x37e412f9_016e_44c2_81ff_db3add774266);
+impl std::ops::Deref for ISyncMgrEventStore {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrEventStore, windows_core::IUnknown);
 impl ISyncMgrEventStore {
     pub unsafe fn GetEventEnumerator(&self) -> windows_core::Result<IEnumSyncMgrEvents> {
@@ -26229,6 +21765,12 @@ pub struct ISyncMgrEventStore_Vtbl {
     pub RemoveEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyncMgrHandler, ISyncMgrHandler_Vtbl, 0x04ec2e43_ac77_49f9_9b98_0307ef7a72a2);
+impl std::ops::Deref for ISyncMgrHandler {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrHandler, windows_core::IUnknown);
 impl ISyncMgrHandler {
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::PWSTR> {
@@ -26288,6 +21830,12 @@ pub struct ISyncMgrHandler_Vtbl {
     pub Synchronize: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::PCWSTR, u32, super::super::Foundation::HWND, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyncMgrHandlerCollection, ISyncMgrHandlerCollection_Vtbl, 0xa7f337a3_d20b_45cb_9ed7_87d094ca5045);
+impl std::ops::Deref for ISyncMgrHandlerCollection {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrHandlerCollection, windows_core::IUnknown);
 impl ISyncMgrHandlerCollection {
     #[cfg(feature = "Win32_System_Com")]
@@ -26314,6 +21862,12 @@ pub struct ISyncMgrHandlerCollection_Vtbl {
     pub BindToHandler: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyncMgrHandlerInfo, ISyncMgrHandlerInfo_Vtbl, 0x4ff1d798_ecf7_4524_aa81_1e362a0aef3a);
+impl std::ops::Deref for ISyncMgrHandlerInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrHandlerInfo, windows_core::IUnknown);
 impl ISyncMgrHandlerInfo {
     pub unsafe fn GetType(&self) -> windows_core::Result<SYNCMGR_HANDLER_TYPE> {
@@ -26354,6 +21908,12 @@ pub struct ISyncMgrHandlerInfo_Vtbl {
     pub IsConnected: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyncMgrRegister, ISyncMgrRegister_Vtbl, 0x6295df42_35ee_11d1_8707_00c04fd93327);
+impl std::ops::Deref for ISyncMgrRegister {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrRegister, windows_core::IUnknown);
 impl ISyncMgrRegister {
     pub unsafe fn RegisterSyncMgrHandler<P0>(&self, clsidhandler: *const windows_core::GUID, pwszdescription: P0, dwsyncmgrregisterflags: u32) -> windows_core::Result<()>
@@ -26377,6 +21937,12 @@ pub struct ISyncMgrRegister_Vtbl {
     pub GetHandlerRegistrationInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyncMgrResolutionHandler, ISyncMgrResolutionHandler_Vtbl, 0x40a3d052_8bff_4c4b_a338_d4a395700de9);
+impl std::ops::Deref for ISyncMgrResolutionHandler {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrResolutionHandler, windows_core::IUnknown);
 impl ISyncMgrResolutionHandler {
     pub unsafe fn QueryAbilities(&self) -> windows_core::Result<u32> {
@@ -26416,14 +21982,14 @@ pub struct ISyncMgrResolutionHandler_Vtbl {
     pub KeepItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut SYNCMGR_RESOLUTION_FEEDBACK) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyncMgrScheduleWizardUIOperation, ISyncMgrScheduleWizardUIOperation_Vtbl, 0x459a6c84_21d2_4ddc_8a53_f023a46066f2);
+impl std::ops::Deref for ISyncMgrScheduleWizardUIOperation {
+    type Target = ISyncMgrUIOperation;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrScheduleWizardUIOperation, windows_core::IUnknown, ISyncMgrUIOperation);
 impl ISyncMgrScheduleWizardUIOperation {
-    pub unsafe fn Run<P0>(&self, hwndowner: P0) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.Run)(windows_core::Interface::as_raw(self), hwndowner.param().abi())
-    }
     pub unsafe fn InitWizard<P0>(&self, pszhandlerid: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -26437,6 +22003,12 @@ pub struct ISyncMgrScheduleWizardUIOperation_Vtbl {
     pub InitWizard: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyncMgrSessionCreator, ISyncMgrSessionCreator_Vtbl, 0x17f48517_f305_4321_a08d_b25a834918fd);
+impl std::ops::Deref for ISyncMgrSessionCreator {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrSessionCreator, windows_core::IUnknown);
 impl ISyncMgrSessionCreator {
     pub unsafe fn CreateSession<P0>(&self, pszhandlerid: P0, ppszitemids: &[windows_core::PCWSTR]) -> windows_core::Result<ISyncMgrSyncCallback>
@@ -26453,6 +22025,12 @@ pub struct ISyncMgrSessionCreator_Vtbl {
     pub CreateSession: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::PCWSTR, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyncMgrSyncCallback, ISyncMgrSyncCallback_Vtbl, 0x884ccd87_b139_4937_a4ba_4f8e19513fbe);
+impl std::ops::Deref for ISyncMgrSyncCallback {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrSyncCallback, windows_core::IUnknown);
 impl ISyncMgrSyncCallback {
     pub unsafe fn ReportProgress<P0, P1>(&self, pszitemid: P0, pszprogresstext: P1, nstatus: SYNCMGR_PROGRESS_STATUS, ucurrentstep: u32, umaxstep: u32, pncancelrequest: *mut SYNCMGR_CANCEL_REQUEST) -> windows_core::Result<()>
@@ -26536,6 +22114,12 @@ pub struct ISyncMgrSyncCallback_Vtbl {
     pub ReportManualSync: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyncMgrSyncItem, ISyncMgrSyncItem_Vtbl, 0xb20b24ce_2593_4f04_bd8b_7ad6c45051cd);
+impl std::ops::Deref for ISyncMgrSyncItem {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrSyncItem, windows_core::IUnknown);
 impl ISyncMgrSyncItem {
     pub unsafe fn GetItemID(&self) -> windows_core::Result<windows_core::PWSTR> {
@@ -26588,6 +22172,12 @@ pub struct ISyncMgrSyncItem_Vtbl {
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyncMgrSyncItemContainer, ISyncMgrSyncItemContainer_Vtbl, 0x90701133_be32_4129_a65c_99e616cafff4);
+impl std::ops::Deref for ISyncMgrSyncItemContainer {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrSyncItemContainer, windows_core::IUnknown);
 impl ISyncMgrSyncItemContainer {
     pub unsafe fn GetSyncItem<P0>(&self, pszitemid: P0) -> windows_core::Result<ISyncMgrSyncItem>
@@ -26614,6 +22204,12 @@ pub struct ISyncMgrSyncItemContainer_Vtbl {
     pub GetSyncItemCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyncMgrSyncItemInfo, ISyncMgrSyncItemInfo_Vtbl, 0xe7fd9502_be0c_4464_90a1_2b5277031232);
+impl std::ops::Deref for ISyncMgrSyncItemInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrSyncItemInfo, windows_core::IUnknown);
 impl ISyncMgrSyncItemInfo {
     pub unsafe fn GetTypeLabel(&self) -> windows_core::Result<windows_core::PWSTR> {
@@ -26645,6 +22241,12 @@ pub struct ISyncMgrSyncItemInfo_Vtbl {
     pub IsConnected: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyncMgrSyncResult, ISyncMgrSyncResult_Vtbl, 0x2b90f17e_5a3e_4b33_bb7f_1bc48056b94d);
+impl std::ops::Deref for ISyncMgrSyncResult {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrSyncResult, windows_core::IUnknown);
 impl ISyncMgrSyncResult {
     pub unsafe fn Result(&self, nstatus: SYNCMGR_PROGRESS_STATUS, cerror: u32, cconflicts: u32) -> windows_core::Result<()> {
@@ -26657,6 +22259,12 @@ pub struct ISyncMgrSyncResult_Vtbl {
     pub Result: unsafe extern "system" fn(*mut core::ffi::c_void, SYNCMGR_PROGRESS_STATUS, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyncMgrSynchronize, ISyncMgrSynchronize_Vtbl, 0x6295df40_35ee_11d1_8707_00c04fd93327);
+impl std::ops::Deref for ISyncMgrSynchronize {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrSynchronize, windows_core::IUnknown);
 impl ISyncMgrSynchronize {
     pub unsafe fn Initialize(&self, dwreserved: u32, dwsyncmgrflags: u32, lpcookie: &[u8]) -> windows_core::Result<()> {
@@ -26730,6 +22338,12 @@ pub struct ISyncMgrSynchronize_Vtbl {
     pub ShowError: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyncMgrSynchronizeCallback, ISyncMgrSynchronizeCallback_Vtbl, 0x6295df41_35ee_11d1_8707_00c04fd93327);
+impl std::ops::Deref for ISyncMgrSynchronizeCallback {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrSynchronizeCallback, windows_core::IUnknown);
 impl ISyncMgrSynchronizeCallback {
     pub unsafe fn ShowPropertiesCompleted(&self, hr: windows_core::HRESULT) -> windows_core::Result<()> {
@@ -26783,6 +22397,12 @@ pub struct ISyncMgrSynchronizeCallback_Vtbl {
     pub EstablishConnection: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyncMgrSynchronizeInvoke, ISyncMgrSynchronizeInvoke_Vtbl, 0x6295df2c_35ee_11d1_8707_00c04fd93327);
+impl std::ops::Deref for ISyncMgrSynchronizeInvoke {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrSynchronizeInvoke, windows_core::IUnknown);
 impl ISyncMgrSynchronizeInvoke {
     pub unsafe fn UpdateItems(&self, dwinvokeflags: u32, clsid: *const windows_core::GUID, pcookie: &[u8]) -> windows_core::Result<()> {
@@ -26799,6 +22419,12 @@ pub struct ISyncMgrSynchronizeInvoke_Vtbl {
     pub UpdateAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyncMgrUIOperation, ISyncMgrUIOperation_Vtbl, 0xfc7cfa47_dfe1_45b5_a049_8cfd82bec271);
+impl std::ops::Deref for ISyncMgrUIOperation {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyncMgrUIOperation, windows_core::IUnknown);
 impl ISyncMgrUIOperation {
     pub unsafe fn Run<P0>(&self, hwndowner: P0) -> windows_core::HRESULT
@@ -26814,6 +22440,12 @@ pub struct ISyncMgrUIOperation_Vtbl {
     pub Run: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITaskbarList, ITaskbarList_Vtbl, 0x56fdf342_fd6d_11d0_958a_006097c9a090);
+impl std::ops::Deref for ITaskbarList {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITaskbarList, windows_core::IUnknown);
 impl ITaskbarList {
     pub unsafe fn HrInit(&self) -> windows_core::Result<()> {
@@ -26854,35 +22486,14 @@ pub struct ITaskbarList_Vtbl {
     pub SetActiveAlt: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITaskbarList2, ITaskbarList2_Vtbl, 0x602d4995_b13a_429b_a66e_1935e44f4317);
+impl std::ops::Deref for ITaskbarList2 {
+    type Target = ITaskbarList;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITaskbarList2, windows_core::IUnknown, ITaskbarList);
 impl ITaskbarList2 {
-    pub unsafe fn HrInit(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.HrInit)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn AddTab<P0>(&self, hwnd: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.AddTab)(windows_core::Interface::as_raw(self), hwnd.param().abi()).ok()
-    }
-    pub unsafe fn DeleteTab<P0>(&self, hwnd: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.DeleteTab)(windows_core::Interface::as_raw(self), hwnd.param().abi()).ok()
-    }
-    pub unsafe fn ActivateTab<P0>(&self, hwnd: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.ActivateTab)(windows_core::Interface::as_raw(self), hwnd.param().abi()).ok()
-    }
-    pub unsafe fn SetActiveAlt<P0>(&self, hwnd: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetActiveAlt)(windows_core::Interface::as_raw(self), hwnd.param().abi()).ok()
-    }
     pub unsafe fn MarkFullscreenWindow<P0, P1>(&self, hwnd: P0, ffullscreen: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::HWND>,
@@ -26897,42 +22508,14 @@ pub struct ITaskbarList2_Vtbl {
     pub MarkFullscreenWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITaskbarList3, ITaskbarList3_Vtbl, 0xea1afb91_9e28_4b86_90e9_9e9f8a5eefaf);
+impl std::ops::Deref for ITaskbarList3 {
+    type Target = ITaskbarList2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITaskbarList3, windows_core::IUnknown, ITaskbarList, ITaskbarList2);
 impl ITaskbarList3 {
-    pub unsafe fn HrInit(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.HrInit)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn AddTab<P0>(&self, hwnd: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.AddTab)(windows_core::Interface::as_raw(self), hwnd.param().abi()).ok()
-    }
-    pub unsafe fn DeleteTab<P0>(&self, hwnd: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.DeleteTab)(windows_core::Interface::as_raw(self), hwnd.param().abi()).ok()
-    }
-    pub unsafe fn ActivateTab<P0>(&self, hwnd: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.ActivateTab)(windows_core::Interface::as_raw(self), hwnd.param().abi()).ok()
-    }
-    pub unsafe fn SetActiveAlt<P0>(&self, hwnd: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetActiveAlt)(windows_core::Interface::as_raw(self), hwnd.param().abi()).ok()
-    }
-    pub unsafe fn MarkFullscreenWindow<P0, P1>(&self, hwnd: P0, ffullscreen: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.MarkFullscreenWindow)(windows_core::Interface::as_raw(self), hwnd.param().abi(), ffullscreen.param().abi()).ok()
-    }
     pub unsafe fn SetProgressValue<P0>(&self, hwnd: P0, ullcompleted: u64, ulltotal: u64) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::HWND>,
@@ -27046,125 +22629,14 @@ pub struct ITaskbarList3_Vtbl {
     pub SetThumbnailClip: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *const super::super::Foundation::RECT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITaskbarList4, ITaskbarList4_Vtbl, 0xc43dc798_95d1_4bea_9030_bb99e2983a1a);
+impl std::ops::Deref for ITaskbarList4 {
+    type Target = ITaskbarList3;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITaskbarList4, windows_core::IUnknown, ITaskbarList, ITaskbarList2, ITaskbarList3);
 impl ITaskbarList4 {
-    pub unsafe fn HrInit(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.base__.HrInit)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn AddTab<P0>(&self, hwnd: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.AddTab)(windows_core::Interface::as_raw(self), hwnd.param().abi()).ok()
-    }
-    pub unsafe fn DeleteTab<P0>(&self, hwnd: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.DeleteTab)(windows_core::Interface::as_raw(self), hwnd.param().abi()).ok()
-    }
-    pub unsafe fn ActivateTab<P0>(&self, hwnd: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.ActivateTab)(windows_core::Interface::as_raw(self), hwnd.param().abi()).ok()
-    }
-    pub unsafe fn SetActiveAlt<P0>(&self, hwnd: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.base__.SetActiveAlt)(windows_core::Interface::as_raw(self), hwnd.param().abi()).ok()
-    }
-    pub unsafe fn MarkFullscreenWindow<P0, P1>(&self, hwnd: P0, ffullscreen: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.MarkFullscreenWindow)(windows_core::Interface::as_raw(self), hwnd.param().abi(), ffullscreen.param().abi()).ok()
-    }
-    pub unsafe fn SetProgressValue<P0>(&self, hwnd: P0, ullcompleted: u64, ulltotal: u64) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetProgressValue)(windows_core::Interface::as_raw(self), hwnd.param().abi(), ullcompleted, ulltotal).ok()
-    }
-    pub unsafe fn SetProgressState<P0>(&self, hwnd: P0, tbpflags: TBPFLAG) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetProgressState)(windows_core::Interface::as_raw(self), hwnd.param().abi(), tbpflags).ok()
-    }
-    pub unsafe fn RegisterTab<P0, P1>(&self, hwndtab: P0, hwndmdi: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-        P1: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.RegisterTab)(windows_core::Interface::as_raw(self), hwndtab.param().abi(), hwndmdi.param().abi()).ok()
-    }
-    pub unsafe fn UnregisterTab<P0>(&self, hwndtab: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.UnregisterTab)(windows_core::Interface::as_raw(self), hwndtab.param().abi()).ok()
-    }
-    pub unsafe fn SetTabOrder<P0, P1>(&self, hwndtab: P0, hwndinsertbefore: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-        P1: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetTabOrder)(windows_core::Interface::as_raw(self), hwndtab.param().abi(), hwndinsertbefore.param().abi()).ok()
-    }
-    pub unsafe fn SetTabActive<P0, P1>(&self, hwndtab: P0, hwndmdi: P1, dwreserved: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-        P1: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetTabActive)(windows_core::Interface::as_raw(self), hwndtab.param().abi(), hwndmdi.param().abi(), dwreserved).ok()
-    }
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn ThumbBarAddButtons<P0>(&self, hwnd: P0, pbutton: &[THUMBBUTTON]) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.ThumbBarAddButtons)(windows_core::Interface::as_raw(self), hwnd.param().abi(), pbutton.len().try_into().unwrap(), core::mem::transmute(pbutton.as_ptr())).ok()
-    }
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn ThumbBarUpdateButtons<P0>(&self, hwnd: P0, pbutton: &[THUMBBUTTON]) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.ThumbBarUpdateButtons)(windows_core::Interface::as_raw(self), hwnd.param().abi(), pbutton.len().try_into().unwrap(), core::mem::transmute(pbutton.as_ptr())).ok()
-    }
-    #[cfg(feature = "Win32_UI_Controls")]
-    pub unsafe fn ThumbBarSetImageList<P0, P1>(&self, hwnd: P0, himl: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-        P1: windows_core::Param<super::Controls::HIMAGELIST>,
-    {
-        (windows_core::Interface::vtable(self).base__.ThumbBarSetImageList)(windows_core::Interface::as_raw(self), hwnd.param().abi(), himl.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn SetOverlayIcon<P0, P1, P2>(&self, hwnd: P0, hicon: P1, pszdescription: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-        P1: windows_core::Param<super::WindowsAndMessaging::HICON>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetOverlayIcon)(windows_core::Interface::as_raw(self), hwnd.param().abi(), hicon.param().abi(), pszdescription.param().abi()).ok()
-    }
-    pub unsafe fn SetThumbnailTooltip<P0, P1>(&self, hwnd: P0, psztip: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetThumbnailTooltip)(windows_core::Interface::as_raw(self), hwnd.param().abi(), psztip.param().abi()).ok()
-    }
-    pub unsafe fn SetThumbnailClip<P0>(&self, hwnd: P0, prcclip: *const super::super::Foundation::RECT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetThumbnailClip)(windows_core::Interface::as_raw(self), hwnd.param().abi(), prcclip).ok()
-    }
     pub unsafe fn SetTabProperties<P0>(&self, hwndtab: P0, stpflags: STPFLAG) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::HWND>,
@@ -27178,6 +22650,12 @@ pub struct ITaskbarList4_Vtbl {
     pub SetTabProperties: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, STPFLAG) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IThumbnailCache, IThumbnailCache_Vtbl, 0xf676c15d_596a_4ce2_8234_33996f445db1);
+impl std::ops::Deref for IThumbnailCache {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IThumbnailCache, windows_core::IUnknown);
 impl IThumbnailCache {
     pub unsafe fn GetThumbnail<P0>(&self, pshellitem: P0, cxyrequestedthumbsize: u32, flags: WTS_FLAGS, ppvthumb: Option<*mut Option<ISharedBitmap>>, poutflags: Option<*mut WTS_CACHEFLAGS>, pthumbnailid: Option<*mut WTS_THUMBNAILID>) -> windows_core::Result<()>
@@ -27197,6 +22675,12 @@ pub struct IThumbnailCache_Vtbl {
     pub GetThumbnailByID: unsafe extern "system" fn(*mut core::ffi::c_void, WTS_THUMBNAILID, u32, *mut *mut core::ffi::c_void, *mut WTS_CACHEFLAGS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IThumbnailCachePrimer, IThumbnailCachePrimer_Vtbl, 0x0f03f8fe_2b26_46f0_965a_212aa8d66b76);
+impl std::ops::Deref for IThumbnailCachePrimer {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IThumbnailCachePrimer, windows_core::IUnknown);
 impl IThumbnailCachePrimer {
     pub unsafe fn PageInThumbnail<P0>(&self, psi: P0, wtsflags: WTS_FLAGS, cxyrequestedthumbsize: u32) -> windows_core::Result<()>
@@ -27212,6 +22696,12 @@ pub struct IThumbnailCachePrimer_Vtbl {
     pub PageInThumbnail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WTS_FLAGS, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IThumbnailCapture, IThumbnailCapture_Vtbl, 0x4ea39266_7211_409f_b622_f63dbd16c533);
+impl std::ops::Deref for IThumbnailCapture {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IThumbnailCapture, windows_core::IUnknown);
 impl IThumbnailCapture {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -27232,6 +22722,12 @@ pub struct IThumbnailCapture_Vtbl {
     CaptureThumbnail: usize,
 }
 windows_core::imp::define_interface!(IThumbnailHandlerFactory, IThumbnailHandlerFactory_Vtbl, 0xe35b4b2e_00da_4bc1_9f13_38bc11f5d417);
+impl std::ops::Deref for IThumbnailHandlerFactory {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IThumbnailHandlerFactory, windows_core::IUnknown);
 impl IThumbnailHandlerFactory {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
@@ -27253,6 +22749,12 @@ pub struct IThumbnailHandlerFactory_Vtbl {
     GetThumbnailHandler: usize,
 }
 windows_core::imp::define_interface!(IThumbnailProvider, IThumbnailProvider_Vtbl, 0xe357fccd_a995_4576_b01f_234630154e96);
+impl std::ops::Deref for IThumbnailProvider {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IThumbnailProvider, windows_core::IUnknown);
 impl IThumbnailProvider {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -27269,6 +22771,12 @@ pub struct IThumbnailProvider_Vtbl {
     GetThumbnail: usize,
 }
 windows_core::imp::define_interface!(IThumbnailSettings, IThumbnailSettings_Vtbl, 0xf4376f00_bef5_4d45_80f3_1e023bbf1209);
+impl std::ops::Deref for IThumbnailSettings {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IThumbnailSettings, windows_core::IUnknown);
 impl IThumbnailSettings {
     pub unsafe fn SetContext(&self, dwcontext: WTS_CONTEXTFLAGS) -> windows_core::Result<()> {
@@ -27281,6 +22789,12 @@ pub struct IThumbnailSettings_Vtbl {
     pub SetContext: unsafe extern "system" fn(*mut core::ffi::c_void, WTS_CONTEXTFLAGS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IThumbnailStreamCache, IThumbnailStreamCache_Vtbl, 0x90e11430_9569_41d8_ae75_6d4d2ae7cca0);
+impl std::ops::Deref for IThumbnailStreamCache {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IThumbnailStreamCache, windows_core::IUnknown);
 impl IThumbnailStreamCache {
     #[cfg(feature = "Win32_System_Com")]
@@ -27312,55 +22826,14 @@ pub struct IThumbnailStreamCache_Vtbl {
     SetThumbnailStream: usize,
 }
 windows_core::imp::define_interface!(ITrackShellMenu, ITrackShellMenu_Vtbl, 0x8278f932_2a3e_11d2_838f_00c04fd918d0);
+impl std::ops::Deref for ITrackShellMenu {
+    type Target = IShellMenu;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITrackShellMenu, windows_core::IUnknown, IShellMenu);
 impl ITrackShellMenu {
-    pub unsafe fn Initialize<P0>(&self, psmc: P0, uid: u32, uidancestor: u32, dwflags: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellMenuCallback>,
-    {
-        (windows_core::Interface::vtable(self).base__.Initialize)(windows_core::Interface::as_raw(self), psmc.param().abi(), uid, uidancestor, dwflags).ok()
-    }
-    pub unsafe fn GetMenuInfo(&self, ppsmc: Option<*mut Option<IShellMenuCallback>>, puid: Option<*mut u32>, puidancestor: Option<*mut u32>, pdwflags: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetMenuInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(ppsmc.unwrap_or(std::ptr::null_mut())), core::mem::transmute(puid.unwrap_or(std::ptr::null_mut())), core::mem::transmute(puidancestor.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdwflags.unwrap_or(std::ptr::null_mut()))).ok()
-    }
-    #[cfg(all(feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
-    pub unsafe fn SetShellFolder<P0, P1>(&self, psf: P0, pidlfolder: Option<*const Common::ITEMIDLIST>, hkey: P1, dwflags: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IShellFolder>,
-        P1: windows_core::Param<super::super::System::Registry::HKEY>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetShellFolder)(windows_core::Interface::as_raw(self), psf.param().abi(), core::mem::transmute(pidlfolder.unwrap_or(std::ptr::null())), hkey.param().abi(), dwflags).ok()
-    }
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn GetShellFolder(&self, pdwflags: *mut u32, ppidl: *mut *mut Common::ITEMIDLIST, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetShellFolder)(windows_core::Interface::as_raw(self), pdwflags, ppidl, riid, ppv).ok()
-    }
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn SetMenu<P0, P1>(&self, hmenu: P0, hwnd: P1, dwflags: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::WindowsAndMessaging::HMENU>,
-        P1: windows_core::Param<super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetMenu)(windows_core::Interface::as_raw(self), hmenu.param().abi(), hwnd.param().abi(), dwflags).ok()
-    }
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn GetMenu(&self, phmenu: Option<*mut super::WindowsAndMessaging::HMENU>, phwnd: Option<*mut super::super::Foundation::HWND>, pdwflags: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetMenu)(windows_core::Interface::as_raw(self), core::mem::transmute(phmenu.unwrap_or(std::ptr::null_mut())), core::mem::transmute(phwnd.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdwflags.unwrap_or(std::ptr::null_mut()))).ok()
-    }
-    #[cfg(all(feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn InvalidateItem(&self, psmd: Option<*const SMDATA>, dwflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.InvalidateItem)(windows_core::Interface::as_raw(self), core::mem::transmute(psmd.unwrap_or(std::ptr::null())), dwflags).ok()
-    }
-    #[cfg(all(feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn GetState(&self, psmd: *mut SMDATA) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetState)(windows_core::Interface::as_raw(self), psmd).ok()
-    }
-    pub unsafe fn SetMenuToolbar<P0>(&self, punk: P0, dwflags: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetMenuToolbar)(windows_core::Interface::as_raw(self), punk.param().abi(), dwflags).ok()
-    }
     pub unsafe fn SetObscured<P0, P1>(&self, hwndtb: P0, punkband: P1, dwsmsetflags: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::HWND>,
@@ -27382,6 +22855,12 @@ pub struct ITrackShellMenu_Vtbl {
     pub Popup: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *mut super::super::Foundation::POINTL, *mut super::super::Foundation::RECTL, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITranscodeImage, ITranscodeImage_Vtbl, 0xbae86ddd_dc11_421c_b7ab_cc55d1d65c44);
+impl std::ops::Deref for ITranscodeImage {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITranscodeImage, windows_core::IUnknown);
 impl ITranscodeImage {
     #[cfg(feature = "Win32_System_Com")]
@@ -27402,6 +22881,12 @@ pub struct ITranscodeImage_Vtbl {
     TranscodeImage: usize,
 }
 windows_core::imp::define_interface!(ITransferAdviseSink, ITransferAdviseSink_Vtbl, 0xd594d0d8_8da7_457b_b3b4_ce5dbaac0b88);
+impl std::ops::Deref for ITransferAdviseSink {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransferAdviseSink, windows_core::IUnknown);
 impl ITransferAdviseSink {
     pub unsafe fn UpdateProgress(&self, ullsizecurrent: u64, ullsizetotal: u64, nfilescurrent: i32, nfilestotal: i32, nfolderscurrent: i32, nfolderstotal: i32) -> windows_core::Result<()> {
@@ -27461,6 +22946,12 @@ pub struct ITransferAdviseSink_Vtbl {
     PropertyFailure: usize,
 }
 windows_core::imp::define_interface!(ITransferDestination, ITransferDestination_Vtbl, 0x48addd32_3ca5_4124_abe3_b5a72531b207);
+impl std::ops::Deref for ITransferDestination {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransferDestination, windows_core::IUnknown);
 impl ITransferDestination {
     pub unsafe fn Advise<P0>(&self, psink: P0) -> windows_core::Result<u32>
@@ -27488,23 +22979,25 @@ pub struct ITransferDestination_Vtbl {
     pub CreateItem: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, u64, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITransferMediumItem, ITransferMediumItem_Vtbl, 0x77f295d5_2d6f_4e19_b8ae_322f3e721ab5);
-windows_core::imp::interface_hierarchy!(ITransferMediumItem, windows_core::IUnknown, IRelatedItem);
-impl ITransferMediumItem {
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn GetItemIDList(&self) -> windows_core::Result<*mut Common::ITEMIDLIST> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetItemIDList)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetItem(&self) -> windows_core::Result<IShellItem> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+impl std::ops::Deref for ITransferMediumItem {
+    type Target = IRelatedItem;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
     }
 }
+windows_core::imp::interface_hierarchy!(ITransferMediumItem, windows_core::IUnknown, IRelatedItem);
+impl ITransferMediumItem {}
 #[repr(C)]
 pub struct ITransferMediumItem_Vtbl {
     pub base__: IRelatedItem_Vtbl,
 }
 windows_core::imp::define_interface!(ITransferSource, ITransferSource_Vtbl, 0x00adb003_bde9_45c6_8e29_d09f9353e108);
+impl std::ops::Deref for ITransferSource {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITransferSource, windows_core::IUnknown);
 impl ITransferSource {
     pub unsafe fn Advise<P0>(&self, psink: P0) -> windows_core::Result<u32>
@@ -27619,6 +23112,12 @@ pub struct ITransferSource_Vtbl {
     pub LeaveFolder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITravelEntry, ITravelEntry_Vtbl, 0xf46edb3b_bc2f_11d0_9412_00aa00a3ebd3);
+impl std::ops::Deref for ITravelEntry {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITravelEntry, windows_core::IUnknown);
 impl ITravelEntry {
     pub unsafe fn Invoke<P0>(&self, punk: P0) -> windows_core::Result<()>
@@ -27651,6 +23150,12 @@ pub struct ITravelEntry_Vtbl {
     GetPidl: usize,
 }
 windows_core::imp::define_interface!(ITravelLog, ITravelLog_Vtbl, 0x66a9cb08_4802_11d2_a561_00a0c92dbfe8);
+impl std::ops::Deref for ITravelLog {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITravelLog, windows_core::IUnknown);
 impl ITravelLog {
     pub unsafe fn AddEntry<P0, P1>(&self, punk: P0, fislocalanchor: P1) -> windows_core::Result<()>
@@ -27744,6 +23249,12 @@ pub struct ITravelLog_Vtbl {
     pub Revert: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITravelLogClient, ITravelLogClient_Vtbl, 0x241c033e_e659_43da_aa4d_4086dbc4758d);
+impl std::ops::Deref for ITravelLogClient {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITravelLogClient, windows_core::IUnknown);
 impl ITravelLogClient {
     pub unsafe fn FindWindowByIndex(&self, dwid: u32) -> windows_core::Result<windows_core::IUnknown> {
@@ -27775,6 +23286,12 @@ pub struct ITravelLogClient_Vtbl {
     pub LoadHistoryPosition: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITravelLogEntry, ITravelLogEntry_Vtbl, 0x7ebfdd87_ad18_11d3_a4c5_00c04f72d6b8);
+impl std::ops::Deref for ITravelLogEntry {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITravelLogEntry, windows_core::IUnknown);
 impl ITravelLogEntry {
     pub unsafe fn GetTitle(&self) -> windows_core::Result<windows_core::PWSTR> {
@@ -27793,6 +23310,12 @@ pub struct ITravelLogEntry_Vtbl {
     pub GetURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITravelLogStg, ITravelLogStg_Vtbl, 0x7ebfdd80_ad18_11d3_a4c5_00c04f72d6b8);
+impl std::ops::Deref for ITravelLogStg {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITravelLogStg, windows_core::IUnknown);
 impl ITravelLogStg {
     pub unsafe fn CreateEntry<P0, P1, P2, P3>(&self, pszurl: P0, psztitle: P1, ptlerelativeto: P2, fprepend: P3) -> windows_core::Result<ITravelLogEntry>
@@ -27849,6 +23372,12 @@ pub struct ITravelLogStg_Vtbl {
     pub GetRelativeEntry: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITrayDeskBand, ITrayDeskBand_Vtbl, 0x6d67e846_5b9c_4db8_9cbc_dde12f4254f1);
+impl std::ops::Deref for ITrayDeskBand {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITrayDeskBand, windows_core::IUnknown);
 impl ITrayDeskBand {
     pub unsafe fn ShowDeskBand(&self, clsid: *const windows_core::GUID) -> windows_core::Result<()> {
@@ -27873,6 +23402,12 @@ pub struct ITrayDeskBand_Vtbl {
     pub DeskBandRegistrationChanged: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IURLSearchHook, IURLSearchHook_Vtbl, 0xac60f6a0_0fd9_11d0_99cb_00c04fd64497);
+impl std::ops::Deref for IURLSearchHook {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IURLSearchHook, windows_core::IUnknown);
 impl IURLSearchHook {
     pub unsafe fn Translate(&self, pwszsearchurl: &mut [u16]) -> windows_core::Result<()> {
@@ -27885,11 +23420,14 @@ pub struct IURLSearchHook_Vtbl {
     pub Translate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IURLSearchHook2, IURLSearchHook2_Vtbl, 0x5ee44da4_6d32_46e3_86bc_07540dedd0e0);
+impl std::ops::Deref for IURLSearchHook2 {
+    type Target = IURLSearchHook;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IURLSearchHook2, windows_core::IUnknown, IURLSearchHook);
 impl IURLSearchHook2 {
-    pub unsafe fn Translate(&self, pwszsearchurl: &mut [u16]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Translate)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszsearchurl.as_ptr()), pwszsearchurl.len().try_into().unwrap()).ok()
-    }
     pub unsafe fn TranslateWithSearchContext<P0>(&self, pwszsearchurl: &mut [u16], psearchcontext: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ISearchContext>,
@@ -27903,6 +23441,12 @@ pub struct IURLSearchHook2_Vtbl {
     pub TranslateWithSearchContext: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUniformResourceLocatorA, IUniformResourceLocatorA_Vtbl, 0xfbf23b80_e3f0_101b_8488_00aa003e56f8);
+impl std::ops::Deref for IUniformResourceLocatorA {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IUniformResourceLocatorA, windows_core::IUnknown);
 impl IUniformResourceLocatorA {
     pub unsafe fn SetURL<P0>(&self, pcszurl: P0, dwinflags: u32) -> windows_core::Result<()>
@@ -27927,6 +23471,12 @@ pub struct IUniformResourceLocatorA_Vtbl {
     pub InvokeCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut URLINVOKECOMMANDINFOA) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUniformResourceLocatorW, IUniformResourceLocatorW_Vtbl, 0xcabb0da0_da57_11cf_9974_0020afd79762);
+impl std::ops::Deref for IUniformResourceLocatorW {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IUniformResourceLocatorW, windows_core::IUnknown);
 impl IUniformResourceLocatorW {
     pub unsafe fn SetURL<P0>(&self, pcszurl: P0, dwinflags: u32) -> windows_core::Result<()>
@@ -27951,6 +23501,12 @@ pub struct IUniformResourceLocatorW_Vtbl {
     pub InvokeCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut URLINVOKECOMMANDINFOW) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUpdateIDList, IUpdateIDList_Vtbl, 0x6589b6d2_5f8d_4b9e_b7e0_23cdd9717d8c);
+impl std::ops::Deref for IUpdateIDList {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IUpdateIDList, windows_core::IUnknown);
 impl IUpdateIDList {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
@@ -27971,23 +23527,25 @@ pub struct IUpdateIDList_Vtbl {
     Update: usize,
 }
 windows_core::imp::define_interface!(IUseToBrowseItem, IUseToBrowseItem_Vtbl, 0x05edda5c_98a3_4717_8adb_c5e7da991eb1);
-windows_core::imp::interface_hierarchy!(IUseToBrowseItem, windows_core::IUnknown, IRelatedItem);
-impl IUseToBrowseItem {
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn GetItemIDList(&self) -> windows_core::Result<*mut Common::ITEMIDLIST> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetItemIDList)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetItem(&self) -> windows_core::Result<IShellItem> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+impl std::ops::Deref for IUseToBrowseItem {
+    type Target = IRelatedItem;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
     }
 }
+windows_core::imp::interface_hierarchy!(IUseToBrowseItem, windows_core::IUnknown, IRelatedItem);
+impl IUseToBrowseItem {}
 #[repr(C)]
 pub struct IUseToBrowseItem_Vtbl {
     pub base__: IRelatedItem_Vtbl,
 }
 windows_core::imp::define_interface!(IUserAccountChangeCallback, IUserAccountChangeCallback_Vtbl, 0xa561e69a_b4b8_4113_91a5_64c6bcca3430);
+impl std::ops::Deref for IUserAccountChangeCallback {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IUserAccountChangeCallback, windows_core::IUnknown);
 impl IUserAccountChangeCallback {
     pub unsafe fn OnPictureChange<P0>(&self, pszusername: P0) -> windows_core::Result<()>
@@ -28003,6 +23561,12 @@ pub struct IUserAccountChangeCallback_Vtbl {
     pub OnPictureChange: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUserNotification, IUserNotification_Vtbl, 0xba9711ba_5893_4787_a7e1_41277151550b);
+impl std::ops::Deref for IUserNotification {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IUserNotification, windows_core::IUnknown);
 impl IUserNotification {
     pub unsafe fn SetBalloonInfo<P0, P1>(&self, psztitle: P0, psztext: P1, dwinfoflags: u32) -> windows_core::Result<()>
@@ -28049,6 +23613,12 @@ pub struct IUserNotification_Vtbl {
     pub PlaySound: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUserNotification2, IUserNotification2_Vtbl, 0x215913cc_57eb_4fab_ab5a_e5fa7bea2a6c);
+impl std::ops::Deref for IUserNotification2 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IUserNotification2, windows_core::IUnknown);
 impl IUserNotification2 {
     pub unsafe fn SetBalloonInfo<P0, P1>(&self, psztitle: P0, psztext: P1, dwinfoflags: u32) -> windows_core::Result<()>
@@ -28096,6 +23666,12 @@ pub struct IUserNotification2_Vtbl {
     pub PlaySound: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUserNotificationCallback, IUserNotificationCallback_Vtbl, 0x19108294_0441_4aff_8013_fa0a730b0bea);
+impl std::ops::Deref for IUserNotificationCallback {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IUserNotificationCallback, windows_core::IUnknown);
 impl IUserNotificationCallback {
     pub unsafe fn OnBalloonUserClick(&self, pt: *const super::super::Foundation::POINT) -> windows_core::Result<()> {
@@ -28116,23 +23692,25 @@ pub struct IUserNotificationCallback_Vtbl {
     pub OnContextMenu: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::POINT) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IViewStateIdentityItem, IViewStateIdentityItem_Vtbl, 0x9d264146_a94f_4195_9f9f_3bb12ce0c955);
-windows_core::imp::interface_hierarchy!(IViewStateIdentityItem, windows_core::IUnknown, IRelatedItem);
-impl IViewStateIdentityItem {
-    #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn GetItemIDList(&self) -> windows_core::Result<*mut Common::ITEMIDLIST> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetItemIDList)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetItem(&self) -> windows_core::Result<IShellItem> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+impl std::ops::Deref for IViewStateIdentityItem {
+    type Target = IRelatedItem;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
     }
 }
+windows_core::imp::interface_hierarchy!(IViewStateIdentityItem, windows_core::IUnknown, IRelatedItem);
+impl IViewStateIdentityItem {}
 #[repr(C)]
 pub struct IViewStateIdentityItem_Vtbl {
     pub base__: IRelatedItem_Vtbl,
 }
 windows_core::imp::define_interface!(IVirtualDesktopManager, IVirtualDesktopManager_Vtbl, 0xa5cd92ff_29be_454c_8d04_d82879fb3f1b);
+impl std::ops::Deref for IVirtualDesktopManager {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IVirtualDesktopManager, windows_core::IUnknown);
 impl IVirtualDesktopManager {
     pub unsafe fn IsWindowOnCurrentVirtualDesktop<P0>(&self, toplevelwindow: P0) -> windows_core::Result<super::super::Foundation::BOOL>
@@ -28164,6 +23742,12 @@ pub struct IVirtualDesktopManager_Vtbl {
     pub MoveWindowToDesktop: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVisualProperties, IVisualProperties_Vtbl, 0xe693cf68_d967_4112_8763_99172aee5e5a);
+impl std::ops::Deref for IVisualProperties {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IVisualProperties, windows_core::IUnknown);
 impl IVisualProperties {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -28232,6 +23816,13 @@ pub struct IVisualProperties_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWebBrowser, IWebBrowser_Vtbl, 0xeab22ac1_30c1_11cf_a7eb_0000c05bae0b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWebBrowser {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWebBrowser, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -28377,197 +23968,16 @@ pub struct IWebBrowser_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWebBrowser2, IWebBrowser2_Vtbl, 0xd30c1661_cdaf_11d0_8a3e_00c04fc9e26e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWebBrowser2 {
+    type Target = IWebBrowserApp;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWebBrowser2, windows_core::IUnknown, super::super::System::Com::IDispatch, IWebBrowser, IWebBrowserApp);
 #[cfg(feature = "Win32_System_Com")]
 impl IWebBrowser2 {
-    pub unsafe fn GoBack(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GoBack)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn GoForward(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GoForward)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn GoHome(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GoHome)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn GoSearch(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.GoSearch)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Navigate<P0>(&self, url: P0, flags: Option<*const windows_core::VARIANT>, targetframename: Option<*const windows_core::VARIANT>, postdata: Option<*const windows_core::VARIANT>, headers: Option<*const windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.Navigate)(windows_core::Interface::as_raw(self), url.param().abi(), core::mem::transmute(flags.unwrap_or(std::ptr::null())), core::mem::transmute(targetframename.unwrap_or(std::ptr::null())), core::mem::transmute(postdata.unwrap_or(std::ptr::null())), core::mem::transmute(headers.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.Refresh)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Refresh2(&self, level: Option<*const windows_core::VARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.Refresh2)(windows_core::Interface::as_raw(self), core::mem::transmute(level.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn Stop(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.Stop)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Application(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Application)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Parent(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Container(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Container)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Document(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Document)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn TopLevelContainer(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.TopLevelContainer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Type(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Type)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Left(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Left)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetLeft(&self, left: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetLeft)(windows_core::Interface::as_raw(self), left).ok()
-    }
-    pub unsafe fn Top(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Top)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetTop(&self, top: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetTop)(windows_core::Interface::as_raw(self), top).ok()
-    }
-    pub unsafe fn Width(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Width)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetWidth(&self, width: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetWidth)(windows_core::Interface::as_raw(self), width).ok()
-    }
-    pub unsafe fn Height(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Height)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetHeight(&self, height: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetHeight)(windows_core::Interface::as_raw(self), height).ok()
-    }
-    pub unsafe fn LocationName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.LocationName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn LocationURL(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.LocationURL)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Busy(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Busy)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Quit(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Quit)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn ClientToWindow(&self, pcx: *mut i32, pcy: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.ClientToWindow)(windows_core::Interface::as_raw(self), pcx, pcy).ok()
-    }
-    pub unsafe fn PutProperty<P0, P1>(&self, property: P0, vtvalue: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.PutProperty)(windows_core::Interface::as_raw(self), property.param().abi(), vtvalue.param().abi()).ok()
-    }
-    pub unsafe fn GetProperty<P0>(&self, property: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetProperty)(windows_core::Interface::as_raw(self), property.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn HWND(&self) -> windows_core::Result<super::super::Foundation::SHANDLE_PTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.HWND)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn FullName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FullName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Path(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Path)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Visible(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Visible)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetVisible<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetVisible)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn StatusBar(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.StatusBar)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetStatusBar<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetStatusBar)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn StatusText(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.StatusText)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetStatusText<P0>(&self, statustext: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetStatusText)(windows_core::Interface::as_raw(self), statustext.param().abi()).ok()
-    }
-    pub unsafe fn ToolBar(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ToolBar)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetToolBar(&self, value: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetToolBar)(windows_core::Interface::as_raw(self), value).ok()
-    }
-    pub unsafe fn MenuBar(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.MenuBar)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetMenuBar<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetMenuBar)(windows_core::Interface::as_raw(self), value.param().abi()).ok()
-    }
-    pub unsafe fn FullScreen(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FullScreen)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetFullScreen<P0>(&self, bfullscreen: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFullScreen)(windows_core::Interface::as_raw(self), bfullscreen.param().abi()).ok()
-    }
     pub unsafe fn Navigate2(&self, url: *const windows_core::VARIANT, flags: Option<*const windows_core::VARIANT>, targetframename: Option<*const windows_core::VARIANT>, postdata: Option<*const windows_core::VARIANT>, headers: Option<*const windows_core::VARIANT>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Navigate2)(windows_core::Interface::as_raw(self), core::mem::transmute(url), core::mem::transmute(flags.unwrap_or(std::ptr::null())), core::mem::transmute(targetframename.unwrap_or(std::ptr::null())), core::mem::transmute(postdata.unwrap_or(std::ptr::null())), core::mem::transmute(headers.unwrap_or(std::ptr::null()))).ok()
     }
@@ -28695,104 +24105,16 @@ pub struct IWebBrowser2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWebBrowserApp, IWebBrowserApp_Vtbl, 0x0002df05_0000_0000_c000_000000000046);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWebBrowserApp {
+    type Target = IWebBrowser;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWebBrowserApp, windows_core::IUnknown, super::super::System::Com::IDispatch, IWebBrowser);
 #[cfg(feature = "Win32_System_Com")]
 impl IWebBrowserApp {
-    pub unsafe fn GoBack(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GoBack)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn GoForward(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GoForward)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn GoHome(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GoHome)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn GoSearch(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GoSearch)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Navigate<P0>(&self, url: P0, flags: Option<*const windows_core::VARIANT>, targetframename: Option<*const windows_core::VARIANT>, postdata: Option<*const windows_core::VARIANT>, headers: Option<*const windows_core::VARIANT>) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.Navigate)(windows_core::Interface::as_raw(self), url.param().abi(), core::mem::transmute(flags.unwrap_or(std::ptr::null())), core::mem::transmute(targetframename.unwrap_or(std::ptr::null())), core::mem::transmute(postdata.unwrap_or(std::ptr::null())), core::mem::transmute(headers.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Refresh)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Refresh2(&self, level: Option<*const windows_core::VARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Refresh2)(windows_core::Interface::as_raw(self), core::mem::transmute(level.unwrap_or(std::ptr::null()))).ok()
-    }
-    pub unsafe fn Stop(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Stop)(windows_core::Interface::as_raw(self)).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Application(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Application)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Parent(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Container(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Container)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Document(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Document)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn TopLevelContainer(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.TopLevelContainer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Type(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Type)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Left(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Left)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetLeft(&self, left: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetLeft)(windows_core::Interface::as_raw(self), left).ok()
-    }
-    pub unsafe fn Top(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Top)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetTop(&self, top: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetTop)(windows_core::Interface::as_raw(self), top).ok()
-    }
-    pub unsafe fn Width(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Width)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetWidth(&self, width: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetWidth)(windows_core::Interface::as_raw(self), width).ok()
-    }
-    pub unsafe fn Height(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Height)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetHeight(&self, height: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetHeight)(windows_core::Interface::as_raw(self), height).ok()
-    }
-    pub unsafe fn LocationName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LocationName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn LocationURL(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LocationURL)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Busy(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Busy)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     pub unsafe fn Quit(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Quit)(windows_core::Interface::as_raw(self)).ok()
     }
@@ -28913,22 +24235,14 @@ pub struct IWebBrowserApp_Vtbl {
     pub SetFullScreen: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebWizardExtension, IWebWizardExtension_Vtbl, 0x0e6b3f66_98d1_48c0_a222_fbde74e2fbc5);
+impl std::ops::Deref for IWebWizardExtension {
+    type Target = IWizardExtension;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWebWizardExtension, windows_core::IUnknown, IWizardExtension);
 impl IWebWizardExtension {
-    #[cfg(feature = "Win32_UI_Controls")]
-    pub unsafe fn AddPages(&self, apages: &mut [super::Controls::HPROPSHEETPAGE], pnpagesadded: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.AddPages)(windows_core::Interface::as_raw(self), core::mem::transmute(apages.as_ptr()), apages.len().try_into().unwrap(), pnpagesadded).ok()
-    }
-    #[cfg(feature = "Win32_UI_Controls")]
-    pub unsafe fn GetFirstPage(&self) -> windows_core::Result<super::Controls::HPROPSHEETPAGE> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetFirstPage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_UI_Controls")]
-    pub unsafe fn GetLastPage(&self) -> windows_core::Result<super::Controls::HPROPSHEETPAGE> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetLastPage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     pub unsafe fn SetInitialURL<P0>(&self, pszurl: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -28950,6 +24264,13 @@ pub struct IWebWizardExtension_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWebWizardHost, IWebWizardHost_Vtbl, 0x18bcc359_4990_4bfb_b951_3c83702be5f9);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWebWizardHost {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWebWizardHost, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -29019,56 +24340,16 @@ pub struct IWebWizardHost_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IWebWizardHost2, IWebWizardHost2_Vtbl, 0xf9c013dc_3c23_4041_8e39_cfb402f7ea59);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IWebWizardHost2 {
+    type Target = IWebWizardHost;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IWebWizardHost2, windows_core::IUnknown, super::super::System::Com::IDispatch, IWebWizardHost);
 #[cfg(feature = "Win32_System_Com")]
 impl IWebWizardHost2 {
-    pub unsafe fn FinalBack(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.FinalBack)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn FinalNext(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.FinalNext)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Cancel(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Cancel)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetCaption<P0>(&self, bstrcaption: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetCaption)(windows_core::Interface::as_raw(self), bstrcaption.param().abi()).ok()
-    }
-    pub unsafe fn Caption(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Caption)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn put_Property<P0>(&self, bstrpropertyname: P0, pvproperty: *const windows_core::VARIANT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.put_Property)(windows_core::Interface::as_raw(self), bstrpropertyname.param().abi(), core::mem::transmute(pvproperty)).ok()
-    }
-    pub unsafe fn get_Property<P0>(&self, bstrpropertyname: P0) -> windows_core::Result<windows_core::VARIANT>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.get_Property)(windows_core::Interface::as_raw(self), bstrpropertyname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetWizardButtons<P0, P1, P2>(&self, vfenableback: P0, vfenablenext: P1, vflastpage: P2) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-        P2: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetWizardButtons)(windows_core::Interface::as_raw(self), vfenableback.param().abi(), vfenablenext.param().abi(), vflastpage.param().abi()).ok()
-    }
-    pub unsafe fn SetHeaderText<P0, P1>(&self, bstrheadertitle: P0, bstrheadersubtitle: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetHeaderText)(windows_core::Interface::as_raw(self), bstrheadertitle.param().abi(), bstrheadersubtitle.param().abi()).ok()
-    }
     pub unsafe fn SignString<P0>(&self, value: P0) -> windows_core::Result<windows_core::BSTR>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -29084,6 +24365,12 @@ pub struct IWebWizardHost2_Vtbl {
     pub SignString: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWizardExtension, IWizardExtension_Vtbl, 0xc02ea696_86cc_491e_9b23_74394a0444a8);
+impl std::ops::Deref for IWizardExtension {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWizardExtension, windows_core::IUnknown);
 impl IWizardExtension {
     #[cfg(feature = "Win32_UI_Controls")]
@@ -29118,6 +24405,12 @@ pub struct IWizardExtension_Vtbl {
     GetLastPage: usize,
 }
 windows_core::imp::define_interface!(IWizardSite, IWizardSite_Vtbl, 0x88960f5b_422f_4e7b_8013_73415381c3c3);
+impl std::ops::Deref for IWizardSite {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWizardSite, windows_core::IUnknown);
 impl IWizardSite {
     #[cfg(feature = "Win32_UI_Controls")]

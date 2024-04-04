@@ -7,6 +7,12 @@ pub mod PrintTicket;
 #[cfg(feature = "Graphics_Printing_Workflow")]
 pub mod Workflow;
 windows_core::imp::define_interface!(IPrintDocumentSource, IPrintDocumentSource_Vtbl, 0xdedc0c30_f1eb_47df_aae6_ed5427511f01);
+impl std::ops::Deref for IPrintDocumentSource {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPrintDocumentSource, windows_core::IUnknown, windows_core::IInspectable);
 impl IPrintDocumentSource {}
 impl windows_core::RuntimeType for IPrintDocumentSource {
@@ -166,6 +172,12 @@ pub struct IPrintTaskOptions2_Vtbl {
     CustomPageRanges: usize,
 }
 windows_core::imp::define_interface!(IPrintTaskOptionsCore, IPrintTaskOptionsCore_Vtbl, 0x1bdbb474_4ed1_41eb_be3c_72d18ed67337);
+impl std::ops::Deref for IPrintTaskOptionsCore {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPrintTaskOptionsCore, windows_core::IUnknown, windows_core::IInspectable);
 impl IPrintTaskOptionsCore {
     pub fn GetPageDescription(&self, jobpagenumber: u32) -> windows_core::Result<PrintPageDescription> {
@@ -185,6 +197,12 @@ pub struct IPrintTaskOptionsCore_Vtbl {
     pub GetPageDescription: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut PrintPageDescription) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintTaskOptionsCoreProperties, IPrintTaskOptionsCoreProperties_Vtbl, 0xc1b71832_9e93_4e55_814b_3326a59efce1);
+impl std::ops::Deref for IPrintTaskOptionsCoreProperties {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPrintTaskOptionsCoreProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl IPrintTaskOptionsCoreProperties {
     pub fn SetMediaSize(&self, value: PrintMediaSize) -> windows_core::Result<()> {
@@ -355,6 +373,12 @@ pub struct IPrintTaskOptionsCoreProperties_Vtbl {
     pub NumberOfCopies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintTaskOptionsCoreUIConfiguration, IPrintTaskOptionsCoreUIConfiguration_Vtbl, 0x62e69e23_9a1e_4336_b74f_3cc7f4cff709);
+impl std::ops::Deref for IPrintTaskOptionsCoreUIConfiguration {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPrintTaskOptionsCoreUIConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl IPrintTaskOptionsCoreUIConfiguration {
     #[cfg(feature = "Foundation_Collections")]
@@ -1933,8 +1957,8 @@ impl<F: FnMut(Option<&PrintTaskSourceRequestedArgs>) -> windows_core::Result<()>
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&args)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&args)).into()
     }
 }
 impl windows_core::RuntimeType for PrintTaskSourceRequestedHandler {

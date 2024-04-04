@@ -12,7 +12,7 @@ impl IMediaExtension_Vtbl {
         unsafe extern "system" fn SetProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, configuration: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetProperties(windows_core::from_raw_borrowed(&configuration)).into()
+            IMediaExtension_Impl::SetProperties(this, windows_core::from_raw_borrowed(&configuration)).into()
         }
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IMediaExtension, OFFSET>(), SetProperties: SetProperties::<Identity, Impl, OFFSET> }
     }
@@ -44,7 +44,7 @@ impl IMediaFrame_Vtbl {
         unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Type() {
+            match IMediaFrame_Impl::Type(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -56,7 +56,7 @@ impl IMediaFrame_Vtbl {
         unsafe extern "system" fn IsReadOnly<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsReadOnly() {
+            match IMediaFrame_Impl::IsReadOnly(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -67,12 +67,12 @@ impl IMediaFrame_Vtbl {
         unsafe extern "system" fn SetRelativeTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRelativeTime(windows_core::from_raw_borrowed(&value)).into()
+            IMediaFrame_Impl::SetRelativeTime(this, windows_core::from_raw_borrowed(&value)).into()
         }
         unsafe extern "system" fn RelativeTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RelativeTime() {
+            match IMediaFrame_Impl::RelativeTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -84,12 +84,12 @@ impl IMediaFrame_Vtbl {
         unsafe extern "system" fn SetSystemRelativeTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSystemRelativeTime(windows_core::from_raw_borrowed(&value)).into()
+            IMediaFrame_Impl::SetSystemRelativeTime(this, windows_core::from_raw_borrowed(&value)).into()
         }
         unsafe extern "system" fn SystemRelativeTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SystemRelativeTime() {
+            match IMediaFrame_Impl::SystemRelativeTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -101,12 +101,12 @@ impl IMediaFrame_Vtbl {
         unsafe extern "system" fn SetDuration<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDuration(windows_core::from_raw_borrowed(&value)).into()
+            IMediaFrame_Impl::SetDuration(this, windows_core::from_raw_borrowed(&value)).into()
         }
         unsafe extern "system" fn Duration<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Duration() {
+            match IMediaFrame_Impl::Duration(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -118,12 +118,12 @@ impl IMediaFrame_Vtbl {
         unsafe extern "system" fn SetIsDiscontinuous<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetIsDiscontinuous(value).into()
+            IMediaFrame_Impl::SetIsDiscontinuous(this, value).into()
         }
         unsafe extern "system" fn IsDiscontinuous<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsDiscontinuous() {
+            match IMediaFrame_Impl::IsDiscontinuous(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -134,7 +134,7 @@ impl IMediaFrame_Vtbl {
         unsafe extern "system" fn ExtendedProperties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ExtendedProperties() {
+            match IMediaFrame_Impl::ExtendedProperties(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -175,7 +175,7 @@ impl IMediaMarker_Vtbl {
         unsafe extern "system" fn Time<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaMarker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::Foundation::TimeSpan) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Time() {
+            match IMediaMarker_Impl::Time(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -186,7 +186,7 @@ impl IMediaMarker_Vtbl {
         unsafe extern "system" fn MediaMarkerType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaMarker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MediaMarkerType() {
+            match IMediaMarker_Impl::MediaMarkerType(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -198,7 +198,7 @@ impl IMediaMarker_Vtbl {
         unsafe extern "system" fn Text<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaMarker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Text() {
+            match IMediaMarker_Impl::Text(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -232,7 +232,7 @@ impl IMediaMarkers_Vtbl {
         unsafe extern "system" fn Markers<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaMarkers_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Markers() {
+            match IMediaMarkers_Impl::Markers(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);

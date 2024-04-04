@@ -57,6 +57,12 @@ pub struct IAnimationControllerStatics_Vtbl {
     pub MinPlaybackRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAnimationObject, IAnimationObject_Vtbl, 0xe7141e0a_04b8_4fc5_a4dc_195392e57807);
+impl std::ops::Deref for IAnimationObject {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAnimationObject, windows_core::IUnknown, windows_core::IInspectable);
 impl IAnimationObject {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P0) -> windows_core::Result<()>
@@ -252,6 +258,12 @@ pub struct ICompositionAnimation4_Vtbl {
     pub SetExpressionReferenceParameter: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICompositionAnimationBase, ICompositionAnimationBase_Vtbl, 0x1c2c2999_e818_48d3_a6dd_d78c82f8ace9);
+impl std::ops::Deref for ICompositionAnimationBase {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICompositionAnimationBase, windows_core::IUnknown, windows_core::IInspectable);
 impl ICompositionAnimationBase {}
 impl windows_core::RuntimeType for ICompositionAnimationBase {
@@ -1388,6 +1400,12 @@ pub struct ICompositionSpriteShape_Vtbl {
     pub SetStrokeThickness: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICompositionSupportsSystemBackdrop, ICompositionSupportsSystemBackdrop_Vtbl, 0x397dafe4_b6c2_5bb9_951d_f5707de8b7bc);
+impl std::ops::Deref for ICompositionSupportsSystemBackdrop {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICompositionSupportsSystemBackdrop, windows_core::IUnknown, windows_core::IInspectable);
 impl ICompositionSupportsSystemBackdrop {
     pub fn SystemBackdrop(&self) -> windows_core::Result<CompositionBrush> {
@@ -1415,6 +1433,12 @@ pub struct ICompositionSupportsSystemBackdrop_Vtbl {
     pub SetSystemBackdrop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICompositionSurface, ICompositionSurface_Vtbl, 0x1527540d_42c7_47a6_a408_668f79a90dfb);
+impl std::ops::Deref for ICompositionSurface {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICompositionSurface, windows_core::IUnknown, windows_core::IInspectable);
 impl ICompositionSurface {}
 impl windows_core::RuntimeType for ICompositionSurface {
@@ -1505,6 +1529,12 @@ pub struct ICompositionSurfaceBrush3_Vtbl {
     pub SetSnapToPixels: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICompositionSurfaceFacade, ICompositionSurfaceFacade_Vtbl, 0xe01622c8_2332_55c7_8868_a7312c5c229d);
+impl std::ops::Deref for ICompositionSurfaceFacade {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICompositionSurfaceFacade, windows_core::IUnknown, windows_core::IInspectable);
 impl ICompositionSurfaceFacade {
     pub fn GetRealSurface(&self) -> windows_core::Result<ICompositionSurface> {
@@ -2775,6 +2805,12 @@ pub struct IVisualCollection_Vtbl {
     pub RemoveAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVisualElement, IVisualElement_Vtbl, 0x01e64612_1d82_42f4_8e3f_a722ded33fc7);
+impl std::ops::Deref for IVisualElement {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IVisualElement, windows_core::IUnknown, windows_core::IInspectable);
 impl IVisualElement {}
 impl windows_core::RuntimeType for IVisualElement {
@@ -2785,6 +2821,12 @@ pub struct IVisualElement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IVisualElement2, IVisualElement2_Vtbl, 0x993ae8a0_6057_5e40_918c_e06e0b7e7c64);
+impl std::ops::Deref for IVisualElement2 {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IVisualElement2, windows_core::IUnknown, windows_core::IInspectable);
 impl IVisualElement2 {
     pub fn GetVisualInternal(&self) -> windows_core::Result<Visual> {

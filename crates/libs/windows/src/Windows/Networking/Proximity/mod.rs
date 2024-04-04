@@ -930,8 +930,8 @@ impl<F: FnMut(Option<&ProximityDevice>) -> windows_core::Result<()> + Send + 'st
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&sender)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender)).into()
     }
 }
 impl windows_core::RuntimeType for DeviceArrivedEventHandler {
@@ -990,8 +990,8 @@ impl<F: FnMut(Option<&ProximityDevice>) -> windows_core::Result<()> + Send + 'st
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&sender)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender)).into()
     }
 }
 impl windows_core::RuntimeType for DeviceDepartedEventHandler {
@@ -1051,8 +1051,8 @@ impl<F: FnMut(Option<&ProximityDevice>, Option<&ProximityMessage>) -> windows_co
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, message: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&message)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&message)).into()
     }
 }
 impl windows_core::RuntimeType for MessageReceivedHandler {
@@ -1111,8 +1111,8 @@ impl<F: FnMut(Option<&ProximityDevice>, i64) -> windows_core::Result<()> + Send 
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, messageid: i64) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&sender), messageid).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender), messageid).into()
     }
 }
 impl windows_core::RuntimeType for MessageTransmittedHandler {

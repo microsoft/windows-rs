@@ -14,7 +14,7 @@ impl IStorageItemExtraProperties_Vtbl {
         unsafe extern "system" fn RetrievePropertiesAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageItemExtraProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertiestoretrieve: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RetrievePropertiesAsync(windows_core::from_raw_borrowed(&propertiestoretrieve)) {
+            match IStorageItemExtraProperties_Impl::RetrievePropertiesAsync(this, windows_core::from_raw_borrowed(&propertiestoretrieve)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -26,7 +26,7 @@ impl IStorageItemExtraProperties_Vtbl {
         unsafe extern "system" fn SavePropertiesAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageItemExtraProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertiestosave: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SavePropertiesAsync(windows_core::from_raw_borrowed(&propertiestosave)) {
+            match IStorageItemExtraProperties_Impl::SavePropertiesAsync(this, windows_core::from_raw_borrowed(&propertiestosave)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -38,7 +38,7 @@ impl IStorageItemExtraProperties_Vtbl {
         unsafe extern "system" fn SavePropertiesAsyncOverloadDefault<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorageItemExtraProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SavePropertiesAsyncOverloadDefault() {
+            match IStorageItemExtraProperties_Impl::SavePropertiesAsyncOverloadDefault(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);

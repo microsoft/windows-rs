@@ -45,6 +45,12 @@ pub unsafe fn DirectDrawEnumerateW(lpcallback: LPDDENUMCALLBACKW, lpcontext: *mu
     DirectDrawEnumerateW(lpcallback, lpcontext).ok()
 }
 windows_core::imp::define_interface!(IDDVideoPortContainer, IDDVideoPortContainer_Vtbl, 0x6c142760_a733_11ce_a521_0020af0be560);
+impl std::ops::Deref for IDDVideoPortContainer {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDDVideoPortContainer, windows_core::IUnknown);
 impl IDDVideoPortContainer {
     pub unsafe fn CreateVideoPort<P0>(&self, param0: u32, param1: *mut DDVIDEOPORTDESC, param2: *mut Option<IDirectDrawVideoPort>, param3: P0) -> windows_core::Result<()>
@@ -72,6 +78,12 @@ pub struct IDDVideoPortContainer_Vtbl {
     pub QueryVideoPortStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DDVIDEOPORTSTATUS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectDraw, IDirectDraw_Vtbl, 0x6c14db80_a733_11ce_a521_0020af0be560);
+impl std::ops::Deref for IDirectDraw {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDirectDraw, windows_core::IUnknown);
 impl IDirectDraw {
     pub unsafe fn Compact(&self) -> windows_core::Result<()> {
@@ -184,6 +196,12 @@ pub struct IDirectDraw_Vtbl {
     pub WaitForVerticalBlank: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::HANDLE) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectDraw2, IDirectDraw2_Vtbl, 0xb3a6f3e0_2b43_11cf_a2de_00aa00b93356);
+impl std::ops::Deref for IDirectDraw2 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDirectDraw2, windows_core::IUnknown);
 impl IDirectDraw2 {
     pub unsafe fn Compact(&self) -> windows_core::Result<()> {
@@ -300,6 +318,12 @@ pub struct IDirectDraw2_Vtbl {
     pub GetAvailableVidMem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSCAPS, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectDraw4, IDirectDraw4_Vtbl, 0x9c59509a_39bd_11d1_8c4a_00c04fd930c5);
+impl std::ops::Deref for IDirectDraw4 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDirectDraw4, windows_core::IUnknown);
 impl IDirectDraw4 {
     pub unsafe fn Compact(&self) -> windows_core::Result<()> {
@@ -440,6 +464,12 @@ pub struct IDirectDraw4_Vtbl {
     pub GetDeviceIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDDEVICEIDENTIFIER, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectDraw7, IDirectDraw7_Vtbl, 0x15e65ec0_3b9c_11d2_b92f_00609797ea5b);
+impl std::ops::Deref for IDirectDraw7 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDirectDraw7, windows_core::IUnknown);
 impl IDirectDraw7 {
     pub unsafe fn Compact(&self) -> windows_core::Result<()> {
@@ -588,6 +618,12 @@ pub struct IDirectDraw7_Vtbl {
     pub EvaluateMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectDrawClipper, IDirectDrawClipper_Vtbl, 0x6c14db85_a733_11ce_a521_0020af0be560);
+impl std::ops::Deref for IDirectDrawClipper {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDirectDrawClipper, windows_core::IUnknown);
 impl IDirectDrawClipper {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -634,6 +670,12 @@ pub struct IDirectDrawClipper_Vtbl {
     pub SetHWnd: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::HWND) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectDrawColorControl, IDirectDrawColorControl_Vtbl, 0x4b9f0ee0_0d7e_11d0_9b06_00a0c903a3b8);
+impl std::ops::Deref for IDirectDrawColorControl {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDirectDrawColorControl, windows_core::IUnknown);
 impl IDirectDrawColorControl {
     pub unsafe fn GetColorControls(&self, param0: *mut DDCOLORCONTROL) -> windows_core::Result<()> {
@@ -650,6 +692,12 @@ pub struct IDirectDrawColorControl_Vtbl {
     pub SetColorControls: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDCOLORCONTROL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectDrawGammaControl, IDirectDrawGammaControl_Vtbl, 0x69c11c3e_b46b_11d1_ad7a_00c04fc29b4e);
+impl std::ops::Deref for IDirectDrawGammaControl {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDirectDrawGammaControl, windows_core::IUnknown);
 impl IDirectDrawGammaControl {
     pub unsafe fn GetGammaRamp(&self, param0: u32, param1: *mut DDGAMMARAMP) -> windows_core::Result<()> {
@@ -666,6 +714,12 @@ pub struct IDirectDrawGammaControl_Vtbl {
     pub SetGammaRamp: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DDGAMMARAMP) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectDrawKernel, IDirectDrawKernel_Vtbl, 0x8d56c120_6a08_11d0_9b06_00a0c903a3b8);
+impl std::ops::Deref for IDirectDrawKernel {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDirectDrawKernel, windows_core::IUnknown);
 impl IDirectDrawKernel {
     pub unsafe fn GetCaps(&self, param0: *mut DDKERNELCAPS) -> windows_core::Result<()> {
@@ -686,6 +740,12 @@ pub struct IDirectDrawKernel_Vtbl {
     pub ReleaseKernelHandle: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectDrawPalette, IDirectDrawPalette_Vtbl, 0x6c14db84_a733_11ce_a521_0020af0be560);
+impl std::ops::Deref for IDirectDrawPalette {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDirectDrawPalette, windows_core::IUnknown);
 impl IDirectDrawPalette {
     pub unsafe fn GetCaps(&self, param0: *mut u32) -> windows_core::Result<()> {
@@ -725,6 +785,12 @@ pub struct IDirectDrawPalette_Vtbl {
     SetEntries: usize,
 }
 windows_core::imp::define_interface!(IDirectDrawSurface, IDirectDrawSurface_Vtbl, 0x6c14db81_a733_11ce_a521_0020af0be560);
+impl std::ops::Deref for IDirectDrawSurface {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDirectDrawSurface, windows_core::IUnknown);
 impl IDirectDrawSurface {
     pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> windows_core::Result<()>
@@ -911,6 +977,12 @@ pub struct IDirectDrawSurface_Vtbl {
     pub UpdateOverlayZOrder: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectDrawSurface2, IDirectDrawSurface2_Vtbl, 0x57805885_6eec_11cf_9441_a82303c10e27);
+impl std::ops::Deref for IDirectDrawSurface2 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDirectDrawSurface2, windows_core::IUnknown);
 impl IDirectDrawSurface2 {
     pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> windows_core::Result<()>
@@ -1109,6 +1181,12 @@ pub struct IDirectDrawSurface2_Vtbl {
     pub PageUnlock: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectDrawSurface3, IDirectDrawSurface3_Vtbl, 0xda044e00_69b2_11d0_a1d5_00aa00b8dfbb);
+impl std::ops::Deref for IDirectDrawSurface3 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDirectDrawSurface3, windows_core::IUnknown);
 impl IDirectDrawSurface3 {
     pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> windows_core::Result<()>
@@ -1311,6 +1389,12 @@ pub struct IDirectDrawSurface3_Vtbl {
     pub SetSurfaceDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDSURFACEDESC, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectDrawSurface4, IDirectDrawSurface4_Vtbl, 0x0b2b8630_ad35_11d0_8ea6_00609797ea5b);
+impl std::ops::Deref for IDirectDrawSurface4 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDirectDrawSurface4, windows_core::IUnknown);
 impl IDirectDrawSurface4 {
     pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> windows_core::Result<()>
@@ -1533,6 +1617,12 @@ pub struct IDirectDrawSurface4_Vtbl {
     pub ChangeUniquenessValue: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectDrawSurface7, IDirectDrawSurface7_Vtbl, 0x06675a80_3b9b_11d2_b92f_00609797ea5b);
+impl std::ops::Deref for IDirectDrawSurface7 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDirectDrawSurface7, windows_core::IUnknown);
 impl IDirectDrawSurface7 {
     pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> windows_core::Result<()>
@@ -1771,6 +1861,12 @@ pub struct IDirectDrawSurface7_Vtbl {
     pub GetLOD: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectDrawSurfaceKernel, IDirectDrawSurfaceKernel_Vtbl, 0x60755da0_6a40_11d0_9b06_00a0c903a3b8);
+impl std::ops::Deref for IDirectDrawSurfaceKernel {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDirectDrawSurfaceKernel, windows_core::IUnknown);
 impl IDirectDrawSurfaceKernel {
     pub unsafe fn GetKernelHandle(&self, param0: *mut usize) -> windows_core::Result<()> {
@@ -1787,6 +1883,12 @@ pub struct IDirectDrawSurfaceKernel_Vtbl {
     pub ReleaseKernelHandle: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectDrawVideoPort, IDirectDrawVideoPort_Vtbl, 0xb36d93e0_2b43_11cf_a2de_00aa00b93356);
+impl std::ops::Deref for IDirectDrawVideoPort {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDirectDrawVideoPort, windows_core::IUnknown);
 impl IDirectDrawVideoPort {
     pub unsafe fn Flip<P0>(&self, param0: P0, param1: u32) -> windows_core::Result<()>
@@ -1857,6 +1959,12 @@ pub struct IDirectDrawVideoPort_Vtbl {
     pub WaitForSync: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirectDrawVideoPortNotify, IDirectDrawVideoPortNotify_Vtbl, 0xa655fb94_0589_4e57_b333_567a89468c88);
+impl std::ops::Deref for IDirectDrawVideoPortNotify {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDirectDrawVideoPortNotify, windows_core::IUnknown);
 impl IDirectDrawVideoPortNotify {
     pub unsafe fn AcquireNotification(&self, param0: *mut super::super::Foundation::HANDLE, param1: *mut DDVIDEOPORTNOTIFY) -> windows_core::Result<()> {

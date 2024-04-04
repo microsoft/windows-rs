@@ -1,19 +1,12 @@
 windows_core::imp::define_interface!(ICivicAddressReport, ICivicAddressReport_Vtbl, 0xc0b19f70_4adf_445d_87f2_cad8fd711792);
+impl std::ops::Deref for ICivicAddressReport {
+    type Target = ILocationReport;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICivicAddressReport, windows_core::IUnknown, ILocationReport);
 impl ICivicAddressReport {
-    pub unsafe fn GetSensorID(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetSensorID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetTimestamp(&self) -> windows_core::Result<super::super::Foundation::SYSTEMTIME> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetTimestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub unsafe fn GetValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> windows_core::Result<windows_core::PROPVARIANT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetValue)(windows_core::Interface::as_raw(self), pkey, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn GetAddressLine1(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetAddressLine1)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -57,36 +50,16 @@ pub struct ICivicAddressReport_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ICivicAddressReportFactory, ICivicAddressReportFactory_Vtbl, 0xbf773b93_c64f_4bee_beb2_67c0b8df66e0);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ICivicAddressReportFactory {
+    type Target = ILocationReportFactory;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ICivicAddressReportFactory, windows_core::IUnknown, super::super::System::Com::IDispatch, ILocationReportFactory);
 #[cfg(feature = "Win32_System_Com")]
 impl ICivicAddressReportFactory {
-    pub unsafe fn ListenForReports(&self, requestedreportinterval: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.ListenForReports)(windows_core::Interface::as_raw(self), requestedreportinterval).ok()
-    }
-    pub unsafe fn StopListeningForReports(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.StopListeningForReports)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Status(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Status)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ReportInterval(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ReportInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetReportInterval(&self, millisecondsrequested: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetReportInterval)(windows_core::Interface::as_raw(self), millisecondsrequested).ok()
-    }
-    pub unsafe fn DesiredAccuracy(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DesiredAccuracy)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetDesiredAccuracy(&self, desiredaccuracy: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetDesiredAccuracy)(windows_core::Interface::as_raw(self), desiredaccuracy).ok()
-    }
-    pub unsafe fn RequestPermissions(&self, hwnd: *const u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.RequestPermissions)(windows_core::Interface::as_raw(self), hwnd).ok()
-    }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CivicAddressReport(&self) -> windows_core::Result<IDispCivicAddressReport> {
         let mut result__ = std::mem::zeroed();
@@ -103,6 +76,12 @@ pub struct ICivicAddressReportFactory_Vtbl {
     CivicAddressReport: usize,
 }
 windows_core::imp::define_interface!(IDefaultLocation, IDefaultLocation_Vtbl, 0xa65af77e_969a_4a2e_8aca_33bb7cbb1235);
+impl std::ops::Deref for IDefaultLocation {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDefaultLocation, windows_core::IUnknown);
 impl IDefaultLocation {
     pub unsafe fn SetReport<P0>(&self, reporttype: *const windows_core::GUID, plocationreport: P0) -> windows_core::Result<()>
@@ -124,6 +103,13 @@ pub struct IDefaultLocation_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDispCivicAddressReport, IDispCivicAddressReport_Vtbl, 0x16ff1a34_9e30_42c3_b44d_e22513b5767a);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IDispCivicAddressReport {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDispCivicAddressReport, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -177,6 +163,13 @@ pub struct IDispCivicAddressReport_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDispLatLongReport, IDispLatLongReport_Vtbl, 0x8ae32723_389b_4a11_9957_5bdd48fc9617);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IDispLatLongReport {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDispLatLongReport, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IDispLatLongReport {
@@ -217,21 +210,14 @@ pub struct IDispLatLongReport_Vtbl {
     pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILatLongReport, ILatLongReport_Vtbl, 0x7fed806d_0ef8_4f07_80ac_36a0beae3134);
+impl std::ops::Deref for ILatLongReport {
+    type Target = ILocationReport;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ILatLongReport, windows_core::IUnknown, ILocationReport);
 impl ILatLongReport {
-    pub unsafe fn GetSensorID(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetSensorID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetTimestamp(&self) -> windows_core::Result<super::super::Foundation::SYSTEMTIME> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetTimestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub unsafe fn GetValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> windows_core::Result<windows_core::PROPVARIANT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetValue)(windows_core::Interface::as_raw(self), pkey, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn GetLatitude(&self) -> windows_core::Result<f64> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLatitude)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -265,36 +251,16 @@ pub struct ILatLongReport_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ILatLongReportFactory, ILatLongReportFactory_Vtbl, 0x3f0804cb_b114_447d_83dd_390174ebb082);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ILatLongReportFactory {
+    type Target = ILocationReportFactory;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ILatLongReportFactory, windows_core::IUnknown, super::super::System::Com::IDispatch, ILocationReportFactory);
 #[cfg(feature = "Win32_System_Com")]
 impl ILatLongReportFactory {
-    pub unsafe fn ListenForReports(&self, requestedreportinterval: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.ListenForReports)(windows_core::Interface::as_raw(self), requestedreportinterval).ok()
-    }
-    pub unsafe fn StopListeningForReports(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.StopListeningForReports)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Status(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Status)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn ReportInterval(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ReportInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetReportInterval(&self, millisecondsrequested: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetReportInterval)(windows_core::Interface::as_raw(self), millisecondsrequested).ok()
-    }
-    pub unsafe fn DesiredAccuracy(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DesiredAccuracy)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetDesiredAccuracy(&self, desiredaccuracy: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetDesiredAccuracy)(windows_core::Interface::as_raw(self), desiredaccuracy).ok()
-    }
-    pub unsafe fn RequestPermissions(&self, hwnd: *const u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.RequestPermissions)(windows_core::Interface::as_raw(self), hwnd).ok()
-    }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LatLongReport(&self) -> windows_core::Result<IDispLatLongReport> {
         let mut result__ = std::mem::zeroed();
@@ -311,6 +277,12 @@ pub struct ILatLongReportFactory_Vtbl {
     LatLongReport: usize,
 }
 windows_core::imp::define_interface!(ILocation, ILocation_Vtbl, 0xab2ece69_56d9_4f28_b525_de1b0ee44237);
+impl std::ops::Deref for ILocation {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ILocation, windows_core::IUnknown);
 impl ILocation {
     pub unsafe fn RegisterForReport<P0>(&self, pevents: P0, reporttype: *const windows_core::GUID, dwrequestedreportinterval: u32) -> windows_core::Result<()>
@@ -374,6 +346,12 @@ pub struct ILocation_Vtbl {
     pub RequestPermissions: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *const windows_core::GUID, u32, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILocationEvents, ILocationEvents_Vtbl, 0xcae02bbf_798b_4508_a207_35a7906dc73d);
+impl std::ops::Deref for ILocationEvents {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ILocationEvents, windows_core::IUnknown);
 impl ILocationEvents {
     pub unsafe fn OnLocationChanged<P0>(&self, reporttype: *const windows_core::GUID, plocationreport: P0) -> windows_core::Result<()>
@@ -393,6 +371,12 @@ pub struct ILocationEvents_Vtbl {
     pub OnStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, LOCATION_REPORT_STATUS) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILocationPower, ILocationPower_Vtbl, 0x193e7729_ab6b_4b12_8617_7596e1bb191c);
+impl std::ops::Deref for ILocationPower {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ILocationPower, windows_core::IUnknown);
 impl ILocationPower {
     pub unsafe fn Connect(&self) -> windows_core::Result<()> {
@@ -409,6 +393,12 @@ pub struct ILocationPower_Vtbl {
     pub Disconnect: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILocationReport, ILocationReport_Vtbl, 0xc8b7f7ee_75d0_4db9_b62d_7a0f369ca456);
+impl std::ops::Deref for ILocationReport {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ILocationReport, windows_core::IUnknown);
 impl ILocationReport {
     pub unsafe fn GetSensorID(&self) -> windows_core::Result<windows_core::GUID> {
@@ -437,6 +427,13 @@ pub struct ILocationReport_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ILocationReportFactory, ILocationReportFactory_Vtbl, 0x2daec322_90b2_47e4_bb08_0da841935a6b);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ILocationReportFactory {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ILocationReportFactory, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -485,6 +482,13 @@ pub struct ILocationReportFactory_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(_ICivicAddressReportFactoryEvents, _ICivicAddressReportFactoryEvents_Vtbl, 0xc96039ff_72ec_4617_89bd_84d88bedc722);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for _ICivicAddressReportFactoryEvents {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(_ICivicAddressReportFactoryEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl _ICivicAddressReportFactoryEvents {}
@@ -495,6 +499,13 @@ pub struct _ICivicAddressReportFactoryEvents_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(_ILatLongReportFactoryEvents, _ILatLongReportFactoryEvents_Vtbl, 0x16ee6cb7_ab3c_424b_849f_269be551fcbc);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for _ILatLongReportFactoryEvents {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(_ILatLongReportFactoryEvents, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]

@@ -1,4 +1,10 @@
 windows_core::imp::define_interface!(IGameListEntry, IGameListEntry_Vtbl, 0x735924d3_811f_4494_b69c_c641a0c61543);
+impl std::ops::Deref for IGameListEntry {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IGameListEntry, windows_core::IUnknown, windows_core::IInspectable);
 impl IGameListEntry {
     #[cfg(feature = "ApplicationModel")]
@@ -645,8 +651,8 @@ impl<F: FnMut(Option<&GameListEntry>) -> windows_core::Result<()> + Send + 'stat
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, game: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&game)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&game)).into()
     }
 }
 impl windows_core::RuntimeType for GameListChangedEventHandler {
@@ -702,8 +708,8 @@ impl<F: FnMut(&windows_core::HSTRING) -> windows_core::Result<()> + Send + 'stat
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, identifier: std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(core::mem::transmute(&identifier)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(core::mem::transmute(&identifier)).into()
     }
 }
 impl windows_core::RuntimeType for GameListRemovedEventHandler {

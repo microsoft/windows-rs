@@ -834,6 +834,12 @@ where
     WriteFmtUserTypeStg(pstg.param().abi(), cf, lpszusertype.param().abi()).ok()
 }
 windows_core::imp::define_interface!(IDirectWriterLock, IDirectWriterLock_Vtbl, 0x0e6d4d92_6738_11cf_9608_00aa00680db4);
+impl std::ops::Deref for IDirectWriterLock {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDirectWriterLock, windows_core::IUnknown);
 impl IDirectWriterLock {
     pub unsafe fn WaitForWriteAccess(&self, dwtimeout: u32) -> windows_core::Result<()> {
@@ -854,6 +860,12 @@ pub struct IDirectWriterLock_Vtbl {
     pub HaveWriteAccess: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumSTATPROPSETSTG, IEnumSTATPROPSETSTG_Vtbl, 0x0000013b_0000_0000_c000_000000000046);
+impl std::ops::Deref for IEnumSTATPROPSETSTG {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumSTATPROPSETSTG, windows_core::IUnknown);
 impl IEnumSTATPROPSETSTG {
     pub unsafe fn Next(&self, rgelt: &mut [STATPROPSETSTG], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
@@ -879,6 +891,12 @@ pub struct IEnumSTATPROPSETSTG_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumSTATPROPSTG, IEnumSTATPROPSTG_Vtbl, 0x00000139_0000_0000_c000_000000000046);
+impl std::ops::Deref for IEnumSTATPROPSTG {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumSTATPROPSTG, windows_core::IUnknown);
 impl IEnumSTATPROPSTG {
     #[cfg(feature = "Win32_System_Variant")]
@@ -908,6 +926,12 @@ pub struct IEnumSTATPROPSTG_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumSTATSTG, IEnumSTATSTG_Vtbl, 0x0000000d_0000_0000_c000_000000000046);
+impl std::ops::Deref for IEnumSTATSTG {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumSTATSTG, windows_core::IUnknown);
 impl IEnumSTATSTG {
     pub unsafe fn Next(&self, rgelt: &mut [super::STATSTG], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
@@ -933,6 +957,12 @@ pub struct IEnumSTATSTG_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFillLockBytes, IFillLockBytes_Vtbl, 0x99caf010_415e_11cf_8814_00aa00b569f5);
+impl std::ops::Deref for IFillLockBytes {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFillLockBytes, windows_core::IUnknown);
 impl IFillLockBytes {
     pub unsafe fn FillAppend(&self, pv: *const core::ffi::c_void, cb: u32) -> windows_core::Result<u32> {
@@ -962,6 +992,12 @@ pub struct IFillLockBytes_Vtbl {
     pub Terminate: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILayoutStorage, ILayoutStorage_Vtbl, 0x0e6d4d90_6738_11cf_9608_00aa00680db4);
+impl std::ops::Deref for ILayoutStorage {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ILayoutStorage, windows_core::IUnknown);
 impl ILayoutStorage {
     pub unsafe fn LayoutScript(&self, pstoragelayout: &[super::StorageLayout], glfinterleavedflag: u32) -> windows_core::Result<()> {
@@ -996,6 +1032,12 @@ pub struct ILayoutStorage_Vtbl {
     pub ReLayoutDocfileOnILockBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILockBytes, ILockBytes_Vtbl, 0x0000000a_0000_0000_c000_000000000046);
+impl std::ops::Deref for ILockBytes {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ILockBytes, windows_core::IUnknown);
 impl ILockBytes {
     pub unsafe fn ReadAt(&self, uloffset: u64, pv: *mut core::ffi::c_void, cb: u32, pcbread: Option<*mut u32>) -> windows_core::Result<()> {
@@ -1046,12 +1088,14 @@ pub struct IMemoryAllocator_Vtbl {
     pub Free: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
 }
 windows_core::imp::define_interface!(IPersistStorage, IPersistStorage_Vtbl, 0x0000010a_0000_0000_c000_000000000046);
+impl std::ops::Deref for IPersistStorage {
+    type Target = super::IPersist;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPersistStorage, windows_core::IUnknown, super::IPersist);
 impl IPersistStorage {
-    pub unsafe fn GetClassID(&self) -> windows_core::Result<windows_core::GUID> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetClassID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     pub unsafe fn IsDirty(&self) -> windows_core::HRESULT {
         (windows_core::Interface::vtable(self).IsDirty)(windows_core::Interface::as_raw(self))
     }
@@ -1095,6 +1139,12 @@ pub struct IPersistStorage_Vtbl {
     pub HandsOffStorage: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPropertyBag, IPropertyBag_Vtbl, 0x55272a00_42cb_11ce_8135_00aa004bb851);
+impl std::ops::Deref for IPropertyBag {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPropertyBag, windows_core::IUnknown);
 impl IPropertyBag {
     pub unsafe fn Read<P0, P1>(&self, pszpropname: P0, pvar: *mut windows_core::VARIANT, perrorlog: P1) -> windows_core::Result<()>
@@ -1118,6 +1168,12 @@ pub struct IPropertyBag_Vtbl {
     pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPropertyBag2, IPropertyBag2_Vtbl, 0x22f55882_280b_11d0_a8a9_00a0c90c2004);
+impl std::ops::Deref for IPropertyBag2 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPropertyBag2, windows_core::IUnknown);
 impl IPropertyBag2 {
     #[cfg(feature = "Win32_System_Variant")]
@@ -1167,6 +1223,12 @@ pub struct IPropertyBag2_Vtbl {
     pub LoadObject: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPropertySetStorage, IPropertySetStorage_Vtbl, 0x0000013a_0000_0000_c000_000000000046);
+impl std::ops::Deref for IPropertySetStorage {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPropertySetStorage, windows_core::IUnknown);
 impl IPropertySetStorage {
     pub unsafe fn Create(&self, rfmtid: *const windows_core::GUID, pclsid: *const windows_core::GUID, grfflags: u32, grfmode: u32) -> windows_core::Result<IPropertyStorage> {
@@ -1194,6 +1256,12 @@ pub struct IPropertySetStorage_Vtbl {
     pub Enum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPropertyStorage, IPropertyStorage_Vtbl, 0x00000138_0000_0000_c000_000000000046);
+impl std::ops::Deref for IPropertyStorage {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPropertyStorage, windows_core::IUnknown);
 impl IPropertyStorage {
     pub unsafe fn ReadMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *mut windows_core::PROPVARIANT) -> windows_core::Result<()> {
@@ -1251,6 +1319,12 @@ pub struct IPropertyStorage_Vtbl {
     pub Stat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut STATPROPSETSTG) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRootStorage, IRootStorage_Vtbl, 0x00000012_0000_0000_c000_000000000046);
+impl std::ops::Deref for IRootStorage {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IRootStorage, windows_core::IUnknown);
 impl IRootStorage {
     pub unsafe fn SwitchToFile<P0>(&self, pszfile: P0) -> windows_core::Result<()>
@@ -1266,6 +1340,12 @@ pub struct IRootStorage_Vtbl {
     pub SwitchToFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorage, IStorage_Vtbl, 0x0000000b_0000_0000_c000_000000000046);
+impl std::ops::Deref for IStorage {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IStorage, windows_core::IUnknown);
 impl IStorage {
     pub unsafe fn CreateStream<P0>(&self, pwcsname: P0, grfmode: super::STGM, reserved1: u32, reserved2: u32) -> windows_core::Result<super::IStream>

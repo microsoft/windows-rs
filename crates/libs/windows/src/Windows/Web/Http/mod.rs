@@ -89,6 +89,12 @@ pub struct IHttpClientFactory_Vtbl {
     Create: usize,
 }
 windows_core::imp::define_interface!(IHttpContent, IHttpContent_Vtbl, 0x6b14a441_fba7_4bd2_af0a_839de7c295da);
+impl std::ops::Deref for IHttpContent {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IHttpContent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IHttpContent, super::super::Foundation::IClosable);
 impl IHttpContent {

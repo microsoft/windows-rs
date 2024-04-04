@@ -11,7 +11,7 @@ impl II2cDeviceStatics_Vtbl {
         unsafe extern "system" fn GetDeviceSelector<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: II2cDeviceStatics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDeviceSelector() {
+            match II2cDeviceStatics_Impl::GetDeviceSelector(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -23,7 +23,7 @@ impl II2cDeviceStatics_Vtbl {
         unsafe extern "system" fn GetDeviceSelectorFromFriendlyName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: II2cDeviceStatics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, friendlyname: std::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDeviceSelectorFromFriendlyName(core::mem::transmute(&friendlyname)) {
+            match II2cDeviceStatics_Impl::GetDeviceSelectorFromFriendlyName(this, core::mem::transmute(&friendlyname)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -35,7 +35,7 @@ impl II2cDeviceStatics_Vtbl {
         unsafe extern "system" fn FromIdAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: II2cDeviceStatics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceid: std::mem::MaybeUninit<windows_core::HSTRING>, settings: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FromIdAsync(core::mem::transmute(&deviceid), windows_core::from_raw_borrowed(&settings)) {
+            match II2cDeviceStatics_Impl::FromIdAsync(this, core::mem::transmute(&deviceid), windows_core::from_raw_borrowed(&settings)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);

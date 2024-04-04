@@ -60,6 +60,12 @@ pub struct IIncrementNumberRounder_Vtbl {
     pub SetIncrement: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INumberFormatter, INumberFormatter_Vtbl, 0xa5007c49_7676_4db7_8631_1b6ff265caa9);
+impl std::ops::Deref for INumberFormatter {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INumberFormatter, windows_core::IUnknown, windows_core::IInspectable);
 impl INumberFormatter {
     pub fn FormatInt(&self, value: i64) -> windows_core::Result<windows_core::HSTRING> {
@@ -95,6 +101,12 @@ pub struct INumberFormatter_Vtbl {
     pub FormatDouble: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INumberFormatter2, INumberFormatter2_Vtbl, 0xd4a8c1f0_80d0_4b0d_a89e_882c1e8f8310);
+impl std::ops::Deref for INumberFormatter2 {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INumberFormatter2, windows_core::IUnknown, windows_core::IInspectable);
 impl INumberFormatter2 {
     pub fn FormatInt(&self, value: i64) -> windows_core::Result<windows_core::HSTRING> {
@@ -130,6 +142,12 @@ pub struct INumberFormatter2_Vtbl {
     pub FormatDouble: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INumberFormatterOptions, INumberFormatterOptions_Vtbl, 0x80332d21_aee1_4a39_baa2_07ed8c96daf6);
+impl std::ops::Deref for INumberFormatterOptions {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INumberFormatterOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl INumberFormatterOptions {
     #[cfg(feature = "Foundation_Collections")]
@@ -242,6 +260,12 @@ pub struct INumberFormatterOptions_Vtbl {
     pub ResolvedGeographicRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INumberParser, INumberParser_Vtbl, 0xe6659412_4a13_4a53_83a1_392fbe4cff9f);
+impl std::ops::Deref for INumberParser {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INumberParser, windows_core::IUnknown, windows_core::IInspectable);
 impl INumberParser {
     pub fn ParseInt(&self, text: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IReference<i64>> {
@@ -277,6 +301,12 @@ pub struct INumberParser_Vtbl {
     pub ParseDouble: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INumberRounder, INumberRounder_Vtbl, 0x5473c375_38ed_4631_b80c_ef34fc48b7f5);
+impl std::ops::Deref for INumberRounder {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INumberRounder, windows_core::IUnknown, windows_core::IInspectable);
 impl INumberRounder {
     pub fn RoundInt32(&self, value: i32) -> windows_core::Result<i32> {
@@ -336,6 +366,12 @@ pub struct INumberRounder_Vtbl {
     pub RoundDouble: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *mut f64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INumberRounderOption, INumberRounderOption_Vtbl, 0x3b088433_646f_4efe_8d48_66eb2e49e736);
+impl std::ops::Deref for INumberRounderOption {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INumberRounderOption, windows_core::IUnknown, windows_core::IInspectable);
 impl INumberRounderOption {
     pub fn NumberRounder(&self) -> windows_core::Result<INumberRounder> {
@@ -415,6 +451,12 @@ pub struct IPermilleFormatterFactory_Vtbl {
     CreatePermilleFormatter: usize,
 }
 windows_core::imp::define_interface!(ISignedZeroOption, ISignedZeroOption_Vtbl, 0xfd1cdd31_0a3c_49c4_a642_96a1564f4f30);
+impl std::ops::Deref for ISignedZeroOption {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISignedZeroOption, windows_core::IUnknown, windows_core::IInspectable);
 impl ISignedZeroOption {
     pub fn IsZeroSigned(&self) -> windows_core::Result<bool> {
@@ -451,6 +493,12 @@ pub struct ISignificantDigitsNumberRounder_Vtbl {
     pub SetSignificantDigits: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISignificantDigitsOption, ISignificantDigitsOption_Vtbl, 0x1d4dfcdd_2d43_4ee8_bbf1_c1b26a711a58);
+impl std::ops::Deref for ISignificantDigitsOption {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISignificantDigitsOption, windows_core::IUnknown, windows_core::IInspectable);
 impl ISignificantDigitsOption {
     pub fn SignificantDigits(&self) -> windows_core::Result<i32> {

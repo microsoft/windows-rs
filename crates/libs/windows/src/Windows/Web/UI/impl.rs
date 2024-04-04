@@ -68,7 +68,7 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn Source<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Source() {
+            match IWebViewControl_Impl::Source(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -80,12 +80,12 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn SetSource<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, source: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSource(windows_core::from_raw_borrowed(&source)).into()
+            IWebViewControl_Impl::SetSource(this, windows_core::from_raw_borrowed(&source)).into()
         }
         unsafe extern "system" fn DocumentTitle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DocumentTitle() {
+            match IWebViewControl_Impl::DocumentTitle(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -97,7 +97,7 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn CanGoBack<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CanGoBack() {
+            match IWebViewControl_Impl::CanGoBack(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -108,7 +108,7 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn CanGoForward<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CanGoForward() {
+            match IWebViewControl_Impl::CanGoForward(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -119,12 +119,12 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn SetDefaultBackgroundColor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::super::UI::Color) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDefaultBackgroundColor(core::mem::transmute(&value)).into()
+            IWebViewControl_Impl::SetDefaultBackgroundColor(this, core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn DefaultBackgroundColor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::UI::Color) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DefaultBackgroundColor() {
+            match IWebViewControl_Impl::DefaultBackgroundColor(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -135,7 +135,7 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn ContainsFullScreenElement<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ContainsFullScreenElement() {
+            match IWebViewControl_Impl::ContainsFullScreenElement(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -146,7 +146,7 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn Settings<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Settings() {
+            match IWebViewControl_Impl::Settings(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -158,7 +158,7 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn DeferredPermissionRequests<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DeferredPermissionRequests() {
+            match IWebViewControl_Impl::DeferredPermissionRequests(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -170,47 +170,47 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn GoForward<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GoForward().into()
+            IWebViewControl_Impl::GoForward(this).into()
         }
         unsafe extern "system" fn GoBack<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GoBack().into()
+            IWebViewControl_Impl::GoBack(this).into()
         }
         unsafe extern "system" fn Refresh<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Refresh().into()
+            IWebViewControl_Impl::Refresh(this).into()
         }
         unsafe extern "system" fn Stop<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Stop().into()
+            IWebViewControl_Impl::Stop(this).into()
         }
         unsafe extern "system" fn Navigate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, source: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Navigate(windows_core::from_raw_borrowed(&source)).into()
+            IWebViewControl_Impl::Navigate(this, windows_core::from_raw_borrowed(&source)).into()
         }
         unsafe extern "system" fn NavigateToString<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.NavigateToString(core::mem::transmute(&text)).into()
+            IWebViewControl_Impl::NavigateToString(this, core::mem::transmute(&text)).into()
         }
         unsafe extern "system" fn NavigateToLocalStreamUri<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, source: *mut core::ffi::c_void, streamresolver: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.NavigateToLocalStreamUri(windows_core::from_raw_borrowed(&source), windows_core::from_raw_borrowed(&streamresolver)).into()
+            IWebViewControl_Impl::NavigateToLocalStreamUri(this, windows_core::from_raw_borrowed(&source), windows_core::from_raw_borrowed(&streamresolver)).into()
         }
         unsafe extern "system" fn NavigateWithHttpRequestMessage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requestmessage: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.NavigateWithHttpRequestMessage(windows_core::from_raw_borrowed(&requestmessage)).into()
+            IWebViewControl_Impl::NavigateWithHttpRequestMessage(this, windows_core::from_raw_borrowed(&requestmessage)).into()
         }
         unsafe extern "system" fn InvokeScriptAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scriptname: std::mem::MaybeUninit<windows_core::HSTRING>, arguments: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.InvokeScriptAsync(core::mem::transmute(&scriptname), windows_core::from_raw_borrowed(&arguments)) {
+            match IWebViewControl_Impl::InvokeScriptAsync(this, core::mem::transmute(&scriptname), windows_core::from_raw_borrowed(&arguments)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -222,7 +222,7 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn CapturePreviewToStreamAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CapturePreviewToStreamAsync(windows_core::from_raw_borrowed(&stream)) {
+            match IWebViewControl_Impl::CapturePreviewToStreamAsync(this, windows_core::from_raw_borrowed(&stream)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -234,7 +234,7 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn CaptureSelectedContentToDataPackageAsync<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CaptureSelectedContentToDataPackageAsync() {
+            match IWebViewControl_Impl::CaptureSelectedContentToDataPackageAsync(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -246,7 +246,7 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn BuildLocalStreamUri<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contentidentifier: std::mem::MaybeUninit<windows_core::HSTRING>, relativepath: std::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BuildLocalStreamUri(core::mem::transmute(&contentidentifier), core::mem::transmute(&relativepath)) {
+            match IWebViewControl_Impl::BuildLocalStreamUri(this, core::mem::transmute(&contentidentifier), core::mem::transmute(&relativepath)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -258,12 +258,12 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn GetDeferredPermissionRequestById<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: u32, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDeferredPermissionRequestById(id, core::mem::transmute_copy(&result)).into()
+            IWebViewControl_Impl::GetDeferredPermissionRequestById(this, id, core::mem::transmute_copy(&result)).into()
         }
         unsafe extern "system" fn NavigationStarting<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.NavigationStarting(windows_core::from_raw_borrowed(&handler)) {
+            match IWebViewControl_Impl::NavigationStarting(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -274,12 +274,12 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn RemoveNavigationStarting<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveNavigationStarting(core::mem::transmute(&token)).into()
+            IWebViewControl_Impl::RemoveNavigationStarting(this, core::mem::transmute(&token)).into()
         }
         unsafe extern "system" fn ContentLoading<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ContentLoading(windows_core::from_raw_borrowed(&handler)) {
+            match IWebViewControl_Impl::ContentLoading(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -290,12 +290,12 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn RemoveContentLoading<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveContentLoading(core::mem::transmute(&token)).into()
+            IWebViewControl_Impl::RemoveContentLoading(this, core::mem::transmute(&token)).into()
         }
         unsafe extern "system" fn DOMContentLoaded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DOMContentLoaded(windows_core::from_raw_borrowed(&handler)) {
+            match IWebViewControl_Impl::DOMContentLoaded(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -306,12 +306,12 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn RemoveDOMContentLoaded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveDOMContentLoaded(core::mem::transmute(&token)).into()
+            IWebViewControl_Impl::RemoveDOMContentLoaded(this, core::mem::transmute(&token)).into()
         }
         unsafe extern "system" fn NavigationCompleted<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.NavigationCompleted(windows_core::from_raw_borrowed(&handler)) {
+            match IWebViewControl_Impl::NavigationCompleted(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -322,12 +322,12 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn RemoveNavigationCompleted<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveNavigationCompleted(core::mem::transmute(&token)).into()
+            IWebViewControl_Impl::RemoveNavigationCompleted(this, core::mem::transmute(&token)).into()
         }
         unsafe extern "system" fn FrameNavigationStarting<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FrameNavigationStarting(windows_core::from_raw_borrowed(&handler)) {
+            match IWebViewControl_Impl::FrameNavigationStarting(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -338,12 +338,12 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn RemoveFrameNavigationStarting<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveFrameNavigationStarting(core::mem::transmute(&token)).into()
+            IWebViewControl_Impl::RemoveFrameNavigationStarting(this, core::mem::transmute(&token)).into()
         }
         unsafe extern "system" fn FrameContentLoading<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FrameContentLoading(windows_core::from_raw_borrowed(&handler)) {
+            match IWebViewControl_Impl::FrameContentLoading(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -354,12 +354,12 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn RemoveFrameContentLoading<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveFrameContentLoading(core::mem::transmute(&token)).into()
+            IWebViewControl_Impl::RemoveFrameContentLoading(this, core::mem::transmute(&token)).into()
         }
         unsafe extern "system" fn FrameDOMContentLoaded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FrameDOMContentLoaded(windows_core::from_raw_borrowed(&handler)) {
+            match IWebViewControl_Impl::FrameDOMContentLoaded(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -370,12 +370,12 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn RemoveFrameDOMContentLoaded<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveFrameDOMContentLoaded(core::mem::transmute(&token)).into()
+            IWebViewControl_Impl::RemoveFrameDOMContentLoaded(this, core::mem::transmute(&token)).into()
         }
         unsafe extern "system" fn FrameNavigationCompleted<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FrameNavigationCompleted(windows_core::from_raw_borrowed(&handler)) {
+            match IWebViewControl_Impl::FrameNavigationCompleted(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -386,12 +386,12 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn RemoveFrameNavigationCompleted<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveFrameNavigationCompleted(core::mem::transmute(&token)).into()
+            IWebViewControl_Impl::RemoveFrameNavigationCompleted(this, core::mem::transmute(&token)).into()
         }
         unsafe extern "system" fn ScriptNotify<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ScriptNotify(windows_core::from_raw_borrowed(&handler)) {
+            match IWebViewControl_Impl::ScriptNotify(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -402,12 +402,12 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn RemoveScriptNotify<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveScriptNotify(core::mem::transmute(&token)).into()
+            IWebViewControl_Impl::RemoveScriptNotify(this, core::mem::transmute(&token)).into()
         }
         unsafe extern "system" fn LongRunningScriptDetected<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LongRunningScriptDetected(windows_core::from_raw_borrowed(&handler)) {
+            match IWebViewControl_Impl::LongRunningScriptDetected(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -418,12 +418,12 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn RemoveLongRunningScriptDetected<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveLongRunningScriptDetected(core::mem::transmute(&token)).into()
+            IWebViewControl_Impl::RemoveLongRunningScriptDetected(this, core::mem::transmute(&token)).into()
         }
         unsafe extern "system" fn UnsafeContentWarningDisplaying<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UnsafeContentWarningDisplaying(windows_core::from_raw_borrowed(&handler)) {
+            match IWebViewControl_Impl::UnsafeContentWarningDisplaying(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -434,12 +434,12 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn RemoveUnsafeContentWarningDisplaying<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveUnsafeContentWarningDisplaying(core::mem::transmute(&token)).into()
+            IWebViewControl_Impl::RemoveUnsafeContentWarningDisplaying(this, core::mem::transmute(&token)).into()
         }
         unsafe extern "system" fn UnviewableContentIdentified<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UnviewableContentIdentified(windows_core::from_raw_borrowed(&handler)) {
+            match IWebViewControl_Impl::UnviewableContentIdentified(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -450,12 +450,12 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn RemoveUnviewableContentIdentified<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveUnviewableContentIdentified(core::mem::transmute(&token)).into()
+            IWebViewControl_Impl::RemoveUnviewableContentIdentified(this, core::mem::transmute(&token)).into()
         }
         unsafe extern "system" fn PermissionRequested<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PermissionRequested(windows_core::from_raw_borrowed(&handler)) {
+            match IWebViewControl_Impl::PermissionRequested(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -466,12 +466,12 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn RemovePermissionRequested<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemovePermissionRequested(core::mem::transmute(&token)).into()
+            IWebViewControl_Impl::RemovePermissionRequested(this, core::mem::transmute(&token)).into()
         }
         unsafe extern "system" fn UnsupportedUriSchemeIdentified<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UnsupportedUriSchemeIdentified(windows_core::from_raw_borrowed(&handler)) {
+            match IWebViewControl_Impl::UnsupportedUriSchemeIdentified(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -482,12 +482,12 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn RemoveUnsupportedUriSchemeIdentified<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveUnsupportedUriSchemeIdentified(core::mem::transmute(&token)).into()
+            IWebViewControl_Impl::RemoveUnsupportedUriSchemeIdentified(this, core::mem::transmute(&token)).into()
         }
         unsafe extern "system" fn NewWindowRequested<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.NewWindowRequested(windows_core::from_raw_borrowed(&handler)) {
+            match IWebViewControl_Impl::NewWindowRequested(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -498,12 +498,12 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn RemoveNewWindowRequested<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveNewWindowRequested(core::mem::transmute(&token)).into()
+            IWebViewControl_Impl::RemoveNewWindowRequested(this, core::mem::transmute(&token)).into()
         }
         unsafe extern "system" fn ContainsFullScreenElementChanged<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ContainsFullScreenElementChanged(windows_core::from_raw_borrowed(&handler)) {
+            match IWebViewControl_Impl::ContainsFullScreenElementChanged(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -514,12 +514,12 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn RemoveContainsFullScreenElementChanged<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveContainsFullScreenElementChanged(core::mem::transmute(&token)).into()
+            IWebViewControl_Impl::RemoveContainsFullScreenElementChanged(this, core::mem::transmute(&token)).into()
         }
         unsafe extern "system" fn WebResourceRequested<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.WebResourceRequested(windows_core::from_raw_borrowed(&handler)) {
+            match IWebViewControl_Impl::WebResourceRequested(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -530,7 +530,7 @@ impl IWebViewControl_Vtbl {
         unsafe extern "system" fn RemoveWebResourceRequested<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveWebResourceRequested(core::mem::transmute(&token)).into()
+            IWebViewControl_Impl::RemoveWebResourceRequested(this, core::mem::transmute(&token)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebViewControl, OFFSET>(),
@@ -608,7 +608,7 @@ impl IWebViewControl2_Vtbl {
         unsafe extern "system" fn AddInitializeScript<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebViewControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, script: std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddInitializeScript(core::mem::transmute(&script)).into()
+            IWebViewControl2_Impl::AddInitializeScript(this, core::mem::transmute(&script)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebViewControl2, OFFSET>(),

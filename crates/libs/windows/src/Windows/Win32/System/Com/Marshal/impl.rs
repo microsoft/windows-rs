@@ -12,7 +12,7 @@ impl IMarshal_Vtbl {
         unsafe extern "system" fn GetUnmarshalClass<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMarshal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, pv: *const core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const core::ffi::c_void, mshlflags: u32, pcid: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetUnmarshalClass(core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pv), core::mem::transmute_copy(&dwdestcontext), core::mem::transmute_copy(&pvdestcontext), core::mem::transmute_copy(&mshlflags)) {
+            match IMarshal_Impl::GetUnmarshalClass(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pv), core::mem::transmute_copy(&dwdestcontext), core::mem::transmute_copy(&pvdestcontext), core::mem::transmute_copy(&mshlflags)) {
                 Ok(ok__) => {
                     core::ptr::write(pcid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -23,7 +23,7 @@ impl IMarshal_Vtbl {
         unsafe extern "system" fn GetMarshalSizeMax<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMarshal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, pv: *const core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const core::ffi::c_void, mshlflags: u32, psize: *mut u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetMarshalSizeMax(core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pv), core::mem::transmute_copy(&dwdestcontext), core::mem::transmute_copy(&pvdestcontext), core::mem::transmute_copy(&mshlflags)) {
+            match IMarshal_Impl::GetMarshalSizeMax(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pv), core::mem::transmute_copy(&dwdestcontext), core::mem::transmute_copy(&pvdestcontext), core::mem::transmute_copy(&mshlflags)) {
                 Ok(ok__) => {
                     core::ptr::write(psize, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -34,22 +34,22 @@ impl IMarshal_Vtbl {
         unsafe extern "system" fn MarshalInterface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMarshal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstm: *mut core::ffi::c_void, riid: *const windows_core::GUID, pv: *const core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const core::ffi::c_void, mshlflags: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.MarshalInterface(windows_core::from_raw_borrowed(&pstm), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pv), core::mem::transmute_copy(&dwdestcontext), core::mem::transmute_copy(&pvdestcontext), core::mem::transmute_copy(&mshlflags)).into()
+            IMarshal_Impl::MarshalInterface(this, windows_core::from_raw_borrowed(&pstm), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pv), core::mem::transmute_copy(&dwdestcontext), core::mem::transmute_copy(&pvdestcontext), core::mem::transmute_copy(&mshlflags)).into()
         }
         unsafe extern "system" fn UnmarshalInterface<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMarshal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstm: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.UnmarshalInterface(windows_core::from_raw_borrowed(&pstm), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+            IMarshal_Impl::UnmarshalInterface(this, windows_core::from_raw_borrowed(&pstm), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
         unsafe extern "system" fn ReleaseMarshalData<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMarshal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstm: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ReleaseMarshalData(windows_core::from_raw_borrowed(&pstm)).into()
+            IMarshal_Impl::ReleaseMarshalData(this, windows_core::from_raw_borrowed(&pstm)).into()
         }
         unsafe extern "system" fn DisconnectObject<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMarshal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwreserved: u32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DisconnectObject(core::mem::transmute_copy(&dwreserved)).into()
+            IMarshal_Impl::DisconnectObject(this, core::mem::transmute_copy(&dwreserved)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -84,7 +84,7 @@ impl IMarshalingStream_Vtbl {
         unsafe extern "system" fn GetMarshalingContextAttribute<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMarshalingStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES, pattributevalue: *mut usize) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetMarshalingContextAttribute(core::mem::transmute_copy(&attribute)) {
+            match IMarshalingStream_Impl::GetMarshalingContextAttribute(this, core::mem::transmute_copy(&attribute)) {
                 Ok(ok__) => {
                     core::ptr::write(pattributevalue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

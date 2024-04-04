@@ -96,6 +96,13 @@ where
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDynamicPortMapping, IDynamicPortMapping_Vtbl, 0x4fc80282_23b6_4378_9a27_cd8f17c9400c);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IDynamicPortMapping {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDynamicPortMapping, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IDynamicPortMapping {
@@ -183,6 +190,13 @@ pub struct IDynamicPortMapping_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDynamicPortMappingCollection, IDynamicPortMappingCollection_Vtbl, 0xb60de00f_156e_4e8d_9ec1_3a2342c10899);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IDynamicPortMappingCollection {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDynamicPortMappingCollection, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IDynamicPortMappingCollection {
@@ -240,6 +254,12 @@ pub struct IDynamicPortMappingCollection_Vtbl {
     Add: usize,
 }
 windows_core::imp::define_interface!(IEnumNetConnection, IEnumNetConnection_Vtbl, 0xc08956a0_1cd3_11d1_b1c5_00805fc1270e);
+impl std::ops::Deref for IEnumNetConnection {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumNetConnection, windows_core::IUnknown);
 impl IEnumNetConnection {
     pub unsafe fn Next(&self, rgelt: &mut [Option<INetConnection>], pceltfetched: *mut u32) -> windows_core::Result<()> {
@@ -265,6 +285,12 @@ pub struct IEnumNetConnection_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumNetSharingEveryConnection, IEnumNetSharingEveryConnection_Vtbl, 0xc08956b8_1cd3_11d1_b1c5_00805fc1270e);
+impl std::ops::Deref for IEnumNetSharingEveryConnection {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumNetSharingEveryConnection, windows_core::IUnknown);
 impl IEnumNetSharingEveryConnection {
     pub unsafe fn Next(&self, rgvar: &mut [windows_core::VARIANT], pceltfetched: *mut u32) -> windows_core::Result<()> {
@@ -290,6 +316,12 @@ pub struct IEnumNetSharingEveryConnection_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumNetSharingPortMapping, IEnumNetSharingPortMapping_Vtbl, 0xc08956b0_1cd3_11d1_b1c5_00805fc1270e);
+impl std::ops::Deref for IEnumNetSharingPortMapping {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumNetSharingPortMapping, windows_core::IUnknown);
 impl IEnumNetSharingPortMapping {
     pub unsafe fn Next(&self, rgvar: &mut [windows_core::VARIANT], pceltfetched: *mut u32) -> windows_core::Result<()> {
@@ -315,6 +347,12 @@ pub struct IEnumNetSharingPortMapping_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumNetSharingPrivateConnection, IEnumNetSharingPrivateConnection_Vtbl, 0xc08956b5_1cd3_11d1_b1c5_00805fc1270e);
+impl std::ops::Deref for IEnumNetSharingPrivateConnection {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumNetSharingPrivateConnection, windows_core::IUnknown);
 impl IEnumNetSharingPrivateConnection {
     pub unsafe fn Next(&self, rgvar: &mut [windows_core::VARIANT], pceltfetched: *mut u32) -> windows_core::Result<()> {
@@ -340,6 +378,12 @@ pub struct IEnumNetSharingPrivateConnection_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumNetSharingPublicConnection, IEnumNetSharingPublicConnection_Vtbl, 0xc08956b4_1cd3_11d1_b1c5_00805fc1270e);
+impl std::ops::Deref for IEnumNetSharingPublicConnection {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumNetSharingPublicConnection, windows_core::IUnknown);
 impl IEnumNetSharingPublicConnection {
     pub unsafe fn Next(&self, rgvar: &mut [windows_core::VARIANT], pceltfetched: *mut u32) -> windows_core::Result<()> {
@@ -367,6 +411,13 @@ pub struct IEnumNetSharingPublicConnection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INATEventManager, INATEventManager_Vtbl, 0x624bd588_9060_4109_b0b0_1adbbcac32df);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INATEventManager {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INATEventManager, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INATEventManager {
@@ -391,6 +442,12 @@ pub struct INATEventManager_Vtbl {
     pub SetNumberOfEntriesCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INATExternalIPAddressCallback, INATExternalIPAddressCallback_Vtbl, 0x9c416740_a34e_446f_ba06_abd04c3149ae);
+impl std::ops::Deref for INATExternalIPAddressCallback {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INATExternalIPAddressCallback, windows_core::IUnknown);
 impl INATExternalIPAddressCallback {
     pub unsafe fn NewExternalIPAddress<P0>(&self, bstrnewexternalipaddress: P0) -> windows_core::Result<()>
@@ -406,6 +463,12 @@ pub struct INATExternalIPAddressCallback_Vtbl {
     pub NewExternalIPAddress: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INATNumberOfEntriesCallback, INATNumberOfEntriesCallback_Vtbl, 0xc83a0a74_91ee_41b6_b67a_67e0f00bbd78);
+impl std::ops::Deref for INATNumberOfEntriesCallback {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INATNumberOfEntriesCallback, windows_core::IUnknown);
 impl INATNumberOfEntriesCallback {
     pub unsafe fn NewNumberOfEntries(&self, lnewnumberofentries: i32) -> windows_core::Result<()> {
@@ -418,6 +481,12 @@ pub struct INATNumberOfEntriesCallback_Vtbl {
     pub NewNumberOfEntries: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INetConnection, INetConnection_Vtbl, 0xc08956a1_1cd3_11d1_b1c5_00805fc1270e);
+impl std::ops::Deref for INetConnection {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INetConnection, windows_core::IUnknown);
 impl INetConnection {
     pub unsafe fn Connect(&self) -> windows_core::Result<()> {
@@ -463,6 +532,12 @@ pub struct INetConnection_Vtbl {
     pub Rename: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INetConnectionConnectUi, INetConnectionConnectUi_Vtbl, 0xc08956a3_1cd3_11d1_b1c5_00805fc1270e);
+impl std::ops::Deref for INetConnectionConnectUi {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INetConnectionConnectUi, windows_core::IUnknown);
 impl INetConnectionConnectUi {
     pub unsafe fn SetConnection<P0>(&self, pcon: P0) -> windows_core::Result<()>
@@ -492,6 +567,12 @@ pub struct INetConnectionConnectUi_Vtbl {
     pub Disconnect: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(INetConnectionManager, INetConnectionManager_Vtbl, 0xc08956a2_1cd3_11d1_b1c5_00805fc1270e);
+impl std::ops::Deref for INetConnectionManager {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(INetConnectionManager, windows_core::IUnknown);
 impl INetConnectionManager {
     pub unsafe fn EnumConnections(&self, flags: NETCONMGR_ENUM_FLAGS) -> windows_core::Result<IEnumNetConnection> {
@@ -506,6 +587,13 @@ pub struct INetConnectionManager_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetConnectionProps, INetConnectionProps_Vtbl, 0xf4277c95_ce5b_463d_8167_5662d9bcaa72);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetConnectionProps {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetConnectionProps, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -548,6 +636,13 @@ pub struct INetConnectionProps_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwAuthorizedApplication, INetFwAuthorizedApplication_Vtbl, 0xb5e64ffa_c2c5_444e_a301_fb5e00018050);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetFwAuthorizedApplication {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetFwAuthorizedApplication, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -627,6 +722,13 @@ pub struct INetFwAuthorizedApplication_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwAuthorizedApplications, INetFwAuthorizedApplications_Vtbl, 0x644efd52_ccf9_486c_97a2_39f352570b30);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetFwAuthorizedApplications {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetFwAuthorizedApplications, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwAuthorizedApplications {
@@ -678,6 +780,13 @@ pub struct INetFwAuthorizedApplications_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwIcmpSettings, INetFwIcmpSettings_Vtbl, 0xa6207b2e_7cdd_426a_951e_5e1cbc5afead);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetFwIcmpSettings {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetFwIcmpSettings, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -811,6 +920,13 @@ pub struct INetFwIcmpSettings_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwMgr, INetFwMgr_Vtbl, 0xf7898af5_cac4_4632_a2ec_da06e5111af2);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetFwMgr {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetFwMgr, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwMgr {
@@ -855,6 +971,13 @@ pub struct INetFwMgr_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwOpenPort, INetFwOpenPort_Vtbl, 0xe0483ba0_47ff_4d9c_a6d6_7741d0b195f7);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetFwOpenPort {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetFwOpenPort, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -945,6 +1068,13 @@ pub struct INetFwOpenPort_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwOpenPorts, INetFwOpenPorts_Vtbl, 0xc0e9d7fa_e07e_430a_b19a_090ce82d92e2);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetFwOpenPorts {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetFwOpenPorts, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwOpenPorts {
@@ -991,6 +1121,13 @@ pub struct INetFwOpenPorts_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwPolicy, INetFwPolicy_Vtbl, 0xd46d2478_9ac9_4008_9dc7_5563ce5536cc);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetFwPolicy {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetFwPolicy, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwPolicy {
@@ -1020,6 +1157,13 @@ pub struct INetFwPolicy_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwPolicy2, INetFwPolicy2_Vtbl, 0x98325047_c671_4174_8d81_defcd3f03186);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetFwPolicy2 {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetFwPolicy2, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1167,6 +1311,13 @@ pub struct INetFwPolicy2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwProduct, INetFwProduct_Vtbl, 0x71881699_18f4_458b_b892_3ffce5e07f75);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetFwProduct {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetFwProduct, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwProduct {
@@ -1207,6 +1358,13 @@ pub struct INetFwProduct_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwProducts, INetFwProducts_Vtbl, 0x39eb36e0_2097_40bd_8af2_63a13b525362);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetFwProducts {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetFwProducts, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1250,6 +1408,13 @@ pub struct INetFwProducts_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwProfile, INetFwProfile_Vtbl, 0x174a0dda_e9f9_449d_993b_21ab667ca456);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetFwProfile {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetFwProfile, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1361,6 +1526,13 @@ pub struct INetFwProfile_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwRemoteAdminSettings, INetFwRemoteAdminSettings_Vtbl, 0xd4becddf_6f73_4a83_b832_9c66874cd20e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetFwRemoteAdminSettings {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetFwRemoteAdminSettings, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwRemoteAdminSettings {
@@ -1414,6 +1586,13 @@ pub struct INetFwRemoteAdminSettings_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwRule, INetFwRule_Vtbl, 0xaf230d27_baba_4e42_aced_f524f22cfce2);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetFwRule {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetFwRule, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1631,177 +1810,16 @@ pub struct INetFwRule_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwRule2, INetFwRule2_Vtbl, 0x9c27c8da_189b_4dde_89f7_8b39a316782c);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetFwRule2 {
+    type Target = INetFwRule;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetFwRule2, windows_core::IUnknown, super::super::System::Com::IDispatch, INetFwRule);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwRule2 {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
-    }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Description)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetDescription<P0>(&self, desc: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetDescription)(windows_core::Interface::as_raw(self), desc.param().abi()).ok()
-    }
-    pub unsafe fn ApplicationName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ApplicationName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetApplicationName<P0>(&self, imagefilename: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetApplicationName)(windows_core::Interface::as_raw(self), imagefilename.param().abi()).ok()
-    }
-    pub unsafe fn ServiceName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ServiceName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetServiceName<P0>(&self, servicename: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetServiceName)(windows_core::Interface::as_raw(self), servicename.param().abi()).ok()
-    }
-    pub unsafe fn Protocol(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Protocol)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetProtocol(&self, protocol: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetProtocol)(windows_core::Interface::as_raw(self), protocol).ok()
-    }
-    pub unsafe fn LocalPorts(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LocalPorts)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetLocalPorts<P0>(&self, portnumbers: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetLocalPorts)(windows_core::Interface::as_raw(self), portnumbers.param().abi()).ok()
-    }
-    pub unsafe fn RemotePorts(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RemotePorts)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetRemotePorts<P0>(&self, portnumbers: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetRemotePorts)(windows_core::Interface::as_raw(self), portnumbers.param().abi()).ok()
-    }
-    pub unsafe fn LocalAddresses(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LocalAddresses)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetLocalAddresses<P0>(&self, localaddrs: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetLocalAddresses)(windows_core::Interface::as_raw(self), localaddrs.param().abi()).ok()
-    }
-    pub unsafe fn RemoteAddresses(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.RemoteAddresses)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetRemoteAddresses<P0>(&self, remoteaddrs: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetRemoteAddresses)(windows_core::Interface::as_raw(self), remoteaddrs.param().abi()).ok()
-    }
-    pub unsafe fn IcmpTypesAndCodes(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.IcmpTypesAndCodes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetIcmpTypesAndCodes<P0>(&self, icmptypesandcodes: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetIcmpTypesAndCodes)(windows_core::Interface::as_raw(self), icmptypesandcodes.param().abi()).ok()
-    }
-    pub unsafe fn Direction(&self) -> windows_core::Result<NET_FW_RULE_DIRECTION> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Direction)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetDirection(&self, dir: NET_FW_RULE_DIRECTION) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetDirection)(windows_core::Interface::as_raw(self), dir).ok()
-    }
-    pub unsafe fn Interfaces(&self) -> windows_core::Result<windows_core::VARIANT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Interfaces)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetInterfaces<P0>(&self, interfaces: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetInterfaces)(windows_core::Interface::as_raw(self), interfaces.param().abi()).ok()
-    }
-    pub unsafe fn InterfaceTypes(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.InterfaceTypes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetInterfaceTypes<P0>(&self, interfacetypes: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetInterfaceTypes)(windows_core::Interface::as_raw(self), interfacetypes.param().abi()).ok()
-    }
-    pub unsafe fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetEnabled<P0>(&self, enabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetEnabled)(windows_core::Interface::as_raw(self), enabled.param().abi()).ok()
-    }
-    pub unsafe fn Grouping(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Grouping)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetGrouping<P0>(&self, context: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetGrouping)(windows_core::Interface::as_raw(self), context.param().abi()).ok()
-    }
-    pub unsafe fn Profiles(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Profiles)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetProfiles(&self, profiletypesbitmask: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetProfiles)(windows_core::Interface::as_raw(self), profiletypesbitmask).ok()
-    }
-    pub unsafe fn EdgeTraversal(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EdgeTraversal)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetEdgeTraversal<P0>(&self, enabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetEdgeTraversal)(windows_core::Interface::as_raw(self), enabled.param().abi()).ok()
-    }
-    pub unsafe fn Action(&self) -> windows_core::Result<NET_FW_ACTION> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Action)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetAction(&self, action: NET_FW_ACTION) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetAction)(windows_core::Interface::as_raw(self), action).ok()
-    }
     pub unsafe fn EdgeTraversalOptions(&self) -> windows_core::Result<i32> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).EdgeTraversalOptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1820,184 +1838,16 @@ pub struct INetFwRule2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwRule3, INetFwRule3_Vtbl, 0xb21563ff_d696_4222_ab46_4e89b73ab34a);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetFwRule3 {
+    type Target = INetFwRule2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetFwRule3, windows_core::IUnknown, super::super::System::Com::IDispatch, INetFwRule, INetFwRule2);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwRule3 {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
-    }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Description)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetDescription<P0>(&self, desc: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetDescription)(windows_core::Interface::as_raw(self), desc.param().abi()).ok()
-    }
-    pub unsafe fn ApplicationName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ApplicationName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetApplicationName<P0>(&self, imagefilename: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetApplicationName)(windows_core::Interface::as_raw(self), imagefilename.param().abi()).ok()
-    }
-    pub unsafe fn ServiceName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.ServiceName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetServiceName<P0>(&self, servicename: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetServiceName)(windows_core::Interface::as_raw(self), servicename.param().abi()).ok()
-    }
-    pub unsafe fn Protocol(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Protocol)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetProtocol(&self, protocol: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetProtocol)(windows_core::Interface::as_raw(self), protocol).ok()
-    }
-    pub unsafe fn LocalPorts(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.LocalPorts)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetLocalPorts<P0>(&self, portnumbers: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetLocalPorts)(windows_core::Interface::as_raw(self), portnumbers.param().abi()).ok()
-    }
-    pub unsafe fn RemotePorts(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.RemotePorts)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetRemotePorts<P0>(&self, portnumbers: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetRemotePorts)(windows_core::Interface::as_raw(self), portnumbers.param().abi()).ok()
-    }
-    pub unsafe fn LocalAddresses(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.LocalAddresses)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetLocalAddresses<P0>(&self, localaddrs: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetLocalAddresses)(windows_core::Interface::as_raw(self), localaddrs.param().abi()).ok()
-    }
-    pub unsafe fn RemoteAddresses(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.RemoteAddresses)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetRemoteAddresses<P0>(&self, remoteaddrs: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetRemoteAddresses)(windows_core::Interface::as_raw(self), remoteaddrs.param().abi()).ok()
-    }
-    pub unsafe fn IcmpTypesAndCodes(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.IcmpTypesAndCodes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetIcmpTypesAndCodes<P0>(&self, icmptypesandcodes: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetIcmpTypesAndCodes)(windows_core::Interface::as_raw(self), icmptypesandcodes.param().abi()).ok()
-    }
-    pub unsafe fn Direction(&self) -> windows_core::Result<NET_FW_RULE_DIRECTION> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Direction)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetDirection(&self, dir: NET_FW_RULE_DIRECTION) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetDirection)(windows_core::Interface::as_raw(self), dir).ok()
-    }
-    pub unsafe fn Interfaces(&self) -> windows_core::Result<windows_core::VARIANT> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Interfaces)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetInterfaces<P0>(&self, interfaces: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::VARIANT>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetInterfaces)(windows_core::Interface::as_raw(self), interfaces.param().abi()).ok()
-    }
-    pub unsafe fn InterfaceTypes(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.InterfaceTypes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetInterfaceTypes<P0>(&self, interfacetypes: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetInterfaceTypes)(windows_core::Interface::as_raw(self), interfacetypes.param().abi()).ok()
-    }
-    pub unsafe fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetEnabled<P0>(&self, enabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetEnabled)(windows_core::Interface::as_raw(self), enabled.param().abi()).ok()
-    }
-    pub unsafe fn Grouping(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Grouping)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetGrouping<P0>(&self, context: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetGrouping)(windows_core::Interface::as_raw(self), context.param().abi()).ok()
-    }
-    pub unsafe fn Profiles(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Profiles)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetProfiles(&self, profiletypesbitmask: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetProfiles)(windows_core::Interface::as_raw(self), profiletypesbitmask).ok()
-    }
-    pub unsafe fn EdgeTraversal(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.EdgeTraversal)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetEdgeTraversal<P0>(&self, enabled: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.base__.SetEdgeTraversal)(windows_core::Interface::as_raw(self), enabled.param().abi()).ok()
-    }
-    pub unsafe fn Action(&self) -> windows_core::Result<NET_FW_ACTION> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.base__.Action)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetAction(&self, action: NET_FW_ACTION) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.base__.SetAction)(windows_core::Interface::as_raw(self), action).ok()
-    }
-    pub unsafe fn EdgeTraversalOptions(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EdgeTraversalOptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetEdgeTraversalOptions(&self, loptions: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetEdgeTraversalOptions)(windows_core::Interface::as_raw(self), loptions).ok()
-    }
     pub unsafe fn LocalAppPackageId(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).LocalAppPackageId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2076,6 +1926,13 @@ pub struct INetFwRule3_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwRules, INetFwRules_Vtbl, 0x9c4c6277_5027_441e_afae_ca1f542da009);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetFwRules {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetFwRules, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwRules {
@@ -2127,6 +1984,13 @@ pub struct INetFwRules_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwService, INetFwService_Vtbl, 0x79fd57c8_908e_4a36_9888_d5b3f0a444cf);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetFwService {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetFwService, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2206,6 +2070,13 @@ pub struct INetFwService_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwServiceRestriction, INetFwServiceRestriction_Vtbl, 0x8267bbe3_f890_491c_b7b6_2db1ef0e5d2b);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetFwServiceRestriction {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetFwServiceRestriction, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwServiceRestriction {
@@ -2246,6 +2117,13 @@ pub struct INetFwServiceRestriction_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetFwServices, INetFwServices_Vtbl, 0x79649bb4_903e_421b_94c9_79848e79f6ee);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetFwServices {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetFwServices, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwServices {
@@ -2276,6 +2154,13 @@ pub struct INetFwServices_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetSharingConfiguration, INetSharingConfiguration_Vtbl, 0xc08956b6_1cd3_11d1_b1c5_00805fc1270e);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetSharingConfiguration {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetSharingConfiguration, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2353,6 +2238,13 @@ pub struct INetSharingConfiguration_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetSharingEveryConnectionCollection, INetSharingEveryConnectionCollection_Vtbl, 0x33c4643c_7811_46fa_a89a_768597bd7223);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetSharingEveryConnectionCollection {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetSharingEveryConnectionCollection, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetSharingEveryConnectionCollection {
@@ -2374,6 +2266,13 @@ pub struct INetSharingEveryConnectionCollection_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetSharingManager, INetSharingManager_Vtbl, 0xc08956b7_1cd3_11d1_b1c5_00805fc1270e);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetSharingManager {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetSharingManager, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2443,6 +2342,13 @@ pub struct INetSharingManager_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetSharingPortMapping, INetSharingPortMapping_Vtbl, 0xc08956b1_1cd3_11d1_b1c5_00805fc1270e);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetSharingPortMapping {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetSharingPortMapping, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetSharingPortMapping {
@@ -2476,6 +2382,13 @@ pub struct INetSharingPortMapping_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetSharingPortMappingCollection, INetSharingPortMappingCollection_Vtbl, 0x02e4a2de_da20_4e34_89c8_ac22275a010b);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetSharingPortMappingCollection {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetSharingPortMappingCollection, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetSharingPortMappingCollection {
@@ -2497,6 +2410,13 @@ pub struct INetSharingPortMappingCollection_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetSharingPortMappingProps, INetSharingPortMappingProps_Vtbl, 0x24b7e9b5_e38f_4685_851b_00892cf5f940);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetSharingPortMappingProps {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetSharingPortMappingProps, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2550,6 +2470,13 @@ pub struct INetSharingPortMappingProps_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetSharingPrivateConnectionCollection, INetSharingPrivateConnectionCollection_Vtbl, 0x38ae69e0_4409_402a_a2cb_e965c727f840);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetSharingPrivateConnectionCollection {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetSharingPrivateConnectionCollection, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetSharingPrivateConnectionCollection {
@@ -2572,6 +2499,13 @@ pub struct INetSharingPrivateConnectionCollection_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(INetSharingPublicConnectionCollection, INetSharingPublicConnectionCollection_Vtbl, 0x7d7a6355_f372_4971_a149_bfc927be762a);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for INetSharingPublicConnectionCollection {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(INetSharingPublicConnectionCollection, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetSharingPublicConnectionCollection {
@@ -2593,6 +2527,13 @@ pub struct INetSharingPublicConnectionCollection_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IStaticPortMapping, IStaticPortMapping_Vtbl, 0x6f10711f_729b_41e5_93b8_f21d0f818df1);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IStaticPortMapping {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IStaticPortMapping, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2666,6 +2607,13 @@ pub struct IStaticPortMapping_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IStaticPortMappingCollection, IStaticPortMappingCollection_Vtbl, 0xcd1f3e77_66d6_4664_82c7_36dbb641d0f1);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IStaticPortMappingCollection {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IStaticPortMappingCollection, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IStaticPortMappingCollection {
@@ -2721,6 +2669,13 @@ pub struct IStaticPortMappingCollection_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUPnPNAT, IUPnPNAT_Vtbl, 0xb171c812_cc76_485a_94d8_b6b3a2794e99);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IUPnPNAT {
+    type Target = super::super::System::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IUPnPNAT, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]

@@ -10,7 +10,7 @@ impl ICoreApplicationUnhandledError_Vtbl {
         unsafe extern "system" fn UnhandledErrorDetected<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICoreApplicationUnhandledError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UnhandledErrorDetected(windows_core::from_raw_borrowed(&handler)) {
+            match ICoreApplicationUnhandledError_Impl::UnhandledErrorDetected(this, windows_core::from_raw_borrowed(&handler)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)
@@ -21,7 +21,7 @@ impl ICoreApplicationUnhandledError_Vtbl {
         unsafe extern "system" fn RemoveUnhandledErrorDetected<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: ICoreApplicationUnhandledError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveUnhandledErrorDetected(core::mem::transmute(&token)).into()
+            ICoreApplicationUnhandledError_Impl::RemoveUnhandledErrorDetected(this, core::mem::transmute(&token)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, ICoreApplicationUnhandledError, OFFSET>(),
@@ -51,27 +51,27 @@ impl IFrameworkView_Vtbl {
         unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFrameworkView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, applicationview: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(windows_core::from_raw_borrowed(&applicationview)).into()
+            IFrameworkView_Impl::Initialize(this, windows_core::from_raw_borrowed(&applicationview)).into()
         }
         unsafe extern "system" fn SetWindow<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFrameworkView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, window: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetWindow(windows_core::from_raw_borrowed(&window)).into()
+            IFrameworkView_Impl::SetWindow(this, windows_core::from_raw_borrowed(&window)).into()
         }
         unsafe extern "system" fn Load<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFrameworkView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entrypoint: std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Load(core::mem::transmute(&entrypoint)).into()
+            IFrameworkView_Impl::Load(this, core::mem::transmute(&entrypoint)).into()
         }
         unsafe extern "system" fn Run<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFrameworkView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Run().into()
+            IFrameworkView_Impl::Run(this).into()
         }
         unsafe extern "system" fn Uninitialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFrameworkView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Uninitialize().into()
+            IFrameworkView_Impl::Uninitialize(this).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IFrameworkView, OFFSET>(),
@@ -97,7 +97,7 @@ impl IFrameworkViewSource_Vtbl {
         unsafe extern "system" fn CreateView<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IFrameworkViewSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateView() {
+            match IFrameworkViewSource_Impl::CreateView(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);

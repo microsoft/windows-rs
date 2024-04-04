@@ -122,6 +122,12 @@ pub struct IBackgroundDownloaderUserConsent_Vtbl {
     RequestUnconstrainedDownloadsAsync: usize,
 }
 windows_core::imp::define_interface!(IBackgroundTransferBase, IBackgroundTransferBase_Vtbl, 0x2a9da250_c769_458c_afe8_feb8d4d3b2ef);
+impl std::ops::Deref for IBackgroundTransferBase {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IBackgroundTransferBase, windows_core::IUnknown, windows_core::IInspectable);
 impl IBackgroundTransferBase {
     pub fn SetRequestHeader(&self, headername: &windows_core::HSTRING, headervalue: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -277,6 +283,12 @@ pub struct IBackgroundTransferContentPart_Vtbl {
     SetFile: usize,
 }
 windows_core::imp::define_interface!(IBackgroundTransferContentPartFactory, IBackgroundTransferContentPartFactory_Vtbl, 0x90ef98a9_7a01_4a0b_9f80_a0b0bb370f8d);
+impl std::ops::Deref for IBackgroundTransferContentPartFactory {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IBackgroundTransferContentPartFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IBackgroundTransferContentPartFactory {
     pub fn CreateWithName(&self, name: &windows_core::HSTRING) -> windows_core::Result<BackgroundTransferContentPart> {
@@ -336,6 +348,12 @@ pub struct IBackgroundTransferGroupStatics_Vtbl {
     pub CreateGroup: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTransferOperation, IBackgroundTransferOperation_Vtbl, 0xded06846_90ca_44fb_8fb1_124154c0d539);
+impl std::ops::Deref for IBackgroundTransferOperation {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IBackgroundTransferOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl IBackgroundTransferOperation {
     pub fn Guid(&self) -> windows_core::Result<windows_core::GUID> {
@@ -416,6 +434,12 @@ pub struct IBackgroundTransferOperation_Vtbl {
     pub GetResponseInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTransferOperationPriority, IBackgroundTransferOperationPriority_Vtbl, 0x04854327_5254_4b3a_915e_0aa49275c0f9);
+impl std::ops::Deref for IBackgroundTransferOperationPriority {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IBackgroundTransferOperationPriority, windows_core::IUnknown, windows_core::IInspectable);
 impl IBackgroundTransferOperationPriority {
     pub fn Priority(&self) -> windows_core::Result<BackgroundTransferPriority> {

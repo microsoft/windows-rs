@@ -15,17 +15,17 @@ impl IHumanPresenceSensorExtension_Vtbl {
         unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IHumanPresenceSensorExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceinterface: std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(core::mem::transmute(&deviceinterface)).into()
+            IHumanPresenceSensorExtension_Impl::Initialize(this, core::mem::transmute(&deviceinterface)).into()
         }
         unsafe extern "system" fn Start<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IHumanPresenceSensorExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Start().into()
+            IHumanPresenceSensorExtension_Impl::Start(this).into()
         }
         unsafe extern "system" fn ProcessReading<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IHumanPresenceSensorExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reading: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ProcessReading(windows_core::from_raw_borrowed(&reading)) {
+            match IHumanPresenceSensorExtension_Impl::ProcessReading(this, windows_core::from_raw_borrowed(&reading)) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -37,22 +37,22 @@ impl IHumanPresenceSensorExtension_Vtbl {
         unsafe extern "system" fn ProcessReadingTimeoutExpired<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IHumanPresenceSensorExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reading: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ProcessReadingTimeoutExpired(windows_core::from_raw_borrowed(&reading)).into()
+            IHumanPresenceSensorExtension_Impl::ProcessReadingTimeoutExpired(this, windows_core::from_raw_borrowed(&reading)).into()
         }
         unsafe extern "system" fn Stop<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IHumanPresenceSensorExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Stop().into()
+            IHumanPresenceSensorExtension_Impl::Stop(this).into()
         }
         unsafe extern "system" fn Uninitialize<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IHumanPresenceSensorExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Uninitialize().into()
+            IHumanPresenceSensorExtension_Impl::Uninitialize(this).into()
         }
         unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IHumanPresenceSensorExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Reset().into()
+            IHumanPresenceSensorExtension_Impl::Reset(this).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IHumanPresenceSensorExtension, OFFSET>(),

@@ -742,6 +742,12 @@ where
     ImmUnregisterWordW(param0.param().abi(), lpszreading.param().abi(), param2, lpszunregister.param().abi())
 }
 windows_core::imp::define_interface!(IActiveIME, IActiveIME_Vtbl, 0x6fe20962_d077_11d0_8fe7_00aa006bcc59);
+impl std::ops::Deref for IActiveIME {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IActiveIME, windows_core::IUnknown);
 impl IActiveIME {
     pub unsafe fn Inquire(&self, dwsysteminfoflags: u32, pimeinfo: *mut IMEINFO, szwndclass: windows_core::PWSTR, pdwprivate: *mut u32) -> windows_core::Result<()> {
@@ -900,114 +906,14 @@ pub struct IActiveIME_Vtbl {
     pub GetLangId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IActiveIME2, IActiveIME2_Vtbl, 0xe1c4bf0e_2d53_11d2_93e1_0060b067b86e);
+impl std::ops::Deref for IActiveIME2 {
+    type Target = IActiveIME;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IActiveIME2, windows_core::IUnknown, IActiveIME);
 impl IActiveIME2 {
-    pub unsafe fn Inquire(&self, dwsysteminfoflags: u32, pimeinfo: *mut IMEINFO, szwndclass: windows_core::PWSTR, pdwprivate: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Inquire)(windows_core::Interface::as_raw(self), dwsysteminfoflags, pimeinfo, core::mem::transmute(szwndclass), pdwprivate).ok()
-    }
-    #[cfg(feature = "Win32_Globalization")]
-    pub unsafe fn ConversionList<P0, P1>(&self, himc: P0, szsource: P1, uflag: u32, ubuflen: u32, pdest: *mut CANDIDATELIST, pucopied: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Globalization::HIMC>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.ConversionList)(windows_core::Interface::as_raw(self), himc.param().abi(), szsource.param().abi(), uflag, ubuflen, pdest, pucopied).ok()
-    }
-    #[cfg(feature = "Win32_UI_TextServices")]
-    pub unsafe fn Configure<P0, P1>(&self, hkl: P0, hwnd: P1, dwmode: u32, pregisterword: *const REGISTERWORDW) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::TextServices::HKL>,
-        P1: windows_core::Param<super::super::super::Foundation::HWND>,
-    {
-        (windows_core::Interface::vtable(self).base__.Configure)(windows_core::Interface::as_raw(self), hkl.param().abi(), hwnd.param().abi(), dwmode, pregisterword).ok()
-    }
-    pub unsafe fn Destroy(&self, ureserved: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Destroy)(windows_core::Interface::as_raw(self), ureserved).ok()
-    }
-    #[cfg(feature = "Win32_Globalization")]
-    pub unsafe fn Escape<P0>(&self, himc: P0, uescape: u32, pdata: *mut core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Globalization::HIMC>,
-    {
-        (windows_core::Interface::vtable(self).base__.Escape)(windows_core::Interface::as_raw(self), himc.param().abi(), uescape, pdata, plresult).ok()
-    }
-    #[cfg(feature = "Win32_Globalization")]
-    pub unsafe fn SetActiveContext<P0, P1>(&self, himc: P0, fflag: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Globalization::HIMC>,
-        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetActiveContext)(windows_core::Interface::as_raw(self), himc.param().abi(), fflag.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_Globalization")]
-    pub unsafe fn ProcessKey<P0>(&self, himc: P0, uvirkey: u32, lparam: u32, pbkeystate: *const u8) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Globalization::HIMC>,
-    {
-        (windows_core::Interface::vtable(self).base__.ProcessKey)(windows_core::Interface::as_raw(self), himc.param().abi(), uvirkey, lparam, pbkeystate).ok()
-    }
-    #[cfg(feature = "Win32_Globalization")]
-    pub unsafe fn Notify<P0>(&self, himc: P0, dwaction: u32, dwindex: u32, dwvalue: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Globalization::HIMC>,
-    {
-        (windows_core::Interface::vtable(self).base__.Notify)(windows_core::Interface::as_raw(self), himc.param().abi(), dwaction, dwindex, dwvalue).ok()
-    }
-    #[cfg(feature = "Win32_Globalization")]
-    pub unsafe fn Select<P0, P1>(&self, himc: P0, fselect: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Globalization::HIMC>,
-        P1: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.Select)(windows_core::Interface::as_raw(self), himc.param().abi(), fselect.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_Globalization")]
-    pub unsafe fn SetCompositionString<P0>(&self, himc: P0, dwindex: u32, pcomp: *const core::ffi::c_void, dwcomplen: u32, pread: *const core::ffi::c_void, dwreadlen: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Globalization::HIMC>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetCompositionString)(windows_core::Interface::as_raw(self), himc.param().abi(), dwindex, pcomp, dwcomplen, pread, dwreadlen).ok()
-    }
-    #[cfg(feature = "Win32_Globalization")]
-    pub unsafe fn ToAsciiEx<P0>(&self, uvirkey: u32, uscancode: u32, pbkeystate: *const u8, fustate: u32, himc: P0, pdwtransbuf: *mut u32, pusize: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Globalization::HIMC>,
-    {
-        (windows_core::Interface::vtable(self).base__.ToAsciiEx)(windows_core::Interface::as_raw(self), uvirkey, uscancode, pbkeystate, fustate, himc.param().abi(), pdwtransbuf, pusize).ok()
-    }
-    pub unsafe fn RegisterWord<P0, P1>(&self, szreading: P0, dwstyle: u32, szstring: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.RegisterWord)(windows_core::Interface::as_raw(self), szreading.param().abi(), dwstyle, szstring.param().abi()).ok()
-    }
-    pub unsafe fn UnregisterWord<P0, P1>(&self, szreading: P0, dwstyle: u32, szstring: P1) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.UnregisterWord)(windows_core::Interface::as_raw(self), szreading.param().abi(), dwstyle, szstring.param().abi()).ok()
-    }
-    pub unsafe fn GetRegisterWordStyle(&self, nitem: u32, pstylebuf: *mut STYLEBUFW, pubufsize: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetRegisterWordStyle)(windows_core::Interface::as_raw(self), nitem, pstylebuf, pubufsize).ok()
-    }
-    pub unsafe fn EnumRegisterWord<P0, P1>(&self, szreading: P0, dwstyle: u32, szregister: P1, pdata: *const core::ffi::c_void) -> windows_core::Result<IEnumRegisterWordW>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.EnumRegisterWord)(windows_core::Interface::as_raw(self), szreading.param().abi(), dwstyle, szregister.param().abi(), pdata, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetCodePageA(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetCodePageA)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetLangId(&self) -> windows_core::Result<u16> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GetLangId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
     pub unsafe fn Sleep(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Sleep)(windows_core::Interface::as_raw(self)).ok()
     }
@@ -1025,6 +931,12 @@ pub struct IActiveIME2_Vtbl {
     pub Unsleep: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IActiveIMMApp, IActiveIMMApp_Vtbl, 0x08c0e040_62d1_11d1_9326_0060b067b86e);
+impl std::ops::Deref for IActiveIMMApp {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IActiveIMMApp, windows_core::IUnknown);
 impl IActiveIMMApp {
     #[cfg(feature = "Win32_Globalization")]
@@ -1769,6 +1681,12 @@ pub struct IActiveIMMApp_Vtbl {
     pub EnumInputContext: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IActiveIMMIME, IActiveIMMIME_Vtbl, 0x08c03411_f96b_11d0_a475_00aa006bcc59);
+impl std::ops::Deref for IActiveIMMIME {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IActiveIMMIME, windows_core::IUnknown);
 impl IActiveIMMIME {
     #[cfg(feature = "Win32_Globalization")]
@@ -2717,6 +2635,12 @@ pub struct IActiveIMMIME_Vtbl {
     pub IsSleeping: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IActiveIMMMessagePumpOwner, IActiveIMMMessagePumpOwner_Vtbl, 0xb5cf2cfa_8aeb_11d1_9364_0060b067b86e);
+impl std::ops::Deref for IActiveIMMMessagePumpOwner {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IActiveIMMMessagePumpOwner, windows_core::IUnknown);
 impl IActiveIMMMessagePumpOwner {
     pub unsafe fn Start(&self) -> windows_core::Result<()> {
@@ -2750,6 +2674,12 @@ pub struct IActiveIMMMessagePumpOwner_Vtbl {
     pub Resume: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IActiveIMMRegistrar, IActiveIMMRegistrar_Vtbl, 0xb3458082_bd00_11d1_939b_0060b067b86e);
+impl std::ops::Deref for IActiveIMMRegistrar {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IActiveIMMRegistrar, windows_core::IUnknown);
 impl IActiveIMMRegistrar {
     pub unsafe fn RegisterIME<P0, P1>(&self, rclsid: *const windows_core::GUID, lgid: u16, psziconfile: P0, pszdesc: P1) -> windows_core::Result<()>
@@ -2770,6 +2700,12 @@ pub struct IActiveIMMRegistrar_Vtbl {
     pub UnregisterIME: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumInputContext, IEnumInputContext_Vtbl, 0x09b5eab0_f997_11d1_93d4_0060b067b86e);
+impl std::ops::Deref for IEnumInputContext {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumInputContext, windows_core::IUnknown);
 impl IEnumInputContext {
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumInputContext> {
@@ -2799,6 +2735,12 @@ pub struct IEnumInputContext_Vtbl {
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumRegisterWordA, IEnumRegisterWordA_Vtbl, 0x08c03412_f96b_11d0_a475_00aa006bcc59);
+impl std::ops::Deref for IEnumRegisterWordA {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumRegisterWordA, windows_core::IUnknown);
 impl IEnumRegisterWordA {
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumRegisterWordA> {
@@ -2824,6 +2766,12 @@ pub struct IEnumRegisterWordA_Vtbl {
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnumRegisterWordW, IEnumRegisterWordW_Vtbl, 0x4955dd31_b159_11d0_8fcf_00aa006bcc59);
+impl std::ops::Deref for IEnumRegisterWordW {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumRegisterWordW, windows_core::IUnknown);
 impl IEnumRegisterWordW {
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumRegisterWordW> {
@@ -2851,32 +2799,28 @@ pub struct IEnumRegisterWordW_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFEClassFactory, IFEClassFactory_Vtbl, 0);
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::interface_hierarchy!(IFEClassFactory, windows_core::IUnknown, super::super::super::System::Com::IClassFactory);
-#[cfg(feature = "Win32_System_Com")]
-impl IFEClassFactory {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateInstance<P0, T>(&self, punkouter: P0) -> windows_core::Result<T>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-        T: windows_core::Interface,
-    {
-        let mut result__ = std::ptr::null_mut();
-        (windows_core::Interface::vtable(self).base__.CreateInstance)(windows_core::Interface::as_raw(self), punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn LockServer<P0>(&self, flock: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.LockServer)(windows_core::Interface::as_raw(self), flock.param().abi()).ok()
+impl std::ops::Deref for IFEClassFactory {
+    type Target = super::super::super::System::Com::IClassFactory;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
+windows_core::imp::interface_hierarchy!(IFEClassFactory, windows_core::IUnknown, super::super::super::System::Com::IClassFactory);
+#[cfg(feature = "Win32_System_Com")]
+impl IFEClassFactory {}
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 pub struct IFEClassFactory_Vtbl {
     pub base__: super::super::super::System::Com::IClassFactory_Vtbl,
 }
 windows_core::imp::define_interface!(IFECommon, IFECommon_Vtbl, 0x019f7151_e6db_11d0_83c3_00c04fddb82e);
+impl std::ops::Deref for IFECommon {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFECommon, windows_core::IUnknown);
 impl IFECommon {
     pub unsafe fn IsDefaultIME(&self, szname: &[u8]) -> windows_core::Result<()> {
@@ -2901,6 +2845,12 @@ pub struct IFECommon_Vtbl {
     pub InvokeDictToolDialog: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IMEDLG) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFEDictionary, IFEDictionary_Vtbl, 0x019f7153_e6db_11d0_83c3_00c04fddb82e);
+impl std::ops::Deref for IFEDictionary {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFEDictionary, windows_core::IUnknown);
 impl IFEDictionary {
     pub unsafe fn Open(&self, pchdictpath: Option<&mut [u8; 260]>, pshf: *mut IMESHF) -> windows_core::Result<()> {
@@ -2997,6 +2947,12 @@ pub struct IFEDictionary_Vtbl {
     pub ConvertFromUserToSys: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFELanguage, IFELanguage_Vtbl, 0x019f7152_e6db_11d0_83c3_00c04fddb82e);
+impl std::ops::Deref for IFELanguage {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFELanguage, windows_core::IUnknown);
 impl IFELanguage {
     pub unsafe fn Open(&self) -> windows_core::Result<()> {
@@ -3038,6 +2994,12 @@ pub struct IFELanguage_Vtbl {
     pub GetConversion: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>, i32, i32, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IImePad, IImePad_Vtbl, 0x5d8e643a_c3a9_11d1_afef_00805f0c8b6d);
+impl std::ops::Deref for IImePad {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IImePad, windows_core::IUnknown);
 impl IImePad {
     pub unsafe fn Request<P0, P1, P2>(&self, piimepadapplet: P0, reqid: IME_PAD_REQUEST_FLAGS, wparam: P1, lparam: P2) -> windows_core::Result<()>
@@ -3055,6 +3017,12 @@ pub struct IImePad_Vtbl {
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, super::super::super::Foundation::WPARAM, super::super::super::Foundation::LPARAM) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IImePadApplet, IImePadApplet_Vtbl, 0x5d8e643b_c3a9_11d1_afef_00805f0c8b6d);
+impl std::ops::Deref for IImePadApplet {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IImePadApplet, windows_core::IUnknown);
 impl IImePadApplet {
     pub unsafe fn Initialize<P0>(&self, lpiimepad: P0) -> windows_core::Result<()>
@@ -3098,6 +3066,12 @@ pub struct IImePadApplet_Vtbl {
     pub Notify: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, super::super::super::Foundation::WPARAM, super::super::super::Foundation::LPARAM) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IImePlugInDictDictionaryList, IImePlugInDictDictionaryList_Vtbl, 0x98752974_b0a6_489b_8f6f_bff3769c8eeb);
+impl std::ops::Deref for IImePlugInDictDictionaryList {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IImePlugInDictDictionaryList, windows_core::IUnknown);
 impl IImePlugInDictDictionaryList {
     #[cfg(feature = "Win32_System_Com")]
@@ -3121,6 +3095,12 @@ pub struct IImePlugInDictDictionaryList_Vtbl {
     pub DeleteDictionary: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IImeSpecifyApplets, IImeSpecifyApplets_Vtbl, 0x5d8e643c_c3a9_11d1_afef_00805f0c8b6d);
+impl std::ops::Deref for IImeSpecifyApplets {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IImeSpecifyApplets, windows_core::IUnknown);
 impl IImeSpecifyApplets {
     pub unsafe fn GetAppletIIDList(&self, refiid: *const windows_core::GUID, lpiidlist: *mut APPLETIDLIST) -> windows_core::Result<()> {

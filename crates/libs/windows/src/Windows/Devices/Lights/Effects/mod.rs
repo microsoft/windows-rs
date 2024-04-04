@@ -131,6 +131,12 @@ pub struct ILampArrayCustomEffectFactory_Vtbl {
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILampArrayEffect, ILampArrayEffect_Vtbl, 0x11d45590_57fb_4546_b1ce_863107f740df);
+impl std::ops::Deref for ILampArrayEffect {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ILampArrayEffect, windows_core::IUnknown, windows_core::IInspectable);
 impl ILampArrayEffect {
     pub fn ZIndex(&self) -> windows_core::Result<i32> {

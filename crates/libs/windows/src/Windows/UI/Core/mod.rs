@@ -68,6 +68,12 @@ pub struct IClosestInteractiveBoundsRequestedEventArgs_Vtbl {
     pub SetClosestInteractiveBounds: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreAcceleratorKeys, ICoreAcceleratorKeys_Vtbl, 0x9ffdf7f5_b8c9_4ef0_b7d2_1de626561fc8);
+impl std::ops::Deref for ICoreAcceleratorKeys {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICoreAcceleratorKeys, windows_core::IUnknown, windows_core::IInspectable);
 impl ICoreAcceleratorKeys {
     pub fn AcceleratorKeyActivated<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
@@ -203,6 +209,12 @@ pub struct ICoreIndependentInputSourceControllerStatics_Vtbl {
     CreateForIVisualElement: usize,
 }
 windows_core::imp::define_interface!(ICoreInputSourceBase, ICoreInputSourceBase_Vtbl, 0x9f488807_4580_4be8_be68_92a9311713bb);
+impl std::ops::Deref for ICoreInputSourceBase {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICoreInputSourceBase, windows_core::IUnknown, windows_core::IInspectable);
 impl ICoreInputSourceBase {
     pub fn Dispatcher(&self) -> windows_core::Result<CoreDispatcher> {
@@ -278,6 +290,12 @@ pub struct ICoreKeyboardInputSource2_Vtbl {
     pub GetCurrentKeyEventDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorePointerInputSource, ICorePointerInputSource_Vtbl, 0xbbf1bb18_e47a_48eb_8807_f8f8d3ea4551);
+impl std::ops::Deref for ICorePointerInputSource {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICorePointerInputSource, windows_core::IUnknown, windows_core::IInspectable);
 impl ICorePointerInputSource {
     pub fn ReleasePointerCapture(&self) -> windows_core::Result<()> {
@@ -443,6 +461,12 @@ pub struct ICorePointerInputSource_Vtbl {
     pub RemovePointerWheelChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICorePointerInputSource2, ICorePointerInputSource2_Vtbl, 0xd703708a_4516_4786_b1e5_2751d563f997);
+impl std::ops::Deref for ICorePointerInputSource2 {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICorePointerInputSource2, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ICorePointerInputSource2, ICorePointerInputSource);
 impl ICorePointerInputSource2 {
@@ -601,6 +625,12 @@ pub struct ICorePointerInputSource2_Vtbl {
     DispatcherQueue: usize,
 }
 windows_core::imp::define_interface!(ICorePointerRedirector, ICorePointerRedirector_Vtbl, 0x8f9d0c94_5688_4b0c_a9f1_f931f7fa3dc3);
+impl std::ops::Deref for ICorePointerRedirector {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICorePointerRedirector, windows_core::IUnknown, windows_core::IInspectable);
 impl ICorePointerRedirector {
     pub fn PointerRoutedAway<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
@@ -670,6 +700,12 @@ pub struct ICoreTouchHitTesting_Vtbl {
     pub RemoveTouchHitTesting: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreWindow, ICoreWindow_Vtbl, 0x79b9d5f2_879e_4b89_b798_79e47598030c);
+impl std::ops::Deref for ICoreWindow {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICoreWindow, windows_core::IUnknown, windows_core::IInspectable);
 impl ICoreWindow {
     pub fn AutomationHostProvider(&self) -> windows_core::Result<windows_core::IInspectable> {
@@ -1181,6 +1217,12 @@ pub struct ICoreWindowDialogFactory_Vtbl {
     pub CreateWithTitle: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreWindowEventArgs, ICoreWindowEventArgs_Vtbl, 0x272b1ef3_c633_4da5_a26c_c6d0f56b29da);
+impl std::ops::Deref for ICoreWindowEventArgs {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICoreWindowEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ICoreWindowEventArgs {
     pub fn Handled(&self) -> windows_core::Result<bool> {
@@ -1313,6 +1355,12 @@ pub struct IIdleDispatchedHandlerArgs_Vtbl {
     pub IsDispatcherIdle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IInitializeWithCoreWindow, IInitializeWithCoreWindow_Vtbl, 0x188f20d6_9873_464a_ace5_57e010f465e6);
+impl std::ops::Deref for IInitializeWithCoreWindow {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IInitializeWithCoreWindow, windows_core::IUnknown, windows_core::IInspectable);
 impl IInitializeWithCoreWindow {
     pub fn Initialize<P0>(&self, window: P0) -> windows_core::Result<()>
@@ -4189,8 +4237,8 @@ impl<F: FnMut() -> windows_core::Result<()> + Send + 'static> DispatchedHandlerB
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)().into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)().into()
     }
 }
 impl windows_core::RuntimeType for DispatchedHandler {
@@ -4249,8 +4297,8 @@ impl<F: FnMut(Option<&IdleDispatchedHandlerArgs>) -> windows_core::Result<()> + 
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&e)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&e)).into()
     }
 }
 impl windows_core::RuntimeType for IdleDispatchedHandler {

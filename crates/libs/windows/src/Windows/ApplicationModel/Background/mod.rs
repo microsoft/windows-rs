@@ -108,6 +108,12 @@ pub struct IAppointmentStoreNotificationTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IBackgroundCondition, IBackgroundCondition_Vtbl, 0xae48a1ee_8951_400a_8302_9c9c9a2a3a3b);
+impl std::ops::Deref for IBackgroundCondition {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IBackgroundCondition, windows_core::IUnknown, windows_core::IInspectable);
 impl IBackgroundCondition {}
 impl windows_core::RuntimeType for IBackgroundCondition {
@@ -152,6 +158,12 @@ pub struct IBackgroundExecutionManagerStatics3_Vtbl {
     pub GetAccessStatusForModernStandbyForApplication: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut BackgroundAccessStatus) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTask, IBackgroundTask_Vtbl, 0x7d13d534_fd12_43ce_8c22_ea1ff13c06df);
+impl std::ops::Deref for IBackgroundTask {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IBackgroundTask, windows_core::IUnknown, windows_core::IInspectable);
 impl IBackgroundTask {
     pub fn Run<P0>(&self, taskinstance: P0) -> windows_core::Result<()>
@@ -244,6 +256,12 @@ pub struct IBackgroundTaskDeferral_Vtbl {
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTaskInstance, IBackgroundTaskInstance_Vtbl, 0x865bda7a_21d8_4573_8f32_928a1b0641f6);
+impl std::ops::Deref for IBackgroundTaskInstance {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IBackgroundTaskInstance, windows_core::IUnknown, windows_core::IInspectable);
 impl IBackgroundTaskInstance {
     pub fn InstanceId(&self) -> windows_core::Result<windows_core::GUID> {
@@ -324,6 +342,12 @@ pub struct IBackgroundTaskInstance_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTaskInstance2, IBackgroundTaskInstance2_Vtbl, 0x4f7d0176_0c76_4fb4_896d_5de1864122f6);
+impl std::ops::Deref for IBackgroundTaskInstance2 {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IBackgroundTaskInstance2, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IBackgroundTaskInstance2, IBackgroundTaskInstance);
 impl IBackgroundTaskInstance2 {
@@ -404,6 +428,12 @@ pub struct IBackgroundTaskInstance2_Vtbl {
     pub GetThrottleCount: unsafe extern "system" fn(*mut core::ffi::c_void, BackgroundTaskThrottleCounter, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTaskInstance4, IBackgroundTaskInstance4_Vtbl, 0x7f29f23c_aa04_4b08_97b0_06d874cdabf5);
+impl std::ops::Deref for IBackgroundTaskInstance4 {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IBackgroundTaskInstance4, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IBackgroundTaskInstance4, IBackgroundTaskInstance);
 impl IBackgroundTaskInstance4 {
@@ -498,6 +528,12 @@ pub struct IBackgroundTaskProgressEventArgs_Vtbl {
     pub Progress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTaskRegistration, IBackgroundTaskRegistration_Vtbl, 0x10654cc2_a26e_43bf_8c12_1fb40dbfbfa0);
+impl std::ops::Deref for IBackgroundTaskRegistration {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IBackgroundTaskRegistration, windows_core::IUnknown, windows_core::IInspectable);
 impl IBackgroundTaskRegistration {
     pub fn TaskId(&self) -> windows_core::Result<windows_core::GUID> {
@@ -562,6 +598,12 @@ pub struct IBackgroundTaskRegistration_Vtbl {
     pub Unregister: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTaskRegistration2, IBackgroundTaskRegistration2_Vtbl, 0x6138c703_bb86_4112_afc3_7f939b166e3b);
+impl std::ops::Deref for IBackgroundTaskRegistration2 {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IBackgroundTaskRegistration2, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IBackgroundTaskRegistration2, IBackgroundTaskRegistration);
 impl IBackgroundTaskRegistration2 {
@@ -628,6 +670,12 @@ pub struct IBackgroundTaskRegistration2_Vtbl {
     pub Trigger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTaskRegistration3, IBackgroundTaskRegistration3_Vtbl, 0xfe338195_9423_4d8b_830d_b1dd2c7badd5);
+impl std::ops::Deref for IBackgroundTaskRegistration3 {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IBackgroundTaskRegistration3, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IBackgroundTaskRegistration3, IBackgroundTaskRegistration);
 impl IBackgroundTaskRegistration3 {
@@ -748,6 +796,12 @@ pub struct IBackgroundTaskRegistrationStatics2_Vtbl {
     pub GetTaskGroup: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTrigger, IBackgroundTrigger_Vtbl, 0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
+impl std::ops::Deref for IBackgroundTrigger {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IBackgroundTrigger, windows_core::IUnknown, windows_core::IInspectable);
 impl IBackgroundTrigger {}
 impl windows_core::RuntimeType for IBackgroundTrigger {
@@ -4556,8 +4610,8 @@ impl<F: FnMut(Option<&IBackgroundTaskInstance>, BackgroundTaskCancellationReason
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, reason: BackgroundTaskCancellationReason) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&sender), reason).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender), reason).into()
     }
 }
 impl windows_core::RuntimeType for BackgroundTaskCanceledEventHandler {
@@ -4617,8 +4671,8 @@ impl<F: FnMut(Option<&BackgroundTaskRegistration>, Option<&BackgroundTaskComplet
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&args)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&args)).into()
     }
 }
 impl windows_core::RuntimeType for BackgroundTaskCompletedEventHandler {
@@ -4678,8 +4732,8 @@ impl<F: FnMut(Option<&BackgroundTaskRegistration>, Option<&BackgroundTaskProgres
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        let this = this as *mut *mut core::ffi::c_void as *mut Self;
-        ((*this).invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&args)).into()
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&args)).into()
     }
 }
 impl windows_core::RuntimeType for BackgroundTaskProgressEventHandler {

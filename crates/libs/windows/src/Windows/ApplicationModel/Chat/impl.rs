@@ -9,7 +9,7 @@ impl IChatItem_Vtbl {
         unsafe extern "system" fn ItemKind<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IChatItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ChatItemKind) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ItemKind() {
+            match IChatItem_Impl::ItemKind(this) {
                 Ok(ok__) => {
                     core::ptr::write(result__, core::mem::transmute_copy(&ok__));
                     windows_core::HRESULT(0)

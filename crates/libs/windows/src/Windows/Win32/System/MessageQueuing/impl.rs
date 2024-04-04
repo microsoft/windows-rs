@@ -10,7 +10,7 @@ impl IMSMQApplication_Vtbl {
         unsafe extern "system" fn MachineIdOfMachineName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, machinename: std::mem::MaybeUninit<windows_core::BSTR>, pbstrguid: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MachineIdOfMachineName(core::mem::transmute(&machinename)) {
+            match IMSMQApplication_Impl::MachineIdOfMachineName(this, core::mem::transmute(&machinename)) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrguid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -42,12 +42,12 @@ impl IMSMQApplication2_Vtbl {
         unsafe extern "system" fn RegisterCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: *const std::mem::MaybeUninit<windows_core::VARIANT>, externalcertificate: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RegisterCertificate(core::mem::transmute_copy(&flags), core::mem::transmute_copy(&externalcertificate)).into()
+            IMSMQApplication2_Impl::RegisterCertificate(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&externalcertificate)).into()
         }
         unsafe extern "system" fn MachineNameOfMachineId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguid: std::mem::MaybeUninit<windows_core::BSTR>, pbstrmachinename: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MachineNameOfMachineId(core::mem::transmute(&bstrguid)) {
+            match IMSMQApplication2_Impl::MachineNameOfMachineId(this, core::mem::transmute(&bstrguid)) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrmachinename, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -58,7 +58,7 @@ impl IMSMQApplication2_Vtbl {
         unsafe extern "system" fn MSMQVersionMajor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psmsmqversionmajor: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MSMQVersionMajor() {
+            match IMSMQApplication2_Impl::MSMQVersionMajor(this) {
                 Ok(ok__) => {
                     core::ptr::write(psmsmqversionmajor, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -69,7 +69,7 @@ impl IMSMQApplication2_Vtbl {
         unsafe extern "system" fn MSMQVersionMinor<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psmsmqversionminor: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MSMQVersionMinor() {
+            match IMSMQApplication2_Impl::MSMQVersionMinor(this) {
                 Ok(ok__) => {
                     core::ptr::write(psmsmqversionminor, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -80,7 +80,7 @@ impl IMSMQApplication2_Vtbl {
         unsafe extern "system" fn MSMQVersionBuild<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psmsmqversionbuild: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MSMQVersionBuild() {
+            match IMSMQApplication2_Impl::MSMQVersionBuild(this) {
                 Ok(ok__) => {
                     core::ptr::write(psmsmqversionbuild, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -91,7 +91,7 @@ impl IMSMQApplication2_Vtbl {
         unsafe extern "system" fn IsDsEnabled<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfisdsenabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsDsEnabled() {
+            match IMSMQApplication2_Impl::IsDsEnabled(this) {
                 Ok(ok__) => {
                     core::ptr::write(pfisdsenabled, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -102,7 +102,7 @@ impl IMSMQApplication2_Vtbl {
         unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcolproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Properties() {
+            match IMSMQApplication2_Impl::Properties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -146,7 +146,7 @@ impl IMSMQApplication3_Vtbl {
         unsafe extern "system" fn ActiveQueues<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvactivequeues: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ActiveQueues() {
+            match IMSMQApplication3_Impl::ActiveQueues(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvactivequeues, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -157,7 +157,7 @@ impl IMSMQApplication3_Vtbl {
         unsafe extern "system" fn PrivateQueues<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvprivatequeues: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PrivateQueues() {
+            match IMSMQApplication3_Impl::PrivateQueues(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvprivatequeues, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -168,7 +168,7 @@ impl IMSMQApplication3_Vtbl {
         unsafe extern "system" fn DirectoryServiceServer<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdirectoryserviceserver: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DirectoryServiceServer() {
+            match IMSMQApplication3_Impl::DirectoryServiceServer(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrdirectoryserviceserver, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -179,7 +179,7 @@ impl IMSMQApplication3_Vtbl {
         unsafe extern "system" fn IsConnected<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsConnected() {
+            match IMSMQApplication3_Impl::IsConnected(this) {
                 Ok(ok__) => {
                     core::ptr::write(pfisconnected, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -190,7 +190,7 @@ impl IMSMQApplication3_Vtbl {
         unsafe extern "system" fn BytesInAllQueues<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvbytesinallqueues: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BytesInAllQueues() {
+            match IMSMQApplication3_Impl::BytesInAllQueues(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvbytesinallqueues, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -201,12 +201,12 @@ impl IMSMQApplication3_Vtbl {
         unsafe extern "system" fn SetMachine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmachine: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMachine(core::mem::transmute(&bstrmachine)).into()
+            IMSMQApplication3_Impl::SetMachine(this, core::mem::transmute(&bstrmachine)).into()
         }
         unsafe extern "system" fn Machine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrmachine: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Machine() {
+            match IMSMQApplication3_Impl::Machine(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrmachine, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -217,17 +217,17 @@ impl IMSMQApplication3_Vtbl {
         unsafe extern "system" fn Connect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Connect().into()
+            IMSMQApplication3_Impl::Connect(this).into()
         }
         unsafe extern "system" fn Disconnect<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Disconnect().into()
+            IMSMQApplication3_Impl::Disconnect(this).into()
         }
         unsafe extern "system" fn Tidy<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Tidy().into()
+            IMSMQApplication3_Impl::Tidy(this).into()
         }
         Self {
             base__: IMSMQApplication2_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -261,7 +261,7 @@ impl IMSMQCollection_Vtbl {
         unsafe extern "system" fn Item<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: *const std::mem::MaybeUninit<windows_core::VARIANT>, pvarret: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Item(core::mem::transmute_copy(&index)) {
+            match IMSMQCollection_Impl::Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
                     core::ptr::write(pvarret, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -272,7 +272,7 @@ impl IMSMQCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcount: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Count() {
+            match IMSMQCollection_Impl::Count(this) {
                 Ok(ok__) => {
                     core::ptr::write(pcount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -283,7 +283,7 @@ impl IMSMQCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this._NewEnum() {
+            match IMSMQCollection_Impl::_NewEnum(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppunk, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -314,7 +314,7 @@ impl IMSMQCoordinatedTransactionDispenser_Vtbl {
         unsafe extern "system" fn BeginTransaction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQCoordinatedTransactionDispenser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptransaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BeginTransaction() {
+            match IMSMQCoordinatedTransactionDispenser_Impl::BeginTransaction(this) {
                 Ok(ok__) => {
                     core::ptr::write(ptransaction, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -341,7 +341,7 @@ impl IMSMQCoordinatedTransactionDispenser2_Vtbl {
         unsafe extern "system" fn BeginTransaction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQCoordinatedTransactionDispenser2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptransaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BeginTransaction() {
+            match IMSMQCoordinatedTransactionDispenser2_Impl::BeginTransaction(this) {
                 Ok(ok__) => {
                     core::ptr::write(ptransaction, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -352,7 +352,7 @@ impl IMSMQCoordinatedTransactionDispenser2_Vtbl {
         unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQCoordinatedTransactionDispenser2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcolproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Properties() {
+            match IMSMQCoordinatedTransactionDispenser2_Impl::Properties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -383,7 +383,7 @@ impl IMSMQCoordinatedTransactionDispenser3_Vtbl {
         unsafe extern "system" fn BeginTransaction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQCoordinatedTransactionDispenser3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptransaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BeginTransaction() {
+            match IMSMQCoordinatedTransactionDispenser3_Impl::BeginTransaction(this) {
                 Ok(ok__) => {
                     core::ptr::write(ptransaction, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -394,7 +394,7 @@ impl IMSMQCoordinatedTransactionDispenser3_Vtbl {
         unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQCoordinatedTransactionDispenser3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcolproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Properties() {
+            match IMSMQCoordinatedTransactionDispenser3_Impl::Properties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -437,17 +437,17 @@ impl IMSMQDestination_Vtbl {
         unsafe extern "system" fn Open<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Open().into()
+            IMSMQDestination_Impl::Open(this).into()
         }
         unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Close().into()
+            IMSMQDestination_Impl::Close(this).into()
         }
         unsafe extern "system" fn IsOpen<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfisopen: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsOpen() {
+            match IMSMQDestination_Impl::IsOpen(this) {
                 Ok(ok__) => {
                     core::ptr::write(pfisopen, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -458,7 +458,7 @@ impl IMSMQDestination_Vtbl {
         unsafe extern "system" fn IADs<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppiads: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IADs() {
+            match IMSMQDestination_Impl::IADs(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppiads, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -469,12 +469,12 @@ impl IMSMQDestination_Vtbl {
         unsafe extern "system" fn putref_IADs<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piads: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.putref_IADs(windows_core::from_raw_borrowed(&piads)).into()
+            IMSMQDestination_Impl::putref_IADs(this, windows_core::from_raw_borrowed(&piads)).into()
         }
         unsafe extern "system" fn ADsPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstradspath: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ADsPath() {
+            match IMSMQDestination_Impl::ADsPath(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstradspath, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -485,12 +485,12 @@ impl IMSMQDestination_Vtbl {
         unsafe extern "system" fn SetADsPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstradspath: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetADsPath(core::mem::transmute(&bstradspath)).into()
+            IMSMQDestination_Impl::SetADsPath(this, core::mem::transmute(&bstradspath)).into()
         }
         unsafe extern "system" fn PathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpathname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PathName() {
+            match IMSMQDestination_Impl::PathName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrpathname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -501,12 +501,12 @@ impl IMSMQDestination_Vtbl {
         unsafe extern "system" fn SetPathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpathname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPathName(core::mem::transmute(&bstrpathname)).into()
+            IMSMQDestination_Impl::SetPathName(this, core::mem::transmute(&bstrpathname)).into()
         }
         unsafe extern "system" fn FormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrformatname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FormatName() {
+            match IMSMQDestination_Impl::FormatName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrformatname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -517,12 +517,12 @@ impl IMSMQDestination_Vtbl {
         unsafe extern "system" fn SetFormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrformatname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFormatName(core::mem::transmute(&bstrformatname)).into()
+            IMSMQDestination_Impl::SetFormatName(this, core::mem::transmute(&bstrformatname)).into()
         }
         unsafe extern "system" fn Destinations<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdestinations: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Destinations() {
+            match IMSMQDestination_Impl::Destinations(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppdestinations, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -533,12 +533,12 @@ impl IMSMQDestination_Vtbl {
         unsafe extern "system" fn putref_Destinations<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdestinations: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.putref_Destinations(windows_core::from_raw_borrowed(&pdestinations)).into()
+            IMSMQDestination_Impl::putref_Destinations(this, windows_core::from_raw_borrowed(&pdestinations)).into()
         }
         unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcolproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Properties() {
+            match IMSMQDestination_Impl::Properties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -593,7 +593,7 @@ impl IMSMQEvent2_Vtbl {
         unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQEvent2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcolproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Properties() {
+            match IMSMQEvent2_Impl::Properties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -640,12 +640,12 @@ impl IMSMQManagement_Vtbl {
         unsafe extern "system" fn Init<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, machine: *const std::mem::MaybeUninit<windows_core::VARIANT>, pathname: *const std::mem::MaybeUninit<windows_core::VARIANT>, formatname: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Init(core::mem::transmute_copy(&machine), core::mem::transmute_copy(&pathname), core::mem::transmute_copy(&formatname)).into()
+            IMSMQManagement_Impl::Init(this, core::mem::transmute_copy(&machine), core::mem::transmute_copy(&pathname), core::mem::transmute_copy(&formatname)).into()
         }
         unsafe extern "system" fn FormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrformatname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FormatName() {
+            match IMSMQManagement_Impl::FormatName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrformatname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -656,7 +656,7 @@ impl IMSMQManagement_Vtbl {
         unsafe extern "system" fn Machine<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrmachine: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Machine() {
+            match IMSMQManagement_Impl::Machine(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrmachine, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -667,7 +667,7 @@ impl IMSMQManagement_Vtbl {
         unsafe extern "system" fn MessageCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmessagecount: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MessageCount() {
+            match IMSMQManagement_Impl::MessageCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(plmessagecount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -678,7 +678,7 @@ impl IMSMQManagement_Vtbl {
         unsafe extern "system" fn ForeignStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plforeignstatus: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ForeignStatus() {
+            match IMSMQManagement_Impl::ForeignStatus(this) {
                 Ok(ok__) => {
                     core::ptr::write(plforeignstatus, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -689,7 +689,7 @@ impl IMSMQManagement_Vtbl {
         unsafe extern "system" fn QueueType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plqueuetype: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.QueueType() {
+            match IMSMQManagement_Impl::QueueType(this) {
                 Ok(ok__) => {
                     core::ptr::write(plqueuetype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -700,7 +700,7 @@ impl IMSMQManagement_Vtbl {
         unsafe extern "system" fn IsLocal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfislocal: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsLocal() {
+            match IMSMQManagement_Impl::IsLocal(this) {
                 Ok(ok__) => {
                     core::ptr::write(pfislocal, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -711,7 +711,7 @@ impl IMSMQManagement_Vtbl {
         unsafe extern "system" fn TransactionalStatus<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pltransactionalstatus: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TransactionalStatus() {
+            match IMSMQManagement_Impl::TransactionalStatus(this) {
                 Ok(ok__) => {
                     core::ptr::write(pltransactionalstatus, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -722,7 +722,7 @@ impl IMSMQManagement_Vtbl {
         unsafe extern "system" fn BytesInQueue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvbytesinqueue: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BytesInQueue() {
+            match IMSMQManagement_Impl::BytesInQueue(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvbytesinqueue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -807,7 +807,7 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn Class<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plclass: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Class() {
+            match IMSMQMessage_Impl::Class(this) {
                 Ok(ok__) => {
                     core::ptr::write(plclass, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -818,7 +818,7 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn PrivLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plprivlevel: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PrivLevel() {
+            match IMSMQMessage_Impl::PrivLevel(this) {
                 Ok(ok__) => {
                     core::ptr::write(plprivlevel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -829,12 +829,12 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn SetPrivLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lprivlevel: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPrivLevel(core::mem::transmute_copy(&lprivlevel)).into()
+            IMSMQMessage_Impl::SetPrivLevel(this, core::mem::transmute_copy(&lprivlevel)).into()
         }
         unsafe extern "system" fn AuthLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plauthlevel: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AuthLevel() {
+            match IMSMQMessage_Impl::AuthLevel(this) {
                 Ok(ok__) => {
                     core::ptr::write(plauthlevel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -845,12 +845,12 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn SetAuthLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lauthlevel: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAuthLevel(core::mem::transmute_copy(&lauthlevel)).into()
+            IMSMQMessage_Impl::SetAuthLevel(this, core::mem::transmute_copy(&lauthlevel)).into()
         }
         unsafe extern "system" fn IsAuthenticated<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisauthenticated: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsAuthenticated() {
+            match IMSMQMessage_Impl::IsAuthenticated(this) {
                 Ok(ok__) => {
                     core::ptr::write(pisauthenticated, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -861,7 +861,7 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn Delivery<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pldelivery: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Delivery() {
+            match IMSMQMessage_Impl::Delivery(this) {
                 Ok(ok__) => {
                     core::ptr::write(pldelivery, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -872,12 +872,12 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn SetDelivery<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ldelivery: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDelivery(core::mem::transmute_copy(&ldelivery)).into()
+            IMSMQMessage_Impl::SetDelivery(this, core::mem::transmute_copy(&ldelivery)).into()
         }
         unsafe extern "system" fn Trace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pltrace: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Trace() {
+            match IMSMQMessage_Impl::Trace(this) {
                 Ok(ok__) => {
                     core::ptr::write(pltrace, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -888,12 +888,12 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn SetTrace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ltrace: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTrace(core::mem::transmute_copy(&ltrace)).into()
+            IMSMQMessage_Impl::SetTrace(this, core::mem::transmute_copy(&ltrace)).into()
         }
         unsafe extern "system" fn Priority<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plpriority: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Priority() {
+            match IMSMQMessage_Impl::Priority(this) {
                 Ok(ok__) => {
                     core::ptr::write(plpriority, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -904,12 +904,12 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn SetPriority<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpriority: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPriority(core::mem::transmute_copy(&lpriority)).into()
+            IMSMQMessage_Impl::SetPriority(this, core::mem::transmute_copy(&lpriority)).into()
         }
         unsafe extern "system" fn Journal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pljournal: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Journal() {
+            match IMSMQMessage_Impl::Journal(this) {
                 Ok(ok__) => {
                     core::ptr::write(pljournal, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -920,12 +920,12 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn SetJournal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ljournal: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetJournal(core::mem::transmute_copy(&ljournal)).into()
+            IMSMQMessage_Impl::SetJournal(this, core::mem::transmute_copy(&ljournal)).into()
         }
         unsafe extern "system" fn ResponseQueueInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinforesponse: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ResponseQueueInfo() {
+            match IMSMQMessage_Impl::ResponseQueueInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinforesponse, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -936,12 +936,12 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn putref_ResponseQueueInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqinforesponse: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.putref_ResponseQueueInfo(windows_core::from_raw_borrowed(&pqinforesponse)).into()
+            IMSMQMessage_Impl::putref_ResponseQueueInfo(this, windows_core::from_raw_borrowed(&pqinforesponse)).into()
         }
         unsafe extern "system" fn AppSpecific<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plappspecific: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AppSpecific() {
+            match IMSMQMessage_Impl::AppSpecific(this) {
                 Ok(ok__) => {
                     core::ptr::write(plappspecific, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -952,12 +952,12 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn SetAppSpecific<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lappspecific: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAppSpecific(core::mem::transmute_copy(&lappspecific)).into()
+            IMSMQMessage_Impl::SetAppSpecific(this, core::mem::transmute_copy(&lappspecific)).into()
         }
         unsafe extern "system" fn SourceMachineGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidsrcmachine: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SourceMachineGuid() {
+            match IMSMQMessage_Impl::SourceMachineGuid(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrguidsrcmachine, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -968,7 +968,7 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn BodyLength<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbbody: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BodyLength() {
+            match IMSMQMessage_Impl::BodyLength(this) {
                 Ok(ok__) => {
                     core::ptr::write(pcbbody, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -979,7 +979,7 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn Body<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Body() {
+            match IMSMQMessage_Impl::Body(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarbody, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -990,12 +990,12 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn SetBody<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varbody: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBody(core::mem::transmute(&varbody)).into()
+            IMSMQMessage_Impl::SetBody(this, core::mem::transmute(&varbody)).into()
         }
         unsafe extern "system" fn AdminQueueInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinfoadmin: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AdminQueueInfo() {
+            match IMSMQMessage_Impl::AdminQueueInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfoadmin, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1006,12 +1006,12 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn putref_AdminQueueInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqinfoadmin: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.putref_AdminQueueInfo(windows_core::from_raw_borrowed(&pqinfoadmin)).into()
+            IMSMQMessage_Impl::putref_AdminQueueInfo(this, windows_core::from_raw_borrowed(&pqinfoadmin)).into()
         }
         unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Id() {
+            match IMSMQMessage_Impl::Id(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarmsgid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1022,7 +1022,7 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn CorrelationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CorrelationId() {
+            match IMSMQMessage_Impl::CorrelationId(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarmsgid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1033,12 +1033,12 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn SetCorrelationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varmsgid: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCorrelationId(core::mem::transmute(&varmsgid)).into()
+            IMSMQMessage_Impl::SetCorrelationId(this, core::mem::transmute(&varmsgid)).into()
         }
         unsafe extern "system" fn Ack<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plack: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Ack() {
+            match IMSMQMessage_Impl::Ack(this) {
                 Ok(ok__) => {
                     core::ptr::write(plack, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1049,12 +1049,12 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn SetAck<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lack: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAck(core::mem::transmute_copy(&lack)).into()
+            IMSMQMessage_Impl::SetAck(this, core::mem::transmute_copy(&lack)).into()
         }
         unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlabel: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Label() {
+            match IMSMQMessage_Impl::Label(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrlabel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1065,12 +1065,12 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn SetLabel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrlabel: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLabel(core::mem::transmute(&bstrlabel)).into()
+            IMSMQMessage_Impl::SetLabel(this, core::mem::transmute(&bstrlabel)).into()
         }
         unsafe extern "system" fn MaxTimeToReachQueue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmaxtimetoreachqueue: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MaxTimeToReachQueue() {
+            match IMSMQMessage_Impl::MaxTimeToReachQueue(this) {
                 Ok(ok__) => {
                     core::ptr::write(plmaxtimetoreachqueue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1081,12 +1081,12 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn SetMaxTimeToReachQueue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmaxtimetoreachqueue: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMaxTimeToReachQueue(core::mem::transmute_copy(&lmaxtimetoreachqueue)).into()
+            IMSMQMessage_Impl::SetMaxTimeToReachQueue(this, core::mem::transmute_copy(&lmaxtimetoreachqueue)).into()
         }
         unsafe extern "system" fn MaxTimeToReceive<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmaxtimetoreceive: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MaxTimeToReceive() {
+            match IMSMQMessage_Impl::MaxTimeToReceive(this) {
                 Ok(ok__) => {
                     core::ptr::write(plmaxtimetoreceive, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1097,12 +1097,12 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn SetMaxTimeToReceive<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmaxtimetoreceive: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMaxTimeToReceive(core::mem::transmute_copy(&lmaxtimetoreceive)).into()
+            IMSMQMessage_Impl::SetMaxTimeToReceive(this, core::mem::transmute_copy(&lmaxtimetoreceive)).into()
         }
         unsafe extern "system" fn HashAlgorithm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plhashalg: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.HashAlgorithm() {
+            match IMSMQMessage_Impl::HashAlgorithm(this) {
                 Ok(ok__) => {
                     core::ptr::write(plhashalg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1113,12 +1113,12 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn SetHashAlgorithm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lhashalg: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetHashAlgorithm(core::mem::transmute_copy(&lhashalg)).into()
+            IMSMQMessage_Impl::SetHashAlgorithm(this, core::mem::transmute_copy(&lhashalg)).into()
         }
         unsafe extern "system" fn EncryptAlgorithm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plencryptalg: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EncryptAlgorithm() {
+            match IMSMQMessage_Impl::EncryptAlgorithm(this) {
                 Ok(ok__) => {
                     core::ptr::write(plencryptalg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1129,12 +1129,12 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn SetEncryptAlgorithm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lencryptalg: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEncryptAlgorithm(core::mem::transmute_copy(&lencryptalg)).into()
+            IMSMQMessage_Impl::SetEncryptAlgorithm(this, core::mem::transmute_copy(&lencryptalg)).into()
         }
         unsafe extern "system" fn SentTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenttime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SentTime() {
+            match IMSMQMessage_Impl::SentTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarsenttime, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1145,7 +1145,7 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn ArrivedTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plarrivedtime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ArrivedTime() {
+            match IMSMQMessage_Impl::ArrivedTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(plarrivedtime, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1156,7 +1156,7 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn DestinationQueueInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinfodest: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DestinationQueueInfo() {
+            match IMSMQMessage_Impl::DestinationQueueInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfodest, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1167,7 +1167,7 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn SenderCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsendercert: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SenderCertificate() {
+            match IMSMQMessage_Impl::SenderCertificate(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarsendercert, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1178,12 +1178,12 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn SetSenderCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsendercert: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSenderCertificate(core::mem::transmute(&varsendercert)).into()
+            IMSMQMessage_Impl::SetSenderCertificate(this, core::mem::transmute(&varsendercert)).into()
         }
         unsafe extern "system" fn SenderId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenderid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SenderId() {
+            match IMSMQMessage_Impl::SenderId(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarsenderid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1194,7 +1194,7 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn SenderIdType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plsenderidtype: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SenderIdType() {
+            match IMSMQMessage_Impl::SenderIdType(this) {
                 Ok(ok__) => {
                     core::ptr::write(plsenderidtype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1205,17 +1205,17 @@ impl IMSMQMessage_Vtbl {
         unsafe extern "system" fn SetSenderIdType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lsenderidtype: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSenderIdType(core::mem::transmute_copy(&lsenderidtype)).into()
+            IMSMQMessage_Impl::SetSenderIdType(this, core::mem::transmute_copy(&lsenderidtype)).into()
         }
         unsafe extern "system" fn Send<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationqueue: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Send(windows_core::from_raw_borrowed(&destinationqueue), core::mem::transmute_copy(&transaction)).into()
+            IMSMQMessage_Impl::Send(this, windows_core::from_raw_borrowed(&destinationqueue), core::mem::transmute_copy(&transaction)).into()
         }
         unsafe extern "system" fn AttachCurrentSecurityContext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AttachCurrentSecurityContext().into()
+            IMSMQMessage_Impl::AttachCurrentSecurityContext(this).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1360,7 +1360,7 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn Class<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plclass: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Class() {
+            match IMSMQMessage2_Impl::Class(this) {
                 Ok(ok__) => {
                     core::ptr::write(plclass, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1371,7 +1371,7 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn PrivLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plprivlevel: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PrivLevel() {
+            match IMSMQMessage2_Impl::PrivLevel(this) {
                 Ok(ok__) => {
                     core::ptr::write(plprivlevel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1382,12 +1382,12 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn SetPrivLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lprivlevel: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPrivLevel(core::mem::transmute_copy(&lprivlevel)).into()
+            IMSMQMessage2_Impl::SetPrivLevel(this, core::mem::transmute_copy(&lprivlevel)).into()
         }
         unsafe extern "system" fn AuthLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plauthlevel: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AuthLevel() {
+            match IMSMQMessage2_Impl::AuthLevel(this) {
                 Ok(ok__) => {
                     core::ptr::write(plauthlevel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1398,12 +1398,12 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn SetAuthLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lauthlevel: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAuthLevel(core::mem::transmute_copy(&lauthlevel)).into()
+            IMSMQMessage2_Impl::SetAuthLevel(this, core::mem::transmute_copy(&lauthlevel)).into()
         }
         unsafe extern "system" fn IsAuthenticated<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisauthenticated: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsAuthenticated() {
+            match IMSMQMessage2_Impl::IsAuthenticated(this) {
                 Ok(ok__) => {
                     core::ptr::write(pisauthenticated, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1414,7 +1414,7 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn Delivery<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pldelivery: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Delivery() {
+            match IMSMQMessage2_Impl::Delivery(this) {
                 Ok(ok__) => {
                     core::ptr::write(pldelivery, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1425,12 +1425,12 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn SetDelivery<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ldelivery: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDelivery(core::mem::transmute_copy(&ldelivery)).into()
+            IMSMQMessage2_Impl::SetDelivery(this, core::mem::transmute_copy(&ldelivery)).into()
         }
         unsafe extern "system" fn Trace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pltrace: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Trace() {
+            match IMSMQMessage2_Impl::Trace(this) {
                 Ok(ok__) => {
                     core::ptr::write(pltrace, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1441,12 +1441,12 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn SetTrace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ltrace: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTrace(core::mem::transmute_copy(&ltrace)).into()
+            IMSMQMessage2_Impl::SetTrace(this, core::mem::transmute_copy(&ltrace)).into()
         }
         unsafe extern "system" fn Priority<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plpriority: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Priority() {
+            match IMSMQMessage2_Impl::Priority(this) {
                 Ok(ok__) => {
                     core::ptr::write(plpriority, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1457,12 +1457,12 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn SetPriority<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpriority: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPriority(core::mem::transmute_copy(&lpriority)).into()
+            IMSMQMessage2_Impl::SetPriority(this, core::mem::transmute_copy(&lpriority)).into()
         }
         unsafe extern "system" fn Journal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pljournal: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Journal() {
+            match IMSMQMessage2_Impl::Journal(this) {
                 Ok(ok__) => {
                     core::ptr::write(pljournal, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1473,12 +1473,12 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn SetJournal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ljournal: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetJournal(core::mem::transmute_copy(&ljournal)).into()
+            IMSMQMessage2_Impl::SetJournal(this, core::mem::transmute_copy(&ljournal)).into()
         }
         unsafe extern "system" fn ResponseQueueInfo_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinforesponse: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ResponseQueueInfo_v1() {
+            match IMSMQMessage2_Impl::ResponseQueueInfo_v1(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinforesponse, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1489,12 +1489,12 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn putref_ResponseQueueInfo_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqinforesponse: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.putref_ResponseQueueInfo_v1(windows_core::from_raw_borrowed(&pqinforesponse)).into()
+            IMSMQMessage2_Impl::putref_ResponseQueueInfo_v1(this, windows_core::from_raw_borrowed(&pqinforesponse)).into()
         }
         unsafe extern "system" fn AppSpecific<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plappspecific: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AppSpecific() {
+            match IMSMQMessage2_Impl::AppSpecific(this) {
                 Ok(ok__) => {
                     core::ptr::write(plappspecific, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1505,12 +1505,12 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn SetAppSpecific<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lappspecific: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAppSpecific(core::mem::transmute_copy(&lappspecific)).into()
+            IMSMQMessage2_Impl::SetAppSpecific(this, core::mem::transmute_copy(&lappspecific)).into()
         }
         unsafe extern "system" fn SourceMachineGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidsrcmachine: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SourceMachineGuid() {
+            match IMSMQMessage2_Impl::SourceMachineGuid(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrguidsrcmachine, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1521,7 +1521,7 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn BodyLength<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbbody: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BodyLength() {
+            match IMSMQMessage2_Impl::BodyLength(this) {
                 Ok(ok__) => {
                     core::ptr::write(pcbbody, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1532,7 +1532,7 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn Body<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Body() {
+            match IMSMQMessage2_Impl::Body(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarbody, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1543,12 +1543,12 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn SetBody<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varbody: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBody(core::mem::transmute(&varbody)).into()
+            IMSMQMessage2_Impl::SetBody(this, core::mem::transmute(&varbody)).into()
         }
         unsafe extern "system" fn AdminQueueInfo_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinfoadmin: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AdminQueueInfo_v1() {
+            match IMSMQMessage2_Impl::AdminQueueInfo_v1(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfoadmin, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1559,12 +1559,12 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn putref_AdminQueueInfo_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqinfoadmin: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.putref_AdminQueueInfo_v1(windows_core::from_raw_borrowed(&pqinfoadmin)).into()
+            IMSMQMessage2_Impl::putref_AdminQueueInfo_v1(this, windows_core::from_raw_borrowed(&pqinfoadmin)).into()
         }
         unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Id() {
+            match IMSMQMessage2_Impl::Id(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarmsgid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1575,7 +1575,7 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn CorrelationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CorrelationId() {
+            match IMSMQMessage2_Impl::CorrelationId(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarmsgid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1586,12 +1586,12 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn SetCorrelationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varmsgid: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCorrelationId(core::mem::transmute(&varmsgid)).into()
+            IMSMQMessage2_Impl::SetCorrelationId(this, core::mem::transmute(&varmsgid)).into()
         }
         unsafe extern "system" fn Ack<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plack: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Ack() {
+            match IMSMQMessage2_Impl::Ack(this) {
                 Ok(ok__) => {
                     core::ptr::write(plack, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1602,12 +1602,12 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn SetAck<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lack: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAck(core::mem::transmute_copy(&lack)).into()
+            IMSMQMessage2_Impl::SetAck(this, core::mem::transmute_copy(&lack)).into()
         }
         unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlabel: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Label() {
+            match IMSMQMessage2_Impl::Label(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrlabel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1618,12 +1618,12 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn SetLabel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrlabel: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLabel(core::mem::transmute(&bstrlabel)).into()
+            IMSMQMessage2_Impl::SetLabel(this, core::mem::transmute(&bstrlabel)).into()
         }
         unsafe extern "system" fn MaxTimeToReachQueue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmaxtimetoreachqueue: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MaxTimeToReachQueue() {
+            match IMSMQMessage2_Impl::MaxTimeToReachQueue(this) {
                 Ok(ok__) => {
                     core::ptr::write(plmaxtimetoreachqueue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1634,12 +1634,12 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn SetMaxTimeToReachQueue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmaxtimetoreachqueue: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMaxTimeToReachQueue(core::mem::transmute_copy(&lmaxtimetoreachqueue)).into()
+            IMSMQMessage2_Impl::SetMaxTimeToReachQueue(this, core::mem::transmute_copy(&lmaxtimetoreachqueue)).into()
         }
         unsafe extern "system" fn MaxTimeToReceive<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmaxtimetoreceive: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MaxTimeToReceive() {
+            match IMSMQMessage2_Impl::MaxTimeToReceive(this) {
                 Ok(ok__) => {
                     core::ptr::write(plmaxtimetoreceive, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1650,12 +1650,12 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn SetMaxTimeToReceive<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmaxtimetoreceive: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMaxTimeToReceive(core::mem::transmute_copy(&lmaxtimetoreceive)).into()
+            IMSMQMessage2_Impl::SetMaxTimeToReceive(this, core::mem::transmute_copy(&lmaxtimetoreceive)).into()
         }
         unsafe extern "system" fn HashAlgorithm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plhashalg: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.HashAlgorithm() {
+            match IMSMQMessage2_Impl::HashAlgorithm(this) {
                 Ok(ok__) => {
                     core::ptr::write(plhashalg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1666,12 +1666,12 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn SetHashAlgorithm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lhashalg: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetHashAlgorithm(core::mem::transmute_copy(&lhashalg)).into()
+            IMSMQMessage2_Impl::SetHashAlgorithm(this, core::mem::transmute_copy(&lhashalg)).into()
         }
         unsafe extern "system" fn EncryptAlgorithm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plencryptalg: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EncryptAlgorithm() {
+            match IMSMQMessage2_Impl::EncryptAlgorithm(this) {
                 Ok(ok__) => {
                     core::ptr::write(plencryptalg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1682,12 +1682,12 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn SetEncryptAlgorithm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lencryptalg: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEncryptAlgorithm(core::mem::transmute_copy(&lencryptalg)).into()
+            IMSMQMessage2_Impl::SetEncryptAlgorithm(this, core::mem::transmute_copy(&lencryptalg)).into()
         }
         unsafe extern "system" fn SentTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenttime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SentTime() {
+            match IMSMQMessage2_Impl::SentTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarsenttime, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1698,7 +1698,7 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn ArrivedTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plarrivedtime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ArrivedTime() {
+            match IMSMQMessage2_Impl::ArrivedTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(plarrivedtime, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1709,7 +1709,7 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn DestinationQueueInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinfodest: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DestinationQueueInfo() {
+            match IMSMQMessage2_Impl::DestinationQueueInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfodest, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1720,7 +1720,7 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn SenderCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsendercert: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SenderCertificate() {
+            match IMSMQMessage2_Impl::SenderCertificate(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarsendercert, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1731,12 +1731,12 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn SetSenderCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsendercert: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSenderCertificate(core::mem::transmute(&varsendercert)).into()
+            IMSMQMessage2_Impl::SetSenderCertificate(this, core::mem::transmute(&varsendercert)).into()
         }
         unsafe extern "system" fn SenderId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenderid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SenderId() {
+            match IMSMQMessage2_Impl::SenderId(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarsenderid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1747,7 +1747,7 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn SenderIdType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plsenderidtype: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SenderIdType() {
+            match IMSMQMessage2_Impl::SenderIdType(this) {
                 Ok(ok__) => {
                     core::ptr::write(plsenderidtype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1758,22 +1758,22 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn SetSenderIdType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lsenderidtype: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSenderIdType(core::mem::transmute_copy(&lsenderidtype)).into()
+            IMSMQMessage2_Impl::SetSenderIdType(this, core::mem::transmute_copy(&lsenderidtype)).into()
         }
         unsafe extern "system" fn Send<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationqueue: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Send(windows_core::from_raw_borrowed(&destinationqueue), core::mem::transmute_copy(&transaction)).into()
+            IMSMQMessage2_Impl::Send(this, windows_core::from_raw_borrowed(&destinationqueue), core::mem::transmute_copy(&transaction)).into()
         }
         unsafe extern "system" fn AttachCurrentSecurityContext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AttachCurrentSecurityContext().into()
+            IMSMQMessage2_Impl::AttachCurrentSecurityContext(this).into()
         }
         unsafe extern "system" fn SenderVersion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plsenderversion: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SenderVersion() {
+            match IMSMQMessage2_Impl::SenderVersion(this) {
                 Ok(ok__) => {
                     core::ptr::write(plsenderversion, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1784,7 +1784,7 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn Extension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarextension: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Extension() {
+            match IMSMQMessage2_Impl::Extension(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarextension, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1795,12 +1795,12 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn SetExtension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varextension: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetExtension(core::mem::transmute(&varextension)).into()
+            IMSMQMessage2_Impl::SetExtension(this, core::mem::transmute(&varextension)).into()
         }
         unsafe extern "system" fn ConnectorTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidconnectortype: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ConnectorTypeGuid() {
+            match IMSMQMessage2_Impl::ConnectorTypeGuid(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrguidconnectortype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1811,12 +1811,12 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn SetConnectorTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguidconnectortype: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetConnectorTypeGuid(core::mem::transmute(&bstrguidconnectortype)).into()
+            IMSMQMessage2_Impl::SetConnectorTypeGuid(this, core::mem::transmute(&bstrguidconnectortype)).into()
         }
         unsafe extern "system" fn TransactionStatusQueueInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinfoxactstatus: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TransactionStatusQueueInfo() {
+            match IMSMQMessage2_Impl::TransactionStatusQueueInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfoxactstatus, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1827,7 +1827,7 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn DestinationSymmetricKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvardestsymmkey: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DestinationSymmetricKey() {
+            match IMSMQMessage2_Impl::DestinationSymmetricKey(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvardestsymmkey, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1838,12 +1838,12 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn SetDestinationSymmetricKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardestsymmkey: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDestinationSymmetricKey(core::mem::transmute(&vardestsymmkey)).into()
+            IMSMQMessage2_Impl::SetDestinationSymmetricKey(this, core::mem::transmute(&vardestsymmkey)).into()
         }
         unsafe extern "system" fn Signature<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsignature: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Signature() {
+            match IMSMQMessage2_Impl::Signature(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarsignature, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1854,12 +1854,12 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn SetSignature<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsignature: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSignature(core::mem::transmute(&varsignature)).into()
+            IMSMQMessage2_Impl::SetSignature(this, core::mem::transmute(&varsignature)).into()
         }
         unsafe extern "system" fn AuthenticationProviderType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plauthprovtype: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AuthenticationProviderType() {
+            match IMSMQMessage2_Impl::AuthenticationProviderType(this) {
                 Ok(ok__) => {
                     core::ptr::write(plauthprovtype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1870,12 +1870,12 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn SetAuthenticationProviderType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lauthprovtype: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAuthenticationProviderType(core::mem::transmute_copy(&lauthprovtype)).into()
+            IMSMQMessage2_Impl::SetAuthenticationProviderType(this, core::mem::transmute_copy(&lauthprovtype)).into()
         }
         unsafe extern "system" fn AuthenticationProviderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrauthprovname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AuthenticationProviderName() {
+            match IMSMQMessage2_Impl::AuthenticationProviderName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrauthprovname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1886,17 +1886,17 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn SetAuthenticationProviderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrauthprovname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAuthenticationProviderName(core::mem::transmute(&bstrauthprovname)).into()
+            IMSMQMessage2_Impl::SetAuthenticationProviderName(this, core::mem::transmute(&bstrauthprovname)).into()
         }
         unsafe extern "system" fn SetSenderId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsenderid: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSenderId(core::mem::transmute(&varsenderid)).into()
+            IMSMQMessage2_Impl::SetSenderId(this, core::mem::transmute(&varsenderid)).into()
         }
         unsafe extern "system" fn MsgClass<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmsgclass: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MsgClass() {
+            match IMSMQMessage2_Impl::MsgClass(this) {
                 Ok(ok__) => {
                     core::ptr::write(plmsgclass, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1907,12 +1907,12 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn SetMsgClass<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmsgclass: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMsgClass(core::mem::transmute_copy(&lmsgclass)).into()
+            IMSMQMessage2_Impl::SetMsgClass(this, core::mem::transmute_copy(&lmsgclass)).into()
         }
         unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcolproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Properties() {
+            match IMSMQMessage2_Impl::Properties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1923,7 +1923,7 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn TransactionId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarxactid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TransactionId() {
+            match IMSMQMessage2_Impl::TransactionId(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarxactid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1934,7 +1934,7 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn IsFirstInTransaction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisfirstinxact: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsFirstInTransaction() {
+            match IMSMQMessage2_Impl::IsFirstInTransaction(this) {
                 Ok(ok__) => {
                     core::ptr::write(pisfirstinxact, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1945,7 +1945,7 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn IsLastInTransaction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pislastinxact: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsLastInTransaction() {
+            match IMSMQMessage2_Impl::IsLastInTransaction(this) {
                 Ok(ok__) => {
                     core::ptr::write(pislastinxact, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1956,7 +1956,7 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn ResponseQueueInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinforesponse: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ResponseQueueInfo() {
+            match IMSMQMessage2_Impl::ResponseQueueInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinforesponse, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1967,12 +1967,12 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn putref_ResponseQueueInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqinforesponse: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.putref_ResponseQueueInfo(windows_core::from_raw_borrowed(&pqinforesponse)).into()
+            IMSMQMessage2_Impl::putref_ResponseQueueInfo(this, windows_core::from_raw_borrowed(&pqinforesponse)).into()
         }
         unsafe extern "system" fn AdminQueueInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinfoadmin: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AdminQueueInfo() {
+            match IMSMQMessage2_Impl::AdminQueueInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfoadmin, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -1983,12 +1983,12 @@ impl IMSMQMessage2_Vtbl {
         unsafe extern "system" fn putref_AdminQueueInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqinfoadmin: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.putref_AdminQueueInfo(windows_core::from_raw_borrowed(&pqinfoadmin)).into()
+            IMSMQMessage2_Impl::putref_AdminQueueInfo(this, windows_core::from_raw_borrowed(&pqinfoadmin)).into()
         }
         unsafe extern "system" fn ReceivedAuthenticationLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psreceivedauthenticationlevel: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReceivedAuthenticationLevel() {
+            match IMSMQMessage2_Impl::ReceivedAuthenticationLevel(this) {
                 Ok(ok__) => {
                     core::ptr::write(psreceivedauthenticationlevel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2181,7 +2181,7 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn Class<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plclass: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Class() {
+            match IMSMQMessage3_Impl::Class(this) {
                 Ok(ok__) => {
                     core::ptr::write(plclass, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2192,7 +2192,7 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn PrivLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plprivlevel: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PrivLevel() {
+            match IMSMQMessage3_Impl::PrivLevel(this) {
                 Ok(ok__) => {
                     core::ptr::write(plprivlevel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2203,12 +2203,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn SetPrivLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lprivlevel: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPrivLevel(core::mem::transmute_copy(&lprivlevel)).into()
+            IMSMQMessage3_Impl::SetPrivLevel(this, core::mem::transmute_copy(&lprivlevel)).into()
         }
         unsafe extern "system" fn AuthLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plauthlevel: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AuthLevel() {
+            match IMSMQMessage3_Impl::AuthLevel(this) {
                 Ok(ok__) => {
                     core::ptr::write(plauthlevel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2219,12 +2219,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn SetAuthLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lauthlevel: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAuthLevel(core::mem::transmute_copy(&lauthlevel)).into()
+            IMSMQMessage3_Impl::SetAuthLevel(this, core::mem::transmute_copy(&lauthlevel)).into()
         }
         unsafe extern "system" fn IsAuthenticated<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisauthenticated: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsAuthenticated() {
+            match IMSMQMessage3_Impl::IsAuthenticated(this) {
                 Ok(ok__) => {
                     core::ptr::write(pisauthenticated, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2235,7 +2235,7 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn Delivery<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pldelivery: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Delivery() {
+            match IMSMQMessage3_Impl::Delivery(this) {
                 Ok(ok__) => {
                     core::ptr::write(pldelivery, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2246,12 +2246,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn SetDelivery<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ldelivery: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDelivery(core::mem::transmute_copy(&ldelivery)).into()
+            IMSMQMessage3_Impl::SetDelivery(this, core::mem::transmute_copy(&ldelivery)).into()
         }
         unsafe extern "system" fn Trace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pltrace: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Trace() {
+            match IMSMQMessage3_Impl::Trace(this) {
                 Ok(ok__) => {
                     core::ptr::write(pltrace, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2262,12 +2262,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn SetTrace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ltrace: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTrace(core::mem::transmute_copy(&ltrace)).into()
+            IMSMQMessage3_Impl::SetTrace(this, core::mem::transmute_copy(&ltrace)).into()
         }
         unsafe extern "system" fn Priority<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plpriority: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Priority() {
+            match IMSMQMessage3_Impl::Priority(this) {
                 Ok(ok__) => {
                     core::ptr::write(plpriority, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2278,12 +2278,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn SetPriority<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpriority: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPriority(core::mem::transmute_copy(&lpriority)).into()
+            IMSMQMessage3_Impl::SetPriority(this, core::mem::transmute_copy(&lpriority)).into()
         }
         unsafe extern "system" fn Journal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pljournal: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Journal() {
+            match IMSMQMessage3_Impl::Journal(this) {
                 Ok(ok__) => {
                     core::ptr::write(pljournal, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2294,12 +2294,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn SetJournal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ljournal: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetJournal(core::mem::transmute_copy(&ljournal)).into()
+            IMSMQMessage3_Impl::SetJournal(this, core::mem::transmute_copy(&ljournal)).into()
         }
         unsafe extern "system" fn ResponseQueueInfo_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinforesponse: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ResponseQueueInfo_v1() {
+            match IMSMQMessage3_Impl::ResponseQueueInfo_v1(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinforesponse, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2310,12 +2310,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn putref_ResponseQueueInfo_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqinforesponse: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.putref_ResponseQueueInfo_v1(windows_core::from_raw_borrowed(&pqinforesponse)).into()
+            IMSMQMessage3_Impl::putref_ResponseQueueInfo_v1(this, windows_core::from_raw_borrowed(&pqinforesponse)).into()
         }
         unsafe extern "system" fn AppSpecific<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plappspecific: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AppSpecific() {
+            match IMSMQMessage3_Impl::AppSpecific(this) {
                 Ok(ok__) => {
                     core::ptr::write(plappspecific, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2326,12 +2326,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn SetAppSpecific<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lappspecific: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAppSpecific(core::mem::transmute_copy(&lappspecific)).into()
+            IMSMQMessage3_Impl::SetAppSpecific(this, core::mem::transmute_copy(&lappspecific)).into()
         }
         unsafe extern "system" fn SourceMachineGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidsrcmachine: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SourceMachineGuid() {
+            match IMSMQMessage3_Impl::SourceMachineGuid(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrguidsrcmachine, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2342,7 +2342,7 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn BodyLength<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbbody: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BodyLength() {
+            match IMSMQMessage3_Impl::BodyLength(this) {
                 Ok(ok__) => {
                     core::ptr::write(pcbbody, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2353,7 +2353,7 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn Body<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Body() {
+            match IMSMQMessage3_Impl::Body(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarbody, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2364,12 +2364,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn SetBody<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varbody: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBody(core::mem::transmute(&varbody)).into()
+            IMSMQMessage3_Impl::SetBody(this, core::mem::transmute(&varbody)).into()
         }
         unsafe extern "system" fn AdminQueueInfo_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinfoadmin: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AdminQueueInfo_v1() {
+            match IMSMQMessage3_Impl::AdminQueueInfo_v1(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfoadmin, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2380,12 +2380,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn putref_AdminQueueInfo_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqinfoadmin: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.putref_AdminQueueInfo_v1(windows_core::from_raw_borrowed(&pqinfoadmin)).into()
+            IMSMQMessage3_Impl::putref_AdminQueueInfo_v1(this, windows_core::from_raw_borrowed(&pqinfoadmin)).into()
         }
         unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Id() {
+            match IMSMQMessage3_Impl::Id(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarmsgid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2396,7 +2396,7 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn CorrelationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CorrelationId() {
+            match IMSMQMessage3_Impl::CorrelationId(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarmsgid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2407,12 +2407,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn SetCorrelationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varmsgid: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCorrelationId(core::mem::transmute(&varmsgid)).into()
+            IMSMQMessage3_Impl::SetCorrelationId(this, core::mem::transmute(&varmsgid)).into()
         }
         unsafe extern "system" fn Ack<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plack: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Ack() {
+            match IMSMQMessage3_Impl::Ack(this) {
                 Ok(ok__) => {
                     core::ptr::write(plack, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2423,12 +2423,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn SetAck<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lack: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAck(core::mem::transmute_copy(&lack)).into()
+            IMSMQMessage3_Impl::SetAck(this, core::mem::transmute_copy(&lack)).into()
         }
         unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlabel: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Label() {
+            match IMSMQMessage3_Impl::Label(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrlabel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2439,12 +2439,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn SetLabel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrlabel: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLabel(core::mem::transmute(&bstrlabel)).into()
+            IMSMQMessage3_Impl::SetLabel(this, core::mem::transmute(&bstrlabel)).into()
         }
         unsafe extern "system" fn MaxTimeToReachQueue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmaxtimetoreachqueue: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MaxTimeToReachQueue() {
+            match IMSMQMessage3_Impl::MaxTimeToReachQueue(this) {
                 Ok(ok__) => {
                     core::ptr::write(plmaxtimetoreachqueue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2455,12 +2455,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn SetMaxTimeToReachQueue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmaxtimetoreachqueue: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMaxTimeToReachQueue(core::mem::transmute_copy(&lmaxtimetoreachqueue)).into()
+            IMSMQMessage3_Impl::SetMaxTimeToReachQueue(this, core::mem::transmute_copy(&lmaxtimetoreachqueue)).into()
         }
         unsafe extern "system" fn MaxTimeToReceive<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmaxtimetoreceive: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MaxTimeToReceive() {
+            match IMSMQMessage3_Impl::MaxTimeToReceive(this) {
                 Ok(ok__) => {
                     core::ptr::write(plmaxtimetoreceive, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2471,12 +2471,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn SetMaxTimeToReceive<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmaxtimetoreceive: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMaxTimeToReceive(core::mem::transmute_copy(&lmaxtimetoreceive)).into()
+            IMSMQMessage3_Impl::SetMaxTimeToReceive(this, core::mem::transmute_copy(&lmaxtimetoreceive)).into()
         }
         unsafe extern "system" fn HashAlgorithm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plhashalg: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.HashAlgorithm() {
+            match IMSMQMessage3_Impl::HashAlgorithm(this) {
                 Ok(ok__) => {
                     core::ptr::write(plhashalg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2487,12 +2487,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn SetHashAlgorithm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lhashalg: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetHashAlgorithm(core::mem::transmute_copy(&lhashalg)).into()
+            IMSMQMessage3_Impl::SetHashAlgorithm(this, core::mem::transmute_copy(&lhashalg)).into()
         }
         unsafe extern "system" fn EncryptAlgorithm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plencryptalg: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EncryptAlgorithm() {
+            match IMSMQMessage3_Impl::EncryptAlgorithm(this) {
                 Ok(ok__) => {
                     core::ptr::write(plencryptalg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2503,12 +2503,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn SetEncryptAlgorithm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lencryptalg: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEncryptAlgorithm(core::mem::transmute_copy(&lencryptalg)).into()
+            IMSMQMessage3_Impl::SetEncryptAlgorithm(this, core::mem::transmute_copy(&lencryptalg)).into()
         }
         unsafe extern "system" fn SentTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenttime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SentTime() {
+            match IMSMQMessage3_Impl::SentTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarsenttime, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2519,7 +2519,7 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn ArrivedTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plarrivedtime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ArrivedTime() {
+            match IMSMQMessage3_Impl::ArrivedTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(plarrivedtime, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2530,7 +2530,7 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn DestinationQueueInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinfodest: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DestinationQueueInfo() {
+            match IMSMQMessage3_Impl::DestinationQueueInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfodest, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2541,7 +2541,7 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn SenderCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsendercert: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SenderCertificate() {
+            match IMSMQMessage3_Impl::SenderCertificate(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarsendercert, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2552,12 +2552,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn SetSenderCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsendercert: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSenderCertificate(core::mem::transmute(&varsendercert)).into()
+            IMSMQMessage3_Impl::SetSenderCertificate(this, core::mem::transmute(&varsendercert)).into()
         }
         unsafe extern "system" fn SenderId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenderid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SenderId() {
+            match IMSMQMessage3_Impl::SenderId(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarsenderid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2568,7 +2568,7 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn SenderIdType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plsenderidtype: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SenderIdType() {
+            match IMSMQMessage3_Impl::SenderIdType(this) {
                 Ok(ok__) => {
                     core::ptr::write(plsenderidtype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2579,22 +2579,22 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn SetSenderIdType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lsenderidtype: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSenderIdType(core::mem::transmute_copy(&lsenderidtype)).into()
+            IMSMQMessage3_Impl::SetSenderIdType(this, core::mem::transmute_copy(&lsenderidtype)).into()
         }
         unsafe extern "system" fn Send<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationqueue: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Send(windows_core::from_raw_borrowed(&destinationqueue), core::mem::transmute_copy(&transaction)).into()
+            IMSMQMessage3_Impl::Send(this, windows_core::from_raw_borrowed(&destinationqueue), core::mem::transmute_copy(&transaction)).into()
         }
         unsafe extern "system" fn AttachCurrentSecurityContext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AttachCurrentSecurityContext().into()
+            IMSMQMessage3_Impl::AttachCurrentSecurityContext(this).into()
         }
         unsafe extern "system" fn SenderVersion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plsenderversion: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SenderVersion() {
+            match IMSMQMessage3_Impl::SenderVersion(this) {
                 Ok(ok__) => {
                     core::ptr::write(plsenderversion, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2605,7 +2605,7 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn Extension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarextension: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Extension() {
+            match IMSMQMessage3_Impl::Extension(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarextension, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2616,12 +2616,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn SetExtension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varextension: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetExtension(core::mem::transmute(&varextension)).into()
+            IMSMQMessage3_Impl::SetExtension(this, core::mem::transmute(&varextension)).into()
         }
         unsafe extern "system" fn ConnectorTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidconnectortype: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ConnectorTypeGuid() {
+            match IMSMQMessage3_Impl::ConnectorTypeGuid(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrguidconnectortype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2632,12 +2632,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn SetConnectorTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguidconnectortype: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetConnectorTypeGuid(core::mem::transmute(&bstrguidconnectortype)).into()
+            IMSMQMessage3_Impl::SetConnectorTypeGuid(this, core::mem::transmute(&bstrguidconnectortype)).into()
         }
         unsafe extern "system" fn TransactionStatusQueueInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinfoxactstatus: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TransactionStatusQueueInfo() {
+            match IMSMQMessage3_Impl::TransactionStatusQueueInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfoxactstatus, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2648,7 +2648,7 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn DestinationSymmetricKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvardestsymmkey: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DestinationSymmetricKey() {
+            match IMSMQMessage3_Impl::DestinationSymmetricKey(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvardestsymmkey, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2659,12 +2659,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn SetDestinationSymmetricKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardestsymmkey: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDestinationSymmetricKey(core::mem::transmute(&vardestsymmkey)).into()
+            IMSMQMessage3_Impl::SetDestinationSymmetricKey(this, core::mem::transmute(&vardestsymmkey)).into()
         }
         unsafe extern "system" fn Signature<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsignature: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Signature() {
+            match IMSMQMessage3_Impl::Signature(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarsignature, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2675,12 +2675,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn SetSignature<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsignature: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSignature(core::mem::transmute(&varsignature)).into()
+            IMSMQMessage3_Impl::SetSignature(this, core::mem::transmute(&varsignature)).into()
         }
         unsafe extern "system" fn AuthenticationProviderType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plauthprovtype: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AuthenticationProviderType() {
+            match IMSMQMessage3_Impl::AuthenticationProviderType(this) {
                 Ok(ok__) => {
                     core::ptr::write(plauthprovtype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2691,12 +2691,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn SetAuthenticationProviderType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lauthprovtype: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAuthenticationProviderType(core::mem::transmute_copy(&lauthprovtype)).into()
+            IMSMQMessage3_Impl::SetAuthenticationProviderType(this, core::mem::transmute_copy(&lauthprovtype)).into()
         }
         unsafe extern "system" fn AuthenticationProviderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrauthprovname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AuthenticationProviderName() {
+            match IMSMQMessage3_Impl::AuthenticationProviderName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrauthprovname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2707,17 +2707,17 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn SetAuthenticationProviderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrauthprovname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAuthenticationProviderName(core::mem::transmute(&bstrauthprovname)).into()
+            IMSMQMessage3_Impl::SetAuthenticationProviderName(this, core::mem::transmute(&bstrauthprovname)).into()
         }
         unsafe extern "system" fn SetSenderId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsenderid: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSenderId(core::mem::transmute(&varsenderid)).into()
+            IMSMQMessage3_Impl::SetSenderId(this, core::mem::transmute(&varsenderid)).into()
         }
         unsafe extern "system" fn MsgClass<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmsgclass: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MsgClass() {
+            match IMSMQMessage3_Impl::MsgClass(this) {
                 Ok(ok__) => {
                     core::ptr::write(plmsgclass, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2728,12 +2728,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn SetMsgClass<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmsgclass: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMsgClass(core::mem::transmute_copy(&lmsgclass)).into()
+            IMSMQMessage3_Impl::SetMsgClass(this, core::mem::transmute_copy(&lmsgclass)).into()
         }
         unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcolproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Properties() {
+            match IMSMQMessage3_Impl::Properties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2744,7 +2744,7 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn TransactionId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarxactid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TransactionId() {
+            match IMSMQMessage3_Impl::TransactionId(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarxactid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2755,7 +2755,7 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn IsFirstInTransaction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisfirstinxact: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsFirstInTransaction() {
+            match IMSMQMessage3_Impl::IsFirstInTransaction(this) {
                 Ok(ok__) => {
                     core::ptr::write(pisfirstinxact, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2766,7 +2766,7 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn IsLastInTransaction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pislastinxact: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsLastInTransaction() {
+            match IMSMQMessage3_Impl::IsLastInTransaction(this) {
                 Ok(ok__) => {
                     core::ptr::write(pislastinxact, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2777,7 +2777,7 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn ResponseQueueInfo_v2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinforesponse: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ResponseQueueInfo_v2() {
+            match IMSMQMessage3_Impl::ResponseQueueInfo_v2(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinforesponse, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2788,12 +2788,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn putref_ResponseQueueInfo_v2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqinforesponse: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.putref_ResponseQueueInfo_v2(windows_core::from_raw_borrowed(&pqinforesponse)).into()
+            IMSMQMessage3_Impl::putref_ResponseQueueInfo_v2(this, windows_core::from_raw_borrowed(&pqinforesponse)).into()
         }
         unsafe extern "system" fn AdminQueueInfo_v2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinfoadmin: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AdminQueueInfo_v2() {
+            match IMSMQMessage3_Impl::AdminQueueInfo_v2(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfoadmin, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2804,12 +2804,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn putref_AdminQueueInfo_v2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqinfoadmin: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.putref_AdminQueueInfo_v2(windows_core::from_raw_borrowed(&pqinfoadmin)).into()
+            IMSMQMessage3_Impl::putref_AdminQueueInfo_v2(this, windows_core::from_raw_borrowed(&pqinfoadmin)).into()
         }
         unsafe extern "system" fn ReceivedAuthenticationLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psreceivedauthenticationlevel: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReceivedAuthenticationLevel() {
+            match IMSMQMessage3_Impl::ReceivedAuthenticationLevel(this) {
                 Ok(ok__) => {
                     core::ptr::write(psreceivedauthenticationlevel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2820,7 +2820,7 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn ResponseQueueInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinforesponse: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ResponseQueueInfo() {
+            match IMSMQMessage3_Impl::ResponseQueueInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinforesponse, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2831,12 +2831,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn putref_ResponseQueueInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqinforesponse: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.putref_ResponseQueueInfo(windows_core::from_raw_borrowed(&pqinforesponse)).into()
+            IMSMQMessage3_Impl::putref_ResponseQueueInfo(this, windows_core::from_raw_borrowed(&pqinforesponse)).into()
         }
         unsafe extern "system" fn AdminQueueInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinfoadmin: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AdminQueueInfo() {
+            match IMSMQMessage3_Impl::AdminQueueInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfoadmin, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2847,12 +2847,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn putref_AdminQueueInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqinfoadmin: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.putref_AdminQueueInfo(windows_core::from_raw_borrowed(&pqinfoadmin)).into()
+            IMSMQMessage3_Impl::putref_AdminQueueInfo(this, windows_core::from_raw_borrowed(&pqinfoadmin)).into()
         }
         unsafe extern "system" fn ResponseDestination<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdestresponse: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ResponseDestination() {
+            match IMSMQMessage3_Impl::ResponseDestination(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppdestresponse, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2863,12 +2863,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn putref_ResponseDestination<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdestresponse: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.putref_ResponseDestination(windows_core::from_raw_borrowed(&pdestresponse)).into()
+            IMSMQMessage3_Impl::putref_ResponseDestination(this, windows_core::from_raw_borrowed(&pdestresponse)).into()
         }
         unsafe extern "system" fn Destination<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdestdestination: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Destination() {
+            match IMSMQMessage3_Impl::Destination(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppdestdestination, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2879,7 +2879,7 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn LookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarlookupid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LookupId() {
+            match IMSMQMessage3_Impl::LookupId(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarlookupid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2890,7 +2890,7 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn IsAuthenticated2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisauthenticated: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsAuthenticated2() {
+            match IMSMQMessage3_Impl::IsAuthenticated2(this) {
                 Ok(ok__) => {
                     core::ptr::write(pisauthenticated, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2901,7 +2901,7 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn IsFirstInTransaction2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisfirstinxact: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsFirstInTransaction2() {
+            match IMSMQMessage3_Impl::IsFirstInTransaction2(this) {
                 Ok(ok__) => {
                     core::ptr::write(pisfirstinxact, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2912,7 +2912,7 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn IsLastInTransaction2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pislastinxact: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsLastInTransaction2() {
+            match IMSMQMessage3_Impl::IsLastInTransaction2(this) {
                 Ok(ok__) => {
                     core::ptr::write(pislastinxact, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2923,12 +2923,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn AttachCurrentSecurityContext2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AttachCurrentSecurityContext2().into()
+            IMSMQMessage3_Impl::AttachCurrentSecurityContext2(this).into()
         }
         unsafe extern "system" fn SoapEnvelope<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsoapenvelope: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SoapEnvelope() {
+            match IMSMQMessage3_Impl::SoapEnvelope(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrsoapenvelope, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2939,7 +2939,7 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn CompoundMessage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcompoundmessage: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CompoundMessage() {
+            match IMSMQMessage3_Impl::CompoundMessage(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarcompoundmessage, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -2950,12 +2950,12 @@ impl IMSMQMessage3_Vtbl {
         unsafe extern "system" fn SetSoapHeader<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsoapheader: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSoapHeader(core::mem::transmute(&bstrsoapheader)).into()
+            IMSMQMessage3_Impl::SetSoapHeader(this, core::mem::transmute(&bstrsoapheader)).into()
         }
         unsafe extern "system" fn SetSoapBody<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsoapbody: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSoapBody(core::mem::transmute(&bstrsoapbody)).into()
+            IMSMQMessage3_Impl::SetSoapBody(this, core::mem::transmute(&bstrsoapbody)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3158,7 +3158,7 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn Class<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plclass: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Class() {
+            match IMSMQMessage4_Impl::Class(this) {
                 Ok(ok__) => {
                     core::ptr::write(plclass, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3169,7 +3169,7 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn PrivLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plprivlevel: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PrivLevel() {
+            match IMSMQMessage4_Impl::PrivLevel(this) {
                 Ok(ok__) => {
                     core::ptr::write(plprivlevel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3180,12 +3180,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn SetPrivLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lprivlevel: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPrivLevel(core::mem::transmute_copy(&lprivlevel)).into()
+            IMSMQMessage4_Impl::SetPrivLevel(this, core::mem::transmute_copy(&lprivlevel)).into()
         }
         unsafe extern "system" fn AuthLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plauthlevel: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AuthLevel() {
+            match IMSMQMessage4_Impl::AuthLevel(this) {
                 Ok(ok__) => {
                     core::ptr::write(plauthlevel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3196,12 +3196,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn SetAuthLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lauthlevel: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAuthLevel(core::mem::transmute_copy(&lauthlevel)).into()
+            IMSMQMessage4_Impl::SetAuthLevel(this, core::mem::transmute_copy(&lauthlevel)).into()
         }
         unsafe extern "system" fn IsAuthenticated<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisauthenticated: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsAuthenticated() {
+            match IMSMQMessage4_Impl::IsAuthenticated(this) {
                 Ok(ok__) => {
                     core::ptr::write(pisauthenticated, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3212,7 +3212,7 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn Delivery<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pldelivery: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Delivery() {
+            match IMSMQMessage4_Impl::Delivery(this) {
                 Ok(ok__) => {
                     core::ptr::write(pldelivery, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3223,12 +3223,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn SetDelivery<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ldelivery: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDelivery(core::mem::transmute_copy(&ldelivery)).into()
+            IMSMQMessage4_Impl::SetDelivery(this, core::mem::transmute_copy(&ldelivery)).into()
         }
         unsafe extern "system" fn Trace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pltrace: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Trace() {
+            match IMSMQMessage4_Impl::Trace(this) {
                 Ok(ok__) => {
                     core::ptr::write(pltrace, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3239,12 +3239,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn SetTrace<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ltrace: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTrace(core::mem::transmute_copy(&ltrace)).into()
+            IMSMQMessage4_Impl::SetTrace(this, core::mem::transmute_copy(&ltrace)).into()
         }
         unsafe extern "system" fn Priority<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plpriority: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Priority() {
+            match IMSMQMessage4_Impl::Priority(this) {
                 Ok(ok__) => {
                     core::ptr::write(plpriority, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3255,12 +3255,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn SetPriority<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpriority: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPriority(core::mem::transmute_copy(&lpriority)).into()
+            IMSMQMessage4_Impl::SetPriority(this, core::mem::transmute_copy(&lpriority)).into()
         }
         unsafe extern "system" fn Journal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pljournal: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Journal() {
+            match IMSMQMessage4_Impl::Journal(this) {
                 Ok(ok__) => {
                     core::ptr::write(pljournal, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3271,12 +3271,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn SetJournal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ljournal: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetJournal(core::mem::transmute_copy(&ljournal)).into()
+            IMSMQMessage4_Impl::SetJournal(this, core::mem::transmute_copy(&ljournal)).into()
         }
         unsafe extern "system" fn ResponseQueueInfo_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinforesponse: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ResponseQueueInfo_v1() {
+            match IMSMQMessage4_Impl::ResponseQueueInfo_v1(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinforesponse, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3287,12 +3287,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn putref_ResponseQueueInfo_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqinforesponse: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.putref_ResponseQueueInfo_v1(windows_core::from_raw_borrowed(&pqinforesponse)).into()
+            IMSMQMessage4_Impl::putref_ResponseQueueInfo_v1(this, windows_core::from_raw_borrowed(&pqinforesponse)).into()
         }
         unsafe extern "system" fn AppSpecific<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plappspecific: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AppSpecific() {
+            match IMSMQMessage4_Impl::AppSpecific(this) {
                 Ok(ok__) => {
                     core::ptr::write(plappspecific, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3303,12 +3303,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn SetAppSpecific<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lappspecific: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAppSpecific(core::mem::transmute_copy(&lappspecific)).into()
+            IMSMQMessage4_Impl::SetAppSpecific(this, core::mem::transmute_copy(&lappspecific)).into()
         }
         unsafe extern "system" fn SourceMachineGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidsrcmachine: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SourceMachineGuid() {
+            match IMSMQMessage4_Impl::SourceMachineGuid(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrguidsrcmachine, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3319,7 +3319,7 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn BodyLength<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbbody: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BodyLength() {
+            match IMSMQMessage4_Impl::BodyLength(this) {
                 Ok(ok__) => {
                     core::ptr::write(pcbbody, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3330,7 +3330,7 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn Body<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Body() {
+            match IMSMQMessage4_Impl::Body(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarbody, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3341,12 +3341,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn SetBody<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varbody: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBody(core::mem::transmute(&varbody)).into()
+            IMSMQMessage4_Impl::SetBody(this, core::mem::transmute(&varbody)).into()
         }
         unsafe extern "system" fn AdminQueueInfo_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinfoadmin: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AdminQueueInfo_v1() {
+            match IMSMQMessage4_Impl::AdminQueueInfo_v1(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfoadmin, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3357,12 +3357,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn putref_AdminQueueInfo_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqinfoadmin: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.putref_AdminQueueInfo_v1(windows_core::from_raw_borrowed(&pqinfoadmin)).into()
+            IMSMQMessage4_Impl::putref_AdminQueueInfo_v1(this, windows_core::from_raw_borrowed(&pqinfoadmin)).into()
         }
         unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Id() {
+            match IMSMQMessage4_Impl::Id(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarmsgid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3373,7 +3373,7 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn CorrelationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmsgid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CorrelationId() {
+            match IMSMQMessage4_Impl::CorrelationId(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarmsgid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3384,12 +3384,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn SetCorrelationId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varmsgid: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCorrelationId(core::mem::transmute(&varmsgid)).into()
+            IMSMQMessage4_Impl::SetCorrelationId(this, core::mem::transmute(&varmsgid)).into()
         }
         unsafe extern "system" fn Ack<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plack: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Ack() {
+            match IMSMQMessage4_Impl::Ack(this) {
                 Ok(ok__) => {
                     core::ptr::write(plack, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3400,12 +3400,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn SetAck<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lack: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAck(core::mem::transmute_copy(&lack)).into()
+            IMSMQMessage4_Impl::SetAck(this, core::mem::transmute_copy(&lack)).into()
         }
         unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlabel: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Label() {
+            match IMSMQMessage4_Impl::Label(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrlabel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3416,12 +3416,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn SetLabel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrlabel: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLabel(core::mem::transmute(&bstrlabel)).into()
+            IMSMQMessage4_Impl::SetLabel(this, core::mem::transmute(&bstrlabel)).into()
         }
         unsafe extern "system" fn MaxTimeToReachQueue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmaxtimetoreachqueue: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MaxTimeToReachQueue() {
+            match IMSMQMessage4_Impl::MaxTimeToReachQueue(this) {
                 Ok(ok__) => {
                     core::ptr::write(plmaxtimetoreachqueue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3432,12 +3432,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn SetMaxTimeToReachQueue<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmaxtimetoreachqueue: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMaxTimeToReachQueue(core::mem::transmute_copy(&lmaxtimetoreachqueue)).into()
+            IMSMQMessage4_Impl::SetMaxTimeToReachQueue(this, core::mem::transmute_copy(&lmaxtimetoreachqueue)).into()
         }
         unsafe extern "system" fn MaxTimeToReceive<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmaxtimetoreceive: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MaxTimeToReceive() {
+            match IMSMQMessage4_Impl::MaxTimeToReceive(this) {
                 Ok(ok__) => {
                     core::ptr::write(plmaxtimetoreceive, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3448,12 +3448,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn SetMaxTimeToReceive<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmaxtimetoreceive: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMaxTimeToReceive(core::mem::transmute_copy(&lmaxtimetoreceive)).into()
+            IMSMQMessage4_Impl::SetMaxTimeToReceive(this, core::mem::transmute_copy(&lmaxtimetoreceive)).into()
         }
         unsafe extern "system" fn HashAlgorithm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plhashalg: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.HashAlgorithm() {
+            match IMSMQMessage4_Impl::HashAlgorithm(this) {
                 Ok(ok__) => {
                     core::ptr::write(plhashalg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3464,12 +3464,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn SetHashAlgorithm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lhashalg: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetHashAlgorithm(core::mem::transmute_copy(&lhashalg)).into()
+            IMSMQMessage4_Impl::SetHashAlgorithm(this, core::mem::transmute_copy(&lhashalg)).into()
         }
         unsafe extern "system" fn EncryptAlgorithm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plencryptalg: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EncryptAlgorithm() {
+            match IMSMQMessage4_Impl::EncryptAlgorithm(this) {
                 Ok(ok__) => {
                     core::ptr::write(plencryptalg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3480,12 +3480,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn SetEncryptAlgorithm<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lencryptalg: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEncryptAlgorithm(core::mem::transmute_copy(&lencryptalg)).into()
+            IMSMQMessage4_Impl::SetEncryptAlgorithm(this, core::mem::transmute_copy(&lencryptalg)).into()
         }
         unsafe extern "system" fn SentTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenttime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SentTime() {
+            match IMSMQMessage4_Impl::SentTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarsenttime, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3496,7 +3496,7 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn ArrivedTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plarrivedtime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ArrivedTime() {
+            match IMSMQMessage4_Impl::ArrivedTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(plarrivedtime, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3507,7 +3507,7 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn DestinationQueueInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinfodest: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DestinationQueueInfo() {
+            match IMSMQMessage4_Impl::DestinationQueueInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfodest, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3518,7 +3518,7 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn SenderCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsendercert: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SenderCertificate() {
+            match IMSMQMessage4_Impl::SenderCertificate(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarsendercert, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3529,12 +3529,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn SetSenderCertificate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsendercert: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSenderCertificate(core::mem::transmute(&varsendercert)).into()
+            IMSMQMessage4_Impl::SetSenderCertificate(this, core::mem::transmute(&varsendercert)).into()
         }
         unsafe extern "system" fn SenderId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsenderid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SenderId() {
+            match IMSMQMessage4_Impl::SenderId(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarsenderid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3545,7 +3545,7 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn SenderIdType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plsenderidtype: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SenderIdType() {
+            match IMSMQMessage4_Impl::SenderIdType(this) {
                 Ok(ok__) => {
                     core::ptr::write(plsenderidtype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3556,22 +3556,22 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn SetSenderIdType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lsenderidtype: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSenderIdType(core::mem::transmute_copy(&lsenderidtype)).into()
+            IMSMQMessage4_Impl::SetSenderIdType(this, core::mem::transmute_copy(&lsenderidtype)).into()
         }
         unsafe extern "system" fn Send<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationqueue: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Send(windows_core::from_raw_borrowed(&destinationqueue), core::mem::transmute_copy(&transaction)).into()
+            IMSMQMessage4_Impl::Send(this, windows_core::from_raw_borrowed(&destinationqueue), core::mem::transmute_copy(&transaction)).into()
         }
         unsafe extern "system" fn AttachCurrentSecurityContext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AttachCurrentSecurityContext().into()
+            IMSMQMessage4_Impl::AttachCurrentSecurityContext(this).into()
         }
         unsafe extern "system" fn SenderVersion<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plsenderversion: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SenderVersion() {
+            match IMSMQMessage4_Impl::SenderVersion(this) {
                 Ok(ok__) => {
                     core::ptr::write(plsenderversion, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3582,7 +3582,7 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn Extension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarextension: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Extension() {
+            match IMSMQMessage4_Impl::Extension(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarextension, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3593,12 +3593,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn SetExtension<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varextension: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetExtension(core::mem::transmute(&varextension)).into()
+            IMSMQMessage4_Impl::SetExtension(this, core::mem::transmute(&varextension)).into()
         }
         unsafe extern "system" fn ConnectorTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidconnectortype: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ConnectorTypeGuid() {
+            match IMSMQMessage4_Impl::ConnectorTypeGuid(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrguidconnectortype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3609,12 +3609,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn SetConnectorTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguidconnectortype: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetConnectorTypeGuid(core::mem::transmute(&bstrguidconnectortype)).into()
+            IMSMQMessage4_Impl::SetConnectorTypeGuid(this, core::mem::transmute(&bstrguidconnectortype)).into()
         }
         unsafe extern "system" fn TransactionStatusQueueInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinfoxactstatus: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TransactionStatusQueueInfo() {
+            match IMSMQMessage4_Impl::TransactionStatusQueueInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfoxactstatus, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3625,7 +3625,7 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn DestinationSymmetricKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvardestsymmkey: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.DestinationSymmetricKey() {
+            match IMSMQMessage4_Impl::DestinationSymmetricKey(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvardestsymmkey, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3636,12 +3636,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn SetDestinationSymmetricKey<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardestsymmkey: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDestinationSymmetricKey(core::mem::transmute(&vardestsymmkey)).into()
+            IMSMQMessage4_Impl::SetDestinationSymmetricKey(this, core::mem::transmute(&vardestsymmkey)).into()
         }
         unsafe extern "system" fn Signature<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsignature: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Signature() {
+            match IMSMQMessage4_Impl::Signature(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarsignature, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3652,12 +3652,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn SetSignature<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsignature: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSignature(core::mem::transmute(&varsignature)).into()
+            IMSMQMessage4_Impl::SetSignature(this, core::mem::transmute(&varsignature)).into()
         }
         unsafe extern "system" fn AuthenticationProviderType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plauthprovtype: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AuthenticationProviderType() {
+            match IMSMQMessage4_Impl::AuthenticationProviderType(this) {
                 Ok(ok__) => {
                     core::ptr::write(plauthprovtype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3668,12 +3668,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn SetAuthenticationProviderType<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lauthprovtype: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAuthenticationProviderType(core::mem::transmute_copy(&lauthprovtype)).into()
+            IMSMQMessage4_Impl::SetAuthenticationProviderType(this, core::mem::transmute_copy(&lauthprovtype)).into()
         }
         unsafe extern "system" fn AuthenticationProviderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrauthprovname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AuthenticationProviderName() {
+            match IMSMQMessage4_Impl::AuthenticationProviderName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrauthprovname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3684,17 +3684,17 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn SetAuthenticationProviderName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrauthprovname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAuthenticationProviderName(core::mem::transmute(&bstrauthprovname)).into()
+            IMSMQMessage4_Impl::SetAuthenticationProviderName(this, core::mem::transmute(&bstrauthprovname)).into()
         }
         unsafe extern "system" fn SetSenderId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsenderid: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSenderId(core::mem::transmute(&varsenderid)).into()
+            IMSMQMessage4_Impl::SetSenderId(this, core::mem::transmute(&varsenderid)).into()
         }
         unsafe extern "system" fn MsgClass<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmsgclass: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MsgClass() {
+            match IMSMQMessage4_Impl::MsgClass(this) {
                 Ok(ok__) => {
                     core::ptr::write(plmsgclass, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3705,12 +3705,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn SetMsgClass<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmsgclass: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMsgClass(core::mem::transmute_copy(&lmsgclass)).into()
+            IMSMQMessage4_Impl::SetMsgClass(this, core::mem::transmute_copy(&lmsgclass)).into()
         }
         unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcolproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Properties() {
+            match IMSMQMessage4_Impl::Properties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3721,7 +3721,7 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn TransactionId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarxactid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TransactionId() {
+            match IMSMQMessage4_Impl::TransactionId(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarxactid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3732,7 +3732,7 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn IsFirstInTransaction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisfirstinxact: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsFirstInTransaction() {
+            match IMSMQMessage4_Impl::IsFirstInTransaction(this) {
                 Ok(ok__) => {
                     core::ptr::write(pisfirstinxact, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3743,7 +3743,7 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn IsLastInTransaction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pislastinxact: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsLastInTransaction() {
+            match IMSMQMessage4_Impl::IsLastInTransaction(this) {
                 Ok(ok__) => {
                     core::ptr::write(pislastinxact, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3754,7 +3754,7 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn ResponseQueueInfo_v2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinforesponse: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ResponseQueueInfo_v2() {
+            match IMSMQMessage4_Impl::ResponseQueueInfo_v2(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinforesponse, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3765,12 +3765,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn putref_ResponseQueueInfo_v2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqinforesponse: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.putref_ResponseQueueInfo_v2(windows_core::from_raw_borrowed(&pqinforesponse)).into()
+            IMSMQMessage4_Impl::putref_ResponseQueueInfo_v2(this, windows_core::from_raw_borrowed(&pqinforesponse)).into()
         }
         unsafe extern "system" fn AdminQueueInfo_v2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinfoadmin: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AdminQueueInfo_v2() {
+            match IMSMQMessage4_Impl::AdminQueueInfo_v2(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfoadmin, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3781,12 +3781,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn putref_AdminQueueInfo_v2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqinfoadmin: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.putref_AdminQueueInfo_v2(windows_core::from_raw_borrowed(&pqinfoadmin)).into()
+            IMSMQMessage4_Impl::putref_AdminQueueInfo_v2(this, windows_core::from_raw_borrowed(&pqinfoadmin)).into()
         }
         unsafe extern "system" fn ReceivedAuthenticationLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psreceivedauthenticationlevel: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReceivedAuthenticationLevel() {
+            match IMSMQMessage4_Impl::ReceivedAuthenticationLevel(this) {
                 Ok(ok__) => {
                     core::ptr::write(psreceivedauthenticationlevel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3797,7 +3797,7 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn ResponseQueueInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinforesponse: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ResponseQueueInfo() {
+            match IMSMQMessage4_Impl::ResponseQueueInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinforesponse, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3808,12 +3808,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn putref_ResponseQueueInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqinforesponse: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.putref_ResponseQueueInfo(windows_core::from_raw_borrowed(&pqinforesponse)).into()
+            IMSMQMessage4_Impl::putref_ResponseQueueInfo(this, windows_core::from_raw_borrowed(&pqinforesponse)).into()
         }
         unsafe extern "system" fn AdminQueueInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinfoadmin: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AdminQueueInfo() {
+            match IMSMQMessage4_Impl::AdminQueueInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfoadmin, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3824,12 +3824,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn putref_AdminQueueInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqinfoadmin: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.putref_AdminQueueInfo(windows_core::from_raw_borrowed(&pqinfoadmin)).into()
+            IMSMQMessage4_Impl::putref_AdminQueueInfo(this, windows_core::from_raw_borrowed(&pqinfoadmin)).into()
         }
         unsafe extern "system" fn ResponseDestination<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdestresponse: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ResponseDestination() {
+            match IMSMQMessage4_Impl::ResponseDestination(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppdestresponse, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3840,12 +3840,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn putref_ResponseDestination<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdestresponse: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.putref_ResponseDestination(windows_core::from_raw_borrowed(&pdestresponse)).into()
+            IMSMQMessage4_Impl::putref_ResponseDestination(this, windows_core::from_raw_borrowed(&pdestresponse)).into()
         }
         unsafe extern "system" fn Destination<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdestdestination: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Destination() {
+            match IMSMQMessage4_Impl::Destination(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppdestdestination, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3856,7 +3856,7 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn LookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarlookupid: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LookupId() {
+            match IMSMQMessage4_Impl::LookupId(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarlookupid, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3867,7 +3867,7 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn IsAuthenticated2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisauthenticated: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsAuthenticated2() {
+            match IMSMQMessage4_Impl::IsAuthenticated2(this) {
                 Ok(ok__) => {
                     core::ptr::write(pisauthenticated, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3878,7 +3878,7 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn IsFirstInTransaction2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisfirstinxact: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsFirstInTransaction2() {
+            match IMSMQMessage4_Impl::IsFirstInTransaction2(this) {
                 Ok(ok__) => {
                     core::ptr::write(pisfirstinxact, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3889,7 +3889,7 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn IsLastInTransaction2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pislastinxact: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsLastInTransaction2() {
+            match IMSMQMessage4_Impl::IsLastInTransaction2(this) {
                 Ok(ok__) => {
                     core::ptr::write(pislastinxact, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3900,12 +3900,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn AttachCurrentSecurityContext2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AttachCurrentSecurityContext2().into()
+            IMSMQMessage4_Impl::AttachCurrentSecurityContext2(this).into()
         }
         unsafe extern "system" fn SoapEnvelope<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsoapenvelope: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SoapEnvelope() {
+            match IMSMQMessage4_Impl::SoapEnvelope(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrsoapenvelope, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3916,7 +3916,7 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn CompoundMessage<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcompoundmessage: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CompoundMessage() {
+            match IMSMQMessage4_Impl::CompoundMessage(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarcompoundmessage, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -3927,12 +3927,12 @@ impl IMSMQMessage4_Vtbl {
         unsafe extern "system" fn SetSoapHeader<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsoapheader: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSoapHeader(core::mem::transmute(&bstrsoapheader)).into()
+            IMSMQMessage4_Impl::SetSoapHeader(this, core::mem::transmute(&bstrsoapheader)).into()
         }
         unsafe extern "system" fn SetSoapBody<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrsoapbody: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSoapBody(core::mem::transmute(&bstrsoapbody)).into()
+            IMSMQMessage4_Impl::SetSoapBody(this, core::mem::transmute(&bstrsoapbody)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -4050,7 +4050,7 @@ impl IMSMQOutgoingQueueManagement_Vtbl {
         unsafe extern "system" fn State<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQOutgoingQueueManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstate: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.State() {
+            match IMSMQOutgoingQueueManagement_Impl::State(this) {
                 Ok(ok__) => {
                     core::ptr::write(plstate, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4061,7 +4061,7 @@ impl IMSMQOutgoingQueueManagement_Vtbl {
         unsafe extern "system" fn NextHops<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQOutgoingQueueManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvnexthops: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.NextHops() {
+            match IMSMQOutgoingQueueManagement_Impl::NextHops(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvnexthops, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4072,7 +4072,7 @@ impl IMSMQOutgoingQueueManagement_Vtbl {
         unsafe extern "system" fn EodGetSendInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQOutgoingQueueManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EodGetSendInfo() {
+            match IMSMQOutgoingQueueManagement_Impl::EodGetSendInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4083,17 +4083,17 @@ impl IMSMQOutgoingQueueManagement_Vtbl {
         unsafe extern "system" fn Resume<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQOutgoingQueueManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Resume().into()
+            IMSMQOutgoingQueueManagement_Impl::Resume(this).into()
         }
         unsafe extern "system" fn Pause<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQOutgoingQueueManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Pause().into()
+            IMSMQOutgoingQueueManagement_Impl::Pause(this).into()
         }
         unsafe extern "system" fn EodResend<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQOutgoingQueueManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EodResend().into()
+            IMSMQOutgoingQueueManagement_Impl::EodResend(this).into()
         }
         Self {
             base__: IMSMQManagement_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -4122,7 +4122,7 @@ impl IMSMQPrivateDestination_Vtbl {
         unsafe extern "system" fn Handle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQPrivateDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarhandle: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Handle() {
+            match IMSMQPrivateDestination_Impl::Handle(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarhandle, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4133,7 +4133,7 @@ impl IMSMQPrivateDestination_Vtbl {
         unsafe extern "system" fn SetHandle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQPrivateDestination_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varhandle: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetHandle(core::mem::transmute(&varhandle)).into()
+            IMSMQPrivateDestination_Impl::SetHandle(this, core::mem::transmute(&varhandle)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -4159,7 +4159,7 @@ impl IMSMQPrivateEvent_Vtbl {
         unsafe extern "system" fn Hwnd<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQPrivateEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phwnd: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Hwnd() {
+            match IMSMQPrivateEvent_Impl::Hwnd(this) {
                 Ok(ok__) => {
                     core::ptr::write(phwnd, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4170,12 +4170,12 @@ impl IMSMQPrivateEvent_Vtbl {
         unsafe extern "system" fn FireArrivedEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQPrivateEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pq: *mut core::ffi::c_void, msgcursor: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.FireArrivedEvent(windows_core::from_raw_borrowed(&pq), core::mem::transmute_copy(&msgcursor)).into()
+            IMSMQPrivateEvent_Impl::FireArrivedEvent(this, windows_core::from_raw_borrowed(&pq), core::mem::transmute_copy(&msgcursor)).into()
         }
         unsafe extern "system" fn FireArrivedErrorEvent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQPrivateEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pq: *mut core::ffi::c_void, hrstatus: windows_core::HRESULT, msgcursor: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.FireArrivedErrorEvent(windows_core::from_raw_borrowed(&pq), core::mem::transmute_copy(&hrstatus), core::mem::transmute_copy(&msgcursor)).into()
+            IMSMQPrivateEvent_Impl::FireArrivedErrorEvent(this, windows_core::from_raw_borrowed(&pq), core::mem::transmute_copy(&hrstatus), core::mem::transmute_copy(&msgcursor)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -4212,7 +4212,7 @@ impl IMSMQQuery_Vtbl {
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LookupQueue(core::mem::transmute_copy(&queueguid), core::mem::transmute_copy(&servicetypeguid), core::mem::transmute_copy(&label), core::mem::transmute_copy(&createtime), core::mem::transmute_copy(&modifytime), core::mem::transmute_copy(&relservicetype), core::mem::transmute_copy(&rellabel), core::mem::transmute_copy(&relcreatetime), core::mem::transmute_copy(&relmodifytime)) {
+            match IMSMQQuery_Impl::LookupQueue(this, core::mem::transmute_copy(&queueguid), core::mem::transmute_copy(&servicetypeguid), core::mem::transmute_copy(&label), core::mem::transmute_copy(&createtime), core::mem::transmute_copy(&modifytime), core::mem::transmute_copy(&relservicetype), core::mem::transmute_copy(&rellabel), core::mem::transmute_copy(&relcreatetime), core::mem::transmute_copy(&relmodifytime)) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfos, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4251,7 +4251,7 @@ impl IMSMQQuery2_Vtbl {
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LookupQueue(core::mem::transmute_copy(&queueguid), core::mem::transmute_copy(&servicetypeguid), core::mem::transmute_copy(&label), core::mem::transmute_copy(&createtime), core::mem::transmute_copy(&modifytime), core::mem::transmute_copy(&relservicetype), core::mem::transmute_copy(&rellabel), core::mem::transmute_copy(&relcreatetime), core::mem::transmute_copy(&relmodifytime)) {
+            match IMSMQQuery2_Impl::LookupQueue(this, core::mem::transmute_copy(&queueguid), core::mem::transmute_copy(&servicetypeguid), core::mem::transmute_copy(&label), core::mem::transmute_copy(&createtime), core::mem::transmute_copy(&modifytime), core::mem::transmute_copy(&relservicetype), core::mem::transmute_copy(&rellabel), core::mem::transmute_copy(&relcreatetime), core::mem::transmute_copy(&relmodifytime)) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfos, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4262,7 +4262,7 @@ impl IMSMQQuery2_Vtbl {
         unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQuery2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcolproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Properties() {
+            match IMSMQQuery2_Impl::Properties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4306,7 +4306,7 @@ impl IMSMQQuery3_Vtbl {
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LookupQueue_v2(core::mem::transmute_copy(&queueguid), core::mem::transmute_copy(&servicetypeguid), core::mem::transmute_copy(&label), core::mem::transmute_copy(&createtime), core::mem::transmute_copy(&modifytime), core::mem::transmute_copy(&relservicetype), core::mem::transmute_copy(&rellabel), core::mem::transmute_copy(&relcreatetime), core::mem::transmute_copy(&relmodifytime)) {
+            match IMSMQQuery3_Impl::LookupQueue_v2(this, core::mem::transmute_copy(&queueguid), core::mem::transmute_copy(&servicetypeguid), core::mem::transmute_copy(&label), core::mem::transmute_copy(&createtime), core::mem::transmute_copy(&modifytime), core::mem::transmute_copy(&relservicetype), core::mem::transmute_copy(&rellabel), core::mem::transmute_copy(&relcreatetime), core::mem::transmute_copy(&relmodifytime)) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfos, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4317,7 +4317,7 @@ impl IMSMQQuery3_Vtbl {
         unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQuery3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcolproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Properties() {
+            match IMSMQQuery3_Impl::Properties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4342,7 +4342,7 @@ impl IMSMQQuery3_Vtbl {
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LookupQueue(core::mem::transmute_copy(&queueguid), core::mem::transmute_copy(&servicetypeguid), core::mem::transmute_copy(&label), core::mem::transmute_copy(&createtime), core::mem::transmute_copy(&modifytime), core::mem::transmute_copy(&relservicetype), core::mem::transmute_copy(&rellabel), core::mem::transmute_copy(&relcreatetime), core::mem::transmute_copy(&relmodifytime), core::mem::transmute_copy(&multicastaddress), core::mem::transmute_copy(&relmulticastaddress)) {
+            match IMSMQQuery3_Impl::LookupQueue(this, core::mem::transmute_copy(&queueguid), core::mem::transmute_copy(&servicetypeguid), core::mem::transmute_copy(&label), core::mem::transmute_copy(&createtime), core::mem::transmute_copy(&modifytime), core::mem::transmute_copy(&relservicetype), core::mem::transmute_copy(&rellabel), core::mem::transmute_copy(&relcreatetime), core::mem::transmute_copy(&relmodifytime), core::mem::transmute_copy(&multicastaddress), core::mem::transmute_copy(&relmulticastaddress)) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfos, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4387,7 +4387,7 @@ impl IMSMQQuery4_Vtbl {
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LookupQueue_v2(core::mem::transmute_copy(&queueguid), core::mem::transmute_copy(&servicetypeguid), core::mem::transmute_copy(&label), core::mem::transmute_copy(&createtime), core::mem::transmute_copy(&modifytime), core::mem::transmute_copy(&relservicetype), core::mem::transmute_copy(&rellabel), core::mem::transmute_copy(&relcreatetime), core::mem::transmute_copy(&relmodifytime)) {
+            match IMSMQQuery4_Impl::LookupQueue_v2(this, core::mem::transmute_copy(&queueguid), core::mem::transmute_copy(&servicetypeguid), core::mem::transmute_copy(&label), core::mem::transmute_copy(&createtime), core::mem::transmute_copy(&modifytime), core::mem::transmute_copy(&relservicetype), core::mem::transmute_copy(&rellabel), core::mem::transmute_copy(&relcreatetime), core::mem::transmute_copy(&relmodifytime)) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfos, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4398,7 +4398,7 @@ impl IMSMQQuery4_Vtbl {
         unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQuery4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcolproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Properties() {
+            match IMSMQQuery4_Impl::Properties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4423,7 +4423,7 @@ impl IMSMQQuery4_Vtbl {
         ) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.LookupQueue(core::mem::transmute_copy(&queueguid), core::mem::transmute_copy(&servicetypeguid), core::mem::transmute_copy(&label), core::mem::transmute_copy(&createtime), core::mem::transmute_copy(&modifytime), core::mem::transmute_copy(&relservicetype), core::mem::transmute_copy(&rellabel), core::mem::transmute_copy(&relcreatetime), core::mem::transmute_copy(&relmodifytime), core::mem::transmute_copy(&multicastaddress), core::mem::transmute_copy(&relmulticastaddress)) {
+            match IMSMQQuery4_Impl::LookupQueue(this, core::mem::transmute_copy(&queueguid), core::mem::transmute_copy(&servicetypeguid), core::mem::transmute_copy(&label), core::mem::transmute_copy(&createtime), core::mem::transmute_copy(&modifytime), core::mem::transmute_copy(&relservicetype), core::mem::transmute_copy(&rellabel), core::mem::transmute_copy(&relcreatetime), core::mem::transmute_copy(&relmodifytime), core::mem::transmute_copy(&multicastaddress), core::mem::transmute_copy(&relmulticastaddress)) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfos, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4466,7 +4466,7 @@ impl IMSMQQueue_Vtbl {
         unsafe extern "system" fn Access<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, placcess: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Access() {
+            match IMSMQQueue_Impl::Access(this) {
                 Ok(ok__) => {
                     core::ptr::write(placcess, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4477,7 +4477,7 @@ impl IMSMQQueue_Vtbl {
         unsafe extern "system" fn ShareMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plsharemode: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ShareMode() {
+            match IMSMQQueue_Impl::ShareMode(this) {
                 Ok(ok__) => {
                     core::ptr::write(plsharemode, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4488,7 +4488,7 @@ impl IMSMQQueue_Vtbl {
         unsafe extern "system" fn QueueInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.QueueInfo() {
+            match IMSMQQueue_Impl::QueueInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfo, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4499,7 +4499,7 @@ impl IMSMQQueue_Vtbl {
         unsafe extern "system" fn Handle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plhandle: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Handle() {
+            match IMSMQQueue_Impl::Handle(this) {
                 Ok(ok__) => {
                     core::ptr::write(plhandle, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4510,7 +4510,7 @@ impl IMSMQQueue_Vtbl {
         unsafe extern "system" fn IsOpen<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisopen: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsOpen() {
+            match IMSMQQueue_Impl::IsOpen(this) {
                 Ok(ok__) => {
                     core::ptr::write(pisopen, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4521,12 +4521,12 @@ impl IMSMQQueue_Vtbl {
         unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Close().into()
+            IMSMQQueue_Impl::Close(this).into()
         }
         unsafe extern "system" fn Receive<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Receive(core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
+            match IMSMQQueue_Impl::Receive(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4537,7 +4537,7 @@ impl IMSMQQueue_Vtbl {
         unsafe extern "system" fn Peek<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Peek(core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
+            match IMSMQQueue_Impl::Peek(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4548,17 +4548,17 @@ impl IMSMQQueue_Vtbl {
         unsafe extern "system" fn EnableNotification<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void, cursor: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EnableNotification(windows_core::from_raw_borrowed(&event), core::mem::transmute_copy(&cursor), core::mem::transmute_copy(&receivetimeout)).into()
+            IMSMQQueue_Impl::EnableNotification(this, windows_core::from_raw_borrowed(&event), core::mem::transmute_copy(&cursor), core::mem::transmute_copy(&receivetimeout)).into()
         }
         unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Reset().into()
+            IMSMQQueue_Impl::Reset(this).into()
         }
         unsafe extern "system" fn ReceiveCurrent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReceiveCurrent(core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
+            match IMSMQQueue_Impl::ReceiveCurrent(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4569,7 +4569,7 @@ impl IMSMQQueue_Vtbl {
         unsafe extern "system" fn PeekNext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PeekNext(core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
+            match IMSMQQueue_Impl::PeekNext(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4580,7 +4580,7 @@ impl IMSMQQueue_Vtbl {
         unsafe extern "system" fn PeekCurrent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PeekCurrent(core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
+            match IMSMQQueue_Impl::PeekCurrent(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4639,7 +4639,7 @@ impl IMSMQQueue2_Vtbl {
         unsafe extern "system" fn Access<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, placcess: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Access() {
+            match IMSMQQueue2_Impl::Access(this) {
                 Ok(ok__) => {
                     core::ptr::write(placcess, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4650,7 +4650,7 @@ impl IMSMQQueue2_Vtbl {
         unsafe extern "system" fn ShareMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plsharemode: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ShareMode() {
+            match IMSMQQueue2_Impl::ShareMode(this) {
                 Ok(ok__) => {
                     core::ptr::write(plsharemode, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4661,7 +4661,7 @@ impl IMSMQQueue2_Vtbl {
         unsafe extern "system" fn QueueInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.QueueInfo() {
+            match IMSMQQueue2_Impl::QueueInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfo, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4672,7 +4672,7 @@ impl IMSMQQueue2_Vtbl {
         unsafe extern "system" fn Handle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plhandle: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Handle() {
+            match IMSMQQueue2_Impl::Handle(this) {
                 Ok(ok__) => {
                     core::ptr::write(plhandle, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4683,7 +4683,7 @@ impl IMSMQQueue2_Vtbl {
         unsafe extern "system" fn IsOpen<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisopen: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsOpen() {
+            match IMSMQQueue2_Impl::IsOpen(this) {
                 Ok(ok__) => {
                     core::ptr::write(pisopen, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4694,12 +4694,12 @@ impl IMSMQQueue2_Vtbl {
         unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Close().into()
+            IMSMQQueue2_Impl::Close(this).into()
         }
         unsafe extern "system" fn Receive_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Receive_v1(core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
+            match IMSMQQueue2_Impl::Receive_v1(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4710,7 +4710,7 @@ impl IMSMQQueue2_Vtbl {
         unsafe extern "system" fn Peek_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Peek_v1(core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
+            match IMSMQQueue2_Impl::Peek_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4721,17 +4721,17 @@ impl IMSMQQueue2_Vtbl {
         unsafe extern "system" fn EnableNotification<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void, cursor: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EnableNotification(windows_core::from_raw_borrowed(&event), core::mem::transmute_copy(&cursor), core::mem::transmute_copy(&receivetimeout)).into()
+            IMSMQQueue2_Impl::EnableNotification(this, windows_core::from_raw_borrowed(&event), core::mem::transmute_copy(&cursor), core::mem::transmute_copy(&receivetimeout)).into()
         }
         unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Reset().into()
+            IMSMQQueue2_Impl::Reset(this).into()
         }
         unsafe extern "system" fn ReceiveCurrent_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReceiveCurrent_v1(core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
+            match IMSMQQueue2_Impl::ReceiveCurrent_v1(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4742,7 +4742,7 @@ impl IMSMQQueue2_Vtbl {
         unsafe extern "system" fn PeekNext_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PeekNext_v1(core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
+            match IMSMQQueue2_Impl::PeekNext_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4753,7 +4753,7 @@ impl IMSMQQueue2_Vtbl {
         unsafe extern "system" fn PeekCurrent_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PeekCurrent_v1(core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
+            match IMSMQQueue2_Impl::PeekCurrent_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4764,7 +4764,7 @@ impl IMSMQQueue2_Vtbl {
         unsafe extern "system" fn Receive<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Receive(core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue2_Impl::Receive(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4775,7 +4775,7 @@ impl IMSMQQueue2_Vtbl {
         unsafe extern "system" fn Peek<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Peek(core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue2_Impl::Peek(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4786,7 +4786,7 @@ impl IMSMQQueue2_Vtbl {
         unsafe extern "system" fn ReceiveCurrent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReceiveCurrent(core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue2_Impl::ReceiveCurrent(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4797,7 +4797,7 @@ impl IMSMQQueue2_Vtbl {
         unsafe extern "system" fn PeekNext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PeekNext(core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue2_Impl::PeekNext(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4808,7 +4808,7 @@ impl IMSMQQueue2_Vtbl {
         unsafe extern "system" fn PeekCurrent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PeekCurrent(core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue2_Impl::PeekCurrent(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4819,7 +4819,7 @@ impl IMSMQQueue2_Vtbl {
         unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcolproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Properties() {
+            match IMSMQQueue2_Impl::Properties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4897,7 +4897,7 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn Access<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, placcess: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Access() {
+            match IMSMQQueue3_Impl::Access(this) {
                 Ok(ok__) => {
                     core::ptr::write(placcess, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4908,7 +4908,7 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn ShareMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plsharemode: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ShareMode() {
+            match IMSMQQueue3_Impl::ShareMode(this) {
                 Ok(ok__) => {
                     core::ptr::write(plsharemode, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4919,7 +4919,7 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn QueueInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.QueueInfo() {
+            match IMSMQQueue3_Impl::QueueInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfo, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4930,7 +4930,7 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn Handle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plhandle: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Handle() {
+            match IMSMQQueue3_Impl::Handle(this) {
                 Ok(ok__) => {
                     core::ptr::write(plhandle, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4941,7 +4941,7 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn IsOpen<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisopen: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsOpen() {
+            match IMSMQQueue3_Impl::IsOpen(this) {
                 Ok(ok__) => {
                     core::ptr::write(pisopen, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4952,12 +4952,12 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Close().into()
+            IMSMQQueue3_Impl::Close(this).into()
         }
         unsafe extern "system" fn Receive_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Receive_v1(core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
+            match IMSMQQueue3_Impl::Receive_v1(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4968,7 +4968,7 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn Peek_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Peek_v1(core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
+            match IMSMQQueue3_Impl::Peek_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -4979,17 +4979,17 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn EnableNotification<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void, cursor: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EnableNotification(windows_core::from_raw_borrowed(&event), core::mem::transmute_copy(&cursor), core::mem::transmute_copy(&receivetimeout)).into()
+            IMSMQQueue3_Impl::EnableNotification(this, windows_core::from_raw_borrowed(&event), core::mem::transmute_copy(&cursor), core::mem::transmute_copy(&receivetimeout)).into()
         }
         unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Reset().into()
+            IMSMQQueue3_Impl::Reset(this).into()
         }
         unsafe extern "system" fn ReceiveCurrent_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReceiveCurrent_v1(core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
+            match IMSMQQueue3_Impl::ReceiveCurrent_v1(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5000,7 +5000,7 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn PeekNext_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PeekNext_v1(core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
+            match IMSMQQueue3_Impl::PeekNext_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5011,7 +5011,7 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn PeekCurrent_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PeekCurrent_v1(core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
+            match IMSMQQueue3_Impl::PeekCurrent_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5022,7 +5022,7 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn Receive<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Receive(core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue3_Impl::Receive(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5033,7 +5033,7 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn Peek<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Peek(core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue3_Impl::Peek(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5044,7 +5044,7 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn ReceiveCurrent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReceiveCurrent(core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue3_Impl::ReceiveCurrent(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5055,7 +5055,7 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn PeekNext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PeekNext(core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue3_Impl::PeekNext(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5066,7 +5066,7 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn PeekCurrent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PeekCurrent(core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue3_Impl::PeekCurrent(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5077,7 +5077,7 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcolproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Properties() {
+            match IMSMQQueue3_Impl::Properties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5088,7 +5088,7 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn Handle2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarhandle: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Handle2() {
+            match IMSMQQueue3_Impl::Handle2(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarhandle, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5099,7 +5099,7 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn ReceiveByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: std::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReceiveByLookupId(core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue3_Impl::ReceiveByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5110,7 +5110,7 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn ReceiveNextByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: std::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReceiveNextByLookupId(core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue3_Impl::ReceiveNextByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5121,7 +5121,7 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn ReceivePreviousByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: std::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReceivePreviousByLookupId(core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue3_Impl::ReceivePreviousByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5132,7 +5132,7 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn ReceiveFirstByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReceiveFirstByLookupId(core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue3_Impl::ReceiveFirstByLookupId(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5143,7 +5143,7 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn ReceiveLastByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReceiveLastByLookupId(core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue3_Impl::ReceiveLastByLookupId(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5154,7 +5154,7 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn PeekByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PeekByLookupId(core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue3_Impl::PeekByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5165,7 +5165,7 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn PeekNextByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PeekNextByLookupId(core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue3_Impl::PeekNextByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5176,7 +5176,7 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn PeekPreviousByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PeekPreviousByLookupId(core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue3_Impl::PeekPreviousByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5187,7 +5187,7 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn PeekFirstByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PeekFirstByLookupId(core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue3_Impl::PeekFirstByLookupId(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5198,7 +5198,7 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn PeekLastByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PeekLastByLookupId(core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue3_Impl::PeekLastByLookupId(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5209,12 +5209,12 @@ impl IMSMQQueue3_Vtbl {
         unsafe extern "system" fn Purge<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Purge().into()
+            IMSMQQueue3_Impl::Purge(this).into()
         }
         unsafe extern "system" fn IsOpen2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisopen: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsOpen2() {
+            match IMSMQQueue3_Impl::IsOpen2(this) {
                 Ok(ok__) => {
                     core::ptr::write(pisopen, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5306,7 +5306,7 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn Access<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, placcess: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Access() {
+            match IMSMQQueue4_Impl::Access(this) {
                 Ok(ok__) => {
                     core::ptr::write(placcess, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5317,7 +5317,7 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn ShareMode<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plsharemode: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ShareMode() {
+            match IMSMQQueue4_Impl::ShareMode(this) {
                 Ok(ok__) => {
                     core::ptr::write(plsharemode, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5328,7 +5328,7 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn QueueInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.QueueInfo() {
+            match IMSMQQueue4_Impl::QueueInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfo, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5339,7 +5339,7 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn Handle<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plhandle: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Handle() {
+            match IMSMQQueue4_Impl::Handle(this) {
                 Ok(ok__) => {
                     core::ptr::write(plhandle, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5350,7 +5350,7 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn IsOpen<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisopen: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsOpen() {
+            match IMSMQQueue4_Impl::IsOpen(this) {
                 Ok(ok__) => {
                     core::ptr::write(pisopen, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5361,12 +5361,12 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Close().into()
+            IMSMQQueue4_Impl::Close(this).into()
         }
         unsafe extern "system" fn Receive_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Receive_v1(core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
+            match IMSMQQueue4_Impl::Receive_v1(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5377,7 +5377,7 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn Peek_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Peek_v1(core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
+            match IMSMQQueue4_Impl::Peek_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5388,17 +5388,17 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn EnableNotification<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void, cursor: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EnableNotification(windows_core::from_raw_borrowed(&event), core::mem::transmute_copy(&cursor), core::mem::transmute_copy(&receivetimeout)).into()
+            IMSMQQueue4_Impl::EnableNotification(this, windows_core::from_raw_borrowed(&event), core::mem::transmute_copy(&cursor), core::mem::transmute_copy(&receivetimeout)).into()
         }
         unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Reset().into()
+            IMSMQQueue4_Impl::Reset(this).into()
         }
         unsafe extern "system" fn ReceiveCurrent_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReceiveCurrent_v1(core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
+            match IMSMQQueue4_Impl::ReceiveCurrent_v1(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5409,7 +5409,7 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn PeekNext_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PeekNext_v1(core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
+            match IMSMQQueue4_Impl::PeekNext_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5420,7 +5420,7 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn PeekCurrent_v1<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PeekCurrent_v1(core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
+            match IMSMQQueue4_Impl::PeekCurrent_v1(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5431,7 +5431,7 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn Receive<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Receive(core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue4_Impl::Receive(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5442,7 +5442,7 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn Peek<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Peek(core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue4_Impl::Peek(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5453,7 +5453,7 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn ReceiveCurrent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReceiveCurrent(core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue4_Impl::ReceiveCurrent(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5464,7 +5464,7 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn PeekNext<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PeekNext(core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue4_Impl::PeekNext(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5475,7 +5475,7 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn PeekCurrent<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, receivetimeout: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PeekCurrent(core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue4_Impl::PeekCurrent(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&receivetimeout), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5486,7 +5486,7 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcolproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Properties() {
+            match IMSMQQueue4_Impl::Properties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5497,7 +5497,7 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn Handle2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarhandle: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Handle2() {
+            match IMSMQQueue4_Impl::Handle2(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarhandle, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5508,7 +5508,7 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn ReceiveByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: std::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReceiveByLookupId(core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue4_Impl::ReceiveByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5519,7 +5519,7 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn ReceiveNextByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: std::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReceiveNextByLookupId(core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue4_Impl::ReceiveNextByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5530,7 +5530,7 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn ReceivePreviousByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: std::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReceivePreviousByLookupId(core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue4_Impl::ReceivePreviousByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5541,7 +5541,7 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn ReceiveFirstByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReceiveFirstByLookupId(core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue4_Impl::ReceiveFirstByLookupId(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5552,7 +5552,7 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn ReceiveLastByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReceiveLastByLookupId(core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue4_Impl::ReceiveLastByLookupId(this, core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5563,7 +5563,7 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn PeekByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PeekByLookupId(core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue4_Impl::PeekByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5574,7 +5574,7 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn PeekNextByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PeekNextByLookupId(core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue4_Impl::PeekNextByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5585,7 +5585,7 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn PeekPreviousByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PeekPreviousByLookupId(core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue4_Impl::PeekPreviousByLookupId(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5596,7 +5596,7 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn PeekFirstByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PeekFirstByLookupId(core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue4_Impl::PeekFirstByLookupId(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5607,7 +5607,7 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn PeekLastByLookupId<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PeekLastByLookupId(core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue4_Impl::PeekLastByLookupId(this, core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5618,12 +5618,12 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn Purge<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Purge().into()
+            IMSMQQueue4_Impl::Purge(this).into()
         }
         unsafe extern "system" fn IsOpen2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisopen: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsOpen2() {
+            match IMSMQQueue4_Impl::IsOpen2(this) {
                 Ok(ok__) => {
                     core::ptr::write(pisopen, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5634,7 +5634,7 @@ impl IMSMQQueue4_Vtbl {
         unsafe extern "system" fn ReceiveByLookupIdAllowPeek<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lookupid: std::mem::MaybeUninit<windows_core::VARIANT>, transaction: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantdestinationqueue: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantbody: *const std::mem::MaybeUninit<windows_core::VARIANT>, wantconnectortype: *const std::mem::MaybeUninit<windows_core::VARIANT>, ppmsg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReceiveByLookupIdAllowPeek(core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
+            match IMSMQQueue4_Impl::ReceiveByLookupIdAllowPeek(this, core::mem::transmute(&lookupid), core::mem::transmute_copy(&transaction), core::mem::transmute_copy(&wantdestinationqueue), core::mem::transmute_copy(&wantbody), core::mem::transmute_copy(&wantconnectortype)) {
                 Ok(ok__) => {
                     core::ptr::write(ppmsg, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5724,7 +5724,7 @@ impl IMSMQQueueInfo_Vtbl {
         unsafe extern "system" fn QueueGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidqueue: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.QueueGuid() {
+            match IMSMQQueueInfo_Impl::QueueGuid(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrguidqueue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5735,7 +5735,7 @@ impl IMSMQQueueInfo_Vtbl {
         unsafe extern "system" fn ServiceTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidservicetype: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ServiceTypeGuid() {
+            match IMSMQQueueInfo_Impl::ServiceTypeGuid(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrguidservicetype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5746,12 +5746,12 @@ impl IMSMQQueueInfo_Vtbl {
         unsafe extern "system" fn SetServiceTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguidservicetype: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetServiceTypeGuid(core::mem::transmute(&bstrguidservicetype)).into()
+            IMSMQQueueInfo_Impl::SetServiceTypeGuid(this, core::mem::transmute(&bstrguidservicetype)).into()
         }
         unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlabel: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Label() {
+            match IMSMQQueueInfo_Impl::Label(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrlabel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5762,12 +5762,12 @@ impl IMSMQQueueInfo_Vtbl {
         unsafe extern "system" fn SetLabel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrlabel: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLabel(core::mem::transmute(&bstrlabel)).into()
+            IMSMQQueueInfo_Impl::SetLabel(this, core::mem::transmute(&bstrlabel)).into()
         }
         unsafe extern "system" fn PathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpathname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PathName() {
+            match IMSMQQueueInfo_Impl::PathName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrpathname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5778,12 +5778,12 @@ impl IMSMQQueueInfo_Vtbl {
         unsafe extern "system" fn SetPathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpathname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPathName(core::mem::transmute(&bstrpathname)).into()
+            IMSMQQueueInfo_Impl::SetPathName(this, core::mem::transmute(&bstrpathname)).into()
         }
         unsafe extern "system" fn FormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrformatname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FormatName() {
+            match IMSMQQueueInfo_Impl::FormatName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrformatname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5794,12 +5794,12 @@ impl IMSMQQueueInfo_Vtbl {
         unsafe extern "system" fn SetFormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrformatname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFormatName(core::mem::transmute(&bstrformatname)).into()
+            IMSMQQueueInfo_Impl::SetFormatName(this, core::mem::transmute(&bstrformatname)).into()
         }
         unsafe extern "system" fn IsTransactional<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pistransactional: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsTransactional() {
+            match IMSMQQueueInfo_Impl::IsTransactional(this) {
                 Ok(ok__) => {
                     core::ptr::write(pistransactional, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5810,7 +5810,7 @@ impl IMSMQQueueInfo_Vtbl {
         unsafe extern "system" fn PrivLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plprivlevel: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PrivLevel() {
+            match IMSMQQueueInfo_Impl::PrivLevel(this) {
                 Ok(ok__) => {
                     core::ptr::write(plprivlevel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5821,12 +5821,12 @@ impl IMSMQQueueInfo_Vtbl {
         unsafe extern "system" fn SetPrivLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lprivlevel: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPrivLevel(core::mem::transmute_copy(&lprivlevel)).into()
+            IMSMQQueueInfo_Impl::SetPrivLevel(this, core::mem::transmute_copy(&lprivlevel)).into()
         }
         unsafe extern "system" fn Journal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pljournal: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Journal() {
+            match IMSMQQueueInfo_Impl::Journal(this) {
                 Ok(ok__) => {
                     core::ptr::write(pljournal, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5837,12 +5837,12 @@ impl IMSMQQueueInfo_Vtbl {
         unsafe extern "system" fn SetJournal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ljournal: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetJournal(core::mem::transmute_copy(&ljournal)).into()
+            IMSMQQueueInfo_Impl::SetJournal(this, core::mem::transmute_copy(&ljournal)).into()
         }
         unsafe extern "system" fn Quota<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plquota: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Quota() {
+            match IMSMQQueueInfo_Impl::Quota(this) {
                 Ok(ok__) => {
                     core::ptr::write(plquota, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5853,12 +5853,12 @@ impl IMSMQQueueInfo_Vtbl {
         unsafe extern "system" fn SetQuota<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lquota: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetQuota(core::mem::transmute_copy(&lquota)).into()
+            IMSMQQueueInfo_Impl::SetQuota(this, core::mem::transmute_copy(&lquota)).into()
         }
         unsafe extern "system" fn BasePriority<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plbasepriority: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BasePriority() {
+            match IMSMQQueueInfo_Impl::BasePriority(this) {
                 Ok(ok__) => {
                     core::ptr::write(plbasepriority, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5869,12 +5869,12 @@ impl IMSMQQueueInfo_Vtbl {
         unsafe extern "system" fn SetBasePriority<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lbasepriority: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBasePriority(core::mem::transmute_copy(&lbasepriority)).into()
+            IMSMQQueueInfo_Impl::SetBasePriority(this, core::mem::transmute_copy(&lbasepriority)).into()
         }
         unsafe extern "system" fn CreateTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcreatetime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateTime() {
+            match IMSMQQueueInfo_Impl::CreateTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarcreatetime, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5885,7 +5885,7 @@ impl IMSMQQueueInfo_Vtbl {
         unsafe extern "system" fn ModifyTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodifytime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ModifyTime() {
+            match IMSMQQueueInfo_Impl::ModifyTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarmodifytime, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5896,7 +5896,7 @@ impl IMSMQQueueInfo_Vtbl {
         unsafe extern "system" fn Authenticate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plauthenticate: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Authenticate() {
+            match IMSMQQueueInfo_Impl::Authenticate(this) {
                 Ok(ok__) => {
                     core::ptr::write(plauthenticate, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5907,12 +5907,12 @@ impl IMSMQQueueInfo_Vtbl {
         unsafe extern "system" fn SetAuthenticate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lauthenticate: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAuthenticate(core::mem::transmute_copy(&lauthenticate)).into()
+            IMSMQQueueInfo_Impl::SetAuthenticate(this, core::mem::transmute_copy(&lauthenticate)).into()
         }
         unsafe extern "system" fn JournalQuota<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pljournalquota: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.JournalQuota() {
+            match IMSMQQueueInfo_Impl::JournalQuota(this) {
                 Ok(ok__) => {
                     core::ptr::write(pljournalquota, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5923,12 +5923,12 @@ impl IMSMQQueueInfo_Vtbl {
         unsafe extern "system" fn SetJournalQuota<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ljournalquota: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetJournalQuota(core::mem::transmute_copy(&ljournalquota)).into()
+            IMSMQQueueInfo_Impl::SetJournalQuota(this, core::mem::transmute_copy(&ljournalquota)).into()
         }
         unsafe extern "system" fn IsWorldReadable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisworldreadable: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsWorldReadable() {
+            match IMSMQQueueInfo_Impl::IsWorldReadable(this) {
                 Ok(ok__) => {
                     core::ptr::write(pisworldreadable, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5939,17 +5939,17 @@ impl IMSMQQueueInfo_Vtbl {
         unsafe extern "system" fn Create<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, istransactional: *const std::mem::MaybeUninit<windows_core::VARIANT>, isworldreadable: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Create(core::mem::transmute_copy(&istransactional), core::mem::transmute_copy(&isworldreadable)).into()
+            IMSMQQueueInfo_Impl::Create(this, core::mem::transmute_copy(&istransactional), core::mem::transmute_copy(&isworldreadable)).into()
         }
         unsafe extern "system" fn Delete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Delete().into()
+            IMSMQQueueInfo_Impl::Delete(this).into()
         }
         unsafe extern "system" fn Open<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, access: i32, sharemode: i32, ppq: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Open(core::mem::transmute_copy(&access), core::mem::transmute_copy(&sharemode)) {
+            match IMSMQQueueInfo_Impl::Open(this, core::mem::transmute_copy(&access), core::mem::transmute_copy(&sharemode)) {
                 Ok(ok__) => {
                     core::ptr::write(ppq, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -5960,12 +5960,12 @@ impl IMSMQQueueInfo_Vtbl {
         unsafe extern "system" fn Refresh<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Refresh().into()
+            IMSMQQueueInfo_Impl::Refresh(this).into()
         }
         unsafe extern "system" fn Update<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Update().into()
+            IMSMQQueueInfo_Impl::Update(this).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -6050,7 +6050,7 @@ impl IMSMQQueueInfo2_Vtbl {
         unsafe extern "system" fn QueueGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidqueue: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.QueueGuid() {
+            match IMSMQQueueInfo2_Impl::QueueGuid(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrguidqueue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6061,7 +6061,7 @@ impl IMSMQQueueInfo2_Vtbl {
         unsafe extern "system" fn ServiceTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidservicetype: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ServiceTypeGuid() {
+            match IMSMQQueueInfo2_Impl::ServiceTypeGuid(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrguidservicetype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6072,12 +6072,12 @@ impl IMSMQQueueInfo2_Vtbl {
         unsafe extern "system" fn SetServiceTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguidservicetype: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetServiceTypeGuid(core::mem::transmute(&bstrguidservicetype)).into()
+            IMSMQQueueInfo2_Impl::SetServiceTypeGuid(this, core::mem::transmute(&bstrguidservicetype)).into()
         }
         unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlabel: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Label() {
+            match IMSMQQueueInfo2_Impl::Label(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrlabel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6088,12 +6088,12 @@ impl IMSMQQueueInfo2_Vtbl {
         unsafe extern "system" fn SetLabel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrlabel: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLabel(core::mem::transmute(&bstrlabel)).into()
+            IMSMQQueueInfo2_Impl::SetLabel(this, core::mem::transmute(&bstrlabel)).into()
         }
         unsafe extern "system" fn PathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpathname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PathName() {
+            match IMSMQQueueInfo2_Impl::PathName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrpathname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6104,12 +6104,12 @@ impl IMSMQQueueInfo2_Vtbl {
         unsafe extern "system" fn SetPathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpathname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPathName(core::mem::transmute(&bstrpathname)).into()
+            IMSMQQueueInfo2_Impl::SetPathName(this, core::mem::transmute(&bstrpathname)).into()
         }
         unsafe extern "system" fn FormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrformatname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FormatName() {
+            match IMSMQQueueInfo2_Impl::FormatName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrformatname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6120,12 +6120,12 @@ impl IMSMQQueueInfo2_Vtbl {
         unsafe extern "system" fn SetFormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrformatname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFormatName(core::mem::transmute(&bstrformatname)).into()
+            IMSMQQueueInfo2_Impl::SetFormatName(this, core::mem::transmute(&bstrformatname)).into()
         }
         unsafe extern "system" fn IsTransactional<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pistransactional: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsTransactional() {
+            match IMSMQQueueInfo2_Impl::IsTransactional(this) {
                 Ok(ok__) => {
                     core::ptr::write(pistransactional, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6136,7 +6136,7 @@ impl IMSMQQueueInfo2_Vtbl {
         unsafe extern "system" fn PrivLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plprivlevel: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PrivLevel() {
+            match IMSMQQueueInfo2_Impl::PrivLevel(this) {
                 Ok(ok__) => {
                     core::ptr::write(plprivlevel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6147,12 +6147,12 @@ impl IMSMQQueueInfo2_Vtbl {
         unsafe extern "system" fn SetPrivLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lprivlevel: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPrivLevel(core::mem::transmute_copy(&lprivlevel)).into()
+            IMSMQQueueInfo2_Impl::SetPrivLevel(this, core::mem::transmute_copy(&lprivlevel)).into()
         }
         unsafe extern "system" fn Journal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pljournal: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Journal() {
+            match IMSMQQueueInfo2_Impl::Journal(this) {
                 Ok(ok__) => {
                     core::ptr::write(pljournal, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6163,12 +6163,12 @@ impl IMSMQQueueInfo2_Vtbl {
         unsafe extern "system" fn SetJournal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ljournal: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetJournal(core::mem::transmute_copy(&ljournal)).into()
+            IMSMQQueueInfo2_Impl::SetJournal(this, core::mem::transmute_copy(&ljournal)).into()
         }
         unsafe extern "system" fn Quota<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plquota: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Quota() {
+            match IMSMQQueueInfo2_Impl::Quota(this) {
                 Ok(ok__) => {
                     core::ptr::write(plquota, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6179,12 +6179,12 @@ impl IMSMQQueueInfo2_Vtbl {
         unsafe extern "system" fn SetQuota<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lquota: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetQuota(core::mem::transmute_copy(&lquota)).into()
+            IMSMQQueueInfo2_Impl::SetQuota(this, core::mem::transmute_copy(&lquota)).into()
         }
         unsafe extern "system" fn BasePriority<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plbasepriority: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BasePriority() {
+            match IMSMQQueueInfo2_Impl::BasePriority(this) {
                 Ok(ok__) => {
                     core::ptr::write(plbasepriority, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6195,12 +6195,12 @@ impl IMSMQQueueInfo2_Vtbl {
         unsafe extern "system" fn SetBasePriority<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lbasepriority: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBasePriority(core::mem::transmute_copy(&lbasepriority)).into()
+            IMSMQQueueInfo2_Impl::SetBasePriority(this, core::mem::transmute_copy(&lbasepriority)).into()
         }
         unsafe extern "system" fn CreateTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcreatetime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateTime() {
+            match IMSMQQueueInfo2_Impl::CreateTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarcreatetime, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6211,7 +6211,7 @@ impl IMSMQQueueInfo2_Vtbl {
         unsafe extern "system" fn ModifyTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodifytime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ModifyTime() {
+            match IMSMQQueueInfo2_Impl::ModifyTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarmodifytime, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6222,7 +6222,7 @@ impl IMSMQQueueInfo2_Vtbl {
         unsafe extern "system" fn Authenticate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plauthenticate: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Authenticate() {
+            match IMSMQQueueInfo2_Impl::Authenticate(this) {
                 Ok(ok__) => {
                     core::ptr::write(plauthenticate, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6233,12 +6233,12 @@ impl IMSMQQueueInfo2_Vtbl {
         unsafe extern "system" fn SetAuthenticate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lauthenticate: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAuthenticate(core::mem::transmute_copy(&lauthenticate)).into()
+            IMSMQQueueInfo2_Impl::SetAuthenticate(this, core::mem::transmute_copy(&lauthenticate)).into()
         }
         unsafe extern "system" fn JournalQuota<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pljournalquota: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.JournalQuota() {
+            match IMSMQQueueInfo2_Impl::JournalQuota(this) {
                 Ok(ok__) => {
                     core::ptr::write(pljournalquota, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6249,12 +6249,12 @@ impl IMSMQQueueInfo2_Vtbl {
         unsafe extern "system" fn SetJournalQuota<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ljournalquota: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetJournalQuota(core::mem::transmute_copy(&ljournalquota)).into()
+            IMSMQQueueInfo2_Impl::SetJournalQuota(this, core::mem::transmute_copy(&ljournalquota)).into()
         }
         unsafe extern "system" fn IsWorldReadable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisworldreadable: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsWorldReadable() {
+            match IMSMQQueueInfo2_Impl::IsWorldReadable(this) {
                 Ok(ok__) => {
                     core::ptr::write(pisworldreadable, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6265,17 +6265,17 @@ impl IMSMQQueueInfo2_Vtbl {
         unsafe extern "system" fn Create<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, istransactional: *const std::mem::MaybeUninit<windows_core::VARIANT>, isworldreadable: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Create(core::mem::transmute_copy(&istransactional), core::mem::transmute_copy(&isworldreadable)).into()
+            IMSMQQueueInfo2_Impl::Create(this, core::mem::transmute_copy(&istransactional), core::mem::transmute_copy(&isworldreadable)).into()
         }
         unsafe extern "system" fn Delete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Delete().into()
+            IMSMQQueueInfo2_Impl::Delete(this).into()
         }
         unsafe extern "system" fn Open<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, access: i32, sharemode: i32, ppq: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Open(core::mem::transmute_copy(&access), core::mem::transmute_copy(&sharemode)) {
+            match IMSMQQueueInfo2_Impl::Open(this, core::mem::transmute_copy(&access), core::mem::transmute_copy(&sharemode)) {
                 Ok(ok__) => {
                     core::ptr::write(ppq, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6286,17 +6286,17 @@ impl IMSMQQueueInfo2_Vtbl {
         unsafe extern "system" fn Refresh<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Refresh().into()
+            IMSMQQueueInfo2_Impl::Refresh(this).into()
         }
         unsafe extern "system" fn Update<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Update().into()
+            IMSMQQueueInfo2_Impl::Update(this).into()
         }
         unsafe extern "system" fn PathNameDNS<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpathnamedns: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PathNameDNS() {
+            match IMSMQQueueInfo2_Impl::PathNameDNS(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrpathnamedns, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6307,7 +6307,7 @@ impl IMSMQQueueInfo2_Vtbl {
         unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcolproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Properties() {
+            match IMSMQQueueInfo2_Impl::Properties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6318,7 +6318,7 @@ impl IMSMQQueueInfo2_Vtbl {
         unsafe extern "system" fn Security<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsecurity: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Security() {
+            match IMSMQQueueInfo2_Impl::Security(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarsecurity, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6329,7 +6329,7 @@ impl IMSMQQueueInfo2_Vtbl {
         unsafe extern "system" fn SetSecurity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsecurity: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSecurity(core::mem::transmute(&varsecurity)).into()
+            IMSMQQueueInfo2_Impl::SetSecurity(this, core::mem::transmute(&varsecurity)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -6423,7 +6423,7 @@ impl IMSMQQueueInfo3_Vtbl {
         unsafe extern "system" fn QueueGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidqueue: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.QueueGuid() {
+            match IMSMQQueueInfo3_Impl::QueueGuid(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrguidqueue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6434,7 +6434,7 @@ impl IMSMQQueueInfo3_Vtbl {
         unsafe extern "system" fn ServiceTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidservicetype: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ServiceTypeGuid() {
+            match IMSMQQueueInfo3_Impl::ServiceTypeGuid(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrguidservicetype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6445,12 +6445,12 @@ impl IMSMQQueueInfo3_Vtbl {
         unsafe extern "system" fn SetServiceTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguidservicetype: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetServiceTypeGuid(core::mem::transmute(&bstrguidservicetype)).into()
+            IMSMQQueueInfo3_Impl::SetServiceTypeGuid(this, core::mem::transmute(&bstrguidservicetype)).into()
         }
         unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlabel: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Label() {
+            match IMSMQQueueInfo3_Impl::Label(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrlabel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6461,12 +6461,12 @@ impl IMSMQQueueInfo3_Vtbl {
         unsafe extern "system" fn SetLabel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrlabel: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLabel(core::mem::transmute(&bstrlabel)).into()
+            IMSMQQueueInfo3_Impl::SetLabel(this, core::mem::transmute(&bstrlabel)).into()
         }
         unsafe extern "system" fn PathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpathname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PathName() {
+            match IMSMQQueueInfo3_Impl::PathName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrpathname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6477,12 +6477,12 @@ impl IMSMQQueueInfo3_Vtbl {
         unsafe extern "system" fn SetPathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpathname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPathName(core::mem::transmute(&bstrpathname)).into()
+            IMSMQQueueInfo3_Impl::SetPathName(this, core::mem::transmute(&bstrpathname)).into()
         }
         unsafe extern "system" fn FormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrformatname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FormatName() {
+            match IMSMQQueueInfo3_Impl::FormatName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrformatname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6493,12 +6493,12 @@ impl IMSMQQueueInfo3_Vtbl {
         unsafe extern "system" fn SetFormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrformatname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFormatName(core::mem::transmute(&bstrformatname)).into()
+            IMSMQQueueInfo3_Impl::SetFormatName(this, core::mem::transmute(&bstrformatname)).into()
         }
         unsafe extern "system" fn IsTransactional<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pistransactional: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsTransactional() {
+            match IMSMQQueueInfo3_Impl::IsTransactional(this) {
                 Ok(ok__) => {
                     core::ptr::write(pistransactional, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6509,7 +6509,7 @@ impl IMSMQQueueInfo3_Vtbl {
         unsafe extern "system" fn PrivLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plprivlevel: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PrivLevel() {
+            match IMSMQQueueInfo3_Impl::PrivLevel(this) {
                 Ok(ok__) => {
                     core::ptr::write(plprivlevel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6520,12 +6520,12 @@ impl IMSMQQueueInfo3_Vtbl {
         unsafe extern "system" fn SetPrivLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lprivlevel: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPrivLevel(core::mem::transmute_copy(&lprivlevel)).into()
+            IMSMQQueueInfo3_Impl::SetPrivLevel(this, core::mem::transmute_copy(&lprivlevel)).into()
         }
         unsafe extern "system" fn Journal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pljournal: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Journal() {
+            match IMSMQQueueInfo3_Impl::Journal(this) {
                 Ok(ok__) => {
                     core::ptr::write(pljournal, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6536,12 +6536,12 @@ impl IMSMQQueueInfo3_Vtbl {
         unsafe extern "system" fn SetJournal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ljournal: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetJournal(core::mem::transmute_copy(&ljournal)).into()
+            IMSMQQueueInfo3_Impl::SetJournal(this, core::mem::transmute_copy(&ljournal)).into()
         }
         unsafe extern "system" fn Quota<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plquota: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Quota() {
+            match IMSMQQueueInfo3_Impl::Quota(this) {
                 Ok(ok__) => {
                     core::ptr::write(plquota, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6552,12 +6552,12 @@ impl IMSMQQueueInfo3_Vtbl {
         unsafe extern "system" fn SetQuota<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lquota: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetQuota(core::mem::transmute_copy(&lquota)).into()
+            IMSMQQueueInfo3_Impl::SetQuota(this, core::mem::transmute_copy(&lquota)).into()
         }
         unsafe extern "system" fn BasePriority<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plbasepriority: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BasePriority() {
+            match IMSMQQueueInfo3_Impl::BasePriority(this) {
                 Ok(ok__) => {
                     core::ptr::write(plbasepriority, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6568,12 +6568,12 @@ impl IMSMQQueueInfo3_Vtbl {
         unsafe extern "system" fn SetBasePriority<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lbasepriority: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBasePriority(core::mem::transmute_copy(&lbasepriority)).into()
+            IMSMQQueueInfo3_Impl::SetBasePriority(this, core::mem::transmute_copy(&lbasepriority)).into()
         }
         unsafe extern "system" fn CreateTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcreatetime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateTime() {
+            match IMSMQQueueInfo3_Impl::CreateTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarcreatetime, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6584,7 +6584,7 @@ impl IMSMQQueueInfo3_Vtbl {
         unsafe extern "system" fn ModifyTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodifytime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ModifyTime() {
+            match IMSMQQueueInfo3_Impl::ModifyTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarmodifytime, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6595,7 +6595,7 @@ impl IMSMQQueueInfo3_Vtbl {
         unsafe extern "system" fn Authenticate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plauthenticate: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Authenticate() {
+            match IMSMQQueueInfo3_Impl::Authenticate(this) {
                 Ok(ok__) => {
                     core::ptr::write(plauthenticate, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6606,12 +6606,12 @@ impl IMSMQQueueInfo3_Vtbl {
         unsafe extern "system" fn SetAuthenticate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lauthenticate: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAuthenticate(core::mem::transmute_copy(&lauthenticate)).into()
+            IMSMQQueueInfo3_Impl::SetAuthenticate(this, core::mem::transmute_copy(&lauthenticate)).into()
         }
         unsafe extern "system" fn JournalQuota<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pljournalquota: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.JournalQuota() {
+            match IMSMQQueueInfo3_Impl::JournalQuota(this) {
                 Ok(ok__) => {
                     core::ptr::write(pljournalquota, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6622,12 +6622,12 @@ impl IMSMQQueueInfo3_Vtbl {
         unsafe extern "system" fn SetJournalQuota<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ljournalquota: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetJournalQuota(core::mem::transmute_copy(&ljournalquota)).into()
+            IMSMQQueueInfo3_Impl::SetJournalQuota(this, core::mem::transmute_copy(&ljournalquota)).into()
         }
         unsafe extern "system" fn IsWorldReadable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisworldreadable: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsWorldReadable() {
+            match IMSMQQueueInfo3_Impl::IsWorldReadable(this) {
                 Ok(ok__) => {
                     core::ptr::write(pisworldreadable, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6638,17 +6638,17 @@ impl IMSMQQueueInfo3_Vtbl {
         unsafe extern "system" fn Create<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, istransactional: *const std::mem::MaybeUninit<windows_core::VARIANT>, isworldreadable: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Create(core::mem::transmute_copy(&istransactional), core::mem::transmute_copy(&isworldreadable)).into()
+            IMSMQQueueInfo3_Impl::Create(this, core::mem::transmute_copy(&istransactional), core::mem::transmute_copy(&isworldreadable)).into()
         }
         unsafe extern "system" fn Delete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Delete().into()
+            IMSMQQueueInfo3_Impl::Delete(this).into()
         }
         unsafe extern "system" fn Open<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, access: i32, sharemode: i32, ppq: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Open(core::mem::transmute_copy(&access), core::mem::transmute_copy(&sharemode)) {
+            match IMSMQQueueInfo3_Impl::Open(this, core::mem::transmute_copy(&access), core::mem::transmute_copy(&sharemode)) {
                 Ok(ok__) => {
                     core::ptr::write(ppq, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6659,17 +6659,17 @@ impl IMSMQQueueInfo3_Vtbl {
         unsafe extern "system" fn Refresh<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Refresh().into()
+            IMSMQQueueInfo3_Impl::Refresh(this).into()
         }
         unsafe extern "system" fn Update<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Update().into()
+            IMSMQQueueInfo3_Impl::Update(this).into()
         }
         unsafe extern "system" fn PathNameDNS<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpathnamedns: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PathNameDNS() {
+            match IMSMQQueueInfo3_Impl::PathNameDNS(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrpathnamedns, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6680,7 +6680,7 @@ impl IMSMQQueueInfo3_Vtbl {
         unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcolproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Properties() {
+            match IMSMQQueueInfo3_Impl::Properties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6691,7 +6691,7 @@ impl IMSMQQueueInfo3_Vtbl {
         unsafe extern "system" fn Security<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsecurity: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Security() {
+            match IMSMQQueueInfo3_Impl::Security(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarsecurity, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6702,12 +6702,12 @@ impl IMSMQQueueInfo3_Vtbl {
         unsafe extern "system" fn SetSecurity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsecurity: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSecurity(core::mem::transmute(&varsecurity)).into()
+            IMSMQQueueInfo3_Impl::SetSecurity(this, core::mem::transmute(&varsecurity)).into()
         }
         unsafe extern "system" fn IsTransactional2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pistransactional: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsTransactional2() {
+            match IMSMQQueueInfo3_Impl::IsTransactional2(this) {
                 Ok(ok__) => {
                     core::ptr::write(pistransactional, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6718,7 +6718,7 @@ impl IMSMQQueueInfo3_Vtbl {
         unsafe extern "system" fn IsWorldReadable2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisworldreadable: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsWorldReadable2() {
+            match IMSMQQueueInfo3_Impl::IsWorldReadable2(this) {
                 Ok(ok__) => {
                     core::ptr::write(pisworldreadable, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6729,7 +6729,7 @@ impl IMSMQQueueInfo3_Vtbl {
         unsafe extern "system" fn MulticastAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrmulticastaddress: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MulticastAddress() {
+            match IMSMQQueueInfo3_Impl::MulticastAddress(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrmulticastaddress, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6740,12 +6740,12 @@ impl IMSMQQueueInfo3_Vtbl {
         unsafe extern "system" fn SetMulticastAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmulticastaddress: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMulticastAddress(core::mem::transmute(&bstrmulticastaddress)).into()
+            IMSMQQueueInfo3_Impl::SetMulticastAddress(this, core::mem::transmute(&bstrmulticastaddress)).into()
         }
         unsafe extern "system" fn ADsPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstradspath: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ADsPath() {
+            match IMSMQQueueInfo3_Impl::ADsPath(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstradspath, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6850,7 +6850,7 @@ impl IMSMQQueueInfo4_Vtbl {
         unsafe extern "system" fn QueueGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidqueue: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.QueueGuid() {
+            match IMSMQQueueInfo4_Impl::QueueGuid(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrguidqueue, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6861,7 +6861,7 @@ impl IMSMQQueueInfo4_Vtbl {
         unsafe extern "system" fn ServiceTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrguidservicetype: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ServiceTypeGuid() {
+            match IMSMQQueueInfo4_Impl::ServiceTypeGuid(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrguidservicetype, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6872,12 +6872,12 @@ impl IMSMQQueueInfo4_Vtbl {
         unsafe extern "system" fn SetServiceTypeGuid<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrguidservicetype: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetServiceTypeGuid(core::mem::transmute(&bstrguidservicetype)).into()
+            IMSMQQueueInfo4_Impl::SetServiceTypeGuid(this, core::mem::transmute(&bstrguidservicetype)).into()
         }
         unsafe extern "system" fn Label<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrlabel: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Label() {
+            match IMSMQQueueInfo4_Impl::Label(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrlabel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6888,12 +6888,12 @@ impl IMSMQQueueInfo4_Vtbl {
         unsafe extern "system" fn SetLabel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrlabel: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLabel(core::mem::transmute(&bstrlabel)).into()
+            IMSMQQueueInfo4_Impl::SetLabel(this, core::mem::transmute(&bstrlabel)).into()
         }
         unsafe extern "system" fn PathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpathname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PathName() {
+            match IMSMQQueueInfo4_Impl::PathName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrpathname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6904,12 +6904,12 @@ impl IMSMQQueueInfo4_Vtbl {
         unsafe extern "system" fn SetPathName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpathname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPathName(core::mem::transmute(&bstrpathname)).into()
+            IMSMQQueueInfo4_Impl::SetPathName(this, core::mem::transmute(&bstrpathname)).into()
         }
         unsafe extern "system" fn FormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrformatname: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FormatName() {
+            match IMSMQQueueInfo4_Impl::FormatName(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrformatname, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6920,12 +6920,12 @@ impl IMSMQQueueInfo4_Vtbl {
         unsafe extern "system" fn SetFormatName<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrformatname: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFormatName(core::mem::transmute(&bstrformatname)).into()
+            IMSMQQueueInfo4_Impl::SetFormatName(this, core::mem::transmute(&bstrformatname)).into()
         }
         unsafe extern "system" fn IsTransactional<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pistransactional: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsTransactional() {
+            match IMSMQQueueInfo4_Impl::IsTransactional(this) {
                 Ok(ok__) => {
                     core::ptr::write(pistransactional, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6936,7 +6936,7 @@ impl IMSMQQueueInfo4_Vtbl {
         unsafe extern "system" fn PrivLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plprivlevel: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PrivLevel() {
+            match IMSMQQueueInfo4_Impl::PrivLevel(this) {
                 Ok(ok__) => {
                     core::ptr::write(plprivlevel, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6947,12 +6947,12 @@ impl IMSMQQueueInfo4_Vtbl {
         unsafe extern "system" fn SetPrivLevel<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lprivlevel: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPrivLevel(core::mem::transmute_copy(&lprivlevel)).into()
+            IMSMQQueueInfo4_Impl::SetPrivLevel(this, core::mem::transmute_copy(&lprivlevel)).into()
         }
         unsafe extern "system" fn Journal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pljournal: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Journal() {
+            match IMSMQQueueInfo4_Impl::Journal(this) {
                 Ok(ok__) => {
                     core::ptr::write(pljournal, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6963,12 +6963,12 @@ impl IMSMQQueueInfo4_Vtbl {
         unsafe extern "system" fn SetJournal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ljournal: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetJournal(core::mem::transmute_copy(&ljournal)).into()
+            IMSMQQueueInfo4_Impl::SetJournal(this, core::mem::transmute_copy(&ljournal)).into()
         }
         unsafe extern "system" fn Quota<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plquota: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Quota() {
+            match IMSMQQueueInfo4_Impl::Quota(this) {
                 Ok(ok__) => {
                     core::ptr::write(plquota, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6979,12 +6979,12 @@ impl IMSMQQueueInfo4_Vtbl {
         unsafe extern "system" fn SetQuota<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lquota: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetQuota(core::mem::transmute_copy(&lquota)).into()
+            IMSMQQueueInfo4_Impl::SetQuota(this, core::mem::transmute_copy(&lquota)).into()
         }
         unsafe extern "system" fn BasePriority<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plbasepriority: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BasePriority() {
+            match IMSMQQueueInfo4_Impl::BasePriority(this) {
                 Ok(ok__) => {
                     core::ptr::write(plbasepriority, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -6995,12 +6995,12 @@ impl IMSMQQueueInfo4_Vtbl {
         unsafe extern "system" fn SetBasePriority<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lbasepriority: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBasePriority(core::mem::transmute_copy(&lbasepriority)).into()
+            IMSMQQueueInfo4_Impl::SetBasePriority(this, core::mem::transmute_copy(&lbasepriority)).into()
         }
         unsafe extern "system" fn CreateTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcreatetime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateTime() {
+            match IMSMQQueueInfo4_Impl::CreateTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarcreatetime, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7011,7 +7011,7 @@ impl IMSMQQueueInfo4_Vtbl {
         unsafe extern "system" fn ModifyTime<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodifytime: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ModifyTime() {
+            match IMSMQQueueInfo4_Impl::ModifyTime(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarmodifytime, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7022,7 +7022,7 @@ impl IMSMQQueueInfo4_Vtbl {
         unsafe extern "system" fn Authenticate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plauthenticate: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Authenticate() {
+            match IMSMQQueueInfo4_Impl::Authenticate(this) {
                 Ok(ok__) => {
                     core::ptr::write(plauthenticate, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7033,12 +7033,12 @@ impl IMSMQQueueInfo4_Vtbl {
         unsafe extern "system" fn SetAuthenticate<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lauthenticate: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetAuthenticate(core::mem::transmute_copy(&lauthenticate)).into()
+            IMSMQQueueInfo4_Impl::SetAuthenticate(this, core::mem::transmute_copy(&lauthenticate)).into()
         }
         unsafe extern "system" fn JournalQuota<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pljournalquota: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.JournalQuota() {
+            match IMSMQQueueInfo4_Impl::JournalQuota(this) {
                 Ok(ok__) => {
                     core::ptr::write(pljournalquota, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7049,12 +7049,12 @@ impl IMSMQQueueInfo4_Vtbl {
         unsafe extern "system" fn SetJournalQuota<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ljournalquota: i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetJournalQuota(core::mem::transmute_copy(&ljournalquota)).into()
+            IMSMQQueueInfo4_Impl::SetJournalQuota(this, core::mem::transmute_copy(&ljournalquota)).into()
         }
         unsafe extern "system" fn IsWorldReadable<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisworldreadable: *mut i16) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsWorldReadable() {
+            match IMSMQQueueInfo4_Impl::IsWorldReadable(this) {
                 Ok(ok__) => {
                     core::ptr::write(pisworldreadable, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7065,17 +7065,17 @@ impl IMSMQQueueInfo4_Vtbl {
         unsafe extern "system" fn Create<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, istransactional: *const std::mem::MaybeUninit<windows_core::VARIANT>, isworldreadable: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Create(core::mem::transmute_copy(&istransactional), core::mem::transmute_copy(&isworldreadable)).into()
+            IMSMQQueueInfo4_Impl::Create(this, core::mem::transmute_copy(&istransactional), core::mem::transmute_copy(&isworldreadable)).into()
         }
         unsafe extern "system" fn Delete<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Delete().into()
+            IMSMQQueueInfo4_Impl::Delete(this).into()
         }
         unsafe extern "system" fn Open<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, access: i32, sharemode: i32, ppq: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Open(core::mem::transmute_copy(&access), core::mem::transmute_copy(&sharemode)) {
+            match IMSMQQueueInfo4_Impl::Open(this, core::mem::transmute_copy(&access), core::mem::transmute_copy(&sharemode)) {
                 Ok(ok__) => {
                     core::ptr::write(ppq, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7086,17 +7086,17 @@ impl IMSMQQueueInfo4_Vtbl {
         unsafe extern "system" fn Refresh<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Refresh().into()
+            IMSMQQueueInfo4_Impl::Refresh(this).into()
         }
         unsafe extern "system" fn Update<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Update().into()
+            IMSMQQueueInfo4_Impl::Update(this).into()
         }
         unsafe extern "system" fn PathNameDNS<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpathnamedns: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PathNameDNS() {
+            match IMSMQQueueInfo4_Impl::PathNameDNS(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrpathnamedns, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7107,7 +7107,7 @@ impl IMSMQQueueInfo4_Vtbl {
         unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcolproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Properties() {
+            match IMSMQQueueInfo4_Impl::Properties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7118,7 +7118,7 @@ impl IMSMQQueueInfo4_Vtbl {
         unsafe extern "system" fn Security<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarsecurity: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Security() {
+            match IMSMQQueueInfo4_Impl::Security(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvarsecurity, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7129,12 +7129,12 @@ impl IMSMQQueueInfo4_Vtbl {
         unsafe extern "system" fn SetSecurity<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varsecurity: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSecurity(core::mem::transmute(&varsecurity)).into()
+            IMSMQQueueInfo4_Impl::SetSecurity(this, core::mem::transmute(&varsecurity)).into()
         }
         unsafe extern "system" fn IsTransactional2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pistransactional: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsTransactional2() {
+            match IMSMQQueueInfo4_Impl::IsTransactional2(this) {
                 Ok(ok__) => {
                     core::ptr::write(pistransactional, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7145,7 +7145,7 @@ impl IMSMQQueueInfo4_Vtbl {
         unsafe extern "system" fn IsWorldReadable2<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisworldreadable: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsWorldReadable2() {
+            match IMSMQQueueInfo4_Impl::IsWorldReadable2(this) {
                 Ok(ok__) => {
                     core::ptr::write(pisworldreadable, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7156,7 +7156,7 @@ impl IMSMQQueueInfo4_Vtbl {
         unsafe extern "system" fn MulticastAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrmulticastaddress: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MulticastAddress() {
+            match IMSMQQueueInfo4_Impl::MulticastAddress(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstrmulticastaddress, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7167,12 +7167,12 @@ impl IMSMQQueueInfo4_Vtbl {
         unsafe extern "system" fn SetMulticastAddress<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmulticastaddress: std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMulticastAddress(core::mem::transmute(&bstrmulticastaddress)).into()
+            IMSMQQueueInfo4_Impl::SetMulticastAddress(this, core::mem::transmute(&bstrmulticastaddress)).into()
         }
         unsafe extern "system" fn ADsPath<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstradspath: *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ADsPath() {
+            match IMSMQQueueInfo4_Impl::ADsPath(this) {
                 Ok(ok__) => {
                     core::ptr::write(pbstradspath, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7240,12 +7240,12 @@ impl IMSMQQueueInfos_Vtbl {
         unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfos_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Reset().into()
+            IMSMQQueueInfos_Impl::Reset(this).into()
         }
         unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfos_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinfonext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Next() {
+            match IMSMQQueueInfos_Impl::Next(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfonext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7277,12 +7277,12 @@ impl IMSMQQueueInfos2_Vtbl {
         unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfos2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Reset().into()
+            IMSMQQueueInfos2_Impl::Reset(this).into()
         }
         unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfos2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinfonext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Next() {
+            match IMSMQQueueInfos2_Impl::Next(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfonext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7293,7 +7293,7 @@ impl IMSMQQueueInfos2_Vtbl {
         unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfos2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcolproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Properties() {
+            match IMSMQQueueInfos2_Impl::Properties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7326,12 +7326,12 @@ impl IMSMQQueueInfos3_Vtbl {
         unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfos3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Reset().into()
+            IMSMQQueueInfos3_Impl::Reset(this).into()
         }
         unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfos3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinfonext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Next() {
+            match IMSMQQueueInfos3_Impl::Next(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfonext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7342,7 +7342,7 @@ impl IMSMQQueueInfos3_Vtbl {
         unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfos3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcolproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Properties() {
+            match IMSMQQueueInfos3_Impl::Properties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7375,12 +7375,12 @@ impl IMSMQQueueInfos4_Vtbl {
         unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfos4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Reset().into()
+            IMSMQQueueInfos4_Impl::Reset(this).into()
         }
         unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfos4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppqinfonext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Next() {
+            match IMSMQQueueInfos4_Impl::Next(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppqinfonext, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7391,7 +7391,7 @@ impl IMSMQQueueInfos4_Vtbl {
         unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfos4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcolproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Properties() {
+            match IMSMQQueueInfos4_Impl::Properties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7424,7 +7424,7 @@ impl IMSMQQueueManagement_Vtbl {
         unsafe extern "system" fn JournalMessageCount<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pljournalmessagecount: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.JournalMessageCount() {
+            match IMSMQQueueManagement_Impl::JournalMessageCount(this) {
                 Ok(ok__) => {
                     core::ptr::write(pljournalmessagecount, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7435,7 +7435,7 @@ impl IMSMQQueueManagement_Vtbl {
         unsafe extern "system" fn BytesInJournal<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvbytesinjournal: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BytesInJournal() {
+            match IMSMQQueueManagement_Impl::BytesInJournal(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvbytesinjournal, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7446,7 +7446,7 @@ impl IMSMQQueueManagement_Vtbl {
         unsafe extern "system" fn EodGetReceiveInfo<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvcollection: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EodGetReceiveInfo() {
+            match IMSMQQueueManagement_Impl::EodGetReceiveInfo(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvcollection, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7479,7 +7479,7 @@ impl IMSMQTransaction_Vtbl {
         unsafe extern "system" fn Transaction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQTransaction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pltransaction: *mut i32) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Transaction() {
+            match IMSMQTransaction_Impl::Transaction(this) {
                 Ok(ok__) => {
                     core::ptr::write(pltransaction, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7490,12 +7490,12 @@ impl IMSMQTransaction_Vtbl {
         unsafe extern "system" fn Commit<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQTransaction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fretaining: *const std::mem::MaybeUninit<windows_core::VARIANT>, grftc: *const std::mem::MaybeUninit<windows_core::VARIANT>, grfrm: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Commit(core::mem::transmute_copy(&fretaining), core::mem::transmute_copy(&grftc), core::mem::transmute_copy(&grfrm)).into()
+            IMSMQTransaction_Impl::Commit(this, core::mem::transmute_copy(&fretaining), core::mem::transmute_copy(&grftc), core::mem::transmute_copy(&grfrm)).into()
         }
         unsafe extern "system" fn Abort<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQTransaction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fretaining: *const std::mem::MaybeUninit<windows_core::VARIANT>, fasync: *const std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Abort(core::mem::transmute_copy(&fretaining), core::mem::transmute_copy(&fasync)).into()
+            IMSMQTransaction_Impl::Abort(this, core::mem::transmute_copy(&fretaining), core::mem::transmute_copy(&fasync)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -7521,12 +7521,12 @@ impl IMSMQTransaction2_Vtbl {
         unsafe extern "system" fn InitNew<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQTransaction2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vartransaction: std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InitNew(core::mem::transmute(&vartransaction)).into()
+            IMSMQTransaction2_Impl::InitNew(this, core::mem::transmute(&vartransaction)).into()
         }
         unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQTransaction2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcolproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Properties() {
+            match IMSMQTransaction2_Impl::Properties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7556,7 +7556,7 @@ impl IMSMQTransaction3_Vtbl {
         unsafe extern "system" fn ITransaction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQTransaction3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvaritransaction: *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ITransaction() {
+            match IMSMQTransaction3_Impl::ITransaction(this) {
                 Ok(ok__) => {
                     core::ptr::write(pvaritransaction, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7582,7 +7582,7 @@ impl IMSMQTransactionDispenser_Vtbl {
         unsafe extern "system" fn BeginTransaction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQTransactionDispenser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptransaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BeginTransaction() {
+            match IMSMQTransactionDispenser_Impl::BeginTransaction(this) {
                 Ok(ok__) => {
                     core::ptr::write(ptransaction, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7609,7 +7609,7 @@ impl IMSMQTransactionDispenser2_Vtbl {
         unsafe extern "system" fn BeginTransaction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQTransactionDispenser2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptransaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BeginTransaction() {
+            match IMSMQTransactionDispenser2_Impl::BeginTransaction(this) {
                 Ok(ok__) => {
                     core::ptr::write(ptransaction, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7620,7 +7620,7 @@ impl IMSMQTransactionDispenser2_Vtbl {
         unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQTransactionDispenser2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcolproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Properties() {
+            match IMSMQTransactionDispenser2_Impl::Properties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7651,7 +7651,7 @@ impl IMSMQTransactionDispenser3_Vtbl {
         unsafe extern "system" fn BeginTransaction<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQTransactionDispenser3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptransaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BeginTransaction() {
+            match IMSMQTransactionDispenser3_Impl::BeginTransaction(this) {
                 Ok(ok__) => {
                     core::ptr::write(ptransaction, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)
@@ -7662,7 +7662,7 @@ impl IMSMQTransactionDispenser3_Vtbl {
         unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSMQTransactionDispenser3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcolproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Properties() {
+            match IMSMQTransactionDispenser3_Impl::Properties(this) {
                 Ok(ok__) => {
                     core::ptr::write(ppcolproperties, core::mem::transmute(ok__));
                     windows_core::HRESULT(0)

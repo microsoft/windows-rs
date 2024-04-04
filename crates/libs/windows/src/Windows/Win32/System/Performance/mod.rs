@@ -1008,6 +1008,13 @@ where
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DICounterItem, DICounterItem_Vtbl, 0xc08c4ff2_0e2e_11cf_942c_008029004347);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for DICounterItem {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(DICounterItem, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl DICounterItem {}
@@ -1018,6 +1025,13 @@ pub struct DICounterItem_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DILogFileItem, DILogFileItem_Vtbl, 0x8d093ffc_f777_4917_82d1_833fbc54c58f);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for DILogFileItem {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(DILogFileItem, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1030,6 +1044,13 @@ pub struct DILogFileItem_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DISystemMonitor, DISystemMonitor_Vtbl, 0x13d73d81_c32e_11cf_9398_00aa00a3ddea);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for DISystemMonitor {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(DISystemMonitor, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl DISystemMonitor {}
@@ -1040,6 +1061,13 @@ pub struct DISystemMonitor_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DISystemMonitorEvents, DISystemMonitorEvents_Vtbl, 0x84979930_4ab3_11cf_943a_008029004347);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for DISystemMonitorEvents {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(DISystemMonitorEvents, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1052,6 +1080,13 @@ pub struct DISystemMonitorEvents_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(DISystemMonitorInternal, DISystemMonitorInternal_Vtbl, 0x194eb242_c32c_11cf_9398_00aa00a3ddea);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for DISystemMonitorInternal {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(DISystemMonitorInternal, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl DISystemMonitorInternal {}
@@ -1063,132 +1098,16 @@ pub struct DISystemMonitorInternal_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAlertDataCollector, IAlertDataCollector_Vtbl, 0x03837516_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IAlertDataCollector {
+    type Target = IDataCollector;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IAlertDataCollector, windows_core::IUnknown, super::Com::IDispatch, IDataCollector);
 #[cfg(feature = "Win32_System_Com")]
 impl IAlertDataCollector {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DataCollectorSet(&self) -> windows_core::Result<IDataCollectorSet> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DataCollectorSet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetDataCollectorSet<P0>(&self, group: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IDataCollectorSet>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetDataCollectorSet)(windows_core::Interface::as_raw(self), group.param().abi()).ok()
-    }
-    pub unsafe fn DataCollectorType(&self) -> windows_core::Result<DataCollectorType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DataCollectorType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn FileName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FileName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetFileName<P0>(&self, name: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFileName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
-    }
-    pub unsafe fn FileNameFormat(&self) -> windows_core::Result<AutoPathFormat> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FileNameFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetFileNameFormat(&self, format: AutoPathFormat) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetFileNameFormat)(windows_core::Interface::as_raw(self), format).ok()
-    }
-    pub unsafe fn FileNameFormatPattern(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FileNameFormatPattern)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetFileNameFormatPattern<P0>(&self, pattern: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFileNameFormatPattern)(windows_core::Interface::as_raw(self), pattern.param().abi()).ok()
-    }
-    pub unsafe fn LatestOutputLocation(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LatestOutputLocation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetLatestOutputLocation<P0>(&self, path: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetLatestOutputLocation)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
-    }
-    pub unsafe fn LogAppend(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LogAppend)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetLogAppend<P0>(&self, append: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetLogAppend)(windows_core::Interface::as_raw(self), append.param().abi()).ok()
-    }
-    pub unsafe fn LogCircular(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LogCircular)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetLogCircular<P0>(&self, circular: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetLogCircular)(windows_core::Interface::as_raw(self), circular.param().abi()).ok()
-    }
-    pub unsafe fn LogOverwrite(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LogOverwrite)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetLogOverwrite<P0>(&self, overwrite: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetLogOverwrite)(windows_core::Interface::as_raw(self), overwrite.param().abi()).ok()
-    }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
-    }
-    pub unsafe fn OutputLocation(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.OutputLocation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Index(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Index)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetIndex(&self, index: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetIndex)(windows_core::Interface::as_raw(self), index).ok()
-    }
-    pub unsafe fn Xml(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Xml)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetXml<P0>(&self, xml: P0) -> windows_core::Result<IValueMap>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SetXml)(windows_core::Interface::as_raw(self), xml.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn CreateOutputLocation<P0>(&self, latest: P0) -> windows_core::Result<windows_core::BSTR>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateOutputLocation)(windows_core::Interface::as_raw(self), latest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AlertThresholds(&self) -> windows_core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__ = std::mem::zeroed();
@@ -1296,132 +1215,16 @@ pub struct IAlertDataCollector_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IApiTracingDataCollector, IApiTracingDataCollector_Vtbl, 0x0383751a_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IApiTracingDataCollector {
+    type Target = IDataCollector;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IApiTracingDataCollector, windows_core::IUnknown, super::Com::IDispatch, IDataCollector);
 #[cfg(feature = "Win32_System_Com")]
 impl IApiTracingDataCollector {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DataCollectorSet(&self) -> windows_core::Result<IDataCollectorSet> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DataCollectorSet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetDataCollectorSet<P0>(&self, group: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IDataCollectorSet>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetDataCollectorSet)(windows_core::Interface::as_raw(self), group.param().abi()).ok()
-    }
-    pub unsafe fn DataCollectorType(&self) -> windows_core::Result<DataCollectorType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DataCollectorType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn FileName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FileName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetFileName<P0>(&self, name: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFileName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
-    }
-    pub unsafe fn FileNameFormat(&self) -> windows_core::Result<AutoPathFormat> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FileNameFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetFileNameFormat(&self, format: AutoPathFormat) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetFileNameFormat)(windows_core::Interface::as_raw(self), format).ok()
-    }
-    pub unsafe fn FileNameFormatPattern(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FileNameFormatPattern)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetFileNameFormatPattern<P0>(&self, pattern: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFileNameFormatPattern)(windows_core::Interface::as_raw(self), pattern.param().abi()).ok()
-    }
-    pub unsafe fn LatestOutputLocation(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LatestOutputLocation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetLatestOutputLocation<P0>(&self, path: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetLatestOutputLocation)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
-    }
-    pub unsafe fn LogAppend(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LogAppend)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetLogAppend<P0>(&self, append: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetLogAppend)(windows_core::Interface::as_raw(self), append.param().abi()).ok()
-    }
-    pub unsafe fn LogCircular(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LogCircular)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetLogCircular<P0>(&self, circular: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetLogCircular)(windows_core::Interface::as_raw(self), circular.param().abi()).ok()
-    }
-    pub unsafe fn LogOverwrite(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LogOverwrite)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetLogOverwrite<P0>(&self, overwrite: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetLogOverwrite)(windows_core::Interface::as_raw(self), overwrite.param().abi()).ok()
-    }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
-    }
-    pub unsafe fn OutputLocation(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.OutputLocation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Index(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Index)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetIndex(&self, index: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetIndex)(windows_core::Interface::as_raw(self), index).ok()
-    }
-    pub unsafe fn Xml(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Xml)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetXml<P0>(&self, xml: P0) -> windows_core::Result<IValueMap>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SetXml)(windows_core::Interface::as_raw(self), xml.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn CreateOutputLocation<P0>(&self, latest: P0) -> windows_core::Result<windows_core::BSTR>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateOutputLocation)(windows_core::Interface::as_raw(self), latest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn LogApiNamesOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).LogApiNamesOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1530,132 +1333,16 @@ pub struct IApiTracingDataCollector_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IConfigurationDataCollector, IConfigurationDataCollector_Vtbl, 0x03837514_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IConfigurationDataCollector {
+    type Target = IDataCollector;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IConfigurationDataCollector, windows_core::IUnknown, super::Com::IDispatch, IDataCollector);
 #[cfg(feature = "Win32_System_Com")]
 impl IConfigurationDataCollector {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DataCollectorSet(&self) -> windows_core::Result<IDataCollectorSet> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DataCollectorSet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetDataCollectorSet<P0>(&self, group: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IDataCollectorSet>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetDataCollectorSet)(windows_core::Interface::as_raw(self), group.param().abi()).ok()
-    }
-    pub unsafe fn DataCollectorType(&self) -> windows_core::Result<DataCollectorType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DataCollectorType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn FileName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FileName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetFileName<P0>(&self, name: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFileName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
-    }
-    pub unsafe fn FileNameFormat(&self) -> windows_core::Result<AutoPathFormat> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FileNameFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetFileNameFormat(&self, format: AutoPathFormat) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetFileNameFormat)(windows_core::Interface::as_raw(self), format).ok()
-    }
-    pub unsafe fn FileNameFormatPattern(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FileNameFormatPattern)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetFileNameFormatPattern<P0>(&self, pattern: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFileNameFormatPattern)(windows_core::Interface::as_raw(self), pattern.param().abi()).ok()
-    }
-    pub unsafe fn LatestOutputLocation(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LatestOutputLocation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetLatestOutputLocation<P0>(&self, path: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetLatestOutputLocation)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
-    }
-    pub unsafe fn LogAppend(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LogAppend)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetLogAppend<P0>(&self, append: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetLogAppend)(windows_core::Interface::as_raw(self), append.param().abi()).ok()
-    }
-    pub unsafe fn LogCircular(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LogCircular)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetLogCircular<P0>(&self, circular: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetLogCircular)(windows_core::Interface::as_raw(self), circular.param().abi()).ok()
-    }
-    pub unsafe fn LogOverwrite(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LogOverwrite)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetLogOverwrite<P0>(&self, overwrite: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetLogOverwrite)(windows_core::Interface::as_raw(self), overwrite.param().abi()).ok()
-    }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
-    }
-    pub unsafe fn OutputLocation(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.OutputLocation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Index(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Index)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetIndex(&self, index: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetIndex)(windows_core::Interface::as_raw(self), index).ok()
-    }
-    pub unsafe fn Xml(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Xml)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetXml<P0>(&self, xml: P0) -> windows_core::Result<IValueMap>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SetXml)(windows_core::Interface::as_raw(self), xml.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn CreateOutputLocation<P0>(&self, latest: P0) -> windows_core::Result<windows_core::BSTR>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateOutputLocation)(windows_core::Interface::as_raw(self), latest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn FileMaxCount(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).FileMaxCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1774,6 +1461,12 @@ pub struct IConfigurationDataCollector_Vtbl {
     pub SetSystemStateFile: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICounterItem, ICounterItem_Vtbl, 0x771a9520_ee28_11ce_941e_008029004347);
+impl std::ops::Deref for ICounterItem {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICounterItem, windows_core::IUnknown);
 impl ICounterItem {
     pub unsafe fn Value(&self) -> windows_core::Result<f64> {
@@ -1836,50 +1529,14 @@ pub struct ICounterItem_Vtbl {
     pub GetStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64, *mut f64, *mut f64, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICounterItem2, ICounterItem2_Vtbl, 0xeefcd4e1_ea1c_4435_b7f4_e341ba03b4f9);
+impl std::ops::Deref for ICounterItem2 {
+    type Target = ICounterItem;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICounterItem2, windows_core::IUnknown, ICounterItem);
 impl ICounterItem2 {
-    pub unsafe fn Value(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetColor(&self, color: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetColor)(windows_core::Interface::as_raw(self), color).ok()
-    }
-    pub unsafe fn Color(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Color)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetWidth(&self, iwidth: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetWidth)(windows_core::Interface::as_raw(self), iwidth).ok()
-    }
-    pub unsafe fn Width(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Width)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetLineStyle(&self, ilinestyle: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetLineStyle)(windows_core::Interface::as_raw(self), ilinestyle).ok()
-    }
-    pub unsafe fn LineStyle(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LineStyle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetScaleFactor(&self, iscale: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetScaleFactor)(windows_core::Interface::as_raw(self), iscale).ok()
-    }
-    pub unsafe fn ScaleFactor(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ScaleFactor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn Path(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Path)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetValue(&self, value: *mut f64, status: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetValue)(windows_core::Interface::as_raw(self), value, status).ok()
-    }
-    pub unsafe fn GetStatistics(&self, max: *mut f64, min: *mut f64, avg: *mut f64, status: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.GetStatistics)(windows_core::Interface::as_raw(self), max, min, avg, status).ok()
-    }
     pub unsafe fn SetSelected<P0>(&self, bstate: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
@@ -1916,6 +1573,13 @@ pub struct ICounterItem2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ICounters, ICounters_Vtbl, 0x79167962_28fc_11cf_942f_008029004347);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ICounters {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ICounters, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1969,6 +1633,13 @@ pub struct ICounters_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDataCollector, IDataCollector_Vtbl, 0x038374ff_098b_11d8_9414_505054503030);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IDataCollector {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDataCollector, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2139,6 +1810,13 @@ pub struct IDataCollector_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDataCollectorCollection, IDataCollectorCollection_Vtbl, 0x03837502_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IDataCollectorCollection {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDataCollectorCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IDataCollectorCollection {
@@ -2225,6 +1903,13 @@ pub struct IDataCollectorCollection_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDataCollectorSet, IDataCollectorSet_Vtbl, 0x03837520_098b_11d8_9414_505054503030);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IDataCollectorSet {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDataCollectorSet, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2610,6 +2295,13 @@ pub struct IDataCollectorSet_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDataCollectorSetCollection, IDataCollectorSetCollection_Vtbl, 0x03837524_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IDataCollectorSetCollection {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDataCollectorSetCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IDataCollectorSetCollection {
@@ -2684,6 +2376,13 @@ pub struct IDataCollectorSetCollection_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDataManager, IDataManager_Vtbl, 0x03837541_098b_11d8_9414_505054503030);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IDataManager {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IDataManager, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2846,6 +2545,13 @@ pub struct IDataManager_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFolderAction, IFolderAction_Vtbl, 0x03837543_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IFolderAction {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IFolderAction, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFolderAction {
@@ -2896,6 +2602,13 @@ pub struct IFolderAction_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFolderActionCollection, IFolderActionCollection_Vtbl, 0x03837544_098b_11d8_9414_505054503030);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IFolderActionCollection {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IFolderActionCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2971,6 +2684,12 @@ pub struct IFolderActionCollection_Vtbl {
     CreateFolderAction: usize,
 }
 windows_core::imp::define_interface!(ILogFileItem, ILogFileItem_Vtbl, 0xd6b518dd_05c7_418a_89e6_4f9ce8c6841e);
+impl std::ops::Deref for ILogFileItem {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ILogFileItem, windows_core::IUnknown);
 impl ILogFileItem {
     pub unsafe fn Path(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -2985,6 +2704,13 @@ pub struct ILogFileItem_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ILogFiles, ILogFiles_Vtbl, 0x6a2a97e6_6851_41ea_87ad_2a8225335865);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ILogFiles {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ILogFiles, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3039,132 +2765,16 @@ pub struct ILogFiles_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IPerformanceCounterDataCollector, IPerformanceCounterDataCollector_Vtbl, 0x03837506_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IPerformanceCounterDataCollector {
+    type Target = IDataCollector;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IPerformanceCounterDataCollector, windows_core::IUnknown, super::Com::IDispatch, IDataCollector);
 #[cfg(feature = "Win32_System_Com")]
 impl IPerformanceCounterDataCollector {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DataCollectorSet(&self) -> windows_core::Result<IDataCollectorSet> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DataCollectorSet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetDataCollectorSet<P0>(&self, group: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IDataCollectorSet>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetDataCollectorSet)(windows_core::Interface::as_raw(self), group.param().abi()).ok()
-    }
-    pub unsafe fn DataCollectorType(&self) -> windows_core::Result<DataCollectorType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DataCollectorType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn FileName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FileName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetFileName<P0>(&self, name: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFileName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
-    }
-    pub unsafe fn FileNameFormat(&self) -> windows_core::Result<AutoPathFormat> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FileNameFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetFileNameFormat(&self, format: AutoPathFormat) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetFileNameFormat)(windows_core::Interface::as_raw(self), format).ok()
-    }
-    pub unsafe fn FileNameFormatPattern(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FileNameFormatPattern)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetFileNameFormatPattern<P0>(&self, pattern: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFileNameFormatPattern)(windows_core::Interface::as_raw(self), pattern.param().abi()).ok()
-    }
-    pub unsafe fn LatestOutputLocation(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LatestOutputLocation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetLatestOutputLocation<P0>(&self, path: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetLatestOutputLocation)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
-    }
-    pub unsafe fn LogAppend(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LogAppend)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetLogAppend<P0>(&self, append: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetLogAppend)(windows_core::Interface::as_raw(self), append.param().abi()).ok()
-    }
-    pub unsafe fn LogCircular(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LogCircular)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetLogCircular<P0>(&self, circular: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetLogCircular)(windows_core::Interface::as_raw(self), circular.param().abi()).ok()
-    }
-    pub unsafe fn LogOverwrite(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LogOverwrite)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetLogOverwrite<P0>(&self, overwrite: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetLogOverwrite)(windows_core::Interface::as_raw(self), overwrite.param().abi()).ok()
-    }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
-    }
-    pub unsafe fn OutputLocation(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.OutputLocation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Index(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Index)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetIndex(&self, index: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetIndex)(windows_core::Interface::as_raw(self), index).ok()
-    }
-    pub unsafe fn Xml(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Xml)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetXml<P0>(&self, xml: P0) -> windows_core::Result<IValueMap>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SetXml)(windows_core::Interface::as_raw(self), xml.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn CreateOutputLocation<P0>(&self, latest: P0) -> windows_core::Result<windows_core::BSTR>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateOutputLocation)(windows_core::Interface::as_raw(self), latest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn DataSourceName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).DataSourceName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3230,6 +2840,13 @@ pub struct IPerformanceCounterDataCollector_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchedule, ISchedule_Vtbl, 0x0383753a_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ISchedule {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ISchedule, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchedule {
@@ -3286,6 +2903,13 @@ pub struct ISchedule_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IScheduleCollection, IScheduleCollection_Vtbl, 0x0383753d_098b_11d8_9414_505054503030);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IScheduleCollection {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IScheduleCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3361,6 +2985,12 @@ pub struct IScheduleCollection_Vtbl {
     CreateSchedule: usize,
 }
 windows_core::imp::define_interface!(ISystemMonitor, ISystemMonitor_Vtbl, 0x194eb241_c32c_11cf_9398_00aa00a3ddea);
+impl std::ops::Deref for ISystemMonitor {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISystemMonitor, windows_core::IUnknown);
 impl ISystemMonitor {
     pub unsafe fn Appearance(&self) -> windows_core::Result<i32> {
@@ -3779,330 +3409,14 @@ pub struct ISystemMonitor_Vtbl {
     pub SqlLogSetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISystemMonitor2, ISystemMonitor2_Vtbl, 0x08e3206a_5fd2_4fde_a8a5_8cb3b63d2677);
+impl std::ops::Deref for ISystemMonitor2 {
+    type Target = ISystemMonitor;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISystemMonitor2, windows_core::IUnknown, ISystemMonitor);
 impl ISystemMonitor2 {
-    pub unsafe fn Appearance(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Appearance)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetAppearance(&self, iappearance: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetAppearance)(windows_core::Interface::as_raw(self), iappearance).ok()
-    }
-    pub unsafe fn BackColor(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.BackColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetBackColor(&self, color: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetBackColor)(windows_core::Interface::as_raw(self), color).ok()
-    }
-    pub unsafe fn BorderStyle(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.BorderStyle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetBorderStyle(&self, iborderstyle: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetBorderStyle)(windows_core::Interface::as_raw(self), iborderstyle).ok()
-    }
-    pub unsafe fn ForeColor(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ForeColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetForeColor(&self, color: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetForeColor)(windows_core::Interface::as_raw(self), color).ok()
-    }
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Font(&self) -> windows_core::Result<super::Ole::IFontDisp> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Font)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn putref_Font<P0>(&self, pfont: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::Ole::IFontDisp>,
-    {
-        (windows_core::Interface::vtable(self).base__.putref_Font)(windows_core::Interface::as_raw(self), pfont.param().abi()).ok()
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Counters(&self) -> windows_core::Result<ICounters> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Counters)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetShowVerticalGrid<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetShowVerticalGrid)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
-    }
-    pub unsafe fn ShowVerticalGrid(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ShowVerticalGrid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetShowHorizontalGrid<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetShowHorizontalGrid)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
-    }
-    pub unsafe fn ShowHorizontalGrid(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ShowHorizontalGrid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetShowLegend<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetShowLegend)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
-    }
-    pub unsafe fn ShowLegend(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ShowLegend)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetShowScaleLabels<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetShowScaleLabels)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
-    }
-    pub unsafe fn ShowScaleLabels(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ShowScaleLabels)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetShowValueBar<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetShowValueBar)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
-    }
-    pub unsafe fn ShowValueBar(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ShowValueBar)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetMaximumScale(&self, ivalue: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetMaximumScale)(windows_core::Interface::as_raw(self), ivalue).ok()
-    }
-    pub unsafe fn MaximumScale(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.MaximumScale)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetMinimumScale(&self, ivalue: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetMinimumScale)(windows_core::Interface::as_raw(self), ivalue).ok()
-    }
-    pub unsafe fn MinimumScale(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.MinimumScale)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetUpdateInterval(&self, fvalue: f32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetUpdateInterval)(windows_core::Interface::as_raw(self), fvalue).ok()
-    }
-    pub unsafe fn UpdateInterval(&self) -> windows_core::Result<f32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.UpdateInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetDisplayType(&self, edisplaytype: DisplayTypeConstants) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetDisplayType)(windows_core::Interface::as_raw(self), edisplaytype).ok()
-    }
-    pub unsafe fn DisplayType(&self) -> windows_core::Result<DisplayTypeConstants> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DisplayType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetManualUpdate<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetManualUpdate)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
-    }
-    pub unsafe fn ManualUpdate(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ManualUpdate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetGraphTitle<P0>(&self, bstitle: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetGraphTitle)(windows_core::Interface::as_raw(self), bstitle.param().abi()).ok()
-    }
-    pub unsafe fn GraphTitle(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GraphTitle)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetYAxisLabel<P0>(&self, bstitle: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetYAxisLabel)(windows_core::Interface::as_raw(self), bstitle.param().abi()).ok()
-    }
-    pub unsafe fn YAxisLabel(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.YAxisLabel)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn CollectSample(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.CollectSample)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn UpdateGraph(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.UpdateGraph)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn BrowseCounters(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.BrowseCounters)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn DisplayProperties(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.DisplayProperties)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Counter(&self, iindex: i32) -> windows_core::Result<ICounterItem> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Counter)(windows_core::Interface::as_raw(self), iindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn AddCounter<P0>(&self, bspath: P0) -> windows_core::Result<ICounterItem>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.AddCounter)(windows_core::Interface::as_raw(self), bspath.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn DeleteCounter<P0>(&self, pctr: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<ICounterItem>,
-    {
-        (windows_core::Interface::vtable(self).base__.DeleteCounter)(windows_core::Interface::as_raw(self), pctr.param().abi()).ok()
-    }
-    pub unsafe fn BackColorCtl(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.BackColorCtl)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetBackColorCtl(&self, color: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetBackColorCtl)(windows_core::Interface::as_raw(self), color).ok()
-    }
-    pub unsafe fn SetLogFileName<P0>(&self, bsfilename: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetLogFileName)(windows_core::Interface::as_raw(self), bsfilename.param().abi()).ok()
-    }
-    pub unsafe fn LogFileName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LogFileName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetLogViewStart(&self, starttime: f64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetLogViewStart)(windows_core::Interface::as_raw(self), starttime).ok()
-    }
-    pub unsafe fn LogViewStart(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LogViewStart)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetLogViewStop(&self, stoptime: f64) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetLogViewStop)(windows_core::Interface::as_raw(self), stoptime).ok()
-    }
-    pub unsafe fn LogViewStop(&self) -> windows_core::Result<f64> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LogViewStop)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GridColor(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.GridColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetGridColor(&self, color: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetGridColor)(windows_core::Interface::as_raw(self), color).ok()
-    }
-    pub unsafe fn TimeBarColor(&self) -> windows_core::Result<u32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.TimeBarColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetTimeBarColor(&self, color: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetTimeBarColor)(windows_core::Interface::as_raw(self), color).ok()
-    }
-    pub unsafe fn Highlight(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Highlight)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetHighlight<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetHighlight)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
-    }
-    pub unsafe fn ShowToolbar(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ShowToolbar)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetShowToolbar<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetShowToolbar)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
-    }
-    pub unsafe fn Paste(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Paste)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Copy(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Copy)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.Reset)(windows_core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SetReadOnly<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetReadOnly)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
-    }
-    pub unsafe fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetReportValueType(&self, ereportvaluetype: ReportValueTypeConstants) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetReportValueType)(windows_core::Interface::as_raw(self), ereportvaluetype).ok()
-    }
-    pub unsafe fn ReportValueType(&self) -> windows_core::Result<ReportValueTypeConstants> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.ReportValueType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetMonitorDuplicateInstances<P0>(&self, bstate: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetMonitorDuplicateInstances)(windows_core::Interface::as_raw(self), bstate.param().abi()).ok()
-    }
-    pub unsafe fn MonitorDuplicateInstances(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.MonitorDuplicateInstances)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetDisplayFilter(&self, ivalue: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetDisplayFilter)(windows_core::Interface::as_raw(self), ivalue).ok()
-    }
-    pub unsafe fn DisplayFilter(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DisplayFilter)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn LogFiles(&self) -> windows_core::Result<ILogFiles> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LogFiles)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetDataSourceType(&self, edatasourcetype: DataSourceTypeConstants) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetDataSourceType)(windows_core::Interface::as_raw(self), edatasourcetype).ok()
-    }
-    pub unsafe fn DataSourceType(&self) -> windows_core::Result<DataSourceTypeConstants> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DataSourceType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetSqlDsnName<P0>(&self, bssqldsnname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetSqlDsnName)(windows_core::Interface::as_raw(self), bssqldsnname.param().abi()).ok()
-    }
-    pub unsafe fn SqlDsnName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SqlDsnName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetSqlLogSetName<P0>(&self, bssqllogsetname: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetSqlLogSetName)(windows_core::Interface::as_raw(self), bssqllogsetname.param().abi()).ok()
-    }
-    pub unsafe fn SqlLogSetName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SqlLogSetName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn SetEnableDigitGrouping<P0>(&self, bstate: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
@@ -4223,6 +3537,12 @@ pub struct ISystemMonitor2_Vtbl {
     pub LoadSettings: unsafe extern "system" fn(*mut core::ffi::c_void, std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISystemMonitorEvents, ISystemMonitorEvents_Vtbl, 0xee660ea0_4abd_11cf_943a_008029004347);
+impl std::ops::Deref for ISystemMonitorEvents {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISystemMonitorEvents, windows_core::IUnknown);
 impl ISystemMonitorEvents {
     pub unsafe fn OnCounterSelected(&self, index: i32) {
@@ -4253,132 +3573,16 @@ pub struct ISystemMonitorEvents_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITraceDataCollector, ITraceDataCollector_Vtbl, 0x0383750b_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ITraceDataCollector {
+    type Target = IDataCollector;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ITraceDataCollector, windows_core::IUnknown, super::Com::IDispatch, IDataCollector);
 #[cfg(feature = "Win32_System_Com")]
 impl ITraceDataCollector {
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DataCollectorSet(&self) -> windows_core::Result<IDataCollectorSet> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DataCollectorSet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetDataCollectorSet<P0>(&self, group: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IDataCollectorSet>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetDataCollectorSet)(windows_core::Interface::as_raw(self), group.param().abi()).ok()
-    }
-    pub unsafe fn DataCollectorType(&self) -> windows_core::Result<DataCollectorType> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.DataCollectorType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn FileName(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FileName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetFileName<P0>(&self, name: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFileName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
-    }
-    pub unsafe fn FileNameFormat(&self) -> windows_core::Result<AutoPathFormat> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FileNameFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetFileNameFormat(&self, format: AutoPathFormat) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetFileNameFormat)(windows_core::Interface::as_raw(self), format).ok()
-    }
-    pub unsafe fn FileNameFormatPattern(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.FileNameFormatPattern)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetFileNameFormatPattern<P0>(&self, pattern: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetFileNameFormatPattern)(windows_core::Interface::as_raw(self), pattern.param().abi()).ok()
-    }
-    pub unsafe fn LatestOutputLocation(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LatestOutputLocation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetLatestOutputLocation<P0>(&self, path: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetLatestOutputLocation)(windows_core::Interface::as_raw(self), path.param().abi()).ok()
-    }
-    pub unsafe fn LogAppend(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LogAppend)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetLogAppend<P0>(&self, append: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetLogAppend)(windows_core::Interface::as_raw(self), append.param().abi()).ok()
-    }
-    pub unsafe fn LogCircular(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LogCircular)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetLogCircular<P0>(&self, circular: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetLogCircular)(windows_core::Interface::as_raw(self), circular.param().abi()).ok()
-    }
-    pub unsafe fn LogOverwrite(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.LogOverwrite)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetLogOverwrite<P0>(&self, overwrite: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetLogOverwrite)(windows_core::Interface::as_raw(self), overwrite.param().abi()).ok()
-    }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        (windows_core::Interface::vtable(self).base__.SetName)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
-    }
-    pub unsafe fn OutputLocation(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.OutputLocation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn Index(&self) -> windows_core::Result<i32> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Index)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn SetIndex(&self, index: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).base__.SetIndex)(windows_core::Interface::as_raw(self), index).ok()
-    }
-    pub unsafe fn Xml(&self) -> windows_core::Result<windows_core::BSTR> {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.Xml)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetXml<P0>(&self, xml: P0) -> windows_core::Result<IValueMap>
-    where
-        P0: windows_core::Param<windows_core::BSTR>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.SetXml)(windows_core::Interface::as_raw(self), xml.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn CreateOutputLocation<P0>(&self, latest: P0) -> windows_core::Result<windows_core::BSTR>
-    where
-        P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).base__.CreateOutputLocation)(windows_core::Interface::as_raw(self), latest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn BufferSize(&self) -> windows_core::Result<u32> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).BufferSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4582,6 +3786,13 @@ pub struct ITraceDataCollector_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITraceDataProvider, ITraceDataProvider_Vtbl, 0x03837512_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ITraceDataProvider {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ITraceDataProvider, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ITraceDataProvider {
@@ -4729,6 +3940,13 @@ pub struct ITraceDataProvider_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITraceDataProviderCollection, ITraceDataProviderCollection_Vtbl, 0x03837510_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for ITraceDataProviderCollection {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(ITraceDataProviderCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ITraceDataProviderCollection {
@@ -4818,6 +4036,13 @@ pub struct ITraceDataProviderCollection_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IValueMap, IValueMap_Vtbl, 0x03837534_098b_11d8_9414_505054503030);
+#[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IValueMap {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IValueMap, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4924,6 +4149,13 @@ pub struct IValueMap_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IValueMapItem, IValueMapItem_Vtbl, 0x03837533_098b_11d8_9414_505054503030);
 #[cfg(feature = "Win32_System_Com")]
+impl std::ops::Deref for IValueMapItem {
+    type Target = super::Com::IDispatch;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IValueMapItem, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IValueMapItem {
@@ -4991,6 +4223,12 @@ pub struct IValueMapItem_Vtbl {
     pub SetValueMapType: unsafe extern "system" fn(*mut core::ffi::c_void, ValueMapType) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(_ICounterItemUnion, _ICounterItemUnion_Vtbl, 0xde1a6b74_9182_4c41_8e2c_24c2cd30ee83);
+impl std::ops::Deref for _ICounterItemUnion {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(_ICounterItemUnion, windows_core::IUnknown);
 impl _ICounterItemUnion {
     pub unsafe fn Value(&self) -> windows_core::Result<f64> {
@@ -5082,6 +4320,12 @@ pub struct _ICounterItemUnion_Vtbl {
     pub GetDataAt: unsafe extern "system" fn(*mut core::ffi::c_void, i32, SysmonDataType, *mut std::mem::MaybeUninit<windows_core::VARIANT>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(_ISystemMonitorUnion, _ISystemMonitorUnion_Vtbl, 0xc8a77338_265f_4de5_aa25_c7da1ce5a8f4);
+impl std::ops::Deref for _ISystemMonitorUnion {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { std::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(_ISystemMonitorUnion, windows_core::IUnknown);
 impl _ISystemMonitorUnion {
     pub unsafe fn Appearance(&self) -> windows_core::Result<i32> {
