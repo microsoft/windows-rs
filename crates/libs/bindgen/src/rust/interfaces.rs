@@ -88,7 +88,7 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
             }
         } else {
             for method in def.methods() {
-                methods.combine(&com_methods::writer(writer, def, metadata::InterfaceKind::Default, method, method_names, virtual_names, 0));
+                methods.combine(&com_methods::writer(writer, def, metadata::InterfaceKind::Default, method, method_names, virtual_names));
             }
         }
 
