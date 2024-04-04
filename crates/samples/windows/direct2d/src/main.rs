@@ -19,7 +19,7 @@ struct Window {
     handle: HWND,
     factory: ID2D1Factory1,
     dxfactory: IDXGIFactory2,
-    style: ID2D1StrokeStyle,
+    style: ID2D1StrokeStyle1,
     manager: IUIAnimationManager,
     variable: IUIAnimationVariable,
 
@@ -310,7 +310,7 @@ impl Window {
             ..Default::default()
         };
 
-        unsafe { target.CreateBitmap2(size_u, None, 0, &properties) }
+        unsafe { target.CreateBitmap(size_u, None, 0, &properties) }
     }
 
     fn resize_swapchain_bitmap(&mut self) -> Result<()> {
@@ -506,8 +506,8 @@ fn create_factory() -> Result<ID2D1Factory1> {
     unsafe { D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, Some(&options)) }
 }
 
-fn create_style(factory: &ID2D1Factory1) -> Result<ID2D1StrokeStyle> {
-    let props = D2D1_STROKE_STYLE_PROPERTIES {
+fn create_style(factory: &ID2D1Factory1) -> Result<ID2D1StrokeStyle1> {
+    let props = D2D1_STROKE_STYLE_PROPERTIES1 {
         startCap: D2D1_CAP_STYLE_ROUND,
         endCap: D2D1_CAP_STYLE_TRIANGLE,
         ..Default::default()
