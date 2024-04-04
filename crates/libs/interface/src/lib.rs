@@ -103,7 +103,12 @@ impl Interface {
                 const IID: ::windows_core::GUID = #guid;
             }
             impl ::windows_core::RuntimeName for #name {}
-
+            impl ::std::ops::Deref for #name {
+                type Target = #parent;
+                fn deref(&self) -> &Self::Target {
+                    unsafe { ::std::mem::transmute(self) }
+                }
+            }
             #com_trait
             #vtable
             #conversions
