@@ -2,6 +2,7 @@ name: cross
 
 on:
   pull_request:
+  workflow_dispatch:
   push:
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
