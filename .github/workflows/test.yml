@@ -10,6 +10,7 @@ on:
 
 env:
   RUSTFLAGS: -Dwarnings
+  LLVM-MINGW-TOOLCHAIN-NAME: llvm-mingw-20231128-ucrt-x86_64
 
 jobs:
   test:
@@ -27,27 +28,63 @@ jobs:
             target: x86_64-pc-windows-gnu
           - version: stable
             target: i686-pc-windows-gnu
+          - version: nightly
+            target: x86_64-pc-windows-gnullvm
+          - version: nightly
+            target: i686-pc-windows-gnullvm
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Update toolchain
-        run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.target }}
-      - name: Add toolchain target
-        run: rustup target add ${{ matrix.target }}
+        run: rustup update --no-self-update ${{ matrix.version }}
+      - name: Add target toolchain
+        run: rustup default ${{ matrix.version }}-${{ matrix.target }}
+        if: contains(matrix.target, 'gnullvm') == false
+      - name: Add nightly toolchain with rust-src
+        run: |
+          rustup default ${{ matrix.version }}
+          rustup component add rust-src
+        if: contains(matrix.target, 'gnullvm')
       - name: Install fmt
         run: rustup component add rustfmt
       - name: Fix environment
         uses: ./.github/actions/fix-environment
+      - name: Add gnullvm config
+        run: |
+          Add-Content $env:USERPROFILE\.cargo\config @"
+            [build]
+            target = `"${{ matrix.target }}`"
+            [unstable]
+            build-std = [`"std`"]
+          "@
+        if: contains(matrix.target, 'gnullvm')
+      - name: LLVM MinGW toolchain cache configuration
+        id: cache-llvm-mingw-toolchain
+        uses: actions/cache@v4
+        if: contains(matrix.target, 'gnullvm')
+        with:
+          path: "${{ runner.temp }}/${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}"
+          key: ${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}
+      - name: Install LLVM MinGW toolchain
+        if: contains(matrix.target, 'gnullvm') && steps.cache-llvm-mingw-toolchain.outputs.cache-hit != 'true'
+        run: |
+          cd "${{ runner.temp }}"
+          curl -L -o ${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}.zip https://github.com/mstorsjo/llvm-mingw/releases/download/20231128/${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}.zip
+          tar -xf ${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}.zip
+      - name: Add LLVM MinGW toolchain to PATH
+        if: contains(matrix.target, 'gnullvm')
+        run: |
+          echo "${{ runner.temp }}\${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}\bin" >> $env:GITHUB_PATH
       - name: Test
         run: >
           cargo test -p riddle &&
           cargo test -p sample_bits &&
           cargo test -p sample_com_uri &&
           cargo test -p sample_component_hello_world &&
-          cargo test -p sample_component_json_validator &&
-          cargo test -p sample_component_json_validator_winrt &&
-          cargo test -p sample_component_json_validator_winrt_client &&
+          "cargo test -p sample_component_json_validator" &&
+          "cargo test -p sample_component_json_validator_winrt" &&
+          "cargo test -p sample_component_json_validator_winrt_client" &&
           cargo test -p sample_consent &&
           cargo test -p sample_core_app &&
           cargo test -p sample_counter &&
