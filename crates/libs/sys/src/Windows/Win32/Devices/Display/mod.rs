@@ -2315,16 +2315,16 @@ impl Clone for FD_LIGATURE {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub struct FD_XFORM {
     pub eXX: f32,
     pub eXY: f32,
     pub eYX: f32,
     pub eYY: f32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for FD_XFORM {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for FD_XFORM {
     fn clone(&self) -> Self {
         *self
@@ -2361,7 +2361,7 @@ impl Clone for FLOATOBJ {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub struct FLOATOBJ_XFORM {
     pub eM11: f32,
     pub eM12: f32,
@@ -2370,9 +2370,9 @@ pub struct FLOATOBJ_XFORM {
     pub eDx: f32,
     pub eDy: f32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for FLOATOBJ_XFORM {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for FLOATOBJ_XFORM {
     fn clone(&self) -> Self {
         *self
@@ -2397,14 +2397,14 @@ impl Clone for FLOATOBJ_XFORM {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub union FLOAT_LONG {
     pub e: f32,
     pub l: i32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for FLOAT_LONG {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for FLOAT_LONG {
     fn clone(&self) -> Self {
         *self
@@ -2773,7 +2773,7 @@ impl Clone for IFIEXTRA {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct IFIMETRICS {
     pub cjThis: u32,
@@ -2837,10 +2837,10 @@ pub struct IFIMETRICS {
     pub panose: super::super::Graphics::Gdi::PANOSE,
     pub Align: *mut core::ffi::c_void,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Copy for IFIMETRICS {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Clone for IFIMETRICS {
     fn clone(&self) -> Self {
@@ -2948,7 +2948,7 @@ impl Clone for LIGATURE {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub struct LINEATTRS {
     pub fl: u32,
     pub iJoin: u32,
@@ -2959,9 +2959,9 @@ pub struct LINEATTRS {
     pub pstyle: *mut FLOAT_LONG,
     pub elStyleState: FLOAT_LONG,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for LINEATTRS {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for LINEATTRS {
     fn clone(&self) -> Self {
         *self
@@ -3419,14 +3419,14 @@ impl Clone for PHYSICAL_MONITOR {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub struct POINTE {
     pub x: f32,
     pub y: f32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for POINTE {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for POINTE {
     fn clone(&self) -> Self {
         *self
@@ -4143,7 +4143,7 @@ impl Clone for WNDOBJ {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub struct XFORML {
     pub eM11: f32,
     pub eM12: f32,
@@ -4152,9 +4152,9 @@ pub struct XFORML {
     pub eDx: f32,
     pub eDy: f32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for XFORML {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for XFORML {
     fn clone(&self) -> Self {
         *self

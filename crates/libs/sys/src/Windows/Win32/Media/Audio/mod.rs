@@ -1237,7 +1237,7 @@ impl Clone for ACMFORMATTAGDETAILSW {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub struct ACMSTREAMHEADER {
     pub cbStruct: u32,
     pub fdwStatus: u32,
@@ -1252,9 +1252,9 @@ pub struct ACMSTREAMHEADER {
     pub dwDstUser: usize,
     pub dwReservedDriver: [u32; 15],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for ACMSTREAMHEADER {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for ACMSTREAMHEADER {
     fn clone(&self) -> Self {
         *self

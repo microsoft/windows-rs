@@ -4955,13 +4955,13 @@ impl Clone for SPLCLIENT_INFO_2_W2K {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub struct SPLCLIENT_INFO_2_WINXP {
     pub hSplPrinter: u64,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for SPLCLIENT_INFO_2_WINXP {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for SPLCLIENT_INFO_2_WINXP {
     fn clone(&self) -> Self {
         *self

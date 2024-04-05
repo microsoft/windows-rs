@@ -171,54 +171,54 @@ windows_targets::link!("ws2_32.dll" "system" fn WSAUnadvertiseProvider(puuidprov
 windows_targets::link!("ws2_32.dll" "system" fn WSAUnhookBlockingHook() -> i32);
 windows_targets::link!("ws2_32.dll" "system" fn WSAWaitForMultipleEvents(cevents : u32, lphevents : *const super::super::Foundation:: HANDLE, fwaitall : super::super::Foundation:: BOOL, dwtimeout : u32, falertable : super::super::Foundation:: BOOL) -> super::super::Foundation:: WAIT_EVENT);
 windows_targets::link!("ws2_32.dll" "system" fn WSCDeinstallProvider(lpproviderid : *const windows_sys::core::GUID, lperrno : *mut i32) -> i32);
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_targets::link!("ws2_32.dll" "system" fn WSCDeinstallProvider32(lpproviderid : *const windows_sys::core::GUID, lperrno : *mut i32) -> i32);
 windows_targets::link!("ws2_32.dll" "system" fn WSCEnableNSProvider(lpproviderid : *const windows_sys::core::GUID, fenable : super::super::Foundation:: BOOL) -> i32);
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_targets::link!("ws2_32.dll" "system" fn WSCEnableNSProvider32(lpproviderid : *const windows_sys::core::GUID, fenable : super::super::Foundation:: BOOL) -> i32);
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_targets::link!("ws2_32.dll" "system" fn WSCEnumNameSpaceProviders32(lpdwbufferlength : *mut u32, lpnspbuffer : *mut WSANAMESPACE_INFOW) -> i32);
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("ws2_32.dll" "system" fn WSCEnumNameSpaceProvidersEx32(lpdwbufferlength : *mut u32, lpnspbuffer : *mut WSANAMESPACE_INFOEXW) -> i32);
 windows_targets::link!("ws2_32.dll" "system" fn WSCEnumProtocols(lpiprotocols : *const i32, lpprotocolbuffer : *mut WSAPROTOCOL_INFOW, lpdwbufferlength : *mut u32, lperrno : *mut i32) -> i32);
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_targets::link!("ws2_32.dll" "system" fn WSCEnumProtocols32(lpiprotocols : *const i32, lpprotocolbuffer : *mut WSAPROTOCOL_INFOW, lpdwbufferlength : *mut u32, lperrno : *mut i32) -> i32);
 windows_targets::link!("ws2_32.dll" "system" fn WSCGetApplicationCategory(path : windows_sys::core::PCWSTR, pathlength : u32, extra : windows_sys::core::PCWSTR, extralength : u32, ppermittedlspcategories : *mut u32, lperrno : *mut i32) -> i32);
 windows_targets::link!("ws2_32.dll" "system" fn WSCGetProviderInfo(lpproviderid : *const windows_sys::core::GUID, infotype : WSC_PROVIDER_INFO_TYPE, info : *mut u8, infosize : *mut usize, flags : u32, lperrno : *mut i32) -> i32);
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_targets::link!("ws2_32.dll" "system" fn WSCGetProviderInfo32(lpproviderid : *const windows_sys::core::GUID, infotype : WSC_PROVIDER_INFO_TYPE, info : *mut u8, infosize : *mut usize, flags : u32, lperrno : *mut i32) -> i32);
 windows_targets::link!("ws2_32.dll" "system" fn WSCGetProviderPath(lpproviderid : *const windows_sys::core::GUID, lpszproviderdllpath : windows_sys::core::PWSTR, lpproviderdllpathlen : *mut i32, lperrno : *mut i32) -> i32);
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_targets::link!("ws2_32.dll" "system" fn WSCGetProviderPath32(lpproviderid : *const windows_sys::core::GUID, lpszproviderdllpath : windows_sys::core::PWSTR, lpproviderdllpathlen : *mut i32, lperrno : *mut i32) -> i32);
 windows_targets::link!("ws2_32.dll" "system" fn WSCInstallNameSpace(lpszidentifier : windows_sys::core::PCWSTR, lpszpathname : windows_sys::core::PCWSTR, dwnamespace : u32, dwversion : u32, lpproviderid : *const windows_sys::core::GUID) -> i32);
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_targets::link!("ws2_32.dll" "system" fn WSCInstallNameSpace32(lpszidentifier : windows_sys::core::PCWSTR, lpszpathname : windows_sys::core::PCWSTR, dwnamespace : u32, dwversion : u32, lpproviderid : *const windows_sys::core::GUID) -> i32);
 #[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("ws2_32.dll" "system" fn WSCInstallNameSpaceEx(lpszidentifier : windows_sys::core::PCWSTR, lpszpathname : windows_sys::core::PCWSTR, dwnamespace : u32, dwversion : u32, lpproviderid : *const windows_sys::core::GUID, lpproviderspecific : *const super::super::System::Com:: BLOB) -> i32);
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("ws2_32.dll" "system" fn WSCInstallNameSpaceEx32(lpszidentifier : windows_sys::core::PCWSTR, lpszpathname : windows_sys::core::PCWSTR, dwnamespace : u32, dwversion : u32, lpproviderid : *const windows_sys::core::GUID, lpproviderspecific : *const super::super::System::Com:: BLOB) -> i32);
 windows_targets::link!("ws2_32.dll" "system" fn WSCInstallProvider(lpproviderid : *const windows_sys::core::GUID, lpszproviderdllpath : windows_sys::core::PCWSTR, lpprotocolinfolist : *const WSAPROTOCOL_INFOW, dwnumberofentries : u32, lperrno : *mut i32) -> i32);
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_targets::link!("ws2_32.dll" "system" fn WSCInstallProvider64_32(lpproviderid : *const windows_sys::core::GUID, lpszproviderdllpath : windows_sys::core::PCWSTR, lpprotocolinfolist : *const WSAPROTOCOL_INFOW, dwnumberofentries : u32, lperrno : *mut i32) -> i32);
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_targets::link!("ws2_32.dll" "system" fn WSCInstallProviderAndChains64_32(lpproviderid : *const windows_sys::core::GUID, lpszproviderdllpath : windows_sys::core::PCWSTR, lpszproviderdllpath32 : windows_sys::core::PCWSTR, lpszlspname : windows_sys::core::PCWSTR, dwserviceflags : u32, lpprotocolinfolist : *mut WSAPROTOCOL_INFOW, dwnumberofentries : u32, lpdwcatalogentryid : *mut u32, lperrno : *mut i32) -> i32);
 windows_targets::link!("ws2_32.dll" "system" fn WSCSetApplicationCategory(path : windows_sys::core::PCWSTR, pathlength : u32, extra : windows_sys::core::PCWSTR, extralength : u32, permittedlspcategories : u32, pprevpermlspcat : *mut u32, lperrno : *mut i32) -> i32);
 windows_targets::link!("ws2_32.dll" "system" fn WSCSetProviderInfo(lpproviderid : *const windows_sys::core::GUID, infotype : WSC_PROVIDER_INFO_TYPE, info : *const u8, infosize : usize, flags : u32, lperrno : *mut i32) -> i32);
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_targets::link!("ws2_32.dll" "system" fn WSCSetProviderInfo32(lpproviderid : *const windows_sys::core::GUID, infotype : WSC_PROVIDER_INFO_TYPE, info : *const u8, infosize : usize, flags : u32, lperrno : *mut i32) -> i32);
 windows_targets::link!("ws2_32.dll" "system" fn WSCUnInstallNameSpace(lpproviderid : *const windows_sys::core::GUID) -> i32);
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_targets::link!("ws2_32.dll" "system" fn WSCUnInstallNameSpace32(lpproviderid : *const windows_sys::core::GUID) -> i32);
 windows_targets::link!("ws2_32.dll" "system" fn WSCUpdateProvider(lpproviderid : *const windows_sys::core::GUID, lpszproviderdllpath : windows_sys::core::PCWSTR, lpprotocolinfolist : *const WSAPROTOCOL_INFOW, dwnumberofentries : u32, lperrno : *mut i32) -> i32);
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_targets::link!("ws2_32.dll" "system" fn WSCUpdateProvider32(lpproviderid : *const windows_sys::core::GUID, lpszproviderdllpath : windows_sys::core::PCWSTR, lpprotocolinfolist : *const WSAPROTOCOL_INFOW, dwnumberofentries : u32, lperrno : *mut i32) -> i32);
 windows_targets::link!("ws2_32.dll" "system" fn WSCWriteNameSpaceOrder(lpproviderid : *mut windows_sys::core::GUID, dwnumberofentries : u32) -> i32);
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_targets::link!("ws2_32.dll" "system" fn WSCWriteNameSpaceOrder32(lpproviderid : *mut windows_sys::core::GUID, dwnumberofentries : u32) -> i32);
 windows_targets::link!("ws2_32.dll" "system" fn WSCWriteProviderOrder(lpwdcatalogentryid : *mut u32, dwnumberofentries : u32) -> i32);
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_targets::link!("ws2_32.dll" "system" fn WSCWriteProviderOrder32(lpwdcatalogentryid : *mut u32, dwnumberofentries : u32) -> i32);
 windows_targets::link!("ws2_32.dll" "system" fn __WSAFDIsSet(fd : SOCKET, param1 : *mut FD_SET) -> i32);
 windows_targets::link!("ws2_32.dll" "system" fn accept(s : SOCKET, addr : *mut SOCKADDR, addrlen : *mut i32) -> SOCKET);
@@ -4632,16 +4632,16 @@ impl Clone for SCOPE_ID_0_0 {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub struct SERVENT {
     pub s_name: windows_sys::core::PSTR,
     pub s_aliases: *mut *mut i8,
     pub s_proto: windows_sys::core::PSTR,
     pub s_port: i16,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for SERVENT {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for SERVENT {
     fn clone(&self) -> Self {
         *self
@@ -5767,7 +5767,7 @@ impl Clone for WSACOMPLETION_0_3 {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub struct WSADATA {
     pub wVersion: u16,
     pub wHighVersion: u16,
@@ -5777,9 +5777,9 @@ pub struct WSADATA {
     pub szDescription: [i8; 257],
     pub szSystemStatus: [i8; 129],
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Copy for WSADATA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Clone for WSADATA {
     fn clone(&self) -> Self {
         *self

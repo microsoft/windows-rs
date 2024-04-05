@@ -125,6 +125,7 @@ fn cfg_add_attributes<R: AsRow + Into<metadata::HasAttribute>>(cfg: &mut Cfg, ro
                         }
                         if value & 2 == 2 {
                             cfg.arches.insert("x86_64");
+                            cfg.arches.insert("arm64ec");
                         }
                         if value & 4 == 4 {
                             cfg.arches.insert("aarch64");
