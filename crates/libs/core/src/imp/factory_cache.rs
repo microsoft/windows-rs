@@ -1,8 +1,8 @@
 use super::*;
 use crate::Interface;
+use std::ffi::c_void;
 use std::marker::PhantomData;
 use std::sync::atomic::{AtomicPtr, Ordering};
-use std::ffi::c_void;
 
 #[doc(hidden)]
 pub struct FactoryCache<C, I> {

@@ -11,7 +11,7 @@ impl<T: Interface> AgileReference<T> {
     pub fn new(object: &T) -> Result<Self> {
         // TODO: this assert is required until we can catch this at compile time using an "associated const equality" constraint.
         // For example, <T: Interface<UNKNOWN = true>>
-        // https://github.com/rust-lang/rust/issues/92827 
+        // https://github.com/rust-lang/rust/issues/92827
         assert!(T::UNKNOWN);
         unsafe { imp::RoGetAgileReference(imp::AGILEREFERENCE_DEFAULT, &T::IID, std::mem::transmute::<&T, &IUnknown>(object)).map(|reference| Self(reference, Default::default())) }
     }
