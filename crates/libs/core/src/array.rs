@@ -20,7 +20,7 @@ impl<T: Type<T>> Array<T> {
 
     /// Creates an array of the given length with default values.
     pub fn with_len(len: usize) -> Self {
-        assert!(len < std::u32::MAX as usize);
+        assert!(len < u32::MAX as usize);
         let bytes_amount = len.checked_mul(std::mem::size_of::<T>()).expect("Attempted to allocate too large an Array");
 
         // WinRT arrays must be allocated with CoTaskMemAlloc.

@@ -28,7 +28,9 @@ fn main() -> windows::core::Result<()> {
             println!();
         }
 
-        CredFree(std::mem::transmute(credentials_ptr));
+        CredFree(std::mem::transmute::<*mut *mut _, *const _>(
+            credentials_ptr,
+        ));
     }
 
     Ok(())

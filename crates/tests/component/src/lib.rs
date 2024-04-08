@@ -79,7 +79,7 @@ unsafe extern "system" fn DllGetActivationFactory(
     };
 
     if let Some(factory) = factory {
-        *result = std::mem::transmute(factory);
+        *result = factory.into_raw();
         S_OK
     } else {
         *result = std::ptr::null_mut();

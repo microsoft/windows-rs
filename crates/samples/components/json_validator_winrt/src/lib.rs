@@ -83,7 +83,7 @@ extern "system" fn DllGetActivationFactory(
     // `IActivationFactory` pointer and that's what `factory` contains.
     unsafe {
         if let Some(factory) = factory {
-            *result = std::mem::transmute(factory);
+            *result = factory.into_raw();
             S_OK
         } else {
             *result = std::ptr::null_mut();

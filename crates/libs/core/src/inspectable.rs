@@ -16,7 +16,7 @@ impl IInspectable {
         unsafe {
             let mut abi = std::ptr::null_mut();
             (self.vtable().GetRuntimeClassName)(std::mem::transmute_copy(self), &mut abi).ok()?;
-            Ok(std::mem::transmute(abi))
+            Ok(std::mem::transmute::<*mut std::ffi::c_void, HSTRING>(abi))
         }
     }
 
@@ -62,7 +62,7 @@ impl IInspectable_Vtbl {
         }
         unsafe extern "system" fn GetRuntimeClassName<T: RuntimeName>(_: *mut std::ffi::c_void, value: *mut *mut std::ffi::c_void) -> HRESULT {
             let h: HSTRING = T::NAME.into(); // TODO: should be try_into
-            *value = std::mem::transmute(h);
+            *value = std::mem::transmute::<HSTRING, *mut std::ffi::c_void>(h);
             HRESULT(0)
         }
         unsafe extern "system" fn GetTrustLevel<T: IUnknownImpl, const OFFSET: isize>(this: *mut std::ffi::c_void, value: *mut i32) -> HRESULT {
