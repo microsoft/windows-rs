@@ -341,41 +341,40 @@ impl Interface {
     }
 
     fn parent_vtable(&self) -> Option<proc_macro2::TokenStream> {
-        if let Some(i) = self.parent_ident() {
-            let i = quote::format_ident!("{}_Vtbl", i);
-            Some(quote!(#i))
+        if let Some((ident, path)) = self.parent_path().split_last() {
+            let ident = quote::format_ident!("{}_Vtbl", ident);
+            Some(quote! { #(#path::)* #ident })
         } else {
             None
         }
     }
 
     fn parent_is_iunknown(&self) -> bool {
-        if let Some(ident) = self.parent_ident() {
+        if let Some(ident) = self.parent_path().last() {
             ident == "IUnknown"
         } else {
             false
         }
     }
 
-    fn parent_ident(&self) -> Option<&syn::Ident> {
+    fn parent_path(&self) -> Vec<syn::Ident> {
         if let Some(parent) = &self.parent {
-            Some(&parent.segments.last().as_ref().expect("segements should never be empty").ident)
+            parent.segments.iter().map(|segment| segment.ident.clone()).collect()
         } else {
-            None
+            vec![]
         }
     }
 
     /// Gets the parent trait constrait which is nothing if the parent is IUnknown
     fn parent_trait_constraint(&self) -> proc_macro2::TokenStream {
-        if let Some(i) = self.parent_ident() {
-            if i == "IUnknown" {
-                return quote!();
+        if let Some((ident, path)) = self.parent_path().split_last() {
+            if ident != "IUnknown" {
+                let ident = quote::format_ident!("{}_Impl", ident);
+                return quote! { #(#path::)* #ident };
             }
-            let i = quote::format_ident!("{}_Impl", i);
-            quote!(#i)
-        } else {
-            quote!()
         }
+
+        quote! {}
     }
 }
 
