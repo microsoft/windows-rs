@@ -669,7 +669,7 @@ mod d3d12_hello_triangle {
                 ],
             },
             DepthStencilState: D3D12_DEPTH_STENCIL_DESC::default(),
-            SampleMask: u32::max_value(),
+            SampleMask: u32::MAX,
             PrimitiveTopologyType: D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE,
             NumRenderTargets: 1,
             SampleDesc: DXGI_SAMPLE_DESC {

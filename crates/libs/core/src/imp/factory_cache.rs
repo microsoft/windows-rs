@@ -2,10 +2,11 @@ use super::*;
 use crate::Interface;
 use std::marker::PhantomData;
 use std::sync::atomic::{AtomicPtr, Ordering};
+use std::ffi::c_void;
 
 #[doc(hidden)]
 pub struct FactoryCache<C, I> {
-    shared: AtomicPtr<std::ffi::c_void>,
+    shared: AtomicPtr<c_void>,
     _c: PhantomData<C>,
     _i: PhantomData<I>,
 }
@@ -30,7 +31,7 @@ impl<C: crate::RuntimeName, I: Interface> FactoryCache<C, I> {
 
             // If a pointer is found, the cache is primed and we're good to go.
             if !ptr.is_null() {
-                return callback(unsafe { std::mem::transmute(&ptr) });
+                return callback(unsafe { std::mem::transmute::<&*mut c_void, &I>(&ptr) });
             }
 
             // Otherwise, we load the factory the usual way.
@@ -125,7 +126,7 @@ unsafe fn get_activation_factory(library: crate::PCSTR, name: &crate::HSTRING) -
     function(std::mem::transmute_copy(name), &mut abi).and_then(|| crate::Type::from_abi(abi))
 }
 
-type DllGetActivationFactory = extern "system" fn(name: *mut std::ffi::c_void, factory: *mut *mut std::ffi::c_void) -> crate::HRESULT;
+type DllGetActivationFactory = extern "system" fn(name: *mut c_void, factory: *mut *mut c_void) -> crate::HRESULT;
 
 #[cfg(test)]
 mod tests {
