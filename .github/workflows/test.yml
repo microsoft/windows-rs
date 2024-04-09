@@ -47,143 +47,280 @@ jobs:
         run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}
       - name: Fix environment
         uses: ./.github/actions/fix-environment
+      - name: Clean
+        run:  cargo clean
       - name: Test
-        run: >
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p riddle &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_bits &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_com_uri &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_component_hello_world &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_component_json_validator &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_component_json_validator_winrt &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_component_json_validator_winrt_client &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_consent &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_core_app &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_counter &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_counter_sys &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_create_window &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_create_window_sys &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_credentials &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_data_protection &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_dcomp &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_delay_load &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_delay_load_sys &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_device_watcher &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_direct2d &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_direct3d12 &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_enum_windows &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_enum_windows_sys &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_kernel_event &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_memory_buffer &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_message_box &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_message_box_sys &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_ocr &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_overlapped &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_privileges &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_privileges_sys &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_rss &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_shell &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_simple &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_spellchecker &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_task_dialog &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_task_dialog_sys &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_thread_pool_work &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_thread_pool_work_sys &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_uiautomation &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_wmi &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_xml &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_agile &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_agile_reference &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_alternate_success_code &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_arch &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_arch_feature &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_array &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_bcrypt &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_bstr &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_calling_convention &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_cfg_generic &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_collections &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_component &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_component_client &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_const_fields &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_const_params &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_const_ptrs &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_core &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_debug &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_debug_inspectable &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_debugger_visualizer &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_deprecated &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_dispatch &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_does_not_return &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_enums &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_error &&
-          cargo clean &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_event &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_extensions &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_handles &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_helpers &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_implement &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_interface &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_interface_core &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_interop &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_lib &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_literals &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_match &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_matrix3x2 &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_metadata &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_msrv &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_no_use &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_not_dll &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_query_signature &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_readme &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_registry &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_reserved &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_resources &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_result &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_return_handle &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_return_struct &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_riddle &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_simple_component &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_standalone &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_string_param &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_structs &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_sys &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_targets &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_unions &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_variant &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_wdk &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_weak &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_weak_ref &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_win32 &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_win32_arrays &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_window_long &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_winrt &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p tool_gnu &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p tool_lib &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p tool_license &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p tool_metadata &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p tool_msvc &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p tool_sys &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p tool_windows &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p tool_yml &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows-bindgen &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows-core &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows-implement &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows-interface &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows-metadata &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows-registry &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows-result &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows-sys &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows-targets &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows-version &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows_aarch64_gnullvm &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows_aarch64_msvc &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows_i686_gnu &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows_i686_gnullvm &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows_i686_msvc &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows_x86_64_gnu &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows_x86_64_gnullvm &&
-          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows_x86_64_msvc
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p riddle
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_bits
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_com_uri
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_component_hello_world
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_component_json_validator
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_component_json_validator_winrt
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_component_json_validator_winrt_client
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_consent
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_core_app
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_counter
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_counter_sys
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_create_window
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_create_window_sys
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_credentials
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_data_protection
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_dcomp
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_delay_load
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_delay_load_sys
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_device_watcher
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_direct2d
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_direct3d12
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_enum_windows
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_enum_windows_sys
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_kernel_event
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_memory_buffer
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_message_box
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_message_box_sys
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_ocr
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_overlapped
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_privileges
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_privileges_sys
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_rss
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_shell
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_simple
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_spellchecker
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_task_dialog
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_task_dialog_sys
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_thread_pool_work
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_thread_pool_work_sys
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_uiautomation
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_wmi
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p sample_xml
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_agile
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_agile_reference
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_alternate_success_code
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_arch
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_arch_feature
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_array
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_bcrypt
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_bstr
+      - name: Clean
+        run:  cargo clean
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_calling_convention
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_cfg_generic
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_collections
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_component
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_component_client
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_const_fields
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_const_params
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_const_ptrs
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_core
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_debug
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_debug_inspectable
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_debugger_visualizer
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_deprecated
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_dispatch
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_does_not_return
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_enums
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_error
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_event
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_extensions
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_handles
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_helpers
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_implement
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_interface
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_interface_core
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_interop
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_lib
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_literals
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_match
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_matrix3x2
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_metadata
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_msrv
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_no_use
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_not_dll
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_query_signature
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_readme
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_registry
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_reserved
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_resources
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_result
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_return_handle
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_return_struct
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_riddle
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_simple_component
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_standalone
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_string_param
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_structs
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_sys
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_targets
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_unions
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_variant
+      - name: Clean
+        run:  cargo clean
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_wdk
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_weak
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_weak_ref
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_win32
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_win32_arrays
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_window_long
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p test_winrt
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p tool_gnu
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p tool_lib
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p tool_license
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p tool_metadata
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p tool_msvc
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p tool_sys
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p tool_windows
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p tool_yml
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows-bindgen
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows-core
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows-implement
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows-interface
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows-metadata
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows-registry
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows-result
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows-sys
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows-targets
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows-version
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows_aarch64_gnullvm
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows_aarch64_msvc
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows_i686_gnu
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows_i686_gnullvm
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows_i686_msvc
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows_x86_64_gnu
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows_x86_64_gnullvm
+      - name: Test
+        run:  cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p windows_x86_64_msvc
       - name: Check diff
         shell: bash
         run: |
