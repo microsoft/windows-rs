@@ -21,161 +21,169 @@ jobs:
         include:
           - version: stable
             target: x86_64-pc-windows-msvc
+            no-run:
           - version: nightly
             target: i686-pc-windows-msvc
+            no-run:
+          - version: stable
+            target: aarch64-pc-windows-msvc
+            no-run: --no-run
+          - version: nightly
+            target: aarch64-pc-windows-msvc
+            no-run: --no-run
           - version: nightly
             target: x86_64-pc-windows-gnu
+            no-run:
           - version: stable
             target: i686-pc-windows-gnu
+            no-run:
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Update toolchain
-        run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.target }}
       - name: Add toolchain target
         run: rustup target add ${{ matrix.target }}
-      - name: Install fmt
-        run: rustup component add rustfmt
+      - name: Update toolchain
+        run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}
       - name: Fix environment
         uses: ./.github/actions/fix-environment
       - name: Test
         run: >
-          cargo test -p riddle &&
-          cargo test -p sample_bits &&
-          cargo test -p sample_com_uri &&
-          cargo test -p sample_component_hello_world &&
-          cargo test -p sample_component_json_validator &&
-          cargo test -p sample_component_json_validator_winrt &&
-          cargo test -p sample_component_json_validator_winrt_client &&
-          cargo test -p sample_consent &&
-          cargo test -p sample_core_app &&
-          cargo test -p sample_counter &&
-          cargo test -p sample_counter_sys &&
-          cargo test -p sample_create_window &&
-          cargo test -p sample_create_window_sys &&
-          cargo test -p sample_credentials &&
-          cargo test -p sample_data_protection &&
-          cargo test -p sample_dcomp &&
-          cargo test -p sample_delay_load &&
-          cargo test -p sample_delay_load_sys &&
-          cargo test -p sample_device_watcher &&
-          cargo test -p sample_direct2d &&
-          cargo test -p sample_direct3d12 &&
-          cargo test -p sample_enum_windows &&
-          cargo test -p sample_enum_windows_sys &&
-          cargo test -p sample_kernel_event &&
-          cargo test -p sample_memory_buffer &&
-          cargo test -p sample_message_box &&
-          cargo test -p sample_message_box_sys &&
-          cargo test -p sample_ocr &&
-          cargo test -p sample_overlapped &&
-          cargo test -p sample_privileges &&
-          cargo test -p sample_privileges_sys &&
-          cargo test -p sample_rss &&
-          cargo test -p sample_shell &&
-          cargo test -p sample_simple &&
-          cargo test -p sample_spellchecker &&
-          cargo test -p sample_task_dialog &&
-          cargo test -p sample_task_dialog_sys &&
-          cargo test -p sample_thread_pool_work &&
-          cargo test -p sample_thread_pool_work_sys &&
-          cargo test -p sample_uiautomation &&
-          cargo test -p sample_wmi &&
-          cargo test -p sample_xml &&
-          cargo test -p test_agile &&
-          cargo test -p test_agile_reference &&
-          cargo test -p test_alternate_success_code &&
-          cargo test -p test_arch &&
-          cargo test -p test_arch_feature &&
-          cargo test -p test_array &&
-          cargo test -p test_bcrypt &&
-          cargo test -p test_bstr &&
-          cargo test -p test_calling_convention &&
-          cargo test -p test_cfg_generic &&
-          cargo test -p test_collections &&
-          cargo test -p test_component &&
-          cargo test -p test_component_client &&
-          cargo test -p test_const_fields &&
-          cargo test -p test_const_params &&
-          cargo test -p test_const_ptrs &&
-          cargo test -p test_core &&
-          cargo test -p test_debug &&
-          cargo test -p test_debug_inspectable &&
-          cargo test -p test_debugger_visualizer &&
-          cargo test -p test_deprecated &&
-          cargo test -p test_dispatch &&
-          cargo test -p test_does_not_return &&
-          cargo test -p test_enums &&
-          cargo test -p test_error &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p riddle &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_bits &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_com_uri &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_component_hello_world &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_component_json_validator &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_component_json_validator_winrt &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_component_json_validator_winrt_client &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_consent &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_core_app &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_counter &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_counter_sys &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_create_window &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_create_window_sys &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_credentials &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_data_protection &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_dcomp &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_delay_load &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_delay_load_sys &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_device_watcher &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_direct2d &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_direct3d12 &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_enum_windows &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_enum_windows_sys &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_kernel_event &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_memory_buffer &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_message_box &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_message_box_sys &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_ocr &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_overlapped &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_privileges &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_privileges_sys &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_rss &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_shell &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_simple &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_spellchecker &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_task_dialog &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_task_dialog_sys &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_thread_pool_work &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_thread_pool_work_sys &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_uiautomation &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_wmi &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p sample_xml &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_agile &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_agile_reference &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_alternate_success_code &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_arch &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_arch_feature &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_array &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_bcrypt &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_bstr &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_calling_convention &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_cfg_generic &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_collections &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_component &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_component_client &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_const_fields &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_const_params &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_const_ptrs &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_core &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_debug &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_debug_inspectable &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_debugger_visualizer &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_deprecated &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_dispatch &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_does_not_return &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_enums &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_error &&
           cargo clean &&
-          cargo test -p test_event &&
-          cargo test -p test_extensions &&
-          cargo test -p test_handles &&
-          cargo test -p test_helpers &&
-          cargo test -p test_implement &&
-          cargo test -p test_interface &&
-          cargo test -p test_interface_core &&
-          cargo test -p test_interop &&
-          cargo test -p test_lib &&
-          cargo test -p test_literals &&
-          cargo test -p test_match &&
-          cargo test -p test_matrix3x2 &&
-          cargo test -p test_metadata &&
-          cargo test -p test_msrv &&
-          cargo test -p test_no_use &&
-          cargo test -p test_not_dll &&
-          cargo test -p test_query_signature &&
-          cargo test -p test_readme &&
-          cargo test -p test_registry &&
-          cargo test -p test_reserved &&
-          cargo test -p test_resources &&
-          cargo test -p test_result &&
-          cargo test -p test_return_handle &&
-          cargo test -p test_return_struct &&
-          cargo test -p test_riddle &&
-          cargo test -p test_simple_component &&
-          cargo test -p test_standalone &&
-          cargo test -p test_string_param &&
-          cargo test -p test_structs &&
-          cargo test -p test_sys &&
-          cargo test -p test_targets &&
-          cargo test -p test_unions &&
-          cargo test -p test_variant &&
-          cargo test -p test_wdk &&
-          cargo test -p test_weak &&
-          cargo test -p test_weak_ref &&
-          cargo test -p test_win32 &&
-          cargo test -p test_win32_arrays &&
-          cargo test -p test_window_long &&
-          cargo test -p test_winrt &&
-          cargo test -p tool_gnu &&
-          cargo test -p tool_lib &&
-          cargo test -p tool_license &&
-          cargo test -p tool_metadata &&
-          cargo test -p tool_msvc &&
-          cargo test -p tool_sys &&
-          cargo test -p tool_windows &&
-          cargo test -p tool_yml &&
-          cargo test -p windows &&
-          cargo test -p windows-bindgen &&
-          cargo test -p windows-core &&
-          cargo test -p windows-implement &&
-          cargo test -p windows-interface &&
-          cargo test -p windows-metadata &&
-          cargo test -p windows-registry &&
-          cargo test -p windows-result &&
-          cargo test -p windows-sys &&
-          cargo test -p windows-targets &&
-          cargo test -p windows-version &&
-          cargo test -p windows_aarch64_gnullvm &&
-          cargo test -p windows_aarch64_msvc &&
-          cargo test -p windows_i686_gnu &&
-          cargo test -p windows_i686_gnullvm &&
-          cargo test -p windows_i686_msvc &&
-          cargo test -p windows_x86_64_gnu &&
-          cargo test -p windows_x86_64_gnullvm &&
-          cargo test -p windows_x86_64_msvc
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_event &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_extensions &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_handles &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_helpers &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_implement &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_interface &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_interface_core &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_interop &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_lib &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_literals &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_match &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_matrix3x2 &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_metadata &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_msrv &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_no_use &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_not_dll &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_query_signature &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_readme &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_registry &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_reserved &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_resources &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_result &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_return_handle &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_return_struct &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_riddle &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_simple_component &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_standalone &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_string_param &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_structs &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_sys &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_targets &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_unions &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_variant &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_wdk &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_weak &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_weak_ref &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_win32 &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_win32_arrays &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_window_long &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p test_winrt &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p tool_gnu &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p tool_lib &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p tool_license &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p tool_metadata &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p tool_msvc &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p tool_sys &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p tool_windows &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p tool_yml &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p windows &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p windows-bindgen &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p windows-core &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p windows-implement &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p windows-interface &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p windows-metadata &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p windows-registry &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p windows-result &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p windows-sys &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p windows-targets &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p windows-version &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p windows_aarch64_gnullvm &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p windows_aarch64_msvc &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p windows_i686_gnu &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p windows_i686_gnullvm &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p windows_i686_msvc &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p windows_x86_64_gnu &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p windows_x86_64_gnullvm &&
+          cargo test ${ matrix.no-run } --target ${ matrix.target } -p windows_x86_64_msvc
       - name: Check diff
         shell: bash
         run: |

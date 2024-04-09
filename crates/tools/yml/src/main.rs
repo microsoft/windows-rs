@@ -29,22 +29,30 @@ jobs:
         include:
           - version: stable
             target: x86_64-pc-windows-msvc
+            no-run:
           - version: nightly
             target: i686-pc-windows-msvc
+            no-run:
+          - version: stable
+            target: aarch64-pc-windows-msvc
+            no-run: --no-run
+          - version: nightly
+            target: aarch64-pc-windows-msvc
+            no-run: --no-run
           - version: nightly
             target: x86_64-pc-windows-gnu
+            no-run:
           - version: stable
             target: i686-pc-windows-gnu
+            no-run:
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Update toolchain
-        run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.target }}
       - name: Add toolchain target
         run: rustup target add ${{ matrix.target }}
-      - name: Install fmt
-        run: rustup component add rustfmt
+      - name: Update toolchain
+        run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}
       - name: Fix environment
         uses: ./.github/actions/fix-environment
       - name: Test
@@ -55,13 +63,13 @@ jobs:
     let (first, last) = crates.split_at(crates.len() / 2);
 
     for (name, _) in first {
-        write!(&mut yml, "\n          cargo test -p {name} &&").unwrap();
+        write!(&mut yml, "\n          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p {name} &&").unwrap();
     }
 
     write!(&mut yml, "\n          cargo clean &&").unwrap();
 
     for (name, _) in last {
-        write!(&mut yml, "\n          cargo test -p {name} &&").unwrap();
+        write!(&mut yml, "\n          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p {name} &&").unwrap();
     }
 
     yml.truncate(yml.len() - 3);
