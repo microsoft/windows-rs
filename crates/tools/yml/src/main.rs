@@ -75,7 +75,7 @@ jobs:
             &mut yml,
             r"
       - name: Test
-        run:  cargo test ${{{{ matrix.no-run }}}} --target ${{{{ matrix.target }}}} -p {name}"
+        run:  cargo test ${{{{ matrix.no-run }}}} --target ${{{{ matrix.target }}}} -p {name} -Z build-std"
         )
         .unwrap();
     }
