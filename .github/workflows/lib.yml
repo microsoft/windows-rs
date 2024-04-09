@@ -19,9 +19,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Fix environment
-        uses: ./.github/actions/fix-environment
-
       - name: Build gnu libs
         shell: cmd
         run: |

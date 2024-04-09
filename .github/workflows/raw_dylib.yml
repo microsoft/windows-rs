@@ -32,9 +32,6 @@ jobs:
         
       - name: Add toolchain target
         run: rustup target add ${{ matrix.target }}
-
-      - name: Fix environment
-        uses: ./.github/actions/fix-environment
           
       - name: Test
         run: >
