@@ -63,13 +63,13 @@ jobs:
     let (first, last) = crates.split_at(crates.len() / 2);
 
     for (name, _) in first {
-        write!(&mut yml, "\n          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p {name} &&").unwrap();
+        write!(&mut yml, "\n          cargo test ${{{{ matrix.no-run }}}} --target ${{{{ matrix.target }}}} -p {name} &&").unwrap();
     }
 
     write!(&mut yml, "\n          cargo clean &&").unwrap();
 
     for (name, _) in last {
-        write!(&mut yml, "\n          cargo test ${{ matrix.no-run }} --target ${{ matrix.target }} -p {name} &&").unwrap();
+        write!(&mut yml, "\n          cargo test ${{{{ matrix.no-run }}}} --target ${{{{ matrix.target }}}} -p {name} &&").unwrap();
     }
 
     yml.truncate(yml.len() - 3);
