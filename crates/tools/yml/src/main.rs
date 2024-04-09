@@ -29,22 +29,22 @@ jobs:
         include:
           - version: stable
             target: x86_64-pc-windows-msvc
-            no-run:
+            etc:
           - version: nightly
             target: i686-pc-windows-msvc
-            no-run:
+            etc:
           - version: stable
             target: aarch64-pc-windows-msvc
-            no-run: --no-run
+            etc: --no-run
           - version: nightly
             target: aarch64-pc-windows-msvc
-            no-run: --no-run
+            etc: --no-run -Z build-std
           - version: nightly
             target: x86_64-pc-windows-gnu
-            no-run:
+            etc:
           - version: stable
             target: i686-pc-windows-gnu
-            no-run:
+            etc:
 
     steps:
       - name: Checkout
@@ -75,7 +75,7 @@ jobs:
             &mut yml,
             r"
       - name: Test
-        run:  cargo test ${{{{ matrix.no-run }}}} --target ${{{{ matrix.target }}}} -p {name} -Z build-std"
+        run:  cargo test --target ${{{{ matrix.target }}}} ${{{{ matrix.etc }}}} -p {name}"
         )
         .unwrap();
     }
