@@ -45,8 +45,6 @@ jobs:
         run: rustup target add ${{ matrix.target }}
       - name: Install fmt
         run: rustup component add rustfmt
-      - name: Fix environment
-        uses: ./.github/actions/fix-environment
       - name: Test
         run: >"
         .to_string();
