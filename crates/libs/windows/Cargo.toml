@@ -1,7 +1,7 @@
 
 [package]
 name = "windows"
-version = "0.54.0"
+version = "0.56.0"
 authors = ["Microsoft"]
 edition = "2021"
 rust-version = "1.62"
@@ -22,8 +22,8 @@ targets = []
 rustdoc-args = ["--cfg", "docsrs"]
 
 [dependencies]
-windows-core = { path = "../core", version = "0.55" }
-windows-targets = { path = "../targets", version = "0.52" }
+windows-core = { path = "../core", version = "0.56.0" }
+windows-targets = { path = "../targets", version = "0.52.5" }
 
 [features]
 default = []

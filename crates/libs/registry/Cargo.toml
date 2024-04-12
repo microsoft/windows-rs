@@ -1,6 +1,6 @@
 [package]
 name = "windows-registry"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Microsoft"]
 edition = "2021"
 rust-version = "1.60"
@@ -19,13 +19,13 @@ default-target = "x86_64-pc-windows-msvc"
 targets = []
 
 [dependencies.windows-targets]
-version = "0.52"
+version = "0.52.5"
 path = "../targets"
 
 [dependencies.windows-result]
-version = "0.1"
+version = "0.1.1"
 path = "../result"
 
 [dev-dependencies.windows-bindgen]
-version = "0.55"
+version = "0.56.0"
 path = "../bindgen"
