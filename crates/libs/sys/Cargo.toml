@@ -20,7 +20,7 @@ targets = []
 all-features = true
 
 [dependencies.windows-targets]
-version = "0.52"
+version = "0.52.5"
 path = "../targets"
 
 [features]
