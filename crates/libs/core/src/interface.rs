@@ -10,7 +10,7 @@ pub unsafe trait Interface: Sized + Clone {
     #[doc(hidden)]
     type Vtable;
 
-    #[doc(hidden)]
+    /// The `GUID` associated with the interface.
     const IID: GUID;
 
     #[doc(hidden)]
