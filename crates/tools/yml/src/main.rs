@@ -40,11 +40,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Update toolchain
-        run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.target }}
+        run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}
       - name: Add toolchain target
         run: rustup target add ${{ matrix.target }}
-      - name: Install fmt
-        run: rustup component add rustfmt
       - name: Fix environment
         uses: ./.github/actions/fix-environment"
         .to_string();
@@ -67,7 +65,7 @@ jobs:
             &mut yml,
             r"
       - name: Test {name}
-        run:  cargo test -p {name}"
+        run:  cargo test -p {name} --target ${{{{ matrix.target }}}}"
         )
         .unwrap();
     }
