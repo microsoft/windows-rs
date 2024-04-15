@@ -39,143 +39,280 @@ jobs:
         run: rustup component add rustfmt
       - name: Fix environment
         uses: ./.github/actions/fix-environment
-      - name: Test
-        run: >
-          cargo test -p riddle &&
-          cargo test -p sample_bits &&
-          cargo test -p sample_com_uri &&
-          cargo test -p sample_component_hello_world &&
-          cargo test -p sample_component_json_validator &&
-          cargo test -p sample_component_json_validator_winrt &&
-          cargo test -p sample_component_json_validator_winrt_client &&
-          cargo test -p sample_consent &&
-          cargo test -p sample_core_app &&
-          cargo test -p sample_counter &&
-          cargo test -p sample_counter_sys &&
-          cargo test -p sample_create_window &&
-          cargo test -p sample_create_window_sys &&
-          cargo test -p sample_credentials &&
-          cargo test -p sample_data_protection &&
-          cargo test -p sample_dcomp &&
-          cargo test -p sample_delay_load &&
-          cargo test -p sample_delay_load_sys &&
-          cargo test -p sample_device_watcher &&
-          cargo test -p sample_direct2d &&
-          cargo test -p sample_direct3d12 &&
-          cargo test -p sample_enum_windows &&
-          cargo test -p sample_enum_windows_sys &&
-          cargo test -p sample_kernel_event &&
-          cargo test -p sample_memory_buffer &&
-          cargo test -p sample_message_box &&
-          cargo test -p sample_message_box_sys &&
-          cargo test -p sample_ocr &&
-          cargo test -p sample_overlapped &&
-          cargo test -p sample_privileges &&
-          cargo test -p sample_privileges_sys &&
-          cargo test -p sample_rss &&
-          cargo test -p sample_shell &&
-          cargo test -p sample_simple &&
-          cargo test -p sample_spellchecker &&
-          cargo test -p sample_task_dialog &&
-          cargo test -p sample_task_dialog_sys &&
-          cargo test -p sample_thread_pool_work &&
-          cargo test -p sample_thread_pool_work_sys &&
-          cargo test -p sample_uiautomation &&
-          cargo test -p sample_wmi &&
-          cargo test -p sample_xml &&
-          cargo test -p test_agile &&
-          cargo test -p test_agile_reference &&
-          cargo test -p test_alternate_success_code &&
-          cargo test -p test_arch &&
-          cargo test -p test_arch_feature &&
-          cargo test -p test_array &&
-          cargo test -p test_bcrypt &&
-          cargo test -p test_bstr &&
-          cargo test -p test_calling_convention &&
-          cargo test -p test_cfg_generic &&
-          cargo test -p test_collections &&
-          cargo test -p test_component &&
-          cargo test -p test_component_client &&
-          cargo test -p test_const_fields &&
-          cargo test -p test_const_params &&
-          cargo test -p test_const_ptrs &&
-          cargo test -p test_core &&
-          cargo test -p test_debug &&
-          cargo test -p test_debug_inspectable &&
-          cargo test -p test_debugger_visualizer &&
-          cargo test -p test_deprecated &&
-          cargo test -p test_dispatch &&
-          cargo test -p test_does_not_return &&
-          cargo test -p test_enums &&
-          cargo test -p test_error &&
-          cargo clean &&
-          cargo test -p test_event &&
-          cargo test -p test_extensions &&
-          cargo test -p test_handles &&
-          cargo test -p test_helpers &&
-          cargo test -p test_implement &&
-          cargo test -p test_interface &&
-          cargo test -p test_interface_core &&
-          cargo test -p test_interop &&
-          cargo test -p test_lib &&
-          cargo test -p test_literals &&
-          cargo test -p test_match &&
-          cargo test -p test_matrix3x2 &&
-          cargo test -p test_metadata &&
-          cargo test -p test_msrv &&
-          cargo test -p test_no_use &&
-          cargo test -p test_not_dll &&
-          cargo test -p test_query_signature &&
-          cargo test -p test_readme &&
-          cargo test -p test_registry &&
-          cargo test -p test_reserved &&
-          cargo test -p test_resources &&
-          cargo test -p test_result &&
-          cargo test -p test_return_handle &&
-          cargo test -p test_return_struct &&
-          cargo test -p test_riddle &&
-          cargo test -p test_simple_component &&
-          cargo test -p test_standalone &&
-          cargo test -p test_string_param &&
-          cargo test -p test_structs &&
-          cargo test -p test_sys &&
-          cargo test -p test_targets &&
-          cargo test -p test_unions &&
-          cargo test -p test_variant &&
-          cargo test -p test_wdk &&
-          cargo test -p test_weak &&
-          cargo test -p test_weak_ref &&
-          cargo test -p test_win32 &&
-          cargo test -p test_win32_arrays &&
-          cargo test -p test_window_long &&
-          cargo test -p test_winrt &&
-          cargo test -p tool_gnu &&
-          cargo test -p tool_lib &&
-          cargo test -p tool_license &&
-          cargo test -p tool_metadata &&
-          cargo test -p tool_msvc &&
-          cargo test -p tool_sys &&
-          cargo test -p tool_windows &&
-          cargo test -p tool_yml &&
-          cargo test -p windows &&
-          cargo test -p windows-bindgen &&
-          cargo test -p windows-core &&
-          cargo test -p windows-implement &&
-          cargo test -p windows-interface &&
-          cargo test -p windows-metadata &&
-          cargo test -p windows-registry &&
-          cargo test -p windows-result &&
-          cargo test -p windows-sys &&
-          cargo test -p windows-targets &&
-          cargo test -p windows-version &&
-          cargo test -p windows_aarch64_gnullvm &&
-          cargo test -p windows_aarch64_msvc &&
-          cargo test -p windows_i686_gnu &&
-          cargo test -p windows_i686_gnullvm &&
-          cargo test -p windows_i686_msvc &&
-          cargo test -p windows_x86_64_gnu &&
-          cargo test -p windows_x86_64_gnullvm &&
-          cargo test -p windows_x86_64_msvc
+      - name: Clean
+        run:  cargo clean
+      - name: Test riddle
+        run:  cargo test -p riddle
+      - name: Test sample_bits
+        run:  cargo test -p sample_bits
+      - name: Test sample_com_uri
+        run:  cargo test -p sample_com_uri
+      - name: Test sample_component_hello_world
+        run:  cargo test -p sample_component_hello_world
+      - name: Test sample_component_json_validator
+        run:  cargo test -p sample_component_json_validator
+      - name: Test sample_component_json_validator_winrt
+        run:  cargo test -p sample_component_json_validator_winrt
+      - name: Test sample_component_json_validator_winrt_client
+        run:  cargo test -p sample_component_json_validator_winrt_client
+      - name: Test sample_consent
+        run:  cargo test -p sample_consent
+      - name: Test sample_core_app
+        run:  cargo test -p sample_core_app
+      - name: Test sample_counter
+        run:  cargo test -p sample_counter
+      - name: Test sample_counter_sys
+        run:  cargo test -p sample_counter_sys
+      - name: Test sample_create_window
+        run:  cargo test -p sample_create_window
+      - name: Test sample_create_window_sys
+        run:  cargo test -p sample_create_window_sys
+      - name: Test sample_credentials
+        run:  cargo test -p sample_credentials
+      - name: Test sample_data_protection
+        run:  cargo test -p sample_data_protection
+      - name: Test sample_dcomp
+        run:  cargo test -p sample_dcomp
+      - name: Test sample_delay_load
+        run:  cargo test -p sample_delay_load
+      - name: Test sample_delay_load_sys
+        run:  cargo test -p sample_delay_load_sys
+      - name: Test sample_device_watcher
+        run:  cargo test -p sample_device_watcher
+      - name: Test sample_direct2d
+        run:  cargo test -p sample_direct2d
+      - name: Test sample_direct3d12
+        run:  cargo test -p sample_direct3d12
+      - name: Test sample_enum_windows
+        run:  cargo test -p sample_enum_windows
+      - name: Test sample_enum_windows_sys
+        run:  cargo test -p sample_enum_windows_sys
+      - name: Test sample_kernel_event
+        run:  cargo test -p sample_kernel_event
+      - name: Test sample_memory_buffer
+        run:  cargo test -p sample_memory_buffer
+      - name: Test sample_message_box
+        run:  cargo test -p sample_message_box
+      - name: Test sample_message_box_sys
+        run:  cargo test -p sample_message_box_sys
+      - name: Test sample_ocr
+        run:  cargo test -p sample_ocr
+      - name: Test sample_overlapped
+        run:  cargo test -p sample_overlapped
+      - name: Test sample_privileges
+        run:  cargo test -p sample_privileges
+      - name: Test sample_privileges_sys
+        run:  cargo test -p sample_privileges_sys
+      - name: Test sample_rss
+        run:  cargo test -p sample_rss
+      - name: Test sample_shell
+        run:  cargo test -p sample_shell
+      - name: Test sample_simple
+        run:  cargo test -p sample_simple
+      - name: Test sample_spellchecker
+        run:  cargo test -p sample_spellchecker
+      - name: Test sample_task_dialog
+        run:  cargo test -p sample_task_dialog
+      - name: Test sample_task_dialog_sys
+        run:  cargo test -p sample_task_dialog_sys
+      - name: Test sample_thread_pool_work
+        run:  cargo test -p sample_thread_pool_work
+      - name: Test sample_thread_pool_work_sys
+        run:  cargo test -p sample_thread_pool_work_sys
+      - name: Test sample_uiautomation
+        run:  cargo test -p sample_uiautomation
+      - name: Test sample_wmi
+        run:  cargo test -p sample_wmi
+      - name: Test sample_xml
+        run:  cargo test -p sample_xml
+      - name: Test test_agile
+        run:  cargo test -p test_agile
+      - name: Test test_agile_reference
+        run:  cargo test -p test_agile_reference
+      - name: Test test_alternate_success_code
+        run:  cargo test -p test_alternate_success_code
+      - name: Test test_arch
+        run:  cargo test -p test_arch
+      - name: Test test_arch_feature
+        run:  cargo test -p test_arch_feature
+      - name: Test test_array
+        run:  cargo test -p test_array
+      - name: Test test_bcrypt
+        run:  cargo test -p test_bcrypt
+      - name: Test test_bstr
+        run:  cargo test -p test_bstr
+      - name: Clean
+        run:  cargo clean
+      - name: Test test_calling_convention
+        run:  cargo test -p test_calling_convention
+      - name: Test test_cfg_generic
+        run:  cargo test -p test_cfg_generic
+      - name: Test test_collections
+        run:  cargo test -p test_collections
+      - name: Test test_component
+        run:  cargo test -p test_component
+      - name: Test test_component_client
+        run:  cargo test -p test_component_client
+      - name: Test test_const_fields
+        run:  cargo test -p test_const_fields
+      - name: Test test_const_params
+        run:  cargo test -p test_const_params
+      - name: Test test_const_ptrs
+        run:  cargo test -p test_const_ptrs
+      - name: Test test_core
+        run:  cargo test -p test_core
+      - name: Test test_debug
+        run:  cargo test -p test_debug
+      - name: Test test_debug_inspectable
+        run:  cargo test -p test_debug_inspectable
+      - name: Test test_debugger_visualizer
+        run:  cargo test -p test_debugger_visualizer
+      - name: Test test_deprecated
+        run:  cargo test -p test_deprecated
+      - name: Test test_dispatch
+        run:  cargo test -p test_dispatch
+      - name: Test test_does_not_return
+        run:  cargo test -p test_does_not_return
+      - name: Test test_enums
+        run:  cargo test -p test_enums
+      - name: Test test_error
+        run:  cargo test -p test_error
+      - name: Test test_event
+        run:  cargo test -p test_event
+      - name: Test test_extensions
+        run:  cargo test -p test_extensions
+      - name: Test test_handles
+        run:  cargo test -p test_handles
+      - name: Test test_helpers
+        run:  cargo test -p test_helpers
+      - name: Test test_implement
+        run:  cargo test -p test_implement
+      - name: Test test_interface
+        run:  cargo test -p test_interface
+      - name: Test test_interface_core
+        run:  cargo test -p test_interface_core
+      - name: Test test_interop
+        run:  cargo test -p test_interop
+      - name: Test test_lib
+        run:  cargo test -p test_lib
+      - name: Test test_literals
+        run:  cargo test -p test_literals
+      - name: Test test_match
+        run:  cargo test -p test_match
+      - name: Test test_matrix3x2
+        run:  cargo test -p test_matrix3x2
+      - name: Test test_metadata
+        run:  cargo test -p test_metadata
+      - name: Test test_msrv
+        run:  cargo test -p test_msrv
+      - name: Test test_no_use
+        run:  cargo test -p test_no_use
+      - name: Test test_not_dll
+        run:  cargo test -p test_not_dll
+      - name: Test test_query_signature
+        run:  cargo test -p test_query_signature
+      - name: Test test_readme
+        run:  cargo test -p test_readme
+      - name: Test test_registry
+        run:  cargo test -p test_registry
+      - name: Test test_reserved
+        run:  cargo test -p test_reserved
+      - name: Test test_resources
+        run:  cargo test -p test_resources
+      - name: Test test_result
+        run:  cargo test -p test_result
+      - name: Test test_return_handle
+        run:  cargo test -p test_return_handle
+      - name: Test test_return_struct
+        run:  cargo test -p test_return_struct
+      - name: Test test_riddle
+        run:  cargo test -p test_riddle
+      - name: Test test_simple_component
+        run:  cargo test -p test_simple_component
+      - name: Test test_standalone
+        run:  cargo test -p test_standalone
+      - name: Test test_string_param
+        run:  cargo test -p test_string_param
+      - name: Test test_structs
+        run:  cargo test -p test_structs
+      - name: Test test_sys
+        run:  cargo test -p test_sys
+      - name: Test test_targets
+        run:  cargo test -p test_targets
+      - name: Test test_unions
+        run:  cargo test -p test_unions
+      - name: Test test_variant
+        run:  cargo test -p test_variant
+      - name: Clean
+        run:  cargo clean
+      - name: Test test_wdk
+        run:  cargo test -p test_wdk
+      - name: Test test_weak
+        run:  cargo test -p test_weak
+      - name: Test test_weak_ref
+        run:  cargo test -p test_weak_ref
+      - name: Test test_win32
+        run:  cargo test -p test_win32
+      - name: Test test_win32_arrays
+        run:  cargo test -p test_win32_arrays
+      - name: Test test_window_long
+        run:  cargo test -p test_window_long
+      - name: Test test_winrt
+        run:  cargo test -p test_winrt
+      - name: Test tool_gnu
+        run:  cargo test -p tool_gnu
+      - name: Test tool_lib
+        run:  cargo test -p tool_lib
+      - name: Test tool_license
+        run:  cargo test -p tool_license
+      - name: Test tool_metadata
+        run:  cargo test -p tool_metadata
+      - name: Test tool_msvc
+        run:  cargo test -p tool_msvc
+      - name: Test tool_sys
+        run:  cargo test -p tool_sys
+      - name: Test tool_windows
+        run:  cargo test -p tool_windows
+      - name: Test tool_yml
+        run:  cargo test -p tool_yml
+      - name: Test windows
+        run:  cargo test -p windows
+      - name: Test windows-bindgen
+        run:  cargo test -p windows-bindgen
+      - name: Test windows-core
+        run:  cargo test -p windows-core
+      - name: Test windows-implement
+        run:  cargo test -p windows-implement
+      - name: Test windows-interface
+        run:  cargo test -p windows-interface
+      - name: Test windows-metadata
+        run:  cargo test -p windows-metadata
+      - name: Test windows-registry
+        run:  cargo test -p windows-registry
+      - name: Test windows-result
+        run:  cargo test -p windows-result
+      - name: Test windows-sys
+        run:  cargo test -p windows-sys
+      - name: Test windows-targets
+        run:  cargo test -p windows-targets
+      - name: Test windows-version
+        run:  cargo test -p windows-version
+      - name: Test windows_aarch64_gnullvm
+        run:  cargo test -p windows_aarch64_gnullvm
+      - name: Test windows_aarch64_msvc
+        run:  cargo test -p windows_aarch64_msvc
+      - name: Test windows_i686_gnu
+        run:  cargo test -p windows_i686_gnu
+      - name: Test windows_i686_gnullvm
+        run:  cargo test -p windows_i686_gnullvm
+      - name: Test windows_i686_msvc
+        run:  cargo test -p windows_i686_msvc
+      - name: Test windows_x86_64_gnu
+        run:  cargo test -p windows_x86_64_gnu
+      - name: Test windows_x86_64_gnullvm
+        run:  cargo test -p windows_x86_64_gnullvm
+      - name: Test windows_x86_64_msvc
+        run:  cargo test -p windows_x86_64_msvc
       - name: Check diff
         shell: bash
         run: |

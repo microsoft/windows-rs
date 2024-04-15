@@ -46,25 +46,31 @@ jobs:
       - name: Install fmt
         run: rustup component add rustfmt
       - name: Fix environment
-        uses: ./.github/actions/fix-environment
-      - name: Test
-        run: >"
+        uses: ./.github/actions/fix-environment"
         .to_string();
 
-    let crates = lib::crates("crates");
-    let (first, last) = crates.split_at(crates.len() / 2);
+    // This unrolling is required since "cargo test --all" consumes too much memory for the GitHub hosted runners
+    // and the occasional "cargo clean" is required to avoid running out of disk space in the same runners.
 
-    for (name, _) in first {
-        write!(&mut yml, "\n          cargo test -p {name} &&").unwrap();
+    for (count, (name, _)) in lib::crates("crates").iter().enumerate() {
+        if count % 50 == 0 {
+            write!(
+                &mut yml,
+                r"
+      - name: Clean
+        run:  cargo clean"
+            )
+            .unwrap();
+        }
+
+        write!(
+            &mut yml,
+            r"
+      - name: Test {name}
+        run:  cargo test -p {name}"
+        )
+        .unwrap();
     }
-
-    write!(&mut yml, "\n          cargo clean &&").unwrap();
-
-    for (name, _) in last {
-        write!(&mut yml, "\n          cargo test -p {name} &&").unwrap();
-    }
-
-    yml.truncate(yml.len() - 3);
 
     write!(
         &mut yml,
