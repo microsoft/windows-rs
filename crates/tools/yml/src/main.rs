@@ -66,7 +66,7 @@ jobs:
         write!(
             &mut yml,
             r"
-      - name: Test
+      - name: Test {name}
         run:  cargo test -p {name}"
         )
         .unwrap();
