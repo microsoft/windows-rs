@@ -111,7 +111,9 @@ jobs:
       - name: Update toolchain
         run: rustup update --no-self-update nightly && rustup default nightly-x86_64-pc-windows-msvc
       - name: Install clippy
-        run: rustup component add clippy"#
+        run: rustup component add clippy
+      - name: Fix environment
+        uses: ./.github/actions/fix-environment"#
         .to_string();
 
     // This unrolling is required since "cargo clippy --all" consumes too much memory for the GitHub hosted runners.
