@@ -42,6 +42,8 @@ jobs:
         run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.target }}
       - name: Add toolchain target
         run: rustup target add ${{ matrix.target }}
+      - name: Install fmt
+        run: rustup component add rustfmt
       - name: Fix environment
         uses: ./.github/actions/fix-environment"
         .to_string();
