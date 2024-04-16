@@ -111,17 +111,7 @@ jobs:
       - name: Update toolchain
         run: rustup update --no-self-update nightly && rustup default nightly-x86_64-pc-windows-msvc
       - name: Install clippy
-        run: rustup component add clippy
-      - name: Configure environment
-        shell: pwsh
-        run: |
-          "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x64" >> $env:GITHUB_PATH
-          ((Resolve-Path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\*\bin\Hostx64\x64")
-            | Sort-Object -Descending | Select -First 1).ToString() >> $env:GITHUB_PATH
-          (Join-Path $env:GITHUB_WORKSPACE "target\debug\deps").ToString() >> $env:GITHUB_PATH
-          (Join-Path $env:GITHUB_WORKSPACE "target\test\debug\deps").ToString() >> $env:GITHUB_PATH
-          "INCLUDE=C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\winrt;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\cppwinrt" `
-            >> $env:GITHUB_ENV"#
+        run: rustup component add clippy"#
         .to_string();
 
     // This unrolling is required since "cargo clippy --all" consumes too much memory for the GitHub hosted runners.
