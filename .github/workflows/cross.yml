@@ -13,8 +13,7 @@ env:
   LLVM-MINGW-TOOLCHAIN-NAME: llvm-mingw-20220906-ucrt-ubuntu-18.04-x86_64
 
 jobs:
-  test:
-    name: Test
+  check:
     strategy:
       matrix:
         #

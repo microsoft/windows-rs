@@ -12,8 +12,7 @@ env:
   RUSTFLAGS: -Dwarnings
 
 jobs:
-  lib_generation:
-    name: Check
+  check:
     runs-on: windows-2019
     steps:
       - name: Checkout

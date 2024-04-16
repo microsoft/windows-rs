@@ -12,8 +12,7 @@ env:
   RUSTFLAGS: -Dwarnings
 
 jobs:
-  cargo_windows:
-    name: Check
+  check:
     strategy:
       matrix:
         rust: [1.62.0, stable, nightly]

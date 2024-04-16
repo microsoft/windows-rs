@@ -20,8 +20,7 @@ env:
   RUSTFLAGS: -Dwarnings
 
 jobs:
-  test:
-    name: Test
+  check:
     runs-on: windows-2019
 
     strategy:
@@ -100,8 +99,7 @@ env:
   RUSTFLAGS: -Dwarnings
 
 jobs:
-  cargo_clippy:
-    name: Check
+  check:
     runs-on: windows-2019
 
     strategy:

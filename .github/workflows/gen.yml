@@ -12,7 +12,7 @@ env:
   RUSTFLAGS: -Dwarnings
 
 jobs:
-  generation:
+  check:
     name: tool_${{ matrix.tool }}
     runs-on: ubuntu-latest
     strategy:
