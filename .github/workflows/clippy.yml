@@ -32,139 +32,271 @@ jobs:
           (Join-Path $env:GITHUB_WORKSPACE "target\test\debug\deps").ToString() >> $env:GITHUB_PATH
           "INCLUDE=C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\winrt;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\cppwinrt" `
             >> $env:GITHUB_ENV
-      - name: Run cargo clippy
-        run: |
-          cargo clippy -p riddle &&
-          cargo clippy -p sample_bits &&
-          cargo clippy -p sample_com_uri &&
-          cargo clippy -p sample_component_hello_world &&
-          cargo clippy -p sample_component_json_validator &&
-          cargo clippy -p sample_component_json_validator_winrt &&
-          cargo clippy -p sample_component_json_validator_winrt_client &&
-          cargo clippy -p sample_consent &&
-          cargo clippy -p sample_core_app &&
-          cargo clippy -p sample_counter &&
-          cargo clippy -p sample_counter_sys &&
-          cargo clippy -p sample_create_window &&
-          cargo clippy -p sample_create_window_sys &&
-          cargo clippy -p sample_credentials &&
-          cargo clippy -p sample_data_protection &&
-          cargo clippy -p sample_dcomp &&
-          cargo clippy -p sample_delay_load &&
-          cargo clippy -p sample_delay_load_sys &&
-          cargo clippy -p sample_device_watcher &&
-          cargo clippy -p sample_direct2d &&
-          cargo clippy -p sample_direct3d12 &&
-          cargo clippy -p sample_enum_windows &&
-          cargo clippy -p sample_enum_windows_sys &&
-          cargo clippy -p sample_kernel_event &&
-          cargo clippy -p sample_memory_buffer &&
-          cargo clippy -p sample_message_box &&
-          cargo clippy -p sample_message_box_sys &&
-          cargo clippy -p sample_ocr &&
-          cargo clippy -p sample_overlapped &&
-          cargo clippy -p sample_privileges &&
-          cargo clippy -p sample_privileges_sys &&
-          cargo clippy -p sample_rss &&
-          cargo clippy -p sample_shell &&
-          cargo clippy -p sample_simple &&
-          cargo clippy -p sample_spellchecker &&
-          cargo clippy -p sample_task_dialog &&
-          cargo clippy -p sample_task_dialog_sys &&
-          cargo clippy -p sample_thread_pool_work &&
-          cargo clippy -p sample_thread_pool_work_sys &&
-          cargo clippy -p sample_uiautomation &&
-          cargo clippy -p sample_wmi &&
-          cargo clippy -p sample_xml &&
-          cargo clippy -p test_agile &&
-          cargo clippy -p test_agile_reference &&
-          cargo clippy -p test_alternate_success_code &&
-          cargo clippy -p test_arch &&
-          cargo clippy -p test_arch_feature &&
-          cargo clippy -p test_array &&
-          cargo clippy -p test_bcrypt &&
-          cargo clippy -p test_bstr &&
-          cargo clippy -p test_calling_convention &&
-          cargo clippy -p test_cfg_generic &&
-          cargo clippy -p test_collections &&
-          cargo clippy -p test_component &&
-          cargo clippy -p test_component_client &&
-          cargo clippy -p test_const_fields &&
-          cargo clippy -p test_const_params &&
-          cargo clippy -p test_const_ptrs &&
-          cargo clippy -p test_core &&
-          cargo clippy -p test_debug &&
-          cargo clippy -p test_debug_inspectable &&
-          cargo clippy -p test_debugger_visualizer &&
-          cargo clippy -p test_deprecated &&
-          cargo clippy -p test_dispatch &&
-          cargo clippy -p test_does_not_return &&
-          cargo clippy -p test_enums &&
-          cargo clippy -p test_error &&
-          cargo clippy -p test_event &&
-          cargo clippy -p test_extensions &&
-          cargo clippy -p test_handles &&
-          cargo clippy -p test_helpers &&
-          cargo clippy -p test_implement &&
-          cargo clippy -p test_interface &&
-          cargo clippy -p test_interface_core &&
-          cargo clippy -p test_interop &&
-          cargo clippy -p test_lib &&
-          cargo clippy -p test_literals &&
-          cargo clippy -p test_match &&
-          cargo clippy -p test_matrix3x2 &&
-          cargo clippy -p test_metadata &&
-          cargo clippy -p test_msrv &&
-          cargo clippy -p test_no_use &&
-          cargo clippy -p test_not_dll &&
-          cargo clippy -p test_query_signature &&
-          cargo clippy -p test_readme &&
-          cargo clippy -p test_registry &&
-          cargo clippy -p test_reserved &&
-          cargo clippy -p test_resources &&
-          cargo clippy -p test_result &&
-          cargo clippy -p test_return_handle &&
-          cargo clippy -p test_return_struct &&
-          cargo clippy -p test_riddle &&
-          cargo clippy -p test_simple_component &&
-          cargo clippy -p test_standalone &&
-          cargo clippy -p test_string_param &&
-          cargo clippy -p test_structs &&
-          cargo clippy -p test_sys &&
-          cargo clippy -p test_targets &&
-          cargo clippy -p test_unions &&
-          cargo clippy -p test_variant &&
-          cargo clippy -p test_wdk &&
-          cargo clippy -p test_weak &&
-          cargo clippy -p test_weak_ref &&
-          cargo clippy -p test_win32 &&
-          cargo clippy -p test_win32_arrays &&
-          cargo clippy -p test_window_long &&
-          cargo clippy -p test_winrt &&
-          cargo clippy -p tool_gnu &&
-          cargo clippy -p tool_lib &&
-          cargo clippy -p tool_license &&
-          cargo clippy -p tool_metadata &&
-          cargo clippy -p tool_msvc &&
-          cargo clippy -p tool_sys &&
-          cargo clippy -p tool_windows &&
-          cargo clippy -p tool_yml &&
-          cargo clippy -p windows &&
-          cargo clippy -p windows-bindgen &&
-          cargo clippy -p windows-core &&
-          cargo clippy -p windows-implement &&
-          cargo clippy -p windows-interface &&
-          cargo clippy -p windows-metadata &&
-          cargo clippy -p windows-registry &&
-          cargo clippy -p windows-result &&
-          cargo clippy -p windows-sys &&
-          cargo clippy -p windows-targets &&
-          cargo clippy -p windows-version &&
-          cargo clippy -p windows_aarch64_gnullvm &&
-          cargo clippy -p windows_aarch64_msvc &&
-          cargo clippy -p windows_i686_gnu &&
-          cargo clippy -p windows_i686_gnullvm &&
-          cargo clippy -p windows_i686_msvc &&
-          cargo clippy -p windows_x86_64_gnu &&
-          cargo clippy -p windows_x86_64_gnullvm &&
-          cargo clippy -p windows_x86_64_msvc
+      - name: Clippy riddle
+        run:  cargo clippy -p riddle
+      - name: Clippy sample_bits
+        run:  cargo clippy -p sample_bits
+      - name: Clippy sample_com_uri
+        run:  cargo clippy -p sample_com_uri
+      - name: Clippy sample_component_hello_world
+        run:  cargo clippy -p sample_component_hello_world
+      - name: Clippy sample_component_json_validator
+        run:  cargo clippy -p sample_component_json_validator
+      - name: Clippy sample_component_json_validator_winrt
+        run:  cargo clippy -p sample_component_json_validator_winrt
+      - name: Clippy sample_component_json_validator_winrt_client
+        run:  cargo clippy -p sample_component_json_validator_winrt_client
+      - name: Clippy sample_consent
+        run:  cargo clippy -p sample_consent
+      - name: Clippy sample_core_app
+        run:  cargo clippy -p sample_core_app
+      - name: Clippy sample_counter
+        run:  cargo clippy -p sample_counter
+      - name: Clippy sample_counter_sys
+        run:  cargo clippy -p sample_counter_sys
+      - name: Clippy sample_create_window
+        run:  cargo clippy -p sample_create_window
+      - name: Clippy sample_create_window_sys
+        run:  cargo clippy -p sample_create_window_sys
+      - name: Clippy sample_credentials
+        run:  cargo clippy -p sample_credentials
+      - name: Clippy sample_data_protection
+        run:  cargo clippy -p sample_data_protection
+      - name: Clippy sample_dcomp
+        run:  cargo clippy -p sample_dcomp
+      - name: Clippy sample_delay_load
+        run:  cargo clippy -p sample_delay_load
+      - name: Clippy sample_delay_load_sys
+        run:  cargo clippy -p sample_delay_load_sys
+      - name: Clippy sample_device_watcher
+        run:  cargo clippy -p sample_device_watcher
+      - name: Clippy sample_direct2d
+        run:  cargo clippy -p sample_direct2d
+      - name: Clippy sample_direct3d12
+        run:  cargo clippy -p sample_direct3d12
+      - name: Clippy sample_enum_windows
+        run:  cargo clippy -p sample_enum_windows
+      - name: Clippy sample_enum_windows_sys
+        run:  cargo clippy -p sample_enum_windows_sys
+      - name: Clippy sample_kernel_event
+        run:  cargo clippy -p sample_kernel_event
+      - name: Clippy sample_memory_buffer
+        run:  cargo clippy -p sample_memory_buffer
+      - name: Clippy sample_message_box
+        run:  cargo clippy -p sample_message_box
+      - name: Clippy sample_message_box_sys
+        run:  cargo clippy -p sample_message_box_sys
+      - name: Clippy sample_ocr
+        run:  cargo clippy -p sample_ocr
+      - name: Clippy sample_overlapped
+        run:  cargo clippy -p sample_overlapped
+      - name: Clippy sample_privileges
+        run:  cargo clippy -p sample_privileges
+      - name: Clippy sample_privileges_sys
+        run:  cargo clippy -p sample_privileges_sys
+      - name: Clippy sample_rss
+        run:  cargo clippy -p sample_rss
+      - name: Clippy sample_shell
+        run:  cargo clippy -p sample_shell
+      - name: Clippy sample_simple
+        run:  cargo clippy -p sample_simple
+      - name: Clippy sample_spellchecker
+        run:  cargo clippy -p sample_spellchecker
+      - name: Clippy sample_task_dialog
+        run:  cargo clippy -p sample_task_dialog
+      - name: Clippy sample_task_dialog_sys
+        run:  cargo clippy -p sample_task_dialog_sys
+      - name: Clippy sample_thread_pool_work
+        run:  cargo clippy -p sample_thread_pool_work
+      - name: Clippy sample_thread_pool_work_sys
+        run:  cargo clippy -p sample_thread_pool_work_sys
+      - name: Clippy sample_uiautomation
+        run:  cargo clippy -p sample_uiautomation
+      - name: Clippy sample_wmi
+        run:  cargo clippy -p sample_wmi
+      - name: Clippy sample_xml
+        run:  cargo clippy -p sample_xml
+      - name: Clippy test_agile
+        run:  cargo clippy -p test_agile
+      - name: Clippy test_agile_reference
+        run:  cargo clippy -p test_agile_reference
+      - name: Clippy test_alternate_success_code
+        run:  cargo clippy -p test_alternate_success_code
+      - name: Clippy test_arch
+        run:  cargo clippy -p test_arch
+      - name: Clippy test_arch_feature
+        run:  cargo clippy -p test_arch_feature
+      - name: Clippy test_array
+        run:  cargo clippy -p test_array
+      - name: Clippy test_bcrypt
+        run:  cargo clippy -p test_bcrypt
+      - name: Clippy test_bstr
+        run:  cargo clippy -p test_bstr
+      - name: Clippy test_calling_convention
+        run:  cargo clippy -p test_calling_convention
+      - name: Clippy test_cfg_generic
+        run:  cargo clippy -p test_cfg_generic
+      - name: Clippy test_collections
+        run:  cargo clippy -p test_collections
+      - name: Clippy test_component
+        run:  cargo clippy -p test_component
+      - name: Clippy test_component_client
+        run:  cargo clippy -p test_component_client
+      - name: Clippy test_const_fields
+        run:  cargo clippy -p test_const_fields
+      - name: Clippy test_const_params
+        run:  cargo clippy -p test_const_params
+      - name: Clippy test_const_ptrs
+        run:  cargo clippy -p test_const_ptrs
+      - name: Clippy test_core
+        run:  cargo clippy -p test_core
+      - name: Clippy test_debug
+        run:  cargo clippy -p test_debug
+      - name: Clippy test_debug_inspectable
+        run:  cargo clippy -p test_debug_inspectable
+      - name: Clippy test_debugger_visualizer
+        run:  cargo clippy -p test_debugger_visualizer
+      - name: Clippy test_deprecated
+        run:  cargo clippy -p test_deprecated
+      - name: Clippy test_dispatch
+        run:  cargo clippy -p test_dispatch
+      - name: Clippy test_does_not_return
+        run:  cargo clippy -p test_does_not_return
+      - name: Clippy test_enums
+        run:  cargo clippy -p test_enums
+      - name: Clippy test_error
+        run:  cargo clippy -p test_error
+      - name: Clippy test_event
+        run:  cargo clippy -p test_event
+      - name: Clippy test_extensions
+        run:  cargo clippy -p test_extensions
+      - name: Clippy test_handles
+        run:  cargo clippy -p test_handles
+      - name: Clippy test_helpers
+        run:  cargo clippy -p test_helpers
+      - name: Clippy test_implement
+        run:  cargo clippy -p test_implement
+      - name: Clippy test_interface
+        run:  cargo clippy -p test_interface
+      - name: Clippy test_interface_core
+        run:  cargo clippy -p test_interface_core
+      - name: Clippy test_interop
+        run:  cargo clippy -p test_interop
+      - name: Clippy test_lib
+        run:  cargo clippy -p test_lib
+      - name: Clippy test_literals
+        run:  cargo clippy -p test_literals
+      - name: Clippy test_match
+        run:  cargo clippy -p test_match
+      - name: Clippy test_matrix3x2
+        run:  cargo clippy -p test_matrix3x2
+      - name: Clippy test_metadata
+        run:  cargo clippy -p test_metadata
+      - name: Clippy test_msrv
+        run:  cargo clippy -p test_msrv
+      - name: Clippy test_no_use
+        run:  cargo clippy -p test_no_use
+      - name: Clippy test_not_dll
+        run:  cargo clippy -p test_not_dll
+      - name: Clippy test_query_signature
+        run:  cargo clippy -p test_query_signature
+      - name: Clippy test_readme
+        run:  cargo clippy -p test_readme
+      - name: Clippy test_registry
+        run:  cargo clippy -p test_registry
+      - name: Clippy test_reserved
+        run:  cargo clippy -p test_reserved
+      - name: Clippy test_resources
+        run:  cargo clippy -p test_resources
+      - name: Clippy test_result
+        run:  cargo clippy -p test_result
+      - name: Clippy test_return_handle
+        run:  cargo clippy -p test_return_handle
+      - name: Clippy test_return_struct
+        run:  cargo clippy -p test_return_struct
+      - name: Clippy test_riddle
+        run:  cargo clippy -p test_riddle
+      - name: Clippy test_simple_component
+        run:  cargo clippy -p test_simple_component
+      - name: Clippy test_standalone
+        run:  cargo clippy -p test_standalone
+      - name: Clippy test_string_param
+        run:  cargo clippy -p test_string_param
+      - name: Clippy test_structs
+        run:  cargo clippy -p test_structs
+      - name: Clippy test_sys
+        run:  cargo clippy -p test_sys
+      - name: Clippy test_targets
+        run:  cargo clippy -p test_targets
+      - name: Clippy test_unions
+        run:  cargo clippy -p test_unions
+      - name: Clippy test_variant
+        run:  cargo clippy -p test_variant
+      - name: Clippy test_wdk
+        run:  cargo clippy -p test_wdk
+      - name: Clippy test_weak
+        run:  cargo clippy -p test_weak
+      - name: Clippy test_weak_ref
+        run:  cargo clippy -p test_weak_ref
+      - name: Clippy test_win32
+        run:  cargo clippy -p test_win32
+      - name: Clippy test_win32_arrays
+        run:  cargo clippy -p test_win32_arrays
+      - name: Clippy test_window_long
+        run:  cargo clippy -p test_window_long
+      - name: Clippy test_winrt
+        run:  cargo clippy -p test_winrt
+      - name: Clippy tool_gnu
+        run:  cargo clippy -p tool_gnu
+      - name: Clippy tool_lib
+        run:  cargo clippy -p tool_lib
+      - name: Clippy tool_license
+        run:  cargo clippy -p tool_license
+      - name: Clippy tool_metadata
+        run:  cargo clippy -p tool_metadata
+      - name: Clippy tool_msvc
+        run:  cargo clippy -p tool_msvc
+      - name: Clippy tool_sys
+        run:  cargo clippy -p tool_sys
+      - name: Clippy tool_windows
+        run:  cargo clippy -p tool_windows
+      - name: Clippy tool_yml
+        run:  cargo clippy -p tool_yml
+      - name: Clippy windows
+        run:  cargo clippy -p windows
+      - name: Clippy windows-bindgen
+        run:  cargo clippy -p windows-bindgen
+      - name: Clippy windows-core
+        run:  cargo clippy -p windows-core
+      - name: Clippy windows-implement
+        run:  cargo clippy -p windows-implement
+      - name: Clippy windows-interface
+        run:  cargo clippy -p windows-interface
+      - name: Clippy windows-metadata
+        run:  cargo clippy -p windows-metadata
+      - name: Clippy windows-registry
+        run:  cargo clippy -p windows-registry
+      - name: Clippy windows-result
+        run:  cargo clippy -p windows-result
+      - name: Clippy windows-sys
+        run:  cargo clippy -p windows-sys
+      - name: Clippy windows-targets
+        run:  cargo clippy -p windows-targets
+      - name: Clippy windows-version
+        run:  cargo clippy -p windows-version
+      - name: Clippy windows_aarch64_gnullvm
+        run:  cargo clippy -p windows_aarch64_gnullvm
+      - name: Clippy windows_aarch64_msvc
+        run:  cargo clippy -p windows_aarch64_msvc
+      - name: Clippy windows_i686_gnu
+        run:  cargo clippy -p windows_i686_gnu
+      - name: Clippy windows_i686_gnullvm
+        run:  cargo clippy -p windows_i686_gnullvm
+      - name: Clippy windows_i686_msvc
+        run:  cargo clippy -p windows_i686_msvc
+      - name: Clippy windows_x86_64_gnu
+        run:  cargo clippy -p windows_x86_64_gnu
+      - name: Clippy windows_x86_64_gnullvm
+        run:  cargo clippy -p windows_x86_64_gnullvm
+      - name: Clippy windows_x86_64_msvc
+        run:  cargo clippy -p windows_x86_64_msvc

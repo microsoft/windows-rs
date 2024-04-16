@@ -121,15 +121,20 @@ jobs:
           (Join-Path $env:GITHUB_WORKSPACE "target\debug\deps").ToString() >> $env:GITHUB_PATH
           (Join-Path $env:GITHUB_WORKSPACE "target\test\debug\deps").ToString() >> $env:GITHUB_PATH
           "INCLUDE=C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\winrt;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\cppwinrt" `
-            >> $env:GITHUB_ENV
-      - name: Run cargo clippy
-        run: |"#
+            >> $env:GITHUB_ENV"#
         .to_string();
 
+    // This unrolling is required since "cargo clippy --all" consumes too much memory for the GitHub hosted runners.
+
     for (name, _) in lib::crates("crates") {
-        write!(&mut yml, "\n          cargo clippy -p {name} &&").unwrap();
+        write!(
+            &mut yml,
+            r"
+      - name: Clippy {name}
+        run:  cargo clippy -p {name}"
+        )
+        .unwrap();
     }
 
-    yml.truncate(yml.len() - 3);
     std::fs::write(".github/workflows/clippy.yml", yml.as_bytes()).unwrap();
 }
