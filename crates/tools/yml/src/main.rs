@@ -20,8 +20,7 @@ env:
   RUSTFLAGS: -Dwarnings
 
 jobs:
-  test:
-    name: Test
+  check:
     runs-on: windows-2019
 
     strategy:
@@ -88,7 +87,7 @@ jobs:
 }
 
 fn clippy_yml() {
-    let mut yml = r#"name: clippy
+    let mut yml = r"name: clippy
 
 on:
   pull_request:
@@ -102,34 +101,39 @@ env:
   RUSTFLAGS: -Dwarnings
 
 jobs:
-  cargo_clippy:
-    name: Check
+  check:
     runs-on: windows-2019
+
+    strategy:
+      matrix:
+        include:
+          - version: nightly
+            target: x86_64-pc-windows-msvc
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Update toolchain
-        run: rustup update --no-self-update nightly && rustup default nightly-x86_64-pc-windows-msvc
+        run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.target }}
+      - name: Add toolchain target
+        run: rustup target add ${{ matrix.target }}
       - name: Install clippy
         run: rustup component add clippy
-      - name: Configure environment
-        shell: pwsh
-        run: |
-          "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x64" >> $env:GITHUB_PATH
-          ((Resolve-Path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\*\bin\Hostx64\x64")
-            | Sort-Object -Descending | Select -First 1).ToString() >> $env:GITHUB_PATH
-          (Join-Path $env:GITHUB_WORKSPACE "target\debug\deps").ToString() >> $env:GITHUB_PATH
-          (Join-Path $env:GITHUB_WORKSPACE "target\test\debug\deps").ToString() >> $env:GITHUB_PATH
-          "INCLUDE=C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\winrt;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\cppwinrt" `
-            >> $env:GITHUB_ENV
-      - name: Run cargo clippy
-        run: |"#
+      - name: Fix environment
+        uses: ./.github/actions/fix-environment"
         .to_string();
 
+    // This unrolling is required since "cargo clippy --all" consumes too much memory for the GitHub hosted runners.
+
     for (name, _) in lib::crates("crates") {
-        write!(&mut yml, "\n          cargo clippy -p {name} &&").unwrap();
+        write!(
+            &mut yml,
+            r"
+      - name: Clippy {name}
+        run:  cargo clippy -p {name}"
+        )
+        .unwrap();
     }
 
-    yml.truncate(yml.len() - 3);
     std::fs::write(".github/workflows/clippy.yml", yml.as_bytes()).unwrap();
 }

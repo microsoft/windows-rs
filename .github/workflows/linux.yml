@@ -12,8 +12,7 @@ env:
   RUSTFLAGS: -Dwarnings
 
 jobs:
-  cargo_windows:
-    name: Check
+  check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

@@ -12,8 +12,7 @@ env:
   RUSTFLAGS: -Dwarnings
 
 jobs:
-  test:
-    name: Test
+  check:
     runs-on: windows-2019
 
     strategy:
