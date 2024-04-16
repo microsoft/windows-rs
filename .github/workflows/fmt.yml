@@ -12,8 +12,7 @@ env:
   RUSTFLAGS: -Dwarnings
 
 jobs:
-  fmt:
-    name: Check
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
