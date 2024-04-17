@@ -21,7 +21,7 @@ jobs:
           - version: stable
             target: aarch64-pc-windows-msvc
           - version: nightly
-            taret: aarch64-pc-windows-msvc
+            target: aarch64-pc-windows-msvc
 
     steps:
       - name: Checkout
