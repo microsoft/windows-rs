@@ -163,7 +163,9 @@ jobs:
       matrix:
         include:
           - version: stable
+            target: aarch64-pc-windows-msvc
           - version: nightly
+            taret: aarch64-pc-windows-msvc
 
     steps:
       - name: Checkout
@@ -171,7 +173,7 @@ jobs:
       - name: Update toolchain
         run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-x86_64-pc-windows-msvc
       - name: Add toolchain target
-        run: rustup target add aarch64-pc-windows-msvc
+        run: rustup target add ${{ matrix.target }}
       - name: Fix environment
         uses: ./.github/actions/fix-environment"
       .to_string();
@@ -191,7 +193,7 @@ jobs:
             &mut yml,
             r"
       - name: Test {name}
-        run:  cargo test -p {name} --no-run"
+        run:  cargo test -p {name} --no-run --target ${{{{ matrix.target }}}}"
         )
         .unwrap();
     }
