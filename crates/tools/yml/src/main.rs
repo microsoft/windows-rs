@@ -3,6 +3,7 @@ use std::fmt::Write;
 fn main() {
     test_yml();
     clippy_yml();
+    arm64_yml();
 }
 
 fn test_yml() {
@@ -136,4 +137,64 @@ jobs:
     }
 
     std::fs::write(".github/workflows/clippy.yml", yml.as_bytes()).unwrap();
+}
+
+// Ideally this would just be another matrix dimension in test_yml but Cargo limitations are blocking this for the time being.
+// See https://github.com/rust-lang/cargo/issues/9661
+fn arm64_yml() {
+    let mut yml = r"name: arm64
+
+on:
+pull_request:
+push:
+  paths-ignore:
+    - '.github/ISSUE_TEMPLATE/**'
+  branches:
+    - master
+
+env:
+RUSTFLAGS: -Dwarnings
+
+jobs:
+check:
+  runs-on: windows-2019
+
+  strategy:
+    matrix:
+      include:
+        - version: stable
+        - version: nightly
+
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Update toolchain
+      run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-x86_64-pc-windows-msvc
+    - name: Add toolchain target
+      run: rustup target add aarch64-pc-windows-msvc
+    - name: Fix environment
+      uses: ./.github/actions/fix-environment"
+      .to_string();
+
+    for (count, (name, _)) in lib::crates("crates").iter().enumerate() {
+        if count % 50 == 0 {
+            write!(
+                &mut yml,
+                r"
+    - name: Clean
+      run:  cargo clean"
+            )
+            .unwrap();
+        }
+
+        write!(
+            &mut yml,
+            r"
+    - name: Test {name}
+      run:  cargo test -p {name} --no-run"
+        )
+        .unwrap();
+    }
+
+    std::fs::write(".github/workflows/arm64.yml", yml.as_bytes()).unwrap();
 }
