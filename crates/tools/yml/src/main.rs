@@ -145,35 +145,35 @@ fn arm64_yml() {
     let mut yml = r"name: arm64
 
 on:
-pull_request:
-push:
-  paths-ignore:
-    - '.github/ISSUE_TEMPLATE/**'
-  branches:
-    - master
+  pull_request:
+  push:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+    branches:
+      - master
 
 env:
-RUSTFLAGS: -Dwarnings
+  RUSTFLAGS: -Dwarnings
 
 jobs:
-check:
-  runs-on: windows-2019
+  check:
+    runs-on: windows-2019
 
-  strategy:
-    matrix:
-      include:
-        - version: stable
-        - version: nightly
+    strategy:
+      matrix:
+        include:
+          - version: stable
+          - version: nightly
 
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: Update toolchain
-      run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-x86_64-pc-windows-msvc
-    - name: Add toolchain target
-      run: rustup target add aarch64-pc-windows-msvc
-    - name: Fix environment
-      uses: ./.github/actions/fix-environment"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Update toolchain
+        run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-x86_64-pc-windows-msvc
+      - name: Add toolchain target
+        run: rustup target add aarch64-pc-windows-msvc
+      - name: Fix environment
+        uses: ./.github/actions/fix-environment"
       .to_string();
 
     for (count, (name, _)) in lib::crates("crates").iter().enumerate() {
@@ -181,8 +181,8 @@ check:
             write!(
                 &mut yml,
                 r"
-    - name: Clean
-      run:  cargo clean"
+      - name: Clean
+        run:  cargo clean"
             )
             .unwrap();
         }
@@ -190,8 +190,8 @@ check:
         write!(
             &mut yml,
             r"
-    - name: Test {name}
-      run:  cargo test -p {name} --no-run"
+      - name: Test {name}
+        run:  cargo test -p {name} --no-run"
         )
         .unwrap();
     }
