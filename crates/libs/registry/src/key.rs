@@ -37,6 +37,11 @@ impl Key {
         win32_error(result).map(|_| Self(handle))
     }
 
+    /// Returns the underlying registry key handle.
+    pub fn as_raw(&self) -> isize {
+        self.0
+    }
+
     /// Removes the registry keys and values of the specified key recursively.
     pub fn remove_tree<T: AsRef<str>>(&self, path: T) -> Result<()> {
         let result = unsafe { RegDeleteTreeW(self.0, pcwstr(path).as_ptr()) };
