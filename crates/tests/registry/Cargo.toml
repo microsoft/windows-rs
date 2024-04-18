@@ -9,3 +9,11 @@ path = "../../libs/registry"
 
 [dependencies.windows-result]
 path = "../../libs/result"
+
+[dependencies.windows-sys]
+path = "../../libs/sys"
+features = ["Win32_System_Registry"]
+
+[dependencies.windows]
+path = "../../libs/windows"
+features = ["Win32_System_Registry"]
