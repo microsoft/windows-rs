@@ -26,14 +26,22 @@ impl PWSTR {
         self.0.is_null()
     }
 
+    /// String length without the trailing 0
+    ///
+    /// # Safety
+    ///
+    /// The `PWSTR`'s pointer needs to be valid for reads up until and including the next `\0`.
+    pub unsafe fn len(&self) -> usize {
+        PCWSTR(self.0).len()
+    }
+
     /// String data without the trailing 0.
     ///
     /// # Safety
     ///
     /// The `PWSTR`'s pointer needs to be valid for reads up until and including the next `\0`.
     pub unsafe fn as_wide(&self) -> &[u16] {
-        let len = wcslen(PCWSTR::from_raw(self.0));
-        std::slice::from_raw_parts(self.0, len)
+        std::slice::from_raw_parts(self.0, self.len())
     }
 
     /// Copy the `PWSTR` into a Rust `String`.

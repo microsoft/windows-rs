@@ -26,14 +26,41 @@ impl PCWSTR {
         self.0.is_null()
     }
 
+    /// String length without the trailing 0
+    ///
+    /// # Safety
+    ///
+    /// The `PCWSTR`'s pointer needs to be valid for reads up until and including the next `\0`.
+    pub unsafe fn len(&self) -> usize {
+        #[cfg(target_os = "windows")]
+        let len = {
+            extern "C" {
+                fn wcslen(s: *const u16) -> usize;
+            }
+            wcslen(self.0)
+        };
+
+        #[cfg(not(target_os = "windows"))]
+        let len = {
+            let mut len = 0;
+            let mut ptr = self.0;
+            while ptr.read() != 0 {
+                len += 1;
+                ptr = ptr.add(1);
+            }
+            len
+        };
+
+        len
+    }
+
     /// String data without the trailing 0
     ///
     /// # Safety
     ///
     /// The `PCWSTR`'s pointer needs to be valid for reads up until and including the next `\0`.
     pub unsafe fn as_wide(&self) -> &[u16] {
-        let len = wcslen(*self);
-        std::slice::from_raw_parts(self.0, len)
+        std::slice::from_raw_parts(self.0, self.len())
     }
 
     /// Copy the `PCWSTR` into a Rust `String`.
