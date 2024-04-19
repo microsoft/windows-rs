@@ -184,6 +184,8 @@ jobs:
         run:  cargo clippy -p test_interop
       - name: Clippy test_lib
         run:  cargo clippy -p test_lib
+      - name: Clippy test_linux
+        run:  cargo clippy -p test_linux
       - name: Clippy test_literals
         run:  cargo clippy -p test_literals
       - name: Clippy test_match
@@ -216,8 +218,6 @@ jobs:
         run:  cargo clippy -p test_return_struct
       - name: Clippy test_riddle
         run:  cargo clippy -p test_riddle
-      - name: Clippy test_simple_component
-        run:  cargo clippy -p test_simple_component
       - name: Clippy test_standalone
         run:  cargo clippy -p test_standalone
       - name: Clippy test_string_param

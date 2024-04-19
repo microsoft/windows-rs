@@ -210,6 +210,8 @@ jobs:
         run:  cargo test -p test_interop --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_lib
         run:  cargo test -p test_lib --target ${{ matrix.target }} ${{ matrix.etc }}
+      - name: Test test_linux
+        run:  cargo test -p test_linux --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_literals
         run:  cargo test -p test_literals --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_match
@@ -242,8 +244,6 @@ jobs:
         run:  cargo test -p test_return_struct --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_riddle
         run:  cargo test -p test_riddle --target ${{ matrix.target }} ${{ matrix.etc }}
-      - name: Test test_simple_component
-        run:  cargo test -p test_simple_component --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_standalone
         run:  cargo test -p test_standalone --target ${{ matrix.target }} ${{ matrix.etc }}
       - name: Test test_string_param

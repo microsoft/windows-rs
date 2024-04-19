@@ -1,14 +1,12 @@
 [package]
-name = "test_simple_component"
+name = "test_linux"
 version = "0.0.0"
 edition = "2021"
 publish = false
 
-[lib]
-crate-type = ["cdylib"]
-
 [dependencies.windows]
 path = "../../libs/windows"
 features = [
+    "Foundation",
     "Win32_Foundation",
 ]
