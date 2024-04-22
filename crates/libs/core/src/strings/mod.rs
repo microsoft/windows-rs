@@ -20,8 +20,6 @@ use super::*;
 extern "C" {
     #[doc(hidden)]
     pub fn strlen(s: PCSTR) -> usize;
-    #[doc(hidden)]
-    pub fn wcslen(s: PCWSTR) -> usize;
 }
 
 /// An internal helper for decoding an iterator of chars and displaying them
