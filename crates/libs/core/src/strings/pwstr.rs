@@ -35,6 +35,15 @@ impl PWSTR {
         PCWSTR(self.0).len()
     }
 
+    /// Returns `true` if the string length is zero, and `false` otherwise.
+    ///
+    /// # Safety
+    ///
+    /// The `PWSTR`'s pointer needs to be valid for reads up until and including the next `\0`.
+    pub unsafe fn is_empty(&self) -> bool {
+        self.len() == 0
+    }
+
     /// String data without the trailing 0.
     ///
     /// # Safety
