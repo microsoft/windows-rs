@@ -127,7 +127,7 @@ impl TearOff {
         let this = Self::from_strong_ptr(ptr);
 
         if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261); // E_POINTER
+            return E_POINTER;
         }
 
         // Only directly respond to queries for the the tear-off's strong interface. This is
@@ -147,7 +147,7 @@ impl TearOff {
         let this = Self::from_weak_ptr(ptr);
 
         if iid.is_null() || interface.is_null() {
-            return windows_core::HRESULT(-2147467261); // E_POINTER
+            return E_POINTER;
         }
 
         // While the weak vtable is packed into the same allocation as the strong vtable and
