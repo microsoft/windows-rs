@@ -32,7 +32,7 @@ impl PCWSTR {
     ///
     /// The `PCWSTR`'s pointer needs to be valid for reads up until and including the next `\0`.
     pub unsafe fn len(&self) -> usize {
-        #[cfg(target_os = "windows")]
+        #[cfg(windows)]
         let len = {
             extern "C" {
                 fn wcslen(s: *const u16) -> usize;
@@ -40,7 +40,7 @@ impl PCWSTR {
             wcslen(self.0)
         };
 
-        #[cfg(not(target_os = "windows"))]
+        #[cfg(not(windows))]
         let len = {
             let mut len = 0;
             let mut ptr = self.0;
