@@ -40,10 +40,10 @@ jobs:
         run: rustup target add ${{ matrix.target }}
         if: contains(matrix.target, 'gnullvm') == false
 
-      - name: Add nightly toolchain with rust-src
+      - name: Add nightly toolchain with gnullvm target
         run: |
           rustup default ${{ matrix.version }}
-          rustup component add rust-src
+          rustup target add ${{ matrix.target }}
         if: startsWith(matrix.image, 'ubuntu-') && contains(matrix.target, 'gnullvm') && matrix.version == 'nightly'
 
       - name: Install gcc-mingw-w64-x86-64
@@ -83,10 +83,10 @@ jobs:
           }
         if: contains(matrix.target, 'gnullvm') == false
 
-      - name: Test with build-std
+      - name: Test gnullvm
         shell: pwsh
         run: |
-          cargo test --no-run --target ${{ matrix.target }} -Z build-std -p test_win32
+          cargo test --no-run --target ${{ matrix.target }} -p test_win32
           if (-Not (Resolve-Path "target/*/debug/deps/test_win32-*.exe" | Test-Path)) {
             throw "Failed to find test_win32 executable."
           }
