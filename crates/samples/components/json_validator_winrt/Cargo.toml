@@ -9,8 +9,8 @@ name = "sample"
 crate-type = ["cdylib"]
 
 [dependencies]
-jsonschema = "0.17"
-serde_json = "1.0"
+jsonschema = { version = "0.17", default-features = false }
+serde_json = {version = "1.0", default-features = false }
 
 [dependencies.windows]
 path = "../../../libs/windows"
