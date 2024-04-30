@@ -1998,11 +1998,9 @@ impl HKEY {
     }
 }
 impl windows_core::Free for HKEY {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = RegCloseKey(*self);
-            }
+            _ = RegCloseKey(*self);
         }
     }
 }

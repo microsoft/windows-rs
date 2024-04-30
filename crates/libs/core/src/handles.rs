@@ -4,7 +4,10 @@
 /// to be dropped depending on context.
 pub trait Free {
     /// Calls the handle's free function.
-    fn free(&mut self);
+    ///
+    /// # Safety
+    /// The handle must be owned by the caller and safe to free.    
+    unsafe fn free(&mut self);
 }
 
 /// A wrapper to provide ownership for handles to automatically drop via the handle's `Free` trait.
@@ -14,14 +17,17 @@ pub struct Owned<T: Free>(T);
 
 impl<T: Free> Owned<T> {
     /// Takes ownership of the handle.
-    pub fn new(x: T) -> Self {
+    ///
+    /// # Safety
+    /// The handle must be owned by the caller and safe to free.    
+    pub unsafe fn new(x: T) -> Self {
         Self(x)
     }
 }
 
 impl<T: Free> Drop for Owned<T> {
     fn drop(&mut self) {
-        self.0.free();
+        unsafe { self.0.free() };
     }
 }
 

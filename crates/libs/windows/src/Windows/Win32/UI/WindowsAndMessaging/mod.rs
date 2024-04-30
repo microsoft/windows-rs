@@ -8813,11 +8813,9 @@ impl HACCEL {
     }
 }
 impl windows_core::Free for HACCEL {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = DestroyAcceleratorTable(*self);
-            }
+            _ = DestroyAcceleratorTable(*self);
         }
     }
 }
@@ -8881,11 +8879,9 @@ impl HCURSOR {
     }
 }
 impl windows_core::Free for HCURSOR {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = DestroyCursor(*self);
-            }
+            _ = DestroyCursor(*self);
         }
     }
 }
@@ -8923,11 +8919,9 @@ impl HDEVNOTIFY {
     }
 }
 impl windows_core::Free for HDEVNOTIFY {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = UnregisterDeviceNotification(*self);
-            }
+            _ = UnregisterDeviceNotification(*self);
         }
     }
 }
@@ -8986,11 +8980,9 @@ impl HHOOK {
     }
 }
 impl windows_core::Free for HHOOK {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = UnhookWindowsHookEx(*self);
-            }
+            _ = UnhookWindowsHookEx(*self);
         }
     }
 }
@@ -9022,11 +9014,9 @@ impl HICON {
     }
 }
 impl windows_core::Free for HICON {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = DestroyIcon(*self);
-            }
+            _ = DestroyIcon(*self);
         }
     }
 }
@@ -9058,11 +9048,9 @@ impl HMENU {
     }
 }
 impl windows_core::Free for HMENU {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = DestroyMenu(*self);
-            }
+            _ = DestroyMenu(*self);
         }
     }
 }

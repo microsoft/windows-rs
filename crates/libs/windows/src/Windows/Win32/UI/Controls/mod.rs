@@ -12587,11 +12587,9 @@ impl HIMAGELIST {
     }
 }
 impl windows_core::Free for HIMAGELIST {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = ImageList_Destroy(*self);
-            }
+            _ = ImageList_Destroy(*self);
         }
     }
 }
@@ -12623,11 +12621,9 @@ impl HPROPSHEETPAGE {
     }
 }
 impl windows_core::Free for HPROPSHEETPAGE {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = DestroyPropertySheetPage(*self);
-            }
+            _ = DestroyPropertySheetPage(*self);
         }
     }
 }
@@ -12686,11 +12682,9 @@ impl HTHEME {
     }
 }
 impl windows_core::Free for HTHEME {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = CloseThemeData(*self);
-            }
+            _ = CloseThemeData(*self);
         }
     }
 }

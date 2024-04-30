@@ -8800,11 +8800,9 @@ impl BCRYPT_ALG_HANDLE {
     }
 }
 impl windows_core::Free for BCRYPT_ALG_HANDLE {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = BCryptCloseAlgorithmProvider(*self, 0);
-            }
+            _ = BCryptCloseAlgorithmProvider(*self, 0);
         }
     }
 }
@@ -9219,11 +9217,9 @@ impl BCRYPT_HASH_HANDLE {
     }
 }
 impl windows_core::Free for BCRYPT_HASH_HANDLE {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = BCryptDestroyHash(*self);
-            }
+            _ = BCryptDestroyHash(*self);
         }
     }
 }
@@ -9351,11 +9347,9 @@ impl BCRYPT_KEY_HANDLE {
     }
 }
 impl windows_core::Free for BCRYPT_KEY_HANDLE {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = BCryptDestroyKey(*self);
-            }
+            _ = BCryptDestroyKey(*self);
         }
     }
 }
@@ -9699,11 +9693,9 @@ impl BCRYPT_SECRET_HANDLE {
     }
 }
 impl windows_core::Free for BCRYPT_SECRET_HANDLE {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = BCryptDestroySecret(*self);
-            }
+            _ = BCryptDestroySecret(*self);
         }
     }
 }
@@ -19138,11 +19130,9 @@ impl HCERTCHAINENGINE {
     }
 }
 impl windows_core::Free for HCERTCHAINENGINE {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                CertFreeCertificateChainEngine(*self);
-            }
+            CertFreeCertificateChainEngine(*self);
         }
     }
 }
@@ -19228,11 +19218,9 @@ impl HCRYPTASYNC {
     }
 }
 impl windows_core::Free for HCRYPTASYNC {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = CryptCloseAsyncHandle(*self);
-            }
+            _ = CryptCloseAsyncHandle(*self);
         }
     }
 }
@@ -19883,11 +19871,9 @@ impl NCRYPT_KEY_HANDLE {
     }
 }
 impl windows_core::Free for NCRYPT_KEY_HANDLE {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = NCryptFreeObject(*self);
-            }
+            _ = NCryptFreeObject(*self);
         }
     }
 }
@@ -20132,11 +20118,9 @@ impl NCRYPT_PROV_HANDLE {
     }
 }
 impl windows_core::Free for NCRYPT_PROV_HANDLE {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = NCryptFreeObject(*self);
-            }
+            _ = NCryptFreeObject(*self);
         }
     }
 }

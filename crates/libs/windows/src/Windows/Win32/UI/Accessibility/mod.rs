@@ -9768,11 +9768,9 @@ impl HWINEVENTHOOK {
     }
 }
 impl windows_core::Free for HWINEVENTHOOK {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = UnhookWinEvent(*self);
-            }
+            _ = UnhookWinEvent(*self);
         }
     }
 }

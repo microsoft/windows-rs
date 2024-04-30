@@ -8005,11 +8005,9 @@ impl MSIHANDLE {
     }
 }
 impl windows_core::Free for MSIHANDLE {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = MsiCloseHandle(*self);
-            }
+            _ = MsiCloseHandle(*self);
         }
     }
 }

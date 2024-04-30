@@ -10669,11 +10669,9 @@ impl HBITMAP {
     }
 }
 impl windows_core::Free for HBITMAP {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = DeleteObject(*self);
-            }
+            _ = DeleteObject(*self);
         }
     }
 }
@@ -10711,11 +10709,9 @@ impl HBRUSH {
     }
 }
 impl windows_core::Free for HBRUSH {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = DeleteObject(*self);
-            }
+            _ = DeleteObject(*self);
         }
     }
 }
@@ -10780,11 +10776,9 @@ impl HENHMETAFILE {
     }
 }
 impl windows_core::Free for HENHMETAFILE {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = DeleteEnhMetaFile(*self);
-            }
+            _ = DeleteEnhMetaFile(*self);
         }
     }
 }
@@ -10816,11 +10810,9 @@ impl HFONT {
     }
 }
 impl windows_core::Free for HFONT {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = DeleteObject(*self);
-            }
+            _ = DeleteObject(*self);
         }
     }
 }
@@ -10885,11 +10877,9 @@ impl HMETAFILE {
     }
 }
 impl windows_core::Free for HMETAFILE {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = DeleteMetaFile(*self);
-            }
+            _ = DeleteMetaFile(*self);
         }
     }
 }
@@ -10948,11 +10938,9 @@ impl HPALETTE {
     }
 }
 impl windows_core::Free for HPALETTE {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = DeleteObject(*self);
-            }
+            _ = DeleteObject(*self);
         }
     }
 }
@@ -10990,11 +10978,9 @@ impl HPEN {
     }
 }
 impl windows_core::Free for HPEN {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = DeleteObject(*self);
-            }
+            _ = DeleteObject(*self);
         }
     }
 }
@@ -11032,11 +11018,9 @@ impl HRGN {
     }
 }
 impl windows_core::Free for HRGN {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = DeleteObject(*self);
-            }
+            _ = DeleteObject(*self);
         }
     }
 }

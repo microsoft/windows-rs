@@ -10786,11 +10786,9 @@ impl HANDLE {
     }
 }
 impl windows_core::Free for HANDLE {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = CloseHandle(*self);
-            }
+            _ = CloseHandle(*self);
         }
     }
 }
@@ -10844,11 +10842,9 @@ impl HGLOBAL {
     }
 }
 impl windows_core::Free for HGLOBAL {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = GlobalFree(*self);
-            }
+            _ = GlobalFree(*self);
         }
     }
 }
@@ -10880,11 +10876,9 @@ impl HINSTANCE {
     }
 }
 impl windows_core::Free for HINSTANCE {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = FreeLibrary(*self);
-            }
+            _ = FreeLibrary(*self);
         }
     }
 }
@@ -10922,11 +10916,9 @@ impl HLOCAL {
     }
 }
 impl windows_core::Free for HLOCAL {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = LocalFree(*self);
-            }
+            _ = LocalFree(*self);
         }
     }
 }
@@ -10980,11 +10972,9 @@ impl HMODULE {
     }
 }
 impl windows_core::Free for HMODULE {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = FreeLibrary(*self);
-            }
+            _ = FreeLibrary(*self);
         }
     }
 }

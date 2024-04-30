@@ -1414,11 +1414,9 @@ impl HPCON {
     }
 }
 impl windows_core::Free for HPCON {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                ClosePseudoConsole(*self);
-            }
+            ClosePseudoConsole(*self);
         }
     }
 }

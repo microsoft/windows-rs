@@ -1081,11 +1081,9 @@ impl EVT_HANDLE {
     }
 }
 impl windows_core::Free for EVT_HANDLE {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = EvtClose(*self);
-            }
+            _ = EvtClose(*self);
         }
     }
 }

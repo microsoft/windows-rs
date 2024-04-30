@@ -86,9 +86,9 @@ pub fn gen_win_handle(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
 
             quote! {
                 impl windows_core::Free for #ident {
-                    fn free(&mut self) {
+                    unsafe fn free(&mut self) {
                         if !self.is_invalid() {
-                            unsafe { #result #name(*self #tail); }
+                            #result #name(*self #tail);
                         }
                     }
                 }

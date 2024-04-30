@@ -3088,11 +3088,9 @@ impl HGLRC {
     }
 }
 impl windows_core::Free for HGLRC {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = wglDeleteContext(*self);
-            }
+            _ = wglDeleteContext(*self);
         }
     }
 }

@@ -690,11 +690,9 @@ impl HREPORT {
     }
 }
 impl windows_core::Free for HREPORT {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = WerReportCloseHandle(*self);
-            }
+            _ = WerReportCloseHandle(*self);
         }
     }
 }
@@ -726,11 +724,9 @@ impl HREPORTSTORE {
     }
 }
 impl windows_core::Free for HREPORTSTORE {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                WerStoreClose(*self);
-            }
+            WerStoreClose(*self);
         }
     }
 }

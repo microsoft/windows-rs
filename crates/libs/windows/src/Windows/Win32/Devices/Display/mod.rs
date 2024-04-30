@@ -6246,11 +6246,9 @@ impl HSEMAPHORE {
     }
 }
 impl windows_core::Free for HSEMAPHORE {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                EngDeleteSemaphore(*self);
-            }
+            EngDeleteSemaphore(*self);
         }
     }
 }

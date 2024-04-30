@@ -8393,11 +8393,9 @@ impl HDEVINFO {
     }
 }
 impl windows_core::Free for HDEVINFO {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = SetupDiDestroyDeviceInfoList(*self);
-            }
+            _ = SetupDiDestroyDeviceInfoList(*self);
         }
     }
 }

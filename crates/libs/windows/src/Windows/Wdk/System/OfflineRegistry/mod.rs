@@ -211,11 +211,9 @@ impl ORHKEY {
     }
 }
 impl windows_core::Free for ORHKEY {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = ORCloseKey(*self);
-            }
+            _ = ORCloseKey(*self);
         }
     }
 }

@@ -3863,11 +3863,9 @@ impl WHV_PARTITION_HANDLE {
     }
 }
 impl windows_core::Free for WHV_PARTITION_HANDLE {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = WHvDeletePartition(*self);
-            }
+            _ = WHvDeletePartition(*self);
         }
     }
 }

@@ -4539,11 +4539,9 @@ impl TDH_HANDLE {
     }
 }
 impl windows_core::Free for TDH_HANDLE {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = TdhCloseDecodingHandle(*self);
-            }
+            _ = TdhCloseDecodingHandle(*self);
         }
     }
 }

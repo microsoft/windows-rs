@@ -1902,11 +1902,9 @@ impl HCOLORSPACE {
     }
 }
 impl windows_core::Free for HCOLORSPACE {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                _ = DeleteColorSpace(*self);
-            }
+            _ = DeleteColorSpace(*self);
         }
     }
 }

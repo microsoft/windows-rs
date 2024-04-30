@@ -881,11 +881,9 @@ impl HCS_OPERATION {
     }
 }
 impl windows_core::Free for HCS_OPERATION {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                HcsCloseOperation(*self);
-            }
+            HcsCloseOperation(*self);
         }
     }
 }
@@ -917,11 +915,9 @@ impl HCS_PROCESS {
     }
 }
 impl windows_core::Free for HCS_PROCESS {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                HcsCloseProcess(*self);
-            }
+            HcsCloseProcess(*self);
         }
     }
 }
@@ -986,11 +982,9 @@ impl HCS_SYSTEM {
     }
 }
 impl windows_core::Free for HCS_SYSTEM {
-    fn free(&mut self) {
+    unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            unsafe {
-                HcsCloseComputeSystem(*self);
-            }
+            HcsCloseComputeSystem(*self);
         }
     }
 }
