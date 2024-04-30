@@ -9767,6 +9767,15 @@ impl HWINEVENTHOOK {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HWINEVENTHOOK {
+    fn free(&mut self) {
+        if !self.is_invalid() {
+            unsafe {
+                _ = UnhookWinEvent(*self);
+            }
+        }
+    }
+}
 impl Default for HWINEVENTHOOK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

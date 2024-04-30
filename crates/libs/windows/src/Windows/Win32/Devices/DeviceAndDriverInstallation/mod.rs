@@ -8392,6 +8392,15 @@ impl HDEVINFO {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HDEVINFO {
+    fn free(&mut self) {
+        if !self.is_invalid() {
+            unsafe {
+                _ = SetupDiDestroyDeviceInfoList(*self);
+            }
+        }
+    }
+}
 impl Default for HDEVINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

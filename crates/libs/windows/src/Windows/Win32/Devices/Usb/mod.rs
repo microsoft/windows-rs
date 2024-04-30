@@ -5968,6 +5968,15 @@ impl WINUSB_INTERFACE_HANDLE {
         self.0 == 0
     }
 }
+impl windows_core::Free for WINUSB_INTERFACE_HANDLE {
+    fn free(&mut self) {
+        if !self.is_invalid() {
+            unsafe {
+                _ = WinUsb_Free(*self);
+            }
+        }
+    }
+}
 impl Default for WINUSB_INTERFACE_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

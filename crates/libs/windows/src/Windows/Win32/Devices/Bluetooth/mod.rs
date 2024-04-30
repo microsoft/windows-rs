@@ -2465,6 +2465,15 @@ impl HBLUETOOTH_DEVICE_FIND {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HBLUETOOTH_DEVICE_FIND {
+    fn free(&mut self) {
+        if !self.is_invalid() {
+            unsafe {
+                _ = BluetoothFindDeviceClose(*self);
+            }
+        }
+    }
+}
 impl Default for HBLUETOOTH_DEVICE_FIND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2490,6 +2499,15 @@ pub struct HBLUETOOTH_RADIO_FIND(pub isize);
 impl HBLUETOOTH_RADIO_FIND {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for HBLUETOOTH_RADIO_FIND {
+    fn free(&mut self) {
+        if !self.is_invalid() {
+            unsafe {
+                _ = BluetoothFindRadioClose(*self);
+            }
+        }
     }
 }
 impl Default for HBLUETOOTH_RADIO_FIND {

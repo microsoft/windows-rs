@@ -7805,6 +7805,15 @@ impl LSA_HANDLE {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for LSA_HANDLE {
+    fn free(&mut self) {
+        if !self.is_invalid() {
+            unsafe {
+                _ = LsaClose(*self);
+            }
+        }
+    }
+}
 impl Default for LSA_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

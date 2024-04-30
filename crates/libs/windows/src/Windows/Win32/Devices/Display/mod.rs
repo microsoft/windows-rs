@@ -6245,6 +6245,15 @@ impl HSEMAPHORE {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HSEMAPHORE {
+    fn free(&mut self) {
+        if !self.is_invalid() {
+            unsafe {
+                EngDeleteSemaphore(*self);
+            }
+        }
+    }
+}
 impl Default for HSEMAPHORE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

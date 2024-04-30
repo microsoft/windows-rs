@@ -4538,6 +4538,15 @@ impl TDH_HANDLE {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for TDH_HANDLE {
+    fn free(&mut self) {
+        if !self.is_invalid() {
+            unsafe {
+                _ = TdhCloseDecodingHandle(*self);
+            }
+        }
+    }
+}
 impl Default for TDH_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

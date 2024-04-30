@@ -1901,6 +1901,15 @@ impl HCOLORSPACE {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HCOLORSPACE {
+    fn free(&mut self) {
+        if !self.is_invalid() {
+            unsafe {
+                _ = DeleteColorSpace(*self);
+            }
+        }
+    }
+}
 impl Default for HCOLORSPACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

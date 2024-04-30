@@ -3087,6 +3087,15 @@ impl HGLRC {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HGLRC {
+    fn free(&mut self) {
+        if !self.is_invalid() {
+            unsafe {
+                _ = wglDeleteContext(*self);
+            }
+        }
+    }
+}
 impl Default for HGLRC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

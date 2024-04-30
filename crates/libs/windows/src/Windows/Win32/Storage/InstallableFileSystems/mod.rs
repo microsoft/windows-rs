@@ -775,6 +775,15 @@ impl HFILTER {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HFILTER {
+    fn free(&mut self) {
+        if !self.is_invalid() {
+            unsafe {
+                _ = FilterClose(*self);
+            }
+        }
+    }
+}
 impl Default for HFILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -800,6 +809,15 @@ pub struct HFILTER_INSTANCE(pub isize);
 impl HFILTER_INSTANCE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for HFILTER_INSTANCE {
+    fn free(&mut self) {
+        if !self.is_invalid() {
+            unsafe {
+                _ = FilterInstanceClose(*self);
+            }
+        }
     }
 }
 impl Default for HFILTER_INSTANCE {

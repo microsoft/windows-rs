@@ -8812,6 +8812,15 @@ impl HACCEL {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HACCEL {
+    fn free(&mut self) {
+        if !self.is_invalid() {
+            unsafe {
+                _ = DestroyAcceleratorTable(*self);
+            }
+        }
+    }
+}
 impl Default for HACCEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8871,6 +8880,15 @@ impl HCURSOR {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HCURSOR {
+    fn free(&mut self) {
+        if !self.is_invalid() {
+            unsafe {
+                _ = DestroyCursor(*self);
+            }
+        }
+    }
+}
 impl Default for HCURSOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8902,6 +8920,15 @@ pub struct HDEVNOTIFY(pub *mut core::ffi::c_void);
 impl HDEVNOTIFY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
+    }
+}
+impl windows_core::Free for HDEVNOTIFY {
+    fn free(&mut self) {
+        if !self.is_invalid() {
+            unsafe {
+                _ = UnregisterDeviceNotification(*self);
+            }
+        }
     }
 }
 impl Default for HDEVNOTIFY {
@@ -8958,6 +8985,15 @@ impl HHOOK {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HHOOK {
+    fn free(&mut self) {
+        if !self.is_invalid() {
+            unsafe {
+                _ = UnhookWindowsHookEx(*self);
+            }
+        }
+    }
+}
 impl Default for HHOOK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8985,6 +9021,15 @@ impl HICON {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HICON {
+    fn free(&mut self) {
+        if !self.is_invalid() {
+            unsafe {
+                _ = DestroyIcon(*self);
+            }
+        }
+    }
+}
 impl Default for HICON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9010,6 +9055,15 @@ pub struct HMENU(pub isize);
 impl HMENU {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for HMENU {
+    fn free(&mut self) {
+        if !self.is_invalid() {
+            unsafe {
+                _ = DestroyMenu(*self);
+            }
+        }
     }
 }
 impl Default for HMENU {
