@@ -1,6 +1,6 @@
 /// Custom code to free a handle.
 ///
-/// This is similar to the `Drop` trait, and may be used to implement `Drop`, but allows handles
+/// This is similar to the [`Drop`] trait, and may be used to implement [`Drop`], but allows handles
 /// to be dropped depending on context.
 pub trait Free {
     /// Calls the handle's free function.
@@ -10,9 +10,9 @@ pub trait Free {
     unsafe fn free(&mut self);
 }
 
-/// A wrapper to provide ownership for handles to automatically drop via the handle's `Free` trait.
+/// A wrapper to provide ownership for handles to automatically drop via the handle's [`Free`] trait.
 #[repr(transparent)]
-#[derive(Clone, PartialEq, Eq, Default, Debug)]
+#[derive(PartialEq, Eq, Default, Debug)]
 pub struct Owned<T: Free>(T);
 
 impl<T: Free> Owned<T> {
