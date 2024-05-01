@@ -3862,6 +3862,13 @@ impl WHV_PARTITION_HANDLE {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for WHV_PARTITION_HANDLE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = WHvDeletePartition(*self);
+        }
+    }
+}
 impl Default for WHV_PARTITION_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

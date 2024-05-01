@@ -10668,6 +10668,13 @@ impl HBITMAP {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HBITMAP {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DeleteObject(*self);
+        }
+    }
+}
 impl Default for HBITMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10699,6 +10706,13 @@ pub struct HBRUSH(pub isize);
 impl HBRUSH {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for HBRUSH {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DeleteObject(*self);
+        }
     }
 }
 impl Default for HBRUSH {
@@ -10761,6 +10775,13 @@ impl HENHMETAFILE {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HENHMETAFILE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DeleteEnhMetaFile(*self);
+        }
+    }
+}
 impl Default for HENHMETAFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10786,6 +10807,13 @@ pub struct HFONT(pub isize);
 impl HFONT {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for HFONT {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DeleteObject(*self);
+        }
     }
 }
 impl Default for HFONT {
@@ -10848,6 +10876,13 @@ impl HMETAFILE {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HMETAFILE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DeleteMetaFile(*self);
+        }
+    }
+}
 impl Default for HMETAFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10902,6 +10937,13 @@ impl HPALETTE {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HPALETTE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DeleteObject(*self);
+        }
+    }
+}
 impl Default for HPALETTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10935,6 +10977,13 @@ impl HPEN {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HPEN {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DeleteObject(*self);
+        }
+    }
+}
 impl Default for HPEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10966,6 +11015,13 @@ pub struct HRGN(pub isize);
 impl HRGN {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for HRGN {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DeleteObject(*self);
+        }
     }
 }
 impl Default for HRGN {

@@ -12586,6 +12586,13 @@ impl HIMAGELIST {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HIMAGELIST {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = ImageList_Destroy(*self);
+        }
+    }
+}
 impl Default for HIMAGELIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -12611,6 +12618,13 @@ pub struct HPROPSHEETPAGE(pub isize);
 impl HPROPSHEETPAGE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for HPROPSHEETPAGE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DestroyPropertySheetPage(*self);
+        }
     }
 }
 impl Default for HPROPSHEETPAGE {
@@ -12665,6 +12679,13 @@ pub struct HTHEME(pub isize);
 impl HTHEME {
     pub fn is_invalid(&self) -> bool {
         self.0 == 0
+    }
+}
+impl windows_core::Free for HTHEME {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = CloseThemeData(*self);
+        }
     }
 }
 impl Default for HTHEME {

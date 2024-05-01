@@ -8812,6 +8812,13 @@ impl HACCEL {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HACCEL {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DestroyAcceleratorTable(*self);
+        }
+    }
+}
 impl Default for HACCEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8871,6 +8878,13 @@ impl HCURSOR {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HCURSOR {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DestroyCursor(*self);
+        }
+    }
+}
 impl Default for HCURSOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8902,6 +8916,13 @@ pub struct HDEVNOTIFY(pub *mut core::ffi::c_void);
 impl HDEVNOTIFY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
+    }
+}
+impl windows_core::Free for HDEVNOTIFY {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = UnregisterDeviceNotification(*self);
+        }
     }
 }
 impl Default for HDEVNOTIFY {
@@ -8958,6 +8979,13 @@ impl HHOOK {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HHOOK {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = UnhookWindowsHookEx(*self);
+        }
+    }
+}
 impl Default for HHOOK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8985,6 +9013,13 @@ impl HICON {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HICON {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DestroyIcon(*self);
+        }
+    }
+}
 impl Default for HICON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9010,6 +9045,13 @@ pub struct HMENU(pub isize);
 impl HMENU {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for HMENU {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = DestroyMenu(*self);
+        }
     }
 }
 impl Default for HMENU {

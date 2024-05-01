@@ -10785,6 +10785,13 @@ impl HANDLE {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HANDLE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = CloseHandle(*self);
+        }
+    }
+}
 impl Default for HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10834,6 +10841,13 @@ impl HGLOBAL {
         self.0.is_null()
     }
 }
+impl windows_core::Free for HGLOBAL {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = GlobalFree(*self);
+        }
+    }
+}
 impl Default for HGLOBAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10859,6 +10873,13 @@ pub struct HINSTANCE(pub isize);
 impl HINSTANCE {
     pub fn is_invalid(&self) -> bool {
         self.0 == 0
+    }
+}
+impl windows_core::Free for HINSTANCE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = FreeLibrary(*self);
+        }
     }
 }
 impl Default for HINSTANCE {
@@ -10892,6 +10913,13 @@ pub struct HLOCAL(pub *mut core::ffi::c_void);
 impl HLOCAL {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
+    }
+}
+impl windows_core::Free for HLOCAL {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = LocalFree(*self);
+        }
     }
 }
 impl Default for HLOCAL {
@@ -10941,6 +10969,13 @@ pub struct HMODULE(pub isize);
 impl HMODULE {
     pub fn is_invalid(&self) -> bool {
         self.0 == 0
+    }
+}
+impl windows_core::Free for HMODULE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = FreeLibrary(*self);
+        }
     }
 }
 impl Default for HMODULE {

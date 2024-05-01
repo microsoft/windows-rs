@@ -1080,6 +1080,13 @@ impl EVT_HANDLE {
         self.0 == 0
     }
 }
+impl windows_core::Free for EVT_HANDLE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = EvtClose(*self);
+        }
+    }
+}
 impl Default for EVT_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

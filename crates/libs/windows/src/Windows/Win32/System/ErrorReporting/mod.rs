@@ -689,6 +689,13 @@ impl HREPORT {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HREPORT {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = WerReportCloseHandle(*self);
+        }
+    }
+}
 impl Default for HREPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -714,6 +721,13 @@ pub struct HREPORTSTORE(pub isize);
 impl HREPORTSTORE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for HREPORTSTORE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            WerStoreClose(*self);
+        }
     }
 }
 impl Default for HREPORTSTORE {

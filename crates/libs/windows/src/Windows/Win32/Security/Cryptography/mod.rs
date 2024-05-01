@@ -8799,6 +8799,13 @@ impl BCRYPT_ALG_HANDLE {
         self.0.is_null()
     }
 }
+impl windows_core::Free for BCRYPT_ALG_HANDLE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = BCryptCloseAlgorithmProvider(*self, 0);
+        }
+    }
+}
 impl Default for BCRYPT_ALG_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9209,6 +9216,13 @@ impl BCRYPT_HASH_HANDLE {
         self.0.is_null()
     }
 }
+impl windows_core::Free for BCRYPT_HASH_HANDLE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = BCryptDestroyHash(*self);
+        }
+    }
+}
 impl Default for BCRYPT_HASH_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9330,6 +9344,13 @@ pub struct BCRYPT_KEY_HANDLE(pub *mut core::ffi::c_void);
 impl BCRYPT_KEY_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
+    }
+}
+impl windows_core::Free for BCRYPT_KEY_HANDLE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = BCryptDestroyKey(*self);
+        }
     }
 }
 impl Default for BCRYPT_KEY_HANDLE {
@@ -9669,6 +9690,13 @@ pub struct BCRYPT_SECRET_HANDLE(pub *mut core::ffi::c_void);
 impl BCRYPT_SECRET_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
+    }
+}
+impl windows_core::Free for BCRYPT_SECRET_HANDLE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = BCryptDestroySecret(*self);
+        }
     }
 }
 impl Default for BCRYPT_SECRET_HANDLE {
@@ -19101,6 +19129,13 @@ impl HCERTCHAINENGINE {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HCERTCHAINENGINE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            CertFreeCertificateChainEngine(*self);
+        }
+    }
+}
 impl Default for HCERTCHAINENGINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -19180,6 +19215,13 @@ pub struct HCRYPTASYNC(pub isize);
 impl HCRYPTASYNC {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for HCRYPTASYNC {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = CryptCloseAsyncHandle(*self);
+        }
     }
 }
 impl Default for HCRYPTASYNC {
@@ -19828,6 +19870,13 @@ impl NCRYPT_KEY_HANDLE {
         self.0 == 0
     }
 }
+impl windows_core::Free for NCRYPT_KEY_HANDLE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = NCryptFreeObject(*self);
+        }
+    }
+}
 impl Default for NCRYPT_KEY_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -20066,6 +20115,13 @@ pub struct NCRYPT_PROV_HANDLE(pub usize);
 impl NCRYPT_PROV_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == 0
+    }
+}
+impl windows_core::Free for NCRYPT_PROV_HANDLE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = NCryptFreeObject(*self);
+        }
     }
 }
 impl Default for NCRYPT_PROV_HANDLE {

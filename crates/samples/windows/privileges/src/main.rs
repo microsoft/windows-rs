@@ -11,7 +11,7 @@ fn main() -> Result<()> {
         let mut bytes_required = 0;
         _ = GetTokenInformation(token, TokenPrivileges, None, 0, &mut bytes_required);
 
-        let buffer = LocalAlloc(LPTR, bytes_required as usize)?;
+        let buffer = Owned::new(LocalAlloc(LPTR, bytes_required as usize)?);
 
         GetTokenInformation(
             token,
@@ -37,7 +37,6 @@ fn main() -> Result<()> {
             println!("{}", name.display())
         }
 
-        LocalFree(buffer);
         Ok(())
     }
 }

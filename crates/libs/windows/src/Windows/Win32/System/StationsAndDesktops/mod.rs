@@ -471,6 +471,13 @@ impl HDESK {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HDESK {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = CloseDesktop(*self);
+        }
+    }
+}
 impl Default for HDESK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -496,6 +503,13 @@ pub struct HWINSTA(pub isize);
 impl HWINSTA {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for HWINSTA {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = CloseWindowStation(*self);
+        }
     }
 }
 impl Default for HWINSTA {

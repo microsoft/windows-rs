@@ -1997,6 +1997,13 @@ impl HKEY {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HKEY {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = RegCloseKey(*self);
+        }
+    }
+}
 impl Default for HKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

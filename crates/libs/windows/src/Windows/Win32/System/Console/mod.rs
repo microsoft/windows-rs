@@ -1413,6 +1413,13 @@ impl HPCON {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HPCON {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            ClosePseudoConsole(*self);
+        }
+    }
+}
 impl Default for HPCON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

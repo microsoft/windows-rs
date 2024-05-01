@@ -8004,6 +8004,13 @@ impl MSIHANDLE {
         self.0 == -1 as _ || self.0 == 0
     }
 }
+impl windows_core::Free for MSIHANDLE {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = MsiCloseHandle(*self);
+        }
+    }
+}
 impl Default for MSIHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

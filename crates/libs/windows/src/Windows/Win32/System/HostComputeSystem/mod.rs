@@ -880,6 +880,13 @@ impl HCS_OPERATION {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HCS_OPERATION {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            HcsCloseOperation(*self);
+        }
+    }
+}
 impl Default for HCS_OPERATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -905,6 +912,13 @@ pub struct HCS_PROCESS(pub isize);
 impl HCS_PROCESS {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for HCS_PROCESS {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            HcsCloseProcess(*self);
+        }
     }
 }
 impl Default for HCS_PROCESS {
@@ -965,6 +979,13 @@ pub struct HCS_SYSTEM(pub isize);
 impl HCS_SYSTEM {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
+    }
+}
+impl windows_core::Free for HCS_SYSTEM {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            HcsCloseComputeSystem(*self);
+        }
     }
 }
 impl Default for HCS_SYSTEM {

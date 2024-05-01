@@ -2372,6 +2372,13 @@ impl HPOWERNOTIFY {
         self.0 == -1 || self.0 == 0
     }
 }
+impl windows_core::Free for HPOWERNOTIFY {
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = UnregisterPowerSettingNotification(*self);
+        }
+    }
+}
 impl Default for HPOWERNOTIFY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
