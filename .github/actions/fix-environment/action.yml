@@ -10,9 +10,11 @@ runs:
             [target.x86_64-pc-windows-gnu]
             linker = `"C:\\msys64\\mingw64\\bin\\x86_64-w64-mingw32-gcc.exe`"
             ar = `"C:\\msys64\\mingw64\\bin\\ar.exe`"
+            dlltool = `"C:\\msys64\\mingw64\\bin\\dlltool.exe`"
             [target.i686-pc-windows-gnu]
             linker = `"C:\\msys64\\mingw32\\bin\\i686-w64-mingw32-gcc.exe`"
             ar = `"C:\\msys64\\mingw32\\bin\\ar.exe`"
+            dlltool = `"C:\\msys64\\mingw32\\bin\\dlltool.exe`"
         "@
       if: contains(matrix.target, 'windows-gnu')
     - name: Configure environment
