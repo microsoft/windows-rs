@@ -2200,7 +2200,7 @@ impl Default for LPMIPTABLE {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPM_HANDLE(pub isize);
 impl LPM_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -2210,17 +2210,6 @@ impl LPM_HANDLE {
 impl Default for LPM_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for LPM_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for LPM_HANDLE {}
-impl core::fmt::Debug for LPM_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LPM_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for LPM_HANDLE {
@@ -2940,7 +2929,7 @@ impl Default for RESV_STYLE {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct RHANDLE(pub isize);
 impl RHANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -2950,17 +2939,6 @@ impl RHANDLE {
 impl Default for RHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for RHANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for RHANDLE {}
-impl core::fmt::Debug for RHANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RHANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for RHANDLE {

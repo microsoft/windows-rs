@@ -3966,66 +3966,33 @@ impl Default for WINBIO_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WINIBIO_ENGINE_CONTEXT(pub isize);
 impl Default for WINIBIO_ENGINE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for WINIBIO_ENGINE_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WINIBIO_ENGINE_CONTEXT {}
-impl core::fmt::Debug for WINIBIO_ENGINE_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WINIBIO_ENGINE_CONTEXT").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for WINIBIO_ENGINE_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WINIBIO_SENSOR_CONTEXT(pub isize);
 impl Default for WINIBIO_SENSOR_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for WINIBIO_SENSOR_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WINIBIO_SENSOR_CONTEXT {}
-impl core::fmt::Debug for WINIBIO_SENSOR_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WINIBIO_SENSOR_CONTEXT").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for WINIBIO_SENSOR_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WINIBIO_STORAGE_CONTEXT(pub isize);
 impl Default for WINIBIO_STORAGE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for WINIBIO_STORAGE_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WINIBIO_STORAGE_CONTEXT {}
-impl core::fmt::Debug for WINIBIO_STORAGE_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WINIBIO_STORAGE_CONTEXT").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for WINIBIO_STORAGE_CONTEXT {

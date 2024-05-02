@@ -7469,7 +7469,7 @@ impl Default for GSM610WAVEFORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDRVR(pub isize);
 impl HDRVR {
     pub fn is_invalid(&self) -> bool {
@@ -7481,22 +7481,11 @@ impl Default for HDRVR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HDRVR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HDRVR {}
-impl core::fmt::Debug for HDRVR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HDRVR").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HDRVR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HIC(pub isize);
 impl HIC {
     pub fn is_invalid(&self) -> bool {
@@ -7508,22 +7497,11 @@ impl Default for HIC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HIC {}
-impl core::fmt::Debug for HIC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HIC").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HIC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMMIO(pub isize);
 impl HMMIO {
     pub fn is_invalid(&self) -> bool {
@@ -7535,22 +7513,11 @@ impl Default for HMMIO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HMMIO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HMMIO {}
-impl core::fmt::Debug for HMMIO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HMMIO").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HMMIO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HVIDEO(pub isize);
 impl HVIDEO {
     pub fn is_invalid(&self) -> bool {
@@ -7560,17 +7527,6 @@ impl HVIDEO {
 impl Default for HVIDEO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HVIDEO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HVIDEO {}
-impl core::fmt::Debug for HVIDEO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HVIDEO").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HVIDEO {

@@ -682,7 +682,7 @@ impl core::fmt::Debug for WER_SUBMIT_RESULT {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HREPORT(pub isize);
 impl HREPORT {
     pub fn is_invalid(&self) -> bool {
@@ -701,22 +701,11 @@ impl Default for HREPORT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HREPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HREPORT {}
-impl core::fmt::Debug for HREPORT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HREPORT").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HREPORT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HREPORTSTORE(pub isize);
 impl HREPORTSTORE {
     pub fn is_invalid(&self) -> bool {
@@ -733,17 +722,6 @@ impl windows_core::Free for HREPORTSTORE {
 impl Default for HREPORTSTORE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HREPORTSTORE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HREPORTSTORE {}
-impl core::fmt::Debug for HREPORTSTORE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HREPORTSTORE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HREPORTSTORE {

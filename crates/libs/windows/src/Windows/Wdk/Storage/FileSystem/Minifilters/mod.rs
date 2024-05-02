@@ -5024,7 +5024,7 @@ impl Default for FLT_VOLUME_PROPERTIES {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PFLT_CONTEXT(pub *mut core::ffi::c_void);
 impl PFLT_CONTEXT {
     pub fn is_invalid(&self) -> bool {
@@ -5036,147 +5036,70 @@ impl Default for PFLT_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PFLT_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PFLT_CONTEXT {}
-impl core::fmt::Debug for PFLT_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PFLT_CONTEXT").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PFLT_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PFLT_DEFERRED_IO_WORKITEM(pub isize);
 impl Default for PFLT_DEFERRED_IO_WORKITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PFLT_DEFERRED_IO_WORKITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PFLT_DEFERRED_IO_WORKITEM {}
-impl core::fmt::Debug for PFLT_DEFERRED_IO_WORKITEM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PFLT_DEFERRED_IO_WORKITEM").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PFLT_DEFERRED_IO_WORKITEM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PFLT_FILTER(pub isize);
 impl Default for PFLT_FILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PFLT_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PFLT_FILTER {}
-impl core::fmt::Debug for PFLT_FILTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PFLT_FILTER").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PFLT_FILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PFLT_GENERIC_WORKITEM(pub isize);
 impl Default for PFLT_GENERIC_WORKITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PFLT_GENERIC_WORKITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PFLT_GENERIC_WORKITEM {}
-impl core::fmt::Debug for PFLT_GENERIC_WORKITEM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PFLT_GENERIC_WORKITEM").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PFLT_GENERIC_WORKITEM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PFLT_INSTANCE(pub isize);
 impl Default for PFLT_INSTANCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PFLT_INSTANCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PFLT_INSTANCE {}
-impl core::fmt::Debug for PFLT_INSTANCE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PFLT_INSTANCE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PFLT_INSTANCE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PFLT_PORT(pub isize);
 impl Default for PFLT_PORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PFLT_PORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PFLT_PORT {}
-impl core::fmt::Debug for PFLT_PORT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PFLT_PORT").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PFLT_PORT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PFLT_VOLUME(pub isize);
 impl Default for PFLT_VOLUME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for PFLT_VOLUME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PFLT_VOLUME {}
-impl core::fmt::Debug for PFLT_VOLUME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PFLT_VOLUME").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for PFLT_VOLUME {

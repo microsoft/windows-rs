@@ -35500,7 +35500,7 @@ pub const FrameworkInputPane: windows_core::GUID = windows_core::GUID::from_u128
 pub const FreeSpaceCategorizer: windows_core::GUID = windows_core::GUID::from_u128(0xb5607793_24ac_44c7_82e2_831726aa6cb7);
 pub const GenericCredentialProvider: windows_core::GUID = windows_core::GUID::from_u128(0x25cbb996_92ed_457e_b28c_4774084bd562);
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDROP(pub isize);
 impl HDROP {
     pub fn is_invalid(&self) -> bool {
@@ -35510,17 +35510,6 @@ impl HDROP {
 impl Default for HDROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HDROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HDROP {}
-impl core::fmt::Debug for HDROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HDROP").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HDROP {
@@ -35724,7 +35713,7 @@ impl Default for HLTBINFO {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPSXA(pub isize);
 impl HPSXA {
     pub fn is_invalid(&self) -> bool {
@@ -35734,17 +35723,6 @@ impl HPSXA {
 impl Default for HPSXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HPSXA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HPSXA {}
-impl core::fmt::Debug for HPSXA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HPSXA").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HPSXA {
@@ -36639,44 +36617,22 @@ pub const OnexCredentialProvider: windows_core::GUID = windows_core::GUID::from_
 pub const OnexPlapSmartcardCredentialProvider: windows_core::GUID = windows_core::GUID::from_u128(0x33c86cd6_705f_4ba1_9adb_67070b837775);
 pub const OpenControlPanel: windows_core::GUID = windows_core::GUID::from_u128(0x06622d85_6856_4460_8de1_a81921b41c4b);
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PAPPCONSTRAIN_REGISTRATION(pub isize);
 impl Default for PAPPCONSTRAIN_REGISTRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PAPPCONSTRAIN_REGISTRATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PAPPCONSTRAIN_REGISTRATION {}
-impl core::fmt::Debug for PAPPCONSTRAIN_REGISTRATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PAPPCONSTRAIN_REGISTRATION").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PAPPCONSTRAIN_REGISTRATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PAPPSTATE_REGISTRATION(pub isize);
 impl Default for PAPPSTATE_REGISTRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for PAPPSTATE_REGISTRATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PAPPSTATE_REGISTRATION {}
-impl core::fmt::Debug for PAPPSTATE_REGISTRATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PAPPSTATE_REGISTRATION").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for PAPPSTATE_REGISTRATION {

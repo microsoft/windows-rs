@@ -3733,7 +3733,7 @@ impl Default for IO_COUNTERS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPPROC_THREAD_ATTRIBUTE_LIST(pub *mut core::ffi::c_void);
 impl LPPROC_THREAD_ATTRIBUTE_LIST {
     pub fn is_invalid(&self) -> bool {
@@ -3743,17 +3743,6 @@ impl LPPROC_THREAD_ATTRIBUTE_LIST {
 impl Default for LPPROC_THREAD_ATTRIBUTE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for LPPROC_THREAD_ATTRIBUTE_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for LPPROC_THREAD_ATTRIBUTE_LIST {}
-impl core::fmt::Debug for LPPROC_THREAD_ATTRIBUTE_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LPPROC_THREAD_ATTRIBUTE_LIST").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for LPPROC_THREAD_ATTRIBUTE_LIST {
@@ -4283,7 +4272,7 @@ impl Default for PROCESS_PROTECTION_LEVEL_INFORMATION {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PTP_CALLBACK_INSTANCE(pub isize);
 impl PTP_CALLBACK_INSTANCE {
     pub fn is_invalid(&self) -> bool {
@@ -4295,44 +4284,22 @@ impl Default for PTP_CALLBACK_INSTANCE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PTP_CALLBACK_INSTANCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PTP_CALLBACK_INSTANCE {}
-impl core::fmt::Debug for PTP_CALLBACK_INSTANCE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PTP_CALLBACK_INSTANCE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PTP_CALLBACK_INSTANCE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PTP_CLEANUP_GROUP(pub isize);
 impl Default for PTP_CLEANUP_GROUP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PTP_CLEANUP_GROUP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PTP_CLEANUP_GROUP {}
-impl core::fmt::Debug for PTP_CLEANUP_GROUP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PTP_CLEANUP_GROUP").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PTP_CLEANUP_GROUP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PTP_IO(pub isize);
 impl PTP_IO {
     pub fn is_invalid(&self) -> bool {
@@ -4344,44 +4311,22 @@ impl Default for PTP_IO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PTP_IO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PTP_IO {}
-impl core::fmt::Debug for PTP_IO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PTP_IO").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PTP_IO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PTP_POOL(pub isize);
 impl Default for PTP_POOL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PTP_POOL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PTP_POOL {}
-impl core::fmt::Debug for PTP_POOL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PTP_POOL").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PTP_POOL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PTP_TIMER(pub isize);
 impl PTP_TIMER {
     pub fn is_invalid(&self) -> bool {
@@ -4393,22 +4338,11 @@ impl Default for PTP_TIMER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PTP_TIMER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PTP_TIMER {}
-impl core::fmt::Debug for PTP_TIMER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PTP_TIMER").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PTP_TIMER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PTP_WAIT(pub isize);
 impl PTP_WAIT {
     pub fn is_invalid(&self) -> bool {
@@ -4420,22 +4354,11 @@ impl Default for PTP_WAIT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PTP_WAIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PTP_WAIT {}
-impl core::fmt::Debug for PTP_WAIT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PTP_WAIT").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PTP_WAIT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PTP_WORK(pub isize);
 impl PTP_WORK {
     pub fn is_invalid(&self) -> bool {
@@ -4445,17 +4368,6 @@ impl PTP_WORK {
 impl Default for PTP_WORK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for PTP_WORK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PTP_WORK {}
-impl core::fmt::Debug for PTP_WORK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PTP_WORK").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for PTP_WORK {

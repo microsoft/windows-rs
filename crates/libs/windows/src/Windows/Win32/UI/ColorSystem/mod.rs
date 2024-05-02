@@ -1894,7 +1894,7 @@ impl Default for GamutShellTriangle {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCOLORSPACE(pub isize);
 impl HCOLORSPACE {
     pub fn is_invalid(&self) -> bool {
@@ -1911,17 +1911,6 @@ impl windows_core::Free for HCOLORSPACE {
 impl Default for HCOLORSPACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HCOLORSPACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HCOLORSPACE {}
-impl core::fmt::Debug for HCOLORSPACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HCOLORSPACE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HCOLORSPACE {

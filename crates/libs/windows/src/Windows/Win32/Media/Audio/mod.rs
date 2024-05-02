@@ -5711,7 +5711,7 @@ impl Default for ECHOWAVEFILTER {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HACMDRIVER(pub isize);
 impl HACMDRIVER {
     pub fn is_invalid(&self) -> bool {
@@ -5723,22 +5723,11 @@ impl Default for HACMDRIVER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HACMDRIVER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HACMDRIVER {}
-impl core::fmt::Debug for HACMDRIVER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HACMDRIVER").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HACMDRIVER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HACMDRIVERID(pub isize);
 impl HACMDRIVERID {
     pub fn is_invalid(&self) -> bool {
@@ -5750,22 +5739,11 @@ impl Default for HACMDRIVERID {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HACMDRIVERID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HACMDRIVERID {}
-impl core::fmt::Debug for HACMDRIVERID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HACMDRIVERID").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HACMDRIVERID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HACMOBJ(pub isize);
 impl HACMOBJ {
     pub fn is_invalid(&self) -> bool {
@@ -5777,22 +5755,11 @@ impl Default for HACMOBJ {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HACMOBJ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HACMOBJ {}
-impl core::fmt::Debug for HACMOBJ {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HACMOBJ").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HACMOBJ {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HACMSTREAM(pub isize);
 impl HACMSTREAM {
     pub fn is_invalid(&self) -> bool {
@@ -5804,22 +5771,11 @@ impl Default for HACMSTREAM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HACMSTREAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HACMSTREAM {}
-impl core::fmt::Debug for HACMSTREAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HACMSTREAM").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HACMSTREAM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMIDI(pub isize);
 impl HMIDI {
     pub fn is_invalid(&self) -> bool {
@@ -5831,22 +5787,11 @@ impl Default for HMIDI {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HMIDI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HMIDI {}
-impl core::fmt::Debug for HMIDI {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HMIDI").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HMIDI {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMIDIIN(pub isize);
 impl HMIDIIN {
     pub fn is_invalid(&self) -> bool {
@@ -5858,22 +5803,11 @@ impl Default for HMIDIIN {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HMIDIIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HMIDIIN {}
-impl core::fmt::Debug for HMIDIIN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HMIDIIN").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HMIDIIN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMIDIOUT(pub isize);
 impl HMIDIOUT {
     pub fn is_invalid(&self) -> bool {
@@ -5885,22 +5819,11 @@ impl Default for HMIDIOUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HMIDIOUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HMIDIOUT {}
-impl core::fmt::Debug for HMIDIOUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HMIDIOUT").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HMIDIOUT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMIDISTRM(pub isize);
 impl HMIDISTRM {
     pub fn is_invalid(&self) -> bool {
@@ -5912,22 +5835,11 @@ impl Default for HMIDISTRM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HMIDISTRM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HMIDISTRM {}
-impl core::fmt::Debug for HMIDISTRM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HMIDISTRM").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HMIDISTRM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMIXER(pub isize);
 impl HMIXER {
     pub fn is_invalid(&self) -> bool {
@@ -5939,22 +5851,11 @@ impl Default for HMIXER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HMIXER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HMIXER {}
-impl core::fmt::Debug for HMIXER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HMIXER").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HMIXER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMIXEROBJ(pub isize);
 impl HMIXEROBJ {
     pub fn is_invalid(&self) -> bool {
@@ -5966,22 +5867,11 @@ impl Default for HMIXEROBJ {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HMIXEROBJ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HMIXEROBJ {}
-impl core::fmt::Debug for HMIXEROBJ {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HMIXEROBJ").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HMIXEROBJ {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HWAVE(pub isize);
 impl HWAVE {
     pub fn is_invalid(&self) -> bool {
@@ -5993,22 +5883,11 @@ impl Default for HWAVE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HWAVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HWAVE {}
-impl core::fmt::Debug for HWAVE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HWAVE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HWAVE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HWAVEIN(pub isize);
 impl HWAVEIN {
     pub fn is_invalid(&self) -> bool {
@@ -6020,22 +5899,11 @@ impl Default for HWAVEIN {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HWAVEIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HWAVEIN {}
-impl core::fmt::Debug for HWAVEIN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HWAVEIN").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HWAVEIN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HWAVEOUT(pub isize);
 impl HWAVEOUT {
     pub fn is_invalid(&self) -> bool {
@@ -6045,17 +5913,6 @@ impl HWAVEOUT {
 impl Default for HWAVEOUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HWAVEOUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HWAVEOUT {}
-impl core::fmt::Debug for HWAVEOUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HWAVEOUT").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HWAVEOUT {

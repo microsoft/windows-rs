@@ -15742,7 +15742,7 @@ impl Default for FILTERED_DATA_SOURCES {
 }
 pub const FilterRegistration: windows_core::GUID = windows_core::GUID::from_u128(0x9e175b8d_f52a_11d8_b9a5_505054503030);
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HACCESSOR(pub usize);
 impl HACCESSOR {
     pub fn is_invalid(&self) -> bool {
@@ -15752,17 +15752,6 @@ impl HACCESSOR {
 impl Default for HACCESSOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HACCESSOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HACCESSOR {}
-impl core::fmt::Debug for HACCESSOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HACCESSOR").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HACCESSOR {

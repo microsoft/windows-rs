@@ -3855,7 +3855,7 @@ impl Default for WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WHV_PARTITION_HANDLE(pub isize);
 impl WHV_PARTITION_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -3872,17 +3872,6 @@ impl windows_core::Free for WHV_PARTITION_HANDLE {
 impl Default for WHV_PARTITION_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for WHV_PARTITION_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WHV_PARTITION_HANDLE {}
-impl core::fmt::Debug for WHV_PARTITION_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WHV_PARTITION_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for WHV_PARTITION_HANDLE {

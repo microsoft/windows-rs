@@ -2850,7 +2850,7 @@ impl Default for CF_CALLBACK_REGISTRATION {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct CF_CONNECTION_KEY(pub i64);
 impl CF_CONNECTION_KEY {
     pub fn is_invalid(&self) -> bool {
@@ -2860,17 +2860,6 @@ impl CF_CONNECTION_KEY {
 impl Default for CF_CONNECTION_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for CF_CONNECTION_KEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for CF_CONNECTION_KEY {}
-impl core::fmt::Debug for CF_CONNECTION_KEY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CF_CONNECTION_KEY").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for CF_CONNECTION_KEY {

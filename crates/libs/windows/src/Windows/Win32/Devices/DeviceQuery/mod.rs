@@ -510,22 +510,11 @@ impl Default for DEV_QUERY_RESULT_ACTION_DATA_0 {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDEVQUERY(pub isize);
 impl Default for HDEVQUERY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HDEVQUERY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HDEVQUERY {}
-impl core::fmt::Debug for HDEVQUERY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HDEVQUERY").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HDEVQUERY {

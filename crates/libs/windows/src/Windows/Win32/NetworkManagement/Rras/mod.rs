@@ -3243,7 +3243,7 @@ impl Default for GRE_CONFIG_PARAMS0 {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HRASCONN(pub isize);
 impl HRASCONN {
     pub fn is_invalid(&self) -> bool {
@@ -3253,17 +3253,6 @@ impl HRASCONN {
 impl Default for HRASCONN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HRASCONN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HRASCONN {}
-impl core::fmt::Debug for HRASCONN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HRASCONN").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HRASCONN {

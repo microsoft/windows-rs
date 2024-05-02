@@ -4686,22 +4686,11 @@ impl Default for IMMP_MPV_STORE_DRIVER_HANDLE {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMSGSESS(pub isize);
 impl Default for LPMSGSESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for LPMSGSESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for LPMSGSESS {}
-impl core::fmt::Debug for LPMSGSESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LPMSGSESS").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for LPMSGSESS {

@@ -13408,88 +13408,44 @@ impl Default for IUNKNOWN_LIST {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDDFXROP(pub isize);
 impl Default for LPDDFXROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for LPDDFXROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for LPDDFXROP {}
-impl core::fmt::Debug for LPDDFXROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LPDDFXROP").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for LPDDFXROP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDD_DESTROYDRIVERDATA(pub isize);
 impl Default for PDD_DESTROYDRIVERDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PDD_DESTROYDRIVERDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PDD_DESTROYDRIVERDATA {}
-impl core::fmt::Debug for PDD_DESTROYDRIVERDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PDD_DESTROYDRIVERDATA").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PDD_DESTROYDRIVERDATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDD_GETVPORTAUTOFLIPSURFACEDATA(pub isize);
 impl Default for PDD_GETVPORTAUTOFLIPSURFACEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PDD_GETVPORTAUTOFLIPSURFACEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PDD_GETVPORTAUTOFLIPSURFACEDATA {}
-impl core::fmt::Debug for PDD_GETVPORTAUTOFLIPSURFACEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PDD_GETVPORTAUTOFLIPSURFACEDATA").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PDD_GETVPORTAUTOFLIPSURFACEDATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDD_SETMODEDATA(pub isize);
 impl Default for PDD_SETMODEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for PDD_SETMODEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PDD_SETMODEDATA {}
-impl core::fmt::Debug for PDD_SETMODEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PDD_SETMODEDATA").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for PDD_SETMODEDATA {

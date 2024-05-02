@@ -3284,7 +3284,7 @@ impl Default for DEVINFO {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct DHPDEV(pub isize);
 impl DHPDEV {
     pub fn is_invalid(&self) -> bool {
@@ -3296,22 +3296,11 @@ impl Default for DHPDEV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for DHPDEV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for DHPDEV {}
-impl core::fmt::Debug for DHPDEV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DHPDEV").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for DHPDEV {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct DHSURF(pub isize);
 impl DHSURF {
     pub fn is_invalid(&self) -> bool {
@@ -3321,17 +3310,6 @@ impl DHSURF {
 impl Default for DHSURF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for DHSURF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for DHSURF {}
-impl core::fmt::Debug for DHSURF {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DHSURF").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for DHSURF {
@@ -6130,7 +6108,7 @@ impl Default for GLYPHPOS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HBM(pub isize);
 impl HBM {
     pub fn is_invalid(&self) -> bool {
@@ -6142,22 +6120,11 @@ impl Default for HBM {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HBM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HBM {}
-impl core::fmt::Debug for HBM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HBM").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HBM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDEV(pub isize);
 impl HDEV {
     pub fn is_invalid(&self) -> bool {
@@ -6169,22 +6136,11 @@ impl Default for HDEV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HDEV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HDEV {}
-impl core::fmt::Debug for HDEV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HDEV").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HDEV {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDRVOBJ(pub isize);
 impl HDRVOBJ {
     pub fn is_invalid(&self) -> bool {
@@ -6196,22 +6152,11 @@ impl Default for HDRVOBJ {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HDRVOBJ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HDRVOBJ {}
-impl core::fmt::Debug for HDRVOBJ {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HDRVOBJ").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HDRVOBJ {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HFASTMUTEX(pub isize);
 impl HFASTMUTEX {
     pub fn is_invalid(&self) -> bool {
@@ -6223,22 +6168,11 @@ impl Default for HFASTMUTEX {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HFASTMUTEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HFASTMUTEX {}
-impl core::fmt::Debug for HFASTMUTEX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HFASTMUTEX").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HFASTMUTEX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSEMAPHORE(pub isize);
 impl HSEMAPHORE {
     pub fn is_invalid(&self) -> bool {
@@ -6257,22 +6191,11 @@ impl Default for HSEMAPHORE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HSEMAPHORE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HSEMAPHORE {}
-impl core::fmt::Debug for HSEMAPHORE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HSEMAPHORE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HSEMAPHORE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSURF(pub isize);
 impl HSURF {
     pub fn is_invalid(&self) -> bool {
@@ -6282,17 +6205,6 @@ impl HSURF {
 impl Default for HSURF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HSURF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HSURF {}
-impl core::fmt::Debug for HSURF {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HSURF").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HSURF {

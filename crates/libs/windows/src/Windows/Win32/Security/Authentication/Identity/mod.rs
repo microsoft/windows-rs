@@ -7798,7 +7798,7 @@ impl Default for LSA_FOREST_TRUST_SCANNER_INFO {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LSA_HANDLE(pub isize);
 impl LSA_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -7815,17 +7815,6 @@ impl windows_core::Free for LSA_HANDLE {
 impl Default for LSA_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for LSA_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for LSA_HANDLE {}
-impl core::fmt::Debug for LSA_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LSA_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for LSA_HANDLE {
@@ -16584,22 +16573,11 @@ impl Default for X509Certificate {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct _HMAPPER(pub isize);
 impl Default for _HMAPPER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for _HMAPPER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for _HMAPPER {}
-impl core::fmt::Debug for _HMAPPER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("_HMAPPER").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for _HMAPPER {

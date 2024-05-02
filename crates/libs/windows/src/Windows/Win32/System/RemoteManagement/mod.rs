@@ -1693,22 +1693,11 @@ impl core::fmt::Debug for WSManShellFlag {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WSMAN_API_HANDLE(pub isize);
 impl Default for WSMAN_API_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for WSMAN_API_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WSMAN_API_HANDLE {}
-impl core::fmt::Debug for WSMAN_API_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WSMAN_API_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for WSMAN_API_HANDLE {
@@ -1847,22 +1836,11 @@ impl Default for WSMAN_COMMAND_ARG_SET {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WSMAN_COMMAND_HANDLE(pub isize);
 impl Default for WSMAN_COMMAND_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for WSMAN_COMMAND_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WSMAN_COMMAND_HANDLE {}
-impl core::fmt::Debug for WSMAN_COMMAND_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WSMAN_COMMAND_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for WSMAN_COMMAND_HANDLE {
@@ -2187,22 +2165,11 @@ impl Default for WSMAN_KEY {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WSMAN_OPERATION_HANDLE(pub isize);
 impl Default for WSMAN_OPERATION_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for WSMAN_OPERATION_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WSMAN_OPERATION_HANDLE {}
-impl core::fmt::Debug for WSMAN_OPERATION_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WSMAN_OPERATION_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for WSMAN_OPERATION_HANDLE {
@@ -2530,22 +2497,11 @@ impl Default for WSMAN_SENDER_DETAILS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WSMAN_SESSION_HANDLE(pub isize);
 impl Default for WSMAN_SESSION_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for WSMAN_SESSION_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WSMAN_SESSION_HANDLE {}
-impl core::fmt::Debug for WSMAN_SESSION_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WSMAN_SESSION_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for WSMAN_SESSION_HANDLE {
@@ -2605,22 +2561,11 @@ impl Default for WSMAN_SHELL_DISCONNECT_INFO {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WSMAN_SHELL_HANDLE(pub isize);
 impl Default for WSMAN_SHELL_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for WSMAN_SHELL_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WSMAN_SHELL_HANDLE {}
-impl core::fmt::Debug for WSMAN_SHELL_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WSMAN_SHELL_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for WSMAN_SHELL_HANDLE {

@@ -11600,7 +11600,7 @@ impl Default for OLEVERB {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct OLE_HANDLE(pub u32);
 impl OLE_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -11610,17 +11610,6 @@ impl OLE_HANDLE {
 impl Default for OLE_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for OLE_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for OLE_HANDLE {}
-impl core::fmt::Debug for OLE_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("OLE_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for OLE_HANDLE {

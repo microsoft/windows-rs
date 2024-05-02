@@ -151,7 +151,7 @@ impl core::fmt::Debug for SERENUM_PORTION {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCOMDB(pub isize);
 impl HCOMDB {
     pub fn is_invalid(&self) -> bool {
@@ -161,17 +161,6 @@ impl HCOMDB {
 impl Default for HCOMDB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HCOMDB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HCOMDB {}
-impl core::fmt::Debug for HCOMDB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HCOMDB").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HCOMDB {

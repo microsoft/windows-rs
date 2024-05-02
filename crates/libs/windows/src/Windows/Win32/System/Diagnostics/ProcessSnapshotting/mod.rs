@@ -390,7 +390,7 @@ impl core::fmt::Debug for PSS_WALK_INFORMATION_CLASS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPSS(pub isize);
 impl HPSS {
     pub fn is_invalid(&self) -> bool {
@@ -402,22 +402,11 @@ impl Default for HPSS {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HPSS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HPSS {}
-impl core::fmt::Debug for HPSS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HPSS").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HPSS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPSSWALK(pub isize);
 impl HPSSWALK {
     pub fn is_invalid(&self) -> bool {
@@ -427,17 +416,6 @@ impl HPSSWALK {
 impl Default for HPSSWALK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HPSSWALK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HPSSWALK {}
-impl core::fmt::Debug for HPSSWALK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HPSSWALK").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HPSSWALK {

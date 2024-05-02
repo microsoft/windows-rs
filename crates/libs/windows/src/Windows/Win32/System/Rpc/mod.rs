@@ -6773,22 +6773,11 @@ impl Default for NDR64_VAR_ARRAY_HEADER_FORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NDR_ALLOC_ALL_NODES_CONTEXT(pub isize);
 impl Default for NDR_ALLOC_ALL_NODES_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for NDR_ALLOC_ALL_NODES_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for NDR_ALLOC_ALL_NODES_CONTEXT {}
-impl core::fmt::Debug for NDR_ALLOC_ALL_NODES_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NDR_ALLOC_ALL_NODES_CONTEXT").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for NDR_ALLOC_ALL_NODES_CONTEXT {
@@ -6881,22 +6870,11 @@ impl Default for NDR_EXPR_DESC {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NDR_POINTER_QUEUE_STATE(pub isize);
 impl Default for NDR_POINTER_QUEUE_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for NDR_POINTER_QUEUE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for NDR_POINTER_QUEUE_STATE {}
-impl core::fmt::Debug for NDR_POINTER_QUEUE_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NDR_POINTER_QUEUE_STATE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for NDR_POINTER_QUEUE_STATE {
@@ -7016,44 +6994,22 @@ impl Default for NDR_USER_MARSHAL_INFO_LEVEL1 {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PNDR_ASYNC_MESSAGE(pub isize);
 impl Default for PNDR_ASYNC_MESSAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PNDR_ASYNC_MESSAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PNDR_ASYNC_MESSAGE {}
-impl core::fmt::Debug for PNDR_ASYNC_MESSAGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PNDR_ASYNC_MESSAGE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PNDR_ASYNC_MESSAGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PNDR_CORRELATION_INFO(pub isize);
 impl Default for PNDR_CORRELATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for PNDR_CORRELATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PNDR_CORRELATION_INFO {}
-impl core::fmt::Debug for PNDR_CORRELATION_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PNDR_CORRELATION_INFO").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for PNDR_CORRELATION_INFO {
@@ -9756,22 +9712,11 @@ impl Default for XMIT_ROUTINE_QUINTUPLE {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct _NDR_PROC_CONTEXT(pub isize);
 impl Default for _NDR_PROC_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for _NDR_PROC_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for _NDR_PROC_CONTEXT {}
-impl core::fmt::Debug for _NDR_PROC_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("_NDR_PROC_CONTEXT").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for _NDR_PROC_CONTEXT {

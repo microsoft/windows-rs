@@ -9245,22 +9245,11 @@ impl Default for RIO_BUF {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct RIO_BUFFERID(pub isize);
 impl Default for RIO_BUFFERID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for RIO_BUFFERID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for RIO_BUFFERID {}
-impl core::fmt::Debug for RIO_BUFFERID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RIO_BUFFERID").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for RIO_BUFFERID {
@@ -9296,22 +9285,11 @@ impl Default for RIO_CMSG_BUFFER {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct RIO_CQ(pub isize);
 impl Default for RIO_CQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for RIO_CQ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for RIO_CQ {}
-impl core::fmt::Debug for RIO_CQ {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RIO_CQ").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for RIO_CQ {
@@ -9453,22 +9431,11 @@ impl Default for RIO_NOTIFICATION_COMPLETION_0_1 {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct RIO_RQ(pub isize);
 impl Default for RIO_RQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for RIO_RQ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for RIO_RQ {}
-impl core::fmt::Debug for RIO_RQ {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RIO_RQ").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for RIO_RQ {
@@ -10738,22 +10705,11 @@ impl Default for SOCKADDR_VNS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SOCKET(pub usize);
 impl Default for SOCKET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for SOCKET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for SOCKET {}
-impl core::fmt::Debug for SOCKET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SOCKET").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for SOCKET {
@@ -12486,7 +12442,7 @@ impl Default for WSADATA {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WSAEVENT(pub isize);
 impl WSAEVENT {
     pub fn is_invalid(&self) -> bool {
@@ -12496,17 +12452,6 @@ impl WSAEVENT {
 impl Default for WSAEVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for WSAEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WSAEVENT {}
-impl core::fmt::Debug for WSAEVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WSAEVENT").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for WSAEVENT {
@@ -13742,22 +13687,11 @@ impl Default for sockaddr_in6_old {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct socklen_t(pub i32);
 impl Default for socklen_t {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for socklen_t {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for socklen_t {}
-impl core::fmt::Debug for socklen_t {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("socklen_t").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for socklen_t {

@@ -5148,22 +5148,11 @@ impl core::fmt::Debug for WrapMode {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct Bitmap(pub isize);
 impl Default for Bitmap {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for Bitmap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for Bitmap {}
-impl core::fmt::Debug for Bitmap {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("Bitmap").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for Bitmap {
@@ -5322,44 +5311,22 @@ impl Default for BrightnessContrastParams {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct CGpEffect(pub isize);
 impl Default for CGpEffect {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for CGpEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for CGpEffect {}
-impl core::fmt::Debug for CGpEffect {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CGpEffect").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for CGpEffect {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct CachedBitmap(pub isize);
 impl Default for CachedBitmap {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for CachedBitmap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for CachedBitmap {}
-impl core::fmt::Debug for CachedBitmap {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CachedBitmap").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for CachedBitmap {
@@ -5876,22 +5843,11 @@ impl Default for ColorPalette {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct CustomLineCap(pub isize);
 impl Default for CustomLineCap {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for CustomLineCap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for CustomLineCap {}
-impl core::fmt::Debug for CustomLineCap {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CustomLineCap").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for CustomLineCap {
@@ -6052,66 +6008,33 @@ impl Default for EncoderParameters {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct Font(pub isize);
 impl Default for Font {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for Font {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for Font {}
-impl core::fmt::Debug for Font {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("Font").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for Font {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct FontCollection(pub isize);
 impl Default for FontCollection {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for FontCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for FontCollection {}
-impl core::fmt::Debug for FontCollection {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FontCollection").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for FontCollection {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct FontFamily(pub isize);
 impl Default for FontFamily {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for FontFamily {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for FontFamily {}
-impl core::fmt::Debug for FontFamily {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FontFamily").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for FontFamily {
@@ -6210,528 +6133,264 @@ impl Default for GdiplusStartupOutput {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GpAdjustableArrowCap(pub isize);
 impl Default for GpAdjustableArrowCap {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for GpAdjustableArrowCap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for GpAdjustableArrowCap {}
-impl core::fmt::Debug for GpAdjustableArrowCap {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GpAdjustableArrowCap").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for GpAdjustableArrowCap {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GpBitmap(pub isize);
 impl Default for GpBitmap {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for GpBitmap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for GpBitmap {}
-impl core::fmt::Debug for GpBitmap {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GpBitmap").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for GpBitmap {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GpBrush(pub isize);
 impl Default for GpBrush {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for GpBrush {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for GpBrush {}
-impl core::fmt::Debug for GpBrush {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GpBrush").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for GpBrush {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GpCachedBitmap(pub isize);
 impl Default for GpCachedBitmap {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for GpCachedBitmap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for GpCachedBitmap {}
-impl core::fmt::Debug for GpCachedBitmap {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GpCachedBitmap").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for GpCachedBitmap {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GpCustomLineCap(pub isize);
 impl Default for GpCustomLineCap {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for GpCustomLineCap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for GpCustomLineCap {}
-impl core::fmt::Debug for GpCustomLineCap {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GpCustomLineCap").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for GpCustomLineCap {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GpFont(pub isize);
 impl Default for GpFont {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for GpFont {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for GpFont {}
-impl core::fmt::Debug for GpFont {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GpFont").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for GpFont {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GpFontCollection(pub isize);
 impl Default for GpFontCollection {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for GpFontCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for GpFontCollection {}
-impl core::fmt::Debug for GpFontCollection {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GpFontCollection").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for GpFontCollection {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GpFontFamily(pub isize);
 impl Default for GpFontFamily {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for GpFontFamily {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for GpFontFamily {}
-impl core::fmt::Debug for GpFontFamily {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GpFontFamily").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for GpFontFamily {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GpGraphics(pub isize);
 impl Default for GpGraphics {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for GpGraphics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for GpGraphics {}
-impl core::fmt::Debug for GpGraphics {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GpGraphics").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for GpGraphics {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GpHatch(pub isize);
 impl Default for GpHatch {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for GpHatch {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for GpHatch {}
-impl core::fmt::Debug for GpHatch {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GpHatch").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for GpHatch {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GpImage(pub isize);
 impl Default for GpImage {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for GpImage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for GpImage {}
-impl core::fmt::Debug for GpImage {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GpImage").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for GpImage {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GpImageAttributes(pub isize);
 impl Default for GpImageAttributes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for GpImageAttributes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for GpImageAttributes {}
-impl core::fmt::Debug for GpImageAttributes {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GpImageAttributes").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for GpImageAttributes {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GpInstalledFontCollection(pub isize);
 impl Default for GpInstalledFontCollection {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for GpInstalledFontCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for GpInstalledFontCollection {}
-impl core::fmt::Debug for GpInstalledFontCollection {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GpInstalledFontCollection").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for GpInstalledFontCollection {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GpLineGradient(pub isize);
 impl Default for GpLineGradient {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for GpLineGradient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for GpLineGradient {}
-impl core::fmt::Debug for GpLineGradient {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GpLineGradient").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for GpLineGradient {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GpMetafile(pub isize);
 impl Default for GpMetafile {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for GpMetafile {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for GpMetafile {}
-impl core::fmt::Debug for GpMetafile {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GpMetafile").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for GpMetafile {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GpPath(pub isize);
 impl Default for GpPath {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for GpPath {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for GpPath {}
-impl core::fmt::Debug for GpPath {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GpPath").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for GpPath {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GpPathGradient(pub isize);
 impl Default for GpPathGradient {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for GpPathGradient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for GpPathGradient {}
-impl core::fmt::Debug for GpPathGradient {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GpPathGradient").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for GpPathGradient {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GpPathIterator(pub isize);
 impl Default for GpPathIterator {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for GpPathIterator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for GpPathIterator {}
-impl core::fmt::Debug for GpPathIterator {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GpPathIterator").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for GpPathIterator {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GpPen(pub isize);
 impl Default for GpPen {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for GpPen {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for GpPen {}
-impl core::fmt::Debug for GpPen {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GpPen").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for GpPen {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GpPrivateFontCollection(pub isize);
 impl Default for GpPrivateFontCollection {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for GpPrivateFontCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for GpPrivateFontCollection {}
-impl core::fmt::Debug for GpPrivateFontCollection {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GpPrivateFontCollection").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for GpPrivateFontCollection {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GpRegion(pub isize);
 impl Default for GpRegion {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for GpRegion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for GpRegion {}
-impl core::fmt::Debug for GpRegion {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GpRegion").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for GpRegion {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GpSolidFill(pub isize);
 impl Default for GpSolidFill {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for GpSolidFill {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for GpSolidFill {}
-impl core::fmt::Debug for GpSolidFill {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GpSolidFill").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for GpSolidFill {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GpStringFormat(pub isize);
 impl Default for GpStringFormat {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for GpStringFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for GpStringFormat {}
-impl core::fmt::Debug for GpStringFormat {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GpStringFormat").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for GpStringFormat {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GpTexture(pub isize);
 impl Default for GpTexture {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for GpTexture {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for GpTexture {}
-impl core::fmt::Debug for GpTexture {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GpTexture").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for GpTexture {
@@ -6798,22 +6457,11 @@ impl Default for HueSaturationLightnessParams {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct Image(pub isize);
 impl Default for Image {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for Image {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for Image {}
-impl core::fmt::Debug for Image {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("Image").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for Image {
@@ -6910,22 +6558,11 @@ impl Default for ImageItemData {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct InstalledFontCollection(pub isize);
 impl Default for InstalledFontCollection {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for InstalledFontCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for InstalledFontCollection {}
-impl core::fmt::Debug for InstalledFontCollection {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("InstalledFontCollection").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for InstalledFontCollection {
@@ -6992,44 +6629,22 @@ impl Default for LevelsParams {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct Matrix(pub isize);
 impl Default for Matrix {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for Matrix {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for Matrix {}
-impl core::fmt::Debug for Matrix {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("Matrix").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for Matrix {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct Metafile(pub isize);
 impl Default for Metafile {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for Metafile {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for Metafile {}
-impl core::fmt::Debug for Metafile {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("Metafile").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for Metafile {
@@ -7128,22 +6743,11 @@ impl Default for PWMFRect16 {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PathData(pub isize);
 impl Default for PathData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for PathData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PathData {}
-impl core::fmt::Debug for PathData {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PathData").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for PathData {
@@ -7210,22 +6814,11 @@ impl Default for PointF {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PrivateFontCollection(pub isize);
 impl Default for PrivateFontCollection {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for PrivateFontCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PrivateFontCollection {}
-impl core::fmt::Debug for PrivateFontCollection {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PrivateFontCollection").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for PrivateFontCollection {
@@ -7387,22 +6980,11 @@ impl Default for RedEyeCorrectionParams {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct Region(pub isize);
 impl Default for Region {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for Region {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for Region {}
-impl core::fmt::Debug for Region {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("Region").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for Region {

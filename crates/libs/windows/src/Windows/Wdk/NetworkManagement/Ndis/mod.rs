@@ -3518,44 +3518,22 @@ impl Default for CO_CALL_MANAGER_PARAMETERS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct CO_CALL_PARAMETERS(pub isize);
 impl Default for CO_CALL_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for CO_CALL_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for CO_CALL_PARAMETERS {}
-impl core::fmt::Debug for CO_CALL_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CO_CALL_PARAMETERS").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for CO_CALL_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct CO_MEDIA_PARAMETERS(pub isize);
 impl Default for CO_MEDIA_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for CO_MEDIA_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for CO_MEDIA_PARAMETERS {}
-impl core::fmt::Debug for CO_MEDIA_PARAMETERS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CO_MEDIA_PARAMETERS").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for CO_MEDIA_PARAMETERS {
@@ -3654,22 +3632,11 @@ impl Default for CO_SPECIFIC_PARAMETERS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct ETH_FILTER(pub isize);
 impl Default for ETH_FILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for ETH_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for ETH_FILTER {}
-impl core::fmt::Debug for ETH_FILTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ETH_FILTER").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for ETH_FILTER {
@@ -4677,44 +4644,22 @@ impl Default for NDIS_802_11_WEP {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NDIS_AF_LIST(pub isize);
 impl Default for NDIS_AF_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for NDIS_AF_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for NDIS_AF_LIST {}
-impl core::fmt::Debug for NDIS_AF_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NDIS_AF_LIST").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_AF_LIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NDIS_CALL_MANAGER_CHARACTERISTICS(pub isize);
 impl Default for NDIS_CALL_MANAGER_CHARACTERISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for NDIS_CALL_MANAGER_CHARACTERISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for NDIS_CALL_MANAGER_CHARACTERISTICS {}
-impl core::fmt::Debug for NDIS_CALL_MANAGER_CHARACTERISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NDIS_CALL_MANAGER_CHARACTERISTICS").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for NDIS_CALL_MANAGER_CHARACTERISTICS {
@@ -5484,22 +5429,11 @@ impl Default for NDIS_LINK_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NDIS_MINIPORT_BLOCK(pub isize);
 impl Default for NDIS_MINIPORT_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for NDIS_MINIPORT_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for NDIS_MINIPORT_BLOCK {}
-impl core::fmt::Debug for NDIS_MINIPORT_BLOCK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NDIS_MINIPORT_BLOCK").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for NDIS_MINIPORT_BLOCK {
@@ -5534,22 +5468,11 @@ impl Default for NDIS_MINIPORT_TIMER {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NDIS_M_DRIVER_BLOCK(pub isize);
 impl Default for NDIS_M_DRIVER_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for NDIS_M_DRIVER_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for NDIS_M_DRIVER_BLOCK {}
-impl core::fmt::Debug for NDIS_M_DRIVER_BLOCK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NDIS_M_DRIVER_BLOCK").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for NDIS_M_DRIVER_BLOCK {
@@ -5676,22 +5599,11 @@ impl Default for NDIS_OFFLOAD_PARAMETERS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NDIS_OPEN_BLOCK(pub isize);
 impl Default for NDIS_OPEN_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for NDIS_OPEN_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for NDIS_OPEN_BLOCK {}
-impl core::fmt::Debug for NDIS_OPEN_BLOCK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NDIS_OPEN_BLOCK").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for NDIS_OPEN_BLOCK {
@@ -5858,66 +5770,33 @@ impl Default for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NDIS_PD_COUNTER_HANDLE(pub isize);
 impl Default for NDIS_PD_COUNTER_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for NDIS_PD_COUNTER_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for NDIS_PD_COUNTER_HANDLE {}
-impl core::fmt::Debug for NDIS_PD_COUNTER_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NDIS_PD_COUNTER_HANDLE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_PD_COUNTER_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NDIS_PD_FILTER_HANDLE(pub isize);
 impl Default for NDIS_PD_FILTER_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for NDIS_PD_FILTER_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for NDIS_PD_FILTER_HANDLE {}
-impl core::fmt::Debug for NDIS_PD_FILTER_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NDIS_PD_FILTER_HANDLE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for NDIS_PD_FILTER_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NDIS_PD_PROVIDER_HANDLE(pub isize);
 impl Default for NDIS_PD_PROVIDER_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for NDIS_PD_PROVIDER_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for NDIS_PD_PROVIDER_HANDLE {}
-impl core::fmt::Debug for NDIS_PD_PROVIDER_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NDIS_PD_PROVIDER_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for NDIS_PD_PROVIDER_HANDLE {
@@ -6049,22 +5928,11 @@ impl Default for NDIS_PNP_CAPABILITIES {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NDIS_POLL_HANDLE(pub isize);
 impl Default for NDIS_POLL_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for NDIS_POLL_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for NDIS_POLL_HANDLE {}
-impl core::fmt::Debug for NDIS_POLL_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NDIS_POLL_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for NDIS_POLL_HANDLE {
@@ -6304,22 +6172,11 @@ impl Default for NDIS_PORT_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NDIS_PROTOCOL_BLOCK(pub isize);
 impl Default for NDIS_PROTOCOL_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for NDIS_PROTOCOL_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for NDIS_PROTOCOL_BLOCK {}
-impl core::fmt::Debug for NDIS_PROTOCOL_BLOCK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NDIS_PROTOCOL_BLOCK").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for NDIS_PROTOCOL_BLOCK {
@@ -8346,22 +8203,11 @@ impl Default for NDIS_WORK_ITEM {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NDIS_WRAPPER_HANDLE(pub isize);
 impl Default for NDIS_WRAPPER_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for NDIS_WRAPPER_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for NDIS_WRAPPER_HANDLE {}
-impl core::fmt::Debug for NDIS_WRAPPER_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NDIS_WRAPPER_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for NDIS_WRAPPER_HANDLE {
@@ -8524,22 +8370,11 @@ impl Default for NETWORK_ADDRESS_LIST {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NULL_FILTER(pub isize);
 impl Default for NULL_FILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for NULL_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for NULL_FILTER {}
-impl core::fmt::Debug for NULL_FILTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NULL_FILTER").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for NULL_FILTER {
@@ -8912,22 +8747,11 @@ impl Default for TRANSPORT_HEADER_OFFSET {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct TR_FILTER(pub isize);
 impl Default for TR_FILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for TR_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for TR_FILTER {}
-impl core::fmt::Debug for TR_FILTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TR_FILTER").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for TR_FILTER {

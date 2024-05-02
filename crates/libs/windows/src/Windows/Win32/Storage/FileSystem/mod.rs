@@ -9752,22 +9752,11 @@ impl Default for FIO_CONTEXT {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HIORING(pub isize);
 impl Default for HIORING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HIORING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HIORING {}
-impl core::fmt::Debug for HIORING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HIORING").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HIORING {

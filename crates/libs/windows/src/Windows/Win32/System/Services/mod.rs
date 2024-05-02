@@ -1161,22 +1161,11 @@ impl Default for ENUM_SERVICE_STATUS_PROCESSW {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSC_NOTIFICATION_REGISTRATION(pub isize);
 impl Default for PSC_NOTIFICATION_REGISTRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for PSC_NOTIFICATION_REGISTRATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PSC_NOTIFICATION_REGISTRATION {}
-impl core::fmt::Debug for PSC_NOTIFICATION_REGISTRATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PSC_NOTIFICATION_REGISTRATION").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for PSC_NOTIFICATION_REGISTRATION {
@@ -1984,7 +1973,7 @@ impl Default for SERVICE_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SERVICE_STATUS_HANDLE(pub isize);
 impl SERVICE_STATUS_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -1994,17 +1983,6 @@ impl SERVICE_STATUS_HANDLE {
 impl Default for SERVICE_STATUS_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for SERVICE_STATUS_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for SERVICE_STATUS_HANDLE {}
-impl core::fmt::Debug for SERVICE_STATUS_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SERVICE_STATUS_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for SERVICE_STATUS_HANDLE {

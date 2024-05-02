@@ -4531,7 +4531,7 @@ impl Default for TDH_CONTEXT {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct TDH_HANDLE(pub isize);
 impl TDH_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -4548,17 +4548,6 @@ impl windows_core::Free for TDH_HANDLE {
 impl Default for TDH_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for TDH_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for TDH_HANDLE {}
-impl core::fmt::Debug for TDH_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TDH_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for TDH_HANDLE {

@@ -1169,7 +1169,7 @@ impl core::fmt::Debug for SW_DEVICE_LIFETIME {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSWDEVICE(pub isize);
 impl HSWDEVICE {
     pub fn is_invalid(&self) -> bool {
@@ -1179,17 +1179,6 @@ impl HSWDEVICE {
 impl Default for HSWDEVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HSWDEVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HSWDEVICE {}
-impl core::fmt::Debug for HSWDEVICE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HSWDEVICE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HSWDEVICE {

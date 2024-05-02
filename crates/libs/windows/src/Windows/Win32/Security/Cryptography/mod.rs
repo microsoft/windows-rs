@@ -8792,7 +8792,7 @@ impl Default for BCRYPT_ALGORITHM_IDENTIFIER {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct BCRYPT_ALG_HANDLE(pub *mut core::ffi::c_void);
 impl BCRYPT_ALG_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -8809,17 +8809,6 @@ impl windows_core::Free for BCRYPT_ALG_HANDLE {
 impl Default for BCRYPT_ALG_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for BCRYPT_ALG_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for BCRYPT_ALG_HANDLE {}
-impl core::fmt::Debug for BCRYPT_ALG_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BCRYPT_ALG_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for BCRYPT_ALG_HANDLE {
@@ -9182,7 +9171,7 @@ impl Default for BCRYPT_ECC_CURVE_NAMES {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct BCRYPT_HANDLE(pub *mut core::ffi::c_void);
 impl BCRYPT_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -9194,22 +9183,11 @@ impl Default for BCRYPT_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for BCRYPT_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for BCRYPT_HANDLE {}
-impl core::fmt::Debug for BCRYPT_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BCRYPT_HANDLE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for BCRYPT_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct BCRYPT_HASH_HANDLE(pub *mut core::ffi::c_void);
 impl BCRYPT_HASH_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -9226,17 +9204,6 @@ impl windows_core::Free for BCRYPT_HASH_HANDLE {
 impl Default for BCRYPT_HASH_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for BCRYPT_HASH_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for BCRYPT_HASH_HANDLE {}
-impl core::fmt::Debug for BCRYPT_HASH_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BCRYPT_HASH_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for BCRYPT_HASH_HANDLE {
@@ -9339,7 +9306,7 @@ impl Default for BCRYPT_KEY_DATA_BLOB_HEADER {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct BCRYPT_KEY_HANDLE(pub *mut core::ffi::c_void);
 impl BCRYPT_KEY_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -9356,17 +9323,6 @@ impl windows_core::Free for BCRYPT_KEY_HANDLE {
 impl Default for BCRYPT_KEY_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for BCRYPT_KEY_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for BCRYPT_KEY_HANDLE {}
-impl core::fmt::Debug for BCRYPT_KEY_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BCRYPT_KEY_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for BCRYPT_KEY_HANDLE {
@@ -9685,7 +9641,7 @@ impl Default for BCRYPT_RSAKEY_BLOB {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct BCRYPT_SECRET_HANDLE(pub *mut core::ffi::c_void);
 impl BCRYPT_SECRET_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -9702,17 +9658,6 @@ impl windows_core::Free for BCRYPT_SECRET_HANDLE {
 impl Default for BCRYPT_SECRET_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for BCRYPT_SECRET_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for BCRYPT_SECRET_HANDLE {}
-impl core::fmt::Debug for BCRYPT_SECRET_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BCRYPT_SECRET_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for BCRYPT_SECRET_HANDLE {
@@ -19122,7 +19067,7 @@ impl Default for GENERIC_XML_TOKEN {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCERTCHAINENGINE(pub isize);
 impl HCERTCHAINENGINE {
     pub fn is_invalid(&self) -> bool {
@@ -19141,22 +19086,11 @@ impl Default for HCERTCHAINENGINE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HCERTCHAINENGINE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HCERTCHAINENGINE {}
-impl core::fmt::Debug for HCERTCHAINENGINE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HCERTCHAINENGINE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HCERTCHAINENGINE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCERTSTORE(pub *mut core::ffi::c_void);
 impl HCERTSTORE {
     pub fn is_invalid(&self) -> bool {
@@ -19168,22 +19102,11 @@ impl Default for HCERTSTORE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HCERTSTORE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HCERTSTORE {}
-impl core::fmt::Debug for HCERTSTORE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HCERTSTORE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HCERTSTORE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCERTSTOREPROV(pub *mut core::ffi::c_void);
 impl HCERTSTOREPROV {
     pub fn is_invalid(&self) -> bool {
@@ -19195,22 +19118,11 @@ impl Default for HCERTSTOREPROV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HCERTSTOREPROV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HCERTSTOREPROV {}
-impl core::fmt::Debug for HCERTSTOREPROV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HCERTSTOREPROV").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HCERTSTOREPROV {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCRYPTASYNC(pub isize);
 impl HCRYPTASYNC {
     pub fn is_invalid(&self) -> bool {
@@ -19229,22 +19141,11 @@ impl Default for HCRYPTASYNC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HCRYPTASYNC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HCRYPTASYNC {}
-impl core::fmt::Debug for HCRYPTASYNC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HCRYPTASYNC").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HCRYPTASYNC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCRYPTPROV_LEGACY(pub usize);
 impl HCRYPTPROV_LEGACY {
     pub fn is_invalid(&self) -> bool {
@@ -19256,22 +19157,11 @@ impl Default for HCRYPTPROV_LEGACY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HCRYPTPROV_LEGACY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HCRYPTPROV_LEGACY {}
-impl core::fmt::Debug for HCRYPTPROV_LEGACY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HCRYPTPROV_LEGACY").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HCRYPTPROV_LEGACY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCRYPTPROV_OR_NCRYPT_KEY_HANDLE(pub usize);
 impl HCRYPTPROV_OR_NCRYPT_KEY_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -19281,17 +19171,6 @@ impl HCRYPTPROV_OR_NCRYPT_KEY_HANDLE {
 impl Default for HCRYPTPROV_OR_NCRYPT_KEY_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HCRYPTPROV_OR_NCRYPT_KEY_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HCRYPTPROV_OR_NCRYPT_KEY_HANDLE {}
-impl core::fmt::Debug for HCRYPTPROV_OR_NCRYPT_KEY_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HCRYPTPROV_OR_NCRYPT_KEY_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HCRYPTPROV_OR_NCRYPT_KEY_HANDLE {
@@ -19681,7 +19560,7 @@ impl Default for NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NCRYPT_HANDLE(pub usize);
 impl NCRYPT_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -19693,22 +19572,11 @@ impl Default for NCRYPT_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for NCRYPT_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for NCRYPT_HANDLE {}
-impl core::fmt::Debug for NCRYPT_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NCRYPT_HANDLE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for NCRYPT_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NCRYPT_HASH_HANDLE(pub usize);
 impl NCRYPT_HASH_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -19718,17 +19586,6 @@ impl NCRYPT_HASH_HANDLE {
 impl Default for NCRYPT_HASH_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for NCRYPT_HASH_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for NCRYPT_HASH_HANDLE {}
-impl core::fmt::Debug for NCRYPT_HASH_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NCRYPT_HASH_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for NCRYPT_HASH_HANDLE {
@@ -19863,7 +19720,7 @@ impl Default for NCRYPT_KEY_BLOB_HEADER {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NCRYPT_KEY_HANDLE(pub usize);
 impl NCRYPT_KEY_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -19880,17 +19737,6 @@ impl windows_core::Free for NCRYPT_KEY_HANDLE {
 impl Default for NCRYPT_KEY_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for NCRYPT_KEY_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for NCRYPT_KEY_HANDLE {}
-impl core::fmt::Debug for NCRYPT_KEY_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NCRYPT_KEY_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for NCRYPT_KEY_HANDLE {
@@ -20110,7 +19956,7 @@ impl Default for NCRYPT_PROTECT_STREAM_INFO_EX {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NCRYPT_PROV_HANDLE(pub usize);
 impl NCRYPT_PROV_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -20129,17 +19975,6 @@ impl Default for NCRYPT_PROV_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for NCRYPT_PROV_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for NCRYPT_PROV_HANDLE {}
-impl core::fmt::Debug for NCRYPT_PROV_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NCRYPT_PROV_HANDLE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for NCRYPT_PROV_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
@@ -20150,7 +19985,7 @@ impl From<NCRYPT_PROV_HANDLE> for NCRYPT_HANDLE {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NCRYPT_SECRET_HANDLE(pub usize);
 impl NCRYPT_SECRET_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -20160,17 +19995,6 @@ impl NCRYPT_SECRET_HANDLE {
 impl Default for NCRYPT_SECRET_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for NCRYPT_SECRET_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for NCRYPT_SECRET_HANDLE {}
-impl core::fmt::Debug for NCRYPT_SECRET_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NCRYPT_SECRET_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for NCRYPT_SECRET_HANDLE {

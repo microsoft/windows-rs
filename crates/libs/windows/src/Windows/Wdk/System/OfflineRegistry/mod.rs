@@ -203,7 +203,7 @@ pub unsafe fn ORStart() -> super::super::super::Win32::Foundation::WIN32_ERROR {
     ORStart()
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct ORHKEY(pub isize);
 impl ORHKEY {
     pub fn is_invalid(&self) -> bool {
@@ -220,17 +220,6 @@ impl windows_core::Free for ORHKEY {
 impl Default for ORHKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for ORHKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for ORHKEY {}
-impl core::fmt::Debug for ORHKEY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ORHKEY").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for ORHKEY {

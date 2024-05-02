@@ -8901,7 +8901,7 @@ impl Default for ADS_SEARCH_COLUMN {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct ADS_SEARCH_HANDLE(pub isize);
 impl ADS_SEARCH_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -8911,17 +8911,6 @@ impl ADS_SEARCH_HANDLE {
 impl Default for ADS_SEARCH_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for ADS_SEARCH_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for ADS_SEARCH_HANDLE {}
-impl core::fmt::Debug for ADS_SEARCH_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ADS_SEARCH_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for ADS_SEARCH_HANDLE {

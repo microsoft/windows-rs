@@ -215,7 +215,7 @@ impl core::fmt::Debug for RID_DEVICE_INFO_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HRAWINPUT(pub isize);
 impl HRAWINPUT {
     pub fn is_invalid(&self) -> bool {
@@ -225,17 +225,6 @@ impl HRAWINPUT {
 impl Default for HRAWINPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HRAWINPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HRAWINPUT {}
-impl core::fmt::Debug for HRAWINPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HRAWINPUT").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HRAWINPUT {

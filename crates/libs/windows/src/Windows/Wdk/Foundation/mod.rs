@@ -928,22 +928,11 @@ impl Default for DISPATCHER_HEADER_0_6 {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct DMA_COMMON_BUFFER_VECTOR(pub isize);
 impl Default for DMA_COMMON_BUFFER_VECTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for DMA_COMMON_BUFFER_VECTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for DMA_COMMON_BUFFER_VECTOR {}
-impl core::fmt::Debug for DMA_COMMON_BUFFER_VECTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DMA_COMMON_BUFFER_VECTOR").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for DMA_COMMON_BUFFER_VECTOR {
@@ -1057,44 +1046,22 @@ impl Default for DRIVER_OBJECT {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct ECP_HEADER(pub isize);
 impl Default for ECP_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for ECP_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for ECP_HEADER {}
-impl core::fmt::Debug for ECP_HEADER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ECP_HEADER").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for ECP_HEADER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct ECP_LIST(pub isize);
 impl Default for ECP_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for ECP_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for ECP_LIST {}
-impl core::fmt::Debug for ECP_LIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ECP_LIST").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for ECP_LIST {
@@ -1421,44 +1388,22 @@ impl Default for FILE_OBJECT {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct IOMMU_DMA_DEVICE(pub isize);
 impl Default for IOMMU_DMA_DEVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for IOMMU_DMA_DEVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for IOMMU_DMA_DEVICE {}
-impl core::fmt::Debug for IOMMU_DMA_DEVICE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IOMMU_DMA_DEVICE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for IOMMU_DMA_DEVICE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct IOMMU_DMA_DOMAIN(pub isize);
 impl Default for IOMMU_DMA_DOMAIN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for IOMMU_DMA_DOMAIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for IOMMU_DMA_DOMAIN {}
-impl core::fmt::Debug for IOMMU_DMA_DOMAIN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IOMMU_DMA_DOMAIN").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for IOMMU_DMA_DOMAIN {
@@ -3637,22 +3582,11 @@ impl Default for KDPC_0_0 {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct KENLISTMENT(pub isize);
 impl Default for KENLISTMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for KENLISTMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for KENLISTMENT {}
-impl core::fmt::Debug for KENLISTMENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("KENLISTMENT").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for KENLISTMENT {
@@ -3682,44 +3616,22 @@ impl Default for KEVENT {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct KGDT(pub isize);
 impl Default for KGDT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for KGDT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for KGDT {}
-impl core::fmt::Debug for KGDT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("KGDT").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for KGDT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct KIDT(pub isize);
 impl Default for KIDT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for KIDT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for KIDT {}
-impl core::fmt::Debug for KIDT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("KIDT").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for KIDT {
@@ -3814,44 +3726,22 @@ impl Default for KMUTANT_0_0 {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct KPCR(pub isize);
 impl Default for KPCR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for KPCR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for KPCR {}
-impl core::fmt::Debug for KPCR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("KPCR").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for KPCR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct KPRCB(pub isize);
 impl Default for KPRCB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for KPRCB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for KPRCB {}
-impl core::fmt::Debug for KPRCB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("KPRCB").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for KPRCB {
@@ -3885,88 +3775,44 @@ impl Default for KQUEUE {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct KRESOURCEMANAGER(pub isize);
 impl Default for KRESOURCEMANAGER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for KRESOURCEMANAGER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for KRESOURCEMANAGER {}
-impl core::fmt::Debug for KRESOURCEMANAGER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("KRESOURCEMANAGER").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for KRESOURCEMANAGER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct KTM(pub isize);
 impl Default for KTM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for KTM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for KTM {}
-impl core::fmt::Debug for KTM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("KTM").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for KTM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct KTRANSACTION(pub isize);
 impl Default for KTRANSACTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for KTRANSACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for KTRANSACTION {}
-impl core::fmt::Debug for KTRANSACTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("KTRANSACTION").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for KTRANSACTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct KTSS(pub isize);
 impl Default for KTSS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for KTSS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for KTSS {}
-impl core::fmt::Debug for KTSS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("KTSS").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for KTSS {
@@ -4027,22 +3873,11 @@ impl Default for KWAIT_BLOCK_0 {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LOADER_PARAMETER_BLOCK(pub isize);
 impl Default for LOADER_PARAMETER_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for LOADER_PARAMETER_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for LOADER_PARAMETER_BLOCK {}
-impl core::fmt::Debug for LOADER_PARAMETER_BLOCK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LOADER_PARAMETER_BLOCK").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for LOADER_PARAMETER_BLOCK {
@@ -4283,550 +4118,275 @@ impl Default for OWNER_ENTRY_0_0 {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PAFFINITY_TOKEN(pub isize);
 impl Default for PAFFINITY_TOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PAFFINITY_TOKEN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PAFFINITY_TOKEN {}
-impl core::fmt::Debug for PAFFINITY_TOKEN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PAFFINITY_TOKEN").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PAFFINITY_TOKEN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PBUS_HANDLER(pub isize);
 impl Default for PBUS_HANDLER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PBUS_HANDLER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PBUS_HANDLER {}
-impl core::fmt::Debug for PBUS_HANDLER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PBUS_HANDLER").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PBUS_HANDLER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCALLBACK_OBJECT(pub isize);
 impl Default for PCALLBACK_OBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PCALLBACK_OBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PCALLBACK_OBJECT {}
-impl core::fmt::Debug for PCALLBACK_OBJECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PCALLBACK_OBJECT").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PCALLBACK_OBJECT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDEVICE_HANDLER_OBJECT(pub isize);
 impl Default for PDEVICE_HANDLER_OBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PDEVICE_HANDLER_OBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PDEVICE_HANDLER_OBJECT {}
-impl core::fmt::Debug for PDEVICE_HANDLER_OBJECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PDEVICE_HANDLER_OBJECT").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PDEVICE_HANDLER_OBJECT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PEJOB(pub isize);
 impl Default for PEJOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PEJOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PEJOB {}
-impl core::fmt::Debug for PEJOB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEJOB").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PEJOB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PEPROCESS(pub isize);
 impl Default for PEPROCESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PEPROCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PEPROCESS {}
-impl core::fmt::Debug for PEPROCESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEPROCESS").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PEPROCESS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PESILO(pub isize);
 impl Default for PESILO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PESILO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PESILO {}
-impl core::fmt::Debug for PESILO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PESILO").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PESILO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PETHREAD(pub isize);
 impl Default for PETHREAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PETHREAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PETHREAD {}
-impl core::fmt::Debug for PETHREAD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PETHREAD").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PETHREAD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PEX_RUNDOWN_REF_CACHE_AWARE(pub isize);
 impl Default for PEX_RUNDOWN_REF_CACHE_AWARE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PEX_RUNDOWN_REF_CACHE_AWARE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PEX_RUNDOWN_REF_CACHE_AWARE {}
-impl core::fmt::Debug for PEX_RUNDOWN_REF_CACHE_AWARE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEX_RUNDOWN_REF_CACHE_AWARE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PEX_RUNDOWN_REF_CACHE_AWARE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PEX_TIMER(pub isize);
 impl Default for PEX_TIMER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PEX_TIMER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PEX_TIMER {}
-impl core::fmt::Debug for PEX_TIMER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEX_TIMER").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PEX_TIMER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PIO_REMOVE_LOCK_TRACKING_BLOCK(pub isize);
 impl Default for PIO_REMOVE_LOCK_TRACKING_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PIO_REMOVE_LOCK_TRACKING_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PIO_REMOVE_LOCK_TRACKING_BLOCK {}
-impl core::fmt::Debug for PIO_REMOVE_LOCK_TRACKING_BLOCK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PIO_REMOVE_LOCK_TRACKING_BLOCK").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PIO_REMOVE_LOCK_TRACKING_BLOCK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PIO_TIMER(pub isize);
 impl Default for PIO_TIMER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PIO_TIMER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PIO_TIMER {}
-impl core::fmt::Debug for PIO_TIMER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PIO_TIMER").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PIO_TIMER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PIO_WORKITEM(pub isize);
 impl Default for PIO_WORKITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PIO_WORKITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PIO_WORKITEM {}
-impl core::fmt::Debug for PIO_WORKITEM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PIO_WORKITEM").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PIO_WORKITEM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKINTERRUPT(pub isize);
 impl Default for PKINTERRUPT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PKINTERRUPT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PKINTERRUPT {}
-impl core::fmt::Debug for PKINTERRUPT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PKINTERRUPT").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PKINTERRUPT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKPROCESS(pub isize);
 impl Default for PKPROCESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PKPROCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PKPROCESS {}
-impl core::fmt::Debug for PKPROCESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PKPROCESS").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PKPROCESS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKTHREAD(pub isize);
 impl Default for PKTHREAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PKTHREAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PKTHREAD {}
-impl core::fmt::Debug for PKTHREAD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PKTHREAD").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PKTHREAD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PNOTIFY_SYNC(pub isize);
 impl Default for PNOTIFY_SYNC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PNOTIFY_SYNC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PNOTIFY_SYNC {}
-impl core::fmt::Debug for PNOTIFY_SYNC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PNOTIFY_SYNC").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PNOTIFY_SYNC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct POBJECT_TYPE(pub isize);
 impl Default for POBJECT_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for POBJECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for POBJECT_TYPE {}
-impl core::fmt::Debug for POBJECT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("POBJECT_TYPE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for POBJECT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct POHANDLE(pub isize);
 impl Default for POHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for POHANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for POHANDLE {}
-impl core::fmt::Debug for POHANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("POHANDLE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for POHANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPCW_BUFFER(pub isize);
 impl Default for PPCW_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PPCW_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PPCW_BUFFER {}
-impl core::fmt::Debug for PPCW_BUFFER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PPCW_BUFFER").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PPCW_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPCW_INSTANCE(pub isize);
 impl Default for PPCW_INSTANCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PPCW_INSTANCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PPCW_INSTANCE {}
-impl core::fmt::Debug for PPCW_INSTANCE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PPCW_INSTANCE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PPCW_INSTANCE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPCW_REGISTRATION(pub isize);
 impl Default for PPCW_REGISTRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PPCW_REGISTRATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PPCW_REGISTRATION {}
-impl core::fmt::Debug for PPCW_REGISTRATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PPCW_REGISTRATION").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PPCW_REGISTRATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PRKPROCESS(pub isize);
 impl Default for PRKPROCESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PRKPROCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PRKPROCESS {}
-impl core::fmt::Debug for PRKPROCESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PRKPROCESS").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PRKPROCESS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PRKTHREAD(pub isize);
 impl Default for PRKTHREAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for PRKTHREAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PRKTHREAD {}
-impl core::fmt::Debug for PRKTHREAD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PRKTHREAD").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for PRKTHREAD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSILO_MONITOR(pub isize);
 impl Default for PSILO_MONITOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for PSILO_MONITOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PSILO_MONITOR {}
-impl core::fmt::Debug for PSILO_MONITOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PSILO_MONITOR").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for PSILO_MONITOR {
@@ -4935,22 +4495,11 @@ impl Default for SECURITY_SUBJECT_CONTEXT {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SspiAsyncContext(pub isize);
 impl Default for SspiAsyncContext {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for SspiAsyncContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for SspiAsyncContext {}
-impl core::fmt::Debug for SspiAsyncContext {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SspiAsyncContext").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for SspiAsyncContext {
@@ -5075,66 +4624,33 @@ impl Default for WORK_QUEUE_ITEM {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct _DEVICE_OBJECT_POWER_EXTENSION(pub isize);
 impl Default for _DEVICE_OBJECT_POWER_EXTENSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for _DEVICE_OBJECT_POWER_EXTENSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for _DEVICE_OBJECT_POWER_EXTENSION {}
-impl core::fmt::Debug for _DEVICE_OBJECT_POWER_EXTENSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("_DEVICE_OBJECT_POWER_EXTENSION").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for _DEVICE_OBJECT_POWER_EXTENSION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct _IORING_OBJECT(pub isize);
 impl Default for _IORING_OBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for _IORING_OBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for _IORING_OBJECT {}
-impl core::fmt::Debug for _IORING_OBJECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("_IORING_OBJECT").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for _IORING_OBJECT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct _SCSI_REQUEST_BLOCK(pub isize);
 impl Default for _SCSI_REQUEST_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for _SCSI_REQUEST_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for _SCSI_REQUEST_BLOCK {}
-impl core::fmt::Debug for _SCSI_REQUEST_BLOCK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("_SCSI_REQUEST_BLOCK").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for _SCSI_REQUEST_BLOCK {

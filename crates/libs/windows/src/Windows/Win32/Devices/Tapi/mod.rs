@@ -10030,198 +10030,99 @@ impl Default for DTR {
 }
 pub const DispatchMapper: windows_core::GUID = windows_core::GUID::from_u128(0xe9225296_c759_11d1_a02b_00c04fb6809f);
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDRVCALL(pub isize);
 impl Default for HDRVCALL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HDRVCALL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HDRVCALL {}
-impl core::fmt::Debug for HDRVCALL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HDRVCALL").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HDRVCALL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDRVDIALOGINSTANCE(pub isize);
 impl Default for HDRVDIALOGINSTANCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HDRVDIALOGINSTANCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HDRVDIALOGINSTANCE {}
-impl core::fmt::Debug for HDRVDIALOGINSTANCE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HDRVDIALOGINSTANCE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HDRVDIALOGINSTANCE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDRVLINE(pub isize);
 impl Default for HDRVLINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HDRVLINE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HDRVLINE {}
-impl core::fmt::Debug for HDRVLINE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HDRVLINE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HDRVLINE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDRVMSPLINE(pub isize);
 impl Default for HDRVMSPLINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HDRVMSPLINE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HDRVMSPLINE {}
-impl core::fmt::Debug for HDRVMSPLINE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HDRVMSPLINE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HDRVMSPLINE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDRVPHONE(pub isize);
 impl Default for HDRVPHONE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HDRVPHONE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HDRVPHONE {}
-impl core::fmt::Debug for HDRVPHONE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HDRVPHONE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HDRVPHONE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPROVIDER(pub isize);
 impl Default for HPROVIDER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HPROVIDER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HPROVIDER {}
-impl core::fmt::Debug for HPROVIDER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HPROVIDER").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HPROVIDER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HTAPICALL(pub isize);
 impl Default for HTAPICALL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HTAPICALL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HTAPICALL {}
-impl core::fmt::Debug for HTAPICALL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTAPICALL").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HTAPICALL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HTAPILINE(pub isize);
 impl Default for HTAPILINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HTAPILINE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HTAPILINE {}
-impl core::fmt::Debug for HTAPILINE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTAPILINE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HTAPILINE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HTAPIPHONE(pub isize);
 impl Default for HTAPIPHONE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HTAPIPHONE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HTAPIPHONE {}
-impl core::fmt::Debug for HTAPIPHONE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTAPIPHONE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HTAPIPHONE {

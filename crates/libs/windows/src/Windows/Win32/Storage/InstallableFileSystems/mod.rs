@@ -768,7 +768,7 @@ impl Default for FILTER_VOLUME_STANDARD_INFORMATION {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HFILTER(pub isize);
 impl HFILTER {
     pub fn is_invalid(&self) -> bool {
@@ -787,22 +787,11 @@ impl Default for HFILTER {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HFILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HFILTER {}
-impl core::fmt::Debug for HFILTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HFILTER").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HFILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HFILTER_INSTANCE(pub isize);
 impl HFILTER_INSTANCE {
     pub fn is_invalid(&self) -> bool {
@@ -819,17 +808,6 @@ impl windows_core::Free for HFILTER_INSTANCE {
 impl Default for HFILTER_INSTANCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HFILTER_INSTANCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HFILTER_INSTANCE {}
-impl core::fmt::Debug for HFILTER_INSTANCE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HFILTER_INSTANCE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HFILTER_INSTANCE {

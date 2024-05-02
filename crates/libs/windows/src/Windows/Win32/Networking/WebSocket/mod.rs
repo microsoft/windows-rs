@@ -278,7 +278,7 @@ impl Default for WEB_SOCKET_BUFFER_1 {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WEB_SOCKET_HANDLE(pub isize);
 impl WEB_SOCKET_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -288,17 +288,6 @@ impl WEB_SOCKET_HANDLE {
 impl Default for WEB_SOCKET_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for WEB_SOCKET_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WEB_SOCKET_HANDLE {}
-impl core::fmt::Debug for WEB_SOCKET_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WEB_SOCKET_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for WEB_SOCKET_HANDLE {

@@ -1393,22 +1393,11 @@ impl core::fmt::Debug for WIN32_MEMORY_PARTITION_INFORMATION_CLASS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct AtlThunkData_t(pub isize);
 impl Default for AtlThunkData_t {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for AtlThunkData_t {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for AtlThunkData_t {}
-impl core::fmt::Debug for AtlThunkData_t {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("AtlThunkData_t").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for AtlThunkData_t {

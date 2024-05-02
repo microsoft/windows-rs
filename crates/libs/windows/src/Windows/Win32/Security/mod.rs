@@ -2754,7 +2754,7 @@ impl Default for GENERIC_MAPPING {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDIAGNOSTIC_DATA_QUERY_SESSION(pub isize);
 impl HDIAGNOSTIC_DATA_QUERY_SESSION {
     pub fn is_invalid(&self) -> bool {
@@ -2766,22 +2766,11 @@ impl Default for HDIAGNOSTIC_DATA_QUERY_SESSION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HDIAGNOSTIC_DATA_QUERY_SESSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HDIAGNOSTIC_DATA_QUERY_SESSION {}
-impl core::fmt::Debug for HDIAGNOSTIC_DATA_QUERY_SESSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HDIAGNOSTIC_DATA_QUERY_SESSION").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HDIAGNOSTIC_DATA_QUERY_SESSION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION(pub isize);
 impl HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
     pub fn is_invalid(&self) -> bool {
@@ -2793,22 +2782,11 @@ impl Default for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {}
-impl core::fmt::Debug for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION(pub isize);
 impl HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
     pub fn is_invalid(&self) -> bool {
@@ -2820,22 +2798,11 @@ impl Default for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {}
-impl core::fmt::Debug for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDIAGNOSTIC_EVENT_TAG_DESCRIPTION(pub isize);
 impl HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
     pub fn is_invalid(&self) -> bool {
@@ -2847,22 +2814,11 @@ impl Default for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {}
-impl core::fmt::Debug for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HDIAGNOSTIC_EVENT_TAG_DESCRIPTION").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDIAGNOSTIC_RECORD(pub isize);
 impl HDIAGNOSTIC_RECORD {
     pub fn is_invalid(&self) -> bool {
@@ -2874,22 +2830,11 @@ impl Default for HDIAGNOSTIC_RECORD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HDIAGNOSTIC_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HDIAGNOSTIC_RECORD {}
-impl core::fmt::Debug for HDIAGNOSTIC_RECORD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HDIAGNOSTIC_RECORD").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HDIAGNOSTIC_RECORD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDIAGNOSTIC_REPORT(pub isize);
 impl HDIAGNOSTIC_REPORT {
     pub fn is_invalid(&self) -> bool {
@@ -2899,17 +2844,6 @@ impl HDIAGNOSTIC_REPORT {
 impl Default for HDIAGNOSTIC_REPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HDIAGNOSTIC_REPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HDIAGNOSTIC_REPORT {}
-impl core::fmt::Debug for HDIAGNOSTIC_REPORT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HDIAGNOSTIC_REPORT").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HDIAGNOSTIC_REPORT {
@@ -2983,7 +2917,7 @@ impl Default for LUID_AND_ATTRIBUTES {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NCRYPT_DESCRIPTOR_HANDLE(pub isize);
 impl NCRYPT_DESCRIPTOR_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -2995,22 +2929,11 @@ impl Default for NCRYPT_DESCRIPTOR_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for NCRYPT_DESCRIPTOR_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for NCRYPT_DESCRIPTOR_HANDLE {}
-impl core::fmt::Debug for NCRYPT_DESCRIPTOR_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NCRYPT_DESCRIPTOR_HANDLE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for NCRYPT_DESCRIPTOR_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NCRYPT_STREAM_HANDLE(pub isize);
 impl NCRYPT_STREAM_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -3020,17 +2943,6 @@ impl NCRYPT_STREAM_HANDLE {
 impl Default for NCRYPT_STREAM_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for NCRYPT_STREAM_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for NCRYPT_STREAM_HANDLE {}
-impl core::fmt::Debug for NCRYPT_STREAM_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NCRYPT_STREAM_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for NCRYPT_STREAM_HANDLE {
@@ -3099,7 +3011,7 @@ impl Default for PRIVILEGE_SET {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSECURITY_DESCRIPTOR(pub *mut core::ffi::c_void);
 impl PSECURITY_DESCRIPTOR {
     pub fn is_invalid(&self) -> bool {
@@ -3109,17 +3021,6 @@ impl PSECURITY_DESCRIPTOR {
 impl Default for PSECURITY_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for PSECURITY_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PSECURITY_DESCRIPTOR {}
-impl core::fmt::Debug for PSECURITY_DESCRIPTOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PSECURITY_DESCRIPTOR").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for PSECURITY_DESCRIPTOR {
@@ -3160,7 +3061,7 @@ impl Default for QUOTA_LIMITS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SAFER_LEVEL_HANDLE(pub isize);
 impl SAFER_LEVEL_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -3172,22 +3073,11 @@ impl Default for SAFER_LEVEL_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for SAFER_LEVEL_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for SAFER_LEVEL_HANDLE {}
-impl core::fmt::Debug for SAFER_LEVEL_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SAFER_LEVEL_HANDLE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for SAFER_LEVEL_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SC_HANDLE(pub isize);
 impl SC_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -3197,17 +3087,6 @@ impl SC_HANDLE {
 impl Default for SC_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for SC_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for SC_HANDLE {}
-impl core::fmt::Debug for SC_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SC_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for SC_HANDLE {

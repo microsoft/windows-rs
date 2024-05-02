@@ -5419,7 +5419,7 @@ impl Default for AUDIT_PARAMS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct AUTHZ_ACCESS_CHECK_RESULTS_HANDLE(pub isize);
 impl AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -5429,17 +5429,6 @@ impl AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
 impl Default for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {}
-impl core::fmt::Debug for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("AUTHZ_ACCESS_CHECK_RESULTS_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
@@ -5511,7 +5500,7 @@ impl Default for AUTHZ_ACCESS_REQUEST {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct AUTHZ_AUDIT_EVENT_HANDLE(pub isize);
 impl AUTHZ_AUDIT_EVENT_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -5523,22 +5512,11 @@ impl Default for AUTHZ_AUDIT_EVENT_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for AUTHZ_AUDIT_EVENT_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for AUTHZ_AUDIT_EVENT_HANDLE {}
-impl core::fmt::Debug for AUTHZ_AUDIT_EVENT_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("AUTHZ_AUDIT_EVENT_HANDLE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for AUTHZ_AUDIT_EVENT_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct AUTHZ_AUDIT_EVENT_TYPE_HANDLE(pub isize);
 impl AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -5548,17 +5526,6 @@ impl AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
 impl Default for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {}
-impl core::fmt::Debug for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("AUTHZ_AUDIT_EVENT_TYPE_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
@@ -5637,7 +5604,7 @@ impl Default for AUTHZ_AUDIT_EVENT_TYPE_UNION {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE(pub isize);
 impl AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -5649,22 +5616,11 @@ impl Default for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE {}
-impl core::fmt::Debug for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct AUTHZ_CLIENT_CONTEXT_HANDLE(pub isize);
 impl AUTHZ_CLIENT_CONTEXT_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -5674,17 +5630,6 @@ impl AUTHZ_CLIENT_CONTEXT_HANDLE {
 impl Default for AUTHZ_CLIENT_CONTEXT_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for AUTHZ_CLIENT_CONTEXT_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for AUTHZ_CLIENT_CONTEXT_HANDLE {}
-impl core::fmt::Debug for AUTHZ_CLIENT_CONTEXT_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("AUTHZ_CLIENT_CONTEXT_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for AUTHZ_CLIENT_CONTEXT_HANDLE {
@@ -5750,7 +5695,7 @@ impl Default for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct AUTHZ_RESOURCE_MANAGER_HANDLE(pub isize);
 impl AUTHZ_RESOURCE_MANAGER_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -5760,17 +5705,6 @@ impl AUTHZ_RESOURCE_MANAGER_HANDLE {
 impl Default for AUTHZ_RESOURCE_MANAGER_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for AUTHZ_RESOURCE_MANAGER_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for AUTHZ_RESOURCE_MANAGER_HANDLE {}
-impl core::fmt::Debug for AUTHZ_RESOURCE_MANAGER_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("AUTHZ_RESOURCE_MANAGER_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for AUTHZ_RESOURCE_MANAGER_HANDLE {
@@ -5956,7 +5890,7 @@ impl Default for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE(pub isize);
 impl AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -5966,17 +5900,6 @@ impl AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
 impl Default for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {}
-impl core::fmt::Debug for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {

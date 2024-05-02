@@ -2815,22 +2815,11 @@ impl Default for LDAP_VERSION_INFO {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PLDAPSearch(pub isize);
 impl Default for PLDAPSearch {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for PLDAPSearch {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PLDAPSearch {}
-impl core::fmt::Debug for PLDAPSearch {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PLDAPSearch").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for PLDAPSearch {

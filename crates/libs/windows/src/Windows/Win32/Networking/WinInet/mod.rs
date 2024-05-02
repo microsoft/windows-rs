@@ -4732,7 +4732,7 @@ impl Default for HTTP_PUSH_TRANSPORT_SETTING {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HTTP_PUSH_WAIT_HANDLE(pub isize);
 impl HTTP_PUSH_WAIT_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -4742,17 +4742,6 @@ impl HTTP_PUSH_WAIT_HANDLE {
 impl Default for HTTP_PUSH_WAIT_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HTTP_PUSH_WAIT_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HTTP_PUSH_WAIT_HANDLE {}
-impl core::fmt::Debug for HTTP_PUSH_WAIT_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_PUSH_WAIT_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HTTP_PUSH_WAIT_HANDLE {
