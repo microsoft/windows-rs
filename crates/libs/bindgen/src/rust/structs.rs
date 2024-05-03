@@ -24,28 +24,6 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
 
 fn gen_struct_with_name(writer: &Writer, def: metadata::TypeDef, struct_name: &str, cfg: &cfg::Cfg) -> TokenStream {
     let name = to_ident(struct_name);
-
-    if def.fields().next().is_none() {
-        let mut tokens = quote! {
-            #[repr(C)]
-            pub struct #name(pub u8);
-            impl Copy for #name {}
-            impl Clone for #name {
-                fn clone(&self) -> Self {
-                    *self
-                }
-            }
-        };
-        if !writer.sys {
-            tokens.combine(&quote! {
-                impl windows_core::TypeKind for #name {
-                    type TypeKind = windows_core::CopyType;
-                }
-            });
-        }
-        return tokens;
-    }
-
     let flags = def.flags();
     let cfg = cfg.union(cfg::type_def_cfg(writer, def, &[]));
 
