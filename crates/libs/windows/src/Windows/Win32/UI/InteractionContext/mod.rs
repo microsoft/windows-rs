@@ -612,7 +612,7 @@ impl Default for CROSS_SLIDE_PARAMETER {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HINTERACTIONCONTEXT(pub isize);
 impl HINTERACTIONCONTEXT {
     pub fn is_invalid(&self) -> bool {
@@ -622,17 +622,6 @@ impl HINTERACTIONCONTEXT {
 impl Default for HINTERACTIONCONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HINTERACTIONCONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HINTERACTIONCONTEXT {}
-impl core::fmt::Debug for HINTERACTIONCONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HINTERACTIONCONTEXT").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HINTERACTIONCONTEXT {

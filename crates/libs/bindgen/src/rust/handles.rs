@@ -100,24 +100,13 @@ pub fn gen_win_handle(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
 
     let mut tokens = quote! {
         #[repr(transparent)]
-        #[derive(PartialEq, Eq)]
+        #[derive(Clone, Copy, Debug, PartialEq, Eq)]
         pub struct #ident(pub #signature);
         #is_invalid
         #free
         impl Default for #ident {
             fn default() -> Self {
                 unsafe { core::mem::zeroed() }
-            }
-        }
-        impl Clone for #ident {
-            fn clone(&self) -> Self {
-                *self
-            }
-        }
-        impl Copy for #ident {}
-        impl core::fmt::Debug for #ident {
-            fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-                f.debug_tuple(#name).field(&self.0).finish()
             }
         }
         impl windows_core::TypeKind for #ident {

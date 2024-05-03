@@ -8358,7 +8358,7 @@ impl Default for FILE_IN_CABINET_INFO_W {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCMNOTIFICATION(pub isize);
 impl HCMNOTIFICATION {
     pub fn is_invalid(&self) -> bool {
@@ -8370,22 +8370,11 @@ impl Default for HCMNOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HCMNOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HCMNOTIFICATION {}
-impl core::fmt::Debug for HCMNOTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HCMNOTIFICATION").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HCMNOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDEVINFO(pub isize);
 impl HDEVINFO {
     pub fn is_invalid(&self) -> bool {
@@ -8402,17 +8391,6 @@ impl windows_core::Free for HDEVINFO {
 impl Default for HDEVINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HDEVINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HDEVINFO {}
-impl core::fmt::Debug for HDEVINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HDEVINFO").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HDEVINFO {

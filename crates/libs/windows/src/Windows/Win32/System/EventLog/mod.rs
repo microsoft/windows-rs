@@ -1073,7 +1073,7 @@ impl Default for EVENTSFORLOGFILE {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct EVT_HANDLE(pub isize);
 impl EVT_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -1090,17 +1090,6 @@ impl windows_core::Free for EVT_HANDLE {
 impl Default for EVT_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for EVT_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for EVT_HANDLE {}
-impl core::fmt::Debug for EVT_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVT_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for EVT_HANDLE {

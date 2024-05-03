@@ -5102,7 +5102,7 @@ impl Default for JET_LOGTIME_1_0 {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct JET_LS(pub usize);
 impl JET_LS {
     pub fn is_invalid(&self) -> bool {
@@ -5112,17 +5112,6 @@ impl JET_LS {
 impl Default for JET_LS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for JET_LS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for JET_LS {}
-impl core::fmt::Debug for JET_LS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("JET_LS").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for JET_LS {
@@ -5373,7 +5362,7 @@ impl Default for JET_OPERATIONCONTEXT {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct JET_OSSNAPID(pub usize);
 impl JET_OSSNAPID {
     pub fn is_invalid(&self) -> bool {
@@ -5383,17 +5372,6 @@ impl JET_OSSNAPID {
 impl Default for JET_OSSNAPID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for JET_OSSNAPID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for JET_OSSNAPID {}
-impl core::fmt::Debug for JET_OSSNAPID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("JET_OSSNAPID").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for JET_OSSNAPID {

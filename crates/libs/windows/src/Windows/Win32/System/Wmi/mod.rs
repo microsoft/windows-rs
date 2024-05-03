@@ -8570,22 +8570,11 @@ impl Default for MI_Module {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct MI_Module_Self(pub isize);
 impl Default for MI_Module_Self {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for MI_Module_Self {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for MI_Module_Self {}
-impl core::fmt::Debug for MI_Module_Self {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MI_Module_Self").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for MI_Module_Self {

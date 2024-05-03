@@ -3595,7 +3595,7 @@ impl Default for FEATURE_ERROR {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct FEATURE_STATE_CHANGE_SUBSCRIPTION(pub isize);
 impl FEATURE_STATE_CHANGE_SUBSCRIPTION {
     pub fn is_invalid(&self) -> bool {
@@ -3607,22 +3607,11 @@ impl Default for FEATURE_STATE_CHANGE_SUBSCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for FEATURE_STATE_CHANGE_SUBSCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for FEATURE_STATE_CHANGE_SUBSCRIPTION {}
-impl core::fmt::Debug for FEATURE_STATE_CHANGE_SUBSCRIPTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FEATURE_STATE_CHANGE_SUBSCRIPTION").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for FEATURE_STATE_CHANGE_SUBSCRIPTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct FH_SERVICE_PIPE_HANDLE(pub isize);
 impl FH_SERVICE_PIPE_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -3632,17 +3621,6 @@ impl FH_SERVICE_PIPE_HANDLE {
 impl Default for FH_SERVICE_PIPE_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for FH_SERVICE_PIPE_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for FH_SERVICE_PIPE_HANDLE {}
-impl core::fmt::Debug for FH_SERVICE_PIPE_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FH_SERVICE_PIPE_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for FH_SERVICE_PIPE_HANDLE {
@@ -3678,7 +3656,7 @@ impl Default for FILE_CASE_SENSITIVE_INFO {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HWINWATCH(pub isize);
 impl HWINWATCH {
     pub fn is_invalid(&self) -> bool {
@@ -3688,17 +3666,6 @@ impl HWINWATCH {
 impl Default for HWINWATCH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HWINWATCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HWINWATCH {}
-impl core::fmt::Debug for HWINWATCH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HWINWATCH").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HWINWATCH {

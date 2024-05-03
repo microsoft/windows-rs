@@ -873,7 +873,7 @@ impl Default for HCS_EVENT {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCS_OPERATION(pub isize);
 impl HCS_OPERATION {
     pub fn is_invalid(&self) -> bool {
@@ -892,22 +892,11 @@ impl Default for HCS_OPERATION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HCS_OPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HCS_OPERATION {}
-impl core::fmt::Debug for HCS_OPERATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HCS_OPERATION").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HCS_OPERATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCS_PROCESS(pub isize);
 impl HCS_PROCESS {
     pub fn is_invalid(&self) -> bool {
@@ -924,17 +913,6 @@ impl windows_core::Free for HCS_PROCESS {
 impl Default for HCS_PROCESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HCS_PROCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HCS_PROCESS {}
-impl core::fmt::Debug for HCS_PROCESS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HCS_PROCESS").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HCS_PROCESS {
@@ -974,7 +952,7 @@ impl Default for HCS_PROCESS_INFORMATION {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCS_SYSTEM(pub isize);
 impl HCS_SYSTEM {
     pub fn is_invalid(&self) -> bool {
@@ -991,17 +969,6 @@ impl windows_core::Free for HCS_SYSTEM {
 impl Default for HCS_SYSTEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HCS_SYSTEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HCS_SYSTEM {}
-impl core::fmt::Debug for HCS_SYSTEM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HCS_SYSTEM").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HCS_SYSTEM {

@@ -2431,7 +2431,7 @@ impl Default for BTH_SET_SERVICE {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HANDLE_SDP_TYPE(pub u64);
 impl HANDLE_SDP_TYPE {
     pub fn is_invalid(&self) -> bool {
@@ -2443,22 +2443,11 @@ impl Default for HANDLE_SDP_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HANDLE_SDP_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HANDLE_SDP_TYPE {}
-impl core::fmt::Debug for HANDLE_SDP_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HANDLE_SDP_TYPE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HANDLE_SDP_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HBLUETOOTH_DEVICE_FIND(pub isize);
 impl HBLUETOOTH_DEVICE_FIND {
     pub fn is_invalid(&self) -> bool {
@@ -2477,22 +2466,11 @@ impl Default for HBLUETOOTH_DEVICE_FIND {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HBLUETOOTH_DEVICE_FIND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HBLUETOOTH_DEVICE_FIND {}
-impl core::fmt::Debug for HBLUETOOTH_DEVICE_FIND {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HBLUETOOTH_DEVICE_FIND").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HBLUETOOTH_DEVICE_FIND {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HBLUETOOTH_RADIO_FIND(pub isize);
 impl HBLUETOOTH_RADIO_FIND {
     pub fn is_invalid(&self) -> bool {
@@ -2509,17 +2487,6 @@ impl windows_core::Free for HBLUETOOTH_RADIO_FIND {
 impl Default for HBLUETOOTH_RADIO_FIND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HBLUETOOTH_RADIO_FIND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HBLUETOOTH_RADIO_FIND {}
-impl core::fmt::Debug for HBLUETOOTH_RADIO_FIND {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HBLUETOOTH_RADIO_FIND").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HBLUETOOTH_RADIO_FIND {

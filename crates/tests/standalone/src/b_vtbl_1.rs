@@ -191,17 +191,12 @@ impl Clone for FUNCDESC {
 pub type FUNCFLAGS = u16;
 pub type FUNCKIND = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct GUID {
     pub data1: u32,
     pub data2: u16,
     pub data3: u16,
     pub data4: [u8; 8],
-}
-impl Copy for GUID {}
-impl Clone for GUID {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 impl GUID {
     pub const fn from_u128(uuid: u128) -> Self {

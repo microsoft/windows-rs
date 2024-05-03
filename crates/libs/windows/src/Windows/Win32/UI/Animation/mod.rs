@@ -1764,22 +1764,11 @@ pub const UIAnimationTransitionFactory2: windows_core::GUID = windows_core::GUID
 pub const UIAnimationTransitionLibrary: windows_core::GUID = windows_core::GUID::from_u128(0x1d6322ad_aa85_4ef5_a828_86d71067d145);
 pub const UIAnimationTransitionLibrary2: windows_core::GUID = windows_core::GUID::from_u128(0x812f944a_c5c8_4cd9_b0a6_b3da802f228d);
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct UI_ANIMATION_KEYFRAME(pub isize);
 impl Default for UI_ANIMATION_KEYFRAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for UI_ANIMATION_KEYFRAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for UI_ANIMATION_KEYFRAME {}
-impl core::fmt::Debug for UI_ANIMATION_KEYFRAME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UI_ANIMATION_KEYFRAME").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for UI_ANIMATION_KEYFRAME {

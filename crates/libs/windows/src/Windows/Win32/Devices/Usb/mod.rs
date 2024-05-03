@@ -2948,22 +2948,11 @@ impl Default for USB_BUS_STATISTICS_0 {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct USB_CHANGE_REGISTRATION_HANDLE(pub isize);
 impl Default for USB_CHANGE_REGISTRATION_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for USB_CHANGE_REGISTRATION_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for USB_CHANGE_REGISTRATION_HANDLE {}
-impl core::fmt::Debug for USB_CHANGE_REGISTRATION_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("USB_CHANGE_REGISTRATION_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for USB_CHANGE_REGISTRATION_HANDLE {
@@ -5961,7 +5950,7 @@ impl Default for USB_USB2HW_VERSION_PARAMETERS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WINUSB_INTERFACE_HANDLE(pub isize);
 impl WINUSB_INTERFACE_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -5978,17 +5967,6 @@ impl windows_core::Free for WINUSB_INTERFACE_HANDLE {
 impl Default for WINUSB_INTERFACE_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for WINUSB_INTERFACE_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WINUSB_INTERFACE_HANDLE {}
-impl core::fmt::Debug for WINUSB_INTERFACE_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WINUSB_INTERFACE_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for WINUSB_INTERFACE_HANDLE {

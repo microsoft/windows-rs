@@ -12592,572 +12592,286 @@ impl Default for GROUP_FAILURE_INFO_BUFFER {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCHANGE(pub isize);
 impl Default for HCHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HCHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HCHANGE {}
-impl core::fmt::Debug for HCHANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HCHANGE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HCHANGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCLUSCRYPTPROVIDER(pub isize);
 impl Default for HCLUSCRYPTPROVIDER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HCLUSCRYPTPROVIDER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HCLUSCRYPTPROVIDER {}
-impl core::fmt::Debug for HCLUSCRYPTPROVIDER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HCLUSCRYPTPROVIDER").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HCLUSCRYPTPROVIDER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCLUSENUM(pub isize);
 impl Default for HCLUSENUM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HCLUSENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HCLUSENUM {}
-impl core::fmt::Debug for HCLUSENUM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HCLUSENUM").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HCLUSENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCLUSENUMEX(pub isize);
 impl Default for HCLUSENUMEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HCLUSENUMEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HCLUSENUMEX {}
-impl core::fmt::Debug for HCLUSENUMEX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HCLUSENUMEX").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HCLUSENUMEX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCLUSTER(pub isize);
 impl Default for HCLUSTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HCLUSTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HCLUSTER {}
-impl core::fmt::Debug for HCLUSTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HCLUSTER").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HCLUSTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HGROUP(pub isize);
 impl Default for HGROUP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HGROUP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HGROUP {}
-impl core::fmt::Debug for HGROUP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HGROUP").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HGROUP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HGROUPENUM(pub isize);
 impl Default for HGROUPENUM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HGROUPENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HGROUPENUM {}
-impl core::fmt::Debug for HGROUPENUM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HGROUPENUM").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HGROUPENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HGROUPENUMEX(pub isize);
 impl Default for HGROUPENUMEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HGROUPENUMEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HGROUPENUMEX {}
-impl core::fmt::Debug for HGROUPENUMEX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HGROUPENUMEX").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HGROUPENUMEX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HGROUPSET(pub isize);
 impl Default for HGROUPSET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HGROUPSET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HGROUPSET {}
-impl core::fmt::Debug for HGROUPSET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HGROUPSET").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HGROUPSET {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HGROUPSETENUM(pub isize);
 impl Default for HGROUPSETENUM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HGROUPSETENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HGROUPSETENUM {}
-impl core::fmt::Debug for HGROUPSETENUM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HGROUPSETENUM").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HGROUPSETENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HNETINTERFACE(pub isize);
 impl Default for HNETINTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HNETINTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HNETINTERFACE {}
-impl core::fmt::Debug for HNETINTERFACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HNETINTERFACE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HNETINTERFACE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HNETINTERFACEENUM(pub isize);
 impl Default for HNETINTERFACEENUM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HNETINTERFACEENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HNETINTERFACEENUM {}
-impl core::fmt::Debug for HNETINTERFACEENUM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HNETINTERFACEENUM").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HNETINTERFACEENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HNETWORK(pub isize);
 impl Default for HNETWORK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HNETWORK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HNETWORK {}
-impl core::fmt::Debug for HNETWORK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HNETWORK").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HNETWORK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HNETWORKENUM(pub isize);
 impl Default for HNETWORKENUM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HNETWORKENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HNETWORKENUM {}
-impl core::fmt::Debug for HNETWORKENUM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HNETWORKENUM").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HNETWORKENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HNODE(pub isize);
 impl Default for HNODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HNODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HNODE {}
-impl core::fmt::Debug for HNODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HNODE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HNODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HNODEENUM(pub isize);
 impl Default for HNODEENUM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HNODEENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HNODEENUM {}
-impl core::fmt::Debug for HNODEENUM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HNODEENUM").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HNODEENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HNODEENUMEX(pub isize);
 impl Default for HNODEENUMEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HNODEENUMEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HNODEENUMEX {}
-impl core::fmt::Debug for HNODEENUMEX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HNODEENUMEX").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HNODEENUMEX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HREGBATCH(pub isize);
 impl Default for HREGBATCH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HREGBATCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HREGBATCH {}
-impl core::fmt::Debug for HREGBATCH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HREGBATCH").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HREGBATCH {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HREGBATCHNOTIFICATION(pub isize);
 impl Default for HREGBATCHNOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HREGBATCHNOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HREGBATCHNOTIFICATION {}
-impl core::fmt::Debug for HREGBATCHNOTIFICATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HREGBATCHNOTIFICATION").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HREGBATCHNOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HREGBATCHPORT(pub isize);
 impl Default for HREGBATCHPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HREGBATCHPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HREGBATCHPORT {}
-impl core::fmt::Debug for HREGBATCHPORT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HREGBATCHPORT").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HREGBATCHPORT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HREGREADBATCH(pub isize);
 impl Default for HREGREADBATCH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HREGREADBATCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HREGREADBATCH {}
-impl core::fmt::Debug for HREGREADBATCH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HREGREADBATCH").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HREGREADBATCH {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HREGREADBATCHREPLY(pub isize);
 impl Default for HREGREADBATCHREPLY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HREGREADBATCHREPLY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HREGREADBATCHREPLY {}
-impl core::fmt::Debug for HREGREADBATCHREPLY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HREGREADBATCHREPLY").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HREGREADBATCHREPLY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HRESENUM(pub isize);
 impl Default for HRESENUM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HRESENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HRESENUM {}
-impl core::fmt::Debug for HRESENUM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HRESENUM").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HRESENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HRESENUMEX(pub isize);
 impl Default for HRESENUMEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HRESENUMEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HRESENUMEX {}
-impl core::fmt::Debug for HRESENUMEX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HRESENUMEX").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HRESENUMEX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HRESOURCE(pub isize);
 impl Default for HRESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HRESOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HRESOURCE {}
-impl core::fmt::Debug for HRESOURCE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HRESOURCE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HRESOURCE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HRESTYPEENUM(pub isize);
 impl Default for HRESTYPEENUM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HRESTYPEENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HRESTYPEENUM {}
-impl core::fmt::Debug for HRESTYPEENUM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HRESTYPEENUM").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HRESTYPEENUM {

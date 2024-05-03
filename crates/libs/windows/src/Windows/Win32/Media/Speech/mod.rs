@@ -9486,7 +9486,7 @@ impl Default for SPEVENTSOURCEINFO {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SPGRAMMARHANDLE(pub isize);
 impl SPGRAMMARHANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -9496,17 +9496,6 @@ impl SPGRAMMARHANDLE {
 impl Default for SPGRAMMARHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for SPGRAMMARHANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for SPGRAMMARHANDLE {}
-impl core::fmt::Debug for SPGRAMMARHANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SPGRAMMARHANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for SPGRAMMARHANDLE {
@@ -9842,7 +9831,7 @@ impl Default for SPPHRASEPROPERTY_0_0 {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SPPHRASEPROPERTYHANDLE(pub isize);
 impl SPPHRASEPROPERTYHANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -9852,17 +9841,6 @@ impl SPPHRASEPROPERTYHANDLE {
 impl Default for SPPHRASEPROPERTYHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for SPPHRASEPROPERTYHANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for SPPHRASEPROPERTYHANDLE {}
-impl core::fmt::Debug for SPPHRASEPROPERTYHANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SPPHRASEPROPERTYHANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for SPPHRASEPROPERTYHANDLE {
@@ -9937,7 +9915,7 @@ impl Default for SPPHRASERULE {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SPPHRASERULEHANDLE(pub isize);
 impl SPPHRASERULEHANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -9947,17 +9925,6 @@ impl SPPHRASERULEHANDLE {
 impl Default for SPPHRASERULEHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for SPPHRASERULEHANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for SPPHRASERULEHANDLE {}
-impl core::fmt::Debug for SPPHRASERULEHANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SPPHRASERULEHANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for SPPHRASERULEHANDLE {
@@ -10058,7 +10025,7 @@ impl Default for SPPROPERTYINFO {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SPRECOCONTEXTHANDLE(pub isize);
 impl SPRECOCONTEXTHANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -10068,17 +10035,6 @@ impl SPRECOCONTEXTHANDLE {
 impl Default for SPRECOCONTEXTHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for SPRECOCONTEXTHANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for SPRECOCONTEXTHANDLE {}
-impl core::fmt::Debug for SPRECOCONTEXTHANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SPRECOCONTEXTHANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for SPRECOCONTEXTHANDLE {
@@ -10331,7 +10287,7 @@ impl Default for SPRULEENTRY {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SPRULEHANDLE(pub isize);
 impl SPRULEHANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -10341,17 +10297,6 @@ impl SPRULEHANDLE {
 impl Default for SPRULEHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for SPRULEHANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for SPRULEHANDLE {}
-impl core::fmt::Debug for SPRULEHANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SPRULEHANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for SPRULEHANDLE {
@@ -10579,7 +10524,7 @@ impl Default for SPSHORTCUTPAIRLIST {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SPSTATEHANDLE(pub isize);
 impl SPSTATEHANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -10589,17 +10534,6 @@ impl SPSTATEHANDLE {
 impl Default for SPSTATEHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for SPSTATEHANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for SPSTATEHANDLE {}
-impl core::fmt::Debug for SPSTATEHANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SPSTATEHANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for SPSTATEHANDLE {
@@ -10867,7 +10801,7 @@ impl Default for SPTRANSITIONENTRY_1_2 {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SPTRANSITIONID(pub isize);
 impl SPTRANSITIONID {
     pub fn is_invalid(&self) -> bool {
@@ -10877,17 +10811,6 @@ impl SPTRANSITIONID {
 impl Default for SPTRANSITIONID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for SPTRANSITIONID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for SPTRANSITIONID {}
-impl core::fmt::Debug for SPTRANSITIONID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SPTRANSITIONID").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for SPTRANSITIONID {
@@ -11181,7 +11104,7 @@ impl Default for SPWORDENTRY {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SPWORDHANDLE(pub isize);
 impl SPWORDHANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -11191,17 +11114,6 @@ impl SPWORDHANDLE {
 impl Default for SPWORDHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for SPWORDHANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for SPWORDHANDLE {}
-impl core::fmt::Debug for SPWORDHANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SPWORDHANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for SPWORDHANDLE {

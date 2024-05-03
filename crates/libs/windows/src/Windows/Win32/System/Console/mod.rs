@@ -1406,7 +1406,7 @@ impl Default for FOCUS_EVENT_RECORD {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPCON(pub isize);
 impl HPCON {
     pub fn is_invalid(&self) -> bool {
@@ -1423,17 +1423,6 @@ impl windows_core::Free for HPCON {
 impl Default for HPCON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HPCON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HPCON {}
-impl core::fmt::Debug for HPCON {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HPCON").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HPCON {

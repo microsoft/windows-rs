@@ -1990,7 +1990,7 @@ impl Default for DSKTLSYSTEMTIME {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HKEY(pub isize);
 impl HKEY {
     pub fn is_invalid(&self) -> bool {
@@ -2007,17 +2007,6 @@ impl windows_core::Free for HKEY {
 impl Default for HKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HKEY {}
-impl core::fmt::Debug for HKEY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HKEY").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HKEY {

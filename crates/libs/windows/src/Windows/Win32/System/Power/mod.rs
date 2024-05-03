@@ -2365,7 +2365,7 @@ impl Default for GLOBAL_USER_POWER_POLICY {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPOWERNOTIFY(pub isize);
 impl HPOWERNOTIFY {
     pub fn is_invalid(&self) -> bool {
@@ -2382,17 +2382,6 @@ impl windows_core::Free for HPOWERNOTIFY {
 impl Default for HPOWERNOTIFY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HPOWERNOTIFY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HPOWERNOTIFY {}
-impl core::fmt::Debug for HPOWERNOTIFY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HPOWERNOTIFY").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HPOWERNOTIFY {

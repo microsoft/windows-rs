@@ -34647,22 +34647,11 @@ impl Default for SECURE_DRIVER_INTERFACE {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SECURITY_CONTEXT_TRACKING_MODE(pub u8);
 impl Default for SECURITY_CONTEXT_TRACKING_MODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for SECURITY_CONTEXT_TRACKING_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for SECURITY_CONTEXT_TRACKING_MODE {}
-impl core::fmt::Debug for SECURITY_CONTEXT_TRACKING_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SECURITY_CONTEXT_TRACKING_MODE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for SECURITY_CONTEXT_TRACKING_MODE {

@@ -283,7 +283,7 @@ impl core::ops::Not for TIMECODE_SAMPLE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HTASK(pub isize);
 impl HTASK {
     pub fn is_invalid(&self) -> bool {
@@ -293,17 +293,6 @@ impl HTASK {
 impl Default for HTASK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HTASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HTASK {}
-impl core::fmt::Debug for HTASK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTASK").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HTASK {

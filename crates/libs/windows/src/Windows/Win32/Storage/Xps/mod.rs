@@ -5308,7 +5308,7 @@ impl Default for DRAWPATRECT {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPTPROVIDER(pub isize);
 impl HPTPROVIDER {
     pub fn is_invalid(&self) -> bool {
@@ -5318,17 +5318,6 @@ impl HPTPROVIDER {
 impl Default for HPTPROVIDER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HPTPROVIDER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HPTPROVIDER {}
-impl core::fmt::Debug for HPTPROVIDER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HPTPROVIDER").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HPTPROVIDER {

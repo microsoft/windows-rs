@@ -664,7 +664,7 @@ impl Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PRJ_DIR_ENTRY_BUFFER_HANDLE(pub isize);
 impl PRJ_DIR_ENTRY_BUFFER_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -674,17 +674,6 @@ impl PRJ_DIR_ENTRY_BUFFER_HANDLE {
 impl Default for PRJ_DIR_ENTRY_BUFFER_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for PRJ_DIR_ENTRY_BUFFER_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PRJ_DIR_ENTRY_BUFFER_HANDLE {}
-impl core::fmt::Debug for PRJ_DIR_ENTRY_BUFFER_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PRJ_DIR_ENTRY_BUFFER_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for PRJ_DIR_ENTRY_BUFFER_HANDLE {
@@ -793,7 +782,7 @@ impl Default for PRJ_FILE_BASIC_INFO {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT(pub isize);
 impl PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
     pub fn is_invalid(&self) -> bool {
@@ -803,17 +792,6 @@ impl PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
 impl Default for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {}
-impl core::fmt::Debug for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {

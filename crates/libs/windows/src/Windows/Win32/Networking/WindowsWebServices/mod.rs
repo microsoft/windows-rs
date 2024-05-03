@@ -4771,22 +4771,11 @@ impl Default for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WS_CHANNEL(pub isize);
 impl Default for WS_CHANNEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for WS_CHANNEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WS_CHANNEL {}
-impl core::fmt::Debug for WS_CHANNEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_CHANNEL").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for WS_CHANNEL {
@@ -5727,22 +5716,11 @@ impl Default for WS_ENUM_VALUE {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WS_ERROR(pub isize);
 impl Default for WS_ERROR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for WS_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WS_ERROR {}
-impl core::fmt::Debug for WS_ERROR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_ERROR").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for WS_ERROR {
@@ -6032,22 +6010,11 @@ impl Default for WS_GUID_DESCRIPTION {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WS_HEAP(pub isize);
 impl Default for WS_HEAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for WS_HEAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WS_HEAP {}
-impl core::fmt::Debug for WS_HEAP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_HEAP").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for WS_HEAP {
@@ -7259,22 +7226,11 @@ impl Default for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WS_LISTENER(pub isize);
 impl Default for WS_LISTENER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for WS_LISTENER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WS_LISTENER {}
-impl core::fmt::Debug for WS_LISTENER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_LISTENER").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for WS_LISTENER {
@@ -7342,22 +7298,11 @@ impl Default for WS_LISTENER_PROPERTY {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WS_MESSAGE(pub isize);
 impl Default for WS_MESSAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for WS_MESSAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WS_MESSAGE {}
-impl core::fmt::Debug for WS_MESSAGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_MESSAGE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for WS_MESSAGE {
@@ -7455,22 +7400,11 @@ impl Default for WS_MESSAGE_PROPERTY {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WS_METADATA(pub isize);
 impl Default for WS_METADATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for WS_METADATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WS_METADATA {}
-impl core::fmt::Debug for WS_METADATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_METADATA").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for WS_METADATA {
@@ -7743,22 +7677,11 @@ impl Default for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WS_OPERATION_CONTEXT(pub isize);
 impl Default for WS_OPERATION_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for WS_OPERATION_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WS_OPERATION_CONTEXT {}
-impl core::fmt::Debug for WS_OPERATION_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_OPERATION_CONTEXT").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for WS_OPERATION_CONTEXT {
@@ -7827,22 +7750,11 @@ impl Default for WS_PARAMETER_DESCRIPTION {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WS_POLICY(pub isize);
 impl Default for WS_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for WS_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WS_POLICY {}
-impl core::fmt::Debug for WS_POLICY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_POLICY").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for WS_POLICY {
@@ -8558,22 +8470,11 @@ impl Default for WS_SECURITY_CONSTRAINTS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WS_SECURITY_CONTEXT(pub isize);
 impl Default for WS_SECURITY_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for WS_SECURITY_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WS_SECURITY_CONTEXT {}
-impl core::fmt::Debug for WS_SECURITY_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SECURITY_CONTEXT").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for WS_SECURITY_CONTEXT {
@@ -8975,22 +8876,11 @@ impl Default for WS_SECURITY_PROPERTY_CONSTRAINT_0 {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WS_SECURITY_TOKEN(pub isize);
 impl Default for WS_SECURITY_TOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for WS_SECURITY_TOKEN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WS_SECURITY_TOKEN {}
-impl core::fmt::Debug for WS_SECURITY_TOKEN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SECURITY_TOKEN").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for WS_SECURITY_TOKEN {
@@ -9115,22 +9005,11 @@ impl Default for WS_SERVICE_ENDPOINT_PROPERTY {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WS_SERVICE_HOST(pub isize);
 impl Default for WS_SERVICE_HOST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for WS_SERVICE_HOST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WS_SERVICE_HOST {}
-impl core::fmt::Debug for WS_SERVICE_HOST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SERVICE_HOST").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for WS_SERVICE_HOST {
@@ -9276,22 +9155,11 @@ impl Default for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WS_SERVICE_PROXY(pub isize);
 impl Default for WS_SERVICE_PROXY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for WS_SERVICE_PROXY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WS_SERVICE_PROXY {}
-impl core::fmt::Debug for WS_SERVICE_PROXY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_SERVICE_PROXY").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for WS_SERVICE_PROXY {
@@ -11000,22 +10868,11 @@ impl Default for WS_XML_BOOL_TEXT {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WS_XML_BUFFER(pub isize);
 impl Default for WS_XML_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for WS_XML_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WS_XML_BUFFER {}
-impl core::fmt::Debug for WS_XML_BUFFER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_XML_BUFFER").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for WS_XML_BUFFER {
@@ -11594,22 +11451,11 @@ impl Default for WS_XML_QNAME_TEXT {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WS_XML_READER(pub isize);
 impl Default for WS_XML_READER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for WS_XML_READER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WS_XML_READER {}
-impl core::fmt::Debug for WS_XML_READER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_XML_READER").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for WS_XML_READER {
@@ -12249,22 +12095,11 @@ impl Default for WS_XML_UTF8_TEXT {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WS_XML_WRITER(pub isize);
 impl Default for WS_XML_WRITER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for WS_XML_WRITER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WS_XML_WRITER {}
-impl core::fmt::Debug for WS_XML_WRITER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WS_XML_WRITER").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for WS_XML_WRITER {

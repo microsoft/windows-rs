@@ -9652,7 +9652,7 @@ impl Default for HIGHCONTRASTW {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HUIAEVENT(pub isize);
 impl HUIAEVENT {
     pub fn is_invalid(&self) -> bool {
@@ -9664,22 +9664,11 @@ impl Default for HUIAEVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HUIAEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HUIAEVENT {}
-impl core::fmt::Debug for HUIAEVENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HUIAEVENT").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HUIAEVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HUIANODE(pub isize);
 impl HUIANODE {
     pub fn is_invalid(&self) -> bool {
@@ -9691,22 +9680,11 @@ impl Default for HUIANODE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HUIANODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HUIANODE {}
-impl core::fmt::Debug for HUIANODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HUIANODE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HUIANODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HUIAPATTERNOBJECT(pub isize);
 impl HUIAPATTERNOBJECT {
     pub fn is_invalid(&self) -> bool {
@@ -9718,22 +9696,11 @@ impl Default for HUIAPATTERNOBJECT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HUIAPATTERNOBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HUIAPATTERNOBJECT {}
-impl core::fmt::Debug for HUIAPATTERNOBJECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HUIAPATTERNOBJECT").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HUIAPATTERNOBJECT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HUIATEXTRANGE(pub isize);
 impl HUIATEXTRANGE {
     pub fn is_invalid(&self) -> bool {
@@ -9745,22 +9712,11 @@ impl Default for HUIATEXTRANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HUIATEXTRANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HUIATEXTRANGE {}
-impl core::fmt::Debug for HUIATEXTRANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HUIATEXTRANGE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HUIATEXTRANGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HWINEVENTHOOK(pub isize);
 impl HWINEVENTHOOK {
     pub fn is_invalid(&self) -> bool {
@@ -9777,17 +9733,6 @@ impl windows_core::Free for HWINEVENTHOOK {
 impl Default for HWINEVENTHOOK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HWINEVENTHOOK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HWINEVENTHOOK {}
-impl core::fmt::Debug for HWINEVENTHOOK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HWINEVENTHOOK").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HWINEVENTHOOK {

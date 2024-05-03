@@ -2492,22 +2492,11 @@ impl Default for FlagList {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPWABACTIONITEM(pub isize);
 impl Default for LPWABACTIONITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for LPWABACTIONITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for LPWABACTIONITEM {}
-impl core::fmt::Debug for LPWABACTIONITEM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LPWABACTIONITEM").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for LPWABACTIONITEM {

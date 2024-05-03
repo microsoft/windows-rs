@@ -8805,7 +8805,7 @@ impl Default for GUITHREADINFO {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HACCEL(pub isize);
 impl HACCEL {
     pub fn is_invalid(&self) -> bool {
@@ -8822,17 +8822,6 @@ impl windows_core::Free for HACCEL {
 impl Default for HACCEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HACCEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HACCEL {}
-impl core::fmt::Debug for HACCEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HACCEL").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HACCEL {
@@ -8871,7 +8860,7 @@ impl Default for HARDWAREHOOKSTRUCT {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCURSOR(pub isize);
 impl HCURSOR {
     pub fn is_invalid(&self) -> bool {
@@ -8890,17 +8879,6 @@ impl Default for HCURSOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HCURSOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HCURSOR {}
-impl core::fmt::Debug for HCURSOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HCURSOR").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HCURSOR {
     type TypeKind = windows_core::CopyType;
 }
@@ -8911,7 +8889,7 @@ impl From<HCURSOR> for HICON {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDEVNOTIFY(pub *mut core::ffi::c_void);
 impl HDEVNOTIFY {
     pub fn is_invalid(&self) -> bool {
@@ -8930,22 +8908,11 @@ impl Default for HDEVNOTIFY {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HDEVNOTIFY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HDEVNOTIFY {}
-impl core::fmt::Debug for HDEVNOTIFY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HDEVNOTIFY").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HDEVNOTIFY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDWP(pub isize);
 impl HDWP {
     pub fn is_invalid(&self) -> bool {
@@ -8957,22 +8924,11 @@ impl Default for HDWP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HDWP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HDWP {}
-impl core::fmt::Debug for HDWP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HDWP").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HDWP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HHOOK(pub isize);
 impl HHOOK {
     pub fn is_invalid(&self) -> bool {
@@ -8991,22 +8947,11 @@ impl Default for HHOOK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HHOOK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HHOOK {}
-impl core::fmt::Debug for HHOOK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HHOOK").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HHOOK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HICON(pub isize);
 impl HICON {
     pub fn is_invalid(&self) -> bool {
@@ -9025,22 +8970,11 @@ impl Default for HICON {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HICON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HICON {}
-impl core::fmt::Debug for HICON {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HICON").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HICON {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMENU(pub isize);
 impl HMENU {
     pub fn is_invalid(&self) -> bool {
@@ -9057,17 +8991,6 @@ impl windows_core::Free for HMENU {
 impl Default for HMENU {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HMENU {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HMENU {}
-impl core::fmt::Debug for HMENU {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HMENU").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HMENU {

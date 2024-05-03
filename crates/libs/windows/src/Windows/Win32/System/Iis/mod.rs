@@ -1945,7 +1945,7 @@ impl Default for EXTENSION_CONTROL_BLOCK {
 }
 pub const FtpProvider: windows_core::GUID = windows_core::GUID::from_u128(0x70bdc667_33b2_45f0_ac52_c3ca46f7a656);
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCONN(pub *mut core::ffi::c_void);
 impl HCONN {
     pub fn is_invalid(&self) -> bool {
@@ -1955,17 +1955,6 @@ impl HCONN {
 impl Default for HCONN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HCONN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HCONN {}
-impl core::fmt::Debug for HCONN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HCONN").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HCONN {

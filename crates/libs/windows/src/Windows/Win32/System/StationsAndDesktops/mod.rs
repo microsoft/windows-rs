@@ -464,7 +464,7 @@ impl Default for BSMINFO {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDESK(pub isize);
 impl HDESK {
     pub fn is_invalid(&self) -> bool {
@@ -483,22 +483,11 @@ impl Default for HDESK {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HDESK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HDESK {}
-impl core::fmt::Debug for HDESK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HDESK").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HDESK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HWINSTA(pub isize);
 impl HWINSTA {
     pub fn is_invalid(&self) -> bool {
@@ -515,17 +504,6 @@ impl windows_core::Free for HWINSTA {
 impl Default for HWINSTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HWINSTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HWINSTA {}
-impl core::fmt::Debug for HWINSTA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HWINSTA").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HWINSTA {

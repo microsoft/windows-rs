@@ -1595,7 +1595,7 @@ impl core::fmt::Debug for TrustLevel {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct APARTMENT_SHUTDOWN_REGISTRATION_COOKIE(pub isize);
 impl APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
     pub fn is_invalid(&self) -> bool {
@@ -1605,17 +1605,6 @@ impl APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
 impl Default for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {}
-impl core::fmt::Debug for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("APARTMENT_SHUTDOWN_REGISTRATION_COOKIE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
@@ -1682,7 +1671,7 @@ impl Default for EventRegistrationToken {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSTRING_BUFFER(pub isize);
 impl HSTRING_BUFFER {
     pub fn is_invalid(&self) -> bool {
@@ -1692,17 +1681,6 @@ impl HSTRING_BUFFER {
 impl Default for HSTRING_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HSTRING_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HSTRING_BUFFER {}
-impl core::fmt::Debug for HSTRING_BUFFER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HSTRING_BUFFER").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HSTRING_BUFFER {
@@ -1742,7 +1720,7 @@ impl Default for HSTRING_HEADER {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct ROPARAMIIDHANDLE(pub isize);
 impl ROPARAMIIDHANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -1754,37 +1732,15 @@ impl Default for ROPARAMIIDHANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for ROPARAMIIDHANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for ROPARAMIIDHANDLE {}
-impl core::fmt::Debug for ROPARAMIIDHANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ROPARAMIIDHANDLE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for ROPARAMIIDHANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct RO_REGISTRATION_COOKIE(pub isize);
 impl Default for RO_REGISTRATION_COOKIE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for RO_REGISTRATION_COOKIE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for RO_REGISTRATION_COOKIE {}
-impl core::fmt::Debug for RO_REGISTRATION_COOKIE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RO_REGISTRATION_COOKIE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for RO_REGISTRATION_COOKIE {

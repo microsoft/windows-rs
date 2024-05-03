@@ -1189,7 +1189,7 @@ impl Default for DDEUP {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCONV(pub isize);
 impl HCONV {
     pub fn is_invalid(&self) -> bool {
@@ -1201,22 +1201,11 @@ impl Default for HCONV {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HCONV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HCONV {}
-impl core::fmt::Debug for HCONV {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HCONV").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HCONV {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCONVLIST(pub isize);
 impl HCONVLIST {
     pub fn is_invalid(&self) -> bool {
@@ -1228,22 +1217,11 @@ impl Default for HCONVLIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HCONVLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HCONVLIST {}
-impl core::fmt::Debug for HCONVLIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HCONVLIST").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HCONVLIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDDEDATA(pub isize);
 impl HDDEDATA {
     pub fn is_invalid(&self) -> bool {
@@ -1255,22 +1233,11 @@ impl Default for HDDEDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HDDEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HDDEDATA {}
-impl core::fmt::Debug for HDDEDATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HDDEDATA").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HDDEDATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSZ(pub isize);
 impl HSZ {
     pub fn is_invalid(&self) -> bool {
@@ -1280,17 +1247,6 @@ impl HSZ {
 impl Default for HSZ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HSZ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HSZ {}
-impl core::fmt::Debug for HSZ {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HSZ").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HSZ {

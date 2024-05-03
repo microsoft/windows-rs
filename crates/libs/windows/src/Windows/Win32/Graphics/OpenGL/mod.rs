@@ -2981,66 +2981,33 @@ impl Default for EMRPIXELFORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GLUnurbs(pub isize);
 impl Default for GLUnurbs {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for GLUnurbs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for GLUnurbs {}
-impl core::fmt::Debug for GLUnurbs {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GLUnurbs").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for GLUnurbs {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GLUquadric(pub isize);
 impl Default for GLUquadric {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for GLUquadric {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for GLUquadric {}
-impl core::fmt::Debug for GLUquadric {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GLUquadric").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for GLUquadric {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct GLUtesselator(pub isize);
 impl Default for GLUtesselator {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for GLUtesselator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for GLUtesselator {}
-impl core::fmt::Debug for GLUtesselator {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GLUtesselator").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for GLUtesselator {
@@ -3080,7 +3047,7 @@ impl Default for GLYPHMETRICSFLOAT {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HGLRC(pub isize);
 impl HGLRC {
     pub fn is_invalid(&self) -> bool {
@@ -3097,17 +3064,6 @@ impl windows_core::Free for HGLRC {
 impl Default for HGLRC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HGLRC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HGLRC {}
-impl core::fmt::Debug for HGLRC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HGLRC").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HGLRC {

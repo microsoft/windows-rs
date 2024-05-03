@@ -351,22 +351,11 @@ impl Default for DEVPROPKEY {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct DEVPROP_BOOLEAN(pub u8);
 impl Default for DEVPROP_BOOLEAN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for DEVPROP_BOOLEAN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for DEVPROP_BOOLEAN {}
-impl core::fmt::Debug for DEVPROP_BOOLEAN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DEVPROP_BOOLEAN").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for DEVPROP_BOOLEAN {

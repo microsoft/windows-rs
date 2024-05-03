@@ -2413,22 +2413,11 @@ impl core::fmt::Debug for _PERSIST_SPROPSTORE_FLAGS {
 pub const InMemoryPropertyStore: windows_core::GUID = windows_core::GUID::from_u128(0x9a02e012_6303_4e1e_b9a1_630f802592c5);
 pub const InMemoryPropertyStoreMarshalByValue: windows_core::GUID = windows_core::GUID::from_u128(0xd4ca0e2d_6da7_4b75_a97c_5f306f0eaedc);
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCUSERIALIZEDPROPSTORAGE(pub isize);
 impl Default for PCUSERIALIZEDPROPSTORAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for PCUSERIALIZEDPROPSTORAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PCUSERIALIZEDPROPSTORAGE {}
-impl core::fmt::Debug for PCUSERIALIZEDPROPSTORAGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PCUSERIALIZEDPROPSTORAGE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for PCUSERIALIZEDPROPSTORAGE {
@@ -2495,22 +2484,11 @@ impl Default for PROPPRG {
 }
 pub const PropertySystem: windows_core::GUID = windows_core::GUID::from_u128(0xb8967f85_58ae_4f46_9fb2_5d7904798f4b);
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SERIALIZEDPROPSTORAGE(pub isize);
 impl Default for SERIALIZEDPROPSTORAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for SERIALIZEDPROPSTORAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for SERIALIZEDPROPSTORAGE {}
-impl core::fmt::Debug for SERIALIZEDPROPSTORAGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SERIALIZEDPROPSTORAGE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for SERIALIZEDPROPSTORAGE {

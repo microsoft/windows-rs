@@ -2584,7 +2584,7 @@ impl Default for FIXED_INFO_W2KSP1 {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HIFTIMESTAMPCHANGE(pub isize);
 impl HIFTIMESTAMPCHANGE {
     pub fn is_invalid(&self) -> bool {
@@ -2594,17 +2594,6 @@ impl HIFTIMESTAMPCHANGE {
 impl Default for HIFTIMESTAMPCHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HIFTIMESTAMPCHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HIFTIMESTAMPCHANGE {}
-impl core::fmt::Debug for HIFTIMESTAMPCHANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HIFTIMESTAMPCHANGE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HIFTIMESTAMPCHANGE {

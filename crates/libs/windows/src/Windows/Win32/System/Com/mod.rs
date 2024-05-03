@@ -6814,7 +6814,7 @@ impl Default for COSERVERINFO {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct CO_DEVICE_CATALOG_COOKIE(pub isize);
 impl CO_DEVICE_CATALOG_COOKIE {
     pub fn is_invalid(&self) -> bool {
@@ -6826,22 +6826,11 @@ impl Default for CO_DEVICE_CATALOG_COOKIE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for CO_DEVICE_CATALOG_COOKIE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for CO_DEVICE_CATALOG_COOKIE {}
-impl core::fmt::Debug for CO_DEVICE_CATALOG_COOKIE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CO_DEVICE_CATALOG_COOKIE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for CO_DEVICE_CATALOG_COOKIE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct CO_MTA_USAGE_COOKIE(pub isize);
 impl CO_MTA_USAGE_COOKIE {
     pub fn is_invalid(&self) -> bool {
@@ -6851,17 +6840,6 @@ impl CO_MTA_USAGE_COOKIE {
 impl Default for CO_MTA_USAGE_COOKIE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for CO_MTA_USAGE_COOKIE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for CO_MTA_USAGE_COOKIE {}
-impl core::fmt::Debug for CO_MTA_USAGE_COOKIE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CO_MTA_USAGE_COOKIE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for CO_MTA_USAGE_COOKIE {
@@ -7594,22 +7572,11 @@ impl Default for MULTI_QI {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct MachineGlobalObjectTableRegistrationToken(pub isize);
 impl Default for MachineGlobalObjectTableRegistrationToken {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for MachineGlobalObjectTableRegistrationToken {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for MachineGlobalObjectTableRegistrationToken {}
-impl core::fmt::Debug for MachineGlobalObjectTableRegistrationToken {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MachineGlobalObjectTableRegistrationToken").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for MachineGlobalObjectTableRegistrationToken {

@@ -4270,22 +4270,11 @@ impl Default for STORAGE_FIRMWARE_SLOT_INFO_V2 {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct _ADAPTER_OBJECT(pub isize);
 impl Default for _ADAPTER_OBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for _ADAPTER_OBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for _ADAPTER_OBJECT {}
-impl core::fmt::Debug for _ADAPTER_OBJECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("_ADAPTER_OBJECT").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for _ADAPTER_OBJECT {

@@ -10533,66 +10533,33 @@ impl Default for APP_LOCAL_DEVICE_ID {
 }
 #[must_use]
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct BOOL(pub i32);
 impl Default for BOOL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for BOOL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for BOOL {}
-impl core::fmt::Debug for BOOL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BOOL").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for BOOL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct BOOLEAN(pub u8);
 impl Default for BOOLEAN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for BOOLEAN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for BOOLEAN {}
-impl core::fmt::Debug for BOOLEAN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BOOLEAN").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for BOOLEAN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct COLORREF(pub u32);
 impl Default for COLORREF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for COLORREF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for COLORREF {}
-impl core::fmt::Debug for COLORREF {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("COLORREF").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for COLORREF {
@@ -10778,7 +10745,7 @@ impl Default for FLOAT128 {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HANDLE(pub isize);
 impl HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -10797,44 +10764,22 @@ impl Default for HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HANDLE {}
-impl core::fmt::Debug for HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HANDLE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HANDLE_PTR(pub usize);
 impl Default for HANDLE_PTR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HANDLE_PTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HANDLE_PTR {}
-impl core::fmt::Debug for HANDLE_PTR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HANDLE_PTR").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HANDLE_PTR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HGLOBAL(pub *mut core::ffi::c_void);
 impl HGLOBAL {
     pub fn is_invalid(&self) -> bool {
@@ -10853,22 +10798,11 @@ impl Default for HGLOBAL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HGLOBAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HGLOBAL {}
-impl core::fmt::Debug for HGLOBAL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HGLOBAL").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HGLOBAL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HINSTANCE(pub isize);
 impl HINSTANCE {
     pub fn is_invalid(&self) -> bool {
@@ -10887,17 +10821,6 @@ impl Default for HINSTANCE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HINSTANCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HINSTANCE {}
-impl core::fmt::Debug for HINSTANCE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HINSTANCE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HINSTANCE {
     type TypeKind = windows_core::CopyType;
 }
@@ -10908,7 +10831,7 @@ impl From<HINSTANCE> for HMODULE {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HLOCAL(pub *mut core::ffi::c_void);
 impl HLOCAL {
     pub fn is_invalid(&self) -> bool {
@@ -10927,44 +10850,22 @@ impl Default for HLOCAL {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HLOCAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HLOCAL {}
-impl core::fmt::Debug for HLOCAL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HLOCAL").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HLOCAL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HLSURF(pub isize);
 impl Default for HLSURF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HLSURF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HLSURF {}
-impl core::fmt::Debug for HLSURF {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HLSURF").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HLSURF {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMODULE(pub isize);
 impl HMODULE {
     pub fn is_invalid(&self) -> bool {
@@ -10983,17 +10884,6 @@ impl Default for HMODULE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HMODULE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HMODULE {}
-impl core::fmt::Debug for HMODULE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HMODULE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HMODULE {
     type TypeKind = windows_core::CopyType;
 }
@@ -11004,7 +10894,7 @@ impl From<HMODULE> for HINSTANCE {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HRSRC(pub isize);
 impl HRSRC {
     pub fn is_invalid(&self) -> bool {
@@ -11016,103 +10906,48 @@ impl Default for HRSRC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HRSRC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HRSRC {}
-impl core::fmt::Debug for HRSRC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HRSRC").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HRSRC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSPRITE(pub isize);
 impl Default for HSPRITE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HSPRITE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HSPRITE {}
-impl core::fmt::Debug for HSPRITE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HSPRITE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HSPRITE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSTR(pub isize);
 impl Default for HSTR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HSTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HSTR {}
-impl core::fmt::Debug for HSTR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HSTR").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HSTR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HUMPD(pub isize);
 impl Default for HUMPD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HUMPD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HUMPD {}
-impl core::fmt::Debug for HUMPD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HUMPD").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HUMPD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HWND(pub isize);
 impl Default for HWND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HWND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HWND {}
-impl core::fmt::Debug for HWND {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HWND").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HWND {
@@ -11125,44 +10960,22 @@ impl From<HWND> for HANDLE {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPARAM(pub isize);
 impl Default for LPARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for LPARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for LPARAM {}
-impl core::fmt::Debug for LPARAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LPARAM").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for LPARAM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LRESULT(pub isize);
 impl Default for LRESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for LRESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for LRESULT {}
-impl core::fmt::Debug for LRESULT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LRESULT").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for LRESULT {
@@ -11200,22 +11013,11 @@ impl Default for LUID {
 }
 #[must_use]
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NTSTATUS(pub i32);
 impl Default for NTSTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for NTSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for NTSTATUS {}
-impl core::fmt::Debug for NTSTATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NTSTATUS").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for NTSTATUS {
@@ -11312,7 +11114,7 @@ impl Default for POINTS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSID(pub *mut core::ffi::c_void);
 impl PSID {
     pub fn is_invalid(&self) -> bool {
@@ -11322,17 +11124,6 @@ impl PSID {
 impl Default for PSID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for PSID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PSID {}
-impl core::fmt::Debug for PSID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PSID").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for PSID {
@@ -11403,22 +11194,11 @@ impl Default for RECTL {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SHANDLE_PTR(pub isize);
 impl Default for SHANDLE_PTR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for SHANDLE_PTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for SHANDLE_PTR {}
-impl core::fmt::Debug for SHANDLE_PTR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SHANDLE_PTR").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for SHANDLE_PTR {
@@ -11522,44 +11302,22 @@ impl Default for UNICODE_STRING {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct VARIANT_BOOL(pub i16);
 impl Default for VARIANT_BOOL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for VARIANT_BOOL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for VARIANT_BOOL {}
-impl core::fmt::Debug for VARIANT_BOOL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VARIANT_BOOL").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for VARIANT_BOOL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WPARAM(pub usize);
 impl Default for WPARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for WPARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for WPARAM {}
-impl core::fmt::Debug for WPARAM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WPARAM").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for WPARAM {

@@ -8017,22 +8017,11 @@ impl Default for MOUSE_UNIT_ID_PARAMETER {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHIDP_PREPARSED_DATA(pub isize);
 impl Default for PHIDP_PREPARSED_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for PHIDP_PREPARSED_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PHIDP_PREPARSED_DATA {}
-impl core::fmt::Debug for PHIDP_PREPARSED_DATA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PHIDP_PREPARSED_DATA").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for PHIDP_PREPARSED_DATA {

@@ -6794,7 +6794,7 @@ pub const AccServerDocMgr: windows_core::GUID = windows_core::GUID::from_u128(0x
 pub const AccStore: windows_core::GUID = windows_core::GUID::from_u128(0x5440837f_4bff_4ae5_a1b1_7722ecc6332a);
 pub const DocWrap: windows_core::GUID = windows_core::GUID::from_u128(0xbf426f7e_7a5e_44d6_830c_a390ea9462a3);
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HKL(pub isize);
 impl HKL {
     pub fn is_invalid(&self) -> bool {
@@ -6804,17 +6804,6 @@ impl HKL {
 impl Default for HKL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HKL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HKL {}
-impl core::fmt::Debug for HKL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HKL").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HKL {

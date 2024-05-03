@@ -4147,22 +4147,11 @@ pub const AppxFactory: windows_core::GUID = windows_core::GUID::from_u128(0x5842
 pub const AppxPackageEditor: windows_core::GUID = windows_core::GUID::from_u128(0xf004f2ca_aebc_4b0d_bf58_e516d5bcc0ab);
 pub const AppxPackagingDiagnosticEventSinkManager: windows_core::GUID = windows_core::GUID::from_u128(0x50ca0a46_1588_4161_8ed2_ef9e469ced5d);
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PACKAGEDEPENDENCY_CONTEXT(pub isize);
 impl Default for PACKAGEDEPENDENCY_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for PACKAGEDEPENDENCY_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PACKAGEDEPENDENCY_CONTEXT {}
-impl core::fmt::Debug for PACKAGEDEPENDENCY_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PACKAGEDEPENDENCY_CONTEXT").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for PACKAGEDEPENDENCY_CONTEXT {
@@ -4352,22 +4341,11 @@ impl Default for PACKAGE_VERSION_0_0 {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE(pub isize);
 impl Default for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE {}
-impl core::fmt::Debug for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE {

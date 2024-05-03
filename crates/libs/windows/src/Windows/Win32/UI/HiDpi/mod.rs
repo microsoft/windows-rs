@@ -375,7 +375,7 @@ impl core::fmt::Debug for PROCESS_DPI_AWARENESS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct DPI_AWARENESS_CONTEXT(pub isize);
 impl DPI_AWARENESS_CONTEXT {
     pub fn is_invalid(&self) -> bool {
@@ -385,17 +385,6 @@ impl DPI_AWARENESS_CONTEXT {
 impl Default for DPI_AWARENESS_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for DPI_AWARENESS_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for DPI_AWARENESS_CONTEXT {}
-impl core::fmt::Debug for DPI_AWARENESS_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DPI_AWARENESS_CONTEXT").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for DPI_AWARENESS_CONTEXT {

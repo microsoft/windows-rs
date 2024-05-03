@@ -10661,7 +10661,7 @@ impl Default for HANDLETABLE {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HBITMAP(pub isize);
 impl HBITMAP {
     pub fn is_invalid(&self) -> bool {
@@ -10680,17 +10680,6 @@ impl Default for HBITMAP {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HBITMAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HBITMAP {}
-impl core::fmt::Debug for HBITMAP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HBITMAP").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HBITMAP {
     type TypeKind = windows_core::CopyType;
 }
@@ -10701,7 +10690,7 @@ impl From<HBITMAP> for HGDIOBJ {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HBRUSH(pub isize);
 impl HBRUSH {
     pub fn is_invalid(&self) -> bool {
@@ -10720,17 +10709,6 @@ impl Default for HBRUSH {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HBRUSH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HBRUSH {}
-impl core::fmt::Debug for HBRUSH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HBRUSH").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HBRUSH {
     type TypeKind = windows_core::CopyType;
 }
@@ -10741,7 +10719,7 @@ impl From<HBRUSH> for HGDIOBJ {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDC(pub isize);
 impl HDC {
     pub fn is_invalid(&self) -> bool {
@@ -10753,22 +10731,11 @@ impl Default for HDC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HDC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HDC {}
-impl core::fmt::Debug for HDC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HDC").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HDC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HENHMETAFILE(pub isize);
 impl HENHMETAFILE {
     pub fn is_invalid(&self) -> bool {
@@ -10787,22 +10754,11 @@ impl Default for HENHMETAFILE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HENHMETAFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HENHMETAFILE {}
-impl core::fmt::Debug for HENHMETAFILE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HENHMETAFILE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HENHMETAFILE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HFONT(pub isize);
 impl HFONT {
     pub fn is_invalid(&self) -> bool {
@@ -10821,17 +10777,6 @@ impl Default for HFONT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HFONT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HFONT {}
-impl core::fmt::Debug for HFONT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HFONT").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HFONT {
     type TypeKind = windows_core::CopyType;
 }
@@ -10842,7 +10787,7 @@ impl From<HFONT> for HGDIOBJ {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HGDIOBJ(pub isize);
 impl HGDIOBJ {
     pub fn is_invalid(&self) -> bool {
@@ -10854,22 +10799,11 @@ impl Default for HGDIOBJ {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HGDIOBJ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HGDIOBJ {}
-impl core::fmt::Debug for HGDIOBJ {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HGDIOBJ").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HGDIOBJ {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMETAFILE(pub isize);
 impl HMETAFILE {
     pub fn is_invalid(&self) -> bool {
@@ -10888,22 +10822,11 @@ impl Default for HMETAFILE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HMETAFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HMETAFILE {}
-impl core::fmt::Debug for HMETAFILE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HMETAFILE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HMETAFILE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMONITOR(pub isize);
 impl HMONITOR {
     pub fn is_invalid(&self) -> bool {
@@ -10915,22 +10838,11 @@ impl Default for HMONITOR {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HMONITOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HMONITOR {}
-impl core::fmt::Debug for HMONITOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HMONITOR").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HMONITOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPALETTE(pub isize);
 impl HPALETTE {
     pub fn is_invalid(&self) -> bool {
@@ -10949,17 +10861,6 @@ impl Default for HPALETTE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HPALETTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HPALETTE {}
-impl core::fmt::Debug for HPALETTE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HPALETTE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HPALETTE {
     type TypeKind = windows_core::CopyType;
 }
@@ -10970,7 +10871,7 @@ impl From<HPALETTE> for HGDIOBJ {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPEN(pub isize);
 impl HPEN {
     pub fn is_invalid(&self) -> bool {
@@ -10989,17 +10890,6 @@ impl Default for HPEN {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HPEN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HPEN {}
-impl core::fmt::Debug for HPEN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HPEN").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HPEN {
     type TypeKind = windows_core::CopyType;
 }
@@ -11010,7 +10900,7 @@ impl From<HPEN> for HGDIOBJ {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HRGN(pub isize);
 impl HRGN {
     pub fn is_invalid(&self) -> bool {
@@ -11027,17 +10917,6 @@ impl windows_core::Free for HRGN {
 impl Default for HRGN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HRGN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HRGN {}
-impl core::fmt::Debug for HRGN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HRGN").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HRGN {

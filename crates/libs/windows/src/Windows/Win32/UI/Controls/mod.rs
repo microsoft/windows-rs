@@ -12465,7 +12465,7 @@ impl Default for HDLAYOUT {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDPA(pub isize);
 impl HDPA {
     pub fn is_invalid(&self) -> bool {
@@ -12477,22 +12477,11 @@ impl Default for HDPA {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HDPA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HDPA {}
-impl core::fmt::Debug for HDPA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HDPA").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HDPA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDSA(pub isize);
 impl HDSA {
     pub fn is_invalid(&self) -> bool {
@@ -12502,17 +12491,6 @@ impl HDSA {
 impl Default for HDSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HDSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HDSA {}
-impl core::fmt::Debug for HDSA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HDSA").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HDSA {
@@ -12579,7 +12557,7 @@ impl Default for HD_TEXTFILTERW {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HIMAGELIST(pub isize);
 impl HIMAGELIST {
     pub fn is_invalid(&self) -> bool {
@@ -12598,22 +12576,11 @@ impl Default for HIMAGELIST {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HIMAGELIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HIMAGELIST {}
-impl core::fmt::Debug for HIMAGELIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HIMAGELIST").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HIMAGELIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPROPSHEETPAGE(pub isize);
 impl HPROPSHEETPAGE {
     pub fn is_invalid(&self) -> bool {
@@ -12632,22 +12599,11 @@ impl Default for HPROPSHEETPAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HPROPSHEETPAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HPROPSHEETPAGE {}
-impl core::fmt::Debug for HPROPSHEETPAGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HPROPSHEETPAGE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HPROPSHEETPAGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSYNTHETICPOINTERDEVICE(pub isize);
 impl HSYNTHETICPOINTERDEVICE {
     pub fn is_invalid(&self) -> bool {
@@ -12659,22 +12615,11 @@ impl Default for HSYNTHETICPOINTERDEVICE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HSYNTHETICPOINTERDEVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HSYNTHETICPOINTERDEVICE {}
-impl core::fmt::Debug for HSYNTHETICPOINTERDEVICE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HSYNTHETICPOINTERDEVICE").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HSYNTHETICPOINTERDEVICE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HTHEME(pub isize);
 impl HTHEME {
     pub fn is_invalid(&self) -> bool {
@@ -12693,37 +12638,15 @@ impl Default for HTHEME {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HTHEME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HTHEME {}
-impl core::fmt::Debug for HTHEME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTHEME").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HTHEME {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HTREEITEM(pub isize);
 impl Default for HTREEITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HTREEITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HTREEITEM {}
-impl core::fmt::Debug for HTREEITEM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTREEITEM").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HTREEITEM {

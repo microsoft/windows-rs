@@ -761,7 +761,7 @@ impl Default for GESTURENOTIFYSTRUCT {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HGESTUREINFO(pub isize);
 impl HGESTUREINFO {
     pub fn is_invalid(&self) -> bool {
@@ -773,22 +773,11 @@ impl Default for HGESTUREINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl Clone for HGESTUREINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HGESTUREINFO {}
-impl core::fmt::Debug for HGESTUREINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HGESTUREINFO").field(&self.0).finish()
-    }
-}
 impl windows_core::TypeKind for HGESTUREINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HTOUCHINPUT(pub isize);
 impl HTOUCHINPUT {
     pub fn is_invalid(&self) -> bool {
@@ -798,17 +787,6 @@ impl HTOUCHINPUT {
 impl Default for HTOUCHINPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
-    }
-}
-impl Clone for HTOUCHINPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl Copy for HTOUCHINPUT {}
-impl core::fmt::Debug for HTOUCHINPUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTOUCHINPUT").field(&self.0).finish()
     }
 }
 impl windows_core::TypeKind for HTOUCHINPUT {
