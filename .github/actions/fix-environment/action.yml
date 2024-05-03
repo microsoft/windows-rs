@@ -20,13 +20,9 @@ runs:
       run: |
         switch -Wildcard ("${{ matrix.target }}")
         {
-          "i686-pc-windows-gnu"
+          "*-pc-windows-gnu"
           {
-            "C:\msys64\mingw32\bin" >> $env:GITHUB_PATH
-          }
-          "x86_64-pc-windows-gnu"
-          {
-            "C:\msys64\mingw64\bin" >> $env:GITHUB_PATH
+            "C:\msys64\mingw64\bin;C:\msys64\mingw32\bin" >> $env:GITHUB_PATH
           }
           "i686*"
           {
