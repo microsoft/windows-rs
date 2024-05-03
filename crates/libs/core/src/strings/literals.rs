@@ -41,6 +41,7 @@ macro_rules! h {
     ($s:literal) => {{
         const INPUT: &[u8] = $s.as_bytes();
         const OUTPUT_LEN: usize = $crate::utf16_len(INPUT) + 1;
+        #[allow(clippy::declare_interior_mutable_const)]
         const RESULT: $crate::HSTRING = {
             if OUTPUT_LEN == 1 {
                 unsafe { ::std::mem::transmute(::std::ptr::null::<u16>()) }
@@ -51,6 +52,7 @@ macro_rules! h {
                 unsafe { ::std::mem::transmute::<&$crate::HSTRING_HEADER, $crate::HSTRING>(&HEADER) }
             }
         };
+        #[allow(clippy::borrow_interior_mutable_const)]
         &RESULT
     }};
 }
