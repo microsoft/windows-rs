@@ -10,6 +10,7 @@
     Windows
     !Windows.AI.MachineLearning.Preview
     !Windows.ApplicationModel.SocialInfo
+    !Windows.ApplicationModel.Store
     !Windows.Devices.AllJoyn
     !Windows.Devices.Perception
     !Windows.Security.Authentication.Identity.Provider

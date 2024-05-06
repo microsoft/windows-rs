@@ -2103,71 +2103,6 @@ pub type KMTUMDVERSION = i32;
 pub type KMT_DISPLAY_UMD_VERSION = i32;
 pub type OUTPUTDUPL_CONTEXT_DEBUG_STATUS = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DCAPS8 {
-    pub DeviceType: super::super::super::Win32::Graphics::Direct3D9::D3DDEVTYPE,
-    pub AdapterOrdinal: u32,
-    pub Caps: u32,
-    pub Caps2: u32,
-    pub Caps3: u32,
-    pub PresentationIntervals: u32,
-    pub CursorCaps: u32,
-    pub DevCaps: u32,
-    pub PrimitiveMiscCaps: u32,
-    pub RasterCaps: u32,
-    pub ZCmpCaps: u32,
-    pub SrcBlendCaps: u32,
-    pub DestBlendCaps: u32,
-    pub AlphaCmpCaps: u32,
-    pub ShadeCaps: u32,
-    pub TextureCaps: u32,
-    pub TextureFilterCaps: u32,
-    pub CubeTextureFilterCaps: u32,
-    pub VolumeTextureFilterCaps: u32,
-    pub TextureAddressCaps: u32,
-    pub VolumeTextureAddressCaps: u32,
-    pub LineCaps: u32,
-    pub MaxTextureWidth: u32,
-    pub MaxTextureHeight: u32,
-    pub MaxVolumeExtent: u32,
-    pub MaxTextureRepeat: u32,
-    pub MaxTextureAspectRatio: u32,
-    pub MaxAnisotropy: u32,
-    pub MaxVertexW: f32,
-    pub GuardBandLeft: f32,
-    pub GuardBandTop: f32,
-    pub GuardBandRight: f32,
-    pub GuardBandBottom: f32,
-    pub ExtentsAdjust: f32,
-    pub StencilCaps: u32,
-    pub FVFCaps: u32,
-    pub TextureOpCaps: u32,
-    pub MaxTextureBlendStages: u32,
-    pub MaxSimultaneousTextures: u32,
-    pub VertexProcessingCaps: u32,
-    pub MaxActiveLights: u32,
-    pub MaxUserClipPlanes: u32,
-    pub MaxVertexBlendMatrices: u32,
-    pub MaxVertexBlendMatrixIndex: u32,
-    pub MaxPointSize: f32,
-    pub MaxPrimitiveCount: u32,
-    pub MaxVertexIndex: u32,
-    pub MaxStreams: u32,
-    pub MaxStreamStride: u32,
-    pub VertexShaderVersion: u32,
-    pub MaxVertexShaderConst: u32,
-    pub PixelShaderVersion: u32,
-    pub MaxPixelShaderValue: f32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DCAPS8 {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DCAPS8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 pub struct D3DDDIARG_CREATERESOURCE {
     pub Format: D3DDDIFORMAT,
     pub Pool: D3DDDI_POOL,
@@ -3645,110 +3580,6 @@ impl Clone for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0_0 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DDEVICEDESC_V1 {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dcmColorModel: u32,
-    pub dwDevCaps: u32,
-    pub dtcTransformCaps: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMCAPS,
-    pub bClipping: super::super::super::Win32::Foundation::BOOL,
-    pub dlcLightingCaps: super::super::super::Win32::Graphics::Direct3D9::D3DLIGHTINGCAPS,
-    pub dpcLineCaps: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMCAPS,
-    pub dpcTriCaps: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMCAPS,
-    pub dwDeviceRenderBitDepth: u32,
-    pub dwDeviceZBufferBitDepth: u32,
-    pub dwMaxBufferSize: u32,
-    pub dwMaxVertexCount: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DDEVICEDESC_V1 {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DDEVICEDESC_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DDEVICEDESC_V2 {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dcmColorModel: u32,
-    pub dwDevCaps: u32,
-    pub dtcTransformCaps: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMCAPS,
-    pub bClipping: super::super::super::Win32::Foundation::BOOL,
-    pub dlcLightingCaps: super::super::super::Win32::Graphics::Direct3D9::D3DLIGHTINGCAPS,
-    pub dpcLineCaps: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMCAPS,
-    pub dpcTriCaps: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMCAPS,
-    pub dwDeviceRenderBitDepth: u32,
-    pub dwDeviceZBufferBitDepth: u32,
-    pub dwMaxBufferSize: u32,
-    pub dwMaxVertexCount: u32,
-    pub dwMinTextureWidth: u32,
-    pub dwMinTextureHeight: u32,
-    pub dwMaxTextureWidth: u32,
-    pub dwMaxTextureHeight: u32,
-    pub dwMinStippleWidth: u32,
-    pub dwMaxStippleWidth: u32,
-    pub dwMinStippleHeight: u32,
-    pub dwMaxStippleHeight: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DDEVICEDESC_V2 {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DDEVICEDESC_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DDEVICEDESC_V3 {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dcmColorModel: u32,
-    pub dwDevCaps: u32,
-    pub dtcTransformCaps: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMCAPS,
-    pub bClipping: super::super::super::Win32::Foundation::BOOL,
-    pub dlcLightingCaps: super::super::super::Win32::Graphics::Direct3D9::D3DLIGHTINGCAPS,
-    pub dpcLineCaps: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMCAPS,
-    pub dpcTriCaps: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMCAPS,
-    pub dwDeviceRenderBitDepth: u32,
-    pub dwDeviceZBufferBitDepth: u32,
-    pub dwMaxBufferSize: u32,
-    pub dwMaxVertexCount: u32,
-    pub dwMinTextureWidth: u32,
-    pub dwMinTextureHeight: u32,
-    pub dwMaxTextureWidth: u32,
-    pub dwMaxTextureHeight: u32,
-    pub dwMinStippleWidth: u32,
-    pub dwMaxStippleWidth: u32,
-    pub dwMinStippleHeight: u32,
-    pub dwMaxStippleHeight: u32,
-    pub dwMaxTextureRepeat: u32,
-    pub dwMaxTextureAspectRatio: u32,
-    pub dwMaxAnisotropy: u32,
-    pub dvGuardBandLeft: f32,
-    pub dvGuardBandTop: f32,
-    pub dvGuardBandRight: f32,
-    pub dvGuardBandBottom: f32,
-    pub dvExtentsAdjust: f32,
-    pub dwStencilCaps: u32,
-    pub dwFVFCaps: u32,
-    pub dwTextureOpCaps: u32,
-    pub wMaxTextureBlendStages: u16,
-    pub wMaxSimultaneousTextures: u16,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DDEVICEDESC_V3 {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DDEVICEDESC_V3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 pub struct D3DGPU_PHYSICAL_ADDRESS {
     pub SegmentId: u32,
     pub Padding: u32,
@@ -3761,129 +3592,6 @@ impl Clone for D3DGPU_PHYSICAL_ADDRESS {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub struct D3DHAL_CALLBACKS {
-    pub dwSize: u32,
-    pub ContextCreate: LPD3DHAL_CONTEXTCREATECB,
-    pub ContextDestroy: LPD3DHAL_CONTEXTDESTROYCB,
-    pub ContextDestroyAll: LPD3DHAL_CONTEXTDESTROYALLCB,
-    pub SceneCapture: LPD3DHAL_SCENECAPTURECB,
-    pub lpReserved10: *mut core::ffi::c_void,
-    pub lpReserved11: *mut core::ffi::c_void,
-    pub RenderState: LPD3DHAL_RENDERSTATECB,
-    pub RenderPrimitive: LPD3DHAL_RENDERPRIMITIVECB,
-    pub dwReserved: u32,
-    pub TextureCreate: LPD3DHAL_TEXTURECREATECB,
-    pub TextureDestroy: LPD3DHAL_TEXTUREDESTROYCB,
-    pub TextureSwap: LPD3DHAL_TEXTURESWAPCB,
-    pub TextureGetSurf: LPD3DHAL_TEXTUREGETSURFCB,
-    pub lpReserved12: *mut core::ffi::c_void,
-    pub lpReserved13: *mut core::ffi::c_void,
-    pub lpReserved14: *mut core::ffi::c_void,
-    pub lpReserved15: *mut core::ffi::c_void,
-    pub lpReserved16: *mut core::ffi::c_void,
-    pub lpReserved17: *mut core::ffi::c_void,
-    pub lpReserved18: *mut core::ffi::c_void,
-    pub lpReserved19: *mut core::ffi::c_void,
-    pub lpReserved20: *mut core::ffi::c_void,
-    pub lpReserved21: *mut core::ffi::c_void,
-    pub GetState: LPD3DHAL_GETSTATECB,
-    pub dwReserved0: u32,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-    pub dwReserved3: u32,
-    pub dwReserved4: u32,
-    pub dwReserved5: u32,
-    pub dwReserved6: u32,
-    pub dwReserved7: u32,
-    pub dwReserved8: u32,
-    pub dwReserved9: u32,
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Copy for D3DHAL_CALLBACKS {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Clone for D3DHAL_CALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub struct D3DHAL_CALLBACKS2 {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub SetRenderTarget: LPD3DHAL_SETRENDERTARGETCB,
-    pub Clear: LPD3DHAL_CLEARCB,
-    pub DrawOnePrimitive: LPD3DHAL_DRAWONEPRIMITIVECB,
-    pub DrawOneIndexedPrimitive: LPD3DHAL_DRAWONEINDEXEDPRIMITIVECB,
-    pub DrawPrimitives: LPD3DHAL_DRAWPRIMITIVESCB,
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Copy for D3DHAL_CALLBACKS2 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Clone for D3DHAL_CALLBACKS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub struct D3DHAL_CALLBACKS3 {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub Clear2: LPD3DHAL_CLEAR2CB,
-    pub lpvReserved: *mut core::ffi::c_void,
-    pub ValidateTextureStageState: LPD3DHAL_VALIDATETEXTURESTAGESTATECB,
-    pub DrawPrimitives2: LPD3DHAL_DRAWPRIMITIVES2CB,
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Copy for D3DHAL_CALLBACKS3 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Clone for D3DHAL_CALLBACKS3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DHAL_CLEAR2DATA {
-    pub dwhContext: usize,
-    pub dwFlags: u32,
-    pub dwFillColor: u32,
-    pub dvFillDepth: f32,
-    pub dwFillStencil: u32,
-    pub lpRects: *mut super::super::super::Win32::Graphics::Direct3D9::D3DRECT,
-    pub dwNumRects: u32,
-    pub ddrval: windows_sys::core::HRESULT,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DHAL_CLEAR2DATA {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DHAL_CLEAR2DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DHAL_CLEARDATA {
-    pub dwhContext: usize,
-    pub dwFlags: u32,
-    pub dwFillColor: u32,
-    pub dwFillDepth: u32,
-    pub lpRects: *mut super::super::super::Win32::Graphics::Direct3D9::D3DRECT,
-    pub dwNumRects: u32,
-    pub ddrval: windows_sys::core::HRESULT,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DHAL_CLEARDATA {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DHAL_CLEARDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 pub struct D3DHAL_CLIPPEDTRIANGLEFAN {
     pub FirstVertexOffset: u32,
     pub dwEdgeFlags: u32,
@@ -3891,80 +3599,6 @@ pub struct D3DHAL_CLIPPEDTRIANGLEFAN {
 }
 impl Copy for D3DHAL_CLIPPEDTRIANGLEFAN {}
 impl Clone for D3DHAL_CLIPPEDTRIANGLEFAN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub struct D3DHAL_CONTEXTCREATEDATA {
-    pub Anonymous1: D3DHAL_CONTEXTCREATEDATA_0,
-    pub Anonymous2: D3DHAL_CONTEXTCREATEDATA_1,
-    pub Anonymous3: D3DHAL_CONTEXTCREATEDATA_2,
-    pub Anonymous4: D3DHAL_CONTEXTCREATEDATA_3,
-    pub dwhContext: usize,
-    pub ddrval: windows_sys::core::HRESULT,
-}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Copy for D3DHAL_CONTEXTCREATEDATA {}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Clone for D3DHAL_CONTEXTCREATEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub union D3DHAL_CONTEXTCREATEDATA_0 {
-    pub lpDDGbl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DIRECTDRAW_GBL,
-    pub lpDDLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DIRECTDRAW_LCL,
-}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Copy for D3DHAL_CONTEXTCREATEDATA_0 {}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Clone for D3DHAL_CONTEXTCREATEDATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub union D3DHAL_CONTEXTCREATEDATA_1 {
-    pub lpDDS: *mut core::ffi::c_void,
-    pub lpDDSLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
-}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Copy for D3DHAL_CONTEXTCREATEDATA_1 {}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Clone for D3DHAL_CONTEXTCREATEDATA_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub union D3DHAL_CONTEXTCREATEDATA_2 {
-    pub lpDDSZ: *mut core::ffi::c_void,
-    pub lpDDSZLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
-}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Copy for D3DHAL_CONTEXTCREATEDATA_2 {}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Clone for D3DHAL_CONTEXTCREATEDATA_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub union D3DHAL_CONTEXTCREATEDATA_3 {
-    pub dwPID: u32,
-    pub dwrstates: usize,
-}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Copy for D3DHAL_CONTEXTCREATEDATA_3 {}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Clone for D3DHAL_CONTEXTCREATEDATA_3 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4063,20 +3697,6 @@ impl Clone for D3DHAL_D3DEXTENDEDCAPS {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DHAL_DP2ADDDIRTYBOX {
-    pub dwSurface: u32,
-    pub DirtyBox: super::super::super::Win32::Graphics::Direct3D9::D3DBOX,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DHAL_DP2ADDDIRTYBOX {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DHAL_DP2ADDDIRTYBOX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 pub struct D3DHAL_DP2ADDDIRTYRECT {
     pub dwSurface: u32,
     pub rDirtyArea: super::super::super::Win32::Foundation::RECTL,
@@ -4099,23 +3719,6 @@ pub struct D3DHAL_DP2BLT {
 }
 impl Copy for D3DHAL_DP2BLT {}
 impl Clone for D3DHAL_DP2BLT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DHAL_DP2BUFFERBLT {
-    pub dwDDDestSurface: u32,
-    pub dwDDSrcSurface: u32,
-    pub dwOffset: u32,
-    pub rSrc: super::super::super::Win32::Graphics::Direct3D9::D3DRANGE,
-    pub dwFlags: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DHAL_DP2BUFFERBLT {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DHAL_DP2BUFFERBLT {
     fn clone(&self) -> Self {
         *self
     }
@@ -4170,26 +3773,6 @@ impl Clone for D3DHAL_DP2COMMAND_0 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DHAL_DP2COMPOSERECTS {
-    pub SrcSurfaceHandle: u32,
-    pub DstSurfaceHandle: u32,
-    pub SrcRectDescsVBHandle: u32,
-    pub NumRects: u32,
-    pub DstRectDescsVBHandle: u32,
-    pub Operation: super::super::super::Win32::Graphics::Direct3D9::D3DCOMPOSERECTSOP,
-    pub XOffset: i32,
-    pub YOffset: i32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DHAL_DP2COMPOSERECTS {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DHAL_DP2COMPOSERECTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 pub struct D3DHAL_DP2CREATELIGHT {
     pub dwIndex: u32,
 }
@@ -4206,20 +3789,6 @@ pub struct D3DHAL_DP2CREATEPIXELSHADER {
 }
 impl Copy for D3DHAL_DP2CREATEPIXELSHADER {}
 impl Clone for D3DHAL_DP2CREATEPIXELSHADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DHAL_DP2CREATEQUERY {
-    pub dwQueryID: u32,
-    pub QueryType: super::super::super::Win32::Graphics::Direct3D9::D3DQUERYTYPE,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DHAL_DP2CREATEQUERY {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DHAL_DP2CREATEQUERY {
     fn clone(&self) -> Self {
         *self
     }
@@ -4269,72 +3838,6 @@ impl Clone for D3DHAL_DP2DELETEQUERY {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DHAL_DP2DRAWINDEXEDPRIMITIVE {
-    pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
-    pub BaseVertexIndex: i32,
-    pub MinIndex: u32,
-    pub NumVertices: u32,
-    pub StartIndex: u32,
-    pub PrimitiveCount: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DHAL_DP2DRAWINDEXEDPRIMITIVE {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DHAL_DP2DRAWINDEXEDPRIMITIVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DHAL_DP2DRAWINDEXEDPRIMITIVE2 {
-    pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
-    pub BaseVertexOffset: i32,
-    pub MinIndex: u32,
-    pub NumVertices: u32,
-    pub StartIndexOffset: u32,
-    pub PrimitiveCount: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DHAL_DP2DRAWINDEXEDPRIMITIVE2 {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DHAL_DP2DRAWINDEXEDPRIMITIVE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DHAL_DP2DRAWPRIMITIVE {
-    pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
-    pub VStart: u32,
-    pub PrimitiveCount: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DHAL_DP2DRAWPRIMITIVE {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DHAL_DP2DRAWPRIMITIVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DHAL_DP2DRAWPRIMITIVE2 {
-    pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
-    pub FirstVertexOffset: u32,
-    pub PrimitiveCount: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DHAL_DP2DRAWPRIMITIVE2 {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DHAL_DP2DRAWPRIMITIVE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 pub struct D3DHAL_DP2DRAWRECTPATCH {
     pub Handle: u32,
     pub Flags: u32,
@@ -4363,20 +3866,6 @@ pub struct D3DHAL_DP2EXT {
 }
 impl Copy for D3DHAL_DP2EXT {}
 impl Clone for D3DHAL_DP2EXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DHAL_DP2GENERATEMIPSUBLEVELS {
-    pub hSurface: u32,
-    pub Filter: super::super::super::Win32::Graphics::Direct3D9::D3DTEXTUREFILTERTYPE,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DHAL_DP2GENERATEMIPSUBLEVELS {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DHAL_DP2GENERATEMIPSUBLEVELS {
     fn clone(&self) -> Self {
         *self
     }
@@ -4479,20 +3968,6 @@ impl Clone for D3DHAL_DP2LINESTRIP {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
-pub struct D3DHAL_DP2MULTIPLYTRANSFORM {
-    pub xfrmType: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMSTATETYPE,
-    pub matrix: super::super::super::Foundation::Numerics::Matrix4x4,
-}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
-impl Copy for D3DHAL_DP2MULTIPLYTRANSFORM {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
-impl Clone for D3DHAL_DP2MULTIPLYTRANSFORM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 pub struct D3DHAL_DP2PIXELSHADER {
     pub dwHandle: u32,
 }
@@ -4509,34 +3984,6 @@ pub struct D3DHAL_DP2POINTS {
 }
 impl Copy for D3DHAL_DP2POINTS {}
 impl Clone for D3DHAL_DP2POINTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DHAL_DP2RENDERSTATE {
-    pub RenderState: super::super::super::Win32::Graphics::Direct3D9::D3DRENDERSTATETYPE,
-    pub Anonymous: D3DHAL_DP2RENDERSTATE_0,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DHAL_DP2RENDERSTATE {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DHAL_DP2RENDERSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub union D3DHAL_DP2RENDERSTATE_0 {
-    pub dvState: f32,
-    pub dwState: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DHAL_DP2RENDERSTATE_0 {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DHAL_DP2RENDERSTATE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -4735,20 +4182,6 @@ impl Clone for D3DHAL_DP2SETTEXLOD {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
-pub struct D3DHAL_DP2SETTRANSFORM {
-    pub xfrmType: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMSTATETYPE,
-    pub matrix: super::super::super::Foundation::Numerics::Matrix4x4,
-}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
-impl Copy for D3DHAL_DP2SETTRANSFORM {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
-impl Clone for D3DHAL_DP2SETTRANSFORM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 pub struct D3DHAL_DP2SETVERTEXSHADERCONST {
     pub dwRegister: u32,
     pub dwCount: u32,
@@ -4765,21 +4198,6 @@ pub struct D3DHAL_DP2STARTVERTEX {
 }
 impl Copy for D3DHAL_DP2STARTVERTEX {}
 impl Clone for D3DHAL_DP2STARTVERTEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DHAL_DP2STATESET {
-    pub dwOperation: u32,
-    pub dwParam: u32,
-    pub sbType: super::super::super::Win32::Graphics::Direct3D9::D3DSTATEBLOCKTYPE,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DHAL_DP2STATESET {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DHAL_DP2STATESET {
     fn clone(&self) -> Self {
         *self
     }
@@ -4902,25 +4320,6 @@ impl Clone for D3DHAL_DP2VIEWPORTINFO {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DHAL_DP2VOLUMEBLT {
-    pub dwDDDestSurface: u32,
-    pub dwDDSrcSurface: u32,
-    pub dwDestX: u32,
-    pub dwDestY: u32,
-    pub dwDestZ: u32,
-    pub srcBox: super::super::super::Win32::Graphics::Direct3D9::D3DBOX,
-    pub dwFlags: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DHAL_DP2VOLUMEBLT {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DHAL_DP2VOLUMEBLT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 pub struct D3DHAL_DP2WINFO {
     pub dvWNear: f32,
     pub dvWFar: f32,
@@ -4943,75 +4342,6 @@ impl Clone for D3DHAL_DP2ZRANGE {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA {
-    pub dwhContext: usize,
-    pub dwFlags: u32,
-    pub PrimitiveType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
-    pub Anonymous: D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA_0,
-    pub lpvVertices: *mut core::ffi::c_void,
-    pub dwNumVertices: u32,
-    pub lpwIndices: *mut u16,
-    pub dwNumIndices: u32,
-    pub ddrval: windows_sys::core::HRESULT,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub union D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA_0 {
-    pub VertexType: super::super::super::Win32::Graphics::Direct3D9::D3DVERTEXTYPE,
-    pub dwFVFControl: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA_0 {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DHAL_DRAWONEPRIMITIVEDATA {
-    pub dwhContext: usize,
-    pub dwFlags: u32,
-    pub PrimitiveType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
-    pub Anonymous: D3DHAL_DRAWONEPRIMITIVEDATA_0,
-    pub lpvVertices: *mut core::ffi::c_void,
-    pub dwNumVertices: u32,
-    pub dwReserved: u32,
-    pub ddrval: windows_sys::core::HRESULT,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DHAL_DRAWONEPRIMITIVEDATA {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DHAL_DRAWONEPRIMITIVEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub union D3DHAL_DRAWONEPRIMITIVEDATA_0 {
-    pub VertexType: super::super::super::Win32::Graphics::Direct3D9::D3DVERTEXTYPE,
-    pub dwFVFControl: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DHAL_DRAWONEPRIMITIVEDATA_0 {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DHAL_DRAWONEPRIMITIVEDATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 pub struct D3DHAL_DRAWPRIMCOUNTS {
     pub wNumStateChanges: u16,
     pub wPrimitiveType: u16,
@@ -5020,60 +4350,6 @@ pub struct D3DHAL_DRAWPRIMCOUNTS {
 }
 impl Copy for D3DHAL_DRAWPRIMCOUNTS {}
 impl Clone for D3DHAL_DRAWPRIMCOUNTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub struct D3DHAL_DRAWPRIMITIVES2DATA {
-    pub dwhContext: usize,
-    pub dwFlags: u32,
-    pub dwVertexType: u32,
-    pub lpDDCommands: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
-    pub dwCommandOffset: u32,
-    pub dwCommandLength: u32,
-    pub Anonymous1: D3DHAL_DRAWPRIMITIVES2DATA_0,
-    pub dwVertexOffset: u32,
-    pub dwVertexLength: u32,
-    pub dwReqVertexBufSize: u32,
-    pub dwReqCommandBufSize: u32,
-    pub lpdwRStates: *mut u32,
-    pub Anonymous2: D3DHAL_DRAWPRIMITIVES2DATA_1,
-    pub dwErrorOffset: u32,
-}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Copy for D3DHAL_DRAWPRIMITIVES2DATA {}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Clone for D3DHAL_DRAWPRIMITIVES2DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub union D3DHAL_DRAWPRIMITIVES2DATA_0 {
-    pub lpDDVertex: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
-    pub lpVertices: *mut core::ffi::c_void,
-}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Copy for D3DHAL_DRAWPRIMITIVES2DATA_0 {}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Clone for D3DHAL_DRAWPRIMITIVES2DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub union D3DHAL_DRAWPRIMITIVES2DATA_1 {
-    pub dwVertexSize: u32,
-    pub ddrval: windows_sys::core::HRESULT,
-}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Copy for D3DHAL_DRAWPRIMITIVES2DATA_1 {}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Clone for D3DHAL_DRAWPRIMITIVES2DATA_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -5088,60 +4364,6 @@ pub struct D3DHAL_DRAWPRIMITIVESDATA {
 }
 impl Copy for D3DHAL_DRAWPRIMITIVESDATA {}
 impl Clone for D3DHAL_DRAWPRIMITIVESDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DHAL_GETSTATEDATA {
-    pub dwhContext: usize,
-    pub dwWhich: u32,
-    pub ddState: super::super::super::Win32::Graphics::Direct3D9::D3DSTATE,
-    pub ddrval: windows_sys::core::HRESULT,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DHAL_GETSTATEDATA {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DHAL_GETSTATEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
-pub struct D3DHAL_GLOBALDRIVERDATA {
-    pub dwSize: u32,
-    pub hwCaps: D3DDEVICEDESC_V1,
-    pub dwNumVertices: u32,
-    pub dwNumClipVertices: u32,
-    pub dwNumTextureFormats: u32,
-    pub lpTextureFormats: *mut super::super::super::Win32::Graphics::DirectDraw::DDSURFACEDESC,
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
-impl Copy for D3DHAL_GLOBALDRIVERDATA {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
-impl Clone for D3DHAL_GLOBALDRIVERDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DHAL_RENDERPRIMITIVEDATA {
-    pub dwhContext: usize,
-    pub dwOffset: u32,
-    pub dwStatus: u32,
-    pub lpExeBuf: *mut core::ffi::c_void,
-    pub dwTLOffset: u32,
-    pub lpTLBuf: *mut core::ffi::c_void,
-    pub diInstruction: super::super::super::Win32::Graphics::Direct3D9::D3DINSTRUCTION,
-    pub ddrval: windows_sys::core::HRESULT,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DHAL_RENDERPRIMITIVEDATA {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DHAL_RENDERPRIMITIVEDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -5168,50 +4390,6 @@ pub struct D3DHAL_SCENECAPTUREDATA {
 }
 impl Copy for D3DHAL_SCENECAPTUREDATA {}
 impl Clone for D3DHAL_SCENECAPTUREDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub struct D3DHAL_SETRENDERTARGETDATA {
-    pub dwhContext: usize,
-    pub Anonymous1: D3DHAL_SETRENDERTARGETDATA_0,
-    pub Anonymous2: D3DHAL_SETRENDERTARGETDATA_1,
-    pub ddrval: windows_sys::core::HRESULT,
-}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Copy for D3DHAL_SETRENDERTARGETDATA {}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Clone for D3DHAL_SETRENDERTARGETDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub union D3DHAL_SETRENDERTARGETDATA_0 {
-    pub lpDDS: *mut core::ffi::c_void,
-    pub lpDDSLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
-}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Copy for D3DHAL_SETRENDERTARGETDATA_0 {}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Clone for D3DHAL_SETRENDERTARGETDATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub union D3DHAL_SETRENDERTARGETDATA_1 {
-    pub lpDDSZ: *mut core::ffi::c_void,
-    pub lpDDSZLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
-}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Copy for D3DHAL_SETRENDERTARGETDATA_1 {}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl Clone for D3DHAL_SETRENDERTARGETDATA_1 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12458,214 +11636,6 @@ impl Clone for D3DLINEPATTERN {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DNTDEVICEDESC_V3 {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dcmColorModel: u32,
-    pub dwDevCaps: u32,
-    pub dtcTransformCaps: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMCAPS,
-    pub bClipping: super::super::super::Win32::Foundation::BOOL,
-    pub dlcLightingCaps: super::super::super::Win32::Graphics::Direct3D9::D3DLIGHTINGCAPS,
-    pub dpcLineCaps: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMCAPS,
-    pub dpcTriCaps: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMCAPS,
-    pub dwDeviceRenderBitDepth: u32,
-    pub dwDeviceZBufferBitDepth: u32,
-    pub dwMaxBufferSize: u32,
-    pub dwMaxVertexCount: u32,
-    pub dwMinTextureWidth: u32,
-    pub dwMinTextureHeight: u32,
-    pub dwMaxTextureWidth: u32,
-    pub dwMaxTextureHeight: u32,
-    pub dwMinStippleWidth: u32,
-    pub dwMaxStippleWidth: u32,
-    pub dwMinStippleHeight: u32,
-    pub dwMaxStippleHeight: u32,
-    pub dwMaxTextureRepeat: u32,
-    pub dwMaxTextureAspectRatio: u32,
-    pub dwMaxAnisotropy: u32,
-    pub dvGuardBandLeft: f32,
-    pub dvGuardBandTop: f32,
-    pub dvGuardBandRight: f32,
-    pub dvGuardBandBottom: f32,
-    pub dvExtentsAdjust: f32,
-    pub dwStencilCaps: u32,
-    pub dwFVFCaps: u32,
-    pub dwTextureOpCaps: u32,
-    pub wMaxTextureBlendStages: u16,
-    pub wMaxSimultaneousTextures: u16,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DNTDEVICEDESC_V3 {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DNTDEVICEDESC_V3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DNTHALDEVICEDESC_V1 {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dcmColorModel: u32,
-    pub dwDevCaps: u32,
-    pub dtcTransformCaps: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMCAPS,
-    pub bClipping: super::super::super::Win32::Foundation::BOOL,
-    pub dlcLightingCaps: super::super::super::Win32::Graphics::Direct3D9::D3DLIGHTINGCAPS,
-    pub dpcLineCaps: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMCAPS,
-    pub dpcTriCaps: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMCAPS,
-    pub dwDeviceRenderBitDepth: u32,
-    pub dwDeviceZBufferBitDepth: u32,
-    pub dwMaxBufferSize: u32,
-    pub dwMaxVertexCount: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DNTHALDEVICEDESC_V1 {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DNTHALDEVICEDESC_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DNTHALDEVICEDESC_V2 {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dcmColorModel: u32,
-    pub dwDevCaps: u32,
-    pub dtcTransformCaps: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMCAPS,
-    pub bClipping: super::super::super::Win32::Foundation::BOOL,
-    pub dlcLightingCaps: super::super::super::Win32::Graphics::Direct3D9::D3DLIGHTINGCAPS,
-    pub dpcLineCaps: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMCAPS,
-    pub dpcTriCaps: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMCAPS,
-    pub dwDeviceRenderBitDepth: u32,
-    pub dwDeviceZBufferBitDepth: u32,
-    pub dwMaxBufferSize: u32,
-    pub dwMaxVertexCount: u32,
-    pub dwMinTextureWidth: u32,
-    pub dwMinTextureHeight: u32,
-    pub dwMaxTextureWidth: u32,
-    pub dwMaxTextureHeight: u32,
-    pub dwMinStippleWidth: u32,
-    pub dwMaxStippleWidth: u32,
-    pub dwMinStippleHeight: u32,
-    pub dwMaxStippleHeight: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DNTHALDEVICEDESC_V2 {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DNTHALDEVICEDESC_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub struct D3DNTHAL_CALLBACKS {
-    pub dwSize: u32,
-    pub ContextCreate: LPD3DNTHAL_CONTEXTCREATECB,
-    pub ContextDestroy: LPD3DNTHAL_CONTEXTDESTROYCB,
-    pub ContextDestroyAll: LPD3DNTHAL_CONTEXTDESTROYALLCB,
-    pub SceneCapture: LPD3DNTHAL_SCENECAPTURECB,
-    pub dwReserved10: *mut core::ffi::c_void,
-    pub dwReserved11: *mut core::ffi::c_void,
-    pub dwReserved22: *mut core::ffi::c_void,
-    pub dwReserved23: *mut core::ffi::c_void,
-    pub dwReserved: usize,
-    pub TextureCreate: LPD3DNTHAL_TEXTURECREATECB,
-    pub TextureDestroy: LPD3DNTHAL_TEXTUREDESTROYCB,
-    pub TextureSwap: LPD3DNTHAL_TEXTURESWAPCB,
-    pub TextureGetSurf: LPD3DNTHAL_TEXTUREGETSURFCB,
-    pub dwReserved12: *mut core::ffi::c_void,
-    pub dwReserved13: *mut core::ffi::c_void,
-    pub dwReserved14: *mut core::ffi::c_void,
-    pub dwReserved15: *mut core::ffi::c_void,
-    pub dwReserved16: *mut core::ffi::c_void,
-    pub dwReserved17: *mut core::ffi::c_void,
-    pub dwReserved18: *mut core::ffi::c_void,
-    pub dwReserved19: *mut core::ffi::c_void,
-    pub dwReserved20: *mut core::ffi::c_void,
-    pub dwReserved21: *mut core::ffi::c_void,
-    pub dwReserved24: *mut core::ffi::c_void,
-    pub dwReserved0: usize,
-    pub dwReserved1: usize,
-    pub dwReserved2: usize,
-    pub dwReserved3: usize,
-    pub dwReserved4: usize,
-    pub dwReserved5: usize,
-    pub dwReserved6: usize,
-    pub dwReserved7: usize,
-    pub dwReserved8: usize,
-    pub dwReserved9: usize,
-}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Copy for D3DNTHAL_CALLBACKS {}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Clone for D3DNTHAL_CALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub struct D3DNTHAL_CALLBACKS2 {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub SetRenderTarget: LPD3DNTHAL_SETRENDERTARGETCB,
-    pub dwReserved1: *mut core::ffi::c_void,
-    pub dwReserved2: *mut core::ffi::c_void,
-    pub dwReserved3: *mut core::ffi::c_void,
-    pub dwReserved4: *mut core::ffi::c_void,
-}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Copy for D3DNTHAL_CALLBACKS2 {}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Clone for D3DNTHAL_CALLBACKS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
-pub struct D3DNTHAL_CALLBACKS3 {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub Clear2: LPD3DNTHAL_CLEAR2CB,
-    pub lpvReserved: *mut core::ffi::c_void,
-    pub ValidateTextureStageState: LPD3DNTHAL_VALIDATETEXTURESTAGESTATECB,
-    pub DrawPrimitives2: LPD3DNTHAL_DRAWPRIMITIVES2CB,
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
-impl Copy for D3DNTHAL_CALLBACKS3 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
-impl Clone for D3DNTHAL_CALLBACKS3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DNTHAL_CLEAR2DATA {
-    pub dwhContext: usize,
-    pub dwFlags: u32,
-    pub dwFillColor: u32,
-    pub dvFillDepth: f32,
-    pub dwFillStencil: u32,
-    pub lpRects: *mut super::super::super::Win32::Graphics::Direct3D9::D3DRECT,
-    pub dwNumRects: u32,
-    pub ddrval: windows_sys::core::HRESULT,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DNTHAL_CLEAR2DATA {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DNTHAL_CLEAR2DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 pub struct D3DNTHAL_CLIPPEDTRIANGLEFAN {
     pub FirstVertexOffset: u32,
     pub dwEdgeFlags: u32,
@@ -12673,66 +11643,6 @@ pub struct D3DNTHAL_CLIPPEDTRIANGLEFAN {
 }
 impl Copy for D3DNTHAL_CLIPPEDTRIANGLEFAN {}
 impl Clone for D3DNTHAL_CLIPPEDTRIANGLEFAN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub struct D3DNTHAL_CONTEXTCREATEDATA {
-    pub Anonymous1: D3DNTHAL_CONTEXTCREATEDATA_0,
-    pub Anonymous2: D3DNTHAL_CONTEXTCREATEDATA_1,
-    pub Anonymous3: D3DNTHAL_CONTEXTCREATEDATA_2,
-    pub dwPID: u32,
-    pub dwhContext: usize,
-    pub ddrval: windows_sys::core::HRESULT,
-}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Copy for D3DNTHAL_CONTEXTCREATEDATA {}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Clone for D3DNTHAL_CONTEXTCREATEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub union D3DNTHAL_CONTEXTCREATEDATA_0 {
-    pub lpDDGbl: *mut super::super::super::Win32::Graphics::DirectDraw::DD_DIRECTDRAW_GLOBAL,
-    pub lpDDLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DD_DIRECTDRAW_LOCAL,
-}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Copy for D3DNTHAL_CONTEXTCREATEDATA_0 {}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Clone for D3DNTHAL_CONTEXTCREATEDATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub union D3DNTHAL_CONTEXTCREATEDATA_1 {
-    pub lpDDS: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
-    pub lpDDSLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
-}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Copy for D3DNTHAL_CONTEXTCREATEDATA_1 {}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Clone for D3DNTHAL_CONTEXTCREATEDATA_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub union D3DNTHAL_CONTEXTCREATEDATA_2 {
-    pub lpDDSZ: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
-    pub lpDDSZLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
-}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Copy for D3DNTHAL_CONTEXTCREATEDATA_2 {}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Clone for D3DNTHAL_CONTEXTCREATEDATA_2 {
     fn clone(&self) -> Self {
         *self
     }
@@ -12831,20 +11741,6 @@ impl Clone for D3DNTHAL_D3DEXTENDEDCAPS {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DNTHAL_DP2ADDDIRTYBOX {
-    pub dwSurface: u32,
-    pub DirtyBox: super::super::super::Win32::Graphics::Direct3D9::D3DBOX,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DNTHAL_DP2ADDDIRTYBOX {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DNTHAL_DP2ADDDIRTYBOX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 pub struct D3DNTHAL_DP2ADDDIRTYRECT {
     pub dwSurface: u32,
     pub rDirtyArea: super::super::super::Win32::Foundation::RECTL,
@@ -12867,23 +11763,6 @@ pub struct D3DNTHAL_DP2BLT {
 }
 impl Copy for D3DNTHAL_DP2BLT {}
 impl Clone for D3DNTHAL_DP2BLT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DNTHAL_DP2BUFFERBLT {
-    pub dwDDDestSurface: u32,
-    pub dwDDSrcSurface: u32,
-    pub dwOffset: u32,
-    pub rSrc: super::super::super::Win32::Graphics::Direct3D9::D3DRANGE,
-    pub dwFlags: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DNTHAL_DP2BUFFERBLT {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DNTHAL_DP2BUFFERBLT {
     fn clone(&self) -> Self {
         *self
     }
@@ -12938,26 +11817,6 @@ impl Clone for D3DNTHAL_DP2COMMAND_0 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DNTHAL_DP2COMPOSERECTS {
-    pub SrcSurfaceHandle: u32,
-    pub DstSurfaceHandle: u32,
-    pub SrcRectDescsVBHandle: u32,
-    pub NumRects: u32,
-    pub DstRectDescsVBHandle: u32,
-    pub Operation: super::super::super::Win32::Graphics::Direct3D9::D3DCOMPOSERECTSOP,
-    pub XOffset: i32,
-    pub YOffset: i32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DNTHAL_DP2COMPOSERECTS {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DNTHAL_DP2COMPOSERECTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 pub struct D3DNTHAL_DP2CREATELIGHT {
     pub dwIndex: u32,
 }
@@ -12974,20 +11833,6 @@ pub struct D3DNTHAL_DP2CREATEPIXELSHADER {
 }
 impl Copy for D3DNTHAL_DP2CREATEPIXELSHADER {}
 impl Clone for D3DNTHAL_DP2CREATEPIXELSHADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DNTHAL_DP2CREATEQUERY {
-    pub dwQueryID: u32,
-    pub QueryType: super::super::super::Win32::Graphics::Direct3D9::D3DQUERYTYPE,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DNTHAL_DP2CREATEQUERY {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DNTHAL_DP2CREATEQUERY {
     fn clone(&self) -> Self {
         *self
     }
@@ -13037,72 +11882,6 @@ impl Clone for D3DNTHAL_DP2DELETEQUERY {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE {
-    pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
-    pub BaseVertexIndex: i32,
-    pub MinIndex: u32,
-    pub NumVertices: u32,
-    pub StartIndex: u32,
-    pub PrimitiveCount: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE2 {
-    pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
-    pub BaseVertexOffset: i32,
-    pub MinIndex: u32,
-    pub NumVertices: u32,
-    pub StartIndexOffset: u32,
-    pub PrimitiveCount: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE2 {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DNTHAL_DP2DRAWPRIMITIVE {
-    pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
-    pub VStart: u32,
-    pub PrimitiveCount: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DNTHAL_DP2DRAWPRIMITIVE {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DNTHAL_DP2DRAWPRIMITIVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DNTHAL_DP2DRAWPRIMITIVE2 {
-    pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
-    pub FirstVertexOffset: u32,
-    pub PrimitiveCount: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DNTHAL_DP2DRAWPRIMITIVE2 {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DNTHAL_DP2DRAWPRIMITIVE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 pub struct D3DNTHAL_DP2DRAWRECTPATCH {
     pub Handle: u32,
     pub Flags: u32,
@@ -13131,20 +11910,6 @@ pub struct D3DNTHAL_DP2EXT {
 }
 impl Copy for D3DNTHAL_DP2EXT {}
 impl Clone for D3DNTHAL_DP2EXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DNTHAL_DP2GENERATEMIPSUBLEVELS {
-    pub hSurface: u32,
-    pub Filter: super::super::super::Win32::Graphics::Direct3D9::D3DTEXTUREFILTERTYPE,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DNTHAL_DP2GENERATEMIPSUBLEVELS {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DNTHAL_DP2GENERATEMIPSUBLEVELS {
     fn clone(&self) -> Self {
         *self
     }
@@ -13247,20 +12012,6 @@ impl Clone for D3DNTHAL_DP2LINESTRIP {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
-pub struct D3DNTHAL_DP2MULTIPLYTRANSFORM {
-    pub xfrmType: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMSTATETYPE,
-    pub matrix: super::super::super::Foundation::Numerics::Matrix4x4,
-}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
-impl Copy for D3DNTHAL_DP2MULTIPLYTRANSFORM {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
-impl Clone for D3DNTHAL_DP2MULTIPLYTRANSFORM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 pub struct D3DNTHAL_DP2PIXELSHADER {
     pub dwHandle: u32,
 }
@@ -13277,34 +12028,6 @@ pub struct D3DNTHAL_DP2POINTS {
 }
 impl Copy for D3DNTHAL_DP2POINTS {}
 impl Clone for D3DNTHAL_DP2POINTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DNTHAL_DP2RENDERSTATE {
-    pub RenderState: super::super::super::Win32::Graphics::Direct3D9::D3DRENDERSTATETYPE,
-    pub Anonymous: D3DNTHAL_DP2RENDERSTATE_0,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DNTHAL_DP2RENDERSTATE {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DNTHAL_DP2RENDERSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub union D3DNTHAL_DP2RENDERSTATE_0 {
-    pub fState: f32,
-    pub dwState: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DNTHAL_DP2RENDERSTATE_0 {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DNTHAL_DP2RENDERSTATE_0 {
     fn clone(&self) -> Self {
         *self
     }
@@ -13514,20 +12237,6 @@ impl Clone for D3DNTHAL_DP2SETTEXLOD {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
-pub struct D3DNTHAL_DP2SETTRANSFORM {
-    pub xfrmType: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMSTATETYPE,
-    pub matrix: super::super::super::Foundation::Numerics::Matrix4x4,
-}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
-impl Copy for D3DNTHAL_DP2SETTRANSFORM {}
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
-impl Clone for D3DNTHAL_DP2SETTRANSFORM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 pub struct D3DNTHAL_DP2SETVERTEXSHADERCONST {
     pub dwRegister: u32,
     pub dwCount: u32,
@@ -13544,21 +12253,6 @@ pub struct D3DNTHAL_DP2STARTVERTEX {
 }
 impl Copy for D3DNTHAL_DP2STARTVERTEX {}
 impl Clone for D3DNTHAL_DP2STARTVERTEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DNTHAL_DP2STATESET {
-    pub dwOperation: u32,
-    pub dwParam: u32,
-    pub sbType: super::super::super::Win32::Graphics::Direct3D9::D3DSTATEBLOCKTYPE,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DNTHAL_DP2STATESET {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DNTHAL_DP2STATESET {
     fn clone(&self) -> Self {
         *self
     }
@@ -13681,25 +12375,6 @@ impl Clone for D3DNTHAL_DP2VIEWPORTINFO {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct D3DNTHAL_DP2VOLUMEBLT {
-    pub dwDDDestSurface: u32,
-    pub dwDDSrcSurface: u32,
-    pub dwDestX: u32,
-    pub dwDestY: u32,
-    pub dwDestZ: u32,
-    pub srcBox: super::super::super::Win32::Graphics::Direct3D9::D3DBOX,
-    pub dwFlags: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for D3DNTHAL_DP2VOLUMEBLT {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for D3DNTHAL_DP2VOLUMEBLT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 pub struct D3DNTHAL_DP2WINFO {
     pub dvWNear: f32,
     pub dvWFar: f32,
@@ -13722,78 +12397,6 @@ impl Clone for D3DNTHAL_DP2ZRANGE {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub struct D3DNTHAL_DRAWPRIMITIVES2DATA {
-    pub dwhContext: usize,
-    pub dwFlags: u32,
-    pub dwVertexType: u32,
-    pub lpDDCommands: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
-    pub dwCommandOffset: u32,
-    pub dwCommandLength: u32,
-    pub Anonymous1: D3DNTHAL_DRAWPRIMITIVES2DATA_0,
-    pub dwVertexOffset: u32,
-    pub dwVertexLength: u32,
-    pub dwReqVertexBufSize: u32,
-    pub dwReqCommandBufSize: u32,
-    pub lpdwRStates: *mut u32,
-    pub Anonymous2: D3DNTHAL_DRAWPRIMITIVES2DATA_1,
-    pub dwErrorOffset: u32,
-}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Copy for D3DNTHAL_DRAWPRIMITIVES2DATA {}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Clone for D3DNTHAL_DRAWPRIMITIVES2DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub union D3DNTHAL_DRAWPRIMITIVES2DATA_0 {
-    pub lpDDVertex: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
-    pub lpVertices: *mut core::ffi::c_void,
-}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Copy for D3DNTHAL_DRAWPRIMITIVES2DATA_0 {}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Clone for D3DNTHAL_DRAWPRIMITIVES2DATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub union D3DNTHAL_DRAWPRIMITIVES2DATA_1 {
-    pub dwVertexSize: u32,
-    pub ddrval: windows_sys::core::HRESULT,
-}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Copy for D3DNTHAL_DRAWPRIMITIVES2DATA_1 {}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Clone for D3DNTHAL_DRAWPRIMITIVES2DATA_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
-pub struct D3DNTHAL_GLOBALDRIVERDATA {
-    pub dwSize: u32,
-    pub hwCaps: D3DNTHALDEVICEDESC_V1,
-    pub dwNumVertices: u32,
-    pub dwNumClipVertices: u32,
-    pub dwNumTextureFormats: u32,
-    pub lpTextureFormats: *mut super::super::super::Win32::Graphics::DirectDraw::DDSURFACEDESC,
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
-impl Copy for D3DNTHAL_GLOBALDRIVERDATA {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
-impl Clone for D3DNTHAL_GLOBALDRIVERDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 pub struct D3DNTHAL_SCENECAPTUREDATA {
     pub dwhContext: usize,
     pub dwFlag: u32,
@@ -13801,22 +12404,6 @@ pub struct D3DNTHAL_SCENECAPTUREDATA {
 }
 impl Copy for D3DNTHAL_SCENECAPTUREDATA {}
 impl Clone for D3DNTHAL_SCENECAPTUREDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub struct D3DNTHAL_SETRENDERTARGETDATA {
-    pub dwhContext: usize,
-    pub lpDDS: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
-    pub lpDDSZ: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
-    pub ddrval: windows_sys::core::HRESULT,
-}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Copy for D3DNTHAL_SETRENDERTARGETDATA {}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Clone for D3DNTHAL_SETRENDERTARGETDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -13944,34 +12531,6 @@ impl Clone for DDNT_GETD3DQUERYCOUNTDATA {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct DDNT_GETD3DQUERYDATA {
-    pub gdi2: DDNT_GETDRIVERINFO2DATA,
-    pub Anonymous: DDNT_GETD3DQUERYDATA_0,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for DDNT_GETD3DQUERYDATA {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for DDNT_GETD3DQUERYDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub union DDNT_GETD3DQUERYDATA_0 {
-    pub dwQueryIndex: u32,
-    pub QueryType: super::super::super::Win32::Graphics::Direct3D9::D3DQUERYTYPE,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for DDNT_GETD3DQUERYDATA_0 {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for DDNT_GETD3DQUERYDATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 pub struct DDNT_GETDDIVERSIONDATA {
     pub gdi2: DDNT_GETDRIVERINFO2DATA,
     pub dwDXVersion: u32,
@@ -14009,21 +12568,6 @@ impl Clone for DDNT_GETEXTENDEDMODECOUNTDATA {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct DDNT_GETEXTENDEDMODEDATA {
-    pub gdi2: DDNT_GETDRIVERINFO2DATA,
-    pub dwModeIndex: u32,
-    pub mode: super::super::super::Win32::Graphics::Direct3D9::D3DDISPLAYMODE,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for DDNT_GETEXTENDEDMODEDATA {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for DDNT_GETEXTENDEDMODEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 pub struct DDNT_GETFORMATCOUNTDATA {
     pub gdi2: DDNT_GETDRIVERINFO2DATA,
     pub dwFormatCount: u32,
@@ -14031,37 +12575,6 @@ pub struct DDNT_GETFORMATCOUNTDATA {
 }
 impl Copy for DDNT_GETFORMATCOUNTDATA {}
 impl Clone for DDNT_GETFORMATCOUNTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub struct DDNT_GETFORMATDATA {
-    pub gdi2: DDNT_GETDRIVERINFO2DATA,
-    pub dwFormatIndex: u32,
-    pub format: super::super::super::Win32::Graphics::DirectDraw::DDPIXELFORMAT,
-}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Copy for DDNT_GETFORMATDATA {}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Clone for DDNT_GETFORMATDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct DDNT_MULTISAMPLEQUALITYLEVELSDATA {
-    pub gdi2: DDNT_GETDRIVERINFO2DATA,
-    pub Format: super::super::super::Win32::Graphics::Direct3D9::D3DFORMAT,
-    pub _bitfield: i32,
-    pub QualityLevels: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for DDNT_MULTISAMPLEQUALITYLEVELSDATA {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for DDNT_MULTISAMPLEQUALITYLEVELSDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -14124,34 +12637,6 @@ impl Clone for DD_GETD3DQUERYCOUNTDATA {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct DD_GETD3DQUERYDATA {
-    pub gdi2: DD_GETDRIVERINFO2DATA,
-    pub Anonymous: DD_GETD3DQUERYDATA_0,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for DD_GETD3DQUERYDATA {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for DD_GETD3DQUERYDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub union DD_GETD3DQUERYDATA_0 {
-    pub dwQueryIndex: u32,
-    pub QueryType: super::super::super::Win32::Graphics::Direct3D9::D3DQUERYTYPE,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for DD_GETD3DQUERYDATA_0 {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for DD_GETD3DQUERYDATA_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 pub struct DD_GETDDIVERSIONDATA {
     pub gdi2: DD_GETDRIVERINFO2DATA,
     pub dwDXVersion: u32,
@@ -14189,21 +12674,6 @@ impl Clone for DD_GETEXTENDEDMODECOUNTDATA {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct DD_GETEXTENDEDMODEDATA {
-    pub gdi2: DD_GETDRIVERINFO2DATA,
-    pub dwModeIndex: u32,
-    pub mode: super::super::super::Win32::Graphics::Direct3D9::D3DDISPLAYMODE,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for DD_GETEXTENDEDMODEDATA {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for DD_GETEXTENDEDMODEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 pub struct DD_GETFORMATCOUNTDATA {
     pub gdi2: DD_GETDRIVERINFO2DATA,
     pub dwFormatCount: u32,
@@ -14211,37 +12681,6 @@ pub struct DD_GETFORMATCOUNTDATA {
 }
 impl Copy for DD_GETFORMATCOUNTDATA {}
 impl Clone for DD_GETFORMATCOUNTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub struct DD_GETFORMATDATA {
-    pub gdi2: DD_GETDRIVERINFO2DATA,
-    pub dwFormatIndex: u32,
-    pub format: super::super::super::Win32::Graphics::DirectDraw::DDPIXELFORMAT,
-}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Copy for DD_GETFORMATDATA {}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl Clone for DD_GETFORMATDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub struct DD_MULTISAMPLEQUALITYLEVELSDATA {
-    pub gdi2: DD_GETDRIVERINFO2DATA,
-    pub Format: super::super::super::Win32::Graphics::Direct3D9::D3DFORMAT,
-    pub _bitfield: i32,
-    pub QualityLevels: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Copy for DD_MULTISAMPLEQUALITYLEVELSDATA {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl Clone for DD_MULTISAMPLEQUALITYLEVELSDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -15252,45 +13691,19 @@ impl Clone for _NT_D3DLINEPATTERN {
         *self
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub type LPD3DHAL_CLEAR2CB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_CLEAR2DATA) -> u32>;
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub type LPD3DHAL_CLEARCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_CLEARDATA) -> u32>;
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub type LPD3DHAL_CONTEXTCREATECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_CONTEXTCREATEDATA) -> u32>;
 pub type LPD3DHAL_CONTEXTDESTROYALLCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_CONTEXTDESTROYALLDATA) -> u32>;
 pub type LPD3DHAL_CONTEXTDESTROYCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_CONTEXTDESTROYDATA) -> u32>;
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub type LPD3DHAL_DRAWONEINDEXEDPRIMITIVECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA) -> u32>;
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub type LPD3DHAL_DRAWONEPRIMITIVECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWONEPRIMITIVEDATA) -> u32>;
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub type LPD3DHAL_DRAWPRIMITIVES2CB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWPRIMITIVES2DATA) -> u32>;
 pub type LPD3DHAL_DRAWPRIMITIVESCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWPRIMITIVESDATA) -> u32>;
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub type LPD3DHAL_GETSTATECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_GETSTATEDATA) -> u32>;
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub type LPD3DHAL_RENDERPRIMITIVECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_RENDERPRIMITIVEDATA) -> u32>;
 pub type LPD3DHAL_RENDERSTATECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_RENDERSTATEDATA) -> u32>;
 pub type LPD3DHAL_SCENECAPTURECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_SCENECAPTUREDATA) -> u32>;
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-pub type LPD3DHAL_SETRENDERTARGETCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_SETRENDERTARGETDATA) -> u32>;
 pub type LPD3DHAL_TEXTURECREATECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTURECREATEDATA) -> u32>;
 pub type LPD3DHAL_TEXTUREDESTROYCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTUREDESTROYDATA) -> u32>;
 pub type LPD3DHAL_TEXTUREGETSURFCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTUREGETSURFDATA) -> u32>;
 pub type LPD3DHAL_TEXTURESWAPCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTURESWAPDATA) -> u32>;
 pub type LPD3DHAL_VALIDATETEXTURESTAGESTATECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_VALIDATETEXTURESTAGESTATEDATA) -> u32>;
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub type LPD3DNTHAL_CLEAR2CB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CLEAR2DATA) -> u32>;
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub type LPD3DNTHAL_CONTEXTCREATECB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTCREATEDATA) -> u32>;
 pub type LPD3DNTHAL_CONTEXTDESTROYALLCB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTDESTROYALLDATA) -> u32>;
 pub type LPD3DNTHAL_CONTEXTDESTROYCB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTDESTROYDATA) -> u32>;
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub type LPD3DNTHAL_DRAWPRIMITIVES2CB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_DRAWPRIMITIVES2DATA) -> u32>;
 pub type LPD3DNTHAL_SCENECAPTURECB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_SCENECAPTUREDATA) -> u32>;
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub type LPD3DNTHAL_SETRENDERTARGETCB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_SETRENDERTARGETDATA) -> u32>;
 pub type LPD3DNTHAL_TEXTURECREATECB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTURECREATEDATA) -> u32>;
 pub type LPD3DNTHAL_TEXTUREDESTROYCB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTUREDESTROYDATA) -> u32>;
 pub type LPD3DNTHAL_TEXTUREGETSURFCB = Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTUREGETSURFDATA) -> u32>;

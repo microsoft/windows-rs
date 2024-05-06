@@ -9,6 +9,11 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
     let where_clause = writer.where_clause(&signature.params);
     let mut cfg = cfg::signature_cfg(writer, method);
     cfg.add_feature(def.namespace());
+
+    if !cfg.included(writer) {
+        return quote! {};
+    }
+
     let features = writer.cfg_features(&cfg);
 
     if kind == metadata::InterfaceKind::None {

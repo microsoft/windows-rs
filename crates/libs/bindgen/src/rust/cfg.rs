@@ -6,6 +6,7 @@ pub struct Cfg {
     pub types: std::collections::BTreeMap<&'static str, std::collections::BTreeSet<metadata::TypeDef>>,
     pub core_types: std::collections::BTreeSet<metadata::Type>,
     pub arches: std::collections::BTreeSet<&'static str>,
+    pub deprecated: bool,
 }
 
 impl Cfg {
@@ -18,6 +19,17 @@ impl Cfg {
         union.core_types.append(&mut other.core_types);
         union.arches.append(&mut other.arches);
         union
+    }
+
+    pub fn included(&self, writer: &Writer) -> bool {
+        if writer.package {
+            for namespace in self.types.keys() {
+                if !writer.reader.includes_namespace(namespace) {
+                    return false;
+                }
+            }
+        }
+        true
     }
 }
 
@@ -134,7 +146,7 @@ fn cfg_add_attributes<R: AsRow + Into<metadata::HasAttribute>>(cfg: &mut Cfg, ro
                 }
             }
             "DeprecatedAttribute" => {
-                cfg.add_feature("deprecated");
+                cfg.deprecated = true;
             }
             _ => {}
         }

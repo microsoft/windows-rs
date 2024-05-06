@@ -3,7 +3,7 @@ Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs
 */
 
 #![doc(html_no_source)]
-#![allow(non_snake_case)]
+#![allow(non_snake_case, unexpected_cfgs)]
 #![cfg_attr(windows_debugger_visualizer, debugger_visualizer(natvis_file = "../.natvis"))]
 
 extern crate self as windows_core;

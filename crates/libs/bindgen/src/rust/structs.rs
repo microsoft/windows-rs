@@ -27,6 +27,10 @@ fn gen_struct_with_name(writer: &Writer, def: metadata::TypeDef, struct_name: &s
     let flags = def.flags();
     let cfg = cfg.union(cfg::type_def_cfg(writer, def, &[]));
 
+    if !cfg.included(writer) {
+        return quote! {};
+    }
+
     let repr = if let Some(layout) = def.class_layout() {
         let packing = Literal::usize_unsuffixed(layout.packing_size());
         quote! { #[repr(C, packed(#packing))] }

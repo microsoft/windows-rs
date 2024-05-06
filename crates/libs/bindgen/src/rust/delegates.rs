@@ -16,6 +16,11 @@ fn gen_callback(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
 
     let return_type = writer.return_sig(&signature);
     let cfg = cfg::type_def_cfg(writer, def, &[]);
+
+    if !cfg.included(writer) {
+        return quote! {};
+    }
+
     let features = writer.cfg_features(&cfg);
 
     let params = signature.params.iter().map(|p| {

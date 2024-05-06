@@ -83,8 +83,6 @@ windows_targets::link!("chakra.dll" "system" fn JsSetRuntimeMemoryLimit(runtime 
 windows_targets::link!("chakra.dll" "system" fn JsStartDebugging(debugapplication : * mut core::ffi::c_void) -> JsErrorCode);
 #[cfg(target_arch = "x86")]
 windows_targets::link!("chakra.dll" "system" fn JsStartDebugging(debugapplication : * mut core::ffi::c_void) -> JsErrorCode);
-#[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
-windows_targets::link!("chakra.dll" "system" fn JsStartProfiling(callback : * mut core::ffi::c_void, eventmask : super::Diagnostics::Debug::ActiveScript:: PROFILER_EVENT_MASK, context : u32) -> JsErrorCode);
 windows_targets::link!("chakra.dll" "system" fn JsStopProfiling(reason : windows_sys::core::HRESULT) -> JsErrorCode);
 windows_targets::link!("chakra.dll" "system" fn JsStrictEquals(object1 : *const core::ffi::c_void, object2 : *const core::ffi::c_void, result : *mut bool) -> JsErrorCode);
 windows_targets::link!("chakra.dll" "system" fn JsStringToPointer(value : *const core::ffi::c_void, stringvalue : *mut *mut u16, stringlength : *mut usize) -> JsErrorCode);
