@@ -426,6 +426,10 @@ impl Writer {
                     compact.push(feature);
                 }
             }
+
+            if cfg.deprecated {
+                compact.push("deprecated");
+            }
         }
         compact
     }
@@ -795,18 +799,25 @@ impl Writer {
             let mut cfg = cfg::signature_cfg(self, method);
             let signature = self.vtbl_signature(def, false, &signature);
             cfg.add_feature(def.namespace());
-            let cfg_all = self.cfg_features(&cfg);
-            let cfg_not = self.cfg_not_features(&cfg);
 
-            let signature = quote! { pub #name: unsafe extern "system" fn #signature, };
+            if cfg.included(self) {
+                let cfg_all = self.cfg_features(&cfg);
+                let cfg_not = self.cfg_not_features(&cfg);
 
-            if cfg_all.is_empty() {
-                methods.combine(&signature);
+                let signature = quote! { pub #name: unsafe extern "system" fn #signature, };
+
+                if cfg_all.is_empty() {
+                    methods.combine(&signature);
+                } else {
+                    methods.combine(&quote! {
+                        #cfg_all
+                        #signature
+                        #cfg_not
+                        #name: usize,
+                    });
+                }
             } else {
                 methods.combine(&quote! {
-                    #cfg_all
-                    #signature
-                    #cfg_not
                     #name: usize,
                 });
             }
@@ -1209,6 +1220,7 @@ fn const_ptrs(pointers: usize) -> TokenStream {
 
 pub fn cfg_features(cfg: &cfg::Cfg) -> Vec<String> {
     let mut compact = Vec::<&'static str>::new();
+
     for feature in cfg.types.keys() {
         if !feature.is_empty() {
             for pos in 0..compact.len() {
@@ -1220,6 +1232,11 @@ pub fn cfg_features(cfg: &cfg::Cfg) -> Vec<String> {
             compact.push(feature);
         }
     }
+
+    if cfg.deprecated {
+        compact.push("deprecated");
+    }
+
     compact.into_iter().map(to_feature).collect()
 }
 

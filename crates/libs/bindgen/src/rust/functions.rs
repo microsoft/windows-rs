@@ -24,6 +24,11 @@ pub fn writer(writer: &Writer, namespace: &str, def: metadata::MethodDef) -> Tok
 fn gen_sys_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) -> TokenStream {
     let signature = metadata::method_def_signature(namespace, def, &[]);
     let cfg = cfg::signature_cfg(writer, def);
+
+    if !cfg.included(writer) {
+        return quote! {};
+    }
+
     let mut tokens = writer.cfg_features(&cfg);
     tokens.combine(&gen_link(writer, namespace, &signature));
     tokens
