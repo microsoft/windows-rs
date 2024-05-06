@@ -1,3 +1,5 @@
+#![allow(unexpected_cfgs)]
+
 use windows_sys::{
     core::*, Win32::Foundation::*, Win32::Networking::Ldap::*, Win32::System::SystemInformation::*,
     Win32::UI::WindowsAndMessaging::*,

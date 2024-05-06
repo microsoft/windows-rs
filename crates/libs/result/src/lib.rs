@@ -2,6 +2,7 @@
 Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs>
 */
 
+#![allow(unexpected_cfgs)]
 #![cfg_attr(
     windows_debugger_visualizer,
     debugger_visualizer(natvis_file = "../.natvis")
