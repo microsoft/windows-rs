@@ -681,43 +681,15 @@ impl IDocObjectService {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).FireBeforeNavigate2)(windows_core::Interface::as_raw(self), pdispatch.param().abi(), lpszurl.param().abi(), dwflags, lpszframename.param().abi(), ppostdata, cbpostdata, lpszheaders.param().abi(), fplaynavsound.param().abi(), &mut result__).map(|| result__)
     }
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub unsafe fn FireNavigateComplete2<P0>(&self, phtmlwindow2: P0, dwflags: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::MsHtml::IHTMLWindow2>,
-    {
-        (windows_core::Interface::vtable(self).FireNavigateComplete2)(windows_core::Interface::as_raw(self), phtmlwindow2.param().abi(), dwflags).ok()
-    }
     pub unsafe fn FireDownloadBegin(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).FireDownloadBegin)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn FireDownloadComplete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).FireDownloadComplete)(windows_core::Interface::as_raw(self)).ok()
     }
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub unsafe fn FireDocumentComplete<P0>(&self, phtmlwindow: P0, dwflags: u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::MsHtml::IHTMLWindow2>,
-    {
-        (windows_core::Interface::vtable(self).FireDocumentComplete)(windows_core::Interface::as_raw(self), phtmlwindow.param().abi(), dwflags).ok()
-    }
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub unsafe fn UpdateDesktopComponent<P0>(&self, phtmlwindow: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::MsHtml::IHTMLWindow2>,
-    {
-        (windows_core::Interface::vtable(self).UpdateDesktopComponent)(windows_core::Interface::as_raw(self), phtmlwindow.param().abi()).ok()
-    }
     pub unsafe fn GetPendingUrl(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetPendingUrl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub unsafe fn ActiveElementChanged<P0>(&self, phtmlelement: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::MsHtml::IHTMLElement>,
-    {
-        (windows_core::Interface::vtable(self).ActiveElementChanged)(windows_core::Interface::as_raw(self), phtmlelement.param().abi()).ok()
     }
     pub unsafe fn GetUrlSearchComponent(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = std::mem::zeroed();
@@ -738,24 +710,12 @@ pub struct IDocObjectService_Vtbl {
     pub FireBeforeNavigate2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, u32, windows_core::PCWSTR, *const u8, u32, windows_core::PCWSTR, super::super::Foundation::BOOL, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     FireBeforeNavigate2: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub FireNavigateComplete2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml")))]
     FireNavigateComplete2: usize,
     pub FireDownloadBegin: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FireDownloadComplete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub FireDocumentComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml")))]
     FireDocumentComplete: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub UpdateDesktopComponent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml")))]
     UpdateDesktopComponent: usize,
     pub GetPendingUrl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub ActiveElementChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml")))]
     ActiveElementChanged: usize,
     pub GetUrlSearchComponent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut std::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub IsErrorUrl: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
@@ -964,17 +924,6 @@ impl std::ops::Deref for IExtensionValidation {
 }
 windows_core::imp::interface_hierarchy!(IExtensionValidation, windows_core::IUnknown);
 impl IExtensionValidation {
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub unsafe fn Validate<P0, P1, P2, P3>(&self, extensionguid: *const windows_core::GUID, extensionmodulepath: P0, extensionfileversionms: u32, extensionfileversionls: u32, htmldocumenttop: P1, htmldocumentsubframe: P2, htmlelement: P3, contexts: ExtensionValidationContexts) -> windows_core::Result<ExtensionValidationResults>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<super::MsHtml::IHTMLDocument2>,
-        P2: windows_core::Param<super::MsHtml::IHTMLDocument2>,
-        P3: windows_core::Param<super::MsHtml::IHTMLElement>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).Validate)(windows_core::Interface::as_raw(self), extensionguid, extensionmodulepath.param().abi(), extensionfileversionms, extensionfileversionls, htmldocumenttop.param().abi(), htmldocumentsubframe.param().abi(), htmlelement.param().abi(), contexts, &mut result__).map(|| result__)
-    }
     pub unsafe fn DisplayName(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).DisplayName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -983,9 +932,6 @@ impl IExtensionValidation {
 #[repr(C)]
 pub struct IExtensionValidation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub Validate: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, u32, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, ExtensionValidationContexts, *mut ExtensionValidationResults) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml")))]
     Validate: usize,
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
@@ -2917,10 +2863,6 @@ impl std::ops::Deref for ITridentTouchInputSite {
 }
 windows_core::imp::interface_hierarchy!(ITridentTouchInputSite, windows_core::IUnknown);
 impl ITridentTouchInputSite {
-    #[cfg(feature = "Win32_Web_MsHtml")]
-    pub unsafe fn SetManipulationMode(&self, mstouchaction: super::MsHtml::styleMsTouchAction) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetManipulationMode)(windows_core::Interface::as_raw(self), mstouchaction).ok()
-    }
     pub unsafe fn ZoomToPoint(&self, x: i32, y: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ZoomToPoint)(windows_core::Interface::as_raw(self), x, y).ok()
     }
@@ -2928,9 +2870,6 @@ impl ITridentTouchInputSite {
 #[repr(C)]
 pub struct ITridentTouchInputSite_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_Web_MsHtml")]
-    pub SetManipulationMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::MsHtml::styleMsTouchAction) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_Web_MsHtml"))]
     SetManipulationMode: usize,
     pub ZoomToPoint: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
 }
@@ -3097,14 +3036,6 @@ impl std::ops::Deref for IViewObjectPresentFlipSite {
 }
 windows_core::imp::interface_hierarchy!(IViewObjectPresentFlipSite, windows_core::IUnknown);
 impl IViewObjectPresentFlipSite {
-    #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Web_MsHtml"))]
-    pub unsafe fn CreateSurfacePresenterFlip<P0>(&self, pdevice: P0, width: u32, height: u32, backbuffercount: u32, format: super::super::Graphics::Dxgi::Common::DXGI_FORMAT, mode: super::MsHtml::VIEW_OBJECT_ALPHA_MODE) -> windows_core::Result<ISurfacePresenterFlip>
-    where
-        P0: windows_core::Param<windows_core::IUnknown>,
-    {
-        let mut result__ = std::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateSurfacePresenterFlip)(windows_core::Interface::as_raw(self), pdevice.param().abi(), width, height, backbuffercount, format, mode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
     pub unsafe fn GetDeviceLuid(&self) -> windows_core::Result<super::super::Foundation::LUID> {
         let mut result__ = std::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDeviceLuid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3134,9 +3065,6 @@ impl IViewObjectPresentFlipSite {
 #[repr(C)]
 pub struct IViewObjectPresentFlipSite_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Web_MsHtml"))]
-    pub CreateSurfacePresenterFlip: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, u32, super::super::Graphics::Dxgi::Common::DXGI_FORMAT, super::MsHtml::VIEW_OBJECT_ALPHA_MODE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Web_MsHtml")))]
     CreateSurfacePresenterFlip: usize,
     pub GetDeviceLuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::LUID) -> windows_core::HRESULT,
     pub EnterFullScreen: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
