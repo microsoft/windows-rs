@@ -74,7 +74,7 @@ unsafe extern "system" fn DllGetActivationFactory(
     name: Ref<HSTRING>,
     factory: RefMut<IActivationFactory>,
 ) -> HRESULT {
-    if name.read() == "test_component.Class" {
+    if *name == "test_component.Class" {
         factory.write(Some(ClassFactory.into())).into()
     } else {
         _ = factory.write(None);

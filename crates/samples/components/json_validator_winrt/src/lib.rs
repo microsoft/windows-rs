@@ -74,7 +74,7 @@ unsafe extern "system" fn DllGetActivationFactory(
 
     let mut factory: Option<IActivationFactory> = None;
 
-    if name.read() == "Sample.JsonValidator" {
+    if *name == "Sample.JsonValidator" {
         factory = Some(JsonValidatorFactory.into());
     }
 
