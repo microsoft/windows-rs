@@ -1,4 +1,5 @@
 mod bindings;
+mod can_into;
 mod com_bindings;
 mod delay_load;
 mod factory_cache;
@@ -10,6 +11,7 @@ mod waiter;
 mod weak_ref_count;
 
 pub use bindings::*;
+pub use can_into::*;
 pub use com_bindings::*;
 pub use delay_load::*;
 pub use factory_cache::*;
@@ -34,7 +36,7 @@ pub fn wide_trim_end(mut wide: &[u16]) -> &[u16] {
 #[macro_export]
 macro_rules! interface_hierarchy {
     ($child:ident, $parent:ty) => {
-        impl ::windows_core::CanInto<$parent> for $child {}
+        impl ::windows_core::imp::CanInto<$parent> for $child {}
         impl ::core::convert::From<&$child> for &$parent {
             fn from(value: &$child) -> Self {
                 unsafe { ::core::mem::transmute(value) }
@@ -59,7 +61,7 @@ pub use interface_hierarchy;
 #[macro_export]
 macro_rules! required_hierarchy {
     ($child:ident, $parent:ty) => {
-        impl ::windows_core::CanInto<$parent> for $child { const QUERY: bool = true; }
+        impl ::windows_core::imp::CanInto<$parent> for $child { const QUERY: bool = true; }
     };
     ($child:ident, $first:ty, $($rest:ty),+) => {
         $crate::imp::required_hierarchy!($child, $first);

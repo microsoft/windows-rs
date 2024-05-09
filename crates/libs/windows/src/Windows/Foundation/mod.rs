@@ -116,9 +116,9 @@ impl<TProgress: windows_core::RuntimeType + 'static> std::ops::Deref for IAsyncA
         unsafe { std::mem::transmute(self) }
     }
 }
-impl<TProgress: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IAsyncActionWithProgress<TProgress> {}
-impl<TProgress: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IAsyncActionWithProgress<TProgress> {}
-impl<TProgress: windows_core::RuntimeType + 'static> windows_core::CanInto<IAsyncInfo> for IAsyncActionWithProgress<TProgress> {
+impl<TProgress: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown> for IAsyncActionWithProgress<TProgress> {}
+impl<TProgress: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable> for IAsyncActionWithProgress<TProgress> {}
+impl<TProgress: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IAsyncInfo> for IAsyncActionWithProgress<TProgress> {
     const QUERY: bool = true;
 }
 impl<TProgress: windows_core::RuntimeType + 'static> IAsyncActionWithProgress<TProgress> {
@@ -297,9 +297,9 @@ impl<TResult: windows_core::RuntimeType + 'static> std::ops::Deref for IAsyncOpe
         unsafe { std::mem::transmute(self) }
     }
 }
-impl<TResult: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IAsyncOperation<TResult> {}
-impl<TResult: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IAsyncOperation<TResult> {}
-impl<TResult: windows_core::RuntimeType + 'static> windows_core::CanInto<IAsyncInfo> for IAsyncOperation<TResult> {
+impl<TResult: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown> for IAsyncOperation<TResult> {}
+impl<TResult: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable> for IAsyncOperation<TResult> {}
+impl<TResult: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IAsyncInfo> for IAsyncOperation<TResult> {
     const QUERY: bool = true;
 }
 impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
@@ -415,9 +415,9 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
         unsafe { std::mem::transmute(self) }
     }
 }
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IAsyncOperationWithProgress<TResult, TProgress> {}
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IAsyncOperationWithProgress<TResult, TProgress> {}
-impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> windows_core::CanInto<IAsyncInfo> for IAsyncOperationWithProgress<TResult, TProgress> {
+impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown> for IAsyncOperationWithProgress<TResult, TProgress> {}
+impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable> for IAsyncOperationWithProgress<TResult, TProgress> {}
+impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IAsyncInfo> for IAsyncOperationWithProgress<TResult, TProgress> {
     const QUERY: bool = true;
 }
 impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> IAsyncOperationWithProgress<TResult, TProgress> {
@@ -1030,9 +1030,9 @@ impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IReference<T> {
         unsafe { std::mem::transmute(self) }
     }
 }
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IReference<T> {}
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IReference<T> {}
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<IPropertyValue> for IReference<T> {
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown> for IReference<T> {}
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable> for IReference<T> {}
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IPropertyValue> for IReference<T> {
     const QUERY: bool = true;
 }
 impl<T: windows_core::RuntimeType + 'static> IReference<T> {
@@ -1287,9 +1287,9 @@ impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IReferenceArray
         unsafe { std::mem::transmute(self) }
     }
 }
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IReferenceArray<T> {}
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IReferenceArray<T> {}
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<IPropertyValue> for IReferenceArray<T> {
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown> for IReferenceArray<T> {}
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable> for IReferenceArray<T> {}
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IPropertyValue> for IReferenceArray<T> {
     const QUERY: bool = true;
 }
 impl<T: windows_core::RuntimeType + 'static> IReferenceArray<T> {

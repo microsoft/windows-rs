@@ -126,7 +126,7 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
                 let cfg = writer.cfg_features(&cfg.union(cfg::type_cfg(writer, ty)));
                 tokens.combine(&quote! {
                     #cfg
-                    impl<#constraints> windows_core::CanInto<#into> for #ident {}
+                    impl<#constraints> windows_core::imp::CanInto<#into> for #ident {}
                 });
             }
         }
@@ -152,7 +152,7 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
                     let cfg = writer.cfg_features(&cfg.union(cfg::type_cfg(writer, &interface.ty)));
                     tokens.combine(&quote! {
                         #cfg
-                        impl<#constraints> windows_core::CanInto<#into> for #ident { const QUERY: bool = true; }
+                        impl<#constraints> windows_core::imp::CanInto<#into> for #ident { const QUERY: bool = true; }
                     });
                 }
             }

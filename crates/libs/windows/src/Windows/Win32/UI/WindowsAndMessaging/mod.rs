@@ -8882,7 +8882,7 @@ impl Default for HCURSOR {
 impl windows_core::TypeKind for HCURSOR {
     type TypeKind = windows_core::CopyType;
 }
-impl windows_core::CanInto<HICON> for HCURSOR {}
+impl windows_core::imp::CanInto<HICON> for HCURSOR {}
 impl From<HCURSOR> for HICON {
     fn from(value: HCURSOR) -> Self {
         Self(value.0)

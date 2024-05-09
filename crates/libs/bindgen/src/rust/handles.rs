@@ -120,7 +120,7 @@ pub fn gen_win_handle(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
         dependency.push_str(type_name.name());
 
         tokens.combine(&quote! {
-            impl windows_core::CanInto<#dependency> for #ident {}
+            impl windows_core::imp::CanInto<#dependency> for #ident {}
             impl From<#ident> for #dependency {
                 fn from(value: #ident) -> Self {
                     Self(value.0)

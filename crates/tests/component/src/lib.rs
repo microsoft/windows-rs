@@ -68,21 +68,16 @@ impl IActivationFactory_Impl for ClassFactory {
     }
 }
 
+// HRESULT __stdcall DllGetActivationFactory(HSTRING, IActivationFactory**)
 #[no_mangle]
 unsafe extern "system" fn DllGetActivationFactory(
-    name: std::mem::ManuallyDrop<HSTRING>,
-    result: *mut *mut std::ffi::c_void,
+    name: Ref<HSTRING>,
+    factory: OutRef<IActivationFactory>,
 ) -> HRESULT {
-    let factory: Option<IActivationFactory> = match (*name).to_string().as_str() {
-        "test_component.Class" => Some(ClassFactory.into()),
-        _ => None,
-    };
-
-    if let Some(factory) = factory {
-        *result = factory.into_raw();
-        S_OK
+    if *name == "test_component.Class" {
+        factory.write(Some(ClassFactory.into())).into()
     } else {
-        *result = std::ptr::null_mut();
+        _ = factory.write(None);
         CLASS_E_CLASSNOTAVAILABLE
     }
 }

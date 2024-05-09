@@ -1653,11 +1653,11 @@ impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IIterable<T> {
         unsafe { std::mem::transmute(self) }
     }
 }
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown>
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown>
     for IIterable<T>
 {
 }
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable>
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable>
     for IIterable<T>
 {
 }
@@ -1726,11 +1726,11 @@ impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IIterator<T> {
         unsafe { std::mem::transmute(self) }
     }
 }
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown>
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown>
     for IIterator<T>
 {
 }
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable>
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable>
     for IIterator<T>
 {
 }
@@ -1873,15 +1873,15 @@ impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IVectorView<T> 
         unsafe { std::mem::transmute(self) }
     }
 }
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown>
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown>
     for IVectorView<T>
 {
 }
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable>
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable>
     for IVectorView<T>
 {
 }
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<IIterable<T>>
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IIterable<T>>
     for IVectorView<T>
 {
     const QUERY: bool = true;
