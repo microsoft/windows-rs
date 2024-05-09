@@ -9,8 +9,8 @@ impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IIterable<T> {
         unsafe { std::mem::transmute(self) }
     }
 }
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IIterable<T> {}
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IIterable<T> {}
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown> for IIterable<T> {}
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable> for IIterable<T> {}
 impl<T: windows_core::RuntimeType + 'static> IIterable<T> {
     pub fn First(&self) -> windows_core::Result<IIterator<T>> {
         let this = self;
@@ -61,8 +61,8 @@ impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IIterator<T> {
         unsafe { std::mem::transmute(self) }
     }
 }
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IIterator<T> {}
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IIterator<T> {}
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown> for IIterator<T> {}
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable> for IIterator<T> {}
 impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
     pub fn Current(&self) -> windows_core::Result<T> {
         let this = self;
@@ -134,8 +134,8 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         unsafe { std::mem::transmute(self) }
     }
 }
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IKeyValuePair<K, V> {}
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IKeyValuePair<K, V> {}
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown> for IKeyValuePair<K, V> {}
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable> for IKeyValuePair<K, V> {}
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IKeyValuePair<K, V> {
     pub fn Key(&self) -> windows_core::Result<K> {
         let this = self;
@@ -183,9 +183,9 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         unsafe { std::mem::transmute(self) }
     }
 }
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IMap<K, V> {}
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IMap<K, V> {}
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::CanInto<IIterable<IKeyValuePair<K, V>>> for IMap<K, V> {
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown> for IMap<K, V> {}
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable> for IMap<K, V> {}
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IIterable<IKeyValuePair<K, V>>> for IMap<K, V> {
     const QUERY: bool = true;
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IMap<K, V> {
@@ -302,8 +302,8 @@ impl<K: windows_core::RuntimeType + 'static> std::ops::Deref for IMapChangedEven
         unsafe { std::mem::transmute(self) }
     }
 }
-impl<K: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IMapChangedEventArgs<K> {}
-impl<K: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IMapChangedEventArgs<K> {}
+impl<K: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown> for IMapChangedEventArgs<K> {}
+impl<K: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable> for IMapChangedEventArgs<K> {}
 impl<K: windows_core::RuntimeType + 'static> IMapChangedEventArgs<K> {
     pub fn CollectionChange(&self) -> windows_core::Result<CollectionChange> {
         let this = self;
@@ -349,9 +349,9 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         unsafe { std::mem::transmute(self) }
     }
 }
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IMapView<K, V> {}
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IMapView<K, V> {}
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::CanInto<IIterable<IKeyValuePair<K, V>>> for IMapView<K, V> {
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown> for IMapView<K, V> {}
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable> for IMapView<K, V> {}
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IIterable<IKeyValuePair<K, V>>> for IMapView<K, V> {
     const QUERY: bool = true;
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IMapView<K, V> {
@@ -441,12 +441,12 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         unsafe { std::mem::transmute(self) }
     }
 }
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IObservableMap<K, V> {}
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IObservableMap<K, V> {}
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::CanInto<IIterable<IKeyValuePair<K, V>>> for IObservableMap<K, V> {
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown> for IObservableMap<K, V> {}
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable> for IObservableMap<K, V> {}
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IIterable<IKeyValuePair<K, V>>> for IObservableMap<K, V> {
     const QUERY: bool = true;
 }
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::CanInto<IMap<K, V>> for IObservableMap<K, V> {
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IMap<K, V>> for IObservableMap<K, V> {
     const QUERY: bool = true;
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IObservableMap<K, V> {
@@ -572,12 +572,12 @@ impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IObservableVect
         unsafe { std::mem::transmute(self) }
     }
 }
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IObservableVector<T> {}
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IObservableVector<T> {}
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<IIterable<T>> for IObservableVector<T> {
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown> for IObservableVector<T> {}
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable> for IObservableVector<T> {}
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IIterable<T>> for IObservableVector<T> {
     const QUERY: bool = true;
 }
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<IVector<T>> for IObservableVector<T> {
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IVector<T>> for IObservableVector<T> {
     const QUERY: bool = true;
 }
 impl<T: windows_core::RuntimeType + 'static> IObservableVector<T> {
@@ -819,9 +819,9 @@ impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IVector<T> {
         unsafe { std::mem::transmute(self) }
     }
 }
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IVector<T> {}
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IVector<T> {}
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<IIterable<T>> for IVector<T> {
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown> for IVector<T> {}
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable> for IVector<T> {}
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IIterable<T>> for IVector<T> {
     const QUERY: bool = true;
 }
 impl<T: windows_core::RuntimeType + 'static> IVector<T> {
@@ -1011,9 +1011,9 @@ impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IVectorView<T> 
         unsafe { std::mem::transmute(self) }
     }
 }
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IVectorView<T> {}
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IVectorView<T> {}
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<IIterable<T>> for IVectorView<T> {
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown> for IVectorView<T> {}
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable> for IVectorView<T> {}
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IIterable<T>> for IVectorView<T> {
     const QUERY: bool = true;
 }
 impl<T: windows_core::RuntimeType + 'static> IVectorView<T> {

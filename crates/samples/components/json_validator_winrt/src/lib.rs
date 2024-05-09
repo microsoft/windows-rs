@@ -64,8 +64,8 @@ fn json_from_hstring(value: &HSTRING) -> Result<serde_json::Value> {
 }
 
 #[no_mangle]
-extern "system" fn DllGetActivationFactory(
-    name: std::mem::ManuallyDrop<HSTRING>,
+unsafe extern "system" fn DllGetActivationFactory(
+    name: Ref<HSTRING>,
     result: *mut *mut std::ffi::c_void,
 ) -> HRESULT {
     if result.is_null() {
@@ -74,7 +74,7 @@ extern "system" fn DllGetActivationFactory(
 
     let mut factory: Option<IActivationFactory> = None;
 
-    if *name == "Sample.JsonValidator" {
+    if name.read() == "Sample.JsonValidator" {
         factory = Some(JsonValidatorFactory.into());
     }
 

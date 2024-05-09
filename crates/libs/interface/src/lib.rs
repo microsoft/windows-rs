@@ -125,19 +125,22 @@ impl Interface {
                 let vis = &m.visibility;
                 let name = &m.name;
 
-                let args = m.gen_args();
-                let params = &m
-                    .args
-                    .iter()
-                    .map(|a| {
-                        let pat = &a.pat;
-                        quote! { #pat }
-                    })
-                    .collect::<Vec<_>>();
+                let generics = m.gen_consume_generics();
+                let params = m.gen_consume_params();
+                let args = m.gen_consume_args();
                 let ret = &m.ret;
-                quote! {
-                    #vis unsafe fn #name(&self, #(#args),*) #ret {
-                        (::windows_core::Interface::vtable(self).#name)(::windows_core::Interface::as_raw(self), #(#params),*)
+
+                if m.is_result() {
+                    quote! {
+                        #vis unsafe fn #name<#(#generics),*>(&self, #(#params),*) #ret {
+                            (::windows_core::Interface::vtable(self).#name)(::windows_core::Interface::as_raw(self), #(#args),*).ok()
+                        }
+                    }
+                } else {
+                    quote! {
+                        #vis unsafe fn #name<#(#generics),*>(&self, #(#params),*) #ret {
+                            (::windows_core::Interface::vtable(self).#name)(::windows_core::Interface::as_raw(self), #(#args),*)
+                        }
                     }
                 }
             })
@@ -190,8 +193,15 @@ impl Interface {
                 let name = &m.name;
                 let ret = &m.ret;
                 let args = m.gen_args();
-                quote! {
-                    pub #name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, #(#args),*) #ret,
+
+                if m.is_result() {
+                    quote! {
+                        pub #name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, #(#args),*) -> ::windows_core::HRESULT,
+                    }
+                } else {
+                    quote! {
+                        pub #name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, #(#args),*) #ret,
+                    }
                 }
             })
             .collect::<Vec<_>>();
@@ -214,6 +224,13 @@ impl Interface {
                     })
                     .collect::<Vec<_>>();
                 let ret = &m.ret;
+
+                let ret = if m.is_result() {
+                    quote! { -> ::windows_core::HRESULT }
+                } else {
+                    quote! { #ret }
+                };
+
                 if parent_vtable.is_some() {
                     quote! {
                         unsafe extern "system" fn #name<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: #trait_name, const OFFSET: isize>(this: *mut ::core::ffi::c_void, #(#args),*) #ret {
@@ -505,6 +522,25 @@ struct InterfaceMethod {
 }
 
 impl InterfaceMethod {
+    fn is_result(&self) -> bool {
+        if let syn::ReturnType::Type(_, ty) = &self.ret {
+            if let syn::Type::Path(path) = &**ty {
+                if let Some(segment) = path.path.segments.last() {
+                    let ident = segment.ident.to_string();
+                    if ident == "Result" {
+                        if let syn::PathArguments::AngleBracketed(args) = &segment.arguments {
+                            if args.args.len() == 1 {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        false
+    }
+
     /// Generates arguments (of the form `$pat: $type`)
     fn gen_args(&self) -> Vec<proc_macro2::TokenStream> {
         self.args
@@ -513,6 +549,62 @@ impl InterfaceMethod {
                 let pat = &a.pat;
                 let ty = &a.ty;
                 quote! { #pat: #ty }
+            })
+            .collect::<Vec<_>>()
+    }
+
+    fn gen_consume_generics(&self) -> Vec<proc_macro2::TokenStream> {
+        self.args
+            .iter()
+            .enumerate()
+            .filter_map(|(generic_index, a)| {
+                if let Some((ty, ident)) = a.borrow_type() {
+                    let generic_ident = quote::format_ident!("P{generic_index}");
+                    if ident == "Ref" {
+                        Some(quote! { #generic_ident: ::windows_core::Param<#ty> })
+                    } else {
+                        Some(quote! { #generic_ident: ::windows_core::ParamMut<#ty> })
+                    }
+                } else {
+                    None
+                }
+            })
+            .collect::<Vec<_>>()
+    }
+
+    fn gen_consume_params(&self) -> Vec<proc_macro2::TokenStream> {
+        self.args
+            .iter()
+            .enumerate()
+            .map(|(generic_index, a)| {
+                let pat = &a.pat;
+
+                if a.borrow_type().is_some() {
+                    let generic_ident = quote::format_ident!("P{generic_index}");
+                    quote! { #pat: #generic_ident }
+                } else {
+                    let ty = &a.ty;
+                    quote! { #pat: #ty }
+                }
+            })
+            .collect::<Vec<_>>()
+    }
+
+    fn gen_consume_args(&self) -> Vec<proc_macro2::TokenStream> {
+        self.args
+            .iter()
+            .map(|a| {
+                let pat = &a.pat;
+
+                if let Some((_, ident)) = a.borrow_type() {
+                    if ident == "Ref" {
+                        quote! { #pat.param().borrow() }
+                    } else {
+                        quote! { #pat.borrow_mut() }
+                    }
+                } else {
+                    quote! { #pat }
+                }
             })
             .collect::<Vec<_>>()
     }
@@ -553,4 +645,25 @@ struct InterfaceMethodArg {
     pub ty: Box<syn::Type>,
     /// The name of the argument
     pub pat: Box<syn::Pat>,
+}
+
+impl InterfaceMethodArg {
+    fn borrow_type(&self) -> Option<(syn::Type, String)> {
+        if let syn::Type::Path(path) = &*self.ty {
+            if let Some(segment) = path.path.segments.last() {
+                let ident = segment.ident.to_string();
+                if matches!(ident.as_str(), "Ref" | "RefMut") {
+                    if let syn::PathArguments::AngleBracketed(args) = &segment.arguments {
+                        if args.args.len() == 1 {
+                            if let Some(syn::GenericArgument::Type(ty)) = args.args.first() {
+                                return Some((ty.clone(), ident));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        None
+    }
 }

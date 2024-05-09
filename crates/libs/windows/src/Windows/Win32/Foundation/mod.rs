@@ -10824,7 +10824,7 @@ impl Default for HINSTANCE {
 impl windows_core::TypeKind for HINSTANCE {
     type TypeKind = windows_core::CopyType;
 }
-impl windows_core::CanInto<HMODULE> for HINSTANCE {}
+impl windows_core::imp::CanInto<HMODULE> for HINSTANCE {}
 impl From<HINSTANCE> for HMODULE {
     fn from(value: HINSTANCE) -> Self {
         Self(value.0)
@@ -10887,7 +10887,7 @@ impl Default for HMODULE {
 impl windows_core::TypeKind for HMODULE {
     type TypeKind = windows_core::CopyType;
 }
-impl windows_core::CanInto<HINSTANCE> for HMODULE {}
+impl windows_core::imp::CanInto<HINSTANCE> for HMODULE {}
 impl From<HMODULE> for HINSTANCE {
     fn from(value: HMODULE) -> Self {
         Self(value.0)
@@ -10953,7 +10953,7 @@ impl Default for HWND {
 impl windows_core::TypeKind for HWND {
     type TypeKind = windows_core::CopyType;
 }
-impl windows_core::CanInto<HANDLE> for HWND {}
+impl windows_core::imp::CanInto<HANDLE> for HWND {}
 impl From<HWND> for HANDLE {
     fn from(value: HWND) -> Self {
         Self(value.0)

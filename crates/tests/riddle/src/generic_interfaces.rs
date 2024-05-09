@@ -16,11 +16,11 @@ impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IIterable<T> {
         unsafe { std::mem::transmute(self) }
     }
 }
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown>
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown>
     for IIterable<T>
 {
 }
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable>
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable>
     for IIterable<T>
 {
 }
@@ -75,11 +75,11 @@ impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IIterator<T> {
         unsafe { std::mem::transmute(self) }
     }
 }
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown>
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown>
     for IIterator<T>
 {
 }
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable>
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable>
     for IIterator<T>
 {
 }
@@ -168,11 +168,11 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     }
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
-    windows_core::CanInto<windows_core::IUnknown> for IKeyValuePair<K, V>
+    windows_core::imp::CanInto<windows_core::IUnknown> for IKeyValuePair<K, V>
 {
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
-    windows_core::CanInto<windows_core::IInspectable> for IKeyValuePair<K, V>
+    windows_core::imp::CanInto<windows_core::IInspectable> for IKeyValuePair<K, V>
 {
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
@@ -259,15 +259,15 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     }
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
-    windows_core::CanInto<windows_core::IUnknown> for IMapView<K, V>
+    windows_core::imp::CanInto<windows_core::IUnknown> for IMapView<K, V>
 {
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
-    windows_core::CanInto<windows_core::IInspectable> for IMapView<K, V>
+    windows_core::imp::CanInto<windows_core::IInspectable> for IMapView<K, V>
 {
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
-    windows_core::CanInto<IIterable<IKeyValuePair<K, V>>> for IMapView<K, V>
+    windows_core::imp::CanInto<IIterable<IKeyValuePair<K, V>>> for IMapView<K, V>
 {
     const QUERY: bool = true;
 }

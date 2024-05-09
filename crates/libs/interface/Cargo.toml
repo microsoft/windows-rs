@@ -19,6 +19,6 @@ targets = []
 proc-macro = true
 
 [dependencies]
-syn = { version = "2.0", default-features = false, features = ["parsing", "proc-macro", "printing", "full", "derive"] }
+syn = { version = "2.0", default-features = false, features = ["parsing", "proc-macro", "printing", "full", "derive", "clone-impls"] }
 quote = "1.0"
 proc-macro2 = "1.0"

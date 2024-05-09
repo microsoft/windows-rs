@@ -428,9 +428,9 @@ impl<T: windows_core::RuntimeType + 'static> std::ops::Deref for IReference<T> {
         unsafe { std::mem::transmute(self) }
     }
 }
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IUnknown> for IReference<T> {}
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<windows_core::IInspectable> for IReference<T> {}
-impl<T: windows_core::RuntimeType + 'static> windows_core::CanInto<IPropertyValue> for IReference<T> {
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown> for IReference<T> {}
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable> for IReference<T> {}
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IPropertyValue> for IReference<T> {
     const QUERY: bool = true;
 }
 impl<T: windows_core::RuntimeType + 'static> IReference<T> {

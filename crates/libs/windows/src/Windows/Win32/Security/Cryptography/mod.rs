@@ -8814,7 +8814,7 @@ impl Default for BCRYPT_ALG_HANDLE {
 impl windows_core::TypeKind for BCRYPT_ALG_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
-impl windows_core::CanInto<BCRYPT_HANDLE> for BCRYPT_ALG_HANDLE {}
+impl windows_core::imp::CanInto<BCRYPT_HANDLE> for BCRYPT_ALG_HANDLE {}
 impl From<BCRYPT_ALG_HANDLE> for BCRYPT_HANDLE {
     fn from(value: BCRYPT_ALG_HANDLE) -> Self {
         Self(value.0)
@@ -9209,7 +9209,7 @@ impl Default for BCRYPT_HASH_HANDLE {
 impl windows_core::TypeKind for BCRYPT_HASH_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
-impl windows_core::CanInto<BCRYPT_HANDLE> for BCRYPT_HASH_HANDLE {}
+impl windows_core::imp::CanInto<BCRYPT_HANDLE> for BCRYPT_HASH_HANDLE {}
 impl From<BCRYPT_HASH_HANDLE> for BCRYPT_HANDLE {
     fn from(value: BCRYPT_HASH_HANDLE) -> Self {
         Self(value.0)
@@ -9328,7 +9328,7 @@ impl Default for BCRYPT_KEY_HANDLE {
 impl windows_core::TypeKind for BCRYPT_KEY_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
-impl windows_core::CanInto<BCRYPT_HANDLE> for BCRYPT_KEY_HANDLE {}
+impl windows_core::imp::CanInto<BCRYPT_HANDLE> for BCRYPT_KEY_HANDLE {}
 impl From<BCRYPT_KEY_HANDLE> for BCRYPT_HANDLE {
     fn from(value: BCRYPT_KEY_HANDLE) -> Self {
         Self(value.0)
@@ -9663,7 +9663,7 @@ impl Default for BCRYPT_SECRET_HANDLE {
 impl windows_core::TypeKind for BCRYPT_SECRET_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
-impl windows_core::CanInto<BCRYPT_HANDLE> for BCRYPT_SECRET_HANDLE {}
+impl windows_core::imp::CanInto<BCRYPT_HANDLE> for BCRYPT_SECRET_HANDLE {}
 impl From<BCRYPT_SECRET_HANDLE> for BCRYPT_HANDLE {
     fn from(value: BCRYPT_SECRET_HANDLE) -> Self {
         Self(value.0)
@@ -19742,7 +19742,7 @@ impl Default for NCRYPT_KEY_HANDLE {
 impl windows_core::TypeKind for NCRYPT_KEY_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
-impl windows_core::CanInto<NCRYPT_HANDLE> for NCRYPT_KEY_HANDLE {}
+impl windows_core::imp::CanInto<NCRYPT_HANDLE> for NCRYPT_KEY_HANDLE {}
 impl From<NCRYPT_KEY_HANDLE> for NCRYPT_HANDLE {
     fn from(value: NCRYPT_KEY_HANDLE) -> Self {
         Self(value.0)
@@ -19978,7 +19978,7 @@ impl Default for NCRYPT_PROV_HANDLE {
 impl windows_core::TypeKind for NCRYPT_PROV_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
-impl windows_core::CanInto<NCRYPT_HANDLE> for NCRYPT_PROV_HANDLE {}
+impl windows_core::imp::CanInto<NCRYPT_HANDLE> for NCRYPT_PROV_HANDLE {}
 impl From<NCRYPT_PROV_HANDLE> for NCRYPT_HANDLE {
     fn from(value: NCRYPT_PROV_HANDLE) -> Self {
         Self(value.0)

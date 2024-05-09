@@ -28,7 +28,7 @@ where
     T: TypeKind<TypeKind = InterfaceType> + Clone,
     T: Interface,
     U: Interface,
-    U: CanInto<T>,
+    U: imp::CanInto<T>,
 {
     unsafe fn param(self) -> ParamValue<T> {
         if U::QUERY {
@@ -52,7 +52,7 @@ impl<T, U> Param<T, CopyType> for U
 where
     T: TypeKind<TypeKind = CopyType> + Clone,
     U: TypeKind<TypeKind = CopyType> + Clone,
-    U: CanInto<T>,
+    U: imp::CanInto<T>,
 {
     unsafe fn param(self) -> ParamValue<T> {
         ParamValue::Owned(std::mem::transmute_copy(&self))
@@ -82,27 +82,3 @@ impl Param<PCSTR> for PSTR {
         ParamValue::Owned(PCSTR(self.0))
     }
 }
-
-#[doc(hidden)]
-pub enum ParamValue<T: Type<T>> {
-    Owned(T),
-    Borrowed(T::Abi),
-}
-
-impl<T: Type<T>> ParamValue<T> {
-    pub fn abi(&self) -> T::Abi {
-        unsafe {
-            match self {
-                Self::Owned(item) => std::mem::transmute_copy(item),
-                Self::Borrowed(borrowed) => std::mem::transmute_copy(borrowed),
-            }
-        }
-    }
-}
-
-#[doc(hidden)]
-pub trait CanInto<T>: Sized {
-    const QUERY: bool = false;
-}
-
-impl<T> CanInto<T> for T where T: Clone {}

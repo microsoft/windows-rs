@@ -10683,7 +10683,7 @@ impl Default for HBITMAP {
 impl windows_core::TypeKind for HBITMAP {
     type TypeKind = windows_core::CopyType;
 }
-impl windows_core::CanInto<HGDIOBJ> for HBITMAP {}
+impl windows_core::imp::CanInto<HGDIOBJ> for HBITMAP {}
 impl From<HBITMAP> for HGDIOBJ {
     fn from(value: HBITMAP) -> Self {
         Self(value.0)
@@ -10712,7 +10712,7 @@ impl Default for HBRUSH {
 impl windows_core::TypeKind for HBRUSH {
     type TypeKind = windows_core::CopyType;
 }
-impl windows_core::CanInto<HGDIOBJ> for HBRUSH {}
+impl windows_core::imp::CanInto<HGDIOBJ> for HBRUSH {}
 impl From<HBRUSH> for HGDIOBJ {
     fn from(value: HBRUSH) -> Self {
         Self(value.0)
@@ -10780,7 +10780,7 @@ impl Default for HFONT {
 impl windows_core::TypeKind for HFONT {
     type TypeKind = windows_core::CopyType;
 }
-impl windows_core::CanInto<HGDIOBJ> for HFONT {}
+impl windows_core::imp::CanInto<HGDIOBJ> for HFONT {}
 impl From<HFONT> for HGDIOBJ {
     fn from(value: HFONT) -> Self {
         Self(value.0)
@@ -10864,7 +10864,7 @@ impl Default for HPALETTE {
 impl windows_core::TypeKind for HPALETTE {
     type TypeKind = windows_core::CopyType;
 }
-impl windows_core::CanInto<HGDIOBJ> for HPALETTE {}
+impl windows_core::imp::CanInto<HGDIOBJ> for HPALETTE {}
 impl From<HPALETTE> for HGDIOBJ {
     fn from(value: HPALETTE) -> Self {
         Self(value.0)
@@ -10893,7 +10893,7 @@ impl Default for HPEN {
 impl windows_core::TypeKind for HPEN {
     type TypeKind = windows_core::CopyType;
 }
-impl windows_core::CanInto<HGDIOBJ> for HPEN {}
+impl windows_core::imp::CanInto<HGDIOBJ> for HPEN {}
 impl From<HPEN> for HGDIOBJ {
     fn from(value: HPEN) -> Self {
         Self(value.0)
@@ -10922,7 +10922,7 @@ impl Default for HRGN {
 impl windows_core::TypeKind for HRGN {
     type TypeKind = windows_core::CopyType;
 }
-impl windows_core::CanInto<HGDIOBJ> for HRGN {}
+impl windows_core::imp::CanInto<HGDIOBJ> for HRGN {}
 impl From<HRGN> for HGDIOBJ {
     fn from(value: HRGN) -> Self {
         Self(value.0)
