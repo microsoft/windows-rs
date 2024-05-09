@@ -72,7 +72,7 @@ impl IActivationFactory_Impl for ClassFactory {
 #[no_mangle]
 unsafe extern "system" fn DllGetActivationFactory(
     name: Ref<HSTRING>,
-    factory: RefMut<IActivationFactory>,
+    factory: OutRef<IActivationFactory>,
 ) -> HRESULT {
     if *name == "test_component.Class" {
         factory.write(Some(ClassFactory.into())).into()

@@ -4,9 +4,9 @@ use super::*;
 ///
 /// This is a mutable version of [Ref] meant to support out parameters.
 #[repr(transparent)]
-pub struct RefMut<'a, T: Type<T>>(*mut T::Abi, std::marker::PhantomData<&'a T>);
+pub struct OutRef<'a, T: Type<T>>(*mut T::Abi, std::marker::PhantomData<&'a T>);
 
-impl<'a, T: Type<T>> RefMut<'a, T> {
+impl<'a, T: Type<T>> OutRef<'a, T> {
     /// Returns `true` if the argument is null.
     pub fn is_null(&self) -> bool {
         self.0.is_null()

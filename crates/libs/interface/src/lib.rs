@@ -563,7 +563,7 @@ impl InterfaceMethod {
                     if ident == "Ref" {
                         Some(quote! { #generic_ident: ::windows_core::Param<#ty> })
                     } else {
-                        Some(quote! { #generic_ident: ::windows_core::ParamMut<#ty> })
+                        Some(quote! { #generic_ident: ::windows_core::OutParam<#ty> })
                     }
                 } else {
                     None
@@ -652,7 +652,7 @@ impl InterfaceMethodArg {
         if let syn::Type::Path(path) = &*self.ty {
             if let Some(segment) = path.path.segments.last() {
                 let ident = segment.ident.to_string();
-                if matches!(ident.as_str(), "Ref" | "RefMut") {
+                if matches!(ident.as_str(), "Ref" | "OutRef") {
                     if let syn::PathArguments::AngleBracketed(args) = &segment.arguments {
                         if args.args.len() == 1 {
                             if let Some(syn::GenericArgument::Type(ty)) = args.args.first() {
