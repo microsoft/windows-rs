@@ -31,13 +31,13 @@ impl ITest_Impl for Test {
         output.write(input).into()
     }
     unsafe fn hstring(&self, input: Ref<HSTRING>, output: RefMut<HSTRING>) -> HRESULT {
-        output.write(input.read().clone()).into()
+        output.write(input.clone()).into()
     }
     unsafe fn interface(&self, input: Ref<ITest>, output: RefMut<ITest>) -> HRESULT {
-        output.write(input.read().clone()).into()
+        output.write(input.clone()).into()
     }
     unsafe fn required_input(&self, input: Ref<ITest>, output: RefMut<ITest>) -> HRESULT {
-        if input.read().is_none() {
+        if input.is_none() {
             E_INVALIDARG
         } else {
             self.interface(input, output)
@@ -56,13 +56,13 @@ impl ITest_Impl for Test {
         output.write(input)
     }
     unsafe fn result_hstring(&self, input: Ref<HSTRING>, output: RefMut<HSTRING>) -> Result<()> {
-        output.write(input.read().clone())
+        output.write(input.clone())
     }
     unsafe fn result_interface(&self, input: Ref<ITest>, output: RefMut<ITest>) -> Result<()> {
-        output.write(input.read().clone())
+        output.write(input.clone())
     }
     unsafe fn result_required_input(&self, input: Ref<ITest>, output: RefMut<ITest>) -> Result<()> {
-        if input.read().is_none() {
+        if input.is_none() {
             E_INVALIDARG.ok()
         } else {
             self.result_interface(input, output)
