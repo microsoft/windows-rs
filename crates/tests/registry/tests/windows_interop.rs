@@ -11,11 +11,15 @@ fn windows_interop() -> Result<()> {
     key.set_u32("2", 2)?;
     key.set_u32("3", 3)?;
 
+    let raw = HKEY(key.as_raw());
+    std::mem::forget(key);
+    let owned = unsafe { Key::from_raw(raw.0) };
+
     let mut count = 0;
 
     unsafe {
         RegQueryInfoKeyW(
-            HKEY(key.as_raw()),
+            HKEY(owned.as_raw()),
             PWSTR::null(),
             None,
             None,

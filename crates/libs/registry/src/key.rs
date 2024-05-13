@@ -37,6 +37,16 @@ impl Key {
         win32_error(result).map(|_| Self(handle))
     }
 
+    /// Constructs a registry key from an existing handle.
+    ///
+    /// # Safety
+    ///
+    /// This function takes ownership of the handle.
+    /// The handle must be owned by the caller and safe to free with `RegCloseKey`.
+    pub unsafe fn from_raw(handle: isize) -> Self {
+        Self(handle)
+    }
+
     /// Returns the underlying registry key handle.
     pub fn as_raw(&self) -> isize {
         self.0

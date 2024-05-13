@@ -11,11 +11,15 @@ fn sys_interop() -> Result<()> {
     key.set_u32("2", 2)?;
     key.set_u32("3", 3)?;
 
+    let raw: HKEY = key.as_raw();
+    std::mem::forget(key);
+    let owned = unsafe { Key::from_raw(raw) };
+
     let mut count = 0;
 
     unsafe {
         RegQueryInfoKeyW(
-            key.as_raw(),
+            owned.as_raw(),
             std::ptr::null_mut(),
             std::ptr::null_mut(),
             std::ptr::null_mut(),

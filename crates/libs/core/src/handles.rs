@@ -19,7 +19,8 @@ impl<T: Free> Owned<T> {
     /// Takes ownership of the handle.
     ///
     /// # Safety
-    /// The handle must be owned by the caller and safe to free.    
+    ///
+    /// The handle must be owned by the caller and safe to free.
     pub unsafe fn new(x: T) -> Self {
         Self(x)
     }
