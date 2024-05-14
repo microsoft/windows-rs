@@ -18,6 +18,7 @@ pub unsafe trait Interface: Sized + Clone {
 
     /// A reference to the interface's vtable
     #[doc(hidden)]
+    #[inline(always)]
     fn vtable(&self) -> &Self::Vtable {
         // SAFETY: the implementor of the trait guarantees that `Self` is castable to its vtable
         unsafe { self.assume_vtable::<Self>() }
@@ -30,6 +31,7 @@ pub unsafe trait Interface: Sized + Clone {
     /// This is safe if `T` is an equivalent interface to `Self` or a super interface.
     /// In other words, `T::Vtable` must be equivalent to the beginning of `Self::Vtable`.
     #[doc(hidden)]
+    #[inline(always)]
     unsafe fn assume_vtable<T: Interface>(&self) -> &T::Vtable {
         &**(self.as_raw() as *mut *mut T::Vtable)
     }
@@ -42,6 +44,7 @@ pub unsafe trait Interface: Sized + Clone {
     }
 
     /// Returns the raw COM interface pointer and releases ownership. It the caller's responsibility to release the COM interface pointer.
+    #[inline(always)]
     fn into_raw(self) -> *mut std::ffi::c_void {
         // SAFETY: implementors of this trait must guarantee that the implementing type has a pointer in-memory representation
         let raw = self.as_raw();
@@ -65,6 +68,7 @@ pub unsafe trait Interface: Sized + Clone {
     ///
     /// The `raw` pointer must be a valid COM interface pointer. In other words, it must point to a vtable
     /// beginning with the `IUnknown` function pointers and match the vtable of `Interface`.
+    #[inline(always)]
     unsafe fn from_raw_borrowed(raw: &*mut std::ffi::c_void) -> Option<&Self> {
         if raw.is_null() {
             None
@@ -77,15 +81,29 @@ pub unsafe trait Interface: Sized + Clone {
     ///
     /// The name `cast` is preferred to `query` because there is a WinRT method named query but not one
     /// named cast.
+    #[inline(always)]
     fn cast<T: Interface>(&self) -> Result<T> {
-        let mut result = None;
-
         // SAFETY: `result` is valid for writing an interface pointer and it is safe
         // to cast the `result` pointer as `T` on success because we are using the `IID` tied
         // to `T` which the implementor of `Interface` has guaranteed is correct
-        unsafe { _ = self.query(&T::IID, &mut result as *mut _ as _) };
+        unsafe {
+            // If query() returns a failure code then we propagate that failure code to the caller.
+            // In that case, we ignore the contents of 'result' (which will _not_ be dropped,
+            // because MaybeUninit intentionally does not drop its contents).
+            //
+            // This guards against implementations of COM interfaces which may store non-null values
+            // in 'result' but still return E_NOINTERFACE.
+            let mut result = core::mem::MaybeUninit::<Option<T>>::zeroed();
+            self.query(&T::IID, result.as_mut_ptr() as _).ok()?;
 
-        result.ok_or_else(|| Error::from_hresult(imp::E_NOINTERFACE))
+            // If we get here, then query() has succeeded, but we still need to double-check
+            // that the output pointer is non-null.
+            if let Some(obj) = result.assume_init() {
+                Ok(obj)
+            } else {
+                Err(imp::E_POINTER.into())
+            }
+        }
     }
 
     /// Attempts to create a [`Weak`] reference to this object.
@@ -98,6 +116,7 @@ pub unsafe trait Interface: Sized + Clone {
     /// # Safety
     ///
     /// `interface` must be a non-null, valid pointer for writing an interface pointer.
+    #[inline(always)]
     unsafe fn query(&self, iid: *const GUID, interface: *mut *mut std::ffi::c_void) -> HRESULT {
         if Self::UNKNOWN {
             (self.assume_vtable::<IUnknown>().QueryInterface)(self.as_raw(), iid, interface)
