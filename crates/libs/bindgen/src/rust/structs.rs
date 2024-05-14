@@ -13,7 +13,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     if let Some(guid) = clsid(def) {
         let ident = to_ident(def.name());
         let value = writer.guid(&guid);
-        let guid = writer.type_name(&metadata::Type::GUID);
+        let guid = writer.type_name(&metadata::Type::Name(metadata::TypeName::GUID));
         return quote! {
             pub const #ident: #guid = #value;
         };

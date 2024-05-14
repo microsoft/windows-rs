@@ -84,6 +84,12 @@ impl ToTokens for String {
     }
 }
 
+impl ToTokens for windows_metadata::CowStr {
+    fn to_tokens(&self, tokens: &mut TokenStream) {
+        self.as_str().to_tokens(tokens);
+    }
+}
+
 macro_rules! primitive {
     ($($t:ident => $name:ident)*) => ($(
         impl ToTokens for $t {

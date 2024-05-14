@@ -111,8 +111,6 @@ where
     let input = read_input(&input)?;
     let reader = metadata::Reader::filter(input, &include, &exclude, &config);
 
-    winmd::verify(reader)?;
-
     match extension(&output) {
         "rdl" => rdl::from_reader(reader, config, &output)?,
         "winmd" => winmd::from_reader(reader, config, &output)?,

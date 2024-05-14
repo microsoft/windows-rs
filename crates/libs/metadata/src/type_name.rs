@@ -1,9 +1,16 @@
 #![allow(non_upper_case_globals)]
 
+use super::*;
+
 #[derive(Clone, Debug, Hash, PartialEq, Eq, Ord, PartialOrd)]
 pub struct TypeName {
-    namespace: &'static str,
-    name: &'static str,
+    namespace: CowStr,
+    name: CowStr,
+    nested: CowStr,
+
+    // Can't use a Vec since it doesn't derive PartialEq. Thankfully there will be at most two generics.
+    generic1: Option<Box<Type>>,
+    generic2: Option<Box<Type>>,
 }
 
 impl TypeName {
@@ -53,7 +60,17 @@ impl TypeName {
     pub const PROPVARIANT: Self = Self::new("Windows.Win32.System.Com.StructuredStorage", "PROPVARIANT");
 
     pub const fn new(namespace: &'static str, name: &'static str) -> Self {
-        Self { namespace, name }
+        Self { namespace: CowStr::Borrowed(namespace), name: CowStr::Borrowed(name), nested: CowStr::Borrowed(""), generic1: None, generic2: None }
+    }
+
+    pub fn owned(namespace: &str, name: &str) -> Self {
+        Self {
+            namespace: CowStr::Owned(namespace.to_string()),
+            name: CowStr::Owned(name.to_string()),
+            nested: CowStr::Borrowed(""),
+            generic1: None,
+            generic2: None,
+        }
     }
 
     pub fn parse(full_name: &'static str) -> Self {
@@ -61,17 +78,24 @@ impl TypeName {
         Self::new(&full_name[0..index], &full_name[index + 1..])
     }
 
-    pub fn namespace(&self) -> &'static str {
-        self.namespace
+    pub fn namespace(&self) -> &CowStr {
+        &self.namespace
     }
 
-    pub fn name(&self) -> &'static str {
-        self.name
+    pub fn name(&self) -> &CowStr {
+        &self.name
+    }
+
+    pub fn generics(&self) -> impl Iterator<Item = &Type> + '_ {
+        self.generic1.iter().chain(self.generic2.iter()).map(|boxed| boxed.as_ref())
     }
 }
 
 impl std::fmt::Display for TypeName {
     fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(fmt, "{}.{}", self.namespace, self.name)
+        // TODO:
+        // - add /nested if present
+        // - add <A> or <A, B> if the generics are present
     }
 }

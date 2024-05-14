@@ -20,8 +20,8 @@ pub fn standalone_imp(writer: &Writer) -> String {
 
     for ty in types {
         match ty {
-            metadata::Type::HRESULT if writer.sys => sorted.insert("HRESULT", quote! { pub type HRESULT = i32; }),
-            metadata::Type::IUnknown if writer.sys => sorted.insert(
+            metadata::Type::Name(metadata::TypeName::HResult) if writer.sys => sorted.insert("HRESULT", quote! { pub type HRESULT = i32; }),
+            metadata::Type::Name(metadata::TypeName::IUnknown) if writer.sys => sorted.insert(
                 "IUnknown",
                 if !writer.vtbl {
                     quote! {}
@@ -37,7 +37,7 @@ pub fn standalone_imp(writer: &Writer) -> String {
                     }
                 },
             ),
-            metadata::Type::IInspectable if writer.sys => sorted.insert(
+            metadata::Type::Object if writer.sys => sorted.insert(
                 "IInspectable",
                 if !writer.vtbl {
                     quote! {}
@@ -58,8 +58,8 @@ pub fn standalone_imp(writer: &Writer) -> String {
             metadata::Type::PWSTR if writer.sys => sorted.insert("PWSTR", quote! { pub type PWSTR = *mut u16; }),
             metadata::Type::PCSTR if writer.sys => sorted.insert("PCSTR", quote! { pub type PCSTR = *const u8; }),
             metadata::Type::PCWSTR if writer.sys => sorted.insert("PCWSTR", quote! { pub type PCWSTR = *const u16; }),
-            metadata::Type::BSTR if writer.sys => sorted.insert("BSTR", quote! { pub type BSTR = *const u16; }),
-            metadata::Type::GUID if writer.sys => {
+            metadata::Type::Name(metadata::TypeName::BSTR) if writer.sys => sorted.insert("BSTR", quote! { pub type BSTR = *const u16; }),
+            metadata::Type::Name(metadata::TypeName::GUID) if writer.sys => {
                 sorted.insert(
                     "GUID",
                     quote! {
@@ -128,11 +128,11 @@ fn type_collect_standalone(writer: &Writer, ty: &metadata::Type, set: &mut std::
 
     if writer.vtbl {
         match ty {
-            metadata::Type::IUnknown => {
-                set.insert(metadata::Type::GUID);
-                set.insert(metadata::Type::HRESULT);
+            metadata::Type::Name(metadata::TypeName::IUnknown) => {
+                set.insert(metadata::Type::Name(metadata::TypeName::GUID));
+                set.insert(metadata::Type::Name(metadata::TypeName::HResult));
             }
-            metadata::Type::IInspectable => type_collect_standalone(writer, &metadata::Type::IUnknown, set),
+            metadata::Type::Object => type_collect_standalone(writer, &metadata::Type::Name(metadata::TypeName::IUnknown), set),
             _ => {}
         }
     }
@@ -188,12 +188,12 @@ fn type_collect_standalone(writer: &Writer, ty: &metadata::Type, set: &mut std::
     match def.kind() {
         metadata::TypeKind::Struct => {
             if def.fields().next().is_none() && metadata::type_def_guid(def).is_some() {
-                set.insert(metadata::Type::GUID);
+                set.insert(metadata::Type::Name(metadata::TypeName::GUID));
             }
         }
         metadata::TypeKind::Interface => {
             if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) {
-                type_collect_standalone(writer, &metadata::Type::IInspectable, set);
+                type_collect_standalone(writer, &metadata::Type::Object, set);
             }
         }
         _ => {}

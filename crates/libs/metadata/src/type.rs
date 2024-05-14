@@ -1,8 +1,9 @@
 use super::*;
 
+// TODO: we prefer Name(TypeName) here since we can use it in pattern matching whereas TypeDef can't be used in that way
 #[derive(Clone, Debug, Hash, PartialEq, Eq, Ord, PartialOrd)]
 pub enum Type {
-    // Primitives in ECMA-335
+    // TODO: could replace all of these with "System.Xxx" and then use Type::Name for everything?
     Void,
     Bool,
     Char,
@@ -20,13 +21,13 @@ pub enum Type {
     USize,
 
     // System types
-    GUID,         // Both Win32 and WinRT agree that this is represented by System.Guid
     String,       // TODO: Win32 should use System.String when referring to an HSTRING
-    IInspectable, // TODO: Win32 should use System.Object when referring to an IInspectable
-    Type,         // System.Type is needed since WinRT attribute use this as a parameter type.
+    Object, // TODO: Win32 should use System.Object when referring to an IInspectable
+
+    // TODO: use (&'static str, &'static str) to simplify pattern matching?
+    Name(TypeName),
 
     // Regular ECMA-335 types that map to metadata
-    TypeRef(TypeName),
     GenericParam(GenericParam),
     TypeDef(TypeDef, Vec<Self>),
 
@@ -42,15 +43,10 @@ pub enum Type {
     PrimitiveOrEnum(Box<Self>, Box<Self>),
 
     // TODO: these should not be "special" and just point to regular metadata types in Win32.Foundation
-    HRESULT,  // TODO: Win32 should use Windows.Foundation.HResult when referring to HRESULT
-    IUnknown, // TODO: should be defined in Windows.Win32.Foundation.IUnknown
     PSTR,
     PWSTR,
     PCSTR,
     PCWSTR,
-    BSTR,
-    VARIANT,
-    PROPVARIANT,
 }
 
 impl Type {
@@ -74,7 +70,7 @@ impl Type {
             ELEMENT_TYPE_I => Some(Self::ISize),
             ELEMENT_TYPE_U => Some(Self::USize),
             ELEMENT_TYPE_STRING => Some(Self::String),
-            ELEMENT_TYPE_OBJECT => Some(Self::IInspectable),
+            ELEMENT_TYPE_OBJECT => Some(Self::Object),
             _ => None,
         }
     }
@@ -177,7 +173,7 @@ impl Type {
             Type::I8 | Type::U8 => 1,
             Type::I16 | Type::U16 => 2,
             Type::I64 | Type::U64 | Type::F64 => 8,
-            Type::GUID => 16,
+            Type::Name(TypeName::GUID) => 16,
             Type::TypeDef(def, _) => def.size(),
             Type::Win32Array(ty, len) => ty.size() * len,
             Type::PrimitiveOrEnum(ty, _) => ty.size(),
@@ -190,7 +186,7 @@ impl Type {
             Type::I8 | Type::U8 => 1,
             Type::I16 | Type::U16 => 2,
             Type::I64 | Type::U64 | Type::F64 => 8,
-            Type::GUID => 4,
+            Type::Name(TypeName::GUID) => 4,
             Type::TypeDef(def, _) => def.align(),
             Type::Win32Array(ty, len) => ty.align() * len,
             _ => 4,

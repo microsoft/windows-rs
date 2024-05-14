@@ -20,7 +20,9 @@ mod table;
 mod tables;
 mod r#type;
 mod type_name;
+mod cow_str;
 
+pub use cow_str::*;
 pub use attributes::*;
 pub use bindings::*;
 pub use blob::*;
@@ -92,7 +94,7 @@ pub enum Value {
     I64(i64),
     F32(f32),
     F64(f64),
-    String(String),
+    String(CowStr),
     TypeName(TypeName),
     EnumDef(TypeDef, Box<Self>),
 }

@@ -24,7 +24,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     let mut requires = quote! {};
     let type_ident = quote! { #type_ident<#generic_names> };
     let vtables = metadata::type_def_vtables(def);
-    let has_unknown_base = matches!(vtables.first(), Some(metadata::Type::IUnknown));
+    let has_unknown_base = matches!(vtables.first(), Some(metadata::Type::Name(metadata::TypeName::IUnknown)));
 
     fn gen_required_trait(writer: &Writer, def: metadata::TypeDef, generics: &[metadata::Type]) -> TokenStream {
         let name = writer.type_def_name_imp(def, generics, "_Impl");
@@ -104,8 +104,8 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     let mut methods = quote! {};
 
     match vtables.last() {
-        Some(metadata::Type::IUnknown) => methods.combine(&quote! { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), }),
-        Some(metadata::Type::IInspectable) => methods.combine(&quote! { base__: windows_core::IInspectable_Vtbl::new::<Identity, #type_ident, OFFSET>(), }),
+        Some(metadata::Type::Name(metadata::TypeName::IUnknown)) => methods.combine(&quote! { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), }),
+        Some(metadata::Type::Object) => methods.combine(&quote! { base__: windows_core::IInspectable_Vtbl::new::<Identity, #type_ident, OFFSET>(), }),
         Some(metadata::Type::TypeDef(def, generics)) => {
             let name = writer.type_def_name_imp(*def, generics, "_Vtbl");
             if has_unknown_base {

@@ -339,10 +339,11 @@ impl Writer {
 
             // TODO: dialect-specific keywords for "well-known types" that don't map to metadata in all cases.
             metadata::Type::String => quote! { HSTRING },
-            metadata::Type::HRESULT => quote! { HRESULT },
-            metadata::Type::GUID => quote! { GUID },
-            metadata::Type::IInspectable => quote! { IInspectable },
-            metadata::Type::IUnknown => quote! { IUnknown },
+            metadata::Type::Name(metadata::TypeName::HResult) => quote! { HRESULT },
+            metadata::Type::Name(metadata::TypeName::GUID) => quote! { GUID },
+            metadata::Type::Object => quote! { IInspectable },
+            metadata::Type::Name(metadata::TypeName::IUnknown) => quote! { IUnknown },
+            metadata::Type::Name(metadata::TypeName::BSTR) => quote! { BSTR },
 
             metadata::Type::TypeDef(def, generics) => {
                 let namespace = self.namespace(def.namespace());
@@ -355,7 +356,7 @@ impl Writer {
                 }
             }
 
-            metadata::Type::TypeRef(type_name) => {
+            metadata::Type::Name(type_name) => {
                 let namespace = self.namespace(type_name.namespace());
                 let name = to_ident(type_name.name());
                 quote! { #namespace #name }
@@ -373,9 +374,7 @@ impl Writer {
             metadata::Type::PWSTR => quote! { PWSTR },
             metadata::Type::PCSTR => quote! { PCSTR },
             metadata::Type::PCWSTR => quote! { PCWSTR },
-            metadata::Type::BSTR => quote! { BSTR },
             metadata::Type::PrimitiveOrEnum(_, ty) => self.ty(ty),
-            rest => unimplemented!("{rest:?}"),
         }
     }
 
