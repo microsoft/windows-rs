@@ -1,4 +1,10 @@
-#![allow(non_snake_case, non_upper_case_globals, non_camel_case_types, dead_code, clippy::all)]
+#![allow(
+    non_snake_case,
+    non_upper_case_globals,
+    non_camel_case_types,
+    dead_code,
+    clippy::all
+)]
 pub type CorElementType = u8;
 pub const ELEMENT_TYPE_ARRAY: CorElementType = 20u8;
 pub const ELEMENT_TYPE_BOOLEAN: CorElementType = 2u8;

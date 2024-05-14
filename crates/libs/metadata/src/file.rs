@@ -44,11 +44,19 @@ unsafe impl Sync for File {}
 
 impl File {
     pub fn new(bytes: Vec<u8>) -> Option<Self> {
-        let mut result = File { bytes, reader: std::ptr::null(), strings: 0, blobs: 0, tables: Default::default() };
+        let mut result = File {
+            bytes,
+            reader: std::ptr::null(),
+            strings: 0,
+            blobs: 0,
+            tables: Default::default(),
+        };
 
         let dos = result.bytes.view_as::<IMAGE_DOS_HEADER>(0)?;
 
-        if dos.e_magic != IMAGE_DOS_SIGNATURE || result.bytes.copy_as::<u32>(dos.e_lfanew as usize)? != IMAGE_NT_SIGNATURE {
+        if dos.e_magic != IMAGE_DOS_SIGNATURE
+            || result.bytes.copy_as::<u32>(dos.e_lfanew as usize)? != IMAGE_NT_SIGNATURE
+        {
             return None;
         }
 
@@ -59,23 +67,47 @@ impl File {
 
         let (com_virtual_address, sections) = match result.bytes.copy_as::<u16>(optional_offset)? {
             IMAGE_NT_OPTIONAL_HDR32_MAGIC => {
-                let optional = result.bytes.view_as::<IMAGE_OPTIONAL_HEADER32>(optional_offset)?;
-                (optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize].VirtualAddress, result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(optional_offset + std::mem::size_of::<IMAGE_OPTIONAL_HEADER32>(), file.NumberOfSections as usize)?)
+                let optional = result
+                    .bytes
+                    .view_as::<IMAGE_OPTIONAL_HEADER32>(optional_offset)?;
+                (
+                    optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize]
+                        .VirtualAddress,
+                    result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(
+                        optional_offset + std::mem::size_of::<IMAGE_OPTIONAL_HEADER32>(),
+                        file.NumberOfSections as usize,
+                    )?,
+                )
             }
             IMAGE_NT_OPTIONAL_HDR64_MAGIC => {
-                let optional = result.bytes.view_as::<IMAGE_OPTIONAL_HEADER64>(optional_offset)?;
-                (optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize].VirtualAddress, result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(optional_offset + std::mem::size_of::<IMAGE_OPTIONAL_HEADER64>(), file.NumberOfSections as usize)?)
+                let optional = result
+                    .bytes
+                    .view_as::<IMAGE_OPTIONAL_HEADER64>(optional_offset)?;
+                (
+                    optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize]
+                        .VirtualAddress,
+                    result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(
+                        optional_offset + std::mem::size_of::<IMAGE_OPTIONAL_HEADER64>(),
+                        file.NumberOfSections as usize,
+                    )?,
+                )
             }
             _ => return None,
         };
 
-        let clr = result.bytes.view_as::<IMAGE_COR20_HEADER>(offset_from_rva(section_from_rva(sections, com_virtual_address)?, com_virtual_address))?;
+        let clr = result.bytes.view_as::<IMAGE_COR20_HEADER>(offset_from_rva(
+            section_from_rva(sections, com_virtual_address)?,
+            com_virtual_address,
+        ))?;
 
         if clr.cb != std::mem::size_of::<IMAGE_COR20_HEADER>() as u32 {
             return None;
         }
 
-        let metadata_offset = offset_from_rva(section_from_rva(sections, clr.MetaData.VirtualAddress)?, clr.MetaData.VirtualAddress);
+        let metadata_offset = offset_from_rva(
+            section_from_rva(sections, clr.MetaData.VirtualAddress)?,
+            clr.MetaData.VirtualAddress,
+        );
         let metadata = result.bytes.view_as::<METADATA_HEADER>(metadata_offset)?;
 
         if metadata.signature != METADATA_SIGNATURE {
@@ -86,7 +118,10 @@ impl File {
         let mut view = metadata_offset + metadata.length as usize + 20;
         let mut tables_data: (usize, usize) = (0, 0);
 
-        for _ in 0..result.bytes.copy_as::<u16>(metadata_offset + metadata.length as usize + 18)? {
+        for _ in 0..result
+            .bytes
+            .copy_as::<u16>(metadata_offset + metadata.length as usize + 18)?
+        {
             let stream_offset = result.bytes.copy_as::<u32>(view)? as usize;
             let stream_len = result.bytes.copy_as::<u32>(view + 4)? as usize;
             let stream_name = result.bytes.view_as_str(view + 8)?;
@@ -188,18 +223,55 @@ impl File {
         }
 
         let tables = &result.tables;
-        let type_def_or_ref = coded_index_size(&[tables[TypeDef::TABLE].len, tables[TypeRef::TABLE].len, tables[TypeSpec::TABLE].len]);
-        let has_constant = coded_index_size(&[tables[Field::TABLE].len, tables[Param::TABLE].len, unused_property.len]);
-        let has_field_marshal = coded_index_size(&[tables[Field::TABLE].len, tables[Param::TABLE].len]);
-        let has_decl_security = coded_index_size(&[tables[TypeDef::TABLE].len, tables[MethodDef::TABLE].len, unused_assembly.len]);
-        let member_ref_parent = coded_index_size(&[tables[TypeDef::TABLE].len, tables[TypeRef::TABLE].len, tables[ModuleRef::TABLE].len, tables[MethodDef::TABLE].len, tables[TypeSpec::TABLE].len]);
+        let type_def_or_ref = coded_index_size(&[
+            tables[TypeDef::TABLE].len,
+            tables[TypeRef::TABLE].len,
+            tables[TypeSpec::TABLE].len,
+        ]);
+        let has_constant = coded_index_size(&[
+            tables[Field::TABLE].len,
+            tables[Param::TABLE].len,
+            unused_property.len,
+        ]);
+        let has_field_marshal =
+            coded_index_size(&[tables[Field::TABLE].len, tables[Param::TABLE].len]);
+        let has_decl_security = coded_index_size(&[
+            tables[TypeDef::TABLE].len,
+            tables[MethodDef::TABLE].len,
+            unused_assembly.len,
+        ]);
+        let member_ref_parent = coded_index_size(&[
+            tables[TypeDef::TABLE].len,
+            tables[TypeRef::TABLE].len,
+            tables[ModuleRef::TABLE].len,
+            tables[MethodDef::TABLE].len,
+            tables[TypeSpec::TABLE].len,
+        ]);
         let has_semantics = coded_index_size(&[unused_event.len, unused_property.len]);
-        let method_def_or_ref = coded_index_size(&[tables[MethodDef::TABLE].len, tables[MemberRef::TABLE].len]);
-        let member_forwarded = coded_index_size(&[tables[Field::TABLE].len, tables[MethodDef::TABLE].len]);
-        let implementation = coded_index_size(&[unused_file.len, tables[AssemblyRef::TABLE].len, unused_exported_type.len]);
-        let custom_attribute_type = coded_index_size(&[tables[MethodDef::TABLE].len, tables[MemberRef::TABLE].len, unused_empty.len, unused_empty.len, unused_empty.len]);
-        let resolution_scope = coded_index_size(&[tables[Module::TABLE].len, tables[ModuleRef::TABLE].len, tables[AssemblyRef::TABLE].len, tables[TypeRef::TABLE].len]);
-        let type_or_method_def = coded_index_size(&[tables[TypeDef::TABLE].len, tables[MethodDef::TABLE].len]);
+        let method_def_or_ref =
+            coded_index_size(&[tables[MethodDef::TABLE].len, tables[MemberRef::TABLE].len]);
+        let member_forwarded =
+            coded_index_size(&[tables[Field::TABLE].len, tables[MethodDef::TABLE].len]);
+        let implementation = coded_index_size(&[
+            unused_file.len,
+            tables[AssemblyRef::TABLE].len,
+            unused_exported_type.len,
+        ]);
+        let custom_attribute_type = coded_index_size(&[
+            tables[MethodDef::TABLE].len,
+            tables[MemberRef::TABLE].len,
+            unused_empty.len,
+            unused_empty.len,
+            unused_empty.len,
+        ]);
+        let resolution_scope = coded_index_size(&[
+            tables[Module::TABLE].len,
+            tables[ModuleRef::TABLE].len,
+            tables[AssemblyRef::TABLE].len,
+            tables[TypeRef::TABLE].len,
+        ]);
+        let type_or_method_def =
+            coded_index_size(&[tables[TypeDef::TABLE].len, tables[MethodDef::TABLE].len]);
 
         let has_custom_attribute = coded_index_size(&[
             tables[MethodDef::TABLE].len,
@@ -225,43 +297,190 @@ impl File {
             unused_method_spec.len,
         ]);
 
-        unused_assembly.set_columns(4, 8, 4, blob_index_size, string_index_size, string_index_size);
+        unused_assembly.set_columns(
+            4,
+            8,
+            4,
+            blob_index_size,
+            string_index_size,
+            string_index_size,
+        );
         unused_assembly_os.set_columns(4, 4, 4, 0, 0, 0);
         unused_assembly_processor.set_columns(4, 0, 0, 0, 0, 0);
-        result.tables[AssemblyRef::TABLE].set_columns(8, 4, blob_index_size, string_index_size, string_index_size, blob_index_size);
-        unused_assembly_ref_os.set_columns(4, 4, 4, result.tables[AssemblyRef::TABLE].index_width(), 0, 0);
-        unused_assembly_ref_processor.set_columns(4, result.tables[AssemblyRef::TABLE].index_width(), 0, 0, 0, 0);
-        result.tables[ClassLayout::TABLE].set_columns(2, 4, result.tables[TypeDef::TABLE].index_width(), 0, 0, 0);
+        result.tables[AssemblyRef::TABLE].set_columns(
+            8,
+            4,
+            blob_index_size,
+            string_index_size,
+            string_index_size,
+            blob_index_size,
+        );
+        unused_assembly_ref_os.set_columns(
+            4,
+            4,
+            4,
+            result.tables[AssemblyRef::TABLE].index_width(),
+            0,
+            0,
+        );
+        unused_assembly_ref_processor.set_columns(
+            4,
+            result.tables[AssemblyRef::TABLE].index_width(),
+            0,
+            0,
+            0,
+            0,
+        );
+        result.tables[ClassLayout::TABLE].set_columns(
+            2,
+            4,
+            result.tables[TypeDef::TABLE].index_width(),
+            0,
+            0,
+            0,
+        );
         result.tables[Constant::TABLE].set_columns(2, has_constant, blob_index_size, 0, 0, 0);
-        result.tables[Attribute::TABLE].set_columns(has_custom_attribute, custom_attribute_type, blob_index_size, 0, 0, 0);
+        result.tables[Attribute::TABLE].set_columns(
+            has_custom_attribute,
+            custom_attribute_type,
+            blob_index_size,
+            0,
+            0,
+            0,
+        );
         unused_decl_security.set_columns(2, has_decl_security, blob_index_size, 0, 0, 0);
-        unused_event_map.set_columns(result.tables[TypeDef::TABLE].index_width(), unused_event.index_width(), 0, 0, 0, 0);
+        unused_event_map.set_columns(
+            result.tables[TypeDef::TABLE].index_width(),
+            unused_event.index_width(),
+            0,
+            0,
+            0,
+            0,
+        );
         unused_event.set_columns(2, string_index_size, type_def_or_ref, 0, 0, 0);
-        unused_exported_type.set_columns(4, 4, string_index_size, string_index_size, implementation, 0);
+        unused_exported_type.set_columns(
+            4,
+            4,
+            string_index_size,
+            string_index_size,
+            implementation,
+            0,
+        );
         result.tables[Field::TABLE].set_columns(2, string_index_size, blob_index_size, 0, 0, 0);
         unused_field_layout.set_columns(4, result.tables[Field::TABLE].index_width(), 0, 0, 0, 0);
         unused_field_marshal.set_columns(has_field_marshal, blob_index_size, 0, 0, 0, 0);
         unused_field_rva.set_columns(4, result.tables[Field::TABLE].index_width(), 0, 0, 0, 0);
         unused_file.set_columns(4, string_index_size, blob_index_size, 0, 0, 0);
-        result.tables[GenericParam::TABLE].set_columns(2, 2, type_or_method_def, string_index_size, 0, 0);
-        unused_generic_param_constraint.set_columns(result.tables[GenericParam::TABLE].index_width(), type_def_or_ref, 0, 0, 0, 0);
-        result.tables[ImplMap::TABLE].set_columns(2, member_forwarded, string_index_size, result.tables[ModuleRef::TABLE].index_width(), 0, 0);
-        result.tables[InterfaceImpl::TABLE].set_columns(result.tables[TypeDef::TABLE].index_width(), type_def_or_ref, 0, 0, 0, 0);
+        result.tables[GenericParam::TABLE].set_columns(
+            2,
+            2,
+            type_or_method_def,
+            string_index_size,
+            0,
+            0,
+        );
+        unused_generic_param_constraint.set_columns(
+            result.tables[GenericParam::TABLE].index_width(),
+            type_def_or_ref,
+            0,
+            0,
+            0,
+            0,
+        );
+        result.tables[ImplMap::TABLE].set_columns(
+            2,
+            member_forwarded,
+            string_index_size,
+            result.tables[ModuleRef::TABLE].index_width(),
+            0,
+            0,
+        );
+        result.tables[InterfaceImpl::TABLE].set_columns(
+            result.tables[TypeDef::TABLE].index_width(),
+            type_def_or_ref,
+            0,
+            0,
+            0,
+            0,
+        );
         unused_manifest_resource.set_columns(4, 4, string_index_size, implementation, 0, 0);
-        result.tables[MemberRef::TABLE].set_columns(member_ref_parent, string_index_size, blob_index_size, 0, 0, 0);
-        result.tables[MethodDef::TABLE].set_columns(4, 2, 2, string_index_size, blob_index_size, result.tables[Param::TABLE].index_width());
-        unused_method_impl.set_columns(result.tables[TypeDef::TABLE].index_width(), method_def_or_ref, method_def_or_ref, 0, 0, 0);
-        unused_method_semantics.set_columns(2, result.tables[MethodDef::TABLE].index_width(), has_semantics, 0, 0, 0);
+        result.tables[MemberRef::TABLE].set_columns(
+            member_ref_parent,
+            string_index_size,
+            blob_index_size,
+            0,
+            0,
+            0,
+        );
+        result.tables[MethodDef::TABLE].set_columns(
+            4,
+            2,
+            2,
+            string_index_size,
+            blob_index_size,
+            result.tables[Param::TABLE].index_width(),
+        );
+        unused_method_impl.set_columns(
+            result.tables[TypeDef::TABLE].index_width(),
+            method_def_or_ref,
+            method_def_or_ref,
+            0,
+            0,
+            0,
+        );
+        unused_method_semantics.set_columns(
+            2,
+            result.tables[MethodDef::TABLE].index_width(),
+            has_semantics,
+            0,
+            0,
+            0,
+        );
         unused_method_spec.set_columns(method_def_or_ref, blob_index_size, 0, 0, 0, 0);
-        result.tables[Module::TABLE].set_columns(2, string_index_size, guid_index_size, guid_index_size, guid_index_size, 0);
+        result.tables[Module::TABLE].set_columns(
+            2,
+            string_index_size,
+            guid_index_size,
+            guid_index_size,
+            guid_index_size,
+            0,
+        );
         result.tables[ModuleRef::TABLE].set_columns(string_index_size, 0, 0, 0, 0, 0);
-        result.tables[NestedClass::TABLE].set_columns(result.tables[TypeDef::TABLE].index_width(), result.tables[TypeDef::TABLE].index_width(), 0, 0, 0, 0);
+        result.tables[NestedClass::TABLE].set_columns(
+            result.tables[TypeDef::TABLE].index_width(),
+            result.tables[TypeDef::TABLE].index_width(),
+            0,
+            0,
+            0,
+            0,
+        );
         result.tables[Param::TABLE].set_columns(2, 2, string_index_size, 0, 0, 0);
         unused_property.set_columns(2, string_index_size, blob_index_size, 0, 0, 0);
-        unused_property_map.set_columns(result.tables[TypeDef::TABLE].index_width(), unused_property.index_width(), 0, 0, 0, 0);
+        unused_property_map.set_columns(
+            result.tables[TypeDef::TABLE].index_width(),
+            unused_property.index_width(),
+            0,
+            0,
+            0,
+            0,
+        );
         unused_standalone_sig.set_columns(blob_index_size, 0, 0, 0, 0, 0);
-        result.tables[TypeDef::TABLE].set_columns(4, string_index_size, string_index_size, type_def_or_ref, result.tables[Field::TABLE].index_width(), result.tables[MethodDef::TABLE].index_width());
-        result.tables[TypeRef::TABLE].set_columns(resolution_scope, string_index_size, string_index_size, 0, 0, 0);
+        result.tables[TypeDef::TABLE].set_columns(
+            4,
+            string_index_size,
+            string_index_size,
+            type_def_or_ref,
+            result.tables[Field::TABLE].index_width(),
+            result.tables[MethodDef::TABLE].index_width(),
+        );
+        result.tables[TypeRef::TABLE].set_columns(
+            resolution_scope,
+            string_index_size,
+            string_index_size,
+            0,
+            0,
+            0,
+        );
         result.tables[TypeSpec::TABLE].set_columns(blob_index_size, 0, 0, 0, 0, 0);
 
         result.tables[Module::TABLE].set_data(&mut view);
@@ -316,7 +535,14 @@ impl File {
         }
     }
 
-    pub fn lower_bound_of(&self, table: usize, mut first: usize, last: usize, column: usize, value: usize) -> usize {
+    pub fn lower_bound_of(
+        &self,
+        table: usize,
+        mut first: usize,
+        last: usize,
+        column: usize,
+        value: usize,
+    ) -> usize {
         let mut count = last - first;
         while count > 0 {
             let count2 = count / 2;
@@ -331,7 +557,14 @@ impl File {
         first
     }
 
-    pub fn upper_bound_of(&self, table: usize, mut first: usize, last: usize, column: usize, value: usize) -> usize {
+    pub fn upper_bound_of(
+        &self,
+        table: usize,
+        mut first: usize,
+        last: usize,
+        column: usize,
+        value: usize,
+    ) -> usize {
         let mut count = last - first;
         while count > 0 {
             let count2 = count / 2;
@@ -352,7 +585,9 @@ impl File {
 }
 
 fn section_from_rva(sections: &[IMAGE_SECTION_HEADER], rva: u32) -> Option<&IMAGE_SECTION_HEADER> {
-    sections.iter().find(|&s| rva >= s.VirtualAddress && rva < s.VirtualAddress + unsafe { s.Misc.VirtualSize })
+    sections.iter().find(|&s| {
+        rva >= s.VirtualAddress && rva < s.VirtualAddress + unsafe { s.Misc.VirtualSize }
+    })
 }
 
 fn offset_from_rva(section: &IMAGE_SECTION_HEADER, rva: u32) -> usize {
@@ -374,7 +609,12 @@ impl View for [u8] {
     }
 
     fn view_as_slice_of<T>(&self, offset: usize, len: usize) -> Option<&[T]> {
-        unsafe { Some(std::slice::from_raw_parts(self.is_proper_length_and_alignment(offset, len)?, len)) }
+        unsafe {
+            Some(std::slice::from_raw_parts(
+                self.is_proper_length_and_alignment(offset, len)?,
+                len,
+            ))
+        }
     }
 
     fn copy_as<T>(&self, offset: usize) -> Option<T> {
@@ -382,7 +622,11 @@ impl View for [u8] {
 
         unsafe {
             let mut data = std::mem::MaybeUninit::zeroed().assume_init();
-            std::ptr::copy_nonoverlapping(self[offset..].as_ptr(), &mut data as *mut T as *mut u8, std::mem::size_of::<T>());
+            std::ptr::copy_nonoverlapping(
+                self[offset..].as_ptr(),
+                &mut data as *mut T as *mut u8,
+                std::mem::size_of::<T>(),
+            );
             Some(data)
         }
     }

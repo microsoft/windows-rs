@@ -12,6 +12,7 @@ mod bindings;
 mod blob;
 mod codes;
 mod column;
+mod cow_str;
 mod file;
 mod filter;
 mod reader;
@@ -20,14 +21,13 @@ mod table;
 mod tables;
 mod r#type;
 mod type_name;
-mod cow_str;
 
-pub use cow_str::*;
 pub use attributes::*;
 pub use bindings::*;
 pub use blob::*;
 pub use codes::*;
 use column::*;
+pub use cow_str::*;
 pub use file::*;
 use filter::*;
 pub use r#type::*;
@@ -108,7 +108,9 @@ pub struct MethodDefSig {
 
 impl MethodDefSig {
     pub fn size(&self) -> usize {
-        self.params.iter().fold(0, |sum, param| sum + std::cmp::max(4, param.size()))
+        self.params
+            .iter()
+            .fold(0, |sum, param| sum + std::cmp::max(4, param.size()))
     }
 }
 
