@@ -1,5 +1,6 @@
 use super::*;
 
+// Note: Type::Name(TypeName) is preferred since we can use it in pattern matching whereas Type::TypeDef can't be used in that way.
 #[derive(Clone, Debug, Hash, PartialEq, Eq, Ord, PartialOrd)]
 pub enum Type {
     // Primitives in ECMA-335
@@ -18,19 +19,15 @@ pub enum Type {
     F64,
     ISize,
     USize,
+    String, // TODO: Win32 should use System.String when referring to an HSTRING
+    Object, // TODO: Win32 should use System.Object when referring to an IInspectable
 
-    // System types
-    GUID,         // Both Win32 and WinRT agree that this is represented by System.Guid
-    String,       // TODO: Win32 should use System.String when referring to an HSTRING
-    IInspectable, // TODO: Win32 should use System.Object when referring to an IInspectable
-    Type,         // System.Type is needed since WinRT attribute use this as a parameter type.
+    Name(TypeName),
+    Const(TypeName),
 
-    // Regular ECMA-335 types that map to metadata
-    TypeRef(TypeName),
     GenericParam(GenericParam),
-    TypeDef(TypeDef, Vec<Self>),
+    TypeDef(TypeDef, Vec<Self>), // TODO: store generics inside TypeDef to simplify this
 
-    // Qualified types
     MutPtr(Box<Self>, usize),
     ConstPtr(Box<Self>, usize),
     Win32Array(Box<Self>, usize),
@@ -40,17 +37,6 @@ pub enum Type {
 
     // TODO: temporary hack to accommodate Win32 metadata
     PrimitiveOrEnum(Box<Self>, Box<Self>),
-
-    // TODO: these should not be "special" and just point to regular metadata types in Win32.Foundation
-    HRESULT,  // TODO: Win32 should use Windows.Foundation.HResult when referring to HRESULT
-    IUnknown, // TODO: should be defined in Windows.Win32.Foundation.IUnknown
-    PSTR,
-    PWSTR,
-    PCSTR,
-    PCWSTR,
-    BSTR,
-    VARIANT,
-    PROPVARIANT,
 }
 
 impl Type {
@@ -74,7 +60,7 @@ impl Type {
             ELEMENT_TYPE_I => Some(Self::ISize),
             ELEMENT_TYPE_U => Some(Self::USize),
             ELEMENT_TYPE_STRING => Some(Self::String),
-            ELEMENT_TYPE_OBJECT => Some(Self::IInspectable),
+            ELEMENT_TYPE_OBJECT => Some(Self::Object),
             _ => None,
         }
     }
@@ -84,8 +70,8 @@ impl Type {
         match self {
             Self::MutPtr(kind, pointers) => Self::MutPtr(Box::new(kind.to_const_type()), pointers),
             Self::ConstPtr(kind, pointers) => Self::ConstPtr(Box::new(kind.to_const_type()), pointers),
-            Self::PSTR => Self::PCSTR,
-            Self::PWSTR => Self::PCWSTR,
+            Self::Name(TypeName::PSTR) => Self::Const(TypeName::PSTR),
+            Self::Name(TypeName::PWSTR) => Self::Const(TypeName::PWSTR),
             _ => self,
         }
     }
@@ -123,8 +109,8 @@ impl Type {
             }
             Self::ConstPtr(kind, pointers) => Self::ConstPtr(kind.clone(), pointers - 1),
             Self::MutPtr(kind, pointers) => Self::MutPtr(kind.clone(), pointers - 1),
-            Self::PSTR | Self::PCSTR => Self::U8,
-            Self::PWSTR | Self::PCWSTR => Self::U16,
+            Self::Name(TypeName::PSTR) | Self::Const(TypeName::PSTR) => Self::U8,
+            Self::Name(TypeName::PWSTR) | Self::Const(TypeName::PWSTR) => Self::U16,
             _ => panic!("`deref` can only be called on pointer types"),
         }
     }
@@ -167,7 +153,7 @@ impl Type {
     pub fn is_byte_size(&self) -> bool {
         match self {
             Type::ConstPtr(kind, _) | Type::MutPtr(kind, _) => kind.is_byte_size(),
-            Type::I8 | Type::U8 | Type::PSTR | Type::PCSTR => true,
+            Type::I8 | Type::U8 | Self::Name(TypeName::PSTR) | Self::Const(TypeName::PSTR) => true,
             _ => false,
         }
     }
@@ -177,7 +163,7 @@ impl Type {
             Type::I8 | Type::U8 => 1,
             Type::I16 | Type::U16 => 2,
             Type::I64 | Type::U64 | Type::F64 => 8,
-            Type::GUID => 16,
+            Type::Name(TypeName::GUID) => 16,
             Type::TypeDef(def, _) => def.size(),
             Type::Win32Array(ty, len) => ty.size() * len,
             Type::PrimitiveOrEnum(ty, _) => ty.size(),
@@ -190,7 +176,7 @@ impl Type {
             Type::I8 | Type::U8 => 1,
             Type::I16 | Type::U16 => 2,
             Type::I64 | Type::U64 | Type::F64 => 8,
-            Type::GUID => 4,
+            Type::Name(TypeName::GUID) => 4,
             Type::TypeDef(def, _) => def.align(),
             Type::Win32Array(ty, len) => ty.align() * len,
             _ => 4,

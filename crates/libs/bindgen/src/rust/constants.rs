@@ -62,7 +62,7 @@ pub fn writer(writer: &Writer, def: metadata::Field) -> TokenStream {
         }
     } else if let Some(guid) = field_guid(def) {
         let value = writer.guid(&guid);
-        let guid = writer.type_name(&metadata::Type::GUID);
+        let guid = writer.type_name(&metadata::Type::Name(metadata::TypeName::GUID));
         quote! {
             pub const #name: #guid = #value;
         }
@@ -80,7 +80,7 @@ pub fn writer(writer: &Writer, def: metadata::Field) -> TokenStream {
 
 fn is_signed_error(ty: &metadata::Type) -> bool {
     match ty {
-        metadata::Type::HRESULT => true,
+        metadata::Type::Name(metadata::TypeName::HResult) => true,
         metadata::Type::TypeDef(def, _) => def.type_name() == metadata::TypeName::NTSTATUS,
         _ => false,
     }
@@ -109,7 +109,7 @@ fn field_initializer<'a>(writer: &Writer, field: metadata::Field, input: &'a str
     let name = to_ident(field.name());
 
     match field.ty(None) {
-        metadata::Type::GUID => {
+        metadata::Type::Name(metadata::TypeName::GUID) => {
             let (literals, rest) = read_literal_array(input, 11);
             let value = writer.guid(&metadata::Guid::from_string_args(&literals));
             (quote! { #name: #value, }, rest)
@@ -137,7 +137,7 @@ fn constant(def: metadata::Field) -> Option<String> {
     def.find_attribute("ConstantAttribute").map(|attribute| {
         let args = attribute.args();
         match &args[0].1 {
-            metadata::Value::String(value) => value.clone(),
+            metadata::Value::String(value) => value.to_string(),
             rest => unimplemented!("{rest:?}"),
         }
     })
@@ -200,7 +200,7 @@ fn field_is_ansi(row: metadata::Field) -> bool {
 
 fn type_has_replacement(ty: &metadata::Type) -> bool {
     match ty {
-        metadata::Type::HRESULT | metadata::Type::PCSTR | metadata::Type::PCWSTR => true,
+        metadata::Type::Name(metadata::TypeName::HResult) | metadata::Type::Const(metadata::TypeName::PSTR) | metadata::Type::Const(metadata::TypeName::PWSTR) => true,
         metadata::Type::TypeDef(row, _) => metadata::type_def_is_handle(*row) || row.kind() == metadata::TypeKind::Enum,
         _ => false,
     }
@@ -209,7 +209,7 @@ fn type_has_replacement(ty: &metadata::Type) -> bool {
 fn type_underlying_type(ty: &metadata::Type) -> metadata::Type {
     match ty {
         metadata::Type::TypeDef(row, _) => row.underlying_type(),
-        metadata::Type::HRESULT => metadata::Type::I32,
+        metadata::Type::Name(metadata::TypeName::HResult) => metadata::Type::I32,
         _ => ty.clone(),
     }
 }

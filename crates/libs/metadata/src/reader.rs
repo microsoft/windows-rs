@@ -183,7 +183,7 @@ impl Reader {
         if let Some(def) = self.get_type_def(full_name.namespace(), full_name.name()).next() {
             Type::TypeDef(def, Vec::new())
         } else {
-            Type::TypeRef(full_name)
+            Type::Name(full_name)
         }
     }
 
@@ -263,5 +263,18 @@ impl Reader {
 const REMAP_TYPES: [(TypeName, TypeName); 3] = [(TypeName::D2D_MATRIX_3X2_F, TypeName::Matrix3x2), (TypeName::D3DMATRIX, TypeName::Matrix4x4), (TypeName::HRESULT, TypeName::HResult)];
 
 // TODO: get rid of at least the second tuple if not the whole thing.
-const CORE_TYPES: [(TypeName, Type); 12] = [(TypeName::GUID, Type::GUID), (TypeName::IUnknown, Type::IUnknown), (TypeName::HResult, Type::HRESULT), (TypeName::HSTRING, Type::String), (TypeName::BSTR, Type::BSTR), (TypeName::IInspectable, Type::IInspectable), (TypeName::PSTR, Type::PSTR), (TypeName::PWSTR, Type::PWSTR), (TypeName::Type, Type::Type), (TypeName::CHAR, Type::I8), (TypeName::VARIANT, Type::VARIANT), (TypeName::PROPVARIANT, Type::PROPVARIANT)];
-const SYS_CORE_TYPES: [(TypeName, Type); 10] = [(TypeName::GUID, Type::GUID), (TypeName::IUnknown, Type::IUnknown), (TypeName::HResult, Type::HRESULT), (TypeName::HSTRING, Type::String), (TypeName::BSTR, Type::BSTR), (TypeName::IInspectable, Type::IInspectable), (TypeName::PSTR, Type::PSTR), (TypeName::PWSTR, Type::PWSTR), (TypeName::Type, Type::Type), (TypeName::CHAR, Type::I8)];
+const CORE_TYPES: [(TypeName, Type); 12] = [
+    (TypeName::GUID, Type::Name(TypeName::GUID)),
+    (TypeName::IUnknown, Type::Name(TypeName::IUnknown)),
+    (TypeName::HResult, Type::Name(TypeName::HResult)),
+    (TypeName::HSTRING, Type::String),
+    (TypeName::BSTR, Type::Name(TypeName::BSTR)),
+    (TypeName::IInspectable, Type::Object),
+    (TypeName::PSTR, Type::Name(TypeName::PSTR)),
+    (TypeName::PWSTR, Type::Name(TypeName::PWSTR)),
+    (TypeName::Type, Type::Name(TypeName::Type)),
+    (TypeName::CHAR, Type::I8),
+    (TypeName::VARIANT, Type::Name(TypeName::VARIANT)),
+    (TypeName::PROPVARIANT, Type::Name(TypeName::PROPVARIANT)),
+];
+const SYS_CORE_TYPES: [(TypeName, Type); 10] = [(TypeName::GUID, Type::Name(TypeName::GUID)), (TypeName::IUnknown, Type::Name(TypeName::IUnknown)), (TypeName::HResult, Type::Name(TypeName::HResult)), (TypeName::HSTRING, Type::String), (TypeName::BSTR, Type::Name(TypeName::BSTR)), (TypeName::IInspectable, Type::Object), (TypeName::PSTR, Type::Name(TypeName::PSTR)), (TypeName::PWSTR, Type::Name(TypeName::PWSTR)), (TypeName::Type, Type::Name(TypeName::Type)), (TypeName::CHAR, Type::I8)];

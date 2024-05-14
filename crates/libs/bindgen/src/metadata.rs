@@ -157,7 +157,7 @@ impl Signature {
         match &self.return_type {
             Type::Void if self.is_retval() => SignatureKind::ReturnValue,
             Type::Void => SignatureKind::ReturnVoid,
-            Type::HRESULT => {
+            Type::Name(TypeName::HResult) => {
                 if self.params.len() >= 2 {
                     if let Some((guid, object)) = signature_param_is_query(&self.params) {
                         if self.params[object].def.flags().contains(ParamAttributes::Optional) {
@@ -357,7 +357,7 @@ fn param_or_enum(row: Param) -> Option<String> {
 }
 
 fn signature_param_is_query(params: &[SignatureParam]) -> Option<(usize, usize)> {
-    if let Some(guid) = params.iter().rposition(|param| param.ty == Type::ConstPtr(Box::new(Type::GUID), 1) && !param.def.flags().contains(ParamAttributes::Out)) {
+    if let Some(guid) = params.iter().rposition(|param| param.ty == Type::ConstPtr(Box::new(Type::Name(TypeName::GUID)), 1) && !param.def.flags().contains(ParamAttributes::Out)) {
         if let Some(object) = params.iter().rposition(|param| param.ty == Type::MutPtr(Box::new(Type::Void), 2) && param.def.has_attribute("ComOutPtrAttribute")) {
             return Some((guid, object));
         }
@@ -377,7 +377,7 @@ fn method_def_last_error(row: MethodDef) -> bool {
 pub fn type_is_borrowed(ty: &Type) -> bool {
     match ty {
         Type::TypeDef(row, _) => !type_def_is_blittable(*row),
-        Type::BSTR | Type::VARIANT | Type::PROPVARIANT | Type::PCSTR | Type::PCWSTR | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => true,
+        Type::Name(TypeName::BSTR) | Type::Name(TypeName::VARIANT) | Type::Name(TypeName::PROPVARIANT) | Type::Const(TypeName::PSTR) | Type::Const(TypeName::PWSTR) | Type::Object | Type::Name(TypeName::IUnknown) | Type::GenericParam(_) => true,
         _ => false,
     }
 }
@@ -506,7 +506,7 @@ pub fn field_is_copyable(row: Field, enclosing: TypeDef) -> bool {
 pub fn type_is_blittable(ty: &Type) -> bool {
     match ty {
         Type::TypeDef(row, _) => type_def_is_blittable(*row),
-        Type::String | Type::BSTR | Type::VARIANT | Type::PROPVARIANT | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => false,
+        Type::String | Type::Name(TypeName::BSTR) | Type::Name(TypeName::VARIANT) | Type::Name(TypeName::PROPVARIANT) | Type::Object | Type::Name(TypeName::IUnknown) | Type::GenericParam(_) => false,
         Type::Win32Array(kind, _) => type_is_blittable(kind),
         Type::WinrtArray(kind) => type_is_blittable(kind),
         _ => true,
@@ -516,7 +516,7 @@ pub fn type_is_blittable(ty: &Type) -> bool {
 fn type_is_copyable(ty: &Type) -> bool {
     match ty {
         Type::TypeDef(row, _) => type_def_is_copyable(*row),
-        Type::String | Type::BSTR | Type::VARIANT | Type::PROPVARIANT | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => false,
+        Type::String | Type::Name(TypeName::BSTR) | Type::Name(TypeName::VARIANT) | Type::Name(TypeName::PROPVARIANT) | Type::Object | Type::Name(TypeName::IUnknown) | Type::GenericParam(_) => false,
         Type::Win32Array(kind, _) => type_is_copyable(kind),
         Type::WinrtArray(kind) => type_is_copyable(kind),
         _ => true,
@@ -557,7 +557,7 @@ pub fn type_is_struct(ty: &Type) -> bool {
     // nested structs. Fortunately, this is rare enough that this check is sufficient.
     match ty {
         Type::TypeDef(row, _) => row.kind() == TypeKind::Struct && !type_def_is_handle(*row),
-        Type::GUID => true,
+        Type::Name(TypeName::GUID) => true,
         _ => false,
     }
 }
@@ -574,7 +574,7 @@ fn type_def_is_primitive(row: TypeDef) -> bool {
 pub fn type_is_primitive(ty: &Type) -> bool {
     match ty {
         Type::TypeDef(row, _) => type_def_is_primitive(*row),
-        Type::Bool | Type::Char | Type::I8 | Type::U8 | Type::I16 | Type::U16 | Type::I32 | Type::U32 | Type::I64 | Type::U64 | Type::F32 | Type::F64 | Type::ISize | Type::USize | Type::HRESULT | Type::ConstPtr(_, _) | Type::MutPtr(_, _) => true,
+        Type::Bool | Type::Char | Type::I8 | Type::U8 | Type::I16 | Type::U16 | Type::I32 | Type::U32 | Type::I64 | Type::U64 | Type::F32 | Type::F64 | Type::ISize | Type::USize | Type::Name(TypeName::HResult) | Type::ConstPtr(_, _) | Type::MutPtr(_, _) => true,
         _ => false,
     }
 }
@@ -675,9 +675,9 @@ fn type_signature(ty: &Type) -> String {
         Type::ISize => "is".to_string(),
         Type::USize => "us".to_string(),
         Type::String => "string".to_string(),
-        Type::IInspectable => "cinterface(IInspectable)".to_string(),
-        Type::GUID => "g16".to_string(),
-        Type::HRESULT => "struct(Windows.Foundation.HResult;i4)".to_string(),
+        Type::Object => "cinterface(IInspectable)".to_string(),
+        Type::Name(TypeName::GUID) => "g16".to_string(),
+        Type::Name(TypeName::HResult) => "struct(Windows.Foundation.HResult;i4)".to_string(),
         Type::TypeDef(row, generics) => type_def_signature(*row, generics),
         rest => unimplemented!("{rest:?}"),
     }
@@ -775,7 +775,7 @@ fn type_def_is_nullable(row: TypeDef) -> bool {
 pub fn type_is_nullable(ty: &Type) -> bool {
     match ty {
         Type::TypeDef(row, _) => type_def_is_nullable(*row),
-        Type::IInspectable | Type::IUnknown => true,
+        Type::Object | Type::Name(TypeName::IUnknown) => true,
         _ => false,
     }
 }
@@ -783,9 +783,9 @@ pub fn type_is_nullable(ty: &Type) -> bool {
 pub fn type_def_vtables(row: TypeDef) -> Vec<Type> {
     let mut result = Vec::new();
     if row.flags().contains(TypeAttributes::WindowsRuntime) {
-        result.push(Type::IUnknown);
+        result.push(Type::Name(TypeName::IUnknown));
         if row.kind() != TypeKind::Delegate {
-            result.push(Type::IInspectable);
+            result.push(Type::Object);
         }
     } else {
         let mut next = row;
@@ -795,13 +795,13 @@ pub fn type_def_vtables(row: TypeDef) -> Vec<Type> {
                     next = row;
                     result.insert(0, base);
                 }
-                Type::IInspectable => {
-                    result.insert(0, Type::IUnknown);
-                    result.insert(1, Type::IInspectable);
+                Type::Object => {
+                    result.insert(0, Type::Name(TypeName::IUnknown));
+                    result.insert(1, Type::Object);
                     break;
                 }
-                Type::IUnknown => {
-                    result.insert(0, Type::IUnknown);
+                Type::Name(TypeName::IUnknown) => {
+                    result.insert(0, Type::Name(TypeName::IUnknown));
                     break;
                 }
                 rest => unimplemented!("{rest:?}"),

@@ -225,7 +225,7 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
 fn namespace_impl(writer: &Writer, tree: &Tree) -> String {
     let writer = &mut writer.clone();
     writer.namespace = tree.namespace;
-    let mut types = std::collections::BTreeMap::<&str, TokenStream>::new();
+    let mut types = std::collections::BTreeMap::new();
 
     for item in writer.reader.namespace_items(tree.namespace) {
         if let metadata::Item::Type(def) = item {

@@ -14,7 +14,7 @@ fn gen_sys_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     }
 
     let vtables = metadata::type_def_vtables(def);
-    let has_unknown_base = matches!(vtables.first(), Some(metadata::Type::IUnknown));
+    let has_unknown_base = matches!(vtables.first(), Some(metadata::Type::Name(metadata::TypeName::IUnknown)));
 
     let mut tokens = quote! {};
 
@@ -42,7 +42,7 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     let features = writer.cfg_features(&cfg);
     let interfaces = metadata::type_interfaces(&metadata::Type::TypeDef(def, generics.to_vec()));
     let vtables = metadata::type_def_vtables(def);
-    let has_unknown_base = matches!(vtables.first(), Some(metadata::Type::IUnknown));
+    let has_unknown_base = matches!(vtables.first(), Some(metadata::Type::Name(metadata::TypeName::IUnknown)));
 
     let mut tokens = quote! {};
 

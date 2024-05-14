@@ -1,5 +1,7 @@
 use super::*;
 
+// TODO: maybe manually define TypeDef here to include generics
+
 macro_rules! tables {
     ($(($name:ident, $table:literal))+) => {
         $(
@@ -85,7 +87,7 @@ impl Attribute {
                 Type::I64 => Value::I64(values.read_i64()),
                 Type::U64 => Value::U64(values.read_u64()),
                 Type::String => Value::String(values.read_str().to_string()),
-                Type::Type => Value::TypeName(TypeName::parse(values.read_str())),
+                Type::Name(TypeName::Type) => Value::TypeName(TypeName::parse(values.read_str())),
                 Type::TypeDef(def, _) => Value::EnumDef(def, Box::new(values.read_integer(def.underlying_type()))),
                 rest => unimplemented!("{rest:?}"),
             };

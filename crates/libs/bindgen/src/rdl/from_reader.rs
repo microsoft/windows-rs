@@ -339,11 +339,15 @@ impl Writer {
 
             // TODO: dialect-specific keywords for "well-known types" that don't map to metadata in all cases.
             metadata::Type::String => quote! { HSTRING },
-            metadata::Type::HRESULT => quote! { HRESULT },
-            metadata::Type::GUID => quote! { GUID },
-            metadata::Type::IInspectable => quote! { IInspectable },
-            metadata::Type::IUnknown => quote! { IUnknown },
-
+            metadata::Type::Name(metadata::TypeName::HResult) => quote! { HRESULT },
+            metadata::Type::Name(metadata::TypeName::GUID) => quote! { GUID },
+            metadata::Type::Object => quote! { IInspectable },
+            metadata::Type::Name(metadata::TypeName::IUnknown) => quote! { IUnknown },
+            metadata::Type::Name(metadata::TypeName::BSTR) => quote! { BSTR },
+            metadata::Type::Name(metadata::TypeName::PSTR) => quote! { PSTR },
+            metadata::Type::Name(metadata::TypeName::PWSTR) => quote! { PWSTR },
+            metadata::Type::Const(metadata::TypeName::PSTR) => quote! { PCSTR },
+            metadata::Type::Const(metadata::TypeName::PWSTR) => quote! { PCWSTR },
             metadata::Type::TypeDef(def, generics) => {
                 let namespace = self.namespace(def.namespace());
                 let name = to_ident(def.name());
@@ -355,7 +359,7 @@ impl Writer {
                 }
             }
 
-            metadata::Type::TypeRef(type_name) => {
+            metadata::Type::Name(type_name) => {
                 let namespace = self.namespace(type_name.namespace());
                 let name = to_ident(type_name.name());
                 quote! { #namespace #name }
@@ -368,12 +372,6 @@ impl Writer {
             metadata::Type::MutPtr(ty, _pointers) => self.ty(ty),
             metadata::Type::ConstPtr(ty, _pointers) => self.ty(ty),
             metadata::Type::Win32Array(ty, _len) => self.ty(ty),
-            // TODO: these types should just be regular metadata type defs
-            metadata::Type::PSTR => quote! { PSTR },
-            metadata::Type::PWSTR => quote! { PWSTR },
-            metadata::Type::PCSTR => quote! { PCSTR },
-            metadata::Type::PCWSTR => quote! { PCWSTR },
-            metadata::Type::BSTR => quote! { BSTR },
             metadata::Type::PrimitiveOrEnum(_, ty) => self.ty(ty),
             rest => unimplemented!("{rest:?}"),
         }
