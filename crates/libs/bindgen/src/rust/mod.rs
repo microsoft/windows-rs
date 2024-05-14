@@ -180,7 +180,7 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
     }
 
     let mut functions = std::collections::BTreeMap::<&str, TokenStream>::new();
-    let mut types = std::collections::BTreeMap::<metadata::TypeKind, std::collections::BTreeMap<&'static str, TokenStream>>::new();
+    let mut types = std::collections::BTreeMap::<metadata::TypeKind, std::collections::BTreeMap<&str, TokenStream>>::new();
 
     for item in writer.reader.namespace_items(writer.namespace) {
         match item {
