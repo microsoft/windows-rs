@@ -177,19 +177,19 @@ impl Writer {
                 let crate_name = self.crate_name();
                 quote! { #crate_name HRESULT }
             }
-            metadata::Type::PSTR => {
+            metadata::Type::Name(metadata::TypeName::PSTR) => {
                 let crate_name = self.crate_name();
                 quote! { #crate_name PSTR }
             }
-            metadata::Type::PWSTR => {
+            metadata::Type::Name(metadata::TypeName::PWSTR) => {
                 let crate_name = self.crate_name();
                 quote! { #crate_name PWSTR }
             }
-            metadata::Type::PCSTR => {
+            metadata::Type::Const(metadata::TypeName::PSTR) => {
                 let crate_name = self.crate_name();
                 quote! { #crate_name PCSTR }
             }
-            metadata::Type::PCWSTR => {
+            metadata::Type::Const(metadata::TypeName::PWSTR) => {
                 let crate_name = self.crate_name();
                 quote! { #crate_name PCWSTR }
             }

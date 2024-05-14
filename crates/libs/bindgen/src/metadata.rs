@@ -377,7 +377,7 @@ fn method_def_last_error(row: MethodDef) -> bool {
 pub fn type_is_borrowed(ty: &Type) -> bool {
     match ty {
         Type::TypeDef(row, _) => !type_def_is_blittable(*row),
-        Type::Name(TypeName::BSTR) | Type::Name(TypeName::VARIANT) | Type::Name(TypeName::PROPVARIANT) | Type::PCSTR | Type::PCWSTR | Type::Object | Type::Name(TypeName::IUnknown) | Type::GenericParam(_) => true,
+        Type::Name(TypeName::BSTR) | Type::Name(TypeName::VARIANT) | Type::Name(TypeName::PROPVARIANT) | Type::Const(TypeName::PSTR) | Type::Const(TypeName::PWSTR) | Type::Object | Type::Name(TypeName::IUnknown) | Type::GenericParam(_) => true,
         _ => false,
     }
 }

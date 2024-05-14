@@ -200,7 +200,7 @@ fn field_is_ansi(row: metadata::Field) -> bool {
 
 fn type_has_replacement(ty: &metadata::Type) -> bool {
     match ty {
-        metadata::Type::Name(metadata::TypeName::HResult) | metadata::Type::PCSTR | metadata::Type::PCWSTR => true,
+        metadata::Type::Name(metadata::TypeName::HResult) | metadata::Type::Const(metadata::TypeName::PSTR) | metadata::Type::Const(metadata::TypeName::PWSTR) => true,
         metadata::Type::TypeDef(row, _) => metadata::type_def_is_handle(*row) || row.kind() == metadata::TypeKind::Enum,
         _ => false,
     }

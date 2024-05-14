@@ -344,7 +344,10 @@ impl Writer {
             metadata::Type::Object => quote! { IInspectable },
             metadata::Type::Name(metadata::TypeName::IUnknown) => quote! { IUnknown },
             metadata::Type::Name(metadata::TypeName::BSTR) => quote! { BSTR },
-
+            metadata::Type::Name(metadata::TypeName::PSTR) => quote! { PSTR },
+            metadata::Type::Name(metadata::TypeName::PWSTR) => quote! { PWSTR },
+            metadata::Type::Const(metadata::TypeName::PSTR) => quote! { PCSTR },
+            metadata::Type::Const(metadata::TypeName::PWSTR) => quote! { PCWSTR },
             metadata::Type::TypeDef(def, generics) => {
                 let namespace = self.namespace(def.namespace());
                 let name = to_ident(def.name());
@@ -369,12 +372,8 @@ impl Writer {
             metadata::Type::MutPtr(ty, _pointers) => self.ty(ty),
             metadata::Type::ConstPtr(ty, _pointers) => self.ty(ty),
             metadata::Type::Win32Array(ty, _len) => self.ty(ty),
-            // TODO: these types should just be regular metadata type defs
-            metadata::Type::PSTR => quote! { PSTR },
-            metadata::Type::PWSTR => quote! { PWSTR },
-            metadata::Type::PCSTR => quote! { PCSTR },
-            metadata::Type::PCWSTR => quote! { PCWSTR },
             metadata::Type::PrimitiveOrEnum(_, ty) => self.ty(ty),
+            rest => unimplemented!("{rest:?}"),
         }
     }
 
