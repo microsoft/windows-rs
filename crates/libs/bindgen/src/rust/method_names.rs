@@ -38,7 +38,7 @@ fn method_def_special_name(row: metadata::MethodDef) -> String {
         if let Some(attribute) = row.find_attribute("OverloadAttribute") {
             for (_, arg) in attribute.args() {
                 if let metadata::Value::String(name) = arg {
-                    return name.to_string();
+                    return name;
                 }
             }
         }

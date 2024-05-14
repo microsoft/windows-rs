@@ -1,9 +1,9 @@
 use super::*;
 
-// TODO: we prefer Name(TypeName) here since we can use it in pattern matching whereas TypeDef can't be used in that way
+// Note: Type::Name(TypeName) is preferred since we can use it in pattern matching whereas Type::TypeDef can't be used in that way.
 #[derive(Clone, Debug, Hash, PartialEq, Eq, Ord, PartialOrd)]
 pub enum Type {
-    // TODO: could replace all of these with "System.Xxx" and then use Type::Name for everything?
+    // Primitives in ECMA-335
     Void,
     Bool,
     Char,
@@ -19,20 +19,15 @@ pub enum Type {
     F64,
     ISize,
     USize,
-
-    // System types
     String, // TODO: Win32 should use System.String when referring to an HSTRING
     Object, // TODO: Win32 should use System.Object when referring to an IInspectable
 
-    // TODO: use (&'static str, &'static str) to simplify pattern matching?
     Name(TypeName),
     Const(TypeName),
 
-    // Regular ECMA-335 types that map to metadata
     GenericParam(GenericParam),
-    TypeDef(TypeDef, Vec<Self>),
+    TypeDef(TypeDef, Vec<Self>), // TODO: store generics inside TypeDef to simplify this
 
-    // Qualified types
     MutPtr(Box<Self>, usize),
     ConstPtr(Box<Self>, usize),
     Win32Array(Box<Self>, usize),

@@ -349,7 +349,7 @@ fn param_or_enum(row: Param) -> Option<String> {
     row.find_attribute("AssociatedEnumAttribute").and_then(|attribute| {
         for (_, arg) in attribute.args() {
             if let Value::String(name) = arg {
-                return Some(name.to_string());
+                return Some(name);
             }
         }
         None

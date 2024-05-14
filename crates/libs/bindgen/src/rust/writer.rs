@@ -412,8 +412,8 @@ impl Writer {
         quote! { #arch #features }
     }
 
-    fn cfg_features_imp(&self, cfg: &cfg::Cfg, namespace: &str) -> Vec<String> {
-        let mut compact = Vec::<String>::new();
+    fn cfg_features_imp(&self, cfg: &cfg::Cfg, namespace: &str) -> Vec<&'static str> {
+        let mut compact = Vec::<&'static str>::new();
         if self.package {
             for feature in cfg.types.keys() {
                 if !feature.is_empty() && !starts_with(namespace, feature) && !is_defaulted_foundation_feature(namespace, feature) {
@@ -423,12 +423,12 @@ impl Writer {
                             break;
                         }
                     }
-                    compact.push(feature.to_string());
+                    compact.push(feature);
                 }
             }
 
             if cfg.deprecated {
-                compact.push("deprecated".to_string());
+                compact.push("deprecated");
             }
         }
         compact
@@ -1219,7 +1219,7 @@ fn const_ptrs(pointers: usize) -> TokenStream {
 }
 
 pub fn cfg_features(cfg: &cfg::Cfg) -> Vec<String> {
-    let mut compact = Vec::<String>::new();
+    let mut compact = Vec::<&'static str>::new();
 
     for feature in cfg.types.keys() {
         if !feature.is_empty() {
@@ -1229,18 +1229,18 @@ pub fn cfg_features(cfg: &cfg::Cfg) -> Vec<String> {
                     break;
                 }
             }
-            compact.push(feature.to_string());
+            compact.push(feature);
         }
     }
 
     if cfg.deprecated {
-        compact.push("deprecated".to_string());
+        compact.push("deprecated");
     }
 
     compact.into_iter().map(to_feature).collect()
 }
 
-fn to_feature(name: String) -> String {
+fn to_feature(name: &str) -> String {
     let mut feature = String::new();
 
     for name in name.split('.').skip(1) {
