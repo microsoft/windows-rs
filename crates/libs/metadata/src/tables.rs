@@ -1,5 +1,7 @@
 use super::*;
 
+// TODO: maybe manually define TypeDef here to include generics
+
 macro_rules! tables {
     ($(($name:ident, $table:literal))+) => {
         $(
@@ -84,7 +86,7 @@ impl Attribute {
                 Type::U32 => Value::U32(values.read_u32()),
                 Type::I64 => Value::I64(values.read_i64()),
                 Type::U64 => Value::U64(values.read_u64()),
-                Type::String => Value::String(CowStr::Borrowed(values.read_str())),
+                Type::String => Value::String(values.read_str().to_string()),
                 Type::Name(TypeName::Type) => Value::TypeName(TypeName::parse(values.read_str())),
                 Type::TypeDef(def, _) => Value::EnumDef(def, Box::new(values.read_integer(def.underlying_type()))),
                 rest => unimplemented!("{rest:?}"),
@@ -105,7 +107,7 @@ impl Attribute {
                 ELEMENT_TYPE_I2 => Value::I16(values.read_i16()),
                 ELEMENT_TYPE_I4 => Value::I32(values.read_i32()),
                 ELEMENT_TYPE_U4 => Value::U32(values.read_u32()),
-                ELEMENT_TYPE_STRING => Value::String(CowStr::Borrowed(values.read_str())),
+                ELEMENT_TYPE_STRING => Value::String(values.read_str().to_string()),
                 0x50 => Value::TypeName(TypeName::parse(values.read_str())),
                 0x55 => {
                     let type_name = TypeName::parse(name);
@@ -150,7 +152,7 @@ impl Constant {
             Type::U64 => Value::U64(blob.read_u64()),
             Type::F32 => Value::F32(blob.read_f32()),
             Type::F64 => Value::F64(blob.read_f64()),
-            Type::String => Value::String(CowStr::Owned(blob.read_string())),
+            Type::String => Value::String(blob.read_string()),
             rest => unimplemented!("{rest:?}"),
         }
     }

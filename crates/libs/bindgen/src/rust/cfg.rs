@@ -3,7 +3,7 @@ use metadata::{AsRow, HasAttributes};
 
 #[derive(Default, Clone)]
 pub struct Cfg {
-    pub types: std::collections::BTreeMap<metadata::CowStr, std::collections::BTreeSet<metadata::TypeDef>>,
+    pub types: std::collections::BTreeMap<&'static str, std::collections::BTreeSet<metadata::TypeDef>>,
     pub core_types: std::collections::BTreeSet<metadata::Type>,
     pub arches: std::collections::BTreeSet<&'static str>,
     pub deprecated: bool,
@@ -11,7 +11,7 @@ pub struct Cfg {
 
 impl Cfg {
     pub fn add_feature(&mut self, feature: &'static str) {
-        self.types.entry(metadata::CowStr::Borrowed(feature)).or_default();
+        self.types.entry(feature).or_default();
     }
     pub fn union(&self, mut other: Self) -> Self {
         let mut union = self.clone();
@@ -83,7 +83,7 @@ pub fn type_def_cfg_combine(writer: &Writer, row: metadata::TypeDef, generics: &
         type_cfg_combine(writer, generic, cfg);
     }
 
-    if cfg.types.entry(type_name.namespace().clone()).or_default().insert(row) {
+    if cfg.types.entry(type_name.namespace()).or_default().insert(row) {
         match type_kind {
             metadata::TypeKind::Class => {
                 if let Some(default_interface) = metadata::type_def_default_interface(row) {

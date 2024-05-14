@@ -180,7 +180,7 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
     }
 
     let mut functions = std::collections::BTreeMap::<&str, TokenStream>::new();
-    let mut types = std::collections::BTreeMap::<metadata::TypeKind, std::collections::BTreeMap<metadata::CowStr, TokenStream>>::new();
+    let mut types = std::collections::BTreeMap::<metadata::TypeKind, std::collections::BTreeMap<&'static str, TokenStream>>::new();
 
     for item in writer.reader.namespace_items(writer.namespace) {
         match item {
@@ -192,14 +192,14 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
                 if writer.reader.core_type(&type_name).is_some() {
                     continue;
                 }
-                types.entry(def.kind()).or_default().entry(type_name.name().clone()).or_default().combine(&writer.type_def(def));
+                types.entry(def.kind()).or_default().entry(type_name.name()).or_default().combine(&writer.type_def(def));
             }
             metadata::Item::Fn(def, namespace) => {
                 let name = def.name();
                 functions.entry(name).or_default().combine(&functions::writer(writer, namespace, def));
             }
             metadata::Item::Const(def) => {
-                let name = metadata::CowStr::Borrowed(def.name());
+                let name = def.name();
                 types.entry(metadata::TypeKind::Class).or_default().entry(name).or_default().combine(&constants::writer(writer, def));
             }
         }
@@ -239,7 +239,7 @@ fn namespace_impl(writer: &Writer, tree: &Tree) -> String {
             let tokens = implements::writer(writer, def);
 
             if !tokens.is_empty() {
-                types.insert(type_name.name().clone(), tokens);
+                types.insert(type_name.name(), tokens);
             }
         }
     }

@@ -12,7 +12,6 @@ mod bindings;
 mod blob;
 mod codes;
 mod column;
-mod cow_str;
 mod file;
 mod filter;
 mod reader;
@@ -27,7 +26,6 @@ pub use bindings::*;
 pub use blob::*;
 pub use codes::*;
 use column::*;
-pub use cow_str::*;
 pub use file::*;
 use filter::*;
 pub use r#type::*;
@@ -94,7 +92,7 @@ pub enum Value {
     I64(i64),
     F32(f32),
     F64(f64),
-    String(CowStr),
+    String(String),
     TypeName(TypeName),
     EnumDef(TypeDef, Box<Self>),
 }
