@@ -24,13 +24,7 @@ impl Blob {
         } else if self[0] & 0xC0 == 0x80 {
             ((((self[0] & 0x3F) as usize) << 8) | self[1] as usize, 2)
         } else {
-            (
-                (((self[0] & 0x1F) as usize) << 24)
-                    | (self[1] as usize) << 16
-                    | (self[2] as usize) << 8
-                    | self[3] as usize,
-                4,
-            )
+            ((((self[0] & 0x1F) as usize) << 24) | (self[1] as usize) << 16 | (self[2] as usize) << 8 | self[3] as usize, 4)
         }
     }
 
@@ -74,16 +68,10 @@ impl Blob {
     pub fn read_string(self) -> String {
         let slice = self.slice;
         if slice.as_ptr().align_offset(std::mem::align_of::<u16>()) > 0 {
-            let slice = slice
-                .chunks_exact(2)
-                .take(slice.len() / 2)
-                .map(|chunk| u16::from_le_bytes(chunk.try_into().unwrap()))
-                .collect::<Vec<u16>>();
+            let slice = slice.chunks_exact(2).take(slice.len() / 2).map(|chunk| u16::from_le_bytes(chunk.try_into().unwrap())).collect::<Vec<u16>>();
             String::from_utf16_lossy(&slice)
         } else {
-            let slice = unsafe {
-                std::slice::from_raw_parts(slice.as_ptr() as *const u16, slice.len() / 2)
-            };
+            let slice = unsafe { std::slice::from_raw_parts(slice.as_ptr() as *const u16, slice.len() / 2) };
             String::from_utf16_lossy(slice)
         }
     }

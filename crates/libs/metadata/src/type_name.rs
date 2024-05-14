@@ -25,11 +25,9 @@ impl TypeName {
 
     pub const HResult: Self = Self::new("Windows.Foundation", "HResult");
     pub const IAsyncAction: Self = Self::new("Windows.Foundation", "IAsyncAction");
-    pub const IAsyncActionWithProgress: Self =
-        Self::new("Windows.Foundation", "IAsyncActionWithProgress");
+    pub const IAsyncActionWithProgress: Self = Self::new("Windows.Foundation", "IAsyncActionWithProgress");
     pub const IAsyncOperation: Self = Self::new("Windows.Foundation", "IAsyncOperation");
-    pub const IAsyncOperationWithProgress: Self =
-        Self::new("Windows.Foundation", "IAsyncOperationWithProgress");
+    pub const IAsyncOperationWithProgress: Self = Self::new("Windows.Foundation", "IAsyncOperationWithProgress");
 
     pub const Matrix3x2: Self = Self::new("Windows.Foundation.Numerics", "Matrix3x2");
     pub const Matrix4x4: Self = Self::new("Windows.Foundation.Numerics", "Matrix4x4");
@@ -50,28 +48,19 @@ impl TypeName {
     pub const NTSTATUS: Self = Self::new("Windows.Win32.Foundation", "NTSTATUS");
     pub const RPC_STATUS: Self = Self::new("Windows.Win32.System.Rpc", "RPC_STATUS");
 
-    pub const D2D_MATRIX_3X2_F: Self =
-        Self::new("Windows.Win32.Graphics.Direct2D.Common", "D2D_MATRIX_3X2_F");
+    pub const D2D_MATRIX_3X2_F: Self = Self::new("Windows.Win32.Graphics.Direct2D.Common", "D2D_MATRIX_3X2_F");
     pub const D3DMATRIX: Self = Self::new("Windows.Win32.Graphics.Direct3D", "D3DMATRIX");
     pub const IUnknown: Self = Self::new("Windows.Win32.System.Com", "IUnknown");
     pub const HSTRING: Self = Self::new("Windows.Win32.System.WinRT", "HSTRING");
     pub const IInspectable: Self = Self::new("Windows.Win32.System.WinRT", "IInspectable");
-    pub const IRestrictedErrorInfo: Self =
-        Self::new("Windows.Win32.System.WinRT", "IRestrictedErrorInfo");
+    pub const IRestrictedErrorInfo: Self = Self::new("Windows.Win32.System.WinRT", "IRestrictedErrorInfo");
     pub const IDispatch: Self = Self::new("Windows.Win32.System.Com", "IDispatch");
 
     pub const VARIANT: Self = Self::new("Windows.Win32.System.Variant", "VARIANT");
-    pub const PROPVARIANT: Self =
-        Self::new("Windows.Win32.System.Com.StructuredStorage", "PROPVARIANT");
+    pub const PROPVARIANT: Self = Self::new("Windows.Win32.System.Com.StructuredStorage", "PROPVARIANT");
 
     pub const fn new(namespace: &'static str, name: &'static str) -> Self {
-        Self {
-            namespace: CowStr::Borrowed(namespace),
-            name: CowStr::Borrowed(name),
-            nested: CowStr::Borrowed(""),
-            generic1: None,
-            generic2: None,
-        }
+        Self { namespace: CowStr::Borrowed(namespace), name: CowStr::Borrowed(name), nested: CowStr::Borrowed(""), generic1: None, generic2: None }
     }
 
     pub fn owned(namespace: &str, name: &str) -> Self {
@@ -85,9 +74,7 @@ impl TypeName {
     }
 
     pub fn parse(full_name: &'static str) -> Self {
-        let index = full_name
-            .rfind('.')
-            .expect("Expected full name separated with `.`");
+        let index = full_name.rfind('.').expect("Expected full name separated with `.`");
         Self::new(&full_name[0..index], &full_name[index + 1..])
     }
 
@@ -100,10 +87,7 @@ impl TypeName {
     }
 
     pub fn generics(&self) -> impl Iterator<Item = &Type> + '_ {
-        self.generic1
-            .iter()
-            .chain(self.generic2.iter())
-            .map(|boxed| boxed.as_ref())
+        self.generic1.iter().chain(self.generic2.iter()).map(|boxed| boxed.as_ref())
     }
 }
 

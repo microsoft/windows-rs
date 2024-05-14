@@ -12,10 +12,7 @@ impl Row {
     }
 
     fn next(&self) -> Self {
-        Self {
-            file: self.file,
-            index: self.index + 1,
-        }
+        Self { file: self.file, index: self.index + 1 }
     }
 }
 
@@ -49,10 +46,7 @@ pub trait AsRow: Copy {
         let file = self.file();
         let offset = file.strings + self.usize(column);
         let bytes = &file.bytes[offset..];
-        let nul_pos = bytes
-            .iter()
-            .position(|&c| c == 0)
-            .expect("expected null-terminated C-string");
+        let nul_pos = bytes.iter().position(|&c| c == 0).expect("expected null-terminated C-string");
         std::str::from_utf8(&bytes[..nul_pos]).expect("expected valid utf-8 C-string")
     }
 
@@ -90,11 +84,7 @@ pub trait AsRow: Copy {
         let file = self.file();
         let first = self.usize(column) - 1;
         let next = self.next();
-        let last = if next.index() < file.tables[Self::TABLE].len {
-            next.usize(column) - 1
-        } else {
-            file.tables[R::TABLE].len
-        };
+        let last = if next.index() < file.tables[Self::TABLE].len { next.usize(column) - 1 } else { file.tables[R::TABLE].len };
         RowIterator::new(file, first..last)
     }
 
@@ -142,11 +132,7 @@ pub struct RowIterator<R: AsRow> {
 
 impl<R: AsRow> RowIterator<R> {
     pub fn new(file: &'static File, rows: std::ops::Range<usize>) -> Self {
-        Self {
-            file,
-            rows,
-            phantom: std::marker::PhantomData,
-        }
+        Self { file, rows, phantom: std::marker::PhantomData }
     }
 }
 
@@ -154,9 +140,7 @@ impl<R: AsRow> Iterator for RowIterator<R> {
     type Item = R;
 
     fn next(&mut self) -> Option<Self::Item> {
-        self.rows
-            .next()
-            .map(|row| R::from_row(Row::new(self.file, row)))
+        self.rows.next().map(|row| R::from_row(Row::new(self.file, row)))
     }
 }
 
