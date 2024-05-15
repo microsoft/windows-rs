@@ -140,15 +140,32 @@ impl Reader {
         self.nested.get(&type_def).map(|map| map.values().copied()).into_iter().flatten()
     }
 
-    pub fn remap_type(&self, type_name: &TypeName) -> Option<TypeName> {
-        REMAP_TYPES.iter().find_map(|(key, value)| (type_name == key).then(|| value.clone()))
+    pub fn remap_type(&self, name: TypeName) -> Option<TypeName> {
+        match name {
+            TypeName::D2D_MATRIX_3X2_F => Some(TypeName::Matrix3x2),
+            TypeName::D3DMATRIX => Some(TypeName::Matrix4x4),
+            TypeName::HRESULT => Some(TypeName::HResult),
+            _ => None,
+        }
     }
 
-    pub fn core_type(&self, type_name: &TypeName) -> Option<Type> {
-        if self.sys {
-            SYS_CORE_TYPES.iter().find_map(|(key, value)| (type_name == key).then(|| value.clone()))
-        } else {
-            CORE_TYPES.iter().find_map(|(key, value)| (type_name == key).then(|| value.clone()))
+    pub fn core_type(&self, name: TypeName) -> Option<Type> {
+        match name {
+            TypeName::HSTRING => Some(Type::String),
+            TypeName::IInspectable => Some(Type::Object),
+            TypeName::CHAR => Some(Type::I8),
+
+            TypeName::GUID => Some(Type::Name(name)),
+            TypeName::IUnknown => Some(Type::Name(name)),
+            TypeName::HResult => Some(Type::Name(name)),
+            TypeName::BSTR => Some(Type::Name(name)),
+            TypeName::PSTR => Some(Type::Name(name)),
+            TypeName::PWSTR => Some(Type::Name(name)),
+            TypeName::Type => Some(Type::Name(name)),
+            TypeName::VARIANT if !self.sys => Some(Type::Name(name)),
+            TypeName::PROPVARIANT if !self.sys => Some(Type::Name(name)),
+
+            _ => None,
         }
     }
 
@@ -160,11 +177,11 @@ impl Reader {
 
         let mut full_name = code.type_name();
 
-        if let Some(to) = self.remap_type(&full_name) {
-            full_name = to.clone();
+        if let Some(to) = self.remap_type(full_name) {
+            full_name = to;
         }
 
-        if let Some(kind) = self.core_type(&full_name) {
+        if let Some(kind) = self.core_type(full_name) {
             return kind;
         }
 
@@ -258,23 +275,3 @@ impl Reader {
         }
     }
 }
-
-// TODO: this should be in riddle's Rust generator if at all - perhaps as convertible types rather than remapped types since there's already some precedent for that.
-const REMAP_TYPES: [(TypeName, TypeName); 3] = [(TypeName::D2D_MATRIX_3X2_F, TypeName::Matrix3x2), (TypeName::D3DMATRIX, TypeName::Matrix4x4), (TypeName::HRESULT, TypeName::HResult)];
-
-// TODO: get rid of at least the second tuple if not the whole thing.
-const CORE_TYPES: [(TypeName, Type); 12] = [
-    (TypeName::GUID, Type::Name(TypeName::GUID)),
-    (TypeName::IUnknown, Type::Name(TypeName::IUnknown)),
-    (TypeName::HResult, Type::Name(TypeName::HResult)),
-    (TypeName::HSTRING, Type::String),
-    (TypeName::BSTR, Type::Name(TypeName::BSTR)),
-    (TypeName::IInspectable, Type::Object),
-    (TypeName::PSTR, Type::Name(TypeName::PSTR)),
-    (TypeName::PWSTR, Type::Name(TypeName::PWSTR)),
-    (TypeName::Type, Type::Name(TypeName::Type)),
-    (TypeName::CHAR, Type::I8),
-    (TypeName::VARIANT, Type::Name(TypeName::VARIANT)),
-    (TypeName::PROPVARIANT, Type::Name(TypeName::PROPVARIANT)),
-];
-const SYS_CORE_TYPES: [(TypeName, Type); 10] = [(TypeName::GUID, Type::Name(TypeName::GUID)), (TypeName::IUnknown, Type::Name(TypeName::IUnknown)), (TypeName::HResult, Type::Name(TypeName::HResult)), (TypeName::HSTRING, Type::String), (TypeName::BSTR, Type::Name(TypeName::BSTR)), (TypeName::IInspectable, Type::Object), (TypeName::PSTR, Type::Name(TypeName::PSTR)), (TypeName::PWSTR, Type::Name(TypeName::PWSTR)), (TypeName::Type, Type::Name(TypeName::Type)), (TypeName::CHAR, Type::I8)];

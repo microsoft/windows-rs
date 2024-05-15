@@ -316,7 +316,7 @@ impl TypeDef {
     }
 
     pub fn type_name(&self) -> TypeName {
-        TypeName::new(self.namespace(), self.name())
+        TypeName(self.namespace(), self.name())
     }
 
     pub fn extends(&self) -> Option<TypeName> {
@@ -413,7 +413,7 @@ impl TypeRef {
     }
 
     pub fn type_name(&self) -> TypeName {
-        TypeName::new(self.namespace(), self.name())
+        TypeName(self.namespace(), self.name())
     }
 
     pub fn resolution_scope(&self) -> ResolutionScope {
