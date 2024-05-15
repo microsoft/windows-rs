@@ -6,6 +6,7 @@
     clippy::all
 )]
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVMODEW {
     pub dmDeviceName: [u16; 32],
     pub dmSpecVersion: u16,
@@ -35,24 +36,14 @@ pub struct DEVMODEW {
     pub dmPanningWidth: u32,
     pub dmPanningHeight: u32,
 }
-impl Copy for DEVMODEW {}
-impl Clone for DEVMODEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DEVMODEW_0 {
     pub Anonymous1: DEVMODEW_0_0,
     pub Anonymous2: DEVMODEW_0_1,
 }
-impl Copy for DEVMODEW_0 {}
-impl Clone for DEVMODEW_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVMODEW_0_0 {
     pub dmOrientation: i16,
     pub dmPaperSize: i16,
@@ -63,34 +54,18 @@ pub struct DEVMODEW_0_0 {
     pub dmDefaultSource: i16,
     pub dmPrintQuality: i16,
 }
-impl Copy for DEVMODEW_0_0 {}
-impl Clone for DEVMODEW_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DEVMODEW_0_1 {
     pub dmPosition: POINTL,
     pub dmDisplayOrientation: DEVMODE_DISPLAY_ORIENTATION,
     pub dmDisplayFixedOutput: DEVMODE_DISPLAY_FIXED_OUTPUT,
 }
-impl Copy for DEVMODEW_0_1 {}
-impl Clone for DEVMODEW_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DEVMODEW_1 {
     pub dmDisplayFlags: u32,
     pub dmNup: u32,
-}
-impl Copy for DEVMODEW_1 {}
-impl Clone for DEVMODEW_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type DEVMODE_COLLATE = i16;
 pub type DEVMODE_COLOR = i16;
@@ -100,15 +75,10 @@ pub type DEVMODE_DUPLEX = i16;
 pub type DEVMODE_FIELD_FLAGS = u32;
 pub type DEVMODE_TRUETYPE_OPTION = i16;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILETIME {
     pub dwLowDateTime: u32,
     pub dwHighDateTime: u32,
-}
-impl Copy for FILETIME {}
-impl Clone for FILETIME {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -134,18 +104,14 @@ pub type HGLOBAL = *mut core::ffi::c_void;
 pub type HRESULT = i32;
 pub type PCWSTR = *const u16;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct POINTL {
     pub x: i32,
     pub y: i32,
 }
-impl Copy for POINTL {}
-impl Clone for POINTL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type PWSTR = *mut u16;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STATSTG {
     pub pwcsName: PWSTR,
     pub r#type: u32,
@@ -159,26 +125,16 @@ pub struct STATSTG {
     pub grfStateBits: u32,
     pub reserved: u32,
 }
-impl Copy for STATSTG {}
-impl Clone for STATSTG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type STGM = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct STGMEDIUM {
     pub tymed: u32,
     pub u: STGMEDIUM_0,
     pub pUnkForRelease: *mut core::ffi::c_void,
 }
-impl Copy for STGMEDIUM {}
-impl Clone for STGMEDIUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union STGMEDIUM_0 {
     pub hBitmap: HBITMAP,
     pub hMetaFilePict: *mut core::ffi::c_void,
@@ -187,11 +143,5 @@ pub union STGMEDIUM_0 {
     pub lpszFileName: PWSTR,
     pub pstm: *mut core::ffi::c_void,
     pub pstg: *mut core::ffi::c_void,
-}
-impl Copy for STGMEDIUM_0 {}
-impl Clone for STGMEDIUM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type STREAM_SEEK = u32;

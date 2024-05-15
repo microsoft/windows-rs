@@ -7,21 +7,9 @@
 )]
 pub mod NestedModule {
     #[repr(C)]
+    #[derive(Clone, Copy, Debug, PartialEq)]
     pub struct NestedType {
         pub field: f32,
-    }
-    impl Copy for NestedType {}
-    impl Clone for NestedType {
-        fn clone(&self) -> Self {
-            *self
-        }
-    }
-    impl core::fmt::Debug for NestedType {
-        fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-            f.debug_struct("NestedType")
-                .field("field", &self.field)
-                .finish()
-        }
     }
     impl windows_core::TypeKind for NestedType {
         type TypeKind = windows_core::CopyType;
@@ -30,12 +18,6 @@ pub mod NestedModule {
         const SIGNATURE: windows_core::imp::ConstBuffer =
             windows_core::imp::ConstBuffer::from_slice(b"struct(Test.NestedModule.NestedType;f4)");
     }
-    impl PartialEq for NestedType {
-        fn eq(&self, other: &Self) -> bool {
-            self.field == other.field
-        }
-    }
-    impl Eq for NestedType {}
     impl Default for NestedType {
         fn default() -> Self {
             unsafe { core::mem::zeroed() }
@@ -43,21 +25,9 @@ pub mod NestedModule {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TestType {
     pub field: i32,
-}
-impl Copy for TestType {}
-impl Clone for TestType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl core::fmt::Debug for TestType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_struct("TestType")
-            .field("field", &self.field)
-            .finish()
-    }
 }
 impl windows_core::TypeKind for TestType {
     type TypeKind = windows_core::CopyType;
@@ -66,12 +36,6 @@ impl windows_core::RuntimeType for TestType {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::from_slice(b"struct(Test.TestType;i4)");
 }
-impl PartialEq for TestType {
-    fn eq(&self, other: &Self) -> bool {
-        self.field == other.field
-    }
-}
-impl Eq for TestType {}
 impl Default for TestType {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

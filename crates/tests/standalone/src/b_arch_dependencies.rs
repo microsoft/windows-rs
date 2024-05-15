@@ -7,6 +7,7 @@
 )]
 windows_targets::link!("kernel32.dll" "system" fn RtlCaptureContext(contextrecord : *mut CONTEXT));
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union ARM64_NT_NEON128 {
     pub Anonymous: ARM64_NT_NEON128_0,
     pub D: [f64; 2],
@@ -14,25 +15,15 @@ pub union ARM64_NT_NEON128 {
     pub H: [u16; 8],
     pub B: [u8; 16],
 }
-impl Copy for ARM64_NT_NEON128 {}
-impl Clone for ARM64_NT_NEON128 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ARM64_NT_NEON128_0 {
     pub Low: u64,
     pub High: i64,
 }
-impl Copy for ARM64_NT_NEON128_0 {}
-impl Clone for ARM64_NT_NEON128_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[derive(Clone, Copy)]
 pub struct CONTEXT {
     pub ContextFlags: CONTEXT_FLAGS,
     pub Cpsr: u32,
@@ -47,30 +38,16 @@ pub struct CONTEXT {
     pub Wcr: [u32; 2],
     pub Wvr: [u64; 2],
 }
-#[cfg(target_arch = "aarch64")]
-impl Copy for CONTEXT {}
-#[cfg(target_arch = "aarch64")]
-impl Clone for CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[derive(Clone, Copy)]
 pub union CONTEXT_0 {
     pub Anonymous: CONTEXT_0_0,
     pub X: [u64; 31],
 }
-#[cfg(target_arch = "aarch64")]
-impl Copy for CONTEXT_0 {}
-#[cfg(target_arch = "aarch64")]
-impl Clone for CONTEXT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[derive(Clone, Copy)]
 pub struct CONTEXT_0_0 {
     pub X0: u64,
     pub X1: u64,
@@ -104,16 +81,9 @@ pub struct CONTEXT_0_0 {
     pub Fp: u64,
     pub Lr: u64,
 }
-#[cfg(target_arch = "aarch64")]
-impl Copy for CONTEXT_0_0 {}
-#[cfg(target_arch = "aarch64")]
-impl Clone for CONTEXT_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct CONTEXT {
     pub P1Home: u64,
     pub P2Home: u64,
@@ -162,30 +132,16 @@ pub struct CONTEXT {
     pub LastExceptionToRip: u64,
     pub LastExceptionFromRip: u64,
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for CONTEXT {}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub union CONTEXT_0 {
     pub FltSave: XSAVE_FORMAT,
     pub Anonymous: CONTEXT_0_0,
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for CONTEXT_0 {}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for CONTEXT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct CONTEXT_0_0 {
     pub Header: [M128A; 2],
     pub Legacy: [M128A; 8],
@@ -206,16 +162,9 @@ pub struct CONTEXT_0_0 {
     pub Xmm14: M128A,
     pub Xmm15: M128A,
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Copy for CONTEXT_0_0 {}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Clone for CONTEXT_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct CONTEXT {
     pub ContextFlags: CONTEXT_FLAGS,
     pub Dr0: u32,
@@ -243,14 +192,6 @@ pub struct CONTEXT {
     pub SegSs: u32,
     pub ExtendedRegisters: [u8; 512],
 }
-#[cfg(target_arch = "x86")]
-impl Copy for CONTEXT {}
-#[cfg(target_arch = "x86")]
-impl Clone for CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type CONTEXT_FLAGS = u32;
 #[repr(C)]
 #[cfg(any(
@@ -258,6 +199,7 @@ pub type CONTEXT_FLAGS = u32;
     target_arch = "arm64ec",
     target_arch = "x86_64"
 ))]
+#[derive(Clone, Copy)]
 pub struct FLOATING_SAVE_AREA {
     pub ControlWord: u32,
     pub StatusWord: u32,
@@ -269,24 +211,9 @@ pub struct FLOATING_SAVE_AREA {
     pub RegisterArea: [u8; 80],
     pub Cr0NpxState: u32,
 }
-#[cfg(any(
-    target_arch = "aarch64",
-    target_arch = "arm64ec",
-    target_arch = "x86_64"
-))]
-impl Copy for FLOATING_SAVE_AREA {}
-#[cfg(any(
-    target_arch = "aarch64",
-    target_arch = "arm64ec",
-    target_arch = "x86_64"
-))]
-impl Clone for FLOATING_SAVE_AREA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct FLOATING_SAVE_AREA {
     pub ControlWord: u32,
     pub StatusWord: u32,
@@ -298,24 +225,11 @@ pub struct FLOATING_SAVE_AREA {
     pub RegisterArea: [u8; 80],
     pub Spare0: u32,
 }
-#[cfg(target_arch = "x86")]
-impl Copy for FLOATING_SAVE_AREA {}
-#[cfg(target_arch = "x86")]
-impl Clone for FLOATING_SAVE_AREA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct M128A {
     pub Low: u64,
     pub High: i64,
-}
-impl Copy for M128A {}
-impl Clone for M128A {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 #[repr(C)]
 #[cfg(any(
@@ -323,6 +237,7 @@ impl Clone for M128A {
     target_arch = "arm64ec",
     target_arch = "x86_64"
 ))]
+#[derive(Clone, Copy)]
 pub struct XSAVE_FORMAT {
     pub ControlWord: u16,
     pub StatusWord: u16,
@@ -341,24 +256,9 @@ pub struct XSAVE_FORMAT {
     pub XmmRegisters: [M128A; 16],
     pub Reserved4: [u8; 96],
 }
-#[cfg(any(
-    target_arch = "aarch64",
-    target_arch = "arm64ec",
-    target_arch = "x86_64"
-))]
-impl Copy for XSAVE_FORMAT {}
-#[cfg(any(
-    target_arch = "aarch64",
-    target_arch = "arm64ec",
-    target_arch = "x86_64"
-))]
-impl Clone for XSAVE_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
 pub struct XSAVE_FORMAT {
     pub ControlWord: u16,
     pub StatusWord: u16,
@@ -376,12 +276,4 @@ pub struct XSAVE_FORMAT {
     pub FloatRegisters: [M128A; 8],
     pub XmmRegisters: [M128A; 8],
     pub Reserved4: [u8; 224],
-}
-#[cfg(target_arch = "x86")]
-impl Copy for XSAVE_FORMAT {}
-#[cfg(target_arch = "x86")]
-impl Clone for XSAVE_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
 }

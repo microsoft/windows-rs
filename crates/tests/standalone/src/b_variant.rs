@@ -7,149 +7,90 @@
 )]
 pub type ADVANCED_FEATURE_FLAGS = u16;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ARRAYDESC {
     pub tdescElem: TYPEDESC,
     pub cDims: u16,
     pub rgbounds: [SAFEARRAYBOUND; 1],
 }
-impl Copy for ARRAYDESC {}
-impl Clone for ARRAYDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union BINDPTR {
     pub lpfuncdesc: *mut FUNCDESC,
     pub lpvardesc: *mut VARDESC,
     pub lptcomp: *mut core::ffi::c_void,
 }
-impl Copy for BINDPTR {}
-impl Clone for BINDPTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type BOOL = i32;
 pub type BSTR = *const u16;
 pub type CALLCONV = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union CY {
     pub Anonymous: CY_0,
     pub int64: i64,
 }
-impl Copy for CY {}
-impl Clone for CY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CY_0 {
     pub Lo: u32,
     pub Hi: i32,
 }
-impl Copy for CY_0 {}
-impl Clone for CY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DECIMAL {
     pub wReserved: u16,
     pub Anonymous1: DECIMAL_0,
     pub Hi32: u32,
     pub Anonymous2: DECIMAL_1,
 }
-impl Copy for DECIMAL {}
-impl Clone for DECIMAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DECIMAL_0 {
     pub Anonymous: DECIMAL_0_0,
     pub signscale: u16,
 }
-impl Copy for DECIMAL_0 {}
-impl Clone for DECIMAL_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DECIMAL_0_0 {
     pub scale: u8,
     pub sign: u8,
 }
-impl Copy for DECIMAL_0_0 {}
-impl Clone for DECIMAL_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union DECIMAL_1 {
     pub Anonymous: DECIMAL_1_0,
     pub Lo64: u64,
 }
-impl Copy for DECIMAL_1 {}
-impl Clone for DECIMAL_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DECIMAL_1_0 {
     pub Lo32: u32,
     pub Mid32: u32,
 }
-impl Copy for DECIMAL_1_0 {}
-impl Clone for DECIMAL_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type DESCKIND = i32;
 pub type DISPATCH_FLAGS = u16;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DISPPARAMS {
     pub rgvarg: *mut VARIANT,
     pub rgdispidNamedArgs: *mut i32,
     pub cArgs: u32,
     pub cNamedArgs: u32,
 }
-impl Copy for DISPPARAMS {}
-impl Clone for DISPPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ELEMDESC {
     pub tdesc: TYPEDESC,
     pub Anonymous: ELEMDESC_0,
 }
-impl Copy for ELEMDESC {}
-impl Clone for ELEMDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union ELEMDESC_0 {
     pub idldesc: IDLDESC,
     pub paramdesc: PARAMDESC,
 }
-impl Copy for ELEMDESC_0 {}
-impl Clone for ELEMDESC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct EXCEPINFO {
     pub wCode: u16,
     pub wReserved: u16,
@@ -161,13 +102,8 @@ pub struct EXCEPINFO {
     pub pfnDeferredFillIn: LPEXCEPFINO_DEFERRED_FILLIN,
     pub scode: i32,
 }
-impl Copy for EXCEPINFO {}
-impl Clone for EXCEPINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FUNCDESC {
     pub memid: i32,
     pub lprgscode: *mut i32,
@@ -181,12 +117,6 @@ pub struct FUNCDESC {
     pub cScodes: i16,
     pub elemdescFunc: ELEMDESC,
     pub wFuncFlags: FUNCFLAGS,
-}
-impl Copy for FUNCDESC {}
-impl Clone for FUNCDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type FUNCFLAGS = u16;
 pub type FUNCKIND = i32;
@@ -210,15 +140,10 @@ impl GUID {
 }
 pub type HRESULT = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IDLDESC {
     pub dwReserved: usize,
     pub wIDLFlags: IDLFLAGS,
-}
-impl Copy for IDLDESC {}
-impl Clone for IDLDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type IDLFLAGS = u16;
 pub type IMPLTYPEFLAGS = i32;
@@ -226,32 +151,23 @@ pub type INVOKEKIND = i32;
 pub type LPEXCEPFINO_DEFERRED_FILLIN =
     Option<unsafe extern "system" fn(pexcepinfo: *mut EXCEPINFO) -> HRESULT>;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PARAMDESC {
     pub pparamdescex: *mut PARAMDESCEX,
     pub wParamFlags: PARAMFLAGS,
 }
-impl Copy for PARAMDESC {}
-impl Clone for PARAMDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PARAMDESCEX {
     pub cBytes: u32,
     pub varDefaultValue: VARIANT,
-}
-impl Copy for PARAMDESCEX {}
-impl Clone for PARAMDESCEX {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type PARAMFLAGS = u16;
 pub type PCWSTR = *const u16;
 pub type PSTR = *mut u8;
 pub type PWSTR = *mut u16;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SAFEARRAY {
     pub cDims: u16,
     pub fFeatures: ADVANCED_FEATURE_FLAGS,
@@ -260,25 +176,15 @@ pub struct SAFEARRAY {
     pub pvData: *mut core::ffi::c_void,
     pub rgsabound: [SAFEARRAYBOUND; 1],
 }
-impl Copy for SAFEARRAY {}
-impl Clone for SAFEARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SAFEARRAYBOUND {
     pub cElements: u32,
     pub lLbound: i32,
 }
-impl Copy for SAFEARRAYBOUND {}
-impl Clone for SAFEARRAYBOUND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type SYSKIND = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TLIBATTR {
     pub guid: GUID,
     pub lcid: u32,
@@ -287,13 +193,8 @@ pub struct TLIBATTR {
     pub wMinorVerNum: u16,
     pub wLibFlags: u16,
 }
-impl Copy for TLIBATTR {}
-impl Clone for TLIBATTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TYPEATTR {
     pub guid: GUID,
     pub lcid: u32,
@@ -314,37 +215,22 @@ pub struct TYPEATTR {
     pub tdescAlias: TYPEDESC,
     pub idldescType: IDLDESC,
 }
-impl Copy for TYPEATTR {}
-impl Clone for TYPEATTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct TYPEDESC {
     pub Anonymous: TYPEDESC_0,
     pub vt: VARENUM,
 }
-impl Copy for TYPEDESC {}
-impl Clone for TYPEDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union TYPEDESC_0 {
     pub lptdesc: *mut TYPEDESC,
     pub lpadesc: *mut ARRAYDESC,
     pub hreftype: u32,
 }
-impl Copy for TYPEDESC_0 {}
-impl Clone for TYPEDESC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type TYPEKIND = i32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VARDESC {
     pub memid: i32,
     pub lpstrSchema: PWSTR,
@@ -353,47 +239,27 @@ pub struct VARDESC {
     pub wVarFlags: VARFLAGS,
     pub varkind: VARKIND,
 }
-impl Copy for VARDESC {}
-impl Clone for VARDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VARDESC_0 {
     pub oInst: u32,
     pub lpvarValue: *mut VARIANT,
 }
-impl Copy for VARDESC_0 {}
-impl Clone for VARDESC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type VARENUM = u16;
 pub type VARFLAGS = u16;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VARIANT {
     pub Anonymous: VARIANT_0,
 }
-impl Copy for VARIANT {}
-impl Clone for VARIANT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VARIANT_0 {
     pub Anonymous: VARIANT_0_0,
     pub decVal: DECIMAL,
 }
-impl Copy for VARIANT_0 {}
-impl Clone for VARIANT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VARIANT_0_0 {
     pub vt: VARENUM,
     pub wReserved1: u16,
@@ -401,13 +267,8 @@ pub struct VARIANT_0_0 {
     pub wReserved3: u16,
     pub Anonymous: VARIANT_0_0_0,
 }
-impl Copy for VARIANT_0_0 {}
-impl Clone for VARIANT_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub union VARIANT_0_0_0 {
     pub llVal: i64,
     pub lVal: i32,
@@ -456,22 +317,11 @@ pub union VARIANT_0_0_0 {
     pub puintVal: *mut u32,
     pub Anonymous: VARIANT_0_0_0_0,
 }
-impl Copy for VARIANT_0_0_0 {}
-impl Clone for VARIANT_0_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VARIANT_0_0_0_0 {
     pub pvRecord: *mut core::ffi::c_void,
     pub pRecInfo: *mut core::ffi::c_void,
-}
-impl Copy for VARIANT_0_0_0_0 {}
-impl Clone for VARIANT_0_0_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type VARIANT_BOOL = i16;
 pub type VARKIND = i32;
