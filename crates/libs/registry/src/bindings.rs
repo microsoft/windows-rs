@@ -19,15 +19,10 @@ pub type BOOL = i32;
 pub const ERROR_INVALID_DATA: WIN32_ERROR = 13u32;
 pub const ERROR_NO_MORE_ITEMS: WIN32_ERROR = 259u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct FILETIME {
     pub dwLowDateTime: u32,
     pub dwHighDateTime: u32,
-}
-impl Copy for FILETIME {}
-impl Clone for FILETIME {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type HKEY = isize;
 pub const HKEY_CLASSES_ROOT: HKEY = -2147483648i32 as _;
@@ -51,15 +46,10 @@ pub type REG_SAM_FLAGS = u32;
 pub const REG_SZ: REG_VALUE_TYPE = 1u32;
 pub type REG_VALUE_TYPE = u32;
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct SECURITY_ATTRIBUTES {
     pub nLength: u32,
     pub lpSecurityDescriptor: *mut core::ffi::c_void,
     pub bInheritHandle: BOOL,
-}
-impl Copy for SECURITY_ATTRIBUTES {}
-impl Clone for SECURITY_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type WIN32_ERROR = u32;
