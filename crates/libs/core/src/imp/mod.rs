@@ -10,7 +10,6 @@ mod sha1;
 mod waiter;
 mod weak_ref_count;
 
-pub use crate::com_object::{ComImpl, ComObjectInterface};
 pub use bindings::*;
 pub use can_into::*;
 pub use com_bindings::*;

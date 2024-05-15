@@ -200,7 +200,7 @@ fn get_mut() {
 }
 
 #[test]
-fn try_take() {
+fn take() {
     let app: ComObject<MyApp> = MyApp::new(42);
     let tombstone = app.tombstone.clone();
     // refcount = 1
@@ -208,8 +208,8 @@ fn try_take() {
     let app2 = app.clone();
     // refcount = 2
 
-    let app2_rejected: ComObject<MyApp> = match app2.try_take() {
-        Ok(_unexpected) => panic!("try_take should have failed"),
+    let app2_rejected: ComObject<MyApp> = match app2.take() {
+        Ok(_unexpected) => panic!("take() should have failed"),
         Err(e) => e,
     };
     // refcount = 1
@@ -217,7 +217,7 @@ fn try_take() {
     drop(app2_rejected);
     // refcount = 1
 
-    match app.try_take() {
+    match app.take() {
         Ok(unwrapped_app) => {
             // box destroyed
             assert!(!tombstone.is_dead());
@@ -227,7 +227,7 @@ fn try_take() {
         }
 
         Err(_unexpected) => {
-            panic!("try_take should have succeeded");
+            panic!("take() should have succeeded");
         }
     }
 }
@@ -332,3 +332,33 @@ fn from_inner_ref() {
     let ibar: IBar = unsafe { ifoo.get_self_as_bar() };
     unsafe { ibar.say_hello() };
 }
+
+// This tests that we can place a type that is not Send in a ComObject.
+// Compilation is sufficient to test.
+#[implement(IBar)]
+struct UnsendableThing {
+    cell: core::cell::Cell<u32>,
+}
+
+impl IBar_Impl for UnsendableThing {
+    unsafe fn say_hello(&self) {
+        println!("{}", self.cell.get());
+    }
+}
+
+static_assertions::assert_not_impl_all!(UnsendableThing: Send, Sync);
+static_assertions::assert_not_impl_all!(ComObject<UnsendableThing>: Send, Sync);
+
+#[implement(IBar)]
+struct SendableThing {
+    arc: std::sync::Arc<u32>,
+}
+
+impl IBar_Impl for SendableThing {
+    unsafe fn say_hello(&self) {
+        println!("{}", *self.arc);
+    }
+}
+
+static_assertions::assert_impl_all!(SendableThing: Send, Sync);
+static_assertions::assert_impl_all!(ComObject<SendableThing>: Send, Sync);

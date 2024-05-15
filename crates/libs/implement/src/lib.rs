@@ -103,7 +103,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                 }
             }
 
-            impl #generics ::windows_core::imp::ComObjectInterface<#interface_ident> for #impl_ident::#generics where #constraints {
+            impl #generics ::windows_core::ComObjectInterface<#interface_ident> for #impl_ident::#generics where #constraints {
                 #[inline(always)]
                 fn as_interface_ref(&self) -> ::windows_core::InterfaceRef<'_, #interface_ident> {
                     unsafe {
@@ -149,7 +149,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             }
         }
 
-        impl #generics ::windows_core::imp::ComImpl for #original_ident::#generics where #constraints {
+        impl #generics ::windows_core::ComObjectInner for #original_ident::#generics where #constraints {
             type Outer = #impl_ident::#generics;
         }
 
@@ -282,7 +282,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             }
         }
 
-        impl #generics ::windows_core::imp::ComObjectInterface<::windows_core::IUnknown> for #impl_ident::#generics where #constraints {
+        impl #generics ::windows_core::ComObjectInterface<::windows_core::IUnknown> for #impl_ident::#generics where #constraints {
             #[inline(always)]
             fn as_interface_ref(&self) -> ::windows_core::InterfaceRef<'_, ::windows_core::IUnknown> {
                 unsafe {
