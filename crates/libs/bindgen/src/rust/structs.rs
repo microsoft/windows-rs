@@ -68,18 +68,18 @@ fn gen_struct_with_name(writer: &Writer, def: metadata::TypeDef, struct_name: &s
     };
 
     let features = writer.cfg_features(&cfg);
+    let derive = gen_derive(writer, def);
 
     let mut tokens = quote! {
         #repr
         #features
+        #derive
         pub #struct_or_union #name {#(#fields)*}
     };
 
     tokens.combine(&gen_struct_constants(writer, def, &name, &cfg));
-    tokens.combine(&gen_copy_clone(writer, def, &name, &cfg));
-    tokens.combine(&gen_debug(writer, def, &name, &cfg));
+    tokens.combine(&gen_clone(writer, def, &name, &cfg));
     tokens.combine(&gen_windows_traits(writer, def, &name, &cfg));
-    tokens.combine(&gen_compare_traits(writer, def, &name, &cfg));
 
     if !writer.sys {
         tokens.combine(&quote! {
@@ -135,110 +135,48 @@ fn gen_windows_traits(writer: &Writer, def: metadata::TypeDef, name: &TokenStrea
     }
 }
 
-fn gen_compare_traits(writer: &Writer, def: metadata::TypeDef, name: &TokenStream, cfg: &cfg::Cfg) -> TokenStream {
-    let features = writer.cfg_features(cfg);
+fn gen_derive(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
+    let mut derive = std::collections::BTreeSet::new();
 
-    if writer.sys || metadata::type_def_has_explicit_layout(def) || metadata::type_def_has_packing(def) || metadata::type_def_has_callback(def) {
-        quote! {}
-    } else {
-        let fields = def.fields().filter_map(|f| {
-            let name = to_ident(f.name());
-            if f.flags().contains(metadata::FieldAttributes::Literal) {
-                None
-            } else {
-                Some(quote! { self.#name == other.#name })
-            }
-        });
-
-        quote! {
-            #features
-            impl PartialEq for #name {
-                fn eq(&self, other: &Self) -> bool {
-                    #(#fields)&&*
-                }
-            }
-            #features
-            impl Eq for #name {}
-        }
+    if !writer.sys && !metadata::type_def_has_explicit_layout(def) && !metadata::type_def_has_packing(def) {
+        derive.insert(to_ident("Debug"));
     }
-}
-
-fn gen_debug(writer: &Writer, def: metadata::TypeDef, ident: &TokenStream, cfg: &cfg::Cfg) -> TokenStream {
-    if writer.sys || metadata::type_def_has_explicit_layout(def) || metadata::type_def_has_packing(def) {
-        quote! {}
-    } else {
-        let name = ident.as_str();
-        let features = writer.cfg_features(cfg);
-
-        let fields = def.fields().filter_map(|f| {
-            if f.flags().contains(metadata::FieldAttributes::Literal) {
-                None
-            } else {
-                let name = f.name();
-                let ident = to_ident(name);
-                let ty = f.ty(Some(def));
-                if metadata::type_has_callback(&ty) {
-                    None
-                } else {
-                    Some(quote! { .field(#name, &self.#ident) })
-                }
-            }
-        });
-
-        quote! {
-            #features
-            impl core::fmt::Debug for #ident {
-                fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-                    f.debug_struct(#name) #(#fields)* .finish()
-                }
-            }
-        }
-    }
-}
-
-fn gen_copy_clone(writer: &Writer, def: metadata::TypeDef, name: &TokenStream, cfg: &cfg::Cfg) -> TokenStream {
-    let features = writer.cfg_features(cfg);
 
     if writer.sys || metadata::type_def_is_copyable(def) {
-        quote! {
-            #features
-            impl Copy for #name {}
-            #features
-            impl Clone for #name {
-                fn clone(&self) -> Self {
-                    *self
-                }
-            }
+        derive.insert(to_ident("Copy"));
+        derive.insert(to_ident("Clone"));
+    } else if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) {
+        derive.insert(to_ident("Clone"));
+    }
+
+    if !writer.sys && !metadata::type_def_has_explicit_layout(def) && !metadata::type_def_has_packing(def) && !metadata::type_def_has_callback(def) {
+        derive.insert(to_ident("PartialEq"));
+
+        if !metadata::type_def_has_float(def) {
+            derive.insert(to_ident("Eq"));
         }
-    } else if def.class_layout().is_some() {
-        // Don't support copy/clone of packed structs: https://github.com/rust-lang/rust/issues/82523
+    }
+
+    if derive.is_empty() {
         quote! {}
-    } else if !def.flags().contains(metadata::TypeAttributes::WindowsRuntime) {
+    } else {
+        quote! {
+            #[derive(#(#derive),*)]
+        }
+    }
+}
+
+fn gen_clone(writer: &Writer, def: metadata::TypeDef, name: &TokenStream, cfg: &cfg::Cfg) -> TokenStream {
+    if writer.sys || metadata::type_def_is_copyable(def) || def.flags().contains(metadata::TypeAttributes::WindowsRuntime) || def.class_layout().is_some() {
+        quote! {}
+    } else {
+        let features = writer.cfg_features(cfg);
+
         quote! {
             #features
             impl Clone for #name {
                 fn clone(&self) -> Self {
                     unsafe { core::mem::transmute_copy(self) }
-                }
-            }
-        }
-    } else {
-        let fields = def.fields().map(|f| {
-            let name = to_ident(f.name());
-            if f.flags().contains(metadata::FieldAttributes::Literal) {
-                quote! {}
-            } else if metadata::field_is_blittable(f, def) {
-                quote! { #name: self.#name }
-            } else {
-                quote! { #name: self.#name.clone() }
-            }
-        });
-
-        quote! {
-            #features
-            impl Clone for #name {
-                fn clone(&self) -> Self {
-                    Self { #(#fields),* }
                 }
             }
         }
