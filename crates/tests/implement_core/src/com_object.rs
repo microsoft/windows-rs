@@ -1,5 +1,5 @@
 //! Unit tests for `windows_core::ComObject`
-//!
+
 use std::borrow::Borrow;
 use std::sync::atomic::{AtomicBool, Ordering::SeqCst};
 use std::sync::Arc;
