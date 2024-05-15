@@ -89,6 +89,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
         let offset = proc_macro2::Literal::usize_unsuffixed(enumerate);
         quote! {
             impl #generics ::core::convert::From<#original_ident::#generics> for #interface_ident where #constraints {
+                #[inline(always)]
                 fn from(this: #original_ident::#generics) -> Self {
                     let this = #impl_ident::#generics::new(this);
                     let mut this = ::core::mem::ManuallyDrop::new(::windows_core::imp::Box::new(this));
@@ -99,7 +100,8 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             }
 
             impl #generics ::windows_core::imp::ComObjectInterface<#interface_ident> for #impl_ident::#generics where #constraints {
-                fn get_interface(&self) -> ::windows_core::InterfaceRef<'_, #interface_ident> {
+                #[inline(always)]
+                fn as_interface(&self) -> ::windows_core::InterfaceRef<'_, #interface_ident> {
                     unsafe {
                         let interface_ptr = &self.vtables.#offset;
                         ::core::mem::transmute(interface_ptr)
@@ -110,6 +112,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             impl #generics ::windows_core::AsImpl<#original_ident::#generics> for #interface_ident where #constraints {
                 // SAFETY: the offset is guranteed to be in bounds, and the implementation struct
                 // is guaranteed to live at least as long as `self`.
+                #[inline(always)]
                 unsafe fn as_impl_ptr(&self) -> ::core::ptr::NonNull<#original_ident::#generics> {
                     let this = ::windows_core::Interface::as_raw(self);
                     // Subtract away the vtable offset plus 1, for the `identity` field, to get
@@ -143,7 +146,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
         }
 
         unsafe impl #generics ::windows_core::imp::ComImpl for #original_ident::#generics where #constraints {
-            type Impl = #impl_ident::#generics;
+            type Outer = #impl_ident::#generics;
         }
 
         impl #generics ::windows_core::IUnknownImpl for #impl_ident::#generics where #constraints {
@@ -153,26 +156,24 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                 ::windows_core::imp::Box::new(Self::new(value))
             }
 
+            #[inline(always)]
             fn get_impl(&self) -> &Self::Impl {
                 &self.this
             }
 
+            #[inline(always)]
             fn get_impl_mut(&mut self) -> &mut Self::Impl {
                 &mut self.this
             }
 
-            fn count(&self) -> &::windows_core::imp::WeakRefCount {
-                &self.count
+            #[inline(always)]
+            fn is_reference_count_one(&self) -> bool {
+                self.count.is_one()
             }
 
-            unsafe fn extract_inner(ptr: ::core::ptr::NonNull<Self>) -> Self::Impl {
-                // read() moves the value.
-                let outer: Self = ptr.as_ptr().read();
-                outer.this
-            }
-
-            unsafe fn iunknown_ptr(&self) -> ::core::ptr::NonNull<::core::ffi::c_void> {
-                ::core::ptr::NonNull::new_unchecked(&self.identity as *const _ as *mut _)
+            #[inline(always)]
+            fn into_inner(self) -> Self::Impl {
+                self.this
             }
 
             unsafe fn QueryInterface(&self, iid: *const ::windows_core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -205,16 +206,26 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                     ::windows_core::HRESULT(0)
                 }
             }
+
+            #[inline(always)]
             fn AddRef(&self) -> u32 {
                 self.count.add_ref()
             }
+
+            #[inline(always)]
             unsafe fn Release(self_: *mut Self) -> u32 {
                 let remaining = (*self_).count.release();
                 if remaining == 0 {
-                    _ = ::windows_core::imp::Box::from_raw(self_ as *const Self as *mut Self);
+                    Self::destroy(self_);
                 }
                 remaining
             }
+
+            #[inline(never)]
+            unsafe fn destroy(self_: *mut Self) {
+                _ = ::windows_core::imp::Box::from_raw(self_ as *const Self as *mut Self);
+            }
+
             unsafe fn GetTrustLevel(&self, value: *mut i32) -> ::windows_core::HRESULT {
                 if value.is_null() {
                     return ::windows_core::imp::E_POINTER;
@@ -222,7 +233,8 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                 *value = #trust_level;
                 ::windows_core::HRESULT(0)
             }
-         }
+        }
+
         impl #generics #original_ident::#generics where #constraints {
             /// Try casting as the provided interface
             ///
@@ -230,6 +242,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             ///
             /// This function can only be safely called if `self` has been heap allocated and pinned using
             /// the mechanisms provided by `implement` macro.
+            #[inline(always)]
             unsafe fn cast<I: ::windows_core::Interface>(&self) -> ::windows_core::Result<I> {
                 let boxed = (self as *const _ as *const *mut ::core::ffi::c_void).sub(1 + #interfaces_len) as *mut #impl_ident::#generics;
                 let mut result = ::core::ptr::null_mut();
@@ -237,7 +250,9 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                 ::windows_core::Type::from_abi(result)
             }
         }
+
         impl #generics ::core::convert::From<#original_ident::#generics> for ::windows_core::IUnknown where #constraints {
+            #[inline(always)]
             fn from(this: #original_ident::#generics) -> Self {
                 let this = #impl_ident::#generics::new(this);
                 let boxed = ::core::mem::ManuallyDrop::new(::windows_core::imp::Box::new(this));
@@ -246,7 +261,9 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                 }
             }
         }
+
         impl #generics ::core::convert::From<#original_ident::#generics> for ::windows_core::IInspectable where #constraints {
+            #[inline(always)]
             fn from(this: #original_ident::#generics) -> Self {
                 let this = #impl_ident::#generics::new(this);
                 let boxed = ::core::mem::ManuallyDrop::new(::windows_core::imp::Box::new(this));
@@ -255,9 +272,21 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                 }
             }
         }
+
+        impl #generics ::windows_core::imp::ComObjectInterface<::windows_core::IUnknown> for #impl_ident::#generics where #constraints {
+            #[inline(always)]
+            fn as_interface(&self) -> ::windows_core::InterfaceRef<'_, ::windows_core::IUnknown> {
+                unsafe {
+                    let interface_ptr = &self.identity;
+                    ::core::mem::transmute(interface_ptr)
+                }
+            }
+        }
+
         impl #generics ::windows_core::AsImpl<#original_ident::#generics> for ::windows_core::IUnknown where #constraints {
             // SAFETY: the offset is guranteed to be in bounds, and the implementation struct
             // is guaranteed to live at least as long as `self`.
+            #[inline(always)]
             unsafe fn as_impl_ptr(&self) -> ::core::ptr::NonNull<#original_ident::#generics> {
                 let this = ::windows_core::Interface::as_raw(self);
                 // Subtract away the vtable offset plus 1, for the `identity` field, to get
@@ -272,9 +301,11 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
 
             #[inline(always)]
             fn deref(&self) -> &Self::Target {
-                ::windows_core::IUnknownImpl::get_impl(self)
+                &self.this
             }
         }
+
+        // We intentionally do not provide a DerefMut impl, due to paranoia around soundness.
 
         #(#conversions)*
     };

@@ -1,3 +1,5 @@
+//! Unit tests for `windows_core::ComObject`
+//!
 use std::borrow::Borrow;
 use std::sync::atomic::{AtomicBool, Ordering::SeqCst};
 use std::sync::Arc;
@@ -215,6 +217,9 @@ fn as_interface() {
     let app = MyApp::new(42);
     let tombstone = app.tombstone.clone();
 
+    // All ComObject<T> implement IUnknown.
+    let _ = app.as_interface::<IUnknown>();
+
     let ifoo = app.as_interface::<IFoo>();
     assert_eq!(unsafe { ifoo.get_x() }, 42);
     assert!(!tombstone.is_dead());
@@ -228,6 +233,9 @@ fn to_interface() {
     let app = MyApp::new(42);
     let tombstone = app.tombstone.clone();
 
+    // All ComObject<T> implement IUnknown.
+    drop(app.to_interface::<IUnknown>());
+
     let ifoo = app.to_interface::<IFoo>();
     assert_eq!(unsafe { ifoo.get_x() }, 42);
     assert!(!tombstone.is_dead());
@@ -240,22 +248,35 @@ fn to_interface() {
 }
 
 #[test]
+fn into_interface() {
+    let app = MyApp::new(42);
+    let tombstone = app.tombstone.clone();
+
+    let ifoo = app.into_interface::<IFoo>();
+    assert_eq!(unsafe { ifoo.get_x() }, 42);
+    assert!(!tombstone.is_dead());
+
+    drop(ifoo);
+    assert!(tombstone.is_dead());
+}
+
+#[test]
 fn construct_with_com_object_new() {
-    // Tests that we can construct using ComObject::new().
+    // Test that we can construct using ComObject::new().
     let app: ComObject<MyApp> = ComObject::new(MyApp::default());
     let _ = app;
 }
 
 #[test]
 fn construct_with_com_object_from() {
-    // Tests that we can construct using ComObject::from().
+    // Test that we can construct using ComObject::from().
     let app: ComObject<MyApp> = ComObject::from(MyApp::default());
     let _ = app;
 }
 
 #[test]
 fn construct_with_into() {
-    // Tests that we can construct using ComObject::from().
+    // Test that we can construct using ComObject::from().
     fn consume(_: ComObject<MyApp>) {}
 
     consume(MyApp::default().into())
@@ -275,18 +296,11 @@ fn display() {
     assert_eq!(s, "x = 200");
 }
 
-#[cfg(todo)]
 #[test]
 fn hashable() {
     use std::collections::HashMap;
 
     let mut map: HashMap<ComObject<MyApp>, &'static str> = HashMap::new();
-
     map.insert(MyApp::new(100), "hello");
     map.insert(MyApp::new(200), "world");
-
-    let i: &&str = map.get(&100).unwrap();
-    assert_eq!(*i, "hello");
-
-    assert!(map.get(&333).is_none());
 }

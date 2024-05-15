@@ -1,5 +1,3 @@
-use self::imp::WeakRefCount;
-
 use super::*;
 use core::ffi::c_void;
 use core::ptr::NonNull;
@@ -63,9 +61,11 @@ impl std::fmt::Debug for IUnknown {
 
 /// The `#[implement]` macro generates implementations of this trait for the types
 /// that it generates, e.g. `MyApp_Impl`,
+///
+/// `ComObject` uses this trait to interact with boxed COM objects.
 #[doc(hidden)]
 pub trait IUnknownImpl {
-    /// The user type, e.g. `MyApp`.
+    /// The contained user type, e.g. `MyApp`. Also known as the "inner" type.
     type Impl;
 
     /// Initializes a new heap box and returns it.
@@ -73,13 +73,12 @@ pub trait IUnknownImpl {
 
     /// Get a reference to the backing implementation.
     fn get_impl(&self) -> &Self::Impl;
+
+    /// Get a mutable reference to the contained (inner) object.
     fn get_impl_mut(&mut self) -> &mut Self::Impl;
-    fn count(&self) -> &WeakRefCount;
 
-    unsafe fn extract_inner(ptr: NonNull<Self>) -> Self::Impl;
-
-    /// Gets the pointer to IUnknown.  This _does not_ increase the reference count.
-    unsafe fn iunknown_ptr(&self) -> NonNull<c_void>;
+    /// Consumes the box and returns the contained (inner) object. This is the opposite of `new_box`.
+    fn into_inner(self) -> Self::Impl;
 
     /// The classic `QueryInterface` method from COM.
     ///
@@ -98,7 +97,15 @@ pub trait IUnknownImpl {
     ///
     /// This function should only be called when the interface pointer is no longer used as calling `Release`
     /// on a non-aliased interface pointer and then using that interface pointer may result in use after free.
+    ///
+    /// This function takes `*mut Self` because the object may be freed by the time this method returns.
+    /// Taking `&self` would violate Rust's rules on reference lifetime.
     unsafe fn Release(self_: *mut Self) -> u32;
+
+    unsafe fn destroy(self_: *mut Self);
+
+    /// Returns `true` if the reference count of the box is equal to 1.
+    fn is_reference_count_one(&self) -> bool;
 
     /// Gets the trust level of the current object.
     unsafe fn GetTrustLevel(&self, value: *mut i32) -> HRESULT;

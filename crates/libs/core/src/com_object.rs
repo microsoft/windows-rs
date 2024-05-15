@@ -1,21 +1,29 @@
 use crate::{AsImpl, IUnknown, IUnknownImpl, Interface, InterfaceRef};
-use core::ffi::c_void;
-use core::mem::ManuallyDrop;
 use core::ptr::NonNull;
 use std::borrow::Borrow;
 
-// This is implemented on user types that are marked with #[implement].
+/// Identifies types that can be placed in `ComObject`.
+///
+/// The `#[implement]` macro generates implementations of this trait.
+///
+/// This trait is an implementation detail of the Windows crates.
+/// User code should not deal directly with this trait.
 #[allow(missing_docs)]
 pub unsafe trait ComImpl {
-    // The generated <foo>_Impl type (aka the "boxed" type)
-    type Impl: IUnknownImpl<Impl = Self>;
+    // The generated <foo>_Impl type (aka the "boxed" type or "outer" type)
+    type Outer: IUnknownImpl<Impl = Self>;
 }
 
 /// Describes the COM interfaces that a specific ComObject implements.
-/// This trait is implemented by ComObject implementation obejcts (e.g. `MyApp_Impl`).
+/// This trait is implemented by ComObject implementation object (e.g. `MyApp_Impl`).
+///
+/// The `#[implement]` macro generates implementations of this trait.
+///
+/// This trait is an implementation detail of the Windows crates.
+/// User code should not deal directly with this trait.
 pub trait ComObjectInterface<I: Interface> {
     /// Gets a borrowed interface on the ComObject.
-    fn get_interface(&self) -> InterfaceRef<'_, I>;
+    fn as_interface(&self) -> InterfaceRef<'_, I>;
 }
 
 /// A counted pointer to a type that implements COM interfaces, where the object has been
@@ -23,15 +31,24 @@ pub trait ComObjectInterface<I: Interface> {
 ///
 /// This type exists so that you can place an object into the heap and query for COM interfaces,
 /// without losing the safe reference to the implementation object.
+///
+/// Because the pointer inside this type is known to be non-null, `Option<ComObject<T>>` should
+/// always have the same size as a single pointer.
+///
+/// # Safety
+///
+/// The contained `ptr` field is an owned, reference-counted pointer to a _pinned_ Pin<Box<T::Outer>>.
+/// Although this code does not currently use `Pin<T>`,
+#[repr(transparent)]
 pub struct ComObject<T: ComImpl> {
-    ptr: NonNull<T::Impl>,
+    ptr: NonNull<T::Outer>,
 }
 
 impl<T: ComImpl> ComObject<T> {
     /// Allocates a heap cell (box) and moves `obj` into it. Returns a counted pointer to `obj`.
     pub fn new(value: T) -> Self {
         unsafe {
-            let box_ = T::Impl::new_box(value);
+            let box_ = T::Outer::new_box(value);
             Self { ptr: NonNull::new_unchecked(Box::into_raw(box_)) }
         }
     }
@@ -48,28 +65,34 @@ impl<T: ComImpl> ComObject<T> {
 
     /// Gets a reference to the shared object's heap box.
     #[inline(always)]
-    pub fn get_box(&self) -> &T::Impl {
+    pub fn get_box(&self) -> &T::Outer {
         unsafe { self.ptr.as_ref() }
     }
 
     // Note that we _do not_ provide a way to get a mutable reference to the outer box.
-    // It's ok to return &mut T, but not &mut T::Impl. That would allow someone to replace the
+    // It's ok to return &mut T, but not &mut T::Outer. That would allow someone to replace the
     // contents of the entire object (box and reference count), which could lead to UB.
-    // This could maybe be solved by returning Pin<&mut T::Impl>, but that requires some
+    // This could maybe be solved by returning Pin<&mut T::Outer>, but that requires some
     // additional thinking.
 
     /// Gets a mutable reference to the object stored in the box, if the reference count
     /// is exactly 1. If there are multiple references to this object then this returns `None`.
     #[inline(always)]
     pub fn get_mut(&mut self) -> Option<&mut T> {
-        unsafe {
-            let count = self.ptr.as_ref().count();
-            if count.is_one() {
-                Some(self.ptr.as_mut().get_impl_mut())
-            } else {
-                None
-            }
+        if self.is_reference_count_one() {
+            // SAFETY: We must only return &mut T, *NOT* &mut T::Outer.
+            // Returning T::Outer would allow swapping the contents of the object, which would
+            // allow (incorrectly) modifying the reference count.
+            unsafe { Some(self.ptr.as_mut().get_impl_mut()) }
+        } else {
+            None
         }
+    }
+
+    /// Returns `true` if this reference is the only reference to the `ComObject`.
+    #[inline(always)]
+    pub fn is_exclusive_reference(&self) -> bool {
+        self.get_box().is_reference_count_one()
     }
 
     /// If this object has only a single object reference (i.e. this `ComObject` is the only
@@ -79,54 +102,59 @@ impl<T: ComImpl> ComObject<T> {
     /// If there is more than one reference to this object, then this returns `Err(self)`.
     #[inline(always)]
     pub fn try_take(self) -> Result<T, Self> {
-        unsafe {
-            let count = self.ptr.as_ref().count();
-            if count.is_one() {
-                let ptr = self.ptr;
-                core::mem::forget(self);
-                Ok(T::Impl::extract_inner(ptr))
-            } else {
-                Err(self)
-            }
+        if self.is_exclusive_reference() {
+            let outer_box: Box<T::Outer> = unsafe { core::mem::transmute(self) };
+            Ok(outer_box.into_inner())
+        } else {
+            Err(self)
         }
     }
 
     /// Casts to a given interface type.
+    ///
+    /// This always performs a `QueryInterface`, even if `T` is known to implement `I`.
+    /// If you know that `T` implements `I`, then use `as_interface` or `to_interface` because
+    /// those functions do not require a dynamic `QueryInterface` call.
     #[inline(always)]
-    pub fn cast<J: Interface>(&self) -> windows_core::Result<J> {
-        unsafe {
-            let unknown_ptr = self.ptr.as_ref().iunknown_ptr();
-            let unknown: ManuallyDrop<IUnknown> = core::mem::transmute(unknown_ptr);
-            unknown.cast()
-        }
+    pub fn cast<I: Interface>(&self) -> windows_core::Result<I>
+    where
+        T::Outer: ComObjectInterface<IUnknown>,
+    {
+        let unknown = self.as_interface::<IUnknown>();
+        unknown.cast()
     }
 
     /// Gets a borrowed reference to an interface that is implemented by this ComObject.
     ///
     /// The returned reference does not have an additional reference count.
     /// You can AddRef it by calling to_owned().
+    #[inline(always)]
     pub fn as_interface<I: Interface>(&self) -> InterfaceRef<'_, I>
     where
-        T::Impl: ComObjectInterface<I>,
+        T::Outer: ComObjectInterface<I>,
     {
-        self.get_box().get_interface()
+        self.get_box().as_interface()
     }
 
     /// Gets an owned (counted) reference to an interface that is implemented by this ComObject.
+    #[inline(always)]
     pub fn to_interface<I: Interface>(&self) -> I
     where
-        T::Impl: ComObjectInterface<I>,
+        T::Outer: ComObjectInterface<I>,
     {
         self.as_interface::<I>().to_owned()
     }
 
     /// Converts this `ComObject` into an interface that it implements.
+    ///
+    /// This does not need to adjust reference counts because `self` is consumed.
+    #[inline(always)]
     pub fn into_interface<I: Interface>(self) -> I
     where
-        T::Impl: ComObjectInterface<I>,
+        T::Outer: ComObjectInterface<I>,
     {
         unsafe {
-            let raw: *mut c_void = self.get_box().get_interface().as_raw();
+            let raw = self.get_box().as_interface().as_raw();
             core::mem::forget(self);
             I::from_raw(raw)
         }
@@ -142,7 +170,7 @@ impl<T: ComImpl + Default> Default for ComObject<T> {
 impl<T: ComImpl> Drop for ComObject<T> {
     fn drop(&mut self) {
         unsafe {
-            T::Impl::Release(self.ptr.as_ptr());
+            T::Outer::Release(self.ptr.as_ptr());
         }
     }
 }
@@ -168,7 +196,7 @@ where
 }
 
 impl<T: ComImpl> core::ops::Deref for ComObject<T> {
-    type Target = T::Impl;
+    type Target = T::Outer;
 
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
@@ -196,7 +224,7 @@ impl<T: ComImpl + core::hash::Hash> core::hash::Hash for ComObject<T> {
 
 // If T is Send (or Sync) then the ComObject<T> is also Send (or Sync).
 // Since the actual object storage is in the heap, the object is never moved.
-unsafe impl<T: ComImpl + Sync> Send for ComObject<T> {}
+unsafe impl<T: ComImpl + Send> Send for ComObject<T> {}
 unsafe impl<T: ComImpl + Sync> Sync for ComObject<T> {}
 
 impl<T: ComImpl + PartialEq> PartialEq for ComObject<T> {
